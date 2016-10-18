@@ -1,0 +1,9 @@
+/git/java/jobseeker/src/main/java/br/com/codecode/model/Candidate.java
+/git/java/jobseeker/src/main/java/br/com/codecode/model/Job.java
+/git/java/jobseeker/src/main/java/br/com/codecode/rest/RestApplication.java
+/git/java/jobseeker/src/main/java/br/com/codecode/rest/CandidateEndpoint.java
+/git/java/jobseeker/src/main/java/br/com/codecode/model/Employeer.java
+/git/java/jobseeker/src/main/java/br/com/codecode/rest/SelectiveProcessEndpoint.java
+/git/java/jobseeker/src/main/java/br/com/codecode/rest/JobEndpoint.java
+/git/java/jobseeker/src/main/java/br/com/codecode/rest/EmployeerEndpoint.java
+/git/java/jobseeker/src/main/java/br/com/codecode/model/SelectiveProcess.java

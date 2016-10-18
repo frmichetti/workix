@@ -1,0 +1,9 @@
+br/com/codecode/rest/JobEndpoint.class
+br/com/codecode/rest/EmployeerEndpoint.class
+br/com/codecode/rest/SelectiveProcessEndpoint.class
+br/com/codecode/rest/RestApplication.class
+br/com/codecode/model/Employeer.class
+br/com/codecode/model/SelectiveProcess.class
+br/com/codecode/model/Job.class
+br/com/codecode/rest/CandidateEndpoint.class
+br/com/codecode/model/Candidate.class
