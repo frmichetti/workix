@@ -1,0 +1,32 @@
+<header ng-switch on="$location.path().indexOf('/Employeers/new') > -1">
+    <h3 ng-switch-when="true">Create a new Employeer</h3>
+    <h3 ng-switch-when="false">View or edit Employeer</h3>
+</header>
+<form id="EmployeerForm" name="EmployeerForm" class="form-horizontal" role="form">
+    
+
+    <div class="form-group" ng-class="{'has-error': EmployeerForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" required class="form-control" ng-model="employeer.name" placeholder="Enter the Employeer Name"></input>
+            <span class="help-block error" ng-show="EmployeerForm.name.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': EmployeerForm.cnpj.$invalid}">
+        <label for="cnpj" class="col-sm-2 control-label">Cnpj</label>
+        <div id="cnpjControls" class="col-sm-10">
+            <input id="cnpj" name="cnpj" type="text" required class="form-control" ng-model="employeer.cnpj" placeholder="Enter the Employeer Cnpj"></input>
+            <span class="help-block error" ng-show="EmployeerForm.cnpj.$error.required">required</span> 
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveEmployeer" name="saveEmployeer" class="btn btn-primary" ng-disabled="isClean() || EmployeerForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteEmployeer" name="deleteEmployeer" class="btn btn-danger" ng-show="employeer.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>
