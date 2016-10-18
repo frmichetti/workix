@@ -51,6 +51,12 @@ public class SelectiveProcess implements Serializable {
 	@Column
 	private boolean active;
 
+	@Column
+	private String requirement;
+
+	@Column
+	private BigDecimal salary;
+
 	public Long getId() {
 		return this.id;
 	}
@@ -148,12 +154,30 @@ public class SelectiveProcess implements Serializable {
 		this.active = active;
 	}
 
+	public String getRequirement() {
+		return requirement;
+	}
+
+	public void setRequirement(String requirement) {
+		this.requirement = requirement;
+	}
+
+	public BigDecimal getSalary() {
+		return salary;
+	}
+
+	public void setSalary(BigDecimal salary) {
+		this.salary = salary;
+	}
+
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
 		if (uuid != null && !uuid.trim().isEmpty())
 			result += "uuid: " + uuid;
 		result += ", active: " + active;
+		if (requirement != null && !requirement.trim().isEmpty())
+			result += ", requirement: " + requirement;
 		return result;
 	}
 }

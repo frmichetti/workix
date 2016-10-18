@@ -28,7 +28,7 @@ public class Job implements Serializable {
 	private String title;
 
 	@Column(nullable = false)
-	private BigDecimal salary;
+	private BigDecimal averageSalary;
 
 	@Column(nullable = false)
 	private String resume;
