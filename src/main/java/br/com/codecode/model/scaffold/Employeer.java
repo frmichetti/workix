@@ -1,19 +1,17 @@
-package br.com.codecode.model;
+package br.com.codecode.model.scaffold;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.io.Serializable;
+import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Column;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Job implements Serializable {
+public class Employeer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -25,16 +23,10 @@ public class Job implements Serializable {
 	private int version;
 
 	@Column(nullable = false)
-	private String title;
+	private String name;
 
 	@Column(nullable = false)
-	private BigDecimal averageSalary;
-
-	@Column(nullable = false)
-	private String resume;
-
-	@Column(nullable = false)
-	private String uuid;
+	private String cnpj;
 
 	public Long getId() {
 		return this.id;
@@ -57,10 +49,10 @@ public class Job implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Job)) {
+		if (!(obj instanceof Employeer)) {
 			return false;
 		}
-		Job other = (Job) obj;
+		Employeer other = (Employeer) obj;
 		if (id != null) {
 			if (!id.equals(other.id)) {
 				return false;
@@ -77,47 +69,29 @@ public class Job implements Serializable {
 		return result;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public BigDecimal getSalary() {
-		return salary;
+	public String getCnpj() {
+		return cnpj;
 	}
 
-	public void setSalary(BigDecimal salary) {
-		this.salary = salary;
-	}
-
-	public String getResume() {
-		return resume;
-	}
-
-	public void setResume(String resume) {
-		this.resume = resume;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
-		if (title != null && !title.trim().isEmpty())
-			result += "title: " + title;
-		if (resume != null && !resume.trim().isEmpty())
-			result += ", resume: " + resume;
-		if (uuid != null && !uuid.trim().isEmpty())
-			result += ", uuid: " + uuid;
+		if (name != null && !name.trim().isEmpty())
+			result += "name: " + name;
+		if (cnpj != null && !cnpj.trim().isEmpty())
+			result += ", cnpj: " + cnpj;
 		return result;
 	}
 }

@@ -1,17 +1,18 @@
-package br.com.codecode.model;
+package br.com.codecode.model.scaffold;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
-import javax.persistence.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Employeer implements Serializable {
+public class Candidate implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -26,7 +27,7 @@ public class Employeer implements Serializable {
 	private String name;
 
 	@Column(nullable = false)
-	private String cnpj;
+	private String cpf;
 
 	public Long getId() {
 		return this.id;
@@ -49,10 +50,10 @@ public class Employeer implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Employeer)) {
+		if (!(obj instanceof Candidate)) {
 			return false;
 		}
-		Employeer other = (Employeer) obj;
+		Candidate other = (Candidate) obj;
 		if (id != null) {
 			if (!id.equals(other.id)) {
 				return false;
@@ -77,12 +78,12 @@ public class Employeer implements Serializable {
 		this.name = name;
 	}
 
-	public String getCnpj() {
-		return cnpj;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	@Override
@@ -90,8 +91,8 @@ public class Employeer implements Serializable {
 		String result = getClass().getSimpleName() + " ";
 		if (name != null && !name.trim().isEmpty())
 			result += "name: " + name;
-		if (cnpj != null && !cnpj.trim().isEmpty())
-			result += ", cnpj: " + cnpj;
+		if (cpf != null && !cpf.trim().isEmpty())
+			result += ", cpf: " + cpf;
 		return result;
 	}
 }

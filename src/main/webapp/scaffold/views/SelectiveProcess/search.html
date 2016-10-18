@@ -55,6 +55,13 @@
     </div>
 
     <div class="form-group">
+        <label for="maxCandidates" class="col-sm-2 control-label">Max Candidates</label>
+        <div class="col-sm-10">
+            <input id="maxCandidates" name="maxCandidates" class="form-control" type="text" ng-model="search.maxCandidates" placeholder="Enter the SelectiveProcess Max Candidates"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="active" class="col-sm-2 control-label">Active</label>
         <div class="col-sm-10">
             <select id="active" name="active" class="form-control" ng-model="search.active" ng-options="a as a for a in activeList">
@@ -83,6 +90,7 @@
                     <th>Employeer</th>
                     <th>Requirement</th>
                     <th>Salary</th>
+                    <th>Max Candidates</th>
                     <th>Active</th>
                 </tr>
             </thead>
@@ -95,6 +103,7 @@
                         <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.employeer.id}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.requirement}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.salary}}</a></td>
+                    <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.maxCandidates}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.active}}</a></td>
                 </tr>
             </tbody>

@@ -1,6 +1,7 @@
-package br.com.codecode.model;
+package br.com.codecode.model.scaffold;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-public class Candidate implements Serializable {
+public class Job implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -24,10 +25,16 @@ public class Candidate implements Serializable {
 	private int version;
 
 	@Column(nullable = false)
-	private String name;
+	private String title;
 
 	@Column(nullable = false)
-	private String cpf;
+	private BigDecimal averageSalary;
+
+	@Column(nullable = false)
+	private String resume;
+
+	@Column(nullable = false)
+	private String uuid;
 
 	public Long getId() {
 		return this.id;
@@ -50,10 +57,10 @@ public class Candidate implements Serializable {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Candidate)) {
+		if (!(obj instanceof Job)) {
 			return false;
 		}
-		Candidate other = (Candidate) obj;
+		Job other = (Job) obj;
 		if (id != null) {
 			if (!id.equals(other.id)) {
 				return false;
@@ -70,29 +77,47 @@ public class Candidate implements Serializable {
 		return result;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public BigDecimal getAverageSalary() {
+		return averageSalary;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setAverageSalary(BigDecimal averageSalary) {
+		this.averageSalary = averageSalary;
+	}
+
+	public String getResume() {
+		return resume;
+	}
+
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+
+	public String getUuid() {
+		return uuid;
+	}
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	@Override
 	public String toString() {
 		String result = getClass().getSimpleName() + " ";
-		if (name != null && !name.trim().isEmpty())
-			result += "name: " + name;
-		if (cpf != null && !cpf.trim().isEmpty())
-			result += ", cpf: " + cpf;
+		if (title != null && !title.trim().isEmpty())
+			result += "title: " + title;
+		if (resume != null && !resume.trim().isEmpty())
+			result += ", resume: " + resume;
+		if (uuid != null && !uuid.trim().isEmpty())
+			result += ", uuid: " + uuid;
 		return result;
 	}
 }

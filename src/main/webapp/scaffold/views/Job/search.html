@@ -20,9 +20,9 @@
     </div>
 
     <div class="form-group">
-        <label for="salary" class="col-sm-2 control-label">Salary</label>
+        <label for="averageSalary" class="col-sm-2 control-label">Average Salary</label>
         <div class="col-sm-10">
-            <input id="salary" name="salary" class="form-control" type="text" ng-model="search.salary" placeholder="Enter the Job Salary"></input>
+            <input id="averageSalary" name="averageSalary" class="form-control" type="text" ng-model="search.averageSalary" placeholder="Enter the Job Average Salary"></input>
         </div>
     </div>
 
@@ -54,7 +54,7 @@
             <thead>
                 <tr>
                     <th>Title</th>
-                    <th>Salary</th>
+                    <th>Average Salary</th>
                     <th>Resume</th>
                     <th>Uuid</th>
                 </tr>
@@ -62,7 +62,7 @@
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.title}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.salary}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.averageSalary}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.resume}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.uuid}}</a></td>
                 </tr>

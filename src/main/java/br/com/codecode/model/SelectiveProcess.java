@@ -1,183 +1,93 @@
 package br.com.codecode.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Observable;
+import java.util.Observer;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Version;
-import br.com.codecode.model.Employeer;
-import br.com.codecode.model.Candidate;
-import java.util.Set;
-import java.util.HashSet;
-import javax.persistence.OneToMany;
-import javax.xml.bind.annotation.XmlRootElement;
+import br.com.codecode.model.scaffold.Candidate;
 
-@Entity
-@XmlRootElement
-public class SelectiveProcess implements Serializable {
+public class SelectiveProcess extends Observable implements Observer,Serializable  {
 
-	private static final long serialVersionUID = 1L;
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
-	private Long id;
-	@Version
-	@Column(name = "version")
-	private int version;
-
-	@Column(nullable = false)
-	private String uuid;
-
-	@ManyToOne
-	private Job job;
-
-	@Column(nullable = false, updatable = false)
-	private Date start;
-
-	@Column(nullable = false)
-	private Date expire;
-
-	@ManyToOne
-	private Employeer employeer;
-
-	@OneToMany
-	private Set<Candidate> candidates = new HashSet<Candidate>();
-
-	@Column
-	private boolean active;
-
-	@Column
-	private String requirement;
-
-	@Column
-	private BigDecimal salary;
-
-	public Long getId() {
-		return this.id;
+	private static final long serialVersionUID = -8009482242264135346L;
+	
+	public Collection<Candidate> candidates = new ArrayList<>();	
+	
+	public boolean active;	
+	
+	public int maxCandidates;
+	
+	public SelectiveProcess() {
+		this.addObserver(this);	
+	}
+	
+	public boolean registerCandidate(Candidate candidate){
+		
+		boolean b = false;
+		
+		if(active){
+			System.out.println(candidate.getName() + "Registered with Success ");
+			candidates.add(candidate);
+			notifyChanges(candidates);
+			b = true;
+		}else{
+			System.out.println("Cannot Register - Process is Disabled");
+			b = false;
+		}
+		return b;
+				
 	}
 
-	public void setId(final Long id) {
-		this.id = id;
-	}
-
-	public int getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(final int version) {
-		this.version = version;
-	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof SelectiveProcess)) {
-			return false;
-		}
-		SelectiveProcess other = (SelectiveProcess) obj;
-		if (id != null) {
-			if (!id.equals(other.id)) {
-				return false;
+	public void update(Observable observable, Object object) {		
+		
+		System.out.println("[Update]");	
+		
+		
+		if(observable instanceof SelectiveProcess){		
+			
+			System.out.println("[Observable instanceof Selective Process]");
+			
+			if(maxCandidates == candidates.size()){
+			
+				System.out.println("[maxCandidates == candidates.size()]");
+				
+				active = false;
+				
+				System.out.println("Max candidates Reached - Disabled Process");
+				
+				System.out.println("Process " + ((active) ? "Active" : "Disabled" ));
+				
+				if(object instanceof ArrayList<?>){
+					
+					System.out.println("Object instanceof ArrayList<?>");			
+					
+					maxCandidates = ((ArrayList<?>) object).size();					
+					
+					System.out.println("Registered Candidates = " + maxCandidates);
+				}
+				
 			}
+			
+			
 		}
-		return true;
+		
 	}
+	
+	private void notifyChanges(){
+		System.out.println("[Notify Changes]");
+		notifyObservers();
+		setChanged();
+	}
+	
+	private void notifyChanges(Object object){
+		System.out.println("[Notify Changes]");
+		notifyObservers(object);
+		setChanged();
+	}
+	
+	
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	public Job getJob() {
-		return this.job;
-	}
-
-	public void setJob(final Job job) {
-		this.job = job;
-	}
-
-	public Date getStart() {
-		return start;
-	}
-
-	public void setStart(Date start) {
-		this.start = start;
-	}
-
-	public Date getExpire() {
-		return expire;
-	}
-
-	public void setExpire(Date expire) {
-		this.expire = expire;
-	}
-
-	public Employeer getEmployeer() {
-		return this.employeer;
-	}
-
-	public void setEmployeer(final Employeer employeer) {
-		this.employeer = employeer;
-	}
-
-	public Set<Candidate> getCandidates() {
-		return this.candidates;
-	}
-
-	public void setCandidates(final Set<Candidate> candidates) {
-		this.candidates = candidates;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-
-	public String getRequirement() {
-		return requirement;
-	}
-
-	public void setRequirement(String requirement) {
-		this.requirement = requirement;
-	}
-
-	public BigDecimal getSalary() {
-		return salary;
-	}
-
-	public void setSalary(BigDecimal salary) {
-		this.salary = salary;
-	}
-
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (uuid != null && !uuid.trim().isEmpty())
-			result += "uuid: " + uuid;
-		result += ", active: " + active;
-		if (requirement != null && !requirement.trim().isEmpty())
-			result += ", requirement: " + requirement;
-		return result;
-	}
 }
