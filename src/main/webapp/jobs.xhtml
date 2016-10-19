@@ -32,40 +32,10 @@
 
 		<!-- ============ PAGE LOADER END ============ -->
 
-		<!-- ============ NAVBAR START ============ -->
-
-		<div class="fm-container">
-			<!-- Menu -->
-			<div class="menu">
-				<div class="button-close text-right">
-					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
-				</div>
-				<ul class="nav">
-					<li><a href="#home">Home</a></li>
-					<li class="active"><a href="jobs.html">Jobs</a></li>
-					<li><a href="post-a-job.xhtml">Post a job</a></li>
-					<li><a href="candidates.html">Candidates</a></li>
-					<li><a href="post-a-resume.html">Post a Resume</a></li>
-					<li><a href="#">Pages</a>
-						<ul>
-							<li><a href="job-details.html">Job Details</a></li>
-							<li><a href="resume.html">Resume</a></li>
-							<li><a href="company.html">Company</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="post.html">Single Post</a></li>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="testimonials.html">Testimonials</a></li>
-							<li><a href="options.html">Options</a></li>
-						</ul>
-					</li>
-					<li><a class="link-register">Register</a></li>
-					<li><a class="link-login">Login</a></li>
-				</ul>		
-			</div>
-			<!-- end Menu -->
-		</div>
-
-		<!-- ============ NAVBAR END ============ -->
+		
+		<ui:insert name="navigation">		
+			<ui:include src="navigation.xhtml" />
+		</ui:insert>
 
 		<!-- ============ HEADER START ============ -->
 
@@ -863,48 +833,9 @@
 
 		<!-- ============ CONTACT END ============ -->
 
-		<!-- ============ FOOTER START ============ -->
-
-		<footer>
-			<div id="prefooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-6" id="newsletter">
-							<h2>Newsletter</h2>
-							<form class="form-inline">
-								<div class="form-group">
-									<label class="sr-only" for="newsletter-email">Email address</label>
-									<input type="email" class="form-control" id="newsletter-email" placeholder="Email address" />
-								</div>
-								<button type="submit" class="btn btn-primary">Sign up</button>
-							</form>
-						</div>
-						<div class="col-sm-6" id="social-networks">
-							<h2>Get in touch</h2>
-							<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-youtube-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="credits">
-				<div class="container text-center">
-					<div class="row">
-						<div class="col-sm-12">
-							copy 2015 Jobseek - Responsive Job Board HTML Template<br />
-							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<!-- ============ FOOTER END ============ -->
+			<ui:insert name="footer">		
+				<ui:include src="footer.xhtml" />
+			</ui:insert>
 
 		<!-- ============ LOGIN START ============ -->
 
