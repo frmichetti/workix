@@ -5,12 +5,18 @@ import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import br.com.codecode.enumeration.Estate;
+import br.com.codecode.enumeration.JobType;
 
 @Entity
 @XmlRootElement
@@ -37,6 +43,52 @@ public class Job implements Serializable {
 
 	@Column(nullable = false)
 	private String uuid;
+	
+	@Column
+	@Enumerated(EnumType.STRING)
+	private JobType jobType;
+	
+	@Column
+	private String city;
+	
+	@Enumerated(EnumType.STRING)
+	private Estate estate;	
+	
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public Estate getEstate() {
+		return estate;
+	}
+
+	public void setEstate(Estate estate) {
+		this.estate = estate;
+	}
+
+	public JobType getJobType() {
+		return jobType;
+	}
+
+	public void setJobType(JobType jobType) {
+		this.jobType = jobType;
+	}
+
+	@ManyToOne
+	private Employeer employeer;
+	
+	public Employeer getEmployeer() {
+		return this.employeer;
+	}
+
+	public void setEmployeer(final Employeer employeer) {
+		this.employeer = employeer;
+	}
 
 	public Long getId() {
 		return this.id;

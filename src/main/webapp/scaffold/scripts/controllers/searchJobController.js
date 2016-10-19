@@ -1,6 +1,6 @@
 
 
-angular.module('jobseeker').controller('SearchJobController', function($scope, $http, $filter, JobResource ) {
+angular.module('jobs').controller('SearchJobController', function($scope, $http, $filter, JobResource , EmployeerResource) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -17,6 +17,43 @@ angular.module('jobseeker').controller('SearchJobController', function($scope, $
         }
         return max;
     };
+    $scope.estateList = [
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO"
+    ];
+    $scope.jobTypeList = [
+        "FULLTIME",
+        "PARTTIME",
+        "FREELANCE",
+        "TEMPORARY",
+        "INTERNSHIP"
+    ];
+    $scope.employeerList = EmployeerResource.queryAll();
 
     $scope.performSearch = function() {
         $scope.searchResults = JobResource.queryAll(function(){

@@ -1,8 +1,61 @@
 
-angular.module('jobseeker').controller('NewJobController', function ($scope, $location, locationParser, flash, JobResource ) {
+angular.module('jobs').controller('NewJobController', function ($scope, $location, locationParser, flash, JobResource , EmployeerResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.job = $scope.job || {};
+    
+    $scope.estateList = [
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO"
+    ];
+    
+    $scope.jobTypeList = [
+        "FULLTIME",
+        "PARTTIME",
+        "FREELANCE",
+        "TEMPORARY",
+        "INTERNSHIP"
+    ];
+    
+    $scope.employeerList = EmployeerResource.queryAll(function(items){
+        $scope.employeerSelectionList = $.map(items, function(item) {
+            return ( {
+                value : item.id,
+                text : item.companySegment
+            });
+        });
+    });
+    $scope.$watch("employeerSelection", function(selection) {
+        if ( typeof selection != 'undefined') {
+            $scope.job.employeer = {};
+            $scope.job.employeer.id = selection.value;
+        }
+    });
     
 
     $scope.save = function() {

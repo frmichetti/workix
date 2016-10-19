@@ -24,6 +24,17 @@ public class Employeer implements Serializable {
 
 	@Column(nullable = false)
 	private String name;
+	
+	@Column
+	private String companySegment;	
+
+	public String getCompanySegment() {
+		return companySegment;
+	}
+
+	public void setCompanySegment(String companySegment) {
+		this.companySegment = companySegment;
+	}
 
 	@Column(nullable = false)
 	private String cnpj;

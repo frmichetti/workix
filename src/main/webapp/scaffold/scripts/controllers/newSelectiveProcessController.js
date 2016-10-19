@@ -1,5 +1,5 @@
 
-angular.module('jobseeker').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , JobResource, EmployeerResource, CandidateResource) {
+angular.module('jobs').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , JobResource, CandidateResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.selectiveProcess = $scope.selectiveProcess || {};
@@ -8,7 +8,7 @@ angular.module('jobseeker').controller('NewSelectiveProcessController', function
         $scope.jobSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
-                text : item.id
+                text : item.city
             });
         });
     });
@@ -16,21 +16,6 @@ angular.module('jobseeker').controller('NewSelectiveProcessController', function
         if ( typeof selection != 'undefined') {
             $scope.selectiveProcess.job = {};
             $scope.selectiveProcess.job.id = selection.value;
-        }
-    });
-    
-    $scope.employeerList = EmployeerResource.queryAll(function(items){
-        $scope.employeerSelectionList = $.map(items, function(item) {
-            return ( {
-                value : item.id,
-                text : item.id
-            });
-        });
-    });
-    $scope.$watch("employeerSelection", function(selection) {
-        if ( typeof selection != 'undefined') {
-            $scope.selectiveProcess.employeer = {};
-            $scope.selectiveProcess.employeer.id = selection.value;
         }
     });
     

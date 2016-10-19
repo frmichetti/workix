@@ -1,6 +1,6 @@
 
 
-angular.module('jobseeker').controller('EditJobController', function($scope, $routeParams, $location, flash, JobResource ) {
+angular.module('jobs').controller('EditJobController', function($scope, $routeParams, $location, flash, JobResource , EmployeerResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -9,6 +9,23 @@ angular.module('jobseeker').controller('EditJobController', function($scope, $ro
         var successCallback = function(data){
             self.original = data;
             $scope.job = new JobResource(self.original);
+            EmployeerResource.queryAll(function(items) {
+                $scope.employeerSelectionList = $.map(items, function(item) {
+                    var wrappedObject = {
+                        id : item.id
+                    };
+                    var labelObject = {
+                        value : item.id,
+                        text : item.companySegment
+                    };
+                    if($scope.job.employeer && item.id == $scope.job.employeer.id) {
+                        $scope.employeerSelection = labelObject;
+                        $scope.job.employeer = wrappedObject;
+                        self.original.employeer = $scope.job.employeer;
+                    }
+                    return labelObject;
+                });
+            });
         };
         var errorCallback = function() {
             flash.setMessage({'type': 'error', 'text': 'The job could not be found.'});
@@ -55,6 +72,48 @@ angular.module('jobseeker').controller('EditJobController', function($scope, $ro
         $scope.job.$remove(successCallback, errorCallback);
     };
     
+    $scope.estateList = [
+        "AC",  
+        "AL",  
+        "AP",  
+        "AM",  
+        "BA",  
+        "CE",  
+        "DF",  
+        "ES",  
+        "GO",  
+        "MA",  
+        "MT",  
+        "MS",  
+        "MG",  
+        "PA",  
+        "PB",  
+        "PR",  
+        "PE",  
+        "PI",  
+        "RJ",  
+        "RN",  
+        "RS",  
+        "RO",  
+        "RR",  
+        "SC",  
+        "SP",  
+        "SE",  
+        "TO"  
+    ];
+    $scope.jobTypeList = [
+        "FULLTIME",  
+        "PARTTIME",  
+        "FREELANCE",  
+        "TEMPORARY",  
+        "INTERNSHIP"  
+    ];
+    $scope.$watch("employeerSelection", function(selection) {
+        if (typeof selection != 'undefined') {
+            $scope.job.employeer = {};
+            $scope.job.employeer.id = selection.value;
+        }
+    });
     
     $scope.get();
 });

@@ -42,8 +42,6 @@ public class SelectiveProcess implements Serializable {
 	@Column(nullable = false)
 	private Date expire;
 
-	@ManyToOne
-	private Employeer employeer;
 
 	@OneToMany
 	private Set<Candidate> candidates = new HashSet<Candidate>();
@@ -134,13 +132,7 @@ public class SelectiveProcess implements Serializable {
 		this.expire = expire;
 	}
 
-	public Employeer getEmployeer() {
-		return this.employeer;
-	}
-
-	public void setEmployeer(final Employeer employeer) {
-		this.employeer = employeer;
-	}
+	
 
 	public Set<Candidate> getCandidates() {
 		return this.candidates;

@@ -1,6 +1,6 @@
 
 
-angular.module('jobseeker').controller('SearchCandidateController', function($scope, $http, $filter, CandidateResource ) {
+angular.module('jobs').controller('SearchCandidateController', function($scope, $http, $filter, CandidateResource ) {
 
     $scope.search={};
     $scope.currentPage = 0;

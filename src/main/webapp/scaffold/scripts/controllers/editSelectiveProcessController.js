@@ -1,6 +1,6 @@
 
 
-angular.module('jobseeker').controller('EditSelectiveProcessController', function($scope, $routeParams, $location, flash, SelectiveProcessResource , JobResource, EmployeerResource, CandidateResource) {
+angular.module('jobs').controller('EditSelectiveProcessController', function($scope, $routeParams, $location, flash, SelectiveProcessResource , JobResource, CandidateResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -16,29 +16,12 @@ angular.module('jobseeker').controller('EditSelectiveProcessController', functio
                     };
                     var labelObject = {
                         value : item.id,
-                        text : item.id
+                        text : item.city
                     };
                     if($scope.selectiveProcess.job && item.id == $scope.selectiveProcess.job.id) {
                         $scope.jobSelection = labelObject;
                         $scope.selectiveProcess.job = wrappedObject;
                         self.original.job = $scope.selectiveProcess.job;
-                    }
-                    return labelObject;
-                });
-            });
-            EmployeerResource.queryAll(function(items) {
-                $scope.employeerSelectionList = $.map(items, function(item) {
-                    var wrappedObject = {
-                        id : item.id
-                    };
-                    var labelObject = {
-                        value : item.id,
-                        text : item.id
-                    };
-                    if($scope.selectiveProcess.employeer && item.id == $scope.selectiveProcess.employeer.id) {
-                        $scope.employeerSelection = labelObject;
-                        $scope.selectiveProcess.employeer = wrappedObject;
-                        self.original.employeer = $scope.selectiveProcess.employeer;
                     }
                     return labelObject;
                 });
@@ -114,12 +97,6 @@ angular.module('jobseeker').controller('EditSelectiveProcessController', functio
         if (typeof selection != 'undefined') {
             $scope.selectiveProcess.job = {};
             $scope.selectiveProcess.job.id = selection.value;
-        }
-    });
-    $scope.$watch("employeerSelection", function(selection) {
-        if (typeof selection != 'undefined') {
-            $scope.selectiveProcess.employeer = {};
-            $scope.selectiveProcess.employeer.id = selection.value;
         }
     });
     $scope.candidatesSelection = $scope.candidatesSelection || [];

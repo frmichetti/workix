@@ -10,7 +10,41 @@
 <div>
     <h3>Search for Jobs</h3>
     <form id="JobSearch" class="form-horizontal">
-        
+            <div class="form-group">
+        <label for="city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+            <input id="city" name="city" class="form-control" type="text" ng-model="search.city" placeholder="Enter the Job City"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="estate" class="col-sm-2 control-label">Estate</label>
+        <div class="col-sm-10">
+            <select id="estate" name="estate" class="form-control" ng-model="search.estate" ng-options="e as e for e in estateList">
+                <option value="">Choose a Estate</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="jobType" class="col-sm-2 control-label">Job Type</label>
+        <div class="col-sm-10">
+            <select id="jobType" name="jobType" class="form-control" ng-model="search.jobType" ng-options="j as j for j in jobTypeList">
+                <option value="">Choose a Job Type</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="employeer" class="col-sm-2 control-label">Employeer</label>
+        <div class="col-sm-10">
+            <select id="employeer" name="employeer" class="form-control" ng-model="search.employeer" ng-options="e as e.companySegment for e in employeerList">
+                <option value="">Choose a Employeer</option>
+            </select>
+        </div>
+    </div>
+
+
 
     <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
@@ -53,6 +87,10 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
+                    <th>City</th>
+                    <th>Estate</th>
+                    <th>Job Type</th>
+                    <th>Employeer</th>
                     <th>Title</th>
                     <th>Average Salary</th>
                     <th>Resume</th>
@@ -61,6 +99,10 @@
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.city}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.estate}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobType}}</a></td>
+                        <td><a href="#/Jobs/edit/{{result.id}}">{{result.employeer.companySegment}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.title}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.averageSalary}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.resume}}</a></td>

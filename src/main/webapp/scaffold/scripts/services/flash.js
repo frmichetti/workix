@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jobseeker').factory('flash', ['$rootScope', function ($rootScope) {
+angular.module('jobs').factory('flash', ['$rootScope', function ($rootScope) {
     var messages = [];
     var currentMessage = {};
 

@@ -22,22 +22,13 @@
     <div class="form-group">
         <label for="job" class="col-sm-2 control-label">Job</label>
         <div class="col-sm-10">
-            <select id="job" name="job" class="form-control" ng-model="search.job" ng-options="j as j.id for j in jobList">
+            <select id="job" name="job" class="form-control" ng-model="search.job" ng-options="j as j.city for j in jobList">
                 <option value="">Choose a Job</option>
             </select>
         </div>
     </div>
 
 
-
-    <div class="form-group">
-        <label for="employeer" class="col-sm-2 control-label">Employeer</label>
-        <div class="col-sm-10">
-            <select id="employeer" name="employeer" class="form-control" ng-model="search.employeer" ng-options="e as e.id for e in employeerList">
-                <option value="">Choose a Employeer</option>
-            </select>
-        </div>
-    </div>
 
 
     <div class="form-group">
@@ -87,7 +78,6 @@
                     <th>Job</th>
                     <th>Start</th>
                     <th>Expire</th>
-                    <th>Employeer</th>
                     <th>Requirement</th>
                     <th>Salary</th>
                     <th>Max Candidates</th>
@@ -97,10 +87,9 @@
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.uuid}}</a></td>
-                        <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.job.id}}</a></td>
+                        <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.job.city}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.start| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.expire| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
-                        <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.employeer.id}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.requirement}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.salary}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.maxCandidates}}</a></td>

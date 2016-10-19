@@ -1,5 +1,5 @@
 
-angular.module('jobseeker').controller('NewCandidateController', function ($scope, $location, locationParser, flash, CandidateResource ) {
+angular.module('jobs').controller('NewCandidateController', function ($scope, $location, locationParser, flash, CandidateResource ) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.candidate = $scope.candidate || {};

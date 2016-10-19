@@ -1,6 +1,6 @@
 
 
-angular.module('jobseeker').controller('SearchSelectiveProcessController', function($scope, $http, $filter, SelectiveProcessResource , JobResource, EmployeerResource, CandidateResource) {
+angular.module('jobs').controller('SearchSelectiveProcessController', function($scope, $http, $filter, SelectiveProcessResource , JobResource, CandidateResource) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -18,7 +18,6 @@ angular.module('jobseeker').controller('SearchSelectiveProcessController', funct
         return max;
     };
     $scope.jobList = JobResource.queryAll();
-    $scope.employeerList = EmployeerResource.queryAll();
     $scope.activeList = [
         "true",
         "false"

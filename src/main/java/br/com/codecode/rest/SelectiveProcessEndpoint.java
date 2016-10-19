@@ -57,7 +57,7 @@ public class SelectiveProcessEndpoint {
 	public Response findById(@PathParam("id") Long id) {
 		TypedQuery<SelectiveProcess> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.job LEFT JOIN FETCH s.employeer LEFT JOIN FETCH s.candidates WHERE s.id = :entityId ORDER BY s.id",
+						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.job LEFT JOIN FETCH s.candidates WHERE s.id = :entityId ORDER BY s.id",
 						SelectiveProcess.class);
 		findByIdQuery.setParameter("entityId", id);
 		SelectiveProcess entity;
@@ -79,7 +79,7 @@ public class SelectiveProcessEndpoint {
 			@QueryParam("max") Integer maxResult) {
 		TypedQuery<SelectiveProcess> findAllQuery = em
 				.createQuery(
-						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.job LEFT JOIN FETCH s.employeer LEFT JOIN FETCH s.candidates ORDER BY s.id",
+						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.job LEFT JOIN FETCH s.candidates ORDER BY s.id",
 						SelectiveProcess.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);

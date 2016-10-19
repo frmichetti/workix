@@ -1,6 +1,6 @@
 
 
-angular.module('jobseeker').controller('EditEmployeerController', function($scope, $routeParams, $location, flash, EmployeerResource ) {
+angular.module('jobs').controller('EditEmployeerController', function($scope, $routeParams, $location, flash, EmployeerResource ) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
