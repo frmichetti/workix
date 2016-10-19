@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	>
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -72,12 +74,16 @@
 					<div class="col-sm-12">
 						<h1>Post a Job</h1>
 						<h4>Find a Right Candidate</h4>
+						
 						<div class="jumbotron">
-							<h3>Have an account?</h3>
-							<p>If you don’t have an account you can create one below by entering your email address/username.<br />
-							A password will be automatically emailed to you.</p>
-							<p><a href="#" class="btn btn-primary">Sign In</a></p>
+							
+								<h3>Have an account?</h3>
+								<p>If you don’t have an account you can create one below by entering your email address/username.<br />
+								A password will be automatically emailed to you.</p>
+								<p><a href="#" class="btn btn-primary">Sign In</a></p>
+							
 						</div>
+						
 					</div>
 				</div>
 
@@ -91,11 +97,11 @@
 							</div>
 							<div class="form-group" id="job-title-group">
 								<label for="job-title">Title</label>
-								<input type="text" class="form-control" id="job-title" placeholder="e.g. Web Designer" />
+								<input type="text" class="form-control" id="job-title" placeholder="e.g. Web Designer" pt:value="#{postAJobMB.currentJob.title}"/>
 							</div>
 							<div class="form-group" id="job-location-group">
 								<label for="job-location">Location (Optional)</label>
-								<input type="text" class="form-control" id="job-location" placeholder="e.g. New York" />
+								<input type="text" class="form-control" id="job-location" placeholder="e.g. New York" pt:value="#{postAJobMB.currentJob.city}" />
 							</div>
 							<div class="form-group" id="job-region-group">
 								<label for="job-region">Region</label>
@@ -202,82 +208,13 @@
 			<ui:include src="footer.xhtml" />
 		</ui:insert>
 
-		<!-- ============ LOGIN START ============ -->
+		<ui:insert name="login">		
+			<ui:include src="login.xhtml" />
+		</ui:insert>
 
-		<div class="popup" id="login">
-			<div class="popup-form">
-				<div class="popup-header">
-					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
-					<h2>Login</h2>
-				</div>
-				<form>
-					<ul class="social-login">
-						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
-						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
-						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
-					</ul>
-					<hr />
-					<div class="form-group">
-						<label for="login-username">Username</label>
-						<input type="text" class="form-control" id="login-username" />
-					</div>
-					<div class="form-group">
-						<label for="login-password">Password</label>
-						<input type="password" class="form-control" id="login-password" />
-					</div>
-					<button type="submit" class="btn btn-primary">Sign In</button>
-				</form>
-			</div>
-		</div>
-
-		<!-- ============ LOGIN END ============ -->
-
-		<!-- ============ REGISTER START ============ -->
-
-		<div class="popup" id="register">
-			<div class="popup-form">
-				<div class="popup-header">
-					<a class="close"><i class="fa fa-remove fa-lg"></i></a>
-					<h2>Register</h2>
-				</div>
-				<form>
-					<ul class="social-login">
-						<li><a class="btn btn-facebook"><i class="fa fa-facebook"></i>Register with Facebook</a></li>
-						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
-						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
-					</ul>
-					<hr />
-					<div class="form-group">
-						<label for="register-name">Name</label>
-						<input type="text" class="form-control" id="register-name" />
-					</div>
-					<div class="form-group">
-						<label for="register-surname">Surname</label>
-						<input type="text" class="form-control" id="register-surname" />
-					</div>
-					<div class="form-group">
-						<label for="register-email">Email</label>
-						<input type="email" class="form-control" id="register-email" />
-					</div>
-					<hr />
-					<div class="form-group">
-						<label for="register-username">Username</label>
-						<input type="text" class="form-control" id="register-username" />
-					</div>
-					<div class="form-group">
-						<label for="register-password1">Password</label>
-						<input type="password" class="form-control" id="register-password1" />
-					</div>
-					<div class="form-group">
-						<label for="register-password2">Repeat Password</label>
-						<input type="password" class="form-control" id="register-password2" />
-					</div>
-					<button type="submit" class="btn btn-primary">Register</button>
-				</form>
-			</div>
-		</div>
-
-		<!-- ============ REGISTER END ============ -->
+		<ui:insert name="register">		
+			<ui:include src="register.xhtml" />
+		</ui:insert>
 
 		<!-- Modernizr Plugin -->
 		<script src="js/modernizr.custom.79639.js"></script>
@@ -322,10 +259,10 @@
 
 		<!-- Fancybox Plugin -->
 		<script src="js/fancybox.pack.js"></script>
-
+<ui:remove>
 		<!-- Magic Form Processing -->
 		<script src="js/magic.js"></script>
-
+</ui:remove>
 		<!-- jQuery Settings -->
 		<script src="js/settings.js"></script>
 
