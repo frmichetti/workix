@@ -13,21 +13,65 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 	private static final long serialVersionUID = -8009482242264135346L;
 
-	public Collection<Candidate> candidates = new ArrayList<>();	
+	private Collection<Candidate> candidates = new ArrayList<>();	
 
-	public boolean active;	
+	private boolean active;	
 
-	public int maxCandidates;
+	private Instant disabledAt;
+
+	private int maxCandidates;	
 
 	public SelectiveProcess() {
 		this.addObserver(this);	
+	}
+	
+	
+	
+
+	public Collection<Candidate> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(Collection<Candidate> candidates) {
+		this.candidates = candidates;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		
+		if(!active){
+			disabledAt = Instant.now();
+		}
+		
+		this.active = active;
+		
+		notifyChanges();
+	}
+
+	public Instant getDisabledAt() {
+		return disabledAt;
+	}
+
+	public void setDisabledAt(Instant disabledAt) {
+		this.disabledAt = disabledAt;
+	}
+	
+	public int getMaxCandidates() {
+		return maxCandidates;
+	}
+
+	public void setMaxCandidates(int maxCandidates) {
+		this.maxCandidates = maxCandidates;
 	}
 
 	public boolean registerCandidate(Candidate candidate){
 
 		boolean b = false;
 
-		if(active && isElegible()){
+		if((isActive()) && (isElegible()) && (!isInProcess(candidate))){
 
 			candidates.add(candidate);			
 
@@ -37,7 +81,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 		}else{
 
-			System.out.println(candidate.getName() + " Cannot Register - Process is Disabled");
+			System.out.println(candidate.getName() + " Cannot Registered");
 
 			b = false;
 		}
@@ -50,35 +94,45 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 
 	@Override
-	public void update(Observable observable, Object object) {		
+	public void update(Observable observable, Object object) {	
 
 		if(observable instanceof SelectiveProcess){			
 
 			if(active = isElegible()){
 
-				if(object instanceof ArrayList<?>){								
+				if(object instanceof Collection<?>){								
 
-					countCandidates((ArrayList<?>) object);
+					countCandidates((ArrayList<Candidate>) object);
 
 				}
 
-			}else{
-				System.out.println("Max candidates Reached - Disabled Process at " + Instant.now());
+			}else{				
+				if (disabledAt != null)
+					System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
 			}
+
+			
 
 
 		}
 
+
+
 	}
 
 	private boolean isElegible(){
-		System.out.println("[" + candidates.size() + "/" + maxCandidates+ "]");
+		System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
+		System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates+ "]");
 		return (candidates.size() < maxCandidates);
 	}
 
-	private void countCandidates(Collection<?> collection){		
-		maxCandidates = collection.size();
-		System.out.println("Registered Candidates = " + maxCandidates);
+	private boolean isInProcess(Candidate candidate){
+		System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)) );
+		return (candidates.contains(candidate));
+	}
+
+	private void countCandidates(ArrayList<Candidate> collection){		
+		maxCandidates = collection.size();	
 	}
 
 
@@ -91,6 +145,15 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 		notifyObservers(object);
 		setChanged();
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "SelectiveProcess [active=" + active + ", maxCandidates=" + maxCandidates + "]";
+	}
+	
+	
 
 
 

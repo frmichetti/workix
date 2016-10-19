@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -30,6 +31,7 @@ public class Job implements Serializable {
 	@Column(nullable = false)
 	private BigDecimal averageSalary;
 
+	@Lob
 	@Column(nullable = false)
 	private String resume;
 
