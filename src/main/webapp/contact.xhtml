@@ -1,8 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      >
 
 	<!-- 
 		Replace path to template, title, header and body
@@ -17,25 +19,25 @@
 				<div class="row">
 					<div class="col-sm-6">
 						<h2>Deixe-nos uma Mensagem</h2>
-						<form role="form" name="contact-form" id="contact-form" action="process.php">
-							<div class="form-group" id="contact-name-group">
+						<h:form role="form" name="contact-form" id="contact-form" action="process.php">
+							<div class="form-group has-success has-feedback" id="contact-name-group">
 								<label for="contact-name" class="sr-only">Name</label>
-								<input type="text" class="form-control" id="contact-name" placeholder="Name" />
+								<h:inputText pt:type="text" class="form-control" id="contact-name" pt:placeholder="Nome" value="#{contactMB.name}" pt:required="true" />
 							</div>
-							<div class="form-group" id="contact-email-group">
+							<div class="form-group has-success has-feedback" id="contact-email-group">
 								<label for="contact-email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="contact-email" placeholder="Email" />
+								<h:inputText pt:type="email" class="form-control" id="contact-email" pt:placeholder="Email" value="#{contactMB.email}" pt:required="true" />
 							</div>
-							<div class="form-group" id="contact-subject-group">
+							<div class="form-group has-success has-feedback" id="contact-subject-group">
 								<label for="contact-subject" class="sr-only">Subject</label>
-								<input type="text" class="form-control" id="contact-subject" placeholder="Subject" />
+								<h:inputText pt:type="text" class="form-control" id="contact-subject" pt:placeholder="Assunto" value="#{contactMB.subject}" pt:required="true" />
 							</div>
-							<div class="form-group" id="contact-message-group">
+							<div class="form-group has-success has-feedback" id="contact-message-group">
 								<label for="contact-message" class="sr-only">Message</label>
-								<textarea class="form-control" rows="3" id="contact-message"></textarea>
-							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
+								<h:inputTextarea class="form-control" rows="3" id="contact-message" pt:placeholder="Mensagem" value="#{contactMB.body}" pt:required="true" />
+							</div>							
+							<h:commandButton action="#{contactMB.doSendAMessage()}" value="Enviar Mensagem" styleClass="btn btn-default" />
+						</h:form>
 					</div>
 					<div class="col-sm-6">
 						<h2>Visit our office</h2>
