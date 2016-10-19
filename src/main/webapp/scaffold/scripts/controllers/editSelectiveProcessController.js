@@ -16,7 +16,7 @@ angular.module('jobs').controller('EditSelectiveProcessController', function($sc
                     };
                     var labelObject = {
                         value : item.id,
-                        text : item.city
+                        text : item.id
                     };
                     if($scope.selectiveProcess.job && item.id == $scope.selectiveProcess.job.id) {
                         $scope.jobSelection = labelObject;

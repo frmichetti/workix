@@ -3,7 +3,82 @@
     <h3 ng-switch-when="false">View or edit Job</h3>
 </header>
 <form id="JobForm" name="JobForm" class="form-horizontal" role="form">
-        <div class="form-group" ng-class="{'has-error': JobForm.city.$invalid}">
+    
+    <div class="form-group" ng-class="{'has-error': JobForm.uuid.$invalid}">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div id="uuidControls" class="col-sm-10">
+            <input id="uuid" name="uuid" type="text" required class="form-control" ng-model="job.uuid" placeholder="Enter the Job Uuid"></input>
+            <span class="help-block error" ng-show="JobForm.uuid.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.title.$invalid}">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div id="titleControls" class="col-sm-10">
+            <input id="title" name="title" type="text" required class="form-control" ng-model="job.title" placeholder="Enter the Job Title"></input>
+            <span class="help-block error" ng-show="JobForm.title.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.minPayment.$invalid}">
+        <label for="minPayment" class="col-sm-2 control-label">Min Payment</label>
+        <div id="minPaymentControls" class="col-sm-10">
+            <input id="minPayment" name="minPayment" type="text" class="form-control" ng-model="job.minPayment" placeholder="Enter the Job Min Payment"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.maxPayment.$invalid}">
+        <label for="maxPayment" class="col-sm-2 control-label">Max Payment</label>
+        <div id="maxPaymentControls" class="col-sm-10">
+            <input id="maxPayment" name="maxPayment" type="text" class="form-control" ng-model="job.maxPayment" placeholder="Enter the Job Max Payment"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.description.$invalid}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div id="descriptionControls" class="col-sm-10">
+            <input id="description" name="description" type="text" required class="form-control" ng-model="job.description" placeholder="Enter the Job Description"></input>
+            <span class="help-block error" ng-show="JobForm.description.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.start.$invalid}">
+        <label for="start" class="col-sm-2 control-label">Start</label>
+        <div id="startControls" class="col-sm-10">
+            <datetime id="start" name="start" required ng-model="job.start" placeholder="Enter the Job Start"></datetime>
+            <span class="help-block error" ng-show="JobForm.start.$error.required">required</span> 
+            <span class="help-block error" ng-show="JobForm.start.$error.datetimeFormat">does not match format "yyyy-MM-dd hh:mm:ss" (e.g. 2013-12-01 22:00:00)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.expire.$invalid}">
+        <label for="expire" class="col-sm-2 control-label">Expire</label>
+        <div id="expireControls" class="col-sm-10">
+            <datetime id="expire" name="expire" required ng-model="job.expire" placeholder="Enter the Job Expire"></datetime>
+            <span class="help-block error" ng-show="JobForm.expire.$error.required">required</span> 
+            <span class="help-block error" ng-show="JobForm.expire.$error.datetimeFormat">does not match format "yyyy-MM-dd hh:mm:ss" (e.g. 2013-12-01 22:00:00)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.jobType.$invalid}">
+        <label for="jobType" class="col-sm-2 control-label">Job Type</label>
+        <div id="jobTypeControls" class="col-sm-10">
+        <select id="jobType" name="jobType" class="form-control" ng-model="job.jobType" ng-options="j for j in jobTypeList"  >
+            <option value="">Choose a Job Type</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.jobCategory.$invalid}">
+        <label for="jobCategory" class="col-sm-2 control-label">Job Category</label>
+        <div id="jobCategoryControls" class="col-sm-10">
+        <select id="jobCategory" name="jobCategory" class="form-control" ng-model="job.jobCategory" ng-options="j for j in jobCategoryList"  >
+            <option value="">Choose a Job Category</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.city.$invalid}">
         <label for="city" class="col-sm-2 control-label">City</label>
         <div id="cityControls" class="col-sm-10">
             <input id="city" name="city" type="text" class="form-control" ng-model="job.city" placeholder="Enter the Job City"></input>
@@ -19,15 +94,6 @@
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': JobForm.jobType.$invalid}">
-        <label for="jobType" class="col-sm-2 control-label">Job Type</label>
-        <div id="jobTypeControls" class="col-sm-10">
-        <select id="jobType" name="jobType" class="form-control" ng-model="job.jobType" ng-options="j for j in jobTypeList"  >
-            <option value="">Choose a Job Type</option>
-        </select>
-        </div>
-    </div>
-
     <div class="form-group" ng-class="{'has-error': JobForm.employeer.$invalid}">
         <label for="employeer" class="col-sm-2 control-label">Employeer</label>
         <div id="employeerControls" class="col-sm-10">
@@ -37,37 +103,10 @@
         </div>
     </div>
 
-
-
-    <div class="form-group" ng-class="{'has-error': JobForm.title.$invalid}">
-        <label for="title" class="col-sm-2 control-label">Title</label>
-        <div id="titleControls" class="col-sm-10">
-            <input id="title" name="title" type="text" required class="form-control" ng-model="job.title" placeholder="Enter the Job Title"></input>
-            <span class="help-block error" ng-show="JobForm.title.$error.required">required</span> 
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': JobForm.averageSalary.$invalid}">
-        <label for="averageSalary" class="col-sm-2 control-label">Average Salary</label>
-        <div id="averageSalaryControls" class="col-sm-10">
-            <input id="averageSalary" name="averageSalary" type="text" required class="form-control" ng-model="job.averageSalary" placeholder="Enter the Job Average Salary"></input>
-            <span class="help-block error" ng-show="JobForm.averageSalary.$error.required">required</span> 
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': JobForm.resume.$invalid}">
-        <label for="resume" class="col-sm-2 control-label">Resume</label>
-        <div id="resumeControls" class="col-sm-10">
-            <input id="resume" name="resume" type="text" required class="form-control" ng-model="job.resume" placeholder="Enter the Job Resume"></input>
-            <span class="help-block error" ng-show="JobForm.resume.$error.required">required</span> 
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': JobForm.uuid.$invalid}">
-        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
-        <div id="uuidControls" class="col-sm-10">
-            <input id="uuid" name="uuid" type="text" required class="form-control" ng-model="job.uuid" placeholder="Enter the Job Uuid"></input>
-            <span class="help-block error" ng-show="JobForm.uuid.$error.required">required</span> 
+    <div class="form-group" ng-class="{'has-error': JobForm.active.$invalid}">
+        <label for="active" class="col-sm-2 control-label">Active</label>
+        <div id="activeControls" class="col-sm-10">
+            <input id="active" name="active" type="checkbox" class="checkbox" ng-model="job.active" placeholder="Enter the Job Active"></input>
         </div>
     </div>
 

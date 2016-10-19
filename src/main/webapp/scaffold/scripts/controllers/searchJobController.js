@@ -17,6 +17,17 @@ angular.module('jobs').controller('SearchJobController', function($scope, $http,
         }
         return max;
     };
+    $scope.jobTypeList = [
+        "FULLTIME",
+        "PARTTIME",
+        "FREELANCE",
+        "TEMPORARY",
+        "INTERNSHIP"
+    ];
+    $scope.jobCategoryList = [
+        "MANAGEMENT",
+        "OPERATOR"
+    ];
     $scope.estateList = [
         "AC",
         "AL",
@@ -46,14 +57,11 @@ angular.module('jobs').controller('SearchJobController', function($scope, $http,
         "SE",
         "TO"
     ];
-    $scope.jobTypeList = [
-        "FULLTIME",
-        "PARTTIME",
-        "FREELANCE",
-        "TEMPORARY",
-        "INTERNSHIP"
-    ];
     $scope.employeerList = EmployeerResource.queryAll();
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
 
     $scope.performSearch = function() {
         $scope.searchResults = JobResource.queryAll(function(){

@@ -35,7 +35,7 @@ public class JobDetailMB {
 			currentJob = new Job();
 			currentJob.setId(0L);
 			currentJob.setTitle("Não Encontrado");			
-			currentJob.setAverageSalary(new BigDecimal(0));
+		
 		}
 		
 	}

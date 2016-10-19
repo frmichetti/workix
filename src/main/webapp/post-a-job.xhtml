@@ -87,7 +87,7 @@
 					</div>
 				</div>
 
-				<form>
+				<h:form>
 					<div class="row">
 						<div class="col-sm-6">
 							<h2>Job Details</h2>
@@ -145,6 +145,7 @@
 								<input type="text" class="form-control" id="job-url" placeholder="Email or Website URL" />
 							</div>
 						</div>
+						<ui:remove>
 						<div class="col-sm-6">
 							<h2>Company Details</h2>
 							<div class="form-group" id="company-name-group">
@@ -188,12 +189,13 @@
 								<input type="file" id="company-logo" />
 							</div>
 						</div>
+						</ui:remove>
 					</div>
-					<div class="row text-center">
-						<p> </p>
-						<a href="#" class="btn btn-primary btn-lg">Preview <i class="fa fa-arrow-right"></i></a>
+					<div class="row text-center">						
+						<h:commandButton action="#{postAJobMB.commit()}" value="Commit"  styleClass="btn btn-primary btn-lg" />
+						
 					</div>
-				</form>
+				</h:form>
 
 			</div>
 		</section>

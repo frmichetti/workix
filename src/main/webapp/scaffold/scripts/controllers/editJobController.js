@@ -72,6 +72,17 @@ angular.module('jobs').controller('EditJobController', function($scope, $routePa
         $scope.job.$remove(successCallback, errorCallback);
     };
     
+    $scope.jobTypeList = [
+        "FULLTIME",  
+        "PARTTIME",  
+        "FREELANCE",  
+        "TEMPORARY",  
+        "INTERNSHIP"  
+    ];
+    $scope.jobCategoryList = [
+        "MANAGEMENT",  
+        "OPERATOR"  
+    ];
     $scope.estateList = [
         "AC",  
         "AL",  
@@ -101,19 +112,16 @@ angular.module('jobs').controller('EditJobController', function($scope, $routePa
         "SE",  
         "TO"  
     ];
-    $scope.jobTypeList = [
-        "FULLTIME",  
-        "PARTTIME",  
-        "FREELANCE",  
-        "TEMPORARY",  
-        "INTERNSHIP"  
-    ];
     $scope.$watch("employeerSelection", function(selection) {
         if (typeof selection != 'undefined') {
             $scope.job.employeer = {};
             $scope.job.employeer.id = selection.value;
         }
     });
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
     
     $scope.get();
 });

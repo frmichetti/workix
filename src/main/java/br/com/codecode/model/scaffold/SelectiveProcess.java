@@ -2,7 +2,6 @@ package br.com.codecode.model.scaffold;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -26,6 +25,7 @@ public class SelectiveProcess implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
+	
 	@Version
 	@Column(name = "version")
 	private int version;
@@ -34,14 +34,7 @@ public class SelectiveProcess implements Serializable {
 	private String uuid;
 
 	@ManyToOne
-	private Job job;
-
-	@Column(nullable = false, updatable = false)
-	private Date start;
-
-	@Column(nullable = false)
-	private Date expire;
-
+	private Job job;	
 
 	@OneToMany
 	private Set<Candidate> candidates = new HashSet<Candidate>();
@@ -52,9 +45,6 @@ public class SelectiveProcess implements Serializable {
 	@Lob
 	@Column	
 	private String requirement;
-
-	@Column
-	private BigDecimal salary;
 
 	@Column(nullable = false)
 	private int maxCandidates;
@@ -100,9 +90,7 @@ public class SelectiveProcess implements Serializable {
 		return result;
 	}
 
-	public String getUuid() {
-		return uuid;
-	}
+	
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
@@ -115,23 +103,6 @@ public class SelectiveProcess implements Serializable {
 	public void setJob(final Job job) {
 		this.job = job;
 	}
-
-	public Date getStart() {
-		return start;
-	}
-
-	public void setStart(Date start) {
-		this.start = start;
-	}
-
-	public Date getExpire() {
-		return expire;
-	}
-
-	public void setExpire(Date expire) {
-		this.expire = expire;
-	}
-
 	
 
 	public Set<Candidate> getCandidates() {
@@ -156,14 +127,6 @@ public class SelectiveProcess implements Serializable {
 
 	public void setRequirement(String requirement) {
 		this.requirement = requirement;
-	}
-
-	public BigDecimal getSalary() {
-		return salary;
-	}
-
-	public void setSalary(BigDecimal salary) {
-		this.salary = salary;
 	}
 
 	public int getMaxCandidates() {

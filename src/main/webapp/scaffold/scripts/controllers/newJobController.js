@@ -4,6 +4,19 @@ angular.module('jobs').controller('NewJobController', function ($scope, $locatio
     $scope.$location = $location;
     $scope.job = $scope.job || {};
     
+    $scope.jobTypeList = [
+        "FULLTIME",
+        "PARTTIME",
+        "FREELANCE",
+        "TEMPORARY",
+        "INTERNSHIP"
+    ];
+    
+    $scope.jobCategoryList = [
+        "MANAGEMENT",
+        "OPERATOR"
+    ];
+    
     $scope.estateList = [
         "AC",
         "AL",
@@ -34,14 +47,6 @@ angular.module('jobs').controller('NewJobController', function ($scope, $locatio
         "TO"
     ];
     
-    $scope.jobTypeList = [
-        "FULLTIME",
-        "PARTTIME",
-        "FREELANCE",
-        "TEMPORARY",
-        "INTERNSHIP"
-    ];
-    
     $scope.employeerList = EmployeerResource.queryAll(function(items){
         $scope.employeerSelectionList = $.map(items, function(item) {
             return ( {
@@ -57,6 +62,11 @@ angular.module('jobs').controller('NewJobController', function ($scope, $locatio
         }
     });
     
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
+
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){

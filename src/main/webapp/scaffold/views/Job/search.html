@@ -10,7 +10,63 @@
 <div>
     <h3>Search for Jobs</h3>
     <form id="JobSearch" class="form-horizontal">
-            <div class="form-group">
+        
+    <div class="form-group">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div class="col-sm-10">
+            <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the Job Uuid"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+            <input id="title" name="title" class="form-control" type="text" ng-model="search.title" placeholder="Enter the Job Title"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="minPayment" class="col-sm-2 control-label">Min Payment</label>
+        <div class="col-sm-10">
+            <input id="minPayment" name="minPayment" class="form-control" type="text" ng-model="search.minPayment" placeholder="Enter the Job Min Payment"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="maxPayment" class="col-sm-2 control-label">Max Payment</label>
+        <div class="col-sm-10">
+            <input id="maxPayment" name="maxPayment" class="form-control" type="text" ng-model="search.maxPayment" placeholder="Enter the Job Max Payment"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <input id="description" name="description" class="form-control" type="text" ng-model="search.description" placeholder="Enter the Job Description"></input>
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <label for="jobType" class="col-sm-2 control-label">Job Type</label>
+        <div class="col-sm-10">
+            <select id="jobType" name="jobType" class="form-control" ng-model="search.jobType" ng-options="j as j for j in jobTypeList">
+                <option value="">Choose a Job Type</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="jobCategory" class="col-sm-2 control-label">Job Category</label>
+        <div class="col-sm-10">
+            <select id="jobCategory" name="jobCategory" class="form-control" ng-model="search.jobCategory" ng-options="j as j for j in jobCategoryList">
+                <option value="">Choose a Job Category</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="city" class="col-sm-2 control-label">City</label>
         <div class="col-sm-10">
             <input id="city" name="city" class="form-control" type="text" ng-model="search.city" placeholder="Enter the Job City"></input>
@@ -27,15 +83,6 @@
     </div>
 
     <div class="form-group">
-        <label for="jobType" class="col-sm-2 control-label">Job Type</label>
-        <div class="col-sm-10">
-            <select id="jobType" name="jobType" class="form-control" ng-model="search.jobType" ng-options="j as j for j in jobTypeList">
-                <option value="">Choose a Job Type</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
         <label for="employeer" class="col-sm-2 control-label">Employeer</label>
         <div class="col-sm-10">
             <select id="employeer" name="employeer" class="form-control" ng-model="search.employeer" ng-options="e as e.companySegment for e in employeerList">
@@ -44,33 +91,12 @@
         </div>
     </div>
 
-
-
     <div class="form-group">
-        <label for="title" class="col-sm-2 control-label">Title</label>
+        <label for="active" class="col-sm-2 control-label">Active</label>
         <div class="col-sm-10">
-            <input id="title" name="title" class="form-control" type="text" ng-model="search.title" placeholder="Enter the Job Title"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="averageSalary" class="col-sm-2 control-label">Average Salary</label>
-        <div class="col-sm-10">
-            <input id="averageSalary" name="averageSalary" class="form-control" type="text" ng-model="search.averageSalary" placeholder="Enter the Job Average Salary"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="resume" class="col-sm-2 control-label">Resume</label>
-        <div class="col-sm-10">
-            <input id="resume" name="resume" class="form-control" type="text" ng-model="search.resume" placeholder="Enter the Job Resume"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
-        <div class="col-sm-10">
-            <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the Job Uuid"></input>
+            <select id="active" name="active" class="form-control" ng-model="search.active" ng-options="a as a for a in activeList">
+                <option value="">Choose a Active</option>
+            </select>
         </div>
     </div>
 
@@ -87,26 +113,36 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
+                    <th>Uuid</th>
+                    <th>Title</th>
+                    <th>Min Payment</th>
+                    <th>Max Payment</th>
+                    <th>Description</th>
+                    <th>Start</th>
+                    <th>Expire</th>
+                    <th>Job Type</th>
+                    <th>Job Category</th>
                     <th>City</th>
                     <th>Estate</th>
-                    <th>Job Type</th>
                     <th>Employeer</th>
-                    <th>Title</th>
-                    <th>Average Salary</th>
-                    <th>Resume</th>
-                    <th>Uuid</th>
+                    <th>Active</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.uuid}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.title}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.minPayment}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.maxPayment}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.description}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.start| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.expire| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobType}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobCategory}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.city}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.estate}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobType}}</a></td>
                         <td><a href="#/Jobs/edit/{{result.id}}">{{result.employeer.companySegment}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.title}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.averageSalary}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.resume}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.uuid}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.active}}</a></td>
                 </tr>
             </tbody>
         </table>

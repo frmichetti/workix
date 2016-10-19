@@ -8,7 +8,7 @@ angular.module('jobs').controller('NewSelectiveProcessController', function ($sc
         $scope.jobSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
-                text : item.city
+                text : item.id
             });
         });
     });

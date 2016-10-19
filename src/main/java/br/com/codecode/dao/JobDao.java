@@ -1,5 +1,6 @@
 package br.com.codecode.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -12,7 +13,10 @@ import br.com.codecode.model.scaffold.Job;
  * DAO for Job
  */
 @Stateless
-public class JobDao {
+public class JobDao implements Serializable {
+
+	private static final long serialVersionUID = 4029639665489024760L;
+	
 	@PersistenceContext(unitName = "JPU")
 	private EntityManager em;
 
