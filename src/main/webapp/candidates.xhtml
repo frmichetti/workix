@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<meta name="description" content="Jobseek - Job Board Responsive HTML Template">
-		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu">
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="Jobseek - Job Board Responsive HTML Template" />
+		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu" />
 		<title>Jobseek - Job Board Responsive HTML Template</title>
-		<link rel="shortcut icon" href="images/favicon.png">
+		<link rel="shortcut icon" href="images/favicon.png" />
 
 		<!-- Main Stylesheet -->
-		<link href="css/style.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet" />
 
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -29,40 +32,9 @@
 
 		<!-- ============ PAGE LOADER END ============ -->
 
-		<!-- ============ NAVBAR START ============ -->
-
-		<div class="fm-container">
-			<!-- Menu -->
-			<div class="menu">
-				<div class="button-close text-right">
-					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
-				</div>
-				<ul class="nav">
-					<li><a href="#home">Home</a></li>
-					<li><a href="jobs.xhtml">Jobs</a></li>
-					<li><a href="post-a-job.xhtml">Post a job</a></li>
-					<li class="active"><a href="candidates.html">Candidates</a></li>
-					<li><a href="post-a-resume.html">Post a Resume</a></li>
-					<li><a href="#">Pages</a>
-						<ul>
-							<li><a href="job-details.html">Job Details</a></li>
-							<li><a href="resume.html">Resume</a></li>
-							<li><a href="company.html">Company</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="post.html">Single Post</a></li>
-							<li><a href="about.html">About Us</a></li>
-							<li><a href="testimonials.html">Testimonials</a></li>
-							<li><a href="options.html">Options</a></li>
-						</ul>
-					</li>
-					<li><a class="link-register">Register</a></li>
-					<li><a class="link-login">Login</a></li>
-				</ul>		
-			</div>
-			<!-- end Menu -->
-		</div>
-
-		<!-- ============ NAVBAR END ============ -->
+			<ui:insert name="navigation">		
+				<ui:include src="navigation.xhtml" />
+			</ui:insert>
 
 		<!-- ============ HEADER START ============ -->
 
@@ -79,7 +51,7 @@
 					<form>
 						<div class="form-group">
 							<label class="sr-only" for="searchfield">Searchbox</label>
-							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter">
+							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter" />
 						</div>
 					</form>
 				</div>
@@ -600,13 +572,13 @@
 
 						<nav>
 							<ul class="pagination">
-								<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+								<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">B</span></a></li>
 								<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
 								<li><a href="#">5</a></li>
-								<li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+								<li><a href="#" aria-label="Next"><span aria-hidden="true">F</span></a></li>
 							</ul>
 						</nav>
 
@@ -643,13 +615,13 @@
 									<div class="col-xs-12">
 										<div class="form-group" id="job-search-group">
 											<label for="job-search" class="sr-only">Search</label>
-											<input type="text" class="form-control" id="job-search" placeholder="Type and press enter">
+											<input type="text" class="form-control" id="job-search" placeholder="Type and press enter" />
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<hr>
+										<hr />
 									</div>
 								</div>
 								<div class="row">
@@ -657,27 +629,27 @@
 										<h5>Career Level</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox" /> All Types
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Junior
+												<input type="checkbox" /> Junior
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Middle
+												<input type="checkbox" /> Middle
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Senior
+												<input type="checkbox" /> Senior
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Expert
+												<input type="checkbox" /> Expert
 											</label>
 										</div>
 									</div>
@@ -685,34 +657,34 @@
 										<h5>Presence</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox" /> All Types
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Remote
+												<input type="checkbox" /> Remote
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Office
+												<input type="checkbox" /> Office
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Relocation
+												<input type="checkbox" /> Relocation
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Travel a lot
+												<input type="checkbox" /> Travel a lot
 											</label>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<hr>
+										<hr />
 									</div>
 								</div>
 								<div class="row">
@@ -720,32 +692,32 @@
 										<h5>Job Type</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox" /> All Types
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Freelance
+												<input type="checkbox" /> Freelance
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Part Time
+												<input type="checkbox" /> Part Time
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Full Time
+												<input type="checkbox" /> Full Time
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Internship
+												<input type="checkbox" /> Internship
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Volunteer
+												<input type="checkbox" /> Volunteer
 											</label>
 										</div>
 									</div>
@@ -753,39 +725,39 @@
 										<h5>Location</h5>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> All Types
+												<input type="checkbox" /> All Types
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> New York
+												<input type="checkbox" /> New York
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Los Angeles
+												<input type="checkbox" /> Los Angeles
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> San Francisco
+												<input type="checkbox" /> San Francisco
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Chicago
+												<input type="checkbox" /> Chicago
 											</label>
 										</div>
 										<div class="checkbox">
 											<label>
-												<input type="checkbox"> Boston
+												<input type="checkbox" /> Boston
 											</label>
 										</div>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<hr>
+										<hr />
 									</div>
 								</div>
 								<div class="row">
@@ -803,7 +775,7 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<hr>
+										<hr />
 									</div>
 								</div>
 								<div class="row">
@@ -815,7 +787,7 @@
 								</div>
 								<div class="row">
 									<div class="col-xs-12">
-										<hr>
+										<hr />
 									</div>
 								</div>
 								<div class="row">
@@ -833,111 +805,14 @@
 		</section>
 
 		<!-- ============ JOBS END ============ -->
+		
+		<ui:insert name="contact">		
+			<ui:include src="contact.xhtml" />
+		</ui:insert>
 
-		<!-- ============ CONTACT START ============ -->
-
-		<section id="contact" class="color2">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<h2>Drop us a line</h2>
-						<form role="form" name="contact-form" id="contact-form" action="process.php">
-							<div class="form-group" id="contact-name-group">
-								<label for="contact-name" class="sr-only">Name</label>
-								<input type="text" class="form-control" id="contact-name" placeholder="Name">
-							</div>
-							<div class="form-group" id="contact-email-group">
-								<label for="contact-email" class="sr-only">Email</label>
-								<input type="email" class="form-control" id="contact-email" placeholder="Email">
-							</div>
-							<div class="form-group" id="contact-subject-group">
-								<label for="contact-subject" class="sr-only">Subject</label>
-								<input type="text" class="form-control" id="contact-subject" placeholder="Subject">
-							</div>
-							<div class="form-group" id="contact-message-group">
-								<label for="contact-message" class="sr-only">Message</label>
-								<textarea class="form-control" rows="3" id="contact-message"></textarea>
-							</div>
-							<button type="submit" class="btn btn-default">Submit</button>
-						</form>
-					</div>
-					<div class="col-sm-6">
-						<h2>Visit our office</h2>
-						<div class="row">
-							<div class="col-sm-6">
-								<h5>New York</h5>
-								<p>5 Park Avenue<br>
-								New York, NY 10016<br>
-								USA</p>
-								<p><i class="fa fa-phone"></i>+1 718.242.5555<br>
-								<i class="fa fa-fax"></i>+1 718.242.5556<br>
-								<i class="fa fa-envelope"></i><a href="mailto:ny@jobseek.com">ny@jobseek.com</a></p>
-								<p><i class="fa fa-clock-o"></i>Mon-Fri 9am - 5pm<br>
-								<i class="fa fa-clock-o"></i>Sat 10am - 2pm<br>
-								<i class="fa fa-clock-o"></i>Sun Closed</p>
-							</div>
-							<div class="col-sm-6">
-								<h5>Los Angeles</h5>
-								<p>8605 Santa Monica Blvd<br>
-								Los Angeles, CA 90069-4109<br>
-								USA</p>
-								<p><i class="fa fa-phone"></i>+1 985.562.5555<br>
-								<i class="fa fa-fax"></i>+1 985.562.5556<br>
-								<i class="fa fa-envelope"></i><a href="mailto:la@jobseek.com">la@jobseek.com</a></p>
-								<p><i class="fa fa-clock-o"></i>Mon-Fri 9am - 5pm<br>
-								<i class="fa fa-clock-o"></i>Sat 10am - 2pm<br>
-								<i class="fa fa-clock-o"></i>Sun Closed</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ============ CONTACT END ============ -->
-
-		<!-- ============ FOOTER START ============ -->
-
-		<footer>
-			<div id="prefooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-6" id="newsletter">
-							<h2>Newsletter</h2>
-							<form class="form-inline">
-								<div class="form-group">
-									<label class="sr-only" for="newsletter-email">Email address</label>
-									<input type="email" class="form-control" id="newsletter-email" placeholder="Email address">
-								</div>
-								<button type="submit" class="btn btn-primary">Sign up</button>
-							</form>
-						</div>
-						<div class="col-sm-6" id="social-networks">
-							<h2>Get in touch</h2>
-							<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-youtube-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>
-							<a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="credits">
-				<div class="container text-center">
-					<div class="row">
-						<div class="col-sm-12">
-							&copy; 2015 Jobseek - Responsive Job Board HTML Template<br>
-							Designed &amp; Developed by <a href="http://themeforest.net/user/Coffeecream" target="_blank">Coffeecream Themes</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-		<!-- ============ FOOTER END ============ -->
+		<ui:insert name="footer">		
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
 
 		<!-- ============ LOGIN START ============ -->
 
@@ -953,14 +828,14 @@
 						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Sign In with Google</a></li>
 						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
 					</ul>
-					<hr>
+					<hr />
 					<div class="form-group">
 						<label for="login-username">Username</label>
-						<input type="text" class="form-control" id="login-username">
+						<input type="text" class="form-control" id="login-username" />
 					</div>
 					<div class="form-group">
 						<label for="login-password">Password</label>
-						<input type="password" class="form-control" id="login-password">
+						<input type="password" class="form-control" id="login-password" />
 					</div>
 					<button type="submit" class="btn btn-primary">Sign In</button>
 				</form>
@@ -983,31 +858,31 @@
 						<li><a class="btn btn-google"><i class="fa fa-google-plus"></i>Register with Google</a></li>
 						<li><a class="btn btn-linkedin"><i class="fa fa-linkedin"></i>Register with LinkedIn</a></li>
 					</ul>
-					<hr>
+					<hr />
 					<div class="form-group">
 						<label for="register-name">Name</label>
-						<input type="text" class="form-control" id="register-name">
+						<input type="text" class="form-control" id="register-name" />
 					</div>
 					<div class="form-group">
 						<label for="register-surname">Surname</label>
-						<input type="text" class="form-control" id="register-surname">
+						<input type="text" class="form-control" id="register-surname" />
 					</div>
 					<div class="form-group">
 						<label for="register-email">Email</label>
-						<input type="email" class="form-control" id="register-email">
+						<input type="email" class="form-control" id="register-email" />
 					</div>
-					<hr>
+					<hr />
 					<div class="form-group">
 						<label for="register-username">Username</label>
-						<input type="text" class="form-control" id="register-username">
+						<input type="text" class="form-control" id="register-username" />
 					</div>
 					<div class="form-group">
 						<label for="register-password1">Password</label>
-						<input type="password" class="form-control" id="register-password1">
+						<input type="password" class="form-control" id="register-password1" />
 					</div>
 					<div class="form-group">
 						<label for="register-password2">Repeat Password</label>
-						<input type="password" class="form-control" id="register-password2">
+						<input type="password" class="form-control" id="register-password2" />
 					</div>
 					<button type="submit" class="btn btn-primary">Register</button>
 				</form>

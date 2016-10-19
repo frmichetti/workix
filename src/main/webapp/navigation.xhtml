@@ -19,11 +19,12 @@
 					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
 				</div>
 				<ul class="nav">
-					<li><a href="#home">Home</a></li>
-					<li><a href="jobs.html">Jobs</a></li>
-					<li><a href="post-a-job.xhtml">Post a job</a></li>
-					<li><a href="candidates.html">Candidates</a></li>
-					<li><a href="post-a-resume.html">Post a Resume</a></li>
+					<li><a href="#{navigationMB.goToIndex()}">Home</a></li>
+					<li><a href="#{navigationMB.goToJobs()}">Jobs</a></li>
+					<li><a href="#{navigationMB.goToPostAJob()}">Post a job</a></li>
+					<li><a href="#{navigationMB.goToCandidates()}">Candidates</a></li>
+					<li><a href="#{navigationMB.goToPostAResume()}">Post a Resume</a></li>
+					<ui:remove>
 					<li><a href="#">Pages</a>
 						<ul>
 							<li><a href="job-details.html">Job Details</a></li>
@@ -36,6 +37,7 @@
 							<li><a href="options.html">Options</a></li>
 						</ul>
 					</li>
+					</ui:remove>
 					<li><a class="link-register">Register</a></li>
 					<li><a class="link-login">Login</a></li>
 				</ul>		
