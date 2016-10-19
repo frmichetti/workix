@@ -1,5 +1,6 @@
 package br.com.codecode.bean;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
@@ -24,6 +25,8 @@ public class HomeMB {
 	private CandidateDao candDao;
 	
 	private Collection<Job> joblist;
+	
+	private int year;
 	
 	private int counterJobs;
 	
@@ -64,11 +67,19 @@ public class HomeMB {
 		
 		counterCandidates = candDao.listAll(0, Integer.MAX_VALUE).size();
 		
+		year = LocalDate.now().getYear();
+		
 		
 	}
 
 	public Collection<Job> getJoblist() {
 		return joblist;
 	}
+
+	public int getYear() {
+		return year;
+	}
+
+	
 
 }
