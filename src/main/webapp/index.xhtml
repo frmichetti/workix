@@ -47,77 +47,9 @@
 			<ui:include src="header.xhtml" />
 		</ui:insert>
 
-		<!-- ============ SLIDES START ============ -->
-
-		<div id="slider" class="sl-slider-wrapper">
-
-			<div class="sl-slider">
-			
-				<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-					<div class="sl-slide-inner">
-						<div class="bg-img bg-img-1"></div>
-						<div class="tint"></div>
-						<div class="slide-content">
-							<h2>Procurando um emprego?</h2>
-							<h3>Não há lugar melhor para começar</h3>
-							<p><a href="#{navigationMB.goToJobs()}" class="btn btn-lg btn-default">Encontre Vagas</a></p>
-						</div>
-					</div>
-				</div>
-			
-				<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
-					<div class="sl-slide-inner">
-						<div class="bg-img bg-img-2"></div>
-						<div class="tint"></div>
-						<div class="slide-content">
-							<h2>Precisa de um empregado?</h2>
-							<h3>Temos candidatos perfeitos</h3>
-							<p><a href="#{navigationMB.goToCandidates()}" class="btn btn-lg btn-default">Publicar uma Vaga</a></p>
-						</div>
-					</div>
-				</div>
-			
-				<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
-					<div class="sl-slide-inner">
-						<div class="bg-img bg-img-3"></div>
-						<div class="tint"></div>
-						<div class="slide-content">
-							<h2>Evoluindo sua carreira?</h2>
-							<h3>Encontre novas oportunidades aqui</h3>
-							<p><a href="#{navigationMB.goToJobs()}" class="btn btn-lg btn-default">Procurar Vagas</a></p>
-						</div>
-					</div>
-				</div>
-			
-				<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="-5" data-slice2-rotation="25" data-slice1-scale="2" data-slice2-scale="1">
-					<div class="sl-slide-inner">
-						<div class="bg-img bg-img-4"></div>
-						<div class="tint"></div>
-						<div class="slide-content">
-							<h2>Estendendo sua equipe?</h2>
-							<h3>Encontre uma combinação perfeita</h3>
-							<p><a href="#{navigationMB.goToCandidates()}" class="btn btn-lg btn-default">Encontre um Candidato</a></p>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<nav id="nav-arrows" class="nav-arrows">
-				<span class="nav-arrow-prev">Previous</span>
-				<span class="nav-arrow-next">Next</span>
-			</nav>
-
-			<nav id="nav-dots" class="nav-dots">
-				<span class="nav-dot-current"></span>
-				<span></span>
-				<span></span>
-				<span></span>
-			</nav>
-
-		</div>
-
-		<!-- ============ SLIDES END ============ -->
+		<ui:insert name="slides">		
+			<ui:include src="slides.xhtml" />
+		</ui:insert>
 
 		<!-- ============ JOBS START ============ -->
 
@@ -376,244 +308,25 @@
 
 		<!-- ============ JOBS END ============ -->
 
-		<!-- ============ COMPANIES START ============ -->
+		<ui:insert name="companies">		
+			<ui:include src="companies.xhtml" />
+		</ui:insert>
 
-		<section id="companies" class="color1">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h2>Empresas em destaque</h2>
-						<ul id="featured-companies" class="row">
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">12</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">4</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">8</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">9</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">13</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">6</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">7</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">15</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">6</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">11</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">14</span>
-								</a>
-							</li>
-							<li class="col-sm-4 col-md-3">
-								<a href="company.html">
-									<img src="#{basePath}/image/placeholder/220x100.jpg" alt="" />
-									<span class="badge">3</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
+		<ui:insert name="stats">		
+			<ui:include src="stats.xhtml" />
+		</ui:insert>
 
-		<!-- ============ COMPANIES END ============ -->
+		<ui:insert name="howdoesitwork">		
+			<ui:include src="howdoesitwork.xhtml" />
+		</ui:insert>
 
-		<!-- ============ STATS START ============ -->
+		<ui:insert name="app">		
+			<ui:include src="app.xhtml" />
+		</ui:insert>
 
-		<section id="stats" class="parallax text-center">
-			<div class="tint"></div>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h1>Jobseek Stats</h1>
-						<h4>QUANTAS PESSOAS Temos ajudado</h4>
-					</div>
-				</div>
-				<div class="row" id="counter">
-					
-					<div class="counter">
-						<div class="number">#{homeMB.counterCandidates}</div>
-						<div class="description">Members</div>
-					</div>
-				
-					<div class="counter">
-						<div class="number">#{homeMB.counterJobs}</div>
-						<div class="description">Jobs</div>
-					</div>
-				
-					<div class="counter">
-						<div class="number">#{homeMB.counterResumes}</div>
-						<div class="description">Resumes</div>
-					</div>
-				
-					<div class="counter">
-						<div class="number">#{homeMB.counterEmployeers}</div>
-						<div class="description">Companies</div>
-					</div>
-
-				</div>
-				<div class="row">
-					<div class="col-sm-12">
-						<p><a class="link-register btn btn-primary">Join Us</a></p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ============ STATS END ============ -->
-
-		<!-- ============ HOW DOES IT WORK START ============ -->
-
-		<section id="how">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h2>How does it work</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6">
-						<p>Curabitur et lorem a massa tempus aliquam. Aenean aliquam volutpat gravida. Pellentesque in neque nec tortor sagittis tempor quis in lectus. Vestibulum vehicula aliquet elit ut porta. Sed ipsum felis, interdum blandit purus sed, volutpat ultricies sem. Maecenas feugiat, lectus vitae luctus feugiat, nulla nisl dignissim velit, nec malesuada ligula orci et metus. In vulputate laoreet luctus.</p>
-						<p>Sed hendrerit ligula tortor, eget iaculis velit vestibulum a. Phasellus convallis nisl pretium nisi porttitor, eu scelerisque mauris consectetur. Fusce pretium, dui placerat laoreet consectetur, nibh diam accumsan enim, sed fringilla turpis quam quis ex. Mauris a rhoncus tortor, a cursus urna. Sed et condimentum quam. Nunc dictum erat ut ante aliquam porttitor. Donec diam eros, bibendum et scelerisque egestas, aliquet ut nulla.</p>
-						<p><a href="about.html" class="btn btn-primary">Learn More</a></p>
-					</div>
-					<div class="col-sm-6">
-						<div class="video-wrapper">
-							<iframe src="https://player.vimeo.com/video/121698707" allowfullscreen=""></iframe>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ============ HOW DOES IT WORK END ============ -->
-
-		<!-- ============ MOBILE APP START ============ -->
-
-		<section id="app" class="color2">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-5">
-						<div id="phone"></div>
-					</div>
-					<div class="col-sm-offset-1 col-sm-6">
-						<p> </p>
-						<h2>Get Jobseek app</h2>
-						<p>Curabitur et lorem a massa tempus aliquam. Aenean aliquam volutpat gravida. Pellentesque in neque nec tortor sagittis tempor quis in lectus. Vestibulum vehicula aliquet elit ut porta. Sed ipsum felis, interdum blandit purus sed, volutpat ultricies sem. Maecenas feugiat, lectus vitae luctus feugiat, nulla nisl dignissim velit, nec malesuada ligula orci et metus. In vulputate laoreet luctus.</p>
-						<p>
-							<a href="#" class="btn btn-default"><i class="fa fa-apple"></i> IOS</a>
-							<a href="#" class="btn btn-default"><i class="fa fa-android"></i> Android</a>
-						</p>
-						<p> </p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ============ MOBILE APP END ============ -->
-
-		<!-- ============ PRICING START ============ -->
-
-		<section id="pricing" class="text-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h1>Plans &amp; Pricing</h1>
-						<h4>Choose a package that fits your needs</h4>
-					</div>
-				</div>
-				<div class="row pricing">
-					<div class="col-sm-3">
-						<ul>
-							<li class="title">Free</li>
-							<li class="price">$0</li>
-							<li>1 job posting</li>
-							<li>No featured jobs</li>
-							<li>Displayed for 5 days</li>
-							<li><a href="post-a-job.xhtml" class="btn btn-primary">Choose</a></li>
-						</ul>
-					</div>
-					<div class="col-sm-3">
-						<ul class="popular">
-							<li class="title">Startup</li>
-							<li class="price">$19</li>
-							<li>1 job posting</li>
-							<li>No featured jobs</li>
-							<li>Displayed for 30 days</li>
-							<li><a href="post-a-job.xhtml" class="btn btn-primary">Choose</a></li>
-						</ul>
-					</div>
-					<div class="col-sm-3">
-						<ul>
-							<li class="title">Company</li>
-							<li class="price">$29</li>
-							<li>3 job postings</li>
-							<li>No featured jobs</li>
-							<li>Displayed for 60 days</li>
-							<li><a href="post-a-job.xhtml" class="btn btn-primary">Choose</a></li>
-						</ul>
-					</div>
-					<div class="col-sm-3">
-						<ul>
-							<li class="title">Enterprise</li>
-							<li class="price">$39</li>
-							<li>5 job postings</li>
-							<li>3 featured jobs</li>
-							<li>Displayed for 90 days</li>
-							<li><a href="post-a-job.xhtml" class="btn btn-primary">Choose</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ============ PRICING END ============ -->
+		<ui:insert name="pricing">		
+			<ui:include src="pricing.xhtml" />
+		</ui:insert>
 
 		<ui:insert name="testimonials">		
 			<ui:include src="testimonials.xhtml" />

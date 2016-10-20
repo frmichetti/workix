@@ -12,7 +12,7 @@ import br.com.codecode.akijob.model.scaffold.Job;
 import br.com.codecode.cdi.dao.Crud;
 
 @Model
-public class HomeMB {
+public class StatsMB {
 	
 	@Inject
 	private Crud<Job> jobDao;
@@ -33,7 +33,7 @@ public class HomeMB {
 	
 	private int counterResumes;
 	
-	public HomeMB() {
+	public StatsMB() {
 		// TODO Auto-generated constructor stub
 	}
 	

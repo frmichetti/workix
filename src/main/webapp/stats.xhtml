@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<ui:composition>
+	
+	<!-- ============ STATS START ============ -->
+
+		<section id="stats" class="parallax text-center">
+			<div class="tint"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h1>#{applicationMB.appName} Estatísticas</h1>
+						<h4>Quantas Pessoas Temos ajudado</h4>
+					</div>
+				</div>
+				<div class="row" id="counter">
+					
+					<div class="counter">
+						<div class="number">#{statsMB.counterCandidates}</div>
+						<div class="description">Members</div>
+					</div>
+				
+					<div class="counter">
+						<div class="number">#{statsMB.counterJobs}</div>
+						<div class="description">Jobs</div>
+					</div>
+				
+					<div class="counter">
+						<div class="number">#{statsMB.counterResumes}</div>
+						<div class="description">Resumes</div>
+					</div>
+				
+					<div class="counter">
+						<div class="number">#{statsMB.counterEmployeers}</div>
+						<div class="description">Companies</div>
+					</div>
+
+				</div>
+				<div class="row">
+					<div class="col-sm-12">
+						<p><a class="link-register btn btn-primary">Join Us</a></p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ============ STATS END ============ -->
+	
+	</ui:composition>
+</html>
