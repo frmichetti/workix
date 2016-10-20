@@ -21,6 +21,13 @@ public class MailSender {
 	@Resource(mappedName="java:jboss/mail/gmail")
 	private Session session;	
 
+	/**
+	 * Send Mail Message
+	 * @param from
+	 * @param to
+	 * @param subject
+	 * @param body
+	 */
 	public void send(String from,String to,String subject,String body){
 
 		Message mimeMessage =  new MimeMessage(session);

@@ -60,8 +60,11 @@ function toggleSignIn() {
 	// [START_EXCLUDE]	
 	$('#quickstart-sign-in').attr("disabled", true);
 	
-	// [END_EXCLUDE]
+	// [END_EXCLUDE]	
 }
+
+
+
 // [END buttoncallback]
 
 /**
@@ -70,6 +73,7 @@ function toggleSignIn() {
  *    out, and that is where we update the UI.
  */
 function initApp() {
+
 	// Listening for auth state changes.
 	// [START authstatelistener]
 	firebase.auth().onAuthStateChanged(function(user) {
@@ -123,7 +127,8 @@ function initApp() {
 		// [END_EXCLUDE]
 	});
 	// [END authstatelistener]	
-	$('#quickstart-sign-in').click(toggleSignIn);
+	//$('#quickstart-sign-in').click(toggleSignIn);
+	document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
 }
 
 window.onload = function() {

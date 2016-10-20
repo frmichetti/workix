@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import br.com.codecode.model.BasicEntity;
+import br.com.codecode.akijob.model.BasicEntity;
 
 
 

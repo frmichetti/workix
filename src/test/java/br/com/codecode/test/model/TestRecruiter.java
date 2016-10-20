@@ -1,17 +1,13 @@
 package br.com.codecode.test.model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
 import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.model.Recruiter;
-import br.com.codecode.model.SelectiveProcess;
-import br.com.codecode.model.scaffold.Candidate;
+import br.com.codecode.akijob.model.Recruiter;
+import br.com.codecode.akijob.model.SelectiveProcess;
+import br.com.codecode.akijob.model.scaffold.Candidate;
 
 public class TestRecruiter {
 

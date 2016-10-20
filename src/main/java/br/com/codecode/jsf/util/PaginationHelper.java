@@ -35,6 +35,7 @@ import javax.faces.model.DataModel;
 public abstract class PaginationHelper {
 
     private int pageSize;
+    
     private int page;
 
     public PaginationHelper(int pageSize) {
@@ -43,7 +44,7 @@ public abstract class PaginationHelper {
 
     public abstract int getItemsCount();
 
-    public abstract DataModel createPageDataModel();
+    public abstract DataModel<?> createPageDataModel();
 
     public int getPageFirstItem() {
         return page * pageSize;
