@@ -6,7 +6,7 @@
 		<description>Persistence Unit for Local MySQL Database</description>
 		<jta-data-source>java:/ds/jobseeker</jta-data-source>
 		<class>br.com.codecode.model.scaffold.Candidate</class>
-		<class>br.com.codecode.model.scaffold.Employeer</class>
+		<class>br.com.codecode.model.scaffold.Company</class>
 		<class>br.com.codecode.model.scaffold.Job</class>
 		<class>br.com.codecode.model.scaffold.SelectiveProcess</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>

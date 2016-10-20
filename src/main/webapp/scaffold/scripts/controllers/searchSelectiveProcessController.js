@@ -1,6 +1,6 @@
 
 
-angular.module('jobs').controller('SearchSelectiveProcessController', function($scope, $http, $filter, SelectiveProcessResource , JobResource, CandidateResource) {
+angular.module('akijob').controller('SearchSelectiveProcessController', function($scope, $http, $filter, SelectiveProcessResource , JobResource, CandidateResource) {
 
     $scope.search={};
     $scope.currentPage = 0;

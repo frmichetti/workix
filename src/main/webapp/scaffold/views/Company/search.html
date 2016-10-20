@@ -1,19 +1,19 @@
 <div class="form-horizontal">
-    <h3>Create a new Employeer</h3>
+    <h3>Create a new Company</h3>
     <div class="form-group">
         <div class="col-md-offset-2 col-sm-2">
-            <a id="Create" name="Create" class="btn btn-primary" href="#/Employeers/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Companies/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
         </div>
     </div>
 </div>
 <hr/>
 <div>
-    <h3>Search for Employeers</h3>
-    <form id="EmployeerSearch" class="form-horizontal">
+    <h3>Search for Companies</h3>
+    <form id="CompanySearch" class="form-horizontal">
             <div class="form-group">
         <label for="companySegment" class="col-sm-2 control-label">Company Segment</label>
         <div class="col-sm-10">
-            <input id="companySegment" name="companySegment" class="form-control" type="text" ng-model="search.companySegment" placeholder="Enter the Employeer Company Segment"></input>
+            <input id="companySegment" name="companySegment" class="form-control" type="text" ng-model="search.companySegment" placeholder="Enter the Company Company Segment"></input>
         </div>
     </div>
 
@@ -22,14 +22,14 @@
     <div class="form-group">
         <label for="name" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-10">
-            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Employeer Name"></input>
+            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Company Name"></input>
         </div>
     </div>
 
     <div class="form-group">
         <label for="cnpj" class="col-sm-2 control-label">Cnpj</label>
         <div class="col-sm-10">
-            <input id="cnpj" name="cnpj" class="form-control" type="text" ng-model="search.cnpj" placeholder="Enter the Employeer Cnpj"></input>
+            <input id="cnpj" name="cnpj" class="form-control" type="text" ng-model="search.cnpj" placeholder="Enter the Company Cnpj"></input>
         </div>
     </div>
 
@@ -53,9 +53,9 @@
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
-                    <td><a href="#/Employeers/edit/{{result.id}}">{{result.companySegment}}</a></td>
-                    <td><a href="#/Employeers/edit/{{result.id}}">{{result.name}}</a></td>
-                    <td><a href="#/Employeers/edit/{{result.id}}">{{result.cnpj}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.companySegment}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.name}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.cnpj}}</a></td>
                 </tr>
             </tbody>
         </table>

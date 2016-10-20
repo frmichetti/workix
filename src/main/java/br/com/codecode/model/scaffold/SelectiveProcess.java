@@ -43,9 +43,7 @@ public class SelectiveProcess implements Serializable, BasicEntity {
 	@Column
 	private boolean active;
 	
-	@Lob
-	@Column	
-	private String requirement;
+	
 
 	@Column(nullable = false)
 	private int maxCandidates;
@@ -120,15 +118,7 @@ public class SelectiveProcess implements Serializable, BasicEntity {
 
 	public void setActive(boolean active) {
 		this.active = active;
-	}
-
-	public String getRequirement() {
-		return requirement;
-	}
-
-	public void setRequirement(String requirement) {
-		this.requirement = requirement;
-	}
+	}	
 
 	public int getMaxCandidates() {
 		return maxCandidates;
@@ -138,15 +128,5 @@ public class SelectiveProcess implements Serializable, BasicEntity {
 		this.maxCandidates = maxCandidates;
 	}
 
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (uuid != null && !uuid.trim().isEmpty())
-			result += "uuid: " + uuid;
-		result += ", active: " + active;
-		if (requirement != null && !requirement.trim().isEmpty())
-			result += ", requirement: " + requirement;
-		result += ", maxCandidates: " + maxCandidates;
-		return result;
-	}
+	
 }

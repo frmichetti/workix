@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jobs').controller('FlashController', ['$scope','flash', function ($scope, flash) {
+angular.module('akijob').controller('FlashController', ['$scope','flash', function ($scope, flash) {
     $scope.flash = flash;
     $scope.showAlert = false;
 

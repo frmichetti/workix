@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('jobs').factory('flash', ['$rootScope', function ($rootScope) {
+angular.module('akijob').factory('flash', ['$rootScope', function ($rootScope) {
     var messages = [];
     var currentMessage = {};
 

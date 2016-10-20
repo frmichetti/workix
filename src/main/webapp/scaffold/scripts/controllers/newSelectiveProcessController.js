@@ -1,5 +1,5 @@
 
-angular.module('jobs').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , JobResource, CandidateResource) {
+angular.module('akijob').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , JobResource, CandidateResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.selectiveProcess = $scope.selectiveProcess || {};

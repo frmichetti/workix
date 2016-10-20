@@ -14,7 +14,7 @@ import br.com.codecode.model.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class Employeer implements Serializable, BasicEntity {
+public class Company implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -63,10 +63,10 @@ public class Employeer implements Serializable, BasicEntity {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Employeer)) {
+		if (!(obj instanceof Company)) {
 			return false;
 		}
-		Employeer other = (Employeer) obj;
+		Company other = (Company) obj;
 		if (id != null) {
 			if (!id.equals(other.id)) {
 				return false;

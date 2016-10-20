@@ -1,6 +1,6 @@
 
 
-angular.module('jobs').controller('EditJobController', function($scope, $routeParams, $location, flash, JobResource , EmployeerResource) {
+angular.module('akijob').controller('EditJobController', function($scope, $routeParams, $location, flash, JobResource , CompanyResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -9,7 +9,7 @@ angular.module('jobs').controller('EditJobController', function($scope, $routePa
         var successCallback = function(data){
             self.original = data;
             $scope.job = new JobResource(self.original);
-            EmployeerResource.queryAll(function(items) {
+            CompanyResource.queryAll(function(items) {
                 $scope.employeerSelectionList = $.map(items, function(item) {
                     var wrappedObject = {
                         id : item.id

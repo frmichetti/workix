@@ -1,6 +1,6 @@
 
 
-angular.module('jobs').controller('SearchJobController', function($scope, $http, $filter, JobResource , EmployeerResource) {
+angular.module('akijob').controller('SearchJobController', function($scope, $http, $filter, JobResource , CompanyResource) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -57,7 +57,7 @@ angular.module('jobs').controller('SearchJobController', function($scope, $http,
         "SE",
         "TO"
     ];
-    $scope.employeerList = EmployeerResource.queryAll();
+    $scope.employeerList = CompanyResource.queryAll();
     $scope.activeList = [
         "true",
         "false"

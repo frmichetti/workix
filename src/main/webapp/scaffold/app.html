@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="jobs">
+<html lang="en" ng-app="akijob">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Jobs</title>
+	<title>Akijob</title>
     <link href="styles/bootstrap.css" rel="stylesheet" media="screen">
     <link href="styles/bootstrap-theme.css" rel="stylesheet" media="screen">
     <link href="styles/main.css" rel="stylesheet" media="screen">
@@ -20,7 +20,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-				    <a class="navbar-brand" href="#">Jobs</a>
+				    <a class="navbar-brand" href="#">Akijob</a>
 			    </div>
 			</div>
     	</div>
@@ -35,7 +35,7 @@
                     <nav class="sidebar-nav" ng-controller="NavController" role="navigation">
                         <div id="sidebar-entries" class="list-group">
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Candidates')}" href="#/Candidates" data-toggle="offcanvas">Candidates</a>
-                        	<a class="list-group-item" ng-class="{active: matchesRoute('Employeers')}" href="#/Employeers" data-toggle="offcanvas">Employeers</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Companies')}" href="#/Companies" data-toggle="offcanvas">Companies</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Jobs')}" href="#/Jobs" data-toggle="offcanvas">Jobs</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('SelectiveProcesses')}" href="#/SelectiveProcesses" data-toggle="offcanvas">SelectiveProcesses</a>
                         </div>
@@ -81,10 +81,10 @@
     <script src="scripts/controllers/newCandidateController.js"></script>
     <script src="scripts/controllers/searchCandidateController.js"></script>
     <script src="scripts/controllers/editCandidateController.js"></script>
-    <script src="scripts/services/EmployeerFactory.js"></script>
-    <script src="scripts/controllers/newEmployeerController.js"></script>
-    <script src="scripts/controllers/searchEmployeerController.js"></script>
-    <script src="scripts/controllers/editEmployeerController.js"></script>
+    <script src="scripts/services/CompanyFactory.js"></script>
+    <script src="scripts/controllers/newCompanyController.js"></script>
+    <script src="scripts/controllers/searchCompanyController.js"></script>
+    <script src="scripts/controllers/editCompanyController.js"></script>
     <script src="scripts/services/JobFactory.js"></script>
     <script src="scripts/controllers/newJobController.js"></script>
     <script src="scripts/controllers/searchJobController.js"></script>

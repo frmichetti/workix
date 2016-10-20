@@ -1,15 +1,15 @@
 
-angular.module('jobs').controller('NewEmployeerController', function ($scope, $location, locationParser, flash, EmployeerResource ) {
+angular.module('akijob').controller('NewCompanyController', function ($scope, $location, locationParser, flash, CompanyResource ) {
     $scope.disabled = false;
     $scope.$location = $location;
-    $scope.employeer = $scope.employeer || {};
+    $scope.company = $scope.company || {};
     
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){
             var id = locationParser(responseHeaders);
-            flash.setMessage({'type':'success','text':'The employeer was created successfully.'});
-            $location.path('/Employeers');
+            flash.setMessage({'type':'success','text':'The company was created successfully.'});
+            $location.path('/Companies');
         };
         var errorCallback = function(response) {
             if(response && response.data) {
@@ -18,10 +18,10 @@ angular.module('jobs').controller('NewEmployeerController', function ($scope, $l
                 flash.setMessage({'type': 'error', 'text': 'Something broke. Retry, or cancel and start afresh.'}, true);
             }
         };
-        EmployeerResource.save($scope.employeer, successCallback, errorCallback);
+        CompanyResource.save($scope.company, successCallback, errorCallback);
     };
     
     $scope.cancel = function() {
-        $location.path("/Employeers");
+        $location.path("/Companies");
     };
 });

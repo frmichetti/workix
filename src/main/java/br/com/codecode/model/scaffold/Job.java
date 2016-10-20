@@ -52,6 +52,10 @@ public class Job implements Serializable, BasicEntity {
 	@Column(nullable = false)
 	private String description;
 	
+	@Lob
+	@Column	
+	private String requirement;
+	
 	@Column(nullable = false, updatable = false)
 	private Date start;
 
@@ -76,7 +80,7 @@ public class Job implements Serializable, BasicEntity {
 	private boolean active;
 	
 	@ManyToOne
-	private Employeer employeer;
+	private Company employeer;
 	
 	public Job() {
 		// TODO Auto-generated constructor stub
@@ -128,6 +132,14 @@ public class Job implements Serializable, BasicEntity {
 
 	public void setDescription(String resume) {
 		this.description = resume;
+	}
+	
+	public String getRequirement() {
+		return requirement;
+	}
+
+	public void setRequirement(String requirement) {
+		this.requirement = requirement;
 	}
 
 	public Date getStart() {
@@ -186,11 +198,11 @@ public class Job implements Serializable, BasicEntity {
 		this.active = active;
 	}
 
-	public Employeer getEmployeer() {
+	public Company getEmployeer() {
 		return employeer;
 	}
 
-	public void setEmployeer(Employeer employeer) {
+	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
 	}
 

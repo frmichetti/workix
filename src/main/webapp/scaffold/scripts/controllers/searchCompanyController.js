@@ -1,6 +1,6 @@
 
 
-angular.module('jobs').controller('SearchEmployeerController', function($scope, $http, $filter, EmployeerResource ) {
+angular.module('akijob').controller('SearchCompanyController', function($scope, $http, $filter, CompanyResource ) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -19,7 +19,7 @@ angular.module('jobs').controller('SearchEmployeerController', function($scope, 
     };
 
     $scope.performSearch = function() {
-        $scope.searchResults = EmployeerResource.queryAll(function(){
+        $scope.searchResults = CompanyResource.queryAll(function(){
             $scope.filteredResults = $filter('searchFilter')($scope.searchResults, $scope);
             $scope.currentPage = 0;
         });

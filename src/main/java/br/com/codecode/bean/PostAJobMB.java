@@ -11,12 +11,12 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
-import br.com.codecode.dao.EmployeerDao;
+import br.com.codecode.dao.CompanyDao;
 import br.com.codecode.dao.JobDao;
 import br.com.codecode.enumeration.Estate;
 import br.com.codecode.enumeration.JobCategory;
 import br.com.codecode.enumeration.JobType;
-import br.com.codecode.model.scaffold.Employeer;
+import br.com.codecode.model.scaffold.Company;
 import br.com.codecode.model.scaffold.Job;
 
 @Model
@@ -26,7 +26,7 @@ public class PostAJobMB {
 	private JobDao dao;
 	
 	@Inject
-	private EmployeerDao empDao;
+	private CompanyDao empDao;
 
 	private Job currentJob;
 	
@@ -36,7 +36,7 @@ public class PostAJobMB {
 	
 	private List<JobCategory> jobCategories;
 	
-	private List<Employeer> employeers;
+	private List<Company> employeers;
 
 	public PostAJobMB() {
 
@@ -97,7 +97,7 @@ public class PostAJobMB {
 
 	}
 
-	public List<Employeer> getEmployeers() {
+	public List<Company> getEmployeers() {
 		return employeers;
 	}
 

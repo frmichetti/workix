@@ -1,6 +1,6 @@
 
 
-angular.module('jobs').controller('EditEmployeerController', function($scope, $routeParams, $location, flash, EmployeerResource ) {
+angular.module('akijob').controller('EditCompanyController', function($scope, $routeParams, $location, flash, CompanyResource ) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -8,22 +8,22 @@ angular.module('jobs').controller('EditEmployeerController', function($scope, $r
     $scope.get = function() {
         var successCallback = function(data){
             self.original = data;
-            $scope.employeer = new EmployeerResource(self.original);
+            $scope.company = new CompanyResource(self.original);
         };
         var errorCallback = function() {
-            flash.setMessage({'type': 'error', 'text': 'The employeer could not be found.'});
-            $location.path("/Employeers");
+            flash.setMessage({'type': 'error', 'text': 'The company could not be found.'});
+            $location.path("/Companies");
         };
-        EmployeerResource.get({EmployeerId:$routeParams.EmployeerId}, successCallback, errorCallback);
+        CompanyResource.get({CompanyId:$routeParams.CompanyId}, successCallback, errorCallback);
     };
 
     $scope.isClean = function() {
-        return angular.equals(self.original, $scope.employeer);
+        return angular.equals(self.original, $scope.company);
     };
 
     $scope.save = function() {
         var successCallback = function(){
-            flash.setMessage({'type':'success','text':'The employeer was updated successfully.'}, true);
+            flash.setMessage({'type':'success','text':'The company was updated successfully.'}, true);
             $scope.get();
         };
         var errorCallback = function(response) {
@@ -33,17 +33,17 @@ angular.module('jobs').controller('EditEmployeerController', function($scope, $r
                 flash.setMessage({'type': 'error', 'text': 'Something broke. Retry, or cancel and start afresh.'}, true);
             }
         };
-        $scope.employeer.$update(successCallback, errorCallback);
+        $scope.company.$update(successCallback, errorCallback);
     };
 
     $scope.cancel = function() {
-        $location.path("/Employeers");
+        $location.path("/Companies");
     };
 
     $scope.remove = function() {
         var successCallback = function() {
-            flash.setMessage({'type': 'error', 'text': 'The employeer was deleted.'});
-            $location.path("/Employeers");
+            flash.setMessage({'type': 'error', 'text': 'The company was deleted.'});
+            $location.path("/Companies");
         };
         var errorCallback = function(response) {
             if(response && response.data && response.data.message) {
@@ -52,7 +52,7 @@ angular.module('jobs').controller('EditEmployeerController', function($scope, $r
                 flash.setMessage({'type': 'error', 'text': 'Something broke. Retry, or cancel and start afresh.'}, true);
             }
         }; 
-        $scope.employeer.$remove(successCallback, errorCallback);
+        $scope.company.$remove(successCallback, errorCallback);
     };
     
     

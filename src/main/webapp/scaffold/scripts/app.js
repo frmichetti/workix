@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('jobs',['ngRoute','ngResource'])
+angular.module('akijob',['ngRoute','ngResource'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/',{templateUrl:'views/landing.html',controller:'LandingPageController'})
       .when('/Candidates',{templateUrl:'views/Candidate/search.html',controller:'SearchCandidateController'})
       .when('/Candidates/new',{templateUrl:'views/Candidate/detail.html',controller:'NewCandidateController'})
       .when('/Candidates/edit/:CandidateId',{templateUrl:'views/Candidate/detail.html',controller:'EditCandidateController'})
-      .when('/Employeers',{templateUrl:'views/Employeer/search.html',controller:'SearchEmployeerController'})
-      .when('/Employeers/new',{templateUrl:'views/Employeer/detail.html',controller:'NewEmployeerController'})
-      .when('/Employeers/edit/:EmployeerId',{templateUrl:'views/Employeer/detail.html',controller:'EditEmployeerController'})
+      .when('/Companies',{templateUrl:'views/Company/search.html',controller:'SearchCompanyController'})
+      .when('/Companies/new',{templateUrl:'views/Company/detail.html',controller:'NewCompanyController'})
+      .when('/Companies/edit/:CompanyId',{templateUrl:'views/Company/detail.html',controller:'EditCompanyController'})
       .when('/Jobs',{templateUrl:'views/Job/search.html',controller:'SearchJobController'})
       .when('/Jobs/new',{templateUrl:'views/Job/detail.html',controller:'NewJobController'})
       .when('/Jobs/edit/:JobId',{templateUrl:'views/Job/detail.html',controller:'EditJobController'})

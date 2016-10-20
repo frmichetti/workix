@@ -7,7 +7,7 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import br.com.codecode.dao.CandidateDao;
-import br.com.codecode.dao.EmployeerDao;
+import br.com.codecode.dao.CompanyDao;
 import br.com.codecode.dao.JobDao;
 import br.com.codecode.model.scaffold.Job;
 
@@ -18,7 +18,7 @@ public class HomeMB {
 	private JobDao jobDao;
 	
 	@Inject
-	private EmployeerDao empDao;
+	private CompanyDao empDao;
 	
 	@Inject
 	private CandidateDao candDao;

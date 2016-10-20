@@ -1,5 +1,5 @@
 
-angular.module('jobs').controller('NewJobController', function ($scope, $location, locationParser, flash, JobResource , EmployeerResource) {
+angular.module('akijob').controller('NewJobController', function ($scope, $location, locationParser, flash, JobResource , CompanyResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.job = $scope.job || {};
@@ -47,7 +47,7 @@ angular.module('jobs').controller('NewJobController', function ($scope, $locatio
         "TO"
     ];
     
-    $scope.employeerList = EmployeerResource.queryAll(function(items){
+    $scope.employeerList = CompanyResource.queryAll(function(items){
         $scope.employeerSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
