@@ -9,32 +9,39 @@ import javax.inject.Named;
 @Named
 public class NavigationMB {
 	
-	private String context; 
+	private String prefix;
 	
+	private String sufix; 	
 	
 	public NavigationMB() {
-		context = "/jobs";
+		prefix = "/jobs";
+		sufix = "?faces-redirect=true";
 	}
 	
 	public String goToIndex(){
-		return context + "/index.xhtml";
+		return prefix + "/index.xhtml" + sufix;
 	}
 	
 	public String goToJobs(){
-		return context + "/jobs.xhtml";
+		return prefix + "/jobs.xhtml" + sufix;
 	}
 	
 	public String goToPostAJob(){
-		return context + "/post-a-job.xhtml";
+		return prefix + "/post-a-job.xhtml" + sufix;
 	}
 	
 	public String goToCandidates(){
-		return context + "/candidates.xhtml";
+		return prefix + "/candidates.xhtml" + sufix;
 	}
 	
 	
 	public String goToPostAResume(){
-		return context + "/post-a-resume.xhtml";
+		return prefix + "/post-a-resume.xhtml" + sufix;
+	}
+
+	
+	public String goToAboutUs(){
+		return prefix + "/about.xhtml" + sufix;
 	}
 
 }

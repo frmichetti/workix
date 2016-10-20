@@ -1,6 +1,5 @@
 package br.com.codecode.bean;
 
-import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
@@ -24,9 +23,7 @@ public class HomeMB {
 	@Inject
 	private CandidateDao candDao;
 	
-	private Collection<Job> joblist;
-	
-	private int year;
+	private Collection<Job> joblist;	
 	
 	private int counterJobs;
 	
@@ -35,6 +32,24 @@ public class HomeMB {
 	private int counterEmployeers;	
 	
 	private int counterResumes;
+	
+	public HomeMB() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	@PostConstruct
+	private void init(){
+		
+		joblist = jobDao.listAll(0, Integer.MAX_VALUE);
+		
+		counterJobs =  jobDao.listAll(0, Integer.MAX_VALUE).size();
+		
+		counterEmployeers =  empDao.listAll(0, Integer.MAX_VALUE).size();
+		
+		counterCandidates = candDao.listAll(0, Integer.MAX_VALUE).size();	
+		
+		
+	}
 	
 	public int getCounterJobs() {
 		return counterJobs;
@@ -50,35 +65,13 @@ public class HomeMB {
 
 	public int getCounterResumes() {
 		return counterResumes;
-	}
-
-	public HomeMB() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	@PostConstruct
-	private void init(){
-		
-		joblist = jobDao.listAll(0, 100);
-		
-		counterJobs =  jobDao.listAll(0, Integer.MAX_VALUE).size();
-		
-		counterEmployeers =  empDao.listAll(0, Integer.MAX_VALUE).size();
-		
-		counterCandidates = candDao.listAll(0, Integer.MAX_VALUE).size();
-		
-		year = LocalDate.now().getYear();
-		
-		
-	}
+	}	
 
 	public Collection<Job> getJoblist() {
 		return joblist;
 	}
 
-	public int getYear() {
-		return year;
-	}
+	
 
 	
 

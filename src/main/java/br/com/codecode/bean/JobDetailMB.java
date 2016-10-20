@@ -1,8 +1,5 @@
 package br.com.codecode.bean;
 
-import java.math.BigDecimal;
-
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
