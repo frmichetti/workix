@@ -13,6 +13,27 @@
         
 
     <div class="form-group">
+        <label for="content" class="col-sm-2 control-label">Content</label>
+        <div class="col-sm-10">
+            <input id="content" name="content" class="form-control" type="text" ng-model="search.content" placeholder="Enter the Resume Content"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="experiences" class="col-sm-2 control-label">Experiences</label>
+        <div class="col-sm-10">
+            <input id="experiences" name="experiences" class="form-control" type="text" ng-model="search.experiences" placeholder="Enter the Resume Experiences"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="educations" class="col-sm-2 control-label">Educations</label>
+        <div class="col-sm-10">
+            <input id="educations" name="educations" class="form-control" type="text" ng-model="search.educations" placeholder="Enter the Resume Educations"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="candidate" class="col-sm-2 control-label">Candidate</label>
         <div class="col-sm-10">
             <select id="candidate" name="candidate" class="form-control" ng-model="search.candidate" ng-options="c as c.id for c in candidateList">
@@ -34,11 +55,17 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
+                    <th>Content</th>
+                    <th>Experiences</th>
+                    <th>Educations</th>
                     <th>Candidate</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Resumes/edit/{{result.id}}">{{result.content}}</a></td>
+                    <td><a href="#/Resumes/edit/{{result.id}}">{{result.experiences}}</a></td>
+                    <td><a href="#/Resumes/edit/{{result.id}}">{{result.educations}}</a></td>
                         <td><a href="#/Resumes/edit/{{result.id}}">{{result.candidate.id}}</a></td>
                 </tr>
             </tbody>
