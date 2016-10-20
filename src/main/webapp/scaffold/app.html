@@ -37,7 +37,9 @@
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Candidates')}" href="#/Candidates" data-toggle="offcanvas">Candidates</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Companies')}" href="#/Companies" data-toggle="offcanvas">Companies</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Jobs')}" href="#/Jobs" data-toggle="offcanvas">Jobs</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Resumes')}" href="#/Resumes" data-toggle="offcanvas">Resumes</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('SelectiveProcesses')}" href="#/SelectiveProcesses" data-toggle="offcanvas">SelectiveProcesses</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Users')}" href="#/Users" data-toggle="offcanvas">Users</a>
                         </div>
                     </nav>
                 </div>
@@ -89,9 +91,17 @@
     <script src="scripts/controllers/newJobController.js"></script>
     <script src="scripts/controllers/searchJobController.js"></script>
     <script src="scripts/controllers/editJobController.js"></script>
+    <script src="scripts/services/ResumeFactory.js"></script>
+    <script src="scripts/controllers/newResumeController.js"></script>
+    <script src="scripts/controllers/searchResumeController.js"></script>
+    <script src="scripts/controllers/editResumeController.js"></script>
     <script src="scripts/services/SelectiveProcessFactory.js"></script>
     <script src="scripts/controllers/newSelectiveProcessController.js"></script>
     <script src="scripts/controllers/searchSelectiveProcessController.js"></script>
     <script src="scripts/controllers/editSelectiveProcessController.js"></script>
+    <script src="scripts/services/UserFactory.js"></script>
+    <script src="scripts/controllers/newUserController.js"></script>
+    <script src="scripts/controllers/searchUserController.js"></script>
+    <script src="scripts/controllers/editUserController.js"></script>
 </body>
 </html>

@@ -20,30 +20,30 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-import br.com.codecode.model.scaffold.Candidate;
+import br.com.codecode.model.scaffold.User;
 
 /**
  * 
  */
 @Stateless
-@Path("/candidates")
-public class CandidateEndpoint {
+@Path("/users")
+public class UserEndpoint {
 	@PersistenceContext(unitName = "JPU")
 	private EntityManager em;
 
 	@POST
 	@Consumes("application/json")
-	public Response create(Candidate entity) {
+	public Response create(User entity) {
 		em.persist(entity);
 		return Response.created(
-				UriBuilder.fromResource(CandidateEndpoint.class)
+				UriBuilder.fromResource(UserEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
 	}
 
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") Long id) {
-		Candidate entity = em.find(Candidate.class, id);
+		User entity = em.find(User.class, id);
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -55,12 +55,12 @@ public class CandidateEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") Long id) {
-		TypedQuery<Candidate> findByIdQuery = em
+		TypedQuery<User> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT c FROM Candidate c LEFT JOIN FETCH c.user WHERE c.id = :entityId ORDER BY c.id",
-						Candidate.class);
+						"SELECT DISTINCT u FROM User u WHERE u.id = :entityId ORDER BY u.id",
+						User.class);
 		findByIdQuery.setParameter("entityId", id);
-		Candidate entity;
+		User entity;
 		try {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
@@ -74,26 +74,24 @@ public class CandidateEndpoint {
 
 	@GET
 	@Produces("application/json")
-	public List<Candidate> listAll(@QueryParam("start") Integer startPosition,
+	public List<User> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
-		TypedQuery<Candidate> findAllQuery = em
-				.createQuery(
-						"SELECT DISTINCT c FROM Candidate c LEFT JOIN FETCH c.user ORDER BY c.id",
-						Candidate.class);
+		TypedQuery<User> findAllQuery = em.createQuery(
+				"SELECT DISTINCT u FROM User u ORDER BY u.id", User.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
-		final List<Candidate> results = findAllQuery.getResultList();
+		final List<User> results = findAllQuery.getResultList();
 		return results;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
-	public Response update(@PathParam("id") Long id, Candidate entity) {
+	public Response update(@PathParam("id") Long id, User entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
@@ -103,7 +101,7 @@ public class CandidateEndpoint {
 		if (!id.equals(entity.getId())) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
-		if (em.find(Candidate.class, id) == null) {
+		if (em.find(User.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {

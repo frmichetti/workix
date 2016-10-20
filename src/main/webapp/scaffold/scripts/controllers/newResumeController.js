@@ -1,21 +1,21 @@
 
-angular.module('akijob').controller('NewCandidateController', function ($scope, $location, locationParser, flash, CandidateResource , UserResource) {
+angular.module('akijob').controller('NewResumeController', function ($scope, $location, locationParser, flash, ResumeResource , CandidateResource) {
     $scope.disabled = false;
     $scope.$location = $location;
-    $scope.candidate = $scope.candidate || {};
+    $scope.resume = $scope.resume || {};
     
-    $scope.userList = UserResource.queryAll(function(items){
-        $scope.userSelectionList = $.map(items, function(item) {
+    $scope.candidateList = CandidateResource.queryAll(function(items){
+        $scope.candidateSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
                 text : item.id
             });
         });
     });
-    $scope.$watch("userSelection", function(selection) {
+    $scope.$watch("candidateSelection", function(selection) {
         if ( typeof selection != 'undefined') {
-            $scope.candidate.user = {};
-            $scope.candidate.user.id = selection.value;
+            $scope.resume.candidate = {};
+            $scope.resume.candidate.id = selection.value;
         }
     });
     
@@ -23,8 +23,8 @@ angular.module('akijob').controller('NewCandidateController', function ($scope, 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){
             var id = locationParser(responseHeaders);
-            flash.setMessage({'type':'success','text':'The candidate was created successfully.'});
-            $location.path('/Candidates');
+            flash.setMessage({'type':'success','text':'The resume was created successfully.'});
+            $location.path('/Resumes');
         };
         var errorCallback = function(response) {
             if(response && response.data) {
@@ -33,10 +33,10 @@ angular.module('akijob').controller('NewCandidateController', function ($scope, 
                 flash.setMessage({'type': 'error', 'text': 'Something broke. Retry, or cancel and start afresh.'}, true);
             }
         };
-        CandidateResource.save($scope.candidate, successCallback, errorCallback);
+        ResumeResource.save($scope.resume, successCallback, errorCallback);
     };
     
     $scope.cancel = function() {
-        $location.path("/Candidates");
+        $location.path("/Resumes");
     };
 });

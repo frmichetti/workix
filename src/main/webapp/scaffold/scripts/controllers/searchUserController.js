@@ -1,6 +1,6 @@
 
 
-angular.module('akijob').controller('SearchCandidateController', function($scope, $http, $filter, CandidateResource , UserResource) {
+angular.module('akijob').controller('SearchUserController', function($scope, $http, $filter, UserResource ) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -17,10 +17,9 @@ angular.module('akijob').controller('SearchCandidateController', function($scope
         }
         return max;
     };
-    $scope.userList = UserResource.queryAll();
 
     $scope.performSearch = function() {
-        $scope.searchResults = CandidateResource.queryAll(function(){
+        $scope.searchResults = UserResource.queryAll(function(){
             $scope.filteredResults = $filter('searchFilter')($scope.searchResults, $scope);
             $scope.currentPage = 0;
         });

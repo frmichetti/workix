@@ -13,9 +13,15 @@ angular.module('akijob',['ngRoute','ngResource'])
       .when('/Jobs',{templateUrl:'views/Job/search.html',controller:'SearchJobController'})
       .when('/Jobs/new',{templateUrl:'views/Job/detail.html',controller:'NewJobController'})
       .when('/Jobs/edit/:JobId',{templateUrl:'views/Job/detail.html',controller:'EditJobController'})
+      .when('/Resumes',{templateUrl:'views/Resume/search.html',controller:'SearchResumeController'})
+      .when('/Resumes/new',{templateUrl:'views/Resume/detail.html',controller:'NewResumeController'})
+      .when('/Resumes/edit/:ResumeId',{templateUrl:'views/Resume/detail.html',controller:'EditResumeController'})
       .when('/SelectiveProcesses',{templateUrl:'views/SelectiveProcess/search.html',controller:'SearchSelectiveProcessController'})
       .when('/SelectiveProcesses/new',{templateUrl:'views/SelectiveProcess/detail.html',controller:'NewSelectiveProcessController'})
       .when('/SelectiveProcesses/edit/:SelectiveProcessId',{templateUrl:'views/SelectiveProcess/detail.html',controller:'EditSelectiveProcessController'})
+      .when('/Users',{templateUrl:'views/User/search.html',controller:'SearchUserController'})
+      .when('/Users/new',{templateUrl:'views/User/detail.html',controller:'NewUserController'})
+      .when('/Users/edit/:UserId',{templateUrl:'views/User/detail.html',controller:'EditUserController'})
       .otherwise({
         redirectTo: '/'
       });

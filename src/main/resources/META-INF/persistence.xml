@@ -8,7 +8,9 @@
 		<class>br.com.codecode.model.scaffold.Candidate</class>
 		<class>br.com.codecode.model.scaffold.Company</class>
 		<class>br.com.codecode.model.scaffold.Job</class>
+		<class>br.com.codecode.model.scaffold.Resume</class>
 		<class>br.com.codecode.model.scaffold.SelectiveProcess</class>
+		<class>br.com.codecode.model.scaffold.User</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 		<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>		

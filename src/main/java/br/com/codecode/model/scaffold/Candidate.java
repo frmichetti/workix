@@ -11,6 +11,8 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.model.BasicEntity;
+import br.com.codecode.model.scaffold.User;
+import javax.persistence.OneToOne;
 
 @Entity
 @XmlRootElement
@@ -30,6 +32,9 @@ public class Candidate implements Serializable, BasicEntity {
 
 	@Column(nullable = false)
 	private String cpf;
+
+	@OneToOne
+	private User user;
 
 	public Long getId() {
 		return this.id;
@@ -86,6 +91,14 @@ public class Candidate implements Serializable, BasicEntity {
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

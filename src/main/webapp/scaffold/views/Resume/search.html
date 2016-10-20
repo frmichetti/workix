@@ -1,36 +1,22 @@
 <div class="form-horizontal">
-    <h3>Create a new Candidate</h3>
+    <h3>Create a new Resume</h3>
     <div class="form-group">
         <div class="col-md-offset-2 col-sm-2">
-            <a id="Create" name="Create" class="btn btn-primary" href="#/Candidates/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Resumes/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
         </div>
     </div>
 </div>
 <hr/>
 <div>
-    <h3>Search for Candidates</h3>
-    <form id="CandidateSearch" class="form-horizontal">
+    <h3>Search for Resumes</h3>
+    <form id="ResumeSearch" class="form-horizontal">
         
 
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Name</label>
+        <label for="candidate" class="col-sm-2 control-label">Candidate</label>
         <div class="col-sm-10">
-            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Candidate Name"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="cpf" class="col-sm-2 control-label">Cpf</label>
-        <div class="col-sm-10">
-            <input id="cpf" name="cpf" class="form-control" type="text" ng-model="search.cpf" placeholder="Enter the Candidate Cpf"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="user" class="col-sm-2 control-label">User</label>
-        <div class="col-sm-10">
-            <select id="user" name="user" class="form-control" ng-model="search.user" ng-options="u as u.id for u in userList">
-                <option value="">Choose a User</option>
+            <select id="candidate" name="candidate" class="form-control" ng-model="search.candidate" ng-options="c as c.id for c in candidateList">
+                <option value="">Choose a Candidate</option>
             </select>
         </div>
     </div>
@@ -48,16 +34,12 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>Cpf</th>
-                    <th>User</th>
+                    <th>Candidate</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
-                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.name}}</a></td>
-                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.cpf}}</a></td>
-                        <td><a href="#/Candidates/edit/{{result.id}}">{{result.user.id}}</a></td>
+                        <td><a href="#/Resumes/edit/{{result.id}}">{{result.candidate.id}}</a></td>
                 </tr>
             </tbody>
         </table>
