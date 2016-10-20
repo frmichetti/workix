@@ -25,7 +25,7 @@ public class ApplicationMB {
 	@PostConstruct
 	private void init(){
 		
-		appName = "AkiJob";
+		appName = "OpenJobs";
 		
 		year = LocalDate.now().getYear();
 	}
