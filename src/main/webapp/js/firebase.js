@@ -77,11 +77,17 @@ function initApp() {
 		if (user) {
 			// User is signed in.
 			var displayName = user.displayName;
+			
 			var email = user.email;
+			
 			var emailVerified = user.emailVerified;
+			
 			var photoURL = user.photoURL;
+			
 			var isAnonymous = user.isAnonymous;
+			
 			var uid = user.uid;
+			
 			var providerData = user.providerData;
 			
 			console.info("Logged UserName")
@@ -98,18 +104,18 @@ function initApp() {
 			
 			
 			// [START_EXCLUDE]
-			$('#quickstart-sign-in-status').text('Signed in');
-			$('#quickstart-sign-in').text('Sign out');
-			$('#quickstart-account-details').text(JSON.stringify(user, null, '  '));			
+			$('#quickstart-sign-in-status').text('Signed in');			
+			
+			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + email + '\n Sign out ' +"");		
 			
 			// [END_EXCLUDE]
 		} else {
 			// User is signed out.
 			// [START_EXCLUDE]
 			$('#quickstart-sign-in-status').text('Signed out');
-			$('#quickstart-sign-in').text('Sign in with Google');
-			$('#quickstart-account-details').text('null');
-			$('quickstart-oauthtoken').text('null');		
+			
+			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + 'Sign in with Google');
+	
 			// [END_EXCLUDE]
 		}
 		// [START_EXCLUDE]		
