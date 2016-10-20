@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+	<!-- 
+		Replace path to template, title, header and body
+		with actual data.
+	 -->
+	<ui:composition>
+	
+				<!-- ============ COMMON SCRIPTS ============ -->	
+
+		<!-- Modernizr Plugin -->
+		<script src="js/modernizr.custom.79639.js"></script>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="js/jquery-1.11.2.min.js"></script>
+
+		<!-- Bootstrap Plugins -->
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- Retina Plugin -->
+		<script src="js/retina.min.js"></script>
+
+		<!-- ScrollReveal Plugin -->
+		<script src="js/scrollReveal.min.js"></script>
+
+		<!-- Flex Menu Plugin -->
+		<script src="js/jquery.flexmenu.js"></script>
+
+		<!-- Slider Plugin -->
+		<script src="js/jquery.ba-cond.min.js"></script>
+		<script src="js/jquery.slitslider.js"></script>
+
+		<!-- Carousel Plugin -->
+		<script src="js/owl.carousel.min.js"></script>
+
+		<!-- Parallax Plugin -->
+		<script src="js/parallax.js"></script>
+
+		<!-- Counterup Plugin -->
+		<script src="js/jquery.counterup.min.js"></script>
+		<script src="js/waypoints.min.js"></script>
+
+		<!-- No UI Slider Plugin -->
+		<script src="js/jquery.nouislider.all.min.js"></script>
+
+		<!-- Bootstrap Wysiwyg Plugin -->
+		<script src="js/bootstrap3-wysihtml5.all.min.js"></script>
+
+		<!-- Flickr Plugin -->
+		<script src="js/jflickrfeed.min.js"></script>
+
+		<!-- Fancybox Plugin -->
+		<script src="js/fancybox.pack.js"></script>
+<ui:remove>
+		<!-- Magic Form Processing -->
+		<script src="js/magic.js"></script>
+</ui:remove>
+		<!-- jQuery Settings -->
+		<script src="js/settings.js"></script>
+
+		<!-- Firebase Scripts -->
+		<script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+		<script type="text/javascript" src="js/firebase.js"></script>
+		
+		<script type="text/javascript">
+
+		
+
+		$(document).ready(function() {
+
+			console.info("Navigation Hack")
+
+			var href = document.location.href;
+
+			console.info(href);
+
+			var lastPathSegment = href.substr(href.lastIndexOf('/') + 1);
+
+			console.info(lastPathSegment);
+
+			var compareString = lastPathSegment.replace('#','');	
+
+			console.info("compare String -> " + compareString);	
+
+			switch(compareString) {
+
+			<!-- fix me -->
+
+			case "index.xhtml":
+			
+			case "index.xhtml?faces-redirect=true":
+				$("body > div > div > div.fm-container > div > ul > li:nth-child(1)").toggleClass("active");
+			break;
+
+			case "jobs.xhtml":
+					
+		    case "jobs.xhtml?faces-redirect=true":
+		    	$("body > div > div > div.fm-container > div > ul > li:nth-child(2)").toggleClass("active");
+		        break;
+
+		    case "post-a-job.xhtml":
+		        
+		    case "post-a-job.xhtml?faces-redirect=true":
+		        $("body > div > div > div.fm-container > div > ul > li:nth-child(3)").toggleClass("active");
+		        break;
+
+		        
+		    case "checkout.xhtml?faces-redirect=true":
+		        $("body > div > div > div.fm-container > div > ul > li:nth-child(4)").toggleClass("active");
+			case "shop.xhtml?faces-redirect=true":
+				$("body > div > div > div.fm-container > div > ul > li:nth-child(5)").toggleClass("active");
+		        break;   
+
+		}
+
+			
+			
+		});
+		
+			
+		</script>
+		
+		<!-- ============ COMMON SCRIPTS ============ -->
+	
+	</ui:composition>
+
+</html>
