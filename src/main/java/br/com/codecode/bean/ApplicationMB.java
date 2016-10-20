@@ -17,7 +17,9 @@ public class ApplicationMB {
 	private int year;
 	
 	public ApplicationMB() {
-		// TODO Auto-generated constructor stub
+		
+		System.out.println("[CDI - " + this.getClass().getSimpleName() + "]");
+
 	}
 	
 	@PostConstruct

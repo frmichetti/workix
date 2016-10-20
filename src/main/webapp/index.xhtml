@@ -13,7 +13,7 @@
 		<link rel="shortcut icon" href="images/favicon.png" />
 
 		<!-- Main Stylesheet -->
-		<link href="css/style.css" rel="stylesheet" />
+		<link href="css/style.css" rel="stylesheet" />		
 
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -756,7 +756,7 @@
 
 		<ui:insert name="register">		
 			<ui:include src="register.xhtml" />
-		</ui:insert>
+		</ui:insert>		
 
 		<!-- Modernizr Plugin -->
 		<script src="js/modernizr.custom.79639.js"></script>
@@ -807,7 +807,11 @@
 </ui:remove>
 		<!-- jQuery Settings -->
 		<script src="js/settings.js"></script>
-
+<ui:remove>	
+		<!-- Firebase Scripts -->
+		<script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
+		<script type="text/javascript" src="js/firebase.js"></script>
+</ui:remove>
 
 	</body>
 </html>

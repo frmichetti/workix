@@ -18,7 +18,7 @@ public class HomeMB {
 	private JobDao jobDao;
 	
 	@Inject
-	private CompanyDao empDao;
+	private CompanyDao companyDao;
 	
 	@Inject
 	private CandidateDao candDao;
@@ -44,7 +44,7 @@ public class HomeMB {
 		
 		counterJobs =  jobDao.listAll(0, Integer.MAX_VALUE).size();
 		
-		counterEmployeers =  empDao.listAll(0, Integer.MAX_VALUE).size();
+		counterEmployeers =  companyDao.listAll(0, Integer.MAX_VALUE).size();
 		
 		counterCandidates = candDao.listAll(0, Integer.MAX_VALUE).size();	
 		

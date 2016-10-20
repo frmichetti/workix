@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 import br.com.codecode.model.scaffold.Company;
 
 /**
- * DAO for Employeer
+ * DAO for Company
  */
 @Stateless
 public class CompanyDao {
@@ -37,7 +37,7 @@ public class CompanyDao {
 
 	public List<Company> listAll(Integer startPosition, Integer maxResult) {
 		TypedQuery<Company> findAllQuery = em.createQuery(
-				"SELECT DISTINCT e FROM Employeer e ORDER BY e.id",
+				"SELECT DISTINCT c FROM Company c ORDER BY c.id",
 				Company.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
