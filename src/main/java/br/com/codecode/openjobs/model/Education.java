@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.model;
+package br.com.codecode.openjobs.model;
 
 import java.util.Date;
 

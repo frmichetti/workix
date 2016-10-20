@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.model;
+package br.com.codecode.openjobs.model;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
-import br.com.codecode.akijob.model.scaffold.Candidate;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 public class SelectiveProcess extends Observable implements Observer,Serializable  {
 

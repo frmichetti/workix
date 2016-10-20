@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.bean;
+package br.com.codecode.openjobs.bean;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -10,12 +10,12 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
-import br.com.codecode.akijob.model.enumeration.Estate;
-import br.com.codecode.akijob.model.enumeration.JobCategory;
-import br.com.codecode.akijob.model.enumeration.JobType;
-import br.com.codecode.akijob.model.scaffold.Company;
-import br.com.codecode.akijob.model.scaffold.Job;
 import br.com.codecode.cdi.dao.Crud;
+import br.com.codecode.openjobs.model.enumeration.Estate;
+import br.com.codecode.openjobs.model.enumeration.JobCategory;
+import br.com.codecode.openjobs.model.enumeration.JobType;
+import br.com.codecode.openjobs.model.scaffold.Company;
+import br.com.codecode.openjobs.model.scaffold.Job;
 
 @Model
 public class PostAJobMB {

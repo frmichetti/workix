@@ -7,7 +7,7 @@ import javax.jms.Destination;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 
-import br.com.codecode.akijob.model.scaffold.User;
+import br.com.codecode.openjobs.model.scaffold.User;
 
 
 public class UserObserver {	

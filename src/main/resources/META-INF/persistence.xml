@@ -5,12 +5,12 @@
 	<persistence-unit name="JPU" transaction-type="JTA">
 		<description>Persistence Unit for Local MySQL Database</description>
 		<jta-data-source>java:/ds/jobseeker</jta-data-source>
-		<class>br.com.codecode.akijob.model.scaffold.Candidate</class>
-		<class>br.com.codecode.akijob.model.scaffold.Company</class>
-		<class>br.com.codecode.akijob.model.scaffold.Job</class>
-		<class>br.com.codecode.akijob.model.scaffold.Resume</class>
-		<class>br.com.codecode.akijob.model.scaffold.SelectiveProcess</class>
-		<class>br.com.codecode.akijob.model.scaffold.User</class>
+		<class>br.com.codecode.openjobs.model.scaffold.Candidate</class>
+		<class>br.com.codecode.openjobs.model.scaffold.Company</class>
+		<class>br.com.codecode.openjobs.model.scaffold.Job</class>
+		<class>br.com.codecode.openjobs.model.scaffold.Resume</class>
+		<class>br.com.codecode.openjobs.model.scaffold.SelectiveProcess</class>
+		<class>br.com.codecode.openjobs.model.scaffold.User</class>
 		<class>br.com.codecode.security.JAASRole</class>
 		<class>br.com.codecode.security.JAASUser</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>

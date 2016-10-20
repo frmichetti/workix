@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.model.scaffold;
+package br.com.codecode.openjobs.model.scaffold;
 
 import java.io.Serializable;
 
@@ -10,11 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.codecode.akijob.model.BasicEntity;
+import br.com.codecode.openjobs.model.BasicEntity;
+import br.com.codecode.openjobs.model.scaffold.User;
+
+import javax.persistence.OneToOne;
 
 @Entity
 @XmlRootElement
-public class Company implements Serializable, BasicEntity {
+public class Candidate implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -27,20 +30,12 @@ public class Company implements Serializable, BasicEntity {
 
 	@Column(nullable = false)
 	private String name;
-	
-	@Column
-	private String companySegment;	
-
-	public String getCompanySegment() {
-		return companySegment;
-	}
-
-	public void setCompanySegment(String companySegment) {
-		this.companySegment = companySegment;
-	}
 
 	@Column(nullable = false)
-	private String cnpj;
+	private String cpf;
+
+	@OneToOne
+	private User user;
 
 	public Long getId() {
 		return this.id;
@@ -63,10 +58,10 @@ public class Company implements Serializable, BasicEntity {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Company)) {
+		if (!(obj instanceof Candidate)) {
 			return false;
 		}
-		Company other = (Company) obj;
+		Candidate other = (Candidate) obj;
 		if (id != null) {
 			if (!id.equals(other.id)) {
 				return false;
@@ -91,12 +86,20 @@ public class Company implements Serializable, BasicEntity {
 		this.name = name;
 	}
 
-	public String getCnpj() {
-		return cnpj;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -104,8 +107,8 @@ public class Company implements Serializable, BasicEntity {
 		String result = getClass().getSimpleName() + " ";
 		if (name != null && !name.trim().isEmpty())
 			result += "name: " + name;
-		if (cnpj != null && !cnpj.trim().isEmpty())
-			result += ", cnpj: " + cnpj;
+		if (cpf != null && !cpf.trim().isEmpty())
+			result += ", cpf: " + cpf;
 		return result;
 	}
 }

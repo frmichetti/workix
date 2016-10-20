@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.bean;
+package br.com.codecode.openjobs.bean;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.bean;
+package br.com.codecode.openjobs.bean;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;

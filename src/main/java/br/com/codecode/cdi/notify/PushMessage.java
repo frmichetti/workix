@@ -13,8 +13,8 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 
-import br.com.codecode.akijob.model.scaffold.Candidate;
 import br.com.codecode.cdi.qualifier.Push;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
 import br.com.codecode.util.Http;
 
 

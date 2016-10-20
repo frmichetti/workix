@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.akijob.model;
+package br.com.codecode.openjobs.model;
 
 /**
  * Its only for works with Simple Entity Manager

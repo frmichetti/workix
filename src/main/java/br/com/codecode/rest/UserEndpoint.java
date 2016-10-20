@@ -19,10 +19,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
-import br.com.codecode.akijob.model.scaffold.User;
-
 import javax.ws.rs.core.UriBuilder;
+import br.com.codecode.openjobs.model.scaffold.User;
 
 /**
  * 

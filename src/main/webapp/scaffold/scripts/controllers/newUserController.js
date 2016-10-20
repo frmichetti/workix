@@ -1,5 +1,5 @@
 
-angular.module('akijob').controller('NewUserController', function ($scope, $location, locationParser, flash, UserResource ) {
+angular.module('openjobs').controller('NewUserController', function ($scope, $location, locationParser, flash, UserResource ) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.user = $scope.user || {};

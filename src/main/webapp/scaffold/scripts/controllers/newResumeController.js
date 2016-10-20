@@ -1,5 +1,5 @@
 
-angular.module('akijob').controller('NewResumeController', function ($scope, $location, locationParser, flash, ResumeResource , CandidateResource) {
+angular.module('openjobs').controller('NewResumeController', function ($scope, $location, locationParser, flash, ResumeResource , CandidateResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.resume = $scope.resume || {};

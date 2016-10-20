@@ -1,41 +1,49 @@
-package br.com.codecode.akijob.model.scaffold;
+package br.com.codecode.openjobs.model.scaffold;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.codecode.akijob.model.BasicEntity;
-import br.com.codecode.akijob.model.scaffold.User;
-
-import javax.persistence.OneToOne;
+import br.com.codecode.openjobs.model.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class Candidate implements Serializable, BasicEntity {
+public class SelectiveProcess implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
+	
 	@Version
 	@Column(name = "version")
 	private int version;
 
 	@Column(nullable = false)
-	private String name;
+	private String uuid;
+
+	@ManyToOne
+	private Job job;	
+
+	@OneToMany
+	private Set<Candidate> candidates = new HashSet<Candidate>();
+
+	@Column
+	private boolean active;	
 
 	@Column(nullable = false)
-	private String cpf;
-
-	@OneToOne
-	private User user;
+	private int maxCandidates;
 
 	public Long getId() {
 		return this.id;
@@ -58,10 +66,10 @@ public class Candidate implements Serializable, BasicEntity {
 		if (this == obj) {
 			return true;
 		}
-		if (!(obj instanceof Candidate)) {
+		if (!(obj instanceof SelectiveProcess)) {
 			return false;
 		}
-		Candidate other = (Candidate) obj;
+		SelectiveProcess other = (SelectiveProcess) obj;
 		if (id != null) {
 			if (!id.equals(other.id)) {
 				return false;
@@ -78,37 +86,44 @@ public class Candidate implements Serializable, BasicEntity {
 		return result;
 	}
 
-	public String getName() {
-		return name;
+	
+
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public Job getJob() {
+		return this.job;
 	}
 
-	public String getCpf() {
-		return cpf;
+	public void setJob(final Job job) {
+		this.job = job;
+	}
+	
+
+	public Set<Candidate> getCandidates() {
+		return this.candidates;
 	}
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	public void setCandidates(final Set<Candidate> candidates) {
+		this.candidates = candidates;
 	}
 
-	public User getUser() {
-		return user;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setActive(boolean active) {
+		this.active = active;
+	}	
+
+	public int getMaxCandidates() {
+		return maxCandidates;
 	}
 
-	@Override
-	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (name != null && !name.trim().isEmpty())
-			result += "name: " + name;
-		if (cpf != null && !cpf.trim().isEmpty())
-			result += ", cpf: " + cpf;
-		return result;
+	public void setMaxCandidates(int maxCandidates) {
+		this.maxCandidates = maxCandidates;
 	}
+
+	
 }

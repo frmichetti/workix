@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.model.scaffold;
+package br.com.codecode.openjobs.model.scaffold;
 
 import javax.persistence.Entity;
 import java.io.Serializable;

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('akijob',['ngRoute','ngResource'])
+angular.module('openjobs',['ngRoute','ngResource'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/',{templateUrl:'views/landing.html',controller:'LandingPageController'})

@@ -1,10 +1,10 @@
-package br.com.codecode.akijob.bean;
+package br.com.codecode.openjobs.bean;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
-import br.com.codecode.akijob.model.scaffold.Job;
 import br.com.codecode.cdi.dao.Crud;
+import br.com.codecode.openjobs.model.scaffold.Job;
 
 @Model
 public class JobDetailMB {

@@ -10,8 +10,8 @@ package br.com.codecode.util;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import br.com.codecode.akijob.model.scaffold.Candidate;
-import br.com.codecode.akijob.model.scaffold.Job;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
+import br.com.codecode.openjobs.model.scaffold.Job;
 
 
 public class MailBodyBuilder {

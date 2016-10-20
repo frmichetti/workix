@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.bean;
+package br.com.codecode.openjobs.bean;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

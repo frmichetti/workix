@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('akijob').filter('searchFilter', function() {
+angular.module('openjobs').filter('searchFilter', function() {
 
     function matchObjectProperties(expectedObject, actualObject) {
         var flag = true;

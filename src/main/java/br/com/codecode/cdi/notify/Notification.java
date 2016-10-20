@@ -7,7 +7,7 @@
  * */
 package br.com.codecode.cdi.notify;
 
-import br.com.codecode.akijob.model.scaffold.Candidate;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 public interface Notification {
 	

@@ -7,7 +7,7 @@ import javax.jms.Destination;
 import javax.jms.JMSConnectionFactory;
 import javax.jms.JMSContext;
 
-import br.com.codecode.akijob.model.scaffold.Job;
+import br.com.codecode.openjobs.model.scaffold.Job;
 
 public class JobsObserver {	
 

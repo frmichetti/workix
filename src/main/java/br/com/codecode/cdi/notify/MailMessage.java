@@ -11,9 +11,9 @@ import java.io.Serializable;
 
 import javax.inject.Inject;
 
-import br.com.codecode.akijob.model.scaffold.Candidate;
 import br.com.codecode.cdi.qualifier.Email;
 import br.com.codecode.infra.MailSender;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 
 @Email

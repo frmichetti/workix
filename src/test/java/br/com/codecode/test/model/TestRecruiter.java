@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.akijob.model.Recruiter;
-import br.com.codecode.akijob.model.SelectiveProcess;
-import br.com.codecode.akijob.model.scaffold.Candidate;
+import br.com.codecode.openjobs.model.Recruiter;
+import br.com.codecode.openjobs.model.SelectiveProcess;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 public class TestRecruiter {
 

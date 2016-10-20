@@ -1,6 +1,6 @@
 
 
-angular.module('akijob').controller('SearchResumeController', function($scope, $http, $filter, ResumeResource , CandidateResource) {
+angular.module('openjobs').controller('SearchResumeController', function($scope, $http, $filter, ResumeResource , CandidateResource) {
 
     $scope.search={};
     $scope.currentPage = 0;

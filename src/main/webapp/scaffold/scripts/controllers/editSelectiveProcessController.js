@@ -1,6 +1,6 @@
 
 
-angular.module('akijob').controller('EditSelectiveProcessController', function($scope, $routeParams, $location, flash, SelectiveProcessResource , JobResource, CandidateResource) {
+angular.module('openjobs').controller('EditSelectiveProcessController', function($scope, $routeParams, $location, flash, SelectiveProcessResource , JobResource, CandidateResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;

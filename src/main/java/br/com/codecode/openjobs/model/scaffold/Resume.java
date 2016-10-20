@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.model.scaffold;
+package br.com.codecode.openjobs.model.scaffold;
 
 import java.io.Serializable;
 

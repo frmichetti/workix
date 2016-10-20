@@ -1,6 +1,6 @@
 
 
-angular.module('akijob').controller('EditUserController', function($scope, $routeParams, $location, flash, UserResource ) {
+angular.module('openjobs').controller('EditUserController', function($scope, $routeParams, $location, flash, UserResource ) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;

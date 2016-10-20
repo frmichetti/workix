@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import br.com.codecode.akijob.model.scaffold.SelectiveProcess;
+import br.com.codecode.openjobs.model.scaffold.SelectiveProcess;
 
 /**
  * DAO for SelectiveProcess

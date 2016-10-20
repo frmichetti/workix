@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.model.scaffold;
+package br.com.codecode.openjobs.model.scaffold;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -16,10 +16,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.codecode.akijob.model.BasicEntity;
-import br.com.codecode.akijob.model.enumeration.Estate;
-import br.com.codecode.akijob.model.enumeration.JobCategory;
-import br.com.codecode.akijob.model.enumeration.JobType;
+import br.com.codecode.openjobs.model.BasicEntity;
+import br.com.codecode.openjobs.model.enumeration.Estate;
+import br.com.codecode.openjobs.model.enumeration.JobCategory;
+import br.com.codecode.openjobs.model.enumeration.JobType;
 
 @Entity
 @XmlRootElement

@@ -1,4 +1,4 @@
-package br.com.codecode.akijob.model;
+package br.com.codecode.openjobs.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
-import br.com.codecode.akijob.model.scaffold.Candidate;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 @ManagedBean
 @Named
