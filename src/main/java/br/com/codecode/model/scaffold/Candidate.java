@@ -10,9 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.model.BasicEntity;
+
 @Entity
 @XmlRootElement
-public class Candidate implements Serializable {
+public class Candidate implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	@Id

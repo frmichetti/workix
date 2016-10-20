@@ -1,7 +1,6 @@
 package br.com.codecode.model.scaffold;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,9 +15,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.model.BasicEntity;
+
 @Entity
 @XmlRootElement
-public class SelectiveProcess implements Serializable {
+public class SelectiveProcess implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	@Id

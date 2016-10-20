@@ -1,5 +1,6 @@
 package br.com.codecode.bean;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -10,10 +11,12 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import br.com.codecode.dao.EmployeerDao;
 import br.com.codecode.dao.JobDao;
 import br.com.codecode.enumeration.Estate;
 import br.com.codecode.enumeration.JobCategory;
 import br.com.codecode.enumeration.JobType;
+import br.com.codecode.model.scaffold.Employeer;
 import br.com.codecode.model.scaffold.Job;
 
 @Model
@@ -21,6 +24,9 @@ public class PostAJobMB {
 
 	@Inject
 	private JobDao dao;
+	
+	@Inject
+	private EmployeerDao empDao;
 
 	private Job currentJob;
 	
@@ -29,6 +35,8 @@ public class PostAJobMB {
 	private List<JobType> jobTypes;
 	
 	private List<JobCategory> jobCategories;
+	
+	private List<Employeer> employeers;
 
 	public PostAJobMB() {
 
@@ -44,6 +52,8 @@ public class PostAJobMB {
 		jobTypes = Arrays.asList(JobType.values());
 		
 		jobCategories = Arrays.asList(JobCategory.values());
+		
+		employeers = empDao.listAll(0, Integer.MAX_VALUE);
 
 		debug();
 	}
@@ -87,5 +97,9 @@ public class PostAJobMB {
 
 	}
 
+	public List<Employeer> getEmployeers() {
+		return employeers;
+	}
 
+	
 }

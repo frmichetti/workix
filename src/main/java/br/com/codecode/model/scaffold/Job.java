@@ -19,10 +19,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import br.com.codecode.enumeration.Estate;
 import br.com.codecode.enumeration.JobCategory;
 import br.com.codecode.enumeration.JobType;
+import br.com.codecode.model.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class Job implements Serializable {
+public class Job implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	

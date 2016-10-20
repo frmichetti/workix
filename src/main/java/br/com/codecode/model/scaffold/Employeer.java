@@ -1,17 +1,20 @@
 package br.com.codecode.model.scaffold;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
-import javax.persistence.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.model.BasicEntity;
+
 @Entity
 @XmlRootElement
-public class Employeer implements Serializable {
+public class Employeer implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	@Id

@@ -79,7 +79,7 @@
 							
 								<h3>Have an account?</h3>
 								<p>If you don’t have an account you can create one below by entering your email address/username.<br />
-								A password will be automatically emailed to you.</p>
+								A password will be automatically mailed to you.</p>
 								<p><a href="#" class="btn btn-primary">Sign In</a></p>
 							
 						</div>
@@ -91,67 +91,80 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<h2>Job Details</h2>
-							<div class="form-group" id="job-email-group">
-								<label for="job-email">Email</label>
-								<input type="email" class="form-control" id="job-email" placeholder="you@yourdomain.com" />
-							</div>
+						
 							<div class="form-group" id="job-title-group">
-								<label for="job-title">Title</label>
-								<input type="text" class="form-control" id="job-title" placeholder="e.g. Web Designer" pt:value="#{postAJobMB.currentJob.title}"/>
+								<label for="job-title">Título</label>
+								<h:inputText pt:type="text" class="form-control" id="job-title" pt:placeholder="e.g. Web Designer" pt:value="#{postAJobMB.currentJob.title}"/>
 							</div>
+							
 							<div class="form-group" id="job-location-group">
-								<label for="job-location">Location (Optional)</label>
+								<label for="job-location">Cidade</label>
 								<input type="text" class="form-control" id="job-location" placeholder="e.g. New York" pt:value="#{postAJobMB.currentJob.city}" />
 							</div>
+							
 							<div class="form-group" id="job-region-group">
-								<label for="job-region">Region</label>
-								<select  class="form-control" id="job-region">
-									<option>Choose a region</option>
-									<option>New York</option>
-									<option>Los Angeles</option>
-									<option>Chicago</option>
-									<option>Boston</option>
-									<option>San Francisco</option>
-								</select>
+								<label for="job-region">Estado</label>
+								
+								<h:selectOneMenu value="#{postAJobMB.currentJob.estate}" styleClass="form-control" id="job-region">
+   									<f:selectItem itemValue="" itemLabel="Selecione um estado"/>  
+                					<f:selectItems value="#{postAJobMB.estates}" var="e" itemLabel="#{e.name()}" itemValue="#{e}"/>     							   							
+								</h:selectOneMenu>	
+								
 							</div>
+							
 							<div class="form-group" id="job-type-group">
-								<label for="job-type">Job Type</label>
-								<select  class="form-control" id="job-type">
-									<option>Choose a job type</option>
-									<option>Freelance</option>
-									<option>Part Time</option>
-									<option>Full Time</option>
-									<option>Internship</option>
-									<option>Volunteer</option>
-								</select>
+								<label for="job-type">Tipo de Trabalho</label>
+								<h:selectOneMenu value="#{postAJobMB.currentJob.jobType}" styleClass="form-control" id="job-type">
+								<f:selectItem itemValue="" itemLabel="Selecione um Tipo"/>  
+                				<f:selectItems value="#{postAJobMB.jobTypes}" var="jT" itemLabel="#{jT.name()}" itemValue="#{jT}"/>								
+								</h:selectOneMenu>
+								
 							</div>
+							
 							<div class="form-group" id="job-category-group">
-								<label for="job-category">Job Category</label>
-								<select  class="form-control" id="job-category">
-									<option>Choose a job category</option>
-									<option>Internet Services</option>
-									<option>Banking</option>
-									<option>Financial</option>
-									<option>Marketing</option>
-									<option>Management</option>
-								</select>
+								<label for="job-category">Categoria do Trabalho</label>
+								
+								<h:selectOneMenu value="#{postAJobMB.currentJob.jobCategory}" styleClass="form-control" id="job-category">
+								<f:selectItem itemValue="" itemLabel="Selecione uma Categoria"/>  
+                				<f:selectItems value="#{postAJobMB.jobCategories}" var="jC" itemLabel="#{jC.name()}" itemValue="#{jC}"/>								
+								</h:selectOneMenu>						
+								
+								
 							</div>
+							
 							<div class="form-group" id="job-description-group">
-								<label for="job-description">Description</label>
-								<div class="textarea form-control" id="job-description"></div>
-							</div>
-							<div class="form-group" id="job-url-group">
-								<label for="job-url">Application Email/URL</label>
-								<input type="text" class="form-control" id="job-url" placeholder="Email or Website URL" />
-							</div>
+								<label for="job-description">Descrição</label>
+								<h:inputTextarea value="#{postAJobMB.currentJob.description}" styleClass="textarea form-control" id="job-description"/>
+							<ui:remove>	<div class="textarea form-control" id="job-description"></div></ui:remove>
+							</div>							
+							
+							<div class="form-group" id="job-expire-date" data-provide="datepicker">
+							 
+								
+								<label for="expire-date">Data de Expiração</label>
+								<div class="input-group date" data-provide="datepicker">
+								<input pt:type="text" class="form-control" pt:value="#{postAJobMB.currentJob.expire}" pt:id="expire-date"/>
+								    <div class="input-group-addon">
+								        <span class="glyphicon glyphicon-th"></span>
+								    </div>
+								</div>
+								</div>
 						</div>
-						<ui:remove>
+						
+						
 						<div class="col-sm-6">
 							<h2>Company Details</h2>
 							<div class="form-group" id="company-name-group">
-								<label for="company-name">Company Name</label>
-								<input type="text" class="form-control" id="company-name" placeholder="Enter company name" />
+								<label for="company-name">Nome Empregador</label>
+								
+								
+								<h:selectOneMenu value="#{postAJobMB.currentJob.employeer}" styleClass="form-control" id="company-name" converter="AnotherEntityConverter">
+								<f:selectItem itemValue="" itemLabel="Selecione uma Empresa"/>  
+                				<f:selectItems value="#{postAJobMB.employeers}" var="emp" itemLabel="#{emp.name}" itemValue="#{emp}"/>								
+								</h:selectOneMenu>	
 							</div>
+							
+							<ui:remove>
 							<div class="form-group" id="company-tagline-group">
 								<label for="company-tagline">Tagline (Optional)</label>
 								<input type="text" class="form-control" id="company-tagline" placeholder="Brief description" />
@@ -188,8 +201,9 @@
 								<label for="company-logo">Logo (Optional)</label>
 								<input type="file" id="company-logo" />
 							</div>
+							</ui:remove>
 						</div>
-						</ui:remove>
+						
 					</div>
 					<div class="row text-center">						
 						<h:commandButton action="#{postAJobMB.commit()}" value="Commit"  styleClass="btn btn-primary btn-lg" />
