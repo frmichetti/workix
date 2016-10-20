@@ -90,30 +90,34 @@
 
 			<!-- fix me -->
 
-			case "index.xhtml":
-			
+			case "index.xhtml":			
 			case "index.xhtml?faces-redirect=true":
 				$("body > div > div > div.fm-container > div > ul > li:nth-child(1)").toggleClass("active");
 			break;
 
-			case "jobs.xhtml":
-					
+			case "jobs.xhtml":					
 		    case "jobs.xhtml?faces-redirect=true":
 		    	$("body > div > div > div.fm-container > div > ul > li:nth-child(2)").toggleClass("active");
 		        break;
 
-		    case "post-a-job.xhtml":
-		        
+		    case "post-a-job.xhtml":		        
 		    case "post-a-job.xhtml?faces-redirect=true":
 		        $("body > div > div > div.fm-container > div > ul > li:nth-child(3)").toggleClass("active");
 		        break;
-
-		        
-		    case "checkout.xhtml?faces-redirect=true":
+		    case "candidates.xhtml":		        
+		    case "candidates.xhtml?faces-redirect=true":
 		        $("body > div > div > div.fm-container > div > ul > li:nth-child(4)").toggleClass("active");
-			case "shop.xhtml?faces-redirect=true":
+		        break;
+		        
+		    case "post-a-resume.xhtml":
+			case "post-a-resume.xhtml?faces-redirect=true":
 				$("body > div > div > div.fm-container > div > ul > li:nth-child(5)").toggleClass("active");
 		        break;   
+
+			case "about.xhtml":
+			case "about.xhtml?faces-redirect=true":
+					$("body > div > div > div.fm-container > div > ul > li:nth-child(6)").toggleClass("active");
+			        break;  
 
 		}
 
