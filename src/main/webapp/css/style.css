@@ -541,19 +541,19 @@ header {
 	}
 
 	.bg-img-1 {
-		background-image: url(http://placehold.it/1400x900.jpg);
+		background-image: url(../image/placeholder/1400x900.jpg);
 	}
 
 	.bg-img-2 {
-		background-image: url(http://placehold.it/1400x900.jpg);
+		background-image: url(../image/placeholder/1400x900.jpg);
 	}
 
 	.bg-img-3 {
-		background-image: url(http://placehold.it/1400x900.jpg);
+		background-image: url(../image/placeholder/1400x900.jpg);
 	}
 
 	.bg-img-4 {
-		background-image: url(http://placehold.it/1400x900.jpg);
+		background-image: url(../image/placeholder/1400x900.jpg);
 	}
 
 	.sl-slider-wrapper .tint {
@@ -1190,11 +1190,11 @@ header {
 	}
 
 #stats {
-	background-image: url(http://placehold.it/1400x900.jpg);
+	background-image: url(../image/placeholder/1400x900.jpg);
 }
 
 #testimonials {
-	background-image: url(http://placehold.it/1400x900.jpg);
+	background-image: url(../image/placeholder/1400x900.jpg);
 }
 
 /* 8. JOBSEEK APP & CONTACT
