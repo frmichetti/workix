@@ -20,6 +20,13 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+		
+		<ui:param name="basePath" value=" #{request.getContextPath()}" />
+		
+		
+		<script type="text/javascript">
+			console.info("Current Base Path Var = #{basePath}");
+		</script>
 
 	</head>
 	<body id="home">
@@ -811,6 +818,10 @@
 		<!-- Firebase Scripts -->
 		<script type="text/javascript" src="https://www.gstatic.com/firebasejs/3.5.1/firebase.js"></script>
 		<script type="text/javascript" src="js/firebase.js"></script>
+		<script type="text/javascript">
+			
+		 </script>
+		<ui:param name="loggedUser" value="#{request.getContextPath()}" />
 
 
 	</body>

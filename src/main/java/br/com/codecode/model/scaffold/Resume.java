@@ -38,8 +38,7 @@ public class Resume implements Serializable {
 	
 	@Lob
 	@Column
-	private String educations;
-	
+	private String educations;	
 
 	public Long getId() {
 		return this.id;

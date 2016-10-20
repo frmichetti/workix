@@ -23,10 +23,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 	public SelectiveProcess() {
 		this.addObserver(this);	
-	}
-	
-	
-	
+	}	
 
 	public Collection<Candidate> getCandidates() {
 		return candidates;

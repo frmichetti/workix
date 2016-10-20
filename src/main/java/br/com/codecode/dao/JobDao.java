@@ -1,25 +1,19 @@
 package br.com.codecode.dao;
 
-import java.io.Serializable;
 import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import br.com.codecode.model.scaffold.Job;
 
 /**
  * DAO for Job
  */
-@Stateless
-public class JobDao implements Serializable {
+
+public class JobDao extends BasicDao {
 
 	private static final long serialVersionUID = 4029639665489024760L;
 	
-	@PersistenceContext(unitName = "JPU")
-	private EntityManager em;
-
 	public void create(Job entity) {
 		em.persist(entity);
 	}

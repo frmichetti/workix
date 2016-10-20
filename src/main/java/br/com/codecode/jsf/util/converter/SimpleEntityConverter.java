@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.converter;
+package br.com.codecode.jsf.util.converter;
 
 import java.util.Map;
 

@@ -2,19 +2,17 @@ package br.com.codecode.dao;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import br.com.codecode.model.scaffold.SelectiveProcess;
 
 /**
  * DAO for SelectiveProcess
  */
-@Stateless
-public class SelectiveProcessDao {
-	@PersistenceContext(unitName = "JPU")
-	private EntityManager em;
+
+public class SelectiveProcessDao extends BasicDao {
+
+	private static final long serialVersionUID = 5942334208981147237L;
 
 	public void create(SelectiveProcess entity) {
 		em.persist(entity);

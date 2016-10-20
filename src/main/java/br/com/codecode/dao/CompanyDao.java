@@ -2,19 +2,17 @@ package br.com.codecode.dao;
 
 import java.util.List;
 
-import javax.ejb.Stateless;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import br.com.codecode.model.scaffold.Company;
 
 /**
  * DAO for Company
  */
-@Stateless
-public class CompanyDao {
-	@PersistenceContext(unitName = "JPU")
-	private EntityManager em;
+
+public class CompanyDao extends BasicDao {	
+
+	private static final long serialVersionUID = -6997728484075279219L;
 
 	public void create(Company entity) {
 		em.persist(entity);

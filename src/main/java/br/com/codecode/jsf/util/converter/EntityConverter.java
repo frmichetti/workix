@@ -14,7 +14,7 @@
  * @version 1.0.3
  * @since 05/10/2010
  */
-package br.com.codecode.converter;
+package br.com.codecode.jsf.util.converter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
