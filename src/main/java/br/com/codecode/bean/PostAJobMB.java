@@ -1,6 +1,9 @@
 package br.com.codecode.bean;
 
-import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -8,36 +11,65 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import br.com.codecode.dao.JobDao;
+import br.com.codecode.enumeration.Estate;
+import br.com.codecode.enumeration.JobCategory;
+import br.com.codecode.enumeration.JobType;
 import br.com.codecode.model.scaffold.Job;
 
 @Model
 public class PostAJobMB {
-	
+
 	@Inject
 	private JobDao dao;
-	
+
 	private Job currentJob;
 	
-	public PostAJobMB() {
-		
-	}
+	private List<Estate> estates;
 	
+	private List<JobType> jobTypes;
+	
+	private List<JobCategory> jobCategories;
+
+	public PostAJobMB() {
+
+	}
+
 	@PostConstruct
 	private void init(){
+
 		currentJob = new Job();
+		
+		estates = Arrays.asList(Estate.values());
+		
+		jobTypes = Arrays.asList(JobType.values());
+		
+		jobCategories = Arrays.asList(JobCategory.values());
+
 		debug();
 	}
 
 	private void debug() {
 		if (currentJob != null){
-			currentJob.setId(null);
-			currentJob.setTitle("Title Here");
-			currentJob.setCity("City Here");
-			currentJob.setDescription("Resume Here");
-			
-			
+			currentJob.setStart(new Date());
+			currentJob.setExpire(new Date());
+			currentJob.setUuid(UUID.randomUUID().toString());
 		}
-		
+
+	}
+	
+	
+
+	
+	public List<Estate> getEstates() {
+		return estates;
+	}
+
+	public List<JobType> getJobTypes() {
+		return jobTypes;
+	}
+
+	public List<JobCategory> getJobCategories() {
+		return jobCategories;
 	}
 
 	public Job getCurrentJob() {
@@ -47,17 +79,13 @@ public class PostAJobMB {
 	public void setCurrentJob(Job currentJob) {
 		this.currentJob = currentJob;
 	}
-	
+
 	@Transactional
-	public void commit(){
-		
-		
-		
-		dao.create(currentJob);
-		
-		
+	public void commit(){		
+
+		dao.create(currentJob);		
+
 	}
-	
-	
+
 
 }
