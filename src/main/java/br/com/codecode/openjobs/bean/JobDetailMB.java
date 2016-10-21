@@ -16,9 +16,7 @@ public class JobDetailMB {
 	
 	private Job currentJob ;
 	
-	public JobDetailMB() {
-	
-	}
+	public JobDetailMB() {}
 
 	public void init(){
 		

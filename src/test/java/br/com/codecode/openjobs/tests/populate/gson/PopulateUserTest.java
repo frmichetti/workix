@@ -33,18 +33,18 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
  */
 public class PopulateUserTest{
 
-	private List<User> users = new ArrayList<>();
+	private List<User> users;
 
 	private String resp;
 
 	@Before	
 	public void create() {		
+		
+		users = new ArrayList<>();
 			
 		for(int x=0 ; x < 5_000;x++){
 			
-			User u = new User();
-			
-			assertNotNull(u);
+			User u = new User();			
 			
 			u.setEmail("Mockup User N# " + String.valueOf(x));
 			
@@ -56,7 +56,7 @@ public class PopulateUserTest{
 			
 			u.setFirebaseUUID(UUID.randomUUID().toString());
 			
-			u.setFirebaseMessageToken(UUID.randomUUID().toString());			
+			u.setFirebaseMessageToken(UUID.randomUUID().toString());		
 			
 			System.out.println("[create] " + u.getEmail());
 			
@@ -69,6 +69,8 @@ public class PopulateUserTest{
 
 
 	private void addToList(User u) {
+		
+		assertNotNull(u);
 
 		System.out.println("[addToList] " + u.getEmail());		
 

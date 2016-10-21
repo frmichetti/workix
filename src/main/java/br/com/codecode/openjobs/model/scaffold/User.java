@@ -10,6 +10,7 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
 
 @Entity
 @XmlRootElement
@@ -17,6 +18,7 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
@@ -27,15 +29,19 @@ public class User implements Serializable {
 	@Column(name = "version")
 	private int version;
 
+	@Expose
 	@Column(nullable = false)
 	private String email;
 
+	@Expose
 	@Column
 	private String firebaseUUID;
 
+	@Expose
 	@Column
 	private String firebaseMessageToken;
 
+	@Expose
 	@Column
 	private String uuid;
 

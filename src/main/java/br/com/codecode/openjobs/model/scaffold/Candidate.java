@@ -11,6 +11,7 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
 
 import br.com.codecode.openjobs.model.BasicEntity;
 import br.com.codecode.openjobs.model.scaffold.User;
@@ -22,24 +23,28 @@ import javax.persistence.OneToOne;
 public class Candidate implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
-	
+
 	@JsonIgnore
 	@Version
 	@Column(name = "version")
 	private int version;
 
+	@Expose
 	@Column(nullable = false)
 	private String name;
 
+	@Expose
 	@Column(nullable = false)
 	private String cpf;
 
-	@OneToOne
+	@Expose
+	@OneToOne(optional=false)
 	private User user;
 
 	public Long getId() {

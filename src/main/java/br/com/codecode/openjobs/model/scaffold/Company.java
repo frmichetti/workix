@@ -11,6 +11,7 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
 
 import br.com.codecode.openjobs.model.BasicEntity;
 
@@ -19,21 +20,24 @@ import br.com.codecode.openjobs.model.BasicEntity;
 public class Company implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
-	
+
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
-	
+
 	@JsonIgnore
 	@Version
 	@Column(name = "version")
 	private int version;
 
-	@Column(nullable = false)
+	@Expose
+	@Column(nullable = false,unique=true)
 	private String name;
-	
-	@Column
+
+	@Expose
+	@Column(nullable = false)
 	private String companySegment;	
 
 	public String getCompanySegment() {

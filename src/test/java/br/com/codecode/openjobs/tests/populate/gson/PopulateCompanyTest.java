@@ -8,7 +8,6 @@
 package br.com.codecode.openjobs.tests.populate.gson;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
@@ -33,30 +32,24 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
  */
 public class PopulateCompanyTest {	
 
-	private List<Company> companies = new ArrayList<>();
+	private List<Company> companies ;
 
 	private String resp;
 
 	@Before
-	public void create() {			
+	public void create() {	
+		
+		companies = new ArrayList<>();
 
 		for(int x = 0 ;x < 1_000 ; x++){			
 
 			Company c = new Company();				
 
 			c.setName("Company Mockup N# " + String.valueOf(x));			
-
-			assertNotNull(c.getName());
-
-			assertNotEquals("",c.getName());
 			
 			c.setCnpj(String.valueOf(x));
 			
 			c.setCompanySegment("Segment " + String.valueOf(x));
-			
-			assertNotNull(c.getCompanySegment());
-
-			assertNotEquals("",c.getCompanySegment());
 
 			System.out.println("[create] " + c.getName());
 
@@ -71,6 +64,10 @@ public class PopulateCompanyTest {
 
 
 	private void addToList(Company company){		
+		
+		assertNotNull(company);
+		
+		assertNotNull(companies);
 
 		System.out.println("[addToList] " + company.getName());
 
@@ -79,7 +76,9 @@ public class PopulateCompanyTest {
 	}
 
 	@Test	
-	public void sendToServer(){				
+	public void sendToServer(){	
+		
+		assertNotNull(companies);
 
 		companies.stream().forEach(c ->{			
 

@@ -8,7 +8,6 @@
 package br.com.codecode.openjobs.tests.populate.gson;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -41,14 +40,16 @@ public class PopulateCandidateTest {
 
 	private List<Candidate> candidates = new ArrayList<>();
 
-	private List<User> users = new ArrayList<>();	
+	private List<User> users;	
 
 	private String resp;
 
 	@Before
-	public void downloadUsers(){
+	public void downloadUsers(){		
 
 		System.out.println("[downloadUsers]");
+		
+		users = new ArrayList<>();
 
 		resp = Http.sendGet(HttpConfig.SCAFFOLD_PROJ + "users");						
 
@@ -59,14 +60,16 @@ public class PopulateCandidateTest {
 				.create()
 				.fromJson(resp, new TypeToken<List<User>>(){}.getType());
 
-		assertNotNull(users);
-
 		assertTrue(users.size() > 0);
 
 	}
 	
 	
 	private void create() {		
+		
+		assertNotNull(users);
+		
+		assertTrue(users.size() > 0);
 
 		System.out.println("[create]");				
 		
@@ -74,17 +77,9 @@ public class PopulateCandidateTest {
 			
 			Candidate c = new Candidate();		
 			
-			c.setName("Mockup Candidate N# " + String.valueOf(x));
-			
-			assertNotNull(c.getName());
-			
-			assertNotEquals("",c.getName());
+			c.setName("Mockup Candidate N# " + String.valueOf(x));			
 			
 			c.setCpf(String.valueOf(x));			
-			
-			assertNotNull(c.getCpf());
-			
-			assertNotEquals("",c.getCpf());
 			
 			c.setUser(users.get(x));
 			
@@ -97,6 +92,10 @@ public class PopulateCandidateTest {
 	}
 
 	private void addToList(Candidate candidate) {		
+		
+		assertNotNull(candidates);
+		
+		assertNotNull(candidate);
 
 		System.out.println("[addToList]" + candidate.getName());
 		
@@ -105,10 +104,12 @@ public class PopulateCandidateTest {
 
 	@Test	
 	public void sendToServer() {
-
-		create();
-
-			
+		
+		create();			
+		
+		assertNotNull(users);
+		
+		assertNotNull(candidates);		
 	
 		candidates.forEach(c -> {
 			

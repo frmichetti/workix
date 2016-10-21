@@ -8,10 +8,10 @@
 package br.com.codecode.openjobs.tests.populate.gson;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,9 +20,13 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import br.com.codecode.openjobs.model.enumeration.Estate;
+import br.com.codecode.openjobs.model.enumeration.JobType;
 import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.model.scaffold.Job;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
@@ -40,9 +44,9 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
 public class PopulateJobTest {
 
 
-	private List<Company> companies = new ArrayList<>();
+	private List<Company> companies;
 
-	private List<Job> jobs = new ArrayList<>();	
+	private List<Job> jobs;	
 
 	private String resp;
 
@@ -67,34 +71,41 @@ public class PopulateJobTest {
 	}
 
 
-	private void create() {				
+	private void create() {
+		
+		assertNotNull(companies);
+		
+		assertTrue(companies.size() > 0);
+		
+		jobs = new ArrayList<>();
 
-		for(int x=0 ; x < companies.size();x++){
+		for(int x=0 ; x < 100;x++){
 
 			Job j = new Job();		
 
 			j.setUuid(UUID.randomUUID().toString());
 
-			assertNotNull(j.getUuid());
-
-			assertNotEquals("",j.getUuid());
-
 			j.setTitle("Mockup Job N# " + String.valueOf(x));
-
-			assertNotNull(j.getTitle());
-
-			assertNotEquals("",j.getTitle());
-
-
+			
 			j.setDescription("Description of Job " + String.valueOf(x));
-
-			assertNotNull(j.getDescription());
-
-			assertNotEquals("",j.getDescription());
+			
+			j.setRequirement("Requirement of Job " + String.valueOf(x));		
+			
+			j.setBenefits("Benefits of Job " + String.valueOf(x));		
 			
 			j.setStart(new Date());
 			
 			j.setExpire(new Date());
+			
+			j.setJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
+			
+			j.setCity("São José dos Campos");
+			
+			j.setEstate(Estate.SP);
+			
+			j.setMinPayment(new BigDecimal(1_000 * x+1));
+			
+			j.setMaxPayment(new BigDecimal(1_000 * x+2));
 			
 			j.setEmployeer(companies.get(x));
 	
@@ -108,7 +119,11 @@ public class PopulateJobTest {
 
 	}
 
-	private void addToList(Job job) {		
+	private void addToList(Job job) {	
+		
+		assertNotNull(job);
+		
+		assertNotNull(jobs);
 
 		System.out.println("[addToList]" + job.getTitle());
 
@@ -119,6 +134,10 @@ public class PopulateJobTest {
 	public void sendToServer() {
 
 		create();
+		
+		assertNotNull(jobs);
+		
+		assertTrue(jobs.size() > 0);
 
 		jobs.forEach(j -> {
 
@@ -128,10 +147,13 @@ public class PopulateJobTest {
 					new GsonBuilder()				
 					.setPrettyPrinting()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-					.enableComplexMapKeySerialization()
+					.enableComplexMapKeySerialization()				
+					.excludeFieldsWithoutExposeAnnotation()
 					.create().toJson(j));
 
 			assertNotNull(resp);
+			
+			
 		});	
 
 	}

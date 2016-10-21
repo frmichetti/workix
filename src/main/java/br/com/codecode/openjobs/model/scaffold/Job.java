@@ -17,6 +17,7 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
 
 import br.com.codecode.openjobs.model.BasicEntity;
 import br.com.codecode.openjobs.model.enumeration.Estate;
@@ -29,60 +30,80 @@ public class Job implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)	
 	private Long id;
 	
 	@JsonIgnore
-	@Version
+	@Version	
 	@Column(name = "version")
 	private int version;
 	
+	@Expose
 	@Column(nullable = false)
 	private String uuid;
 
+	@Expose
 	@Column(nullable = false)
 	private String title;
 
+	@Expose
 	@Column
 	private BigDecimal minPayment;
 	
+	@Expose
 	@Column
 	private BigDecimal maxPayment;
 
+	@Expose
 	@Lob
 	@Column(nullable = false)
 	private String description;
 	
+	@Expose
 	@Lob
-	@Column	
+	@Column(nullable = false)	
 	private String requirement;
 	
+	@Expose
+	@Lob
+	@Column(nullable = false)	
+	private String benefits;
+	
+	@Expose
 	@Column(nullable = false, updatable = false)
 	private Date start;
 
+	@Expose
 	@Column(nullable = false)
 	private Date expire;
 	
+	@Expose
 	@Column
 	@Enumerated(EnumType.STRING)
 	private JobType jobType;
 
+	@Expose
 	@Column
 	@Enumerated(EnumType.STRING)
 	private JobCategory jobCategory;	
 	
+	@Expose
 	@Column
 	private String city;
 	
+	@Expose
 	@Enumerated(EnumType.STRING)
 	private Estate estate;	
 
+	@Expose
 	@Column
 	private boolean active;
 	
-	@ManyToOne
+	@Expose
+	@ManyToOne(optional=false)
 	private Company employeer;
 	
 	public Job() {
@@ -143,6 +164,14 @@ public class Job implements Serializable, BasicEntity {
 
 	public void setRequirement(String requirement) {
 		this.requirement = requirement;
+	}	
+
+	public String getBenefits() {
+		return benefits;
+	}
+
+	public void setBenefits(String benefits) {
+		this.benefits = benefits;
 	}
 
 	public Date getStart() {
