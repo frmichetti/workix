@@ -2,7 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      >
 
 	<!-- 
 		Replace path to template, title, header and body
@@ -17,17 +19,17 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-6" id="newsletter">
-							<h2>Newsletter</h2>
+							<h2>Boletim Informativo</h2>
 							<form class="form-inline">
 								<div class="form-group">
-									<label class="sr-only" for="newsletter-email">Email address</label>
-									<input type="email" class="form-control" id="newsletter-email" placeholder="Email address" />
+									<label class="sr-only" for="newsletter-email">Email</label>
+									<input pt:type="email" class="form-control" pt:id="newsletter-email" pt:placeholder="Email address" required="required" />
 								</div>
 								<button type="submit" class="btn btn-primary">Sign up</button>
 							</form>
 						</div>
 						<div class="col-sm-6" id="social-networks">
-							<h2>Get in touch</h2>
+							<h2>ENTRAR EM CONTATO</h2>
 							<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
 							<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
 							<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
