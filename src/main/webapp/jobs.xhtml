@@ -20,6 +20,13 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+						
+		<ui:param name="basePath" value=" #{request.getContextPath()}" />
+		
+		
+		<script type="text/javascript">
+			console.info("Current Base Path Var = #{basePath}");
+		</script>
 
 	</head>
 	<body>
@@ -47,8 +54,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>Find a Job</h1>
-						<h4>There is no better place to start</h4>
+						<h1>Encontre um emprego</h1>
+						<h4>Não há lugar melhor para começar</h4>
 					</div>
 				</div>
 			</div>
@@ -65,14 +72,14 @@
 
 						<div class="jobs">
 							<h:form>
-							<ui:repeat var="job" value="#{jobsMB.joblist}">							
+							<ui:repeat var="job" value="#{jobsMB.list}">							
 							
 							<a href="/jobs/job-details.xhtml?id=#{job.id}" class="featured applied">
 							
 								<div class="row">
 									
 									<div class="col-md-1 hidden-sm hidden-xs">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-responsive" />
+										<img src="#{basePath}/image/placeholder/60x60.jpg" alt="" class="img-responsive" />
 									</div>
 									
 									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
@@ -519,18 +526,10 @@
 						</h:form>
 						<!-- END JOBS -->
 						</div>
-
-						<nav>
-							<ul class="pagination">
-								<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">V</span></a></li>
-								<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#" aria-label="Next"><span aria-hidden="true">F</span></a></li>
-							</ul>
-						</nav>
+						
+						<ui:insert name="pagination">		
+							<ui:include src="pagination.xhtml" />
+						</ui:insert>
 
 					</div>
 					<div class="col-sm-4" id="sidebar">

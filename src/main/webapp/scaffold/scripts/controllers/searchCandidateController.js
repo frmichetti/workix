@@ -1,6 +1,6 @@
 
 
-angular.module('openjobs').controller('SearchCandidateController', function($scope, $http, $filter, CandidateResource , UserResource) {
+angular.module('openjobs').controller('SearchCandidateController', function($scope, $http, $filter, CandidateResource , UserResource, ResumeResource) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -18,6 +18,7 @@ angular.module('openjobs').controller('SearchCandidateController', function($sco
         return max;
     };
     $scope.userList = UserResource.queryAll();
+    $scope.resumeList = ResumeResource.queryAll();
 
     $scope.performSearch = function() {
         $scope.searchResults = CandidateResource.queryAll(function(){

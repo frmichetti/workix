@@ -4,18 +4,18 @@ angular.module('openjobs').controller('NewResumeController', function ($scope, $
     $scope.$location = $location;
     $scope.resume = $scope.resume || {};
     
-    $scope.candidateList = CandidateResource.queryAll(function(items){
-        $scope.candidateSelectionList = $.map(items, function(item) {
+    $scope.ownerList = CandidateResource.queryAll(function(items){
+        $scope.ownerSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
                 text : item.id
             });
         });
     });
-    $scope.$watch("candidateSelection", function(selection) {
+    $scope.$watch("ownerSelection", function(selection) {
         if ( typeof selection != 'undefined') {
-            $scope.resume.candidate = {};
-            $scope.resume.candidate.id = selection.value;
+            $scope.resume.owner = {};
+            $scope.resume.owner.id = selection.value;
         }
     });
     

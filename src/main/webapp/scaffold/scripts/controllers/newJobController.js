@@ -51,7 +51,7 @@ angular.module('openjobs').controller('NewJobController', function ($scope, $loc
         $scope.employeerSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
-                text : item.companySegment
+                text : item.id
             });
         });
     });

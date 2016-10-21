@@ -1,6 +1,5 @@
 package br.com.codecode.openjobs.bean;
 
-import java.util.Collection;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -9,23 +8,22 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import br.com.codecode.cdi.dao.Crud;
-import br.com.codecode.openjobs.model.scaffold.Job;
+import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 @Model
-public class JobsMB {
+public class CandidatesMB {
 
 	@Inject
 	private FacesContext facesContext;
-	
-	@Inject
-	private Crud<Job> dao;
 
-	private List<Job> list;
+	@Inject
+	private Crud<Candidate> dao;
+
+	private List<Candidate> list;
 
 	private String prefix,sufix;
 
-
-	public JobsMB() {
+	public CandidatesMB() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -33,26 +31,24 @@ public class JobsMB {
 	private void init(){
 		
 		list = dao.listAll(0, Integer.MAX_VALUE);
-		
+
 		prefix = "/" + facesContext.getExternalContext().getContextName();
-		
-		sufix = "&faces-redirect=true";		
-		
+
+		sufix = "&faces-redirect=true";
 	}
 
-	public Collection<Job> getList() {
+	public List<Candidate> getList() {
 		return list;
 	}
-
-	public String goToJobDetail(Job job){
-
-		System.out.println("Received Job " + job.toString());
-
-		return prefix + "/job-details.xhtml?id=" + String.valueOf(job.getId()) + sufix ;
-	}
-
-
 	
+	public String goToCandidateDetail(Candidate candidate){
 
+		System.out.println("Received Candidate " + candidate.toString());
+
+		return prefix + "/candidate-details.xhtml?id=" + String.valueOf(candidate.getId()) + sufix ;
+	}
+	
+	
+	
 
 }

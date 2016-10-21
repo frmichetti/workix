@@ -3,15 +3,7 @@
     <h3 ng-switch-when="false">View or edit Company</h3>
 </header>
 <form id="CompanyForm" name="CompanyForm" class="form-horizontal" role="form">
-        <div class="form-group" ng-class="{'has-error': CompanyForm.companySegment.$invalid}">
-        <label for="companySegment" class="col-sm-2 control-label">Company Segment</label>
-        <div id="companySegmentControls" class="col-sm-10">
-            <input id="companySegment" name="companySegment" type="text" class="form-control" ng-model="company.companySegment" placeholder="Enter the Company Company Segment"></input>
-        </div>
-    </div>
-
-
-
+    
     <div class="form-group" ng-class="{'has-error': CompanyForm.name.$invalid}">
         <label for="name" class="col-sm-2 control-label">Name</label>
         <div id="nameControls" class="col-sm-10">
@@ -25,6 +17,14 @@
         <div id="cnpjControls" class="col-sm-10">
             <input id="cnpj" name="cnpj" type="text" required class="form-control" ng-model="company.cnpj" placeholder="Enter the Company Cnpj"></input>
             <span class="help-block error" ng-show="CompanyForm.cnpj.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.companySegment.$invalid}">
+        <label for="companySegment" class="col-sm-2 control-label">Company Segment</label>
+        <div id="companySegmentControls" class="col-sm-10">
+            <input id="companySegment" name="companySegment" type="text" required class="form-control" ng-model="company.companySegment" placeholder="Enter the Company Company Segment"></input>
+            <span class="help-block error" ng-show="CompanyForm.companySegment.$error.required">required</span> 
         </div>
     </div>
 

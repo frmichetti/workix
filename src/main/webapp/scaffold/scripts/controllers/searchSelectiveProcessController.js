@@ -18,10 +18,6 @@ angular.module('openjobs').controller('SearchSelectiveProcessController', functi
         return max;
     };
     $scope.jobList = JobResource.queryAll();
-    $scope.activeList = [
-        "true",
-        "false"
-    ];
 
     $scope.performSearch = function() {
         $scope.searchResults = SelectiveProcessResource.queryAll(function(){

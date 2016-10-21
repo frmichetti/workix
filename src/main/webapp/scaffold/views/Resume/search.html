@@ -11,6 +11,21 @@
     <h3>Search for Resumes</h3>
     <form id="ResumeSearch" class="form-horizontal">
         
+    <div class="form-group">
+        <label for="owner" class="col-sm-2 control-label">Owner</label>
+        <div class="col-sm-10">
+            <select id="owner" name="owner" class="form-control" ng-model="search.owner" ng-options="o as o.id for o in ownerList">
+                <option value="">Choose a Owner</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="objective" class="col-sm-2 control-label">Objective</label>
+        <div class="col-sm-10">
+            <input id="objective" name="objective" class="form-control" type="text" ng-model="search.objective" placeholder="Enter the Resume Objective"></input>
+        </div>
+    </div>
 
     <div class="form-group">
         <label for="content" class="col-sm-2 control-label">Content</label>
@@ -33,15 +48,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="candidate" class="col-sm-2 control-label">Candidate</label>
-        <div class="col-sm-10">
-            <select id="candidate" name="candidate" class="form-control" ng-model="search.candidate" ng-options="c as c.id for c in candidateList">
-                <option value="">Choose a Candidate</option>
-            </select>
-        </div>
-    </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-sm-10">
@@ -55,18 +61,20 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
+                    <th>Owner</th>
+                    <th>Objective</th>
                     <th>Content</th>
                     <th>Experiences</th>
                     <th>Educations</th>
-                    <th>Candidate</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                        <td><a href="#/Resumes/edit/{{result.id}}">{{result.owner.id}}</a></td>
+                    <td><a href="#/Resumes/edit/{{result.id}}">{{result.objective}}</a></td>
                     <td><a href="#/Resumes/edit/{{result.id}}">{{result.content}}</a></td>
                     <td><a href="#/Resumes/edit/{{result.id}}">{{result.experiences}}</a></td>
                     <td><a href="#/Resumes/edit/{{result.id}}">{{result.educations}}</a></td>
-                        <td><a href="#/Resumes/edit/{{result.id}}">{{result.candidate.id}}</a></td>
                 </tr>
             </tbody>
         </table>

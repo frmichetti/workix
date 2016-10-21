@@ -13,6 +13,13 @@
         
 
     <div class="form-group">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div class="col-sm-10">
+            <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the SelectiveProcess Uuid"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="job" class="col-sm-2 control-label">Job</label>
         <div class="col-sm-10">
             <select id="job" name="job" class="form-control" ng-model="search.job" ng-options="j as j.id for j in jobList">
@@ -29,22 +36,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
-        <div class="col-sm-10">
-            <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the SelectiveProcess Uuid"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="active" class="col-sm-2 control-label">Active</label>
-        <div class="col-sm-10">
-            <select id="active" name="active" class="form-control" ng-model="search.active" ng-options="a as a for a in activeList">
-                <option value="">Choose a Active</option>
-            </select>
-        </div>
-    </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-sm-10">
@@ -58,18 +49,16 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
+                    <th>Uuid</th>
                     <th>Job</th>
                     <th>Max Candidates</th>
-                    <th>Uuid</th>
-                    <th>Active</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.uuid}}</a></td>
                         <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.job.id}}</a></td>
                     <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.maxCandidates}}</a></td>
-                    <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.uuid}}</a></td>
-                    <td><a href="#/SelectiveProcesses/edit/{{result.id}}">{{result.active}}</a></td>
                 </tr>
             </tbody>
         </table>

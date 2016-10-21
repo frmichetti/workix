@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,8 +12,10 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
 
 @Entity
 @XmlRootElement
@@ -20,27 +23,37 @@ public class Resume implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
+	@XmlTransient
 	@JsonIgnore
 	@Version
 	@Column(name = "version")
 	private int version;
-
-	@OneToOne(optional = false)
-	private Candidate candidate;
 	
+	@Expose
+	@OneToOne(fetch=FetchType.EAGER)
+	private Candidate owner;
+	
+	@Expose
+	@Column
+	private String objective;
+	
+	@Expose
 	@Lob
 	@Column
 	private String content;	
 	
+	@Expose
 	@Lob
 	@Column
 	private String experiences;
 	
+	@Expose
 	@Lob
 	@Column
 	private String educations;	
@@ -53,15 +66,30 @@ public class Resume implements Serializable {
 		this.id = id;
 	}
 
-	public int getVersion() {
+	private int getVersion() {
 		return this.version;
 	}
 
-	public void setVersion(final int version) {
+	private void setVersion(final int version) {
 		this.version = version;
 	}
 	
+	public Candidate getOwner() {
+		return owner;
+	}
+
+	public void setOwner(Candidate owner) {
+		this.owner = owner;
+	}
 	
+
+	public String getObjective() {
+		return objective;
+	}
+
+	public void setObjective(String objective) {
+		this.objective = objective;
+	}
 
 	public String getContent() {
 		return content;
@@ -86,6 +114,12 @@ public class Resume implements Serializable {
 	public void setEducations(String educations) {
 		this.educations = educations;
 	}
+	
+	
+	
+	
+
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -112,11 +146,5 @@ public class Resume implements Serializable {
 		return result;
 	}
 
-	public Candidate getCandidate() {
-		return candidate;
-	}
 
-	public void setCandidate(Candidate candidate) {
-		this.candidate = candidate;
-	}
 }

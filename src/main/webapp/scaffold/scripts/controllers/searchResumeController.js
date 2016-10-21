@@ -17,7 +17,7 @@ angular.module('openjobs').controller('SearchResumeController', function($scope,
         }
         return max;
     };
-    $scope.candidateList = CandidateResource.queryAll();
+    $scope.ownerList = CandidateResource.queryAll();
 
     $scope.performSearch = function() {
         $scope.searchResults = ResumeResource.queryAll(function(){

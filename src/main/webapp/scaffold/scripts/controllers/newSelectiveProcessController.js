@@ -38,11 +38,6 @@ angular.module('openjobs').controller('NewSelectiveProcessController', function 
         }
     });
 
-    $scope.activeList = [
-        "true",
-        "false"
-    ];
-
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){

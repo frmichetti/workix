@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
@@ -27,6 +28,7 @@ public class Company implements Serializable, BasicEntity {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
+	@XmlTransient
 	@JsonIgnore
 	@Version
 	@Column(name = "version")
@@ -38,15 +40,7 @@ public class Company implements Serializable, BasicEntity {
 
 	@Expose
 	@Column(nullable = false)
-	private String companySegment;	
-
-	public String getCompanySegment() {
-		return companySegment;
-	}
-
-	public void setCompanySegment(String companySegment) {
-		this.companySegment = companySegment;
-	}
+	private String companySegment;
 
 	@Column(nullable = false)
 	private String cnpj;
@@ -59,14 +53,40 @@ public class Company implements Serializable, BasicEntity {
 		this.id = id;
 	}
 
-	public int getVersion() {
+	private int getVersion() {
 		return this.version;
 	}
 
-	public void setVersion(final int version) {
+	private void setVersion(final int version) {
 		this.version = version;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public String getCompanySegment() {
+		return companySegment;
+	}
+
+	public void setCompanySegment(String companySegment) {
+		this.companySegment = companySegment;
+	}
+	
+	
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {
@@ -90,22 +110,6 @@ public class Company implements Serializable, BasicEntity {
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getCnpj() {
-		return cnpj;
-	}
-
-	public void setCnpj(String cnpj) {
-		this.cnpj = cnpj;
 	}
 
 	@Override

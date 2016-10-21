@@ -31,71 +31,148 @@ package br.com.codecode.jsf.util;
 
 
 import java.util.Collection;
+import java.util.List;
 
 import javax.faces.model.DataModel;
 
+import br.com.codecode.openjobs.model.scaffold.Job;
+
 public abstract class PaginationHelper {
 
-    private int pageSize;
-    
-    private int page;
-    
-    private Collection<?> collection;
+	private int pageSize;
 
-    public PaginationHelper(Collection<?> collection,int pageSize) {
-    	this.collection = collection;
-        this.pageSize = pageSize;
-    }
+	private int page;
 
-    public int getItemsCount(){
-    	return collection.size();
-    };
+	private Collection<?> collection;
 
-    public abstract DataModel<?> createPageDataModel();
+	private DataModel<?> dataModel; 
 
-    public int getPageFirstItem() {
-        return page * pageSize;
-    }
+	private PaginationHelper pagination;
 
-    public int getPageLastItem() {
-        
-    	int i = getPageFirstItem() + pageSize - 1;
-        
-    	int count = getItemsCount() - 1;
-        
-    	if (i > count) {
-            i = count;
-        }
-        
-    	if (i < 0) {
-            i = 0;
-        }
-        
-    	return i;
-    }
+	private int selectedItemIndex;
 
-    public boolean isHasNextPage() {
-        return (page + 1) * pageSize + 1 <= getItemsCount();
-    }
+	public PaginationHelper(Collection<?> collection,int pageSize) {
+		this.collection = collection;
+		this.pageSize = pageSize;
+	}
 
-    public void nextPage() {
-        if (isHasNextPage()) {
-            page++;
-        }
-    }
+	public int getItemsCount(){
+		return collection.size();
+	};
 
-    public boolean isHasPreviousPage() {
-        return page > 0;
-    }
+	public abstract DataModel<?> createPageDataModel();
 
-    public void previousPage() {
-        if (isHasPreviousPage()) {
-            page--;
-        }
-    }
+	public int getPageFirstItem() {
+		return page * pageSize;
+	}
 
-    public int getPageSize() {
-        return pageSize;
-    }
+	public int getPageLastItem() {
+
+		int i = getPageFirstItem() + pageSize - 1;
+
+		int count = getItemsCount() - 1;
+
+		if (i > count) {
+			i = count;
+		}
+
+		if (i < 0) {
+			i = 0;
+		}
+
+		return i;
+	}
+
+	public boolean isHasNextPage() {
+		return (page + 1) * pageSize + 1 <= getItemsCount();
+	}
+
+	public void nextPage() {
+		if (isHasNextPage()) {
+			page++;
+		}
+	}
+
+	public boolean isHasPreviousPage() {
+		return page > 0;
+	}
+
+	public void previousPage() {
+		if (isHasPreviousPage()) {
+			page--;
+		}
+	}
+
+	public int getPageSize() {
+		return pageSize;
+	}
+
+	public DataModel<?> getdataModel() {
+
+		if (dataModel == null) {
+			dataModel = createPageDataModel();
+		}
+
+		return dataModel;
+	}
+	private void recreateModel() {
+		dataModel = null;
+	}
+
+	private void recreatePagination() {
+		pagination = null;
+	}
+
+	private void updateCurrentItem() {
+
+		Object item ;
+
+		int count = collection.size();
+
+		if (selectedItemIndex >= count) {
+
+			// selected index cannot be bigger than number of items:
+			selectedItemIndex = count - 1;
+
+			// go to previous page if last page disappeared:
+			if (pagination.getPageFirstItem() >= count) {
+
+				pagination.previousPage();
+			}
+		}
+		if (selectedItemIndex >= 0) {
+		//	item = findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
+		}
+	}
+
+	public String next() {
+		nextPage();
+		recreateModel();
+		return "pagination.xhtml";
+	}
+
+	public String previous() {
+		previousPage();
+		recreateModel();
+		return "pagination.xhtml";
+	}
+
+	/*public List<Job> findRange(int[] range) {
+		javax.persistence.criteria.CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+		cq.select(cq.from(Job.class));
+		javax.persistence.Query q = em.createQuery(cq);
+		
+		q.setMaxResults(range[1] - range[0]);
+		
+		q.setFirstResult(range[0]);
+		
+		return q.getResultList();
+	}
+*/
+
+
+
+
+
 }
 

@@ -16,7 +16,7 @@ angular.module('openjobs').controller('EditJobController', function($scope, $rou
                     };
                     var labelObject = {
                         value : item.id,
-                        text : item.companySegment
+                        text : item.id
                     };
                     if($scope.job.employeer && item.id == $scope.job.employeer.id) {
                         $scope.employeerSelection = labelObject;

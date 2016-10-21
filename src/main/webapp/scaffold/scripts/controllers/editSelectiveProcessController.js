@@ -110,10 +110,6 @@ angular.module('openjobs').controller('EditSelectiveProcessController', function
             });
         }
     });
-    $scope.activeList = [
-        "true",
-        "false"
-    ];
     
     $scope.get();
 });

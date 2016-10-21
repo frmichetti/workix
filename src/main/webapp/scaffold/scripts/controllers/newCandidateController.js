@@ -1,5 +1,5 @@
 
-angular.module('openjobs').controller('NewCandidateController', function ($scope, $location, locationParser, flash, CandidateResource , UserResource) {
+angular.module('openjobs').controller('NewCandidateController', function ($scope, $location, locationParser, flash, CandidateResource , UserResource, ResumeResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.candidate = $scope.candidate || {};
@@ -16,6 +16,21 @@ angular.module('openjobs').controller('NewCandidateController', function ($scope
         if ( typeof selection != 'undefined') {
             $scope.candidate.user = {};
             $scope.candidate.user.id = selection.value;
+        }
+    });
+    
+    $scope.resumeList = ResumeResource.queryAll(function(items){
+        $scope.resumeSelectionList = $.map(items, function(item) {
+            return ( {
+                value : item.id,
+                text : item.id
+            });
+        });
+    });
+    $scope.$watch("resumeSelection", function(selection) {
+        if ( typeof selection != 'undefined') {
+            $scope.candidate.resume = {};
+            $scope.candidate.resume.id = selection.value;
         }
     });
     

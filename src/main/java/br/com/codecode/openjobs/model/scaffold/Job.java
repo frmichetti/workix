@@ -15,6 +15,7 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
@@ -36,13 +37,14 @@ public class Job implements Serializable, BasicEntity {
 	@Column(name = "id", updatable = false, nullable = false)	
 	private Long id;
 	
+	@XmlTransient
 	@JsonIgnore
 	@Version	
 	@Column(name = "version")
 	private int version;
 	
 	@Expose
-	@Column(nullable = false)
+	@Column(nullable = false, updatable = false)
 	private String uuid;
 
 	@Expose
@@ -51,11 +53,11 @@ public class Job implements Serializable, BasicEntity {
 
 	@Expose
 	@Column
-	private BigDecimal minPayment;
+	private BigDecimal minPayment = BigDecimal.ZERO;
 	
 	@Expose
 	@Column
-	private BigDecimal maxPayment;
+	private BigDecimal maxPayment = BigDecimal.ZERO;
 
 	@Expose
 	@Lob
@@ -100,7 +102,7 @@ public class Job implements Serializable, BasicEntity {
 
 	@Expose
 	@Column
-	private boolean active;
+	private boolean active = true;
 	
 	@Expose
 	@ManyToOne(optional=false)
@@ -236,6 +238,16 @@ public class Job implements Serializable, BasicEntity {
 
 	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
+	}
+	
+	
+
+	private int getVersion() {
+		return version;
+	}
+
+	private void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

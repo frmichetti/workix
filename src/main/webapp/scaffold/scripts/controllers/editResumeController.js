@@ -10,7 +10,7 @@ angular.module('openjobs').controller('EditResumeController', function($scope, $
             self.original = data;
             $scope.resume = new ResumeResource(self.original);
             CandidateResource.queryAll(function(items) {
-                $scope.candidateSelectionList = $.map(items, function(item) {
+                $scope.ownerSelectionList = $.map(items, function(item) {
                     var wrappedObject = {
                         id : item.id
                     };
@@ -18,10 +18,10 @@ angular.module('openjobs').controller('EditResumeController', function($scope, $
                         value : item.id,
                         text : item.id
                     };
-                    if($scope.resume.candidate && item.id == $scope.resume.candidate.id) {
-                        $scope.candidateSelection = labelObject;
-                        $scope.resume.candidate = wrappedObject;
-                        self.original.candidate = $scope.resume.candidate;
+                    if($scope.resume.owner && item.id == $scope.resume.owner.id) {
+                        $scope.ownerSelection = labelObject;
+                        $scope.resume.owner = wrappedObject;
+                        self.original.owner = $scope.resume.owner;
                     }
                     return labelObject;
                 });
@@ -72,10 +72,10 @@ angular.module('openjobs').controller('EditResumeController', function($scope, $
         $scope.resume.$remove(successCallback, errorCallback);
     };
     
-    $scope.$watch("candidateSelection", function(selection) {
+    $scope.$watch("ownerSelection", function(selection) {
         if (typeof selection != 'undefined') {
-            $scope.resume.candidate = {};
-            $scope.resume.candidate.id = selection.value;
+            $scope.resume.owner = {};
+            $scope.resume.owner.id = selection.value;
         }
     });
     

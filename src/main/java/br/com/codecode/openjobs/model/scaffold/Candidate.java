@@ -4,19 +4,19 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
 import br.com.codecode.openjobs.model.BasicEntity;
-import br.com.codecode.openjobs.model.scaffold.User;
-
-import javax.persistence.OneToOne;
 
 @Entity
 @XmlRootElement
@@ -30,6 +30,7 @@ public class Candidate implements Serializable, BasicEntity {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 
+	@XmlTransient
 	@JsonIgnore
 	@Version
 	@Column(name = "version")
@@ -47,20 +48,16 @@ public class Candidate implements Serializable, BasicEntity {
 	@OneToOne(optional=false)
 	private User user;
 
+	@Expose
+	@OneToOne(fetch=FetchType.LAZY)
+	private Resume resume;
+
 	public Long getId() {
 		return this.id;
 	}
 
 	public void setId(final Long id) {
 		this.id = id;
-	}
-
-	public int getVersion() {
-		return this.version;
-	}
-
-	public void setVersion(final int version) {
-		this.version = version;
 	}
 
 	@Override
@@ -110,6 +107,25 @@ public class Candidate implements Serializable, BasicEntity {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+
+	public Resume getResume() {
+		return resume;
+	}
+
+	public void setResume(Resume resume) {
+		this.resume = resume;
+	}
+	
+	
+
+	private int getVersion() {
+		return version;
+	}
+
+	private void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

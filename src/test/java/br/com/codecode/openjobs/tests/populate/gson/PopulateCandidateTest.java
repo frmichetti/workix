@@ -38,7 +38,7 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
 public class PopulateCandidateTest {
 
 
-	private List<Candidate> candidates = new ArrayList<>();
+	private List<Candidate> candidates;
 
 	private List<User> users;	
 
@@ -70,8 +70,8 @@ public class PopulateCandidateTest {
 		assertNotNull(users);
 		
 		assertTrue(users.size() > 0);
-
-		System.out.println("[create]");				
+		
+		candidates = new ArrayList<>();					
 		
 		for(int x=0 ; x < users.size();x++){
 			
@@ -82,6 +82,8 @@ public class PopulateCandidateTest {
 			c.setCpf(String.valueOf(x));			
 			
 			c.setUser(users.get(x));
+			
+			System.out.println("[create] " + c.getName());	
 			
 			addToList(c);
 		}
@@ -105,11 +107,11 @@ public class PopulateCandidateTest {
 	@Test	
 	public void sendToServer() {
 		
-		create();			
+		assertNotNull(users);				
 		
-		assertNotNull(users);
+		create();
 		
-		assertNotNull(candidates);		
+		assertNotNull(candidates);
 	
 		candidates.forEach(c -> {
 			

@@ -53,6 +53,13 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="benefits" class="col-sm-2 control-label">Benefits</label>
+        <div class="col-sm-10">
+            <input id="benefits" name="benefits" class="form-control" type="text" ng-model="search.benefits" placeholder="Enter the Job Benefits"></input>
+        </div>
+    </div>
+
 
 
     <div class="form-group">
@@ -92,7 +99,7 @@
     <div class="form-group">
         <label for="employeer" class="col-sm-2 control-label">Employeer</label>
         <div class="col-sm-10">
-            <select id="employeer" name="employeer" class="form-control" ng-model="search.employeer" ng-options="e as e.companySegment for e in employeerList">
+            <select id="employeer" name="employeer" class="form-control" ng-model="search.employeer" ng-options="e as e.id for e in employeerList">
                 <option value="">Choose a Employeer</option>
             </select>
         </div>
@@ -126,6 +133,7 @@
                     <th>Max Payment</th>
                     <th>Description</th>
                     <th>Requirement</th>
+                    <th>Benefits</th>
                     <th>Start</th>
                     <th>Expire</th>
                     <th>Job Type</th>
@@ -144,13 +152,14 @@
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.maxPayment}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.description}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.requirement}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.benefits}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.start| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.expire| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobType}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobCategory}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.city}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.estate}}</a></td>
-                        <td><a href="#/Jobs/edit/{{result.id}}">{{result.employeer.companySegment}}</a></td>
+                        <td><a href="#/Jobs/edit/{{result.id}}">{{result.employeer.id}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.active}}</a></td>
                 </tr>
             </tbody>

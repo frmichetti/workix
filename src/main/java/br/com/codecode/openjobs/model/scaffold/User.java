@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
@@ -24,6 +25,7 @@ public class User implements Serializable {
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
+	@XmlTransient
 	@JsonIgnore
 	@Version
 	@Column(name = "version")
@@ -53,37 +55,12 @@ public class User implements Serializable {
 		this.id = id;
 	}
 
-	public int getVersion() {
+	private int getVersion() {
 		return this.version;
 	}
 
-	public void setVersion(final int version) {
+	private void setVersion(final int version) {
 		this.version = version;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof User)) {
-			return false;
-		}
-		User other = (User) obj;
-		if (id != null) {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
 	}
 
 	public String getEmail() {
@@ -117,6 +94,31 @@ public class User implements Serializable {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof User)) {
+			return false;
+		}
+		User other = (User) obj;
+		if (id != null) {
+			if (!id.equals(other.id)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
 
 	@Override
 	public String toString() {
@@ -132,4 +134,6 @@ public class User implements Serializable {
 			result += ", uuid: " + uuid;
 		return result;
 	}
+	
+	
 }
