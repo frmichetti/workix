@@ -1,0 +1,60 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+							 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title>Formulário</title>
+</h:head>
+
+<h:body>
+
+	<ui:composition template="/test/layout.xhtml">
+		<ui:define name="content">
+			<h1>Listagem</h1>
+
+			<h:form rendered="true">
+				<h:outputText value="Table is Null?" /><br />
+				<h:outputText escape="false" value="#{paginationTestMB.dtmdl.rowCount == 0}" />
+				<br />
+
+				<h:panelGroup rendered="#{paginationTestMB.dtmdl.rowCount > 0}">
+
+					<h:outputText
+						value="#{paginationTestMB.pagination.pageFirstItem + 1} .. #{paginationTestMB.pagination.pageLastItem + 1} / #{paginationTestMB.pagination.itemsCount} " />&nbsp;
+													
+				<h:commandLink action="#{paginationTestMB.previous}" value="{msg.Previous} #{paginationTestMB.pagination.pageSize}" rendered="#{dvd.pagination.hasPreviousPage}" />&nbsp;
+													
+				<h:commandLink action="#{paginationTestMB.next}" value="{msg.Next} #{paginationTestMB.pagination.pageSize}" rendered="#{paginationTestMB.pagination.hasNextPage}" />&nbsp;
+													
+											 
+							
+							
+					<h:dataTable value="#{paginationTestMB.dtmdl}" var="item"
+						styleClass="table" headerClass="headers"
+						rowClasses="oddRows,evenRows" border="1" cellspacing="0"
+						cellpadding="5" frame="box">
+						<h:column>
+							<f:facet name="header">Title</f:facet>
+							      					#{item.title}
+							</h:column>
+						<h:column>
+							<f:facet name="header">Active</f:facet>
+						      						#{item.active}
+							 </h:column>
+						<h:column>
+							<f:facet name="header">Description</f:facet>
+							      						#{item.description}
+					</h:column>
+					</h:dataTable>
+
+				</h:panelGroup>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

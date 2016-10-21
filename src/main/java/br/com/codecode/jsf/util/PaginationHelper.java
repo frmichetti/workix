@@ -30,6 +30,8 @@ package br.com.codecode.jsf.util;
  */
 
 
+import java.util.Collection;
+
 import javax.faces.model.DataModel;
 
 public abstract class PaginationHelper {
@@ -37,12 +39,17 @@ public abstract class PaginationHelper {
     private int pageSize;
     
     private int page;
+    
+    private Collection<?> collection;
 
-    public PaginationHelper(int pageSize) {
+    public PaginationHelper(Collection<?> collection,int pageSize) {
+    	this.collection = collection;
         this.pageSize = pageSize;
     }
 
-    public abstract int getItemsCount();
+    public int getItemsCount(){
+    	return collection.size();
+    };
 
     public abstract DataModel<?> createPageDataModel();
 
@@ -51,15 +58,20 @@ public abstract class PaginationHelper {
     }
 
     public int getPageLastItem() {
-        int i = getPageFirstItem() + pageSize - 1;
-        int count = getItemsCount() - 1;
-        if (i > count) {
+        
+    	int i = getPageFirstItem() + pageSize - 1;
+        
+    	int count = getItemsCount() - 1;
+        
+    	if (i > count) {
             i = count;
         }
-        if (i < 0) {
+        
+    	if (i < 0) {
             i = 0;
         }
-        return i;
+        
+    	return i;
     }
 
     public boolean isHasNextPage() {
