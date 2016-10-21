@@ -1,4 +1,4 @@
-package br.com.codecode.test.model;
+package br.com.codecode.openjobs.test.model;
 
 import java.util.ArrayList;
 
