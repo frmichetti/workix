@@ -28,11 +28,13 @@ import br.com.codecode.openjobs.model.BasicEntity;
 public class SelectiveProcess extends Observable implements Observer,Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
-	
+
+	@JsonIgnore
 	@Version
 	@Column(name = "version")
 	private int version;
@@ -40,7 +42,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	@Column(nullable = false)
 	private String uuid;
 
-	@ManyToOne
+	@ManyToOne(optional=false)
 	private Job job;	
 
 	@OneToMany
@@ -48,13 +50,13 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 	@Column
 	private boolean active = true;	
-	
+
 	@JsonIgnore
 	private Instant disabledAt;
 
 	@Column(nullable = false)
 	private int maxCandidates;
-	
+
 	public SelectiveProcess() {
 		this.addObserver(this);	
 	}	
@@ -100,7 +102,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 		return result;
 	}
 
-	
+
 
 	public String getUuid() {
 		return uuid;
@@ -117,7 +119,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	public void setJob(final Job job) {
 		this.job = job;
 	}
-	
+
 
 	public Set<Candidate> getCandidates() {
 		return this.candidates;
@@ -133,13 +135,13 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	}
 
 	private void setActive(boolean active) {
-		
+
 		if(!active){
 			disabledAt = Instant.now();
 		}
-		
+
 		this.active = active;
-		
+
 		notifyChanges();
 	}
 
@@ -150,23 +152,23 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	public void setMaxCandidates(int maxCandidates) {
 		this.maxCandidates = maxCandidates;
 	}
-	
+
 	@JsonIgnore
 	private boolean isElegible(){
 		System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
 		System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates+ "]");
 		return (candidates.size() < maxCandidates);
 	}
-	
+
 	public boolean isInProcess(Candidate candidate){
 		System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)) );
 		return (candidates.contains(candidate));
 	}
-	
+
 	private void countCandidates(Set<Candidate> collection){		
 		maxCandidates = collection.size();	
 	}
-	
+
 	public boolean registerCandidate(Candidate candidate){
 
 		boolean b = false;
@@ -202,7 +204,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 		notifyObservers(object);
 		setChanged();
 	}
-	
+
 
 
 
@@ -229,7 +231,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 					System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
 			}
 
-			
+
 
 
 		}
@@ -238,5 +240,5 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 	}
 
-	
+
 }

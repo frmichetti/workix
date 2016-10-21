@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.codecode.openjobs.model.BasicEntity;
 import br.com.codecode.openjobs.model.scaffold.User;
 
@@ -20,10 +22,13 @@ import javax.persistence.OneToOne;
 public class Candidate implements Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
+	
+	@JsonIgnore
 	@Version
 	@Column(name = "version")
 	private int version;

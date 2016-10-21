@@ -16,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.codecode.openjobs.model.BasicEntity;
 import br.com.codecode.openjobs.model.enumeration.Estate;
 import br.com.codecode.openjobs.model.enumeration.JobCategory;
@@ -32,6 +34,7 @@ public class Job implements Serializable, BasicEntity {
 	@Column(name = "id", updatable = false, nullable = false)	
 	private Long id;
 	
+	@JsonIgnore
 	@Version
 	@Column(name = "version")
 	private int version;

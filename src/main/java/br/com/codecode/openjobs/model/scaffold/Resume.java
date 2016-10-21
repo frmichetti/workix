@@ -12,20 +12,25 @@ import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @XmlRootElement
 public class Resume implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
+	
+	@JsonIgnore
 	@Version
 	@Column(name = "version")
 	private int version;
 
-	@OneToOne
+	@OneToOne(optional = false)
 	private Candidate candidate;
 	
 	@Lob
