@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.GsonBuilder;
@@ -16,19 +17,17 @@ import br.com.codecode.openjobs.model.scaffold.User;
 import br.com.codecode.openjobs.tests.download.DownloadTest;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
 import br.com.codecode.openjobs.tests.util.Http;
-import br.com.codecode.openjobs.tests.util.HttpConfig;
 
 public class DownloadTestUser implements DownloadTest {
 
 	private String resp;
 
-	@Test
-	@Override
+	@Before
 	public void downloadItens() {		
 
 		System.out.println("downloadItens");
 		
-		resp = Http.sendGet(HttpConfig.SCAFFOLD_PROJ + "users");
+		resp = Http.sendGet(server + "users");
 		
 		assertFalse(resp.isEmpty());
 
@@ -39,9 +38,7 @@ public class DownloadTestUser implements DownloadTest {
 	@Override
 	public void parseItens() {
 		
-		System.out.println("parseItens");
-
-		downloadItens();
+		System.out.println("parseItens");		
 
 		List<User> users = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())

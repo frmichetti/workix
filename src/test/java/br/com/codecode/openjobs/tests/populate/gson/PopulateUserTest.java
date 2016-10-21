@@ -38,32 +38,32 @@ public class PopulateUserTest{
 	private String resp;
 
 	@Before	
-	public void create() {
-
-		System.out.println("[create]");
+	public void create() {		
 			
-		for(int x=0 ; x < 5000;x++){
+		for(int x=0 ; x < 5_000;x++){
 			
-			User u = new User();		
+			User u = new User();
+			
+			assertNotNull(u);
 			
 			u.setEmail("Mockup User N# " + String.valueOf(x));
 			
 			assertNotNull(u.getEmail());
 			
-			assertNotEquals("",u.getEmail());
+			assertNotEquals("",u.getEmail());			
 			
 			u.setUuid(UUID.randomUUID().toString());
 			
 			u.setFirebaseUUID(UUID.randomUUID().toString());
 			
-			u.setFirebaseMessageToken(UUID.randomUUID().toString());
+			u.setFirebaseMessageToken(UUID.randomUUID().toString());			
 			
-			assertNotNull(u);
+			System.out.println("[create] " + u.getEmail());
 			
 			addToList(u);
 		}
 		
-		assertEquals(5000,users.size());
+		assertEquals(5_000,users.size());
 
 	}
 
@@ -77,9 +77,7 @@ public class PopulateUserTest{
 	}
 	
 	@Test	
-	public void sendToServer() {					
-
-		
+	public void sendToServer() {		
 
 		users.stream().forEach(u -> {
 			

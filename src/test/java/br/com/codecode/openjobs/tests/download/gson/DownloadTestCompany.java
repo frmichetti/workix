@@ -7,58 +7,56 @@ import static org.junit.Assert.assertTrue;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.tests.download.DownloadTest;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
 import br.com.codecode.openjobs.tests.util.Http;
-import br.com.frmichetti.carhollics.core.model.compatibility.Service;
 
-public class DownloadTestService implements DownloadTest {
-
+public class DownloadTestCompany implements DownloadTest{
+	
 	private String resp;
 
-	@Test
-	@Override
+	@Before
 	public void downloadItens() {
-
+		
 		System.out.println("downloadItens");
 		
-		resp = Http.sendGet(server + "services");
+		resp = Http.sendGet(server + "companies");
 		
 		assertFalse(resp.isEmpty());
-
+		
 	}
-
+	
 	@Test
 	@Override
-	public void parseItens() {
-
-		System.out.println("parseItens");
-
-		downloadItens();
-
-		List<Service> services = new GsonBuilder()
+	public void parseItens() {		
+		
+		System.out.println("parseItens");		
+		
+		List<Company> companies = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
 				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 				.enableComplexMapKeySerialization()			
 				.create()
-				.fromJson(resp, new TypeToken<List<Service>>(){}.getType()); 
-
-		assertNotNull(services);
-
-		assertTrue(services.size() > 0);
-
+				.fromJson(resp, new TypeToken<List<Company>>(){}.getType()); 
+		
+		assertNotNull(companies);
+		
+		assertTrue(companies.size() > 0);
+		
 		System.out.println("----Stream----");
-
-		services.stream().forEach(System.out::println);
-
+		
+		companies.stream().forEach(System.out::println);
+		
 		System.out.println("----Stream----");
-
+		
+		
 	}
-
 
 }

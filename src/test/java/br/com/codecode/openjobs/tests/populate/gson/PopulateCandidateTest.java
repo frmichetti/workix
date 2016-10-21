@@ -36,7 +36,7 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
  * @version
  *
  */
-public class PopulateCustomer {
+public class PopulateCandidateTest {
 
 
 	private List<Candidate> candidates = new ArrayList<>();
