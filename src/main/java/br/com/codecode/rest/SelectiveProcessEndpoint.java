@@ -3,6 +3,8 @@ package br.com.codecode.rest;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.event.Event;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
@@ -20,6 +22,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
+
+import br.com.codecode.openjobs.model.scaffold.Job;
 import br.com.codecode.openjobs.model.scaffold.SelectiveProcess;
 
 /**
@@ -30,11 +34,18 @@ import br.com.codecode.openjobs.model.scaffold.SelectiveProcess;
 public class SelectiveProcessEndpoint {
 	@PersistenceContext(unitName = "JPU")
 	private EntityManager em;
+	
+	@Inject
+	private Event<SelectiveProcess> alertForSelectiveProcess;
 
 	@POST
 	@Consumes("application/json")
 	public Response create(SelectiveProcess entity) {
+		
 		em.persist(entity);
+		
+		alertForSelectiveProcess.fire(entity);
+		
 		return Response.created(
 				UriBuilder.fromResource(SelectiveProcessEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
@@ -43,11 +54,15 @@ public class SelectiveProcessEndpoint {
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") Long id) {
+		
 		SelectiveProcess entity = em.find(SelectiveProcess.class, id);
+		
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
+		
 		em.remove(entity);
+		
 		return Response.noContent().build();
 	}
 
@@ -55,6 +70,7 @@ public class SelectiveProcessEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") Long id) {
+		
 		TypedQuery<SelectiveProcess> findByIdQuery = em
 				.createQuery(
 						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.job LEFT JOIN FETCH s.candidates WHERE s.id = :entityId ORDER BY s.id",
@@ -76,7 +92,7 @@ public class SelectiveProcessEndpoint {
 	@Produces("application/json")
 	public List<SelectiveProcess> listAll(
 			@QueryParam("start") Integer startPosition,
-			@QueryParam("max") Integer maxResult) {
+			@QueryParam("max") Integer maxResult) {		
 		TypedQuery<SelectiveProcess> findAllQuery = em
 				.createQuery(
 						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.job LEFT JOIN FETCH s.candidates ORDER BY s.id",
@@ -108,7 +124,11 @@ public class SelectiveProcessEndpoint {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {
+			
 			entity = em.merge(entity);
+			
+			alertForSelectiveProcess.fire(entity);
+			
 		} catch (OptimisticLockException e) {
 			return Response.status(Response.Status.CONFLICT)
 					.entity(e.getEntity()).build();

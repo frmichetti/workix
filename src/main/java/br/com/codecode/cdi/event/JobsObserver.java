@@ -25,13 +25,35 @@ public class JobsObserver {
 		System.out.println("[CDI - Alert for New Job]");
 
 		System.out.println(job.getUuid());
-		
+
 		System.out.println(Instant.now());		
 
 		System.out.println("[-----------------------]");
 
+		switch (job.getJobCategory()) {
+
+		case MANAGEMENT: {
+			System.out.println("SEND Notification for Management Job");
+		}
+		break;
+		
+		case OPERATOR: {
+			System.out.println("SEND Notification for Operator Job");
+		}
+		break;
+		
+		default:{
+			System.out.println("SEND Notification for Default Job");
+		}
+			break;
+			
+		}
+
 		jmsContext.createProducer().send(destination, job.getUuid());	
+
 
 	}
 
 }
+
+

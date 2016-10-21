@@ -1,7 +1,11 @@
 package br.com.codecode.openjobs.model.scaffold;
 
 import java.io.Serializable;
+import java.time.Instant;
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -14,11 +18,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.codecode.openjobs.model.BasicEntity;
+
 
 @Entity
 @XmlRootElement
-public class SelectiveProcess implements Serializable, BasicEntity {
+public class SelectiveProcess extends Observable implements Observer,Serializable, BasicEntity {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -40,10 +47,17 @@ public class SelectiveProcess implements Serializable, BasicEntity {
 	private Set<Candidate> candidates = new HashSet<Candidate>();
 
 	@Column
-	private boolean active;	
+	private boolean active = true;	
+	
+	@JsonIgnore
+	private Instant disabledAt;
 
 	@Column(nullable = false)
 	private int maxCandidates;
+	
+	public SelectiveProcess() {
+		this.addObserver(this);	
+	}	
 
 	public Long getId() {
 		return this.id;
@@ -88,6 +102,10 @@ public class SelectiveProcess implements Serializable, BasicEntity {
 
 	
 
+	public String getUuid() {
+		return uuid;
+	}
+
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
@@ -107,15 +125,23 @@ public class SelectiveProcess implements Serializable, BasicEntity {
 
 	public void setCandidates(final Set<Candidate> candidates) {
 		this.candidates = candidates;
+		notifyChanges();
 	}
 
 	public boolean isActive() {
 		return active;
 	}
 
-	public void setActive(boolean active) {
+	private void setActive(boolean active) {
+		
+		if(!active){
+			disabledAt = Instant.now();
+		}
+		
 		this.active = active;
-	}	
+		
+		notifyChanges();
+	}
 
 	public int getMaxCandidates() {
 		return maxCandidates;
@@ -123,6 +149,93 @@ public class SelectiveProcess implements Serializable, BasicEntity {
 
 	public void setMaxCandidates(int maxCandidates) {
 		this.maxCandidates = maxCandidates;
+	}
+	
+	@JsonIgnore
+	private boolean isElegible(){
+		System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
+		System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates+ "]");
+		return (candidates.size() < maxCandidates);
+	}
+	
+	public boolean isInProcess(Candidate candidate){
+		System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)) );
+		return (candidates.contains(candidate));
+	}
+	
+	private void countCandidates(Set<Candidate> collection){		
+		maxCandidates = collection.size();	
+	}
+	
+	public boolean registerCandidate(Candidate candidate){
+
+		boolean b = false;
+
+		if((isActive()) && (isElegible()) && (!isInProcess(candidate))){
+
+			candidates.add(candidate);			
+
+			System.out.println(candidate.getName() + " Registered with Success");
+
+			b = true;
+
+		}else{
+
+			System.out.println(candidate.getName() + " Cannot Registered");
+
+			b = false;
+		}
+
+		notifyChanges(candidates);
+
+		return b;
+
+	}
+
+
+	private void notifyChanges(){		
+		notifyObservers();
+		setChanged();
+	}
+
+	private void notifyChanges(Object object){		
+		notifyObservers(object);
+		setChanged();
+	}
+	
+
+
+
+	@Override
+	public String toString() {
+		return "SelectiveProcess [active=" + active + ", maxCandidates=" + maxCandidates + "]";
+	}
+
+	@Override
+	public void update(Observable observable, Object object) {	
+
+		if(observable instanceof SelectiveProcess){			
+
+			if(active = isElegible()){
+
+				if(object instanceof Collection<?>){								
+
+					countCandidates((Set<Candidate>) object);
+
+				}
+
+			}else{				
+				if (disabledAt != null)
+					System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
+			}
+
+			
+
+
+		}
+
+
+
 	}
 
 	

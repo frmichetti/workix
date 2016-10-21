@@ -29,6 +29,13 @@ public class SelectiveProcessObserver {
 		System.out.println(Instant.now());		
 
 		System.out.println("[-----------------------]");
+		
+		if(process.isActive()){
+			System.out.println("Process is Active");
+		}else{
+			System.out.println("Process is no More Elegible");
+			System.out.println("Process is Disabled from Database");
+		}
 
 		jmsContext.createProducer().send(destination, process.getId());	
 
