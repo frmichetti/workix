@@ -7,6 +7,8 @@
  * */
 package br.com.codecode.jms.listener;
 
+import java.time.Instant;
+
 import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
@@ -35,9 +37,7 @@ public class UserListener implements MessageListener{
 	@Inject @Push
 	private Notification sendPush;
 
-	public UserListener() {
-		System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
-	}
+	public UserListener(){}
 
 	@Override	
 	public void onMessage(Message message) {
@@ -56,7 +56,9 @@ public class UserListener implements MessageListener{
 			
 			
 
-			managedExecutorService.execute(() -> {		
+			managedExecutorService.execute(() -> {	
+				
+				System.out.println("TODO SEND A MAIL TO USER " + Instant.now());
 
 
 			});

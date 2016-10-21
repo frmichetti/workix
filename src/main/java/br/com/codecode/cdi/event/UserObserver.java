@@ -1,5 +1,7 @@
 package br.com.codecode.cdi.event;
 
+import java.time.Instant;
+
 import javax.annotation.Resource;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
@@ -21,9 +23,11 @@ public class UserObserver {
 
 	public void alert(@Observes User user){
 
-		System.out.println("[Alert for new User]");
+		System.out.println("[CDI - Alert for new User]");
 
 		System.out.println(user.getEmail());		
+		
+		System.out.println(Instant.now());
 
 		System.out.println("[-----------------------]");
 

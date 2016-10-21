@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<f:view contentType="text/html">
+
+	<h:head>
+		<h:outputStylesheet library="css" name="style.css" />
+		<title>Faces</title>
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+		</f:facet>
+	</h:head>
+
+	<h:body>
+		
+		<h:messages showDetail="true" life="3000" autoUpdate="true" />
+
+			<ui:insert name="content">
+				<ui:include src="index.xhtml" />
+			</ui:insert>
+
+
+
+	</h:body>
+
+</f:view>
+</html>
+
