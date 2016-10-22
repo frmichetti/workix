@@ -95,8 +95,6 @@ function initApp() {
 
 			var providerData = user.providerData;
 			
-			
-
 			console.warn("[Logged UserName] " + displayName);			
 
 			console.warn("[Logged Email] " + email);			
@@ -106,6 +104,30 @@ function initApp() {
 			console.warn("[Photo Url] " + photoURL);
 			
 			console.warn("[Provider Data] " + providerData)
+			
+			if (user != null) {			
+				
+				providerData.forEach(function (profile) {
+				    
+					console.log("Sign-in provider: " + profile.providerId);
+				    
+				    console.log("  Provider-specific UID: " + profile.uid);
+				    
+				    console.log("  Name: " + profile.displayName);
+				    
+				    (displayName == null) ? displayName = profile.displayName : displayName;
+				    
+				    console.log("  Email: " + profile.email);
+				    
+				    console.log("  Photo URL: " + profile.photoURL);
+				    
+				    (photoURL == null) ? photoURL = profile.photoURL : photoURL;
+				  });
+				}
+			
+			
+
+	
 		
 
 		
@@ -120,8 +142,8 @@ function initApp() {
 			
 			$.notify({
 				icon: photoURL,
-				title: email,
-				message: 'Bem Vindo ! ' + ((displayName == null) ? "Visitante" : displayName)
+				title: 'Bem Vindo ! ' + ((displayName == null) ? "Visitante" : displayName),
+				message: 'Seu Email - ' + ((email == null) ? "Ainda não logado" : email)
 			},{
 				type: 'minimalist',
 				delay: 5000,
@@ -144,12 +166,35 @@ function initApp() {
 			$('#quickstart-sign-in-status').text('Signed out');
 
 			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + 'Sign in with Google');			
+			
+			$.notify({
+				icon: photoURL,
+				title: 'Logout ',
+				message: ((email == null) ? "Logout Realizado com sucesso" : email)
+			},{
+				type: 'minimalist',
+				delay: 5000,
+				icon_type: 'image',
+				template: 
+					'<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+					'<img data-notify="icon" class="img-circle pull-left" />' +
+					'<span data-notify="title">{1}</span>' +
+					'<span data-notify="message">{2}</span>' +
+				'</div>'
+			});
 
 			// [END_EXCLUDE]
 		}
 		// [START_EXCLUDE]		
 		$('#quickstart-sign-in').attr("disabled", false);
 		// [END_EXCLUDE]
+		
+		
+		
+		
+
+		
+		
 	});
 	// [END authstatelistener]	
 	//$('#quickstart-sign-in').click(toggleSignIn);

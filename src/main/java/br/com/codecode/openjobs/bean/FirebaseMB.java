@@ -1,18 +1,11 @@
 package br.com.codecode.openjobs.bean;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.Serializable;
-import java.net.MalformedURLException;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.URL;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
-import javax.inject.Named;
+import javax.enterprise.inject.Model;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -20,56 +13,75 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseToken;
 import com.google.firebase.tasks.OnSuccessListener;
 
-@SessionScoped
+/*@SessionScoped
 @Named
-@ManagedBean
+@ManagedBean*/
+@Model
 public class FirebaseMB implements Serializable {
 
 	private String name,email,uid,photo;
 
 	private String idToken;
 
-	private static final long serialVersionUID = -6683482350467577281L;
-	
-	private URL url;
+	private static final long serialVersionUID = -6683482350467577281L;	
 
 	public FirebaseMB() {
 		System.out.println("[CDI] " + getClass().getSimpleName());
 	}
 
 	@PostConstruct
-	private void init(){
+	private void init(){		
 
-		System.out.println("Post Construct");
-
-		
-		try {
-			
-			url = new URL("http://localhost:8080/jobs/google-services.json");
-			
-			System.out.println(url.getProtocol());
-			
-			
-			
-		} catch (MalformedURLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}  
-
+		try{
+			initFirebaseConfig();	
+		}catch (Exception e) {
+			System.err.println("Firebase Not Loaded");
+		}
 		
 
-		
 	}
 
-	private void initFirebaseConfig(URI uri) throws FileNotFoundException {
+	private void initFirebaseConfig() {
 
-		FirebaseOptions options = new FirebaseOptions.Builder()
-				.setServiceAccount(new FileInputStream(new File(uri)))					
-				.build();
+		FirebaseOptions options = null;
 
-		FirebaseApp.initializeApp(options);
+		try {
 
-		FirebaseAuth.getInstance().verifyIdToken(idToken)		
+			options = new FirebaseOptions.Builder()
+					.setServiceAccount(new URL("http://localhost:8080/jobs/google-services.json").openStream())					
+					.build();
+
+			FirebaseApp.initializeApp(options);		
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+
+			System.err.println("Cannot Initialize Firebase App - Config File not Found");
+		}
+
+	}
+
+	public String getIdToken() {
+		System.out.println(idToken);
+		return idToken;
+	}
+
+	public void setIdToken(String idToken) {
+
+		this.idToken = idToken;
+
+		if(idToken != null)
+			if(!idToken.equals(""))
+
+		verifyToken(idToken);
+
+	}
+
+
+	private void verifyToken(String token) {
+
+		FirebaseAuth.getInstance().verifyIdToken(token)		
 		.addOnSuccessListener(new OnSuccessListener<FirebaseToken>() {
 
 			@Override
@@ -90,19 +102,7 @@ public class FirebaseMB implements Serializable {
 
 		});
 
-
-
 	}
-
-	public String getIdToken() {
-		System.out.println(idToken);
-		return idToken;
-	}
-
-	public void setIdToken(String idToken) {
-		this.idToken = idToken;
-	}
-
 
 	public String getEmail() {
 		System.out.println("Email = " + email);
