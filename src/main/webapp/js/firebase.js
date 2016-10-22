@@ -1,4 +1,4 @@
-// Initialize Firebase
+//Initialize Firebase
 var config = {
 		apiKey: "AIzaSyDtccrM2X2IqflZ9BZYCSDQ46DpvYHk1i8",
 		authDomain: "akijob-2a6bc.firebaseapp.com",
@@ -6,15 +6,16 @@ var config = {
 		storageBucket: "akijob-2a6bc.appspot.com",
 		messagingSenderId: "289835208718"
 };
+
 firebase.initializeApp(config);
 
 
 /**
  * Function called when clicking the Login/Logout button.
  */
-// [START buttoncallback]
+//[START buttoncallback]
 function toggleSignIn() {
-	
+
 	if (!firebase.auth().currentUser) {
 		// [START createprovider]
 		var provider = new firebase.auth.GoogleAuthProvider();
@@ -28,7 +29,7 @@ function toggleSignIn() {
 			var token = result.credential.accessToken;
 			// The signed-in user info.
 			var user = result.user;
-			
+
 			loggedUser = user;
 			// [START_EXCLUDE]
 			$('#quickstart-oauthtoken').text(token);			
@@ -59,13 +60,13 @@ function toggleSignIn() {
 	}
 	// [START_EXCLUDE]	
 	$('#quickstart-sign-in').attr("disabled", true);
-	
+
 	// [END_EXCLUDE]	
 }
 
 
 
-// [END buttoncallback]
+//[END buttoncallback]
 
 /**
  * initApp handles setting up UI event listeners and registering Firebase auth listeners:
@@ -77,49 +78,73 @@ function initApp() {
 	// Listening for auth state changes.
 	// [START authstatelistener]
 	firebase.auth().onAuthStateChanged(function(user) {
-		
+
 		if (user) {
 			// User is signed in.
 			var displayName = user.displayName;
-			
+
 			var email = user.email;
-			
+
 			var emailVerified = user.emailVerified;
-			
+
 			var photoURL = user.photoURL;
-			
+
 			var isAnonymous = user.isAnonymous;
-			
+
 			var uid = user.uid;
-			
+
 			var providerData = user.providerData;
 			
-			console.info("Logged UserName")
-			console.info(displayName);
 			
-			console.info("Logged Email")
-			console.info(email);
+
+			console.warn("[Logged UserName] " + displayName);			
+
+			console.warn("[Logged Email] " + email);			
+
+			console.warn("[Logged UID] " + uid);			
+
+			console.warn("[Photo Url] " + photoURL);
 			
-			console.info("Logged UID")
-			console.info(uid);
-			
-			console.info("Photo Url")
-			console.info(photoURL);
-			
-			
+			console.warn("[Provider Data] " + providerData)
+		
+
+		
+
 			// [START_EXCLUDE]
 			$('#quickstart-sign-in-status').text('Signed in');			
-			
+
 			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + email + '\n Sign out ' +"");		
 			
+			$('#fbtoken').text(uid);			
+
+			
+			$.notify({
+				icon: photoURL,
+				title: email,
+				message: 'Bem Vindo ! ' + ((displayName == null) ? "Visitante" : displayName)
+			},{
+				type: 'minimalist',
+				delay: 5000,
+				icon_type: 'image',
+				template: 
+					'<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+					'<img data-notify="icon" class="img-circle pull-left" />' +
+					'<span data-notify="title">{1}</span>' +
+					'<span data-notify="message">{2}</span>' +
+				'</div>'
+			});
+
+
+
+
 			// [END_EXCLUDE]
 		} else {
 			// User is signed out.
 			// [START_EXCLUDE]
 			$('#quickstart-sign-in-status').text('Signed out');
-			
-			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + 'Sign in with Google');
-	
+
+			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + 'Sign in with Google');			
+
 			// [END_EXCLUDE]
 		}
 		// [START_EXCLUDE]		

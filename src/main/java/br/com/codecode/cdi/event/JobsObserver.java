@@ -30,8 +30,8 @@ public class JobsObserver {
 
 		System.out.println("[-----------------------]");
 		
-		if(job.getJobCategory() != null){
-			switch (job.getJobCategory()) {
+		if(job.getCategory() != null){
+			switch (job.getCategory()) {
 
 			case MANAGEMENT: {
 				System.out.println("SEND Notification for Management Job");

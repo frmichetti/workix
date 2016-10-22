@@ -1,12 +1,17 @@
 package br.com.codecode.openjobs.bean;
 
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
 import br.com.codecode.infra.MailSender;
+import br.com.codecode.jsf.util.MessagesHelper;
 
 @Model
 public class ContactMB {
+	
+	@Inject
+	private MessagesHelper messagesHelper;
 	
 	public ContactMB() {}
 	
@@ -60,6 +65,8 @@ public class ContactMB {
 		System.out.println("Received Body Message " + getBody());
 		
 		mailSender.send(email, email, subject, body);
+		
+		messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Mensagem Enviada com Sucesso", "Obrigado!"));
 		
 		return "./index.xhtml?faces-redirect=true";
 		

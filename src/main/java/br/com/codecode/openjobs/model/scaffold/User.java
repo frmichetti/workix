@@ -1,14 +1,18 @@
 package br.com.codecode.openjobs.model.scaffold;
 
-import javax.persistence.Entity;
 import java.io.Serializable;
-import javax.persistence.Id;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Column;
+import javax.persistence.Id;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
@@ -28,13 +32,17 @@ public class User implements Serializable {
 	@XmlTransient
 	@JsonIgnore
 	@Version
-	@Column(name = "version")
+	@Column
 	private int version;
-
+	
+	
+	@NotEmpty
+	@Email
 	@Expose
 	@Column(nullable = false)
 	private String email;
 
+	@NotEmpty
 	@Expose
 	@Column
 	private String firebaseUUID;
@@ -42,7 +50,7 @@ public class User implements Serializable {
 	@Expose
 	@Column
 	private String firebaseMessageToken;
-
+	
 	@Expose
 	@Column
 	private String uuid;

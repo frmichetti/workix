@@ -14,8 +14,12 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Version;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Future;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
@@ -40,21 +44,24 @@ public class Job implements Serializable, BasicEntity {
 	@XmlTransient
 	@JsonIgnore
 	@Version	
-	@Column(name = "version")
+	@Column
 	private int version;
 	
 	@Expose
 	@Column(nullable = false, updatable = false)
 	private String uuid;
 
+	@NotEmpty
 	@Expose
 	@Column(nullable = false)
 	private String title;
 
+	@DecimalMin("10")
 	@Expose
 	@Column
 	private BigDecimal minPayment = BigDecimal.ZERO;
 	
+	@DecimalMin("10")
 	@Expose
 	@Column
 	private BigDecimal maxPayment = BigDecimal.ZERO;
@@ -74,10 +81,12 @@ public class Job implements Serializable, BasicEntity {
 	@Column(nullable = false)	
 	private String benefits;
 	
+	@Future
 	@Expose
 	@Column(nullable = false, updatable = false)
 	private Date start;
 
+	@Future
 	@Expose
 	@Column(nullable = false)
 	private Date expire;
@@ -85,12 +94,12 @@ public class Job implements Serializable, BasicEntity {
 	@Expose
 	@Column
 	@Enumerated(EnumType.STRING)
-	private JobType jobType;
+	private JobType type;
 
 	@Expose
 	@Column
 	@Enumerated(EnumType.STRING)
-	private JobCategory jobCategory;	
+	private JobCategory category;	
 	
 	@Expose
 	@Column
@@ -192,20 +201,20 @@ public class Job implements Serializable, BasicEntity {
 		this.expire = expire;
 	}
 
-	public JobType getJobType() {
-		return jobType;
+	public JobType getType() {
+		return type;
 	}
 
-	public void setJobType(JobType jobType) {
-		this.jobType = jobType;
+	public void setType(JobType jobType) {
+		this.type = jobType;
 	}
 
-	public JobCategory getJobCategory() {
-		return jobCategory;
+	public JobCategory getCategory() {
+		return category;
 	}
 
-	public void setJobCategory(JobCategory jobCategory) {
-		this.jobCategory = jobCategory;
+	public void setCategory(JobCategory jobCategory) {
+		this.category = jobCategory;
 	}
 
 	public String getCity() {

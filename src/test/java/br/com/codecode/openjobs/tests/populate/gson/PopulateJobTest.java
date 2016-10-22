@@ -97,7 +97,7 @@ public class PopulateJobTest {
 			
 			j.setExpire(new Date());
 			
-			j.setJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
+			j.setType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
 			
 			j.setCity("São José dos Campos");
 			

@@ -13,21 +13,20 @@ import javax.inject.Named;
 public class ApplicationMB {
 
 	private String appName ;
-	
-	private int year;
-	
-	public ApplicationMB() {
-		
-		System.out.println("[CDI - " + this.getClass().getSimpleName() + "]");
 
+	private int year;
+
+	public ApplicationMB() {
+		System.out.println("[CDI - " + this.getClass().getSimpleName() + "]");
 	}
-	
+
 	@PostConstruct
 	private void init(){
-		
+
 		appName = "OpenJobs";
-		
-		year = LocalDate.now().getYear();
+
+		year = LocalDate.now().getYear();	
+
 	}
 
 	public String getAppName() {
@@ -37,6 +36,6 @@ public class ApplicationMB {
 	public int getYear() {
 		return year;
 	}
-	
-	
+
+
 }

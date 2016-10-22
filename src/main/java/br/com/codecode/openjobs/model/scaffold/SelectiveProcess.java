@@ -16,7 +16,10 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Version;
+import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -38,13 +41,15 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	@Version
 	@Column(name = "version")
 	private int version;
-
+	
 	@Column(nullable = false)
 	private String uuid;
 
+	@NotEmpty
 	@ManyToOne(optional=false)
 	private Job job;	
 
+	@Min(1)
 	@OneToMany
 	private Set<Candidate> candidates = new HashSet<Candidate>();
 
@@ -54,6 +59,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	@JsonIgnore
 	private Instant disabledAt;
 
+	@Min(1)
 	@Column(nullable = false)
 	private int maxCandidates;
 

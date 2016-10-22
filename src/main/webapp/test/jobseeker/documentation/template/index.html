@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>Jobseek Site Template Manual</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body style="padding-top: 70px;" data-spy="scroll" data-target=".navbar-collapse">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Jobseek Site Template Manual</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><a href="#introduction">Introduction</a></li>
+					<li><a href="#html">HTML</a></li>
+					<li><a href="#css">CSS</a></li>
+					<li><a href="#php">PHP</a></li>
+					<li><a href="#js">Javascript</a></li>
+					<li><a href="#credits">Credits</a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		</div>
+	</div>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-12">
+
+				<div class="jumbotron" id="introduction">
+					<h1>Jobseek Site Template</h1>
+					<p>
+						Documentation by Coffeecream Themes<br>
+						Created: 22/04/2015<br>
+						Email: <a href="mailto:info@coffeecream.eu">info@coffeecream.eu</a>
+					</p>
+					<hr>
+					<p>
+						Thank you for purchasing our theme. If you have any questions that are beyond the scope of this help file, 
+						please feel free to email via my user page contact form <a href="http://themeforest.net/user/Coffeecream" target="_blank">here</a>. Thanks so much!
+					</p>
+				</div>
+
+				<h2 id="html">1. HTML files and tructure</h2>
+				<p>This theme is a responsive layout with one to 12 columns. The general template structure is the same throughout the template.</p>
+				<pre class="prettyprint linenums">
+&lt;!-- ============ NAVBAR START ============ --&gt;
+
+&lt;div class="fm-container"&gt;
+    &lt;!-- Menu --&gt;
+    &lt;div class="menu"&gt;
+        &lt;div class="button-close text-right"&gt;
+            &lt;a class="fm-button"&gt;&lt;i class="fa fa-close fa-2x"&gt;&lt;/i&gt;&lt;/a&gt;
+        &lt;/div&gt;
+        &lt;ul class="nav"&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="jobs.html"&gt;Jobs&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="post-a-job.html"&gt;Post a job&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="candidates.html"&gt;Candidates&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="post-a-resume.html"&gt;Post a Resume&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Pages&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href="job-details.html"&gt;Job Details&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="resume.html"&gt;Resume&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="company.html"&gt;Company&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="blog.html"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="post.html"&gt;Single Post&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="about.html"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="testimonials.html"&gt;Testimonials&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href="options.html"&gt;Options&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a class="link-register"&gt;Register&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class="link-login"&gt;Login&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;		
+    &lt;/div&gt;
+    &lt;!-- end Menu --&gt;
+&lt;/div&gt;
+
+&lt;!-- ============ NAVBAR END ============ --&gt;
+
+&lt;!-- ========== CONTENT START ========== --&gt;
+
+&lt;section&gt;
+
+    ## CONTENT GOES HERE ##
+
+&lt;/section&gt;
+
+&lt;!-- ========== CONTENT END ========== --&gt;
+
+&lt;!-- ========== FOOTER START ========== --&gt;
+
+&lt;footer&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="row"&gt;
+
+            ## FOOTER CONTENT GOES HERE ##
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/footer&gt;
+
+&lt;!-- ========== FOOTER END ========== --&gt;</pre>
+
+				<h2>1.1. Navigation</h2>
+				<p>Site navigation is found in &lt;ul class="nav"&gt; inside .navbar div. To create main menu items, add list elements to &lt;ul class="nav"&gt;. You can add sub menu items to the main menu items adding an ul tag with list elements inside. You also have to add the parent class to the parent li elements. Adding current class to list elements makes the menu item selected/highlighted.</p>
+				<pre class="prettyprint linenums">
+&lt;ul class="nav"&gt;
+    &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="jobs.html"&gt;Jobs&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="post-a-job.html"&gt;Post a job&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="candidates.html"&gt;Candidates&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="post-a-resume.html"&gt;Post a Resume&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#"&gt;Pages&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="job-details.html"&gt;Job Details&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="resume.html"&gt;Resume&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="company.html"&gt;Company&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="blog.html"&gt;Blog&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="post.html"&gt;Single Post&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="about.html"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="testimonials.html"&gt;Testimonials&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="options.html"&gt;Options&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a class="link-register"&gt;Register&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a class="link-login"&gt;Login&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+				<h2>1.2. Parallax background images</h2>
+				To change background images in parallax effect sections:
+				<ol>
+					<li>Open style.css file.</li>
+					<li>Go to section 7, line 1133.</li>
+					<li>Replace paths to background files.</li>
+				</ol>
+
+				<hr>
+				
+				<h2 id="css">2. CSS files and stucture</h2>
+				<p>The style.css file is used in every template html file. It can be found in the HEAD section of the page.</p>
+				<pre class="prettyprint linenums">
+&lt;head&gt;
+
+    [...]
+
+    &lt;!-- Custom CSS --&gt;
+    &lt;link href="css/style.css" rel="stylesheet"&gt;
+
+    [...]
+
+&lt;/head&gt;</pre>
+                <p>Style.css is the template main css files and it contains links the other ones - Bootstrap, Google fonts, Owl Carsouel, Fancybox and Awesome Font icons css files.</p>
+                <pre class="prettyprint linenums">
+@import url(bootstrap.min.css);
+@import url(jquery.flexmenu.css);
+@import url(owl.carousel.css);
+@import url(animate.css);
+@import url(jquery.fancybox.css);
+@import url(jquery.nouislider.css);
+@import url(font-awesome.min.css);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:700);</pre>
+				
+				<h2>2.1. Change Google font</h2>
+				<p>Google font can be easily replaced in 2 simple steps:</p>
+				<ol>
+					<li>Edit the template file.</li>
+					<li>Replace the <a href="http://www.google.com/fonts/specimen/Lato" target="_blank">Lato</a> font with yours (e.g. <a href="http://www.google.com/fonts/specimen/PT+Sans" target="_blank">"PT Sans"</a>), as you can see below.</li>
+				</ol>
+				<pre class="prettyprint linenums">
+@import url("http://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:700");</pre>
+
+				<hr>
+				
+				<h2 id="php">3. PHP files and stucture</h2>
+				<p>The only PHP file is process.php, the script sending email from the contact form. All you have to do to make it work is changin email addres to your own in line 3:</p>
+				<pre class="prettyprint linenums">$myemail = "youremail@gmail.com";</pre>
+				
+				<hr>
+				
+				<h2 id="js">4. Javascript files and structure</h2>
+				<p>This template requires the following javascript files. You should place them at the end of every template html file, just before the closing &lt;/body&gt; tag. All the script and plugin settings are in settings.js file.</p>
+
+				<pre class="prettyprint linenums">
+&lt;!-- Modernizr Plugin --&gt;
+&lt;script src="js/modernizr.custom.79639.js"&gt;&lt;/script&gt;
+
+&lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;
+&lt;script src="js/jquery-1.11.2.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Bootstrap Plugins --&gt;
+&lt;script src="js/bootstrap.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Retina Plugin --&gt;
+&lt;script src="js/retina.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- ScrollReveal Plugin --&gt;
+&lt;script src="js/scrollReveal.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Flex Menu Plugin --&gt;
+&lt;script src="js/jquery.flexmenu.js"&gt;&lt;/script&gt;
+
+&lt;!-- Slider Plugin --&gt;
+&lt;script src="js/jquery.ba-cond.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.slitslider.js"&gt;&lt;/script&gt;
+
+&lt;!-- Carousel Plugin --&gt;
+&lt;script src="js/owl.carousel.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Parallax Plugin --&gt;
+&lt;script src="js/parallax.js"&gt;&lt;/script&gt;
+
+&lt;!-- Counterup Plugin --&gt;
+&lt;script src="js/jquery.counterup.min.js">&lt;/script&gt;
+&lt;script src="js/waypoints.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- No UI Slider Plugin --&gt;
+&lt;script src="js/jquery.nouislider.all.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Bootstrap Wysiwyg Plugin --&gt;
+&lt;script src="js/bootstrap-wysiwyg.js"&gt;&lt;/script&gt;
+&lt;script src="js/jquery.hotkeys.js"&gt;&lt;/script&gt;
+
+&lt;!-- Flickr Plugin --&gt;
+&lt;script src="js/jflickrfeed.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Fancybox Plugin --&gt;
+&lt;script src="js/fancybox.pack.js"&gt;&lt;/script&gt;
+
+&lt;!-- Magic Form Processing --&gt;
+&lt;script src="js/magic.js"&gt;&lt;/script&gt;
+
+&lt;!-- jQuery Settings --&gt;
+&lt;script src="js/settings.js"&gt;&lt;/script&gt;</pre>
+
+				<h2>4.1. Plugins overview</h2>
+				<p>Most of the functions are inbuilt in Bootstrap JS file, but there is also few additional plugins.</p>
+				<div class="table-responsive">
+					<table class="table table-bordered table-striped">
+						<colgroup>
+							<col class="col-xs-3">
+							<col class="col-xs-9">
+						</colgroup>
+						<thead>
+							<tr>
+								<th>Script</th>
+								<th>Description</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>modernizr.custom.79639.js</td>
+								<td>Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user’s browser.<br><a href="http://modernizr.com/" target="_blank">Click here for more info and full documentation &raquo;</a></td>
+							</tr>
+							<tr>
+								<td>jquery-1.11.2.min.js</td>
+								<td>jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.<br><a href="http://jquery.com/" target="_blank">Click here for more info and full documentation &raquo;</a></td>
+							</tr>
+							<tr>
+								<td>bootstrap.min.js</td>
+								<td>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.<br><a href="http://getbootstrap.com/" target="_blank">Click here for more info and full documentation &raquo;</a></td>
+							</tr>
+							<tr>
+								<td>retina.min.js</td>
+								<td>When your users load a page, retina.js checks each image on the page to see if there is a high-resolution version of that image on your server. If a high-resolution variant exists, the script will swap in that image in-place.<br><a href="http://retinajs.com/" target="_blank">Click here for more info and full documentation &raquo;</a></td>
+							</tr>
+                            <tr>
+                                <td>scrollReveal.js</td>
+                                <td>A simple way to create and maintain how elements fade in, triggered when they enter the viewport.<br><a href="http://scrollrevealjs.org/" target="_blank">Click here for more info and full documentation &raquo;</a></td>
+                            </tr>
+                            <tr>
+                                <td>jquery.flexmenu.js</td>
+                                <td>"FlexMenu" is a fully responsive jQuery menu/navigation plugin. It was built with Sass CSS which makes it easy to modify.<br>
+                                    <b>Plugin with documentation included in the template.</b><br>
+                                    <a href="http://codecanyon.net/item/flexmenu-responsive-offcanvastoggle-navigation/5550510" target="_blank">Click here for more info &raquo;</a></td>
+                            </tr>
+                            <tr>
+                                <td>jquery.ba-cond.min.js<br>jquery.slitslider.js</td>
+                                <td>Fullscreen slideshow with a twist: the idea is to slice open the current slide when navigating to the next or previous one. Using jQuery and CSS animations we can create unique slide transitions for the content elements.<br><a href="http://tympanus.net/codrops/2012/06/05/fullscreen-slit-slider-with-jquery-and-css3/" target="_blank">Click here for more info and full documentation</a></td>
+                            </tr>
+							<tr>
+								<td>owl.carousel.min.js</td>
+								<td>Touch enabled jQuery plugin that lets you create beautiful responsive carousel slider.<br><a href="http://www.owlcarousel.owlgraphic.com/" target="_blank">Click here for more info and full documentation &raquo;</a></td>
+							</tr>
+                            <tr>
+                                <td>parallax.js</td>
+                                <td>Just another jQuery plugin for easily and quickly creating a simple background image parallax scrolling effect on your page..<br><a href="http://www.jqueryscript.net/animation/Minimal-jQuery-Background-Parallax-Scrolling-Plugin.html" target="_blank">Click here for more info and full documentation &raquo;</a></td>
+                            </tr>
+                            <tr>
+                                <td>jquery.counterup.min.js<br>waypoints.min.js</td>
+                                <td>Counter-Up is a lightweight jQuery plugin that counts up to a targeted number when the number becomes visible.<br>
+                                    <b>Plugin with documentation included in the template.</b><br>
+                                    <a href="https://github.com/bfintal/Counter-Up" target="_blank">Click here for more info &raquo;</a></td>
+                            </tr>
+                            <tr>
+                                <td>jquery.nouislider.all.min.js</td>
+                                <td>Lightweight jQuery range slider plugin. It offers a wide selection of options and settings, but it is (much!) less bloated than the jQueryUI slider.<br><a href="http://refreshless.com/nouislider/download/" target="_blank">Click here for more info and full documentation</a></td>
+                            </tr>
+                            <tr>
+                                <td>bootstrap3-wysihtml5.all.min.js</td>
+                                <td>This jQuery Bootstrap plugin turns any DIV into a WYSIWYG rich-content editor.<br><a href="https://github.com/bootstrap-wysiwyg/bootstrap3-wysiwyg" target="_blank">Click here for more info and full documentation</a></td>
+                            </tr>
+                            <tr>
+                                <td>jflickrfeed.min.js</td>
+                                <td>A jQuery Flickr Feed Plugin. This plugin works by pulling a JSON feed from Flickr and applying the data it gets back to a template.<br><a href="http://www.newmediacampaigns.com/blog/a-jquery-flickr-feed-plugin" target="_blank">Click here for more info and full documentation</a></td>
+                            </tr>
+							<tr>
+								<td>jquery.fancybox.js</td>
+								<td>fancyBox is a tool that offers a nice and elegant way to add zooming functionality for images, html content and multi-media on your webpages. It is built on the top of the popular JavaScript framework jQuery and is both easy to implement and a snap to customize.<br><a href="http://fancyapps.com/fancybox/" target="_blank">Click here for more info and full documentation</a></td>
+							</tr>
+							<tr>
+								<td>magic.js</td>
+								<td>Simple script responsible for showing success and error messages in forms.</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+                <h2>4.2. How to change counter</h2>
+                <ul>
+                    <li>Open settings.js file.</li>
+                    <li>Got to line 2350.</li>
+                    <li>Change delay and time.</li>
+                </ul>
+
+				<hr>
+				
+				<h2 id="credits">5. Resources and credits</h2>
+				<p>Following sources has been used.</p>
+
+				<h4>Fonts</h4>
+				<ul>
+					<li><a href="http://www.google.com/fonts/specimen/Lato" target="_blank">Lato</a></li>
+                    <li><a href="http://www.google.com/fonts/specimen/Montserrat" target="_blank">Montserrat</a></li>
+				</ul>
+				
+				<h4>Images</h4>
+                <p>All images have been bought and licensed on Dollar Photo Club</p>
+				<ul>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/kreatives%20junges%20team%20am%20arbeitsplatz/60660334" target="_blank">
+                            kreatives junges team am arbeitsplatz
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=200942600" target="_blank">contrastwerkstatt</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/beautiful%20young%20woman%20on%20the%20workplace%20using%20a%20digital%20tablet/61996912" target="_blank">
+                            beautiful young woman on the workplace using a digital tablet
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=204369539" target="_blank">jackfrog</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Senior%20businessman%20working%20on%20laptop%20computer/58883518" target="_blank">
+                            Senior businessman working on laptop computer
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=201937731" target="_blank">goodluz</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Smiling%20businessman%20holding%20a%20letter/36786477" target="_blank">
+                            Smiling businessman holding a letter
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=202578493" target="_blank">WavebreakmediaMicro</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Young%20woman%20sitting%20in%20cafe%20and%20using%20laptop%20computer/64171371" target="_blank">
+                            Young woman sitting in cafe and using laptop computer
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=202396792" target="_blank">Kaspars Grinvalds</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Businesswoman%20Using%20Laptop%20In%20Coffee%20Shop/60156015" target="_blank">
+                            Businesswoman Using Laptop In Coffee Shop
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=200599234" target="_blank">Monkey Business</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Person%20in%20cafe/48568254" target="_blank">
+                            Person in cafe
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=242878" target="_blank">Mila Supynska</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Handsome%20businessman%20in%20office%20working%20on%20laptop/66423100" target="_blank">
+                            Handsome businessman in office working on laptop
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=201937731" target="_blank">goodluz</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Beautiful%20hipster%20woman%20using%20laptop%20at%20cafe/65990152" target="_blank">
+                            Beautiful hipster woman using laptop at cafe
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=203760279" target="_blank">gpointstudio</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Smiling%20woman%20using%20laptop%20on%20floor%20at%20home/64581157" target="_blank">
+                            Smiling woman using laptop on floor at home
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=203760279" target="_blank">gpointstudio</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Young%20couple%20with%20their%20laptop%20on%20the%20couch/55299510" target="_blank">
+                            Young couple with their laptop on the couch
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=202163168" target="_blank">Minerva Studio</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Pretty%20hipster%20working%20at%20her%20desk%20on%20laptop/68242204" target="_blank">
+                            Pretty hipster working at her desk on laptop
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=202578493" target="_blank">WavebreakmediaMicro</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Portrait%20of%20beautiful%20female%20architect%20in%20place%20of%20work/64820429" target="_blank">
+                            Portrait of beautiful female architect in place of work
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=203760279" target="_blank">gpointstudio</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/College%20girls%20working%20in%20front%20of%20desktop/57959440" target="_blank">
+                            College girls working in front of desktop
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=201937731" target="_blank">goodluz</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Students%20in%20photography%20working%20together%20on%20project/57959410" target="_blank">
+                            Students in photography working together on project
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=201937731" target="_blank">goodluz</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Studenten%20im%20Seminar%20lernen%20f%C3%BCr%20Pr%C3%BCfung/50098140" target="_blank">
+                            Studenten im Seminar lernen für Prüfung
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=200576396" target="_blank">Robert Kneschke</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/female%20student%20with%20friends%20on/51199361" target="_blank">
+                            female student with friends on
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=201048989" target="_blank">Igor Mojzes</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/young%20student%20girl%20learning/66707114" target="_blank">
+                            young student girl learning
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=200620103" target="_blank">davis</a>
+                    </li>
+                    <li>
+                        <a href="https://pl.dollarphotoclub.com/stock-photo/Cheerful%20lovely%20businesswoman%20sitting%20at%20her%20desk%20holding%20a%20penc/57751341" target="_blank">
+                            Cheerful lovely businesswoman sitting at her desk holding a penc
+                        </a>
+                        by <a href="https://pl.dollarphotoclub.com/Search?creator_id=204215729" target="_blank">lightwavemedia</a>
+                    </li>
+				</ul>
+                
+                <h4>Icons</h4>
+                <p>All icons used in this template are free.</p>
+                <ul>
+                    <li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Font Awesome</a> by <a href="https://twitter.com/davegandy" target="_blank">Dave Gandy</a></li>
+                </ul>
+                
+                <h4>Logos</h4>
+                <p>All logos used in this template are taken from <a href="http://logopond.com/" target="_blank">Logopond</a></p>
+				
+				<h4>Javascript</h4>
+				<p>See point 4.1.</p>
+
+			</div>
+
+		</div>
+	</div><!-- /.container -->
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="prettify/run_prettify.js"></script>
+
+	<script>
+	</script>
+
+</body>
+</html>

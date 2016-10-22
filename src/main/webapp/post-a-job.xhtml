@@ -114,7 +114,7 @@
 							
 							<div class="form-group" id="job-type-group">
 								<label for="job-type">Tipo de Trabalho</label>
-								<h:selectOneMenu value="#{postAJobMB.currentJob.jobType}" styleClass="form-control" id="job-type">
+								<h:selectOneMenu value="#{postAJobMB.currentJob.type}" styleClass="form-control" id="job-type">
 								<f:selectItem itemValue="" itemLabel="Selecione um Tipo"/>  
                 				<f:selectItems value="#{postAJobMB.jobTypes}" var="jT" itemLabel="#{jT.name()}" itemValue="#{jT}"/>								
 								</h:selectOneMenu>
@@ -124,7 +124,7 @@
 							<div class="form-group" id="job-category-group">
 								<label for="job-category">Categoria do Trabalho</label>
 								
-								<h:selectOneMenu value="#{postAJobMB.currentJob.jobCategory}" styleClass="form-control" id="job-category">
+								<h:selectOneMenu value="#{postAJobMB.currentJob.category}" styleClass="form-control" id="job-category">
 								<f:selectItem itemValue="" itemLabel="Selecione uma Categoria"/>  
                 				<f:selectItems value="#{postAJobMB.jobCategories}" var="jC" itemLabel="#{jC.name()}" itemValue="#{jC}"/>								
 								</h:selectOneMenu>						

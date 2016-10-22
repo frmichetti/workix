@@ -11,6 +11,9 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.jboss.resteasy.annotations.ContentEncoding;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
@@ -34,14 +37,16 @@ public class Company implements Serializable, BasicEntity {
 	@Column(name = "version")
 	private int version;
 
+	@NotEmpty
 	@Expose
 	@Column(nullable = false,unique=true)
 	private String name;
-
+	
 	@Expose
 	@Column(nullable = false)
 	private String companySegment;
-
+	
+	@NotEmpty
 	@Column(nullable = false)
 	private String cnpj;
 

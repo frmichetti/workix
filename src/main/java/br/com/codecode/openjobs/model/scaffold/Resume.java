@@ -14,6 +14,8 @@ import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
@@ -35,10 +37,12 @@ public class Resume implements Serializable {
 	@Column(name = "version")
 	private int version;
 	
+	@NotEmpty
 	@Expose
-	@OneToOne(fetch=FetchType.EAGER)
+	@OneToOne(fetch=FetchType.EAGER,optional=false)
 	private Candidate owner;
 	
+	@NotEmpty
 	@Expose
 	@Column
 	private String objective;

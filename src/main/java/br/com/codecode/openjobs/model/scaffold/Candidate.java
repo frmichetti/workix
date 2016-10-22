@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +11,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
@@ -36,14 +37,17 @@ public class Candidate implements Serializable, BasicEntity {
 	@Column(name = "version")
 	private int version;
 
+	@NotEmpty
 	@Expose
 	@Column(nullable = false)
 	private String name;
 
+	@NotEmpty
 	@Expose
 	@Column(nullable = false)
 	private String cpf;
 
+	@NotEmpty
 	@Expose
 	@OneToOne(optional=false)
 	private User user;

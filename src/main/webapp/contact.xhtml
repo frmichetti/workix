@@ -21,7 +21,7 @@
 						<h2>Deixe-nos uma Mensagem</h2>
 						<h:form role="form" name="contact-form" id="contact-form" action="process.php">
 							<div class="form-group has-success has-feedback" id="contact-name-group">
-								<label for="contact-name" class="sr-only">Name</label>
+								<label for="contact-name" class="sr-only">Nome</label>
 								<h:inputText pt:type="text" class="form-control" id="contact-name" pt:placeholder="Nome" value="#{contactMB.name}" pt:required="true" />
 							</div>
 							<div class="form-group has-success has-feedback" id="contact-email-group">
@@ -29,11 +29,11 @@
 								<h:inputText pt:type="email" class="form-control" id="contact-email" pt:placeholder="Email" value="#{contactMB.email}" pt:required="true" />
 							</div>
 							<div class="form-group has-success has-feedback" id="contact-subject-group">
-								<label for="contact-subject" class="sr-only">Subject</label>
+								<label for="contact-subject" class="sr-only">Assunto</label>
 								<h:inputText pt:type="text" class="form-control" id="contact-subject" pt:placeholder="Assunto" value="#{contactMB.subject}" pt:required="true" />
 							</div>
 							<div class="form-group has-success has-feedback" id="contact-message-group">
-								<label for="contact-message" class="sr-only">Message</label>
+								<label for="contact-message" class="sr-only">Mensagem</label>
 								<h:inputTextarea class="form-control" rows="3" id="contact-message" pt:placeholder="Mensagem" value="#{contactMB.body}" pt:required="true" />
 							</div>							
 							<h:commandButton action="#{contactMB.doSendAMessage()}" value="Enviar Mensagem" styleClass="btn btn-default" />
