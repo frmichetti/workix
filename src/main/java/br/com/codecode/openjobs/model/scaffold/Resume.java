@@ -25,7 +25,7 @@ public class Resume implements Serializable {
 	
 	@Expose
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
 	private Long id;
 	
@@ -51,11 +51,18 @@ public class Resume implements Serializable {
 	@Expose
 	@Lob
 	@Column
+	/**
+	 * OneToMany -> Json
+	 */
 	private String experiences;
 	
+
 	@Expose
 	@Lob
 	@Column
+	/**
+	 * OneToMany -> Json
+	 */
 	private String educations;	
 
 	public Long getId() {

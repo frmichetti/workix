@@ -46,7 +46,7 @@ public class PopulateUserTest{
 			
 			User u = new User();			
 			
-			u.setEmail("Mockup User N# " + String.valueOf(x));
+			u.setEmail("mockupusernumber" + String.valueOf(x)+"@test.com");
 			
 			assertNotNull(u.getEmail());
 			

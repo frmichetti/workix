@@ -1,5 +1,6 @@
 package br.com.codecode.cdi.dao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -13,10 +14,12 @@ public class CandidateDao extends BasicDao implements Crud<Candidate> {
 
 	private static final long serialVersionUID = -4430675125218575581L;
 
+	@Override
 	public void create(Candidate entity) {
 		em.persist(entity);
 	}
 
+	@Override
 	public void deleteById(Long id) {
 		Candidate entity = em.find(Candidate.class, id);
 		if (entity != null) {
@@ -24,14 +27,17 @@ public class CandidateDao extends BasicDao implements Crud<Candidate> {
 		}
 	}
 
+	@Override
 	public Candidate findById(Long id) {
 		return em.find(Candidate.class, id);
 	}
 
+	@Override
 	public Candidate update(Candidate entity) {
 		return em.merge(entity);
 	}
-
+	
+	@Override
 	public List<Candidate> listAll(Integer startPosition, Integer maxResult) {
 		
 		TypedQuery<Candidate> findAllQuery = em.createQuery(
@@ -47,6 +53,11 @@ public class CandidateDao extends BasicDao implements Crud<Candidate> {
 		}
 		
 		return findAllQuery.getResultList();
+	}
+
+	@Override
+	public BigInteger countRegisters() {
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Candidate").getSingleResult();
 	}
 
 	

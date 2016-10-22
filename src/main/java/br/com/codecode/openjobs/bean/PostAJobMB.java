@@ -36,9 +36,7 @@ public class PostAJobMB {
 	
 	private List<Company> employeers;
 
-	public PostAJobMB() {
-
-	}
+	public PostAJobMB(){}
 
 	@PostConstruct
 	private void init(){
@@ -51,7 +49,7 @@ public class PostAJobMB {
 		
 		jobCategories = Arrays.asList(JobCategory.values());
 		
-		employeers = companyDao.listAll(0, Integer.MAX_VALUE);
+		employeers = companyDao.listAll(0, 100);
 
 		debug();
 	}

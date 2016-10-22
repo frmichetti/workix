@@ -1,5 +1,6 @@
 package br.com.codecode.cdi.dao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 public interface Crud<T> {
@@ -13,4 +14,6 @@ public interface Crud<T> {
 	public T findById(Long id);	
 
 	public List<T> listAll(Integer start, Integer end);
+	
+	public BigInteger countRegisters();
 }

@@ -1,7 +1,5 @@
 package br.com.codecode.openjobs.bean;
 
-import java.util.Collection;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
@@ -22,8 +20,7 @@ public class StatsMB {
 	
 	@Inject
 	private Crud<Candidate> candidateDao;
-	
-	private Collection<Job> joblist;	
+
 	
 	private int counterJobs;
 	
@@ -40,13 +37,15 @@ public class StatsMB {
 	@PostConstruct
 	private void init(){
 		
-		joblist = jobDao.listAll(0, Integer.MAX_VALUE);
+		jobDao.countRegisters();
 		
-		counterJobs =  jobDao.listAll(0, Integer.MAX_VALUE).size();
+		counterJobs =  jobDao.countRegisters().intValue();
 		
-		counterEmployeers =  companyDao.listAll(0, Integer.MAX_VALUE).size();
+		counterEmployeers =  companyDao.countRegisters().intValue();
 		
-		counterCandidates = candidateDao.listAll(0, Integer.MAX_VALUE).size();	
+		counterCandidates = candidateDao.countRegisters().intValue();
+		
+		//counterResumes = candidateDao.listAll(start, end)
 		
 		
 	}
@@ -67,12 +66,6 @@ public class StatsMB {
 		return counterResumes;
 	}	
 
-	public Collection<Job> getJoblist() {
-		return joblist;
-	}
 
-	
-
-	
 
 }

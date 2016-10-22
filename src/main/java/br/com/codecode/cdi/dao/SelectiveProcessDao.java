@@ -1,5 +1,6 @@
 package br.com.codecode.cdi.dao;
 
+import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
@@ -14,25 +15,30 @@ public class SelectiveProcessDao extends BasicDao implements Crud<SelectiveProce
 
 	private static final long serialVersionUID = 5942334208981147237L;
 
+	@Override
 	public void create(SelectiveProcess entity) {
 		em.persist(entity);
 	}
-
+	
+	@Override
 	public void deleteById(Long id) {
 		SelectiveProcess entity = em.find(SelectiveProcess.class, id);
 		if (entity != null) {
 			em.remove(entity);
 		}
 	}
-
+	
+	@Override
 	public SelectiveProcess findById(Long id) {
 		return em.find(SelectiveProcess.class, id);
 	}
-
+	
+	@Override
 	public SelectiveProcess update(SelectiveProcess entity) {
 		return em.merge(entity);
 	}
-
+	
+	@Override
 	public List<SelectiveProcess> listAll(Integer startPosition,
 			Integer maxResult) {
 		TypedQuery<SelectiveProcess> findAllQuery = em
@@ -46,5 +52,10 @@ public class SelectiveProcessDao extends BasicDao implements Crud<SelectiveProce
 			findAllQuery.setMaxResults(maxResult);
 		}
 		return findAllQuery.getResultList();
+	}
+
+	@Override
+	public BigInteger countRegisters() {		
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM SelectiveProcess").getSingleResult();
 	}
 }

@@ -1,6 +1,6 @@
 
 
-angular.module('openjobs').controller('EditCandidateController', function($scope, $routeParams, $location, flash, CandidateResource , UserResource, ResumeResource) {
+angular.module('openjobs').controller('EditCandidateController', function($scope, $routeParams, $location, flash, CandidateResource , UserResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -22,23 +22,6 @@ angular.module('openjobs').controller('EditCandidateController', function($scope
                         $scope.userSelection = labelObject;
                         $scope.candidate.user = wrappedObject;
                         self.original.user = $scope.candidate.user;
-                    }
-                    return labelObject;
-                });
-            });
-            ResumeResource.queryAll(function(items) {
-                $scope.resumeSelectionList = $.map(items, function(item) {
-                    var wrappedObject = {
-                        id : item.id
-                    };
-                    var labelObject = {
-                        value : item.id,
-                        text : item.id
-                    };
-                    if($scope.candidate.resume && item.id == $scope.candidate.resume.id) {
-                        $scope.resumeSelection = labelObject;
-                        $scope.candidate.resume = wrappedObject;
-                        self.original.resume = $scope.candidate.resume;
                     }
                     return labelObject;
                 });
@@ -93,12 +76,6 @@ angular.module('openjobs').controller('EditCandidateController', function($scope
         if (typeof selection != 'undefined') {
             $scope.candidate.user = {};
             $scope.candidate.user.id = selection.value;
-        }
-    });
-    $scope.$watch("resumeSelection", function(selection) {
-        if (typeof selection != 'undefined') {
-            $scope.candidate.resume = {};
-            $scope.candidate.resume.id = selection.value;
         }
     });
     

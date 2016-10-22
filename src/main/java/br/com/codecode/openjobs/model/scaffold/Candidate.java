@@ -48,10 +48,6 @@ public class Candidate implements Serializable, BasicEntity {
 	@OneToOne(optional=false)
 	private User user;
 
-	@Expose
-	@OneToOne(fetch=FetchType.LAZY)
-	private Resume resume;
-
 	public Long getId() {
 		return this.id;
 	}
@@ -107,18 +103,7 @@ public class Candidate implements Serializable, BasicEntity {
 
 	public void setUser(User user) {
 		this.user = user;
-	}
-
-
-	public Resume getResume() {
-		return resume;
-	}
-
-	public void setResume(Resume resume) {
-		this.resume = resume;
-	}
-	
-	
+	}	
 
 	private int getVersion() {
 		return version;

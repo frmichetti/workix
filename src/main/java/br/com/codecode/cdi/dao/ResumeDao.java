@@ -8,50 +8,50 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 
-import br.com.codecode.openjobs.model.scaffold.User;
+import br.com.codecode.openjobs.model.scaffold.Resume;
 
 /**
- * DAO for Job
+ * DAO for Resume
  */
 @Stateless
-public class UserDao extends BasicDao implements Crud<User>{
+public class ResumeDao extends BasicDao implements Crud<Resume>{
 
 	private static final long serialVersionUID = 4029639665489024760L;
 	
 	@Inject
-	private Event<User> alertNewUser;
+	private Event<Resume> alertNewResume;
 	
 	@Override
-	public void create(User entity) {
+	public void create(Resume entity) {
 		
 		em.persist(entity);
 		
-		alertNewUser.fire(entity);
+		alertNewResume.fire(entity);
 		
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		User entity = em.find(User.class, id);
+		Resume entity = em.find(Resume.class, id);
 		if (entity != null) {
 			em.remove(entity);
 		}
 	}
 
 	@Override
-	public User findById(Long id) {
-		return em.find(User.class, id);
+	public Resume findById(Long id) {
+		return em.find(Resume.class, id);
 	}
 
 	@Override
-	public User update(User entity) {
+	public Resume update(Resume entity) {
 		return em.merge(entity);
 	}
 
 	@Override
-	public List<User> listAll(Integer startPosition, Integer maxResult) {
-		TypedQuery<User> findAllQuery = em.createQuery(
-				"SELECT DISTINCT u FROM User u ORDER BY u.id", User.class);
+	public List<Resume> listAll(Integer startPosition, Integer maxResult) {
+		TypedQuery<Resume> findAllQuery = em.createQuery(
+				"SELECT DISTINCT r FROM Resume r ORDER BY r.id", Resume.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
@@ -63,8 +63,6 @@ public class UserDao extends BasicDao implements Crud<User>{
 
 	@Override
 	public BigInteger countRegisters() {		
-		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM User").getSingleResult();
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Resume").getSingleResult();
 	}
-	
-	
 }
