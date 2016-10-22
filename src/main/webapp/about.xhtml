@@ -20,6 +20,13 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+		
+		<ui:param name="basePath" value=" #{request.getContextPath()}" />
+		
+		
+		<script type="text/javascript">
+			console.info("Current Base Path Var = #{basePath}");
+		</script>
 
 	</head>
 	<body>

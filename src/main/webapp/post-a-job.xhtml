@@ -136,7 +136,20 @@
 								<label for="job-description">Descrição</label>
 								<h:inputTextarea value="#{postAJobMB.currentJob.description}" styleClass="textarea form-control" id="job-description"/>
 							<ui:remove>	<div class="textarea form-control" id="job-description"></div></ui:remove>
+							</div>	
+							
+							<div class="form-group" id="job-requirement-group">
+								<label for="job-description">Requisitos</label>
+								<h:inputTextarea value="#{postAJobMB.currentJob.requirement}" styleClass="textarea form-control" id="job-requirement"/>
+							<ui:remove>	<div class="textarea form-control" id="job-description"></div></ui:remove>
+							</div>	
+							
+							<div class="form-group" id="job-benefits-group">
+								<label for="job-description">Benefícios</label>
+								<h:inputTextarea value="#{postAJobMB.currentJob.benefits}" styleClass="textarea form-control" id="job-benefits"/>
+							<ui:remove>	<div class="textarea form-control" id="job-description"></div></ui:remove>
 							</div>							
+													
 							
 							<div class="form-group" id="job-expire-date" data-provide="datepicker">
 							 

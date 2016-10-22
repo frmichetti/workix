@@ -23,6 +23,8 @@ public class JobsMB {
 	private List<Job> list;
 
 	private String prefix,sufix;
+	
+	private int start,end;
 
 
 	public JobsMB() {
@@ -32,7 +34,11 @@ public class JobsMB {
 	@PostConstruct
 	private void init(){
 		
-		list = dao.listAll(0, Integer.MAX_VALUE);
+		if(this.end == 0){
+			list = dao.listAll(0, 100);	
+		}	
+		
+		list = dao.listAll(0, 100);
 		
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 		

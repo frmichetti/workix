@@ -20,6 +20,13 @@
 		<script src="js/html5shiv.js"></script>
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
+		
+		<ui:param name="basePath" value=" #{request.getContextPath()}" />
+		
+		
+		<script type="text/javascript">
+			console.info("Current Base Path Var = #{basePath}");
+		</script>
 
 	</head>
 	<body>
@@ -48,8 +55,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>Candidates</h1>
-						<h4>Find your perfect match</h4>
+						<h1>Candidatos</h1>
+						<h4>Encontre seu funcionário</h4>
 					</div>
 				</div>
 			</div>

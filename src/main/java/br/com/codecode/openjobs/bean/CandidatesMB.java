@@ -22,6 +22,8 @@ public class CandidatesMB {
 	private List<Candidate> list;
 
 	private String prefix,sufix;
+	
+	private int start,end;
 
 	public CandidatesMB() {
 		// TODO Auto-generated constructor stub
@@ -30,7 +32,11 @@ public class CandidatesMB {
 	@PostConstruct
 	private void init(){
 		
-		list = dao.listAll(0, Integer.MAX_VALUE);
+		if(this.end == 0){
+			list = dao.listAll(0, 100);	
+		}	
+		
+		list = dao.listAll(0, 100);
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 
