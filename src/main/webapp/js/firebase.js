@@ -123,12 +123,7 @@ function initApp() {
 				    
 				    (photoURL == null) ? photoURL = profile.photoURL : photoURL;
 				  });
-				}
-			
-			
-
-	
-		
+				}	
 
 		
 
@@ -137,7 +132,7 @@ function initApp() {
 
 			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + email + '\n Sign out ' +"");		
 			
-			$('#fbtoken').text(uid);			
+			$('#fbtoken').text(displayName);			
 
 			/****BootsTrap Notify**/
 			
@@ -173,7 +168,7 @@ function initApp() {
 				'</div>'
 			});
 
-
+			 
 
 
 			// [END_EXCLUDE]
