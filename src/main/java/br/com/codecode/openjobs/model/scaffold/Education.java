@@ -1,4 +1,4 @@
-package br.com.codecode.openjobs.model;
+package br.com.codecode.openjobs.model.scaffold;
 
 import java.util.Date;
 

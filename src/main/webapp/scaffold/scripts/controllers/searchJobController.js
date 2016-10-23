@@ -17,14 +17,14 @@ angular.module('openjobs').controller('SearchJobController', function($scope, $h
         }
         return max;
     };
-    $scope.jobTypeList = [
+    $scope.typeList = [
         "FULLTIME",
         "PARTTIME",
         "FREELANCE",
         "TEMPORARY",
         "INTERNSHIP"
     ];
-    $scope.jobCategoryList = [
+    $scope.categoryList = [
         "MANAGEMENT",
         "OPERATOR"
     ];

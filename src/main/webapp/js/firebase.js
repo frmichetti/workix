@@ -139,6 +139,7 @@ function initApp() {
 			
 			$('#fbtoken').text(uid);			
 
+			/****BootsTrap Notify**/
 			
 			$.notify({
 				icon: photoURL,
@@ -146,10 +147,26 @@ function initApp() {
 				message: 'Seu Email - ' + ((email == null) ? "Ainda não logado" : email)
 			},{
 				type: 'minimalist',
+				
+				animate: {
+					enter: 'animated zoomInDown',
+					exit: 'animated zoomOutUp'
+				},
+				
+				allow_dismiss: true,
+				
+				position: null,placement: {
+					from: "bottom",
+					align: "center"
+				},
+				
+				
 				delay: 5000,
+				
 				icon_type: 'image',
 				template: 
 					'<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+					'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
 					'<img data-notify="icon" class="img-circle pull-left" />' +
 					'<span data-notify="title">{1}</span>' +
 					'<span data-notify="message">{2}</span>' +
@@ -171,9 +188,25 @@ function initApp() {
 				icon: photoURL,
 				title: 'Logout ',
 				message: ((email == null) ? "Logout Realizado com sucesso" : email)
-			},{
+			},
+			
+			
+			{
 				type: 'minimalist',
 				delay: 5000,
+				
+				animate: {
+					enter: 'animated zoomInDown',
+					exit: 'animated zoomOutUp'
+				},
+				
+				allow_dismiss: true,
+				
+				position: null,placement: {
+					from: "bottom",
+					align: "center"
+				},
+				
 				icon_type: 'image',
 				template: 
 					'<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +

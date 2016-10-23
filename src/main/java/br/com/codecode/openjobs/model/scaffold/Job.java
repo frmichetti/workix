@@ -1,6 +1,5 @@
 package br.com.codecode.openjobs.model.scaffold;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -13,43 +12,33 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.Version;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.openjobs.model.BasicEntity;
-import br.com.codecode.openjobs.model.enumeration.Estate;
-import br.com.codecode.openjobs.model.enumeration.JobCategory;
-import br.com.codecode.openjobs.model.enumeration.JobType;
+import br.com.codecode.openjobs.model.enums.Estate;
+import br.com.codecode.openjobs.model.enums.JobCategory;
+import br.com.codecode.openjobs.model.enums.JobType;
+import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class Job implements Serializable, BasicEntity {
+public class Job extends Loggable implements BasicEntity {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 2246753300384053586L;
+
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)	
+	@Column(updatable = false, nullable = false)	
 	private Long id;
-	
-	@XmlTransient
-	@JsonIgnore
-	@Version	
-	@Column
-	private int version;
-	
-	@Expose
-	@Column(nullable = false, updatable = false)
-	private String uuid;
 
 	@NotEmpty
 	@Expose
@@ -59,35 +48,41 @@ public class Job implements Serializable, BasicEntity {
 	@DecimalMin("10")
 	@Expose
 	@Column
-	private BigDecimal minPayment = BigDecimal.ZERO;
+	private BigDecimal minPayment;
 	
 	@DecimalMin("10")
 	@Expose
 	@Column
-	private BigDecimal maxPayment = BigDecimal.ZERO;
+	private BigDecimal maxPayment;
 
+	@NotEmpty
 	@Expose
 	@Lob
 	@Column(nullable = false)
 	private String description;
 	
+	@NotEmpty
 	@Expose
 	@Lob
 	@Column(nullable = false)	
 	private String requirement;
 	
+	@NotEmpty
 	@Expose
 	@Lob
 	@Column(nullable = false)	
 	private String benefits;
 	
-	@Future
+	@NotNull	
 	@Expose
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false, updatable = false)
 	private Date start;
 
+	@NotNull
 	@Future
 	@Expose
+	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable = false)
 	private Date expire;
 	
@@ -111,14 +106,22 @@ public class Job implements Serializable, BasicEntity {
 
 	@Expose
 	@Column
-	private boolean active = true;
+	private boolean active;
 	
+	@NotNull
 	@Expose
 	@ManyToOne(optional=false)
 	private Company employeer;
 	
-	public Job() {
-		// TODO Auto-generated constructor stub
+	public Job(){
+		configure();
+	}
+	
+	private void configure(){
+		minPayment = BigDecimal.TEN;
+		maxPayment = BigDecimal.TEN; 
+		active = true;
+		start = new Date();		
 	}
 
 	public Long getId() {
@@ -127,15 +130,7 @@ public class Job implements Serializable, BasicEntity {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+	}	
 
 	public String getTitle() {
 		return title;
@@ -205,16 +200,16 @@ public class Job implements Serializable, BasicEntity {
 		return type;
 	}
 
-	public void setType(JobType jobType) {
-		this.type = jobType;
+	public void setType(JobType type) {
+		this.type = type;
 	}
 
 	public JobCategory getCategory() {
 		return category;
 	}
 
-	public void setCategory(JobCategory jobCategory) {
-		this.category = jobCategory;
+	public void setCategory(JobCategory category) {
+		this.category = category;
 	}
 
 	public String getCity() {
@@ -248,16 +243,6 @@ public class Job implements Serializable, BasicEntity {
 	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
 	}
-	
-	
-
-	private int getVersion() {
-		return version;
-	}
-
-	private void setVersion(int version) {
-		this.version = version;
-	}
 
 	@Override
 	public int hashCode() {
@@ -284,15 +269,8 @@ public class Job implements Serializable, BasicEntity {
 		return true;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
+	public String uniqueId(){
+		return super.getUuid();
+	}
 	
 }

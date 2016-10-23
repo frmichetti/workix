@@ -12,13 +12,6 @@
     <form id="JobSearch" class="form-horizontal">
         
     <div class="form-group">
-        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
-        <div class="col-sm-10">
-            <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the Job Uuid"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
         <label for="title" class="col-sm-2 control-label">Title</label>
         <div class="col-sm-10">
             <input id="title" name="title" class="form-control" type="text" ng-model="search.title" placeholder="Enter the Job Title"></input>
@@ -63,19 +56,19 @@
 
 
     <div class="form-group">
-        <label for="jobType" class="col-sm-2 control-label">Job Type</label>
+        <label for="type" class="col-sm-2 control-label">Type</label>
         <div class="col-sm-10">
-            <select id="jobType" name="jobType" class="form-control" ng-model="search.jobType" ng-options="j as j for j in jobTypeList">
-                <option value="">Choose a Job Type</option>
+            <select id="type" name="type" class="form-control" ng-model="search.type" ng-options="t as t for t in typeList">
+                <option value="">Choose a Type</option>
             </select>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="jobCategory" class="col-sm-2 control-label">Job Category</label>
+        <label for="category" class="col-sm-2 control-label">Category</label>
         <div class="col-sm-10">
-            <select id="jobCategory" name="jobCategory" class="form-control" ng-model="search.jobCategory" ng-options="j as j for j in jobCategoryList">
-                <option value="">Choose a Job Category</option>
+            <select id="category" name="category" class="form-control" ng-model="search.category" ng-options="c as c for c in categoryList">
+                <option value="">Choose a Category</option>
             </select>
         </div>
     </div>
@@ -127,7 +120,6 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
-                    <th>Uuid</th>
                     <th>Title</th>
                     <th>Min Payment</th>
                     <th>Max Payment</th>
@@ -136,8 +128,8 @@
                     <th>Benefits</th>
                     <th>Start</th>
                     <th>Expire</th>
-                    <th>Job Type</th>
-                    <th>Job Category</th>
+                    <th>Type</th>
+                    <th>Category</th>
                     <th>City</th>
                     <th>Estate</th>
                     <th>Employeer</th>
@@ -146,7 +138,6 @@
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.uuid}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.title}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.minPayment}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.maxPayment}}</a></td>
@@ -155,8 +146,8 @@
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.benefits}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.start| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.expire| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobType}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.jobCategory}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.type}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.category}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.city}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.estate}}</a></td>
                         <td><a href="#/Jobs/edit/{{result.id}}">{{result.employeer.id}}</a></td>

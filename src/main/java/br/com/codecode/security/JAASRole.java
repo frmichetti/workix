@@ -7,12 +7,12 @@
  * */
 package br.com.codecode.security;
 
-
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -22,6 +22,7 @@ import javax.persistence.Id;
  * @version
  */
 @Entity
+@XmlRootElement
 public class JAASRole implements Serializable {
 
 	private static final long serialVersionUID = -3259219990958750371L;
@@ -30,9 +31,10 @@ public class JAASRole implements Serializable {
 	@Column(unique = true, nullable = false)
 	private String name;
 
-	protected JAASRole(){}
-	
-	public JAASRole (String name){
+	protected JAASRole() {
+	}
+
+	public JAASRole(String name) {
 		this();
 		this.name = name;
 	}
@@ -44,6 +46,5 @@ public class JAASRole implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
 
 }

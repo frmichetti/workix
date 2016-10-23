@@ -4,7 +4,7 @@ angular.module('openjobs').controller('NewJobController', function ($scope, $loc
     $scope.$location = $location;
     $scope.job = $scope.job || {};
     
-    $scope.jobTypeList = [
+    $scope.typeList = [
         "FULLTIME",
         "PARTTIME",
         "FREELANCE",
@@ -12,7 +12,7 @@ angular.module('openjobs').controller('NewJobController', function ($scope, $loc
         "INTERNSHIP"
     ];
     
-    $scope.jobCategoryList = [
+    $scope.categoryList = [
         "MANAGEMENT",
         "OPERATOR"
     ];

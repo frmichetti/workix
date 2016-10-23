@@ -1,4 +1,4 @@
-package br.com.codecode.openjobs.model.enumeration;
+package br.com.codecode.openjobs.model.enums;
 
 public enum Estate {
 	AC,	 

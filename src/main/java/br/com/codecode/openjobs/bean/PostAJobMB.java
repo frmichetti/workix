@@ -11,9 +11,9 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import br.com.codecode.cdi.dao.Crud;
-import br.com.codecode.openjobs.model.enumeration.Estate;
-import br.com.codecode.openjobs.model.enumeration.JobCategory;
-import br.com.codecode.openjobs.model.enumeration.JobType;
+import br.com.codecode.openjobs.model.enums.Estate;
+import br.com.codecode.openjobs.model.enums.JobCategory;
+import br.com.codecode.openjobs.model.enums.JobType;
 import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.model.scaffold.Job;
 
@@ -58,7 +58,7 @@ public class PostAJobMB {
 		if (currentJob != null){
 			currentJob.setStart(new Date());
 			currentJob.setExpire(new Date());
-			currentJob.setUuid(UUID.randomUUID().toString());
+		//	currentJob.setUuid(UUID.randomUUID().toString());
 		}
 
 	}

@@ -1,45 +1,35 @@
 package br.com.codecode.openjobs.model.scaffold;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
+
+import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class User implements Serializable {
+public class User extends Loggable implements BasicEntity{
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -610648880358327958L;
+
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
-	private Long id;
-	
-	@XmlTransient
-	@JsonIgnore
-	@Version
-	@Column
-	private int version;
-	
+	@Column(updatable = false, nullable = false)
+	private Long id;	
 	
 	@NotEmpty
 	@Email
 	@Expose
-	@Column(nullable = false)
+	@Column(nullable = false,unique=true)
 	private String email;
 
 	@NotEmpty
@@ -51,9 +41,7 @@ public class User implements Serializable {
 	@Column
 	private String firebaseMessageToken;
 	
-	@Expose
-	@Column
-	private String uuid;
+	public User(){}
 
 	public Long getId() {
 		return this.id;
@@ -61,15 +49,7 @@ public class User implements Serializable {
 
 	public void setId(final Long id) {
 		this.id = id;
-	}
-
-	private int getVersion() {
-		return this.version;
-	}
-
-	private void setVersion(final int version) {
-		this.version = version;
-	}
+	}	
 
 	public String getEmail() {
 		return email;
@@ -93,15 +73,7 @@ public class User implements Serializable {
 
 	public void setFirebaseMessageToken(String firebaseMessageToken) {
 		this.firebaseMessageToken = firebaseMessageToken;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
+	}	
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -130,18 +102,16 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (email != null && !email.trim().isEmpty())
-			result += "email: " + email;
-		if (firebaseUUID != null && !firebaseUUID.trim().isEmpty())
-			result += ", firebaseUUID: " + firebaseUUID;
-		if (firebaseMessageToken != null
-				&& !firebaseMessageToken.trim().isEmpty())
-			result += ", firebaseMessageToken: " + firebaseMessageToken;
-		if (uuid != null && !uuid.trim().isEmpty())
-			result += ", uuid: " + uuid;
-		return result;
+		return "User [email=" + email + "]";
 	}
+	
+	public String uniqueId(){
+		return super.getUuid();
+	}
+	
+	
+
+	
 	
 	
 }

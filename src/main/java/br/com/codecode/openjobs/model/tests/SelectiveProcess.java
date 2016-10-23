@@ -1,4 +1,4 @@
-package br.com.codecode.openjobs.model;
+package br.com.codecode.openjobs.model.tests;
 
 import java.io.Serializable;
 import java.time.Instant;

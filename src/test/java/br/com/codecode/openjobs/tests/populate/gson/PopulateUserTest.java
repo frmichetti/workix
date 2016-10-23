@@ -52,7 +52,7 @@ public class PopulateUserTest{
 			
 			assertNotEquals("",u.getEmail());			
 			
-			u.setUuid(UUID.randomUUID().toString());
+		//	u.setUuid(UUID.randomUUID().toString());
 			
 			u.setFirebaseUUID(UUID.randomUUID().toString());
 			

@@ -72,14 +72,14 @@ angular.module('openjobs').controller('EditJobController', function($scope, $rou
         $scope.job.$remove(successCallback, errorCallback);
     };
     
-    $scope.jobTypeList = [
+    $scope.typeList = [
         "FULLTIME",  
         "PARTTIME",  
         "FREELANCE",  
         "TEMPORARY",  
         "INTERNSHIP"  
     ];
-    $scope.jobCategoryList = [
+    $scope.categoryList = [
         "MANAGEMENT",  
         "OPERATOR"  
     ];

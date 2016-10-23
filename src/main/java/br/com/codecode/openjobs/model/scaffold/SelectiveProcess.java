@@ -3,10 +3,12 @@ package br.com.codecode.openjobs.model.scaffold;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +17,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.validation.constraints.Min;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -22,64 +28,88 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.google.gson.annotations.Expose;
 
-import br.com.codecode.openjobs.model.BasicEntity;
+import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 
 @Entity
 @XmlRootElement
-public class SelectiveProcess extends Observable implements Observer,Serializable, BasicEntity {
+public class SelectiveProcess extends Observable implements Observer, BasicEntity, Serializable{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -5336099006523168288L;
 
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
+	@Column(updatable = false, nullable = false)
 	private Long id;
 
 	@JsonIgnore
 	@Version
-	@Column(name = "version")
+	@Column
 	private int version;
 	
+	@Expose
 	@Column(nullable = false)
 	private String uuid;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column
+	private Date createdAt;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column
+	private Date updatedAt;
 
+	@Expose
 	@NotEmpty
 	@ManyToOne(optional=false)
 	private Job job;	
 
+	@Expose
 	@Min(1)
 	@OneToMany
-	private Set<Candidate> candidates = new HashSet<Candidate>();
+	private Set<Candidate> candidates;
 
+	@Expose
 	@Column
-	private boolean active = true;	
+	private boolean active;	
 
 	@JsonIgnore
 	private Instant disabledAt;
 
+	@Expose
 	@Min(1)
 	@Column(nullable = false)
 	private int maxCandidates;
 
 	public SelectiveProcess() {
-		this.addObserver(this);	
-	}	
+		configure();		
+	}
+	
+	private void configure(){		
+		this.addObserver(this);
+		active = true;
+		candidates = new HashSet<>();		
+	}
 
+	@Override
 	public Long getId() {
 		return this.id;
 	}
-
+	
 	public void setId(final Long id) {
 		this.id = id;
 	}
 
-	public int getVersion() {
+	
+	private int getVersion() {
 		return this.version;
 	}
-
-	public void setVersion(final int version) {
+	
+	
+	private void setVersion(final int version) {
 		this.version = version;
 	}
 
@@ -108,15 +138,6 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 		return result;
 	}
 
-
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
 
 	public Job getJob() {
 		return this.job;
@@ -154,7 +175,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	public int getMaxCandidates() {
 		return maxCandidates;
 	}
-
+	
 	public void setMaxCandidates(int maxCandidates) {
 		this.maxCandidates = maxCandidates;
 	}
@@ -173,6 +194,10 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 	private void countCandidates(Set<Candidate> collection){		
 		maxCandidates = collection.size();	
+	}
+	
+	public int countCandidates(){
+		return maxCandidates - candidates.size();
 	}
 
 	public boolean registerCandidate(Candidate candidate){
@@ -200,7 +225,6 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 	}
 
-
 	private void notifyChanges(){		
 		notifyObservers();
 		setChanged();
@@ -210,9 +234,6 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 		notifyObservers(object);
 		setChanged();
 	}
-
-
-
 
 	@Override
 	public String toString() {
@@ -237,13 +258,28 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 					System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
 			}
 
-
-
-
 		}
+	}
+	
+	@PrePersist
+	private void prepareToPersist(){
+		insertTimeStamp();
+		generateUUID();		
+	}	
+	
+	private void insertTimeStamp() {
+		createdAt = new Date();
+		
+	}
 
-
-
+	@PreUpdate
+	private void updateTimeStamp() {
+		updatedAt = new Date();
+		
+	}
+	
+	private void generateUUID() {
+		uuid = UUID.randomUUID().toString();		
 	}
 
 

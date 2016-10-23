@@ -1,53 +1,42 @@
 package br.com.codecode.openjobs.model.scaffold;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import org.jboss.resteasy.annotations.ContentEncoding;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.openjobs.model.BasicEntity;
+import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class Company implements Serializable, BasicEntity {
+public class Company extends Loggable implements BasicEntity {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 47663377480544994L;
 
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
+	@Column(updatable = false, nullable = false)
 	private Long id;
-
-	@XmlTransient
-	@JsonIgnore
-	@Version
-	@Column(name = "version")
-	private int version;
 
 	@NotEmpty
 	@Expose
-	@Column(nullable = false,unique=true)
+	@Column(nullable = false)
 	private String name;
 	
 	@Expose
 	@Column(nullable = false)
-	private String companySegment;
+	private String segment;
 	
+	@Expose
 	@NotEmpty
-	@Column(nullable = false)
+	@Column(nullable = false,unique=true)
 	private String cnpj;
 
 	public Long getId() {
@@ -56,14 +45,6 @@ public class Company implements Serializable, BasicEntity {
 
 	public void setId(final Long id) {
 		this.id = id;
-	}
-
-	private int getVersion() {
-		return this.version;
-	}
-
-	private void setVersion(final int version) {
-		this.version = version;
 	}
 
 	public String getName() {
@@ -82,14 +63,13 @@ public class Company implements Serializable, BasicEntity {
 		this.cnpj = cnpj;
 	}
 
-	public String getCompanySegment() {
-		return companySegment;
+	public String getSegment() {
+		return segment;
 	}
 
-	public void setCompanySegment(String companySegment) {
-		this.companySegment = companySegment;
+	public void setSegment(String companySegment) {
+		this.segment = companySegment;
 	}
-	
 	
 	
 	@Override
@@ -119,11 +99,8 @@ public class Company implements Serializable, BasicEntity {
 
 	@Override
 	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (name != null && !name.trim().isEmpty())
-			result += "name: " + name;
-		if (cnpj != null && !cnpj.trim().isEmpty())
-			result += ", cnpj: " + cnpj;
-		return result;
+		return "Company [name=" + name + ", segment=" + segment + "]";
 	}
+
+	
 }

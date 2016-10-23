@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 
+import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -13,10 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseToken;
 import com.google.firebase.tasks.OnSuccessListener;
 
-/*@SessionScoped
+@SessionScoped
 @Named
-@ManagedBean*/
-@Model
+@ManagedBean
 public class FirebaseMB implements Serializable {
 
 	private String name,email,uid,photo;

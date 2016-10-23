@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
@@ -20,10 +21,11 @@ import javax.persistence.PreUpdate;
  * @version
  */
 @Entity
+@XmlRootElement
 public class JAASUser implements Serializable {
 
 	private static final long serialVersionUID = -1917498851904653016L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
@@ -31,13 +33,13 @@ public class JAASUser implements Serializable {
 
 	@Column
 	private String login;
-	
+
 	@Column
 	private String password;
-	
+
 	@ManyToMany
 	private List<JAASRole> roles;
-	
+
 	public JAASUser() {
 		// TODO Auto-generated constructor stub
 	}
@@ -65,10 +67,10 @@ public class JAASUser implements Serializable {
 	public void setRoles(List<JAASRole> roles) {
 		this.roles = roles;
 	}
-	
+
 	@PrePersist
 	@PreUpdate
-	private void encode(){
+	private void encode() {
 		this.password = PassGenerator.generate(this.password);
 	}
 
@@ -76,9 +78,5 @@ public class JAASUser implements Serializable {
 	public String toString() {
 		return login;
 	}
-	
-	
-	
-	
 
 }

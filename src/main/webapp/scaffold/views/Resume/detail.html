@@ -7,9 +7,10 @@
     <div class="form-group" ng-class="{'has-error': ResumeForm.owner.$invalid}">
         <label for="owner" class="col-sm-2 control-label">Owner</label>
         <div id="ownerControls" class="col-sm-10">
-        <select id="owner" name="owner" class="form-control" ng-model="ownerSelection" ng-options="o.text for o in ownerSelectionList"  >
+        <select id="owner" name="owner" class="form-control" ng-model="ownerSelection" ng-options="o.text for o in ownerSelectionList" required >
             <option value="">Choose a Owner</option>
         </select>
+        <span class="help-block error" ng-show="ResumeForm.owner.$error.required">required</span> 
         </div>
     </div>
 

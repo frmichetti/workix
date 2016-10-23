@@ -1,41 +1,31 @@
 package br.com.codecode.openjobs.model.scaffold;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.openjobs.model.BasicEntity;
+import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class Candidate implements Serializable, BasicEntity {
+public class Candidate extends Loggable implements BasicEntity{
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 531807027259604477L;
 
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
+	@Column(updatable = false, nullable = false)
 	private Long id;
-
-	@XmlTransient
-	@JsonIgnore
-	@Version
-	@Column(name = "version")
-	private int version;
 
 	@NotEmpty
 	@Expose
@@ -44,46 +34,23 @@ public class Candidate implements Serializable, BasicEntity {
 
 	@NotEmpty
 	@Expose
-	@Column(nullable = false)
+	@Column(nullable = false,unique=true)
 	private String cpf;
 
-	@NotEmpty
+	@NotNull
 	@Expose
 	@OneToOne(optional=false)
 	private User user;
-
+	
+	public Candidate(){}
+		
 	public Long getId() {
 		return this.id;
 	}
 
 	public void setId(final Long id) {
 		this.id = id;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (!(obj instanceof Candidate)) {
-			return false;
-		}
-		Candidate other = (Candidate) obj;
-		if (id != null) {
-			if (!id.equals(other.id)) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
-	}
+	}	
 
 	public String getName() {
 		return name;
@@ -107,23 +74,43 @@ public class Candidate implements Serializable, BasicEntity {
 
 	public void setUser(User user) {
 		this.user = user;
-	}	
-
-	private int getVersion() {
-		return version;
 	}
 
-	private void setVersion(int version) {
-		this.version = version;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Candidate other = (Candidate) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 	@Override
 	public String toString() {
-		String result = getClass().getSimpleName() + " ";
-		if (name != null && !name.trim().isEmpty())
-			result += "name: " + name;
-		if (cpf != null && !cpf.trim().isEmpty())
-			result += ", cpf: " + cpf;
-		return result;
-	}
+		return "Candidate [name=" + name + ", cpf=" + cpf + "]";
+	}	
+	
+	
+	
+	
+
+	
+
+	
 }

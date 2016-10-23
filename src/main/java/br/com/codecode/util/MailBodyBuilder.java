@@ -45,7 +45,7 @@ public class MailBodyBuilder {
 			System.err.println("URL do Template Incorreta " + e);
 
 			mailBody.append("Reserva Solicitada com Sucesso, Código de checkout ")
-			.append(job.getUuid());
+			.append(job.getId());
 
 			return mailBody.toString();
 

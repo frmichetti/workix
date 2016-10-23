@@ -19,8 +19,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
+
 import br.com.codecode.openjobs.model.scaffold.Resume;
+
+import javax.ws.rs.core.UriBuilder;
 
 /**
  * 
@@ -57,7 +59,7 @@ public class ResumeEndpoint {
 	public Response findById(@PathParam("id") Long id) {
 		TypedQuery<Resume> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT r FROM Resume r LEFT JOIN FETCH r.candidate WHERE r.id = :entityId ORDER BY r.id",
+						"SELECT DISTINCT r FROM Resume r LEFT JOIN FETCH r.owner WHERE r.id = :entityId ORDER BY r.id",
 						Resume.class);
 		findByIdQuery.setParameter("entityId", id);
 		Resume entity;
@@ -78,7 +80,7 @@ public class ResumeEndpoint {
 			@QueryParam("max") Integer maxResult) {
 		TypedQuery<Resume> findAllQuery = em
 				.createQuery(
-						"SELECT DISTINCT r FROM Resume r LEFT JOIN FETCH r.candidate ORDER BY r.id",
+						"SELECT DISTINCT r FROM Resume r LEFT JOIN FETCH r.owner ORDER BY r.id",
 						Resume.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);

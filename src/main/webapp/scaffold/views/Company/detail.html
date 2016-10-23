@@ -20,11 +20,11 @@
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': CompanyForm.companySegment.$invalid}">
-        <label for="companySegment" class="col-sm-2 control-label">Company Segment</label>
-        <div id="companySegmentControls" class="col-sm-10">
-            <input id="companySegment" name="companySegment" type="text" required class="form-control" ng-model="company.companySegment" placeholder="Enter the Company Company Segment"></input>
-            <span class="help-block error" ng-show="CompanyForm.companySegment.$error.required">required</span> 
+    <div class="form-group" ng-class="{'has-error': CompanyForm.segment.$invalid}">
+        <label for="segment" class="col-sm-2 control-label">Segment</label>
+        <div id="segmentControls" class="col-sm-10">
+            <input id="segment" name="segment" type="text" required class="form-control" ng-model="company.segment" placeholder="Enter the Company Segment"></input>
+            <span class="help-block error" ng-show="CompanyForm.segment.$error.required">required</span> 
         </div>
     </div>
 

@@ -26,9 +26,9 @@
     </div>
 
     <div class="form-group">
-        <label for="companySegment" class="col-sm-2 control-label">Company Segment</label>
+        <label for="segment" class="col-sm-2 control-label">Segment</label>
         <div class="col-sm-10">
-            <input id="companySegment" name="companySegment" class="form-control" type="text" ng-model="search.companySegment" placeholder="Enter the Company Company Segment"></input>
+            <input id="segment" name="segment" class="form-control" type="text" ng-model="search.segment" placeholder="Enter the Company Segment"></input>
         </div>
     </div>
 
@@ -47,14 +47,14 @@
                 <tr>
                     <th>Name</th>
                     <th>Cnpj</th>
-                    <th>Company Segment</th>
+                    <th>Segment</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td><a href="#/Companies/edit/{{result.id}}">{{result.name}}</a></td>
                     <td><a href="#/Companies/edit/{{result.id}}">{{result.cnpj}}</a></td>
-                    <td><a href="#/Companies/edit/{{result.id}}">{{result.companySegment}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.segment}}</a></td>
                 </tr>
             </tbody>
         </table>

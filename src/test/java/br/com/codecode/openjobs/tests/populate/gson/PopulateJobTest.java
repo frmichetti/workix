@@ -12,21 +12,22 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalField;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.ExclusionStrategy;
-import com.google.gson.FieldAttributes;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.openjobs.model.enumeration.Estate;
-import br.com.codecode.openjobs.model.enumeration.JobType;
+import br.com.codecode.openjobs.model.enums.Estate;
+import br.com.codecode.openjobs.model.enums.JobType;
 import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.model.scaffold.Job;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
@@ -81,9 +82,7 @@ public class PopulateJobTest {
 
 		for(int x=0 ; x < 100;x++){
 
-			Job j = new Job();		
-
-			j.setUuid(UUID.randomUUID().toString());
+			Job j = new Job();	
 
 			j.setTitle("Mockup Job N# " + String.valueOf(x));
 			
@@ -94,8 +93,10 @@ public class PopulateJobTest {
 			j.setBenefits("Benefits of Job " + String.valueOf(x));		
 			
 			j.setStart(new Date());
+					
+			j.setExpire(new Date(2017,03,11));
 			
-			j.setExpire(new Date());
+			assertTrue(j.getStart().before(j.getExpire()));
 			
 			j.setType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
 			
@@ -103,11 +104,11 @@ public class PopulateJobTest {
 			
 			j.setEstate(Estate.SP);
 			
-			j.setMinPayment(new BigDecimal(1_000 * x+1));
+			j.setMinPayment(new BigDecimal(1_00 * x+10));
 			
-			j.setMaxPayment(new BigDecimal(1_000 * x+2));
+			j.setMaxPayment(new BigDecimal(1_00 * x+20));
 			
-			j.setEmployeer(companies.get(x));
+			j.setEmployeer(companies.get(x));			
 	
 			System.out.println("[create] " + j.getTitle());			
 

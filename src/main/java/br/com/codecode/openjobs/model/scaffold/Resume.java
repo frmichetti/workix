@@ -1,7 +1,5 @@
 package br.com.codecode.openjobs.model.scaffold;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -10,34 +8,28 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
-import javax.persistence.Version;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
+
+import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
-public class Resume implements Serializable {
+public class Resume extends Loggable implements BasicEntity {
 
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 7569771700044121495L;
+
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", updatable = false, nullable = false)
+	@Column(updatable = false, nullable = false)
 	private Long id;
 	
-	@XmlTransient
-	@JsonIgnore
-	@Version
-	@Column(name = "version")
-	private int version;
-	
-	@NotEmpty
+	@NotNull
 	@Expose
 	@OneToOne(fetch=FetchType.EAGER,optional=false)
 	private Candidate owner;
@@ -56,7 +48,7 @@ public class Resume implements Serializable {
 	@Lob
 	@Column
 	/**
-	 * OneToMany -> Json
+	 * OneToMany //TODO -> Json
 	 */
 	private String experiences;
 	
@@ -65,7 +57,7 @@ public class Resume implements Serializable {
 	@Lob
 	@Column
 	/**
-	 * OneToMany -> Json
+	 * OneToMany //TODO -> Json
 	 */
 	private String educations;	
 
@@ -75,15 +67,7 @@ public class Resume implements Serializable {
 
 	public void setId(final Long id) {
 		this.id = id;
-	}
-
-	private int getVersion() {
-		return this.version;
-	}
-
-	private void setVersion(final int version) {
-		this.version = version;
-	}
+	}	
 	
 	public Candidate getOwner() {
 		return owner;
@@ -125,12 +109,6 @@ public class Resume implements Serializable {
 	public void setEducations(String educations) {
 		this.educations = educations;
 	}
-	
-	
-	
-	
-
-
 
 	@Override
 	public boolean equals(Object obj) {

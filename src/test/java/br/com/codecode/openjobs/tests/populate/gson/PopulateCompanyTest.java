@@ -49,7 +49,7 @@ public class PopulateCompanyTest {
 			
 			c.setCnpj(String.valueOf(x));
 			
-			c.setCompanySegment("Segment " + String.valueOf(x));
+			c.setSegment("Segment " + String.valueOf(x));
 
 			System.out.println("[create] " + c.getName());
 

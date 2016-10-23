@@ -8,6 +8,7 @@
 		<class>br.com.codecode.openjobs.model.scaffold.Candidate</class>
 		<class>br.com.codecode.openjobs.model.scaffold.Company</class>
 		<class>br.com.codecode.openjobs.model.scaffold.Job</class>
+		<class>br.com.codecode.openjobs.model.scaffold.Loggable</class>
 		<class>br.com.codecode.openjobs.model.scaffold.Resume</class>
 		<class>br.com.codecode.openjobs.model.scaffold.SelectiveProcess</class>
 		<class>br.com.codecode.openjobs.model.scaffold.User</class>

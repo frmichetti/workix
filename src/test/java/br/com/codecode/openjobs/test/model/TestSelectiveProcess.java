@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.openjobs.model.SelectiveProcess;
 import br.com.codecode.openjobs.model.scaffold.Candidate;
+import br.com.codecode.openjobs.model.tests.SelectiveProcess;
 
 public class TestSelectiveProcess {
 

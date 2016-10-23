@@ -24,7 +24,7 @@ public class JobsObserver {
 
 		System.out.println("[CDI - Alert for New Job]");
 
-		System.out.println(job.getUuid());
+		System.out.println(job.uniqueId());
 
 		System.out.println(Instant.now());		
 
@@ -51,7 +51,7 @@ public class JobsObserver {
 			}
 		}		
 
-		jmsContext.createProducer().send(destination, job.getUuid());	
+		jmsContext.createProducer().send(destination, job.uniqueId());	
 
 
 	}

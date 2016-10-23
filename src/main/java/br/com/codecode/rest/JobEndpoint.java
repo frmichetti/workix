@@ -3,8 +3,6 @@ package br.com.codecode.rest;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.enterprise.event.Event;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
@@ -21,9 +19,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import javax.ws.rs.core.UriBuilder;
 
 import br.com.codecode.openjobs.model.scaffold.Job;
+
+import javax.ws.rs.core.UriBuilder;
 
 /**
  * 
@@ -31,22 +30,13 @@ import br.com.codecode.openjobs.model.scaffold.Job;
 @Stateless
 @Path("/jobs")
 public class JobEndpoint {
-	
 	@PersistenceContext(unitName = "JPU")
 	private EntityManager em;
-	
-	
-	@Inject
-	private Event<Job> alertNewJob;
 
 	@POST
 	@Consumes("application/json")
 	public Response create(Job entity) {
-		
 		em.persist(entity);
-		
-		alertNewJob.fire(entity);
-		
 		return Response.created(
 				UriBuilder.fromResource(JobEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
