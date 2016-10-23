@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-	<head>
+	<h:head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -30,7 +30,9 @@
 			console.info("Current Base Path Var = #{basePath}");
 		</script>
 
-	</head>
+	</h:head>
+
+	
 	<body>
 
 		<!-- ============ PAGE LOADER START ============ -->
@@ -531,7 +533,7 @@
 						
 						<ui:insert name="pagination">		
 							<ui:include src="pagination.xhtml" />
-						</ui:insert>
+						</ui:insert>	
 
 					</div>
 					<div class="col-sm-4" id="sidebar">
@@ -776,6 +778,14 @@
 		<ui:insert name="scripts">		
 			<ui:include src="scripts.xhtml" />
 		</ui:insert>
+		
+		<ui:insert name="secrets">		
+			<ui:include src="secrets.xhtml" />
+		</ui:insert>		
+		
+		<ui:insert name="alerts">		
+			<ui:include src="alerts.xhtml" />
+		</ui:insert>		
 
 	</body>
 </html>

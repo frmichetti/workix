@@ -36,7 +36,7 @@ public class NavigationMB {
 
 	public String goToJobs(){
 		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
-		return prefix + "/jobs.xhtml" + sufix;
+		return prefix + "/jobs.xhtml?page=1" + sufix.replace("?", "&");
 	}
 
 	public String goToPostAJob(){

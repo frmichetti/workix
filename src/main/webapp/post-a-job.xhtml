@@ -16,6 +16,8 @@
 
 		<!-- Main Stylesheet -->
 		<link href="css/style.css" rel="stylesheet" />
+		
+		<link href="css/notify.css" rel="stylesheet" />
 
 		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -39,32 +41,9 @@
 			<ui:include src="navigation.xhtml" />
 		</ui:insert>
 
-		<!-- ============ HEADER START ============ -->
-
-		<header>
-			<div id="header-background"></div>
-			<div class="container">
-				<div class="pull-left">
-					<div id="logo"><a href="index.html"><img src="images/logo.png" alt="#{applicationMB.appName} - Job Board Responsive HTML Template" /></a></div>
-				</div>
-				<div id="menu-open" class="pull-right">
-					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
-				</div>
-				<div id="searchbox" class="pull-right">
-					<form>
-						<div class="form-group">
-							<label class="sr-only" for="searchfield">Searchbox</label>
-							<input type="text" class="form-control" id="searchfield" placeholder="Type keywords and press enter" />
-						</div>
-					</form>
-				</div>
-				<div id="search" class="pull-right">
-					<a><i class="fa fa-search fa-lg"></i></a>
-				</div>
-			</div>
-		</header>
-
-		<!-- ============ HEADER END ============ -->
+		<ui:insert name="header">		
+			<ui:include src="header.xhtml" />
+		</ui:insert>
 
 		<!-- ============ JOBS START ============ -->
 
@@ -72,8 +51,8 @@
 			<div class="container">
 				<div class="row text-center">
 					<div class="col-sm-12">
-						<h1>Post a Job</h1>
-						<h4>Find a Right Candidate</h4>
+						<h1>Publicar Vaga</h1>
+						<h4>Encontre um Candidato</h4>
 						
 						<div class="jumbotron">
 							
@@ -90,7 +69,7 @@
 				<h:form>
 					<div class="row">
 						<div class="col-sm-6">
-							<h2>Job Details</h2>
+							<h2>Detalhes da Vaga</h2>
 						
 							<div class="form-group" id="job-title-group">
 								<label for="job-title">Título</label>
@@ -166,7 +145,7 @@
 						
 						
 						<div class="col-sm-6">
-							<h2>Company Details</h2>
+							<h2>Empregador</h2>
 							<div class="form-group" id="company-name-group">
 								<label for="company-name">Nome Empregador</label>
 								
@@ -248,6 +227,14 @@
 		<ui:insert name="scripts">		
 			<ui:include src="scripts.xhtml" />
 		</ui:insert>
+		
+		<ui:insert name="secrets">		
+			<ui:include src="secrets.xhtml" />
+		</ui:insert>		
+		
+		<ui:insert name="alerts">		
+			<ui:include src="alerts.xhtml" />
+		</ui:insert>	
 
 
 	</body>

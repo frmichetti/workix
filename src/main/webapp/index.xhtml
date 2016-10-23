@@ -409,68 +409,13 @@
 			<ui:include src="scripts.xhtml" />
 		</ui:insert>	
 		
+		<ui:insert name="secrets">		
+			<ui:include src="secrets.xhtml" />
+		</ui:insert>		
 		
-
-	
-		
-			<div class="col-sm" id="secrets" style="visibility: hidden;">
-							
-			<h:inputHidden pt:id="fbtoken" pt:value="#{firebaseMB.idToken}" pt:prependId="false" pt:style="visibility: hidden;" />					
-				
-			</div>
-		
-		
-		
-			
-		<!-- Alerts -->		<!-- Alerts -->		<!-- Alerts -->
-											
-		<h:messages autoUpdate="true" showDetail="true" showSummary="true" id="msgs" 
-				 style="visibility: hidden;"				 					  
-				 errorStyle="alert alert-danger"
-				 warnStyle="alert alert-warning"
-				 infoStyle="alert alert-info"  />		 
-				 
-				 <script type="text/javascript">
-				 $( "#msgs > li" ).each(function(index) {					 
-
-					  $.notify({							
-							title: 'System Msgs',
-							message: $(this).text()
-						},{
-							type: 'minimalist',
-							
-							animate: {
-								enter: 'animated zoomInDown',
-								exit: 'animated zoomOutUp'
-							},
-							
-							allow_dismiss: true,
-							
-							position: null,placement: {
-								from: "bottom",
-								align: "right"
-							},
-							
-							
-							delay: 15000,
-							
-							icon_type: 'image',
-							template: 
-								'<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-								'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +								
-								'<span data-notify="title">{1}</span>' +
-								'<span data-notify="message">{2}</span>' +
-							'</div>'
-						});
-					  
-					}).remove();
-				
-				</script>		
-			
-			
-			
-			
-			
+		<ui:insert name="alerts">		
+			<ui:include src="alerts.xhtml" />
+		</ui:insert>		
 		
 
 	</body>
