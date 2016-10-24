@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -16,6 +17,7 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 @Entity
+@Table(name="openjobs_Candidates")
 @XmlRootElement
 public class Candidate extends Loggable implements BasicEntity{
 

@@ -68,7 +68,7 @@ public class CandidateDaoMockup extends BasicDaoMockup implements Crud<Candidate
 
 	@Override
 	public BigInteger countRegisters() {
-		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Candidate").getSingleResult();
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM openjobs_Candidates").getSingleResult();
 	}
 
 }

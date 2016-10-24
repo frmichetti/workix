@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
@@ -15,6 +16,7 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 @Entity
+@Table(name="openjobs_Users")
 @XmlRootElement
 public class User extends Loggable implements BasicEntity{
 

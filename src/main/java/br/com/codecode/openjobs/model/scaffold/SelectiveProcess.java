@@ -19,6 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
@@ -34,6 +35,7 @@ import br.com.codecode.openjobs.model.scaffold.interfaces.BasicEntity;
 
 
 @Entity
+@Table(name="openjobs_SelectiveProcesses")
 @XmlRootElement
 public class SelectiveProcess extends Observable implements Observer, BasicEntity, Serializable{
 
