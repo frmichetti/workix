@@ -6,7 +6,7 @@
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <build>
-    <finalName>jobs</finalName>
+    <finalName>openjobs</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
@@ -83,4 +83,10 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  <name>OpenJobs</name>
+  <organization>
+  	<name>codecode.com.br</name>
+  	<url>http://www.codecode.com.br</url>
+  </organization>
+  <url>http://powerofjava.frmichetti.rhcloud.com</url>
 </project>

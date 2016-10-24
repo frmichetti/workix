@@ -19,9 +19,7 @@ public class NavigationMB {
 
 	private String sufix; 	
 
-	public NavigationMB() {
-
-	}
+	public NavigationMB(){}
 
 	@PostConstruct
 	private void init(){
