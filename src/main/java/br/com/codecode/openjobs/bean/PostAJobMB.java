@@ -3,7 +3,6 @@ package br.com.codecode.openjobs.bean;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -11,6 +10,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import br.com.codecode.cdi.dao.Crud;
+import br.com.codecode.cdi.qualifier.Mockup;
 import br.com.codecode.openjobs.model.enums.Estate;
 import br.com.codecode.openjobs.model.enums.JobCategory;
 import br.com.codecode.openjobs.model.enums.JobType;
@@ -20,10 +20,10 @@ import br.com.codecode.openjobs.model.scaffold.Job;
 @Model
 public class PostAJobMB {
 
-	@Inject
+	@Inject @Mockup
 	private Crud<Job> dao;
 	
-	@Inject
+	@Inject @Mockup
 	private Crud<Company> companyDao;
 
 	private Job currentJob;
@@ -58,7 +58,14 @@ public class PostAJobMB {
 		if (currentJob != null){
 			currentJob.setStart(new Date());
 			currentJob.setExpire(new Date());
-		//	currentJob.setUuid(UUID.randomUUID().toString());
+			currentJob.setActive(true);
+			currentJob.setCategory(JobCategory.OPERATOR);
+			currentJob.setCity("Whatever City");
+			currentJob.setEmployeer(employeers.get(3));
+			currentJob.setDescription("WHATEVER TEXT ");			
+			
+			
+			
 		}
 
 	}

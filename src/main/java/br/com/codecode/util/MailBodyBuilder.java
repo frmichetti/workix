@@ -16,9 +16,9 @@ import br.com.codecode.openjobs.model.scaffold.Job;
 
 public class MailBodyBuilder {
 
-	private static final String LOCAL_SERVER = "http://localhost:8080/carhollics-javaee";
+	private static final String LOCAL_SERVER = "http://localhost:8080/jobs";
 
-//	private static final String REMOTE_SERVER = "http://callcenter-carhollics.rhcloud.com";	
+//	private static final String REMOTE_SERVER = "http://powerofjava.frmichetti.rhcloud.com";	
 
 	public static String makeBodyForNewCheckout(Job job) {
 

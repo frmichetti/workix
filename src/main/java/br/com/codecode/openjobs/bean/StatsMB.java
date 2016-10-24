@@ -5,6 +5,7 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import br.com.codecode.cdi.dao.Crud;
+import br.com.codecode.cdi.qualifier.Mockup;
 import br.com.codecode.openjobs.model.scaffold.Candidate;
 import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.model.scaffold.Job;
@@ -12,13 +13,13 @@ import br.com.codecode.openjobs.model.scaffold.Job;
 @Model
 public class StatsMB {
 	
-	@Inject
+	@Inject @Mockup
 	private Crud<Job> jobDao;
 	
-	@Inject
+	@Inject @Mockup
 	private Crud<Company> companyDao;
 	
-	@Inject
+	@Inject @Mockup
 	private Crud<Candidate> candidateDao;
 
 	

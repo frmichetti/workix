@@ -42,17 +42,17 @@ public class PopulateUserTest{
 		
 		users = new ArrayList<>();
 			
-		for(int x=0 ; x < 5_000;x++){
+		for(int x=0 ; x < 25;x++){
 			
 			User u = new User();			
 			
-			u.setEmail("mockupusernumber" + String.valueOf(x)+"@test.com");
+			u.setEmail("mockupusernumber" + String.valueOf(x+1)+"@test.com");
 			
 			assertNotNull(u.getEmail());
 			
 			assertNotEquals("",u.getEmail());			
 			
-		//	u.setUuid(UUID.randomUUID().toString());
+		
 			
 			u.setFirebaseUUID(UUID.randomUUID().toString());
 			
@@ -63,7 +63,7 @@ public class PopulateUserTest{
 			addToList(u);
 		}
 		
-		assertEquals(5_000,users.size());
+		assertEquals(25,users.size());
 
 	}
 

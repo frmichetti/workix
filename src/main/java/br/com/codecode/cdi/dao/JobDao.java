@@ -5,12 +5,13 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import br.com.codecode.cdi.qualifier.Persist;
 import br.com.codecode.openjobs.model.scaffold.Job;
 
 /**
  * DAO for Job
  */
-
+@Persist
 public class JobDao extends BasicDao implements Crud<Job>{
 
 	private static final long serialVersionUID = 4029639665489024760L;

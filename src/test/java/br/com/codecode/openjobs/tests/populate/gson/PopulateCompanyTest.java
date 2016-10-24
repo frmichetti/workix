@@ -45,11 +45,11 @@ public class PopulateCompanyTest {
 
 			Company c = new Company();				
 
-			c.setName("Company Mockup N# " + String.valueOf(x));			
+			c.setName("Company Mockup N# " + String.valueOf(x+1));			
 			
-			c.setCnpj(String.valueOf(x));
+			c.setCnpj(String.valueOf(x+1));
 			
-			c.setSegment("Segment " + String.valueOf(x));
+			c.setSegment("Segment " + String.valueOf(x+1));
 
 			System.out.println("[create] " + c.getName());
 

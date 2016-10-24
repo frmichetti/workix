@@ -1,20 +1,26 @@
 package br.com.codecode.openjobs.bean;
 
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
 import br.com.codecode.cdi.dao.Crud;
+import br.com.codecode.cdi.qualifier.Mockup;
+import br.com.codecode.jsf.util.MessagesHelper;
 import br.com.codecode.openjobs.model.scaffold.Job;
 
 @Model
 public class JobDetailMB {
 	
-	@Inject
+	@Inject @Mockup
 	private Crud<Job> dao;
 	
 	private Long id = 0L;
 	
 	private Job currentJob ;
+	
+	@Inject
+	private MessagesHelper messagesHelper;
 	
 	public JobDetailMB(){}
 
@@ -39,18 +45,19 @@ public class JobDetailMB {
 		return id;
 	}
 
-	public void setId(Long jobId) {
-		this.id = jobId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public Job getCurrentJob() {
 		return currentJob;
 	}
-
-	public void setCurrentJob(Job currentJob) {
-		this.currentJob = currentJob;
-	}
 	
+	
+	public void signup(){
+		messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
+		
+	}
 	
 	
 	

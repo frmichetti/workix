@@ -8,12 +8,14 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 
+import br.com.codecode.cdi.qualifier.Persist;
 import br.com.codecode.openjobs.model.scaffold.Resume;
 
 /**
  * DAO for Resume
  */
 @Stateless
+@Persist
 public class ResumeDao extends BasicDao implements Crud<Resume>{
 
 	private static final long serialVersionUID = 4029639665489024760L;

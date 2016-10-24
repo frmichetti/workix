@@ -8,16 +8,17 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import br.com.codecode.cdi.dao.Crud;
+import br.com.codecode.cdi.qualifier.Mockup;
 import br.com.codecode.openjobs.model.scaffold.Candidate;
 import br.com.codecode.openjobs.model.scaffold.Resume;
 
 @Model
 public class PostAResume {
 
-	@Inject
+	@Inject @Mockup
 	private Crud<Resume> dao;
 	
-	@Inject
+	@Inject @Mockup
 	private Crud<Candidate> candidateDao;
 	
 	private Resume currentResume;

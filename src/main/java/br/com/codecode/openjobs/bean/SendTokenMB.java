@@ -17,6 +17,7 @@ import javax.inject.Inject;
 
 import br.com.codecode.cdi.dao.Crud;
 import br.com.codecode.cdi.notify.Notification;
+import br.com.codecode.cdi.qualifier.Mockup;
 import br.com.codecode.cdi.qualifier.Push;
 import br.com.codecode.jsf.util.MessagesHelper;
 import br.com.codecode.openjobs.model.scaffold.Candidate;
@@ -31,7 +32,7 @@ public class SendTokenMB {
 	@Inject
 	private MessagesHelper messagesHelper;
 
-	@Inject
+	@Inject @Mockup
 	private Crud<Candidate> dao;
 
 	private List<Candidate> candidates = new ArrayList<>();

@@ -124,8 +124,9 @@
 							<p>Simplesmente Clique no botão abaixo</p>
 							
 							<p>
-								<a href="#" class="btn btn-primary btn-lg">Candidatar Agora</a>
-								 
+							<h:form>
+								<h:commandButton action="#{jobDetailMB.signup()}" value="Candidatar Agora" styleClass="btn btn-primary btn-lg" />								
+							</h:form>								 
 								<ui:remove><a href="#" class="btn btn-default btn-lg">Apply via LinkedIn</a></ui:remove>
 							
 							</p>

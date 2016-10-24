@@ -5,15 +5,18 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import br.com.codecode.cdi.qualifier.Persist;
 import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 /**
  * DAO for Candidate
  */
+@Persist
 public class CandidateDao extends BasicDao implements Crud<Candidate> {
 
 	private static final long serialVersionUID = -4430675125218575581L;
-
+	
+	
 	@Override
 	public void create(Candidate entity) {
 		em.persist(entity);

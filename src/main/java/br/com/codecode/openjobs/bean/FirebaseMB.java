@@ -35,9 +35,16 @@ public class FirebaseMB implements Serializable {
 
 		try{
 			initFirebaseConfig();	
+			
+			System.out.println("Firebase Key Loaded with Success");
+			
+			
 		}catch (Exception e) {
 			System.err.println("Firebase Not Loaded");
 		}
+				
+		
+		
 		
 
 	}
@@ -49,7 +56,7 @@ public class FirebaseMB implements Serializable {
 		try {
 
 			options = new FirebaseOptions.Builder()
-					.setServiceAccount(new URL("http://localhost:8080/jobs/google-services.json").openStream())					
+					.setServiceAccount(new URL("http://localhost:8080/jobs/server-api-key.json").openStream())					
 					.build();
 
 			FirebaseApp.initializeApp(options);		
@@ -95,6 +102,10 @@ public class FirebaseMB implements Serializable {
 				name = decodedToken.getName();
 
 				photo = decodedToken.getPicture();
+				
+				System.out.println(email);
+				
+				System.out.println(name);
 
 				// ...
 			}

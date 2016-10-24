@@ -1,13 +1,15 @@
 package br.com.codecode.openjobs.bean;
 
-import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
+import javax.validation.constraints.Min;
 
 import br.com.codecode.cdi.dao.Crud;
+import br.com.codecode.cdi.qualifier.Mockup;
 import br.com.codecode.openjobs.model.scaffold.Candidate;
 
 @Model
@@ -16,14 +18,15 @@ public class CandidatesMB {
 	@Inject
 	private FacesContext facesContext;
 
-	@Inject
+	@Inject @Mockup
 	private Crud<Candidate> dao;
 
-	private List<Candidate> list;
+	private DataModel<Candidate> list;
 
-	private String prefix,sufix;
+	private String prefix,sufix;	
 	
-	private int start,end;
+	@Min(1)
+	private int page;
 
 	public CandidatesMB() {
 		// TODO Auto-generated constructor stub
@@ -31,19 +34,23 @@ public class CandidatesMB {
 
 	@PostConstruct
 	private void init(){
-		
-		if(this.end == 0){
-			list = dao.listAll(0, 100);	
-		}	
-		
-		list = dao.listAll(0, 100);
+	
+		list = new ListDataModel<Candidate>(dao.listAll(0, 100));
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 
 		sufix = "&faces-redirect=true";
 	}
+	
+	public int getPage() {
+		return page;
+	}
 
-	public List<Candidate> getList() {
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public DataModel<Candidate> getList() {
 		return list;
 	}
 	

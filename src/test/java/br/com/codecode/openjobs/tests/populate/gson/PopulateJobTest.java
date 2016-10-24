@@ -80,7 +80,7 @@ public class PopulateJobTest {
 		
 		jobs = new ArrayList<>();
 
-		for(int x=0 ; x < 100;x++){
+		for(int x=1 ; x <= 100;x++){
 
 			Job j = new Job();	
 

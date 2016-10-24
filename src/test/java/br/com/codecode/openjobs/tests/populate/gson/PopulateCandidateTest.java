@@ -71,24 +71,23 @@ public class PopulateCandidateTest {
 		
 		assertTrue(users.size() > 0);
 		
-		candidates = new ArrayList<>();					
+		candidates = new ArrayList<>();		
 		
-		for(int x=0 ; x < users.size();x++){
+		for (User u : users) {
 			
 			Candidate c = new Candidate();		
 			
-			c.setName("Mockup Candidate N# " + String.valueOf(x));			
+			c.setName("Mockup Candidate N# " + String.valueOf(u.getId()));			
 			
-			c.setCpf(String.valueOf(x));			
+			c.setCpf(String.valueOf(u.getId()));			
 			
-			c.setUser(users.get(x));
+			c.setUser(u);
 			
 			System.out.println("[create] " + c.getName());	
 			
 			addToList(c);
 		}
-
-		
+			
 		assertEquals(users.size(),candidates.size());
 
 	}

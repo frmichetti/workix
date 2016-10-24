@@ -76,9 +76,10 @@
 
 						<div class="jobs">
 							<h:form>
+						
 							<ui:repeat var="job" value="#{jobsMB.list}">							
 							
-							<a href="/jobs/job-details.xhtml?id=#{job.id}" class="featured applied">
+							<a href="#{basePath}/job-details.xhtml?id=#{job.id}" class="featured applied">
 							
 								<div class="row">
 									
