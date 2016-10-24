@@ -3,8 +3,9 @@
 
 <html xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:ui="http://java.sun.com/jsf/facelets"	
+	 xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	>
 
 <f:view contentType="text/html">
 
@@ -16,8 +17,7 @@
 		</f:facet>
 	</h:head>
 
-	<h:body>
-		<p:growl autoUpdate="true" showDetail="true" showSummary="true" redisplay="true"/>
+	<h:body>		
 		<h:messages showDetail="true" life="3000" autoUpdate="true" />
 
 			<ui:insert name="content">

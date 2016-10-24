@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	>
+
+<h:head>
+	<title>Formulário de Mensagem</title>
+</h:head>
+
+<h:body>
+	<h:messages showDetail="true" life="4000" autoUpdate="true" />
+	<ui:composition template="../layout.xhtml">
+		<ui:define name="content">
+			<h1>Formulário de Mensagem</h1>
+			<h:form>
+
+				<div>
+					<h:outputLabel for="titulo" value="Titulo" />
+					<h:inputText id="titulo" value="#{sendTokenMB.title}"
+						autocomplete="true" required="required"/>
+				</div>
+
+				<div>
+					<h:outputLabel for="mensagem" value="Mensagem" />
+					<h:inputTextarea id="mensagem" value="#{sendTokenMB.message}"
+						autocomplete="false" required="required" />
+				</div>
+
+
+				<div>
+					<h:outputLabel for="user" value="Usuário" />
+
+					<h:selectOneMenu id="user" value="#{sendTokenMB.candidate}"
+						converter="AnotherEntityConverter" required="required" >
+
+						<f:selectItems itemValue="#{user}"
+							value="#{sendTokenMB.candidates}" />
+					</h:selectOneMenu>
+				</div>
+				
+				<div>
+					<h:commandButton value="Enviar" action="#{sendTokenMB.doSendPush}"
+						icon="fa fa-envelope" />
+
+					<h:commandButton value="Voltar"
+						action="/faces/index.xhtml?faces-redirect=true" icon="fa fa-home" />
+				</div>
+
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

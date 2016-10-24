@@ -24,6 +24,8 @@ public class Http implements Serializable {
 	private final String USER_AGENT = "Mozilla/5.0";
 
 	private final Integer TIME_OUT = 35_000;	
+	
+	private final String WEB_API_KEY = "AIzaSyDF7Uc_yoj_VAOx-7fzag92DLTfyca88aE";
 
 	public Http() {
 		System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
@@ -72,7 +74,7 @@ public class Http implements Serializable {
 
 		con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
-		con.setRequestProperty("Authorization", "key=AIzaSyBXC7Hf_1FDhXg00diCBe28WWUTrgG27hE");        
+		con.setRequestProperty("Authorization", "key="+ WEB_API_KEY);        
 
 		con.setDoOutput(true);
 

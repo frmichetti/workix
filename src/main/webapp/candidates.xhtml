@@ -83,7 +83,7 @@
 									</div>
 									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
 										<h5>#{candidate.name}</h5>
-										<p><strong>#{candidate.resume.objective}</strong></p>
+										<p><strong>#{candidate}</strong></p>
 									</div>
 									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
 										<p><strong>New York City, NY, USA</strong></p>
@@ -830,16 +830,24 @@
 		</ui:insert>
 
 		<ui:insert name="login">		
-				<ui:include src="login.xhtml" />
+			<ui:include src="login.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="register">		
-				<ui:include src="register.xhtml" />
+			<ui:include src="register.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="scripts">		
 			<ui:include src="scripts.xhtml" />
-		</ui:insert>
+		</ui:insert>	
+		
+		<ui:insert name="secrets">		
+			<ui:include src="secrets.xhtml" />
+		</ui:insert>		
+		
+		<ui:insert name="alerts">		
+			<ui:include src="alerts.xhtml" />
+		</ui:insert>		
 
 
 	</body>
