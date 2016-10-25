@@ -11,7 +11,7 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
 
 public interface PopulateTest {
 	
-	String server = HttpConfig.JAVAEE_PROJ_TEST;
+	String server = HttpConfig.JAVAEE_PROJ_PROD;
 	
 	void create();
 	

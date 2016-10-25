@@ -19,7 +19,7 @@ import org.junit.Test;
 import com.google.gson.GsonBuilder;
 
 import br.com.codecode.openjobs.model.scaffold.Company;
-import br.com.codecode.openjobs.tests.util.Http;
+import br.com.codecode.openjobs.tests.util.HttpTests;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
 
 
@@ -31,6 +31,8 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
  * @version
  */
 public class PopulateCompanyTest {	
+	
+	private String server = HttpConfig.JAVAEE_PROJ_TEST;
 
 	private List<Company> companies ;
 
@@ -84,7 +86,7 @@ public class PopulateCompanyTest {
 
 			System.out.println("[sendToServer] " + c.getName());
 
-			resp = Http.sendPost(HttpConfig.SCAFFOLD_PROJ + "companies",
+			resp = HttpTests.sendPost(server + "companies",
 					new GsonBuilder()						
 					.create().toJson(c));
 

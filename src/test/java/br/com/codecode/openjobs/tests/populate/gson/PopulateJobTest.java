@@ -12,10 +12,6 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
-import java.time.temporal.TemporalField;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,8 +27,8 @@ import br.com.codecode.openjobs.model.enums.JobType;
 import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.model.scaffold.Job;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
-import br.com.codecode.openjobs.tests.util.Http;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
+import br.com.codecode.openjobs.tests.util.HttpTests;
 /**
  * 
  * Populate DB with Jobs
@@ -43,6 +39,8 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
  *
  */
 public class PopulateJobTest {
+	
+	private String server = HttpConfig.JAVAEE_PROJ_TEST;
 
 
 	private List<Company> companies;
@@ -56,7 +54,7 @@ public class PopulateJobTest {
 
 		System.out.println("[downloadCompanies]");
 
-		resp = Http.sendGet(HttpConfig.SCAFFOLD_PROJ + "companies");						
+		resp = HttpTests.sendGet(server + "companies");						
 
 		companies = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
@@ -144,7 +142,7 @@ public class PopulateJobTest {
 
 			System.out.println("[sendToServer] " + j.getTitle());
 
-			resp = Http.sendPost(HttpConfig.SCAFFOLD_PROJ + "jobs",
+			resp = HttpTests.sendPost(server + "jobs",
 					new GsonBuilder()				
 					.setPrettyPrinting()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")

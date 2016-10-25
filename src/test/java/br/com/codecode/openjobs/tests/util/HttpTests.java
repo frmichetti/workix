@@ -17,7 +17,7 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public final class Http {
+public final class HttpTests {
 
 	private static final String USER_AGENT = "Mozilla/5.0";
 

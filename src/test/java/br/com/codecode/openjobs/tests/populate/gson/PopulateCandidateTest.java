@@ -23,8 +23,8 @@ import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.openjobs.model.scaffold.Candidate;
 import br.com.codecode.openjobs.model.scaffold.User;
+import br.com.codecode.openjobs.tests.util.HttpTests;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
-import br.com.codecode.openjobs.tests.util.Http;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
 /**
  * 
@@ -36,7 +36,8 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
  *
  */
 public class PopulateCandidateTest {
-
+	
+	private String server = HttpConfig.JAVAEE_PROJ_TEST;
 
 	private List<Candidate> candidates;
 
@@ -51,7 +52,7 @@ public class PopulateCandidateTest {
 		
 		users = new ArrayList<>();
 
-		resp = Http.sendGet(HttpConfig.SCAFFOLD_PROJ + "users");						
+		resp = HttpTests.sendGet(server + "users");						
 
 		users = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
@@ -116,7 +117,7 @@ public class PopulateCandidateTest {
 			
 			System.out.println("[sendToServer] " + c.getName());
 
-			resp = Http.sendPost(HttpConfig.SCAFFOLD_PROJ + "candidates",
+			resp = HttpTests.sendPost(server + "candidates",
 					new GsonBuilder()				
 					.setPrettyPrinting()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")

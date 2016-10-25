@@ -16,7 +16,7 @@ import com.google.gson.reflect.TypeToken;
 import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.tests.download.DownloadTest;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
-import br.com.codecode.openjobs.tests.util.Http;
+import br.com.codecode.openjobs.tests.util.HttpTests;
 
 public class DownloadTestCompany implements DownloadTest{
 	
@@ -27,7 +27,7 @@ public class DownloadTestCompany implements DownloadTest{
 		
 		System.out.println("downloadItens");
 		
-		resp = Http.sendGet(server + "companies");
+		resp = HttpTests.sendGet(server + "companies");
 		
 		assertFalse(resp.isEmpty());
 		

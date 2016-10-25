@@ -48,7 +48,6 @@ br/com/codecode/rest/CandidateEndpoint.class
 br/com/codecode/openjobs/model/enums/Estate.class
 br/com/codecode/cdi/qualifier/Email.class
 br/com/codecode/cdi/notify/PushMessage.class
-br/com/codecode/openjobs/bean/FirebaseMB$1.class
 br/com/codecode/cdi/notify/MailMessage.class
 br/com/codecode/security/TimesTamps.class
 br/com/codecode/openjobs/bean/UserMB.class

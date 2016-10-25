@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
 import com.google.gson.GsonBuilder;
 
 import br.com.codecode.openjobs.model.scaffold.User;
-import br.com.codecode.openjobs.tests.util.Http;
+import br.com.codecode.openjobs.tests.util.HttpTests;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
 
 /**
@@ -32,6 +32,8 @@ import br.com.codecode.openjobs.tests.util.HttpConfig;
  * @version
  */
 public class PopulateUserTest{
+	
+	private String server = HttpConfig.JAVAEE_PROJ_TEST;
 
 	private List<User> users;
 
@@ -85,7 +87,7 @@ public class PopulateUserTest{
 			
 			System.out.println("[sendToServer] " + u.getEmail());
 		
-			resp = Http.sendPost(HttpConfig.SCAFFOLD_PROJ + "users",
+			resp = HttpTests.sendPost(server + "users",
 					new GsonBuilder()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 					.create().toJson(u));

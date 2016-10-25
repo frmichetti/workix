@@ -8,10 +8,7 @@
 package br.com.codecode.openjobs.tests.util;
 
 import java.lang.reflect.Type;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -23,22 +20,11 @@ public class GsonDateDeserializer implements JsonDeserializer<Date> {
 	@Override
 	public Date deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
 	
-		String date = element.getAsString();
-		
-		SimpleDateFormat formatter = new SimpleDateFormat("MM-dd-yyyy'T'HH:mm:ssZ");
-	
-		formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
-		
-		try {
+		Long date = element.getAsLong();	
 			
-			return formatter.parse(date);
+		return new Date(date);
 			
-		} catch (ParseException e) {
-			
-			e.printStackTrace();			
 		
-			return null;
-		}
 	}
 
 }

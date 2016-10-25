@@ -1,19 +1,12 @@
 package br.com.codecode.openjobs.bean;
 
-import java.io.IOException;
 import java.io.Serializable;
-import java.net.URL;
 
 import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.FirebaseOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseToken;
-import com.google.firebase.tasks.OnSuccessListener;
 
 @SessionScoped
 @Named
@@ -50,7 +43,7 @@ public class FirebaseMB implements Serializable {
 	}
 
 	private void initFirebaseConfig() {
-
+/*
 		FirebaseOptions options = null;
 
 		try {
@@ -67,7 +60,7 @@ public class FirebaseMB implements Serializable {
 
 			System.err.println("Cannot Initialize Firebase App - Config File not Found");
 		}
-
+*/
 	}
 
 	public String getIdToken() {
@@ -88,7 +81,7 @@ public class FirebaseMB implements Serializable {
 
 
 	private void verifyToken(String token) {
-
+/*
 		FirebaseAuth.getInstance().verifyIdToken(token)		
 		.addOnSuccessListener(new OnSuccessListener<FirebaseToken>() {
 
@@ -113,7 +106,7 @@ public class FirebaseMB implements Serializable {
 
 
 		});
-
+*/
 	}
 
 	public String getEmail() {
