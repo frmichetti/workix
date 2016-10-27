@@ -21,9 +21,9 @@ import org.junit.Test;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.openjobs.model.scaffold.Candidate;
-import br.com.codecode.openjobs.model.scaffold.User;
 import br.com.codecode.openjobs.tests.util.HttpTests;
+import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
 /**

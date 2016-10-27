@@ -22,13 +22,13 @@ import org.junit.Test;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.openjobs.model.enums.Estate;
-import br.com.codecode.openjobs.model.enums.JobType;
-import br.com.codecode.openjobs.model.scaffold.Company;
-import br.com.codecode.openjobs.model.scaffold.Job;
 import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
 import br.com.codecode.openjobs.tests.util.HttpTests;
+import br.com.codecode.workix.model.enums.Estate;
+import br.com.codecode.workix.model.enums.JobType;
+import br.com.codecode.workix.model.scaffold.Company;
+import br.com.codecode.workix.model.scaffold.Job;
 /**
  * 
  * Populate DB with Jobs

@@ -18,8 +18,8 @@ import org.junit.Test;
 
 import com.google.gson.GsonBuilder;
 
-import br.com.codecode.openjobs.model.scaffold.Company;
 import br.com.codecode.openjobs.tests.util.HttpTests;
+import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
 
 

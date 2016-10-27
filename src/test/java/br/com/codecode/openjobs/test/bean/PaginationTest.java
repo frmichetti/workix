@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.jsf.util.Pagination;
+import br.com.codecode.workix.jsf.util.Pagination;
 
 /**
  * 

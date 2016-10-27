@@ -20,8 +20,8 @@ import static org.junit.Assert.*;
 
 import com.google.gson.GsonBuilder;
 
-import br.com.codecode.openjobs.model.scaffold.User;
 import br.com.codecode.openjobs.tests.util.HttpTests;
+import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.openjobs.tests.util.HttpConfig;
 
 /**
