@@ -2,13 +2,11 @@ package br.com.codecode.workix.bean;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 @ApplicationScoped
-@ManagedBean
 @Named
 public class NavigationMB {
 

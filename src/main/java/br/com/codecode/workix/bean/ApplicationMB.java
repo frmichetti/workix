@@ -4,11 +4,9 @@ import java.time.LocalDate;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
 @ApplicationScoped
-@ManagedBean
 @Named
 public class ApplicationMB {
 
@@ -23,7 +21,7 @@ public class ApplicationMB {
 	@PostConstruct
 	private void init(){
 
-		appName = "OpenJobs";
+		appName = "Workix";
 
 		year = LocalDate.now().getYear();	
 

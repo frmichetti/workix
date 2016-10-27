@@ -4,11 +4,9 @@ import java.io.Serializable;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
 @SessionScoped
-@ManagedBean
 @Named
 public class SecurityMB implements Serializable{
 

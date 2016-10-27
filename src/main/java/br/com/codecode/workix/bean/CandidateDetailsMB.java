@@ -2,9 +2,7 @@ package br.com.codecode.workix.bean;
 
 import java.io.Serializable;
 
-import javax.annotation.ManagedBean;
 import javax.enterprise.context.SessionScoped;
-import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,7 +15,6 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
 
 @SessionScoped
-@ManagedBean
 @Named
 public class CandidateDetailsMB implements Serializable {
 

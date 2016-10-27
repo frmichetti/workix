@@ -1,60 +1,75 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
-	<!-- 
+<!-- 
 		Replace path to template, title, header and body
 		with actual data.
 	 -->
-	<ui:composition>
-	
+<ui:composition>
+
 	<!-- ============ NAVBAR START ============ -->
 
-		<div class="fm-container">
-			<!-- Menu -->
-			<div class="menu">
-				<div class="button-close text-right">
-					<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
-				</div>
-				<ul class="nav">
-					<li><a href="#{navigationMB.goToIndex()}">Início</a></li>
-					<li><a href="#{navigationMB.goToJobs()}">Vagas</a></li>
-					<li><a href="#{navigationMB.goToPostAJob()}">Publicar Vaga</a></li>
-					<li><a href="#{navigationMB.goToCandidates()}">Candidatos</a></li>
-					<li><a href="#{navigationMB.goToPostAResume()}">Publicar Curriculum</a></li>
-					<li><a href="#{navigationMB.goToAboutUs()}">Sobre Nós</a></li>
-					
-					<ui:remove>
-					<li><a href="#">Pages</a>
-						<ul>
-							<li><a href="job-details.html">Detalhes da Vaga</a></li>
-							<li><a href="resume.html">Resume</a></li>
-							<li><a href="company.html">Company</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="post.html">Single Post</a></li>
-							
-							<li><a href="testimonials.html">Depoimentos</a></li>
-							<li><a href="options.html">Opções</a></li>
-						</ul>
-					</li>
-					</ui:remove>
-					
-					<li><a class="link-login">Entrar</a></li>
-					
-					<ui:remove>
-					<li><a class="link-register">Registrar</a></li>
-					</ui:remove>
-					
-					
-				</ul>		
+	<div class="fm-container">
+		<!-- Menu -->
+		<div class="menu">
+			<div class="button-close text-right">
+				<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
 			</div>
-			<!-- end Menu -->
-		</div>
+			<ul class="nav">
+				<li><a href="#{navigationMB.goToIndex()}">Início</a></li>
 
-		<!-- ============ NAVBAR END ============ -->
-			
-	</ui:composition>
+				<li><a href="#{navigationMB.goToAboutUs()}">Sobre Nós</a></li>
+
+
+
+
+				<li><a href="#">Candidatos</a>
+
+					<ul>
+						<li><a href="#{navigationMB.goToPostAResume()}">Publicar
+								Curriculum</a></li>
+
+						<li><a href="resume.html">Currículum</a></li>
+
+
+					</ul></li>
+
+				<li><a href="#">Recrutadores</a>
+					<ul>
+						<li><a href="#{navigationMB.goToPostAJob()}">Publicar
+								Vaga</a></li>
+						<li><a href="#{navigationMB.goToCandidates()}">Candidatos</a></li>
+						<li><a href="job-details.html">Detalhes da Vaga</a></li>
+
+						<li><a href="company.html">Company</a></li>
+
+
+
+					</ul></li>
+				<li><a href="#{navigationMB.goToJobs()}">Vagas</a></li>
+
+				<li><a class="link-login">Entrar</a></li>
+
+
+				<li><a class="link-register">Registrar</a></li>
+				<li><a href="blog.html">Blog</a></li>
+				<li><a href="post.html">Single Post</a></li>
+				<li><a href="testimonials.html">Depoimentos</a></li>
+				<ui:remove>
+					<li><a href="options.html">Opções</a></li>
+				</ui:remove>
+
+
+			</ul>
+		</div>
+		<!-- end Menu -->
+	</div>
+
+	<!-- ============ NAVBAR END ============ -->
+
+</ui:composition>
 
 </html>

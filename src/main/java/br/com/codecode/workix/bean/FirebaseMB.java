@@ -10,7 +10,6 @@ import javax.inject.Named;
 
 @SessionScoped
 @Named
-@ManagedBean
 public class FirebaseMB implements Serializable {
 
 	private String name,email,uid,photo;

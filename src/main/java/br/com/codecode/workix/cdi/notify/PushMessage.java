@@ -46,7 +46,8 @@ public class PushMessage implements Notification, Serializable{
 		String json = jsonObject.toString() ;
 
 		System.out.println(json);
-
+		
+		//TODO UPDATE TO JAX2 Binding
 		String resp = http.sendPost(FCM_SERVER, json);
 
 		System.out.println(resp);
