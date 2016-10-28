@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	>
+	<h:head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<meta name="description" content="#{applicationMB.appName} - Plataforma de Empregos Totalmente Grátis" />
+		<meta name="author" content="Code Code, frmichetti@gmail.com" />
+		<title>#{applicationMB.appName} - Plataforma de Empregos Totalmente Grátis</title>
+		<link rel="shortcut icon" href="images/favicon.png" />
+
+		<!-- Main Stylesheet -->
+		<link href="css/style.css" rel="stylesheet" />	
+		
+		<link href="css/notify.css" rel="stylesheet" />
+	
+
+		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+		<![endif]-->	
+		
+		<ui:param name="basePath" value=" #{request.getContextPath()}/layout" />
+			
+
+	</h:head>
+	
+	<body id="home">		
+
+		<!-- ============ PAGE LOADER START ============ -->
+
+		<div id="loader">
+			<i class="fa fa-cog fa-4x fa-spin"></i>
+		</div>
+
+		<!-- ============ PAGE LOADER END ============ -->
+
+		<ui:insert name="navigation">		
+			<ui:include src="navigation.xhtml" />
+		</ui:insert>
+
+		<ui:insert name="header">		
+			<ui:include src="header.xhtml" />
+		</ui:insert>		
+
+
+		<section>
+			<div class="container">
+				<div class="row text-center">
+					
+				<h1>Erro 404 - Página não encontrada</h1>
+				<h4>Talvez você se interesse por ...</h4>
+					
+				</div>
+			</div>
+		</section>
+
+		
+		<ui:insert name="blog">		
+			<ui:include src="blog.xhtml" />
+		</ui:insert>
+
+		<ui:insert name="contact">		
+			<ui:include src="contact.xhtml" />
+		</ui:insert>
+				
+		<ui:insert name="footer">		
+			<ui:include src="footer.xhtml" />
+		</ui:insert>
+		
+		<ui:insert name="login">		
+			<ui:include src="login.xhtml" />
+		</ui:insert>
+
+		<ui:insert name="register">		
+			<ui:include src="register.xhtml" />
+		</ui:insert>	
+		
+		<ui:insert name="scripts">		
+			<ui:include src="scripts.xhtml" />
+		</ui:insert>				
+		
+		<ui:insert name="alerts">		
+			<ui:include src="alerts.xhtml" />
+		</ui:insert>	
+		
+		<ui:insert name="secrets">		
+			<ui:include src="secrets.xhtml" />
+		</ui:insert>
+		
+		<script type="text/javascript">
+		$('#myModal').modal('show');    
+		</script>	
+		
+
+	</body>
+</html>

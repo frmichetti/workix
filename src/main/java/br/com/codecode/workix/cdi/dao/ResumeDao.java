@@ -67,4 +67,27 @@ public class ResumeDao extends BasicDao implements Crud<Resume>{
 	public BigInteger countRegisters() {		
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Resume").getSingleResult();
 	}
+	
+	@Override
+	public Resume saveOrUpdate(Resume entity) {
+
+		if (entity == null){
+			throw new IllegalArgumentException("One valid Entity is required to persist");		
+
+		}
+
+		if(entity.getId() == null){
+
+			em.persist(entity);
+
+		}else
+
+		{
+			em.merge(entity);
+
+		}
+
+		return entity;
+
+	}
 }

@@ -2,6 +2,7 @@ package br.com.codecode.workix.bean;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
@@ -28,7 +29,7 @@ public class CandidateDetailsMB implements Serializable {
 	@Inject @Push
 	private Notification notification;
 	
-	private Long id = 0L;
+	private Long id;
 	
 	private Candidate currentCandidate ;
 	
@@ -36,20 +37,21 @@ public class CandidateDetailsMB implements Serializable {
 	private MessagesHelper messagesHelper;
 	
 	public CandidateDetailsMB(){}
-
+	
 	public void init(){
 		
 		System.out.println("Candidate ID RECEIVED -> " + id);
+		
+		if(id == null || id ==0){
+			goToError();
+		}
 		
 		if(id > 0){
 			currentCandidate = dao.findById(id);	
 		}		
 		
 		if (currentCandidate == null){
-			currentCandidate = new Candidate();
-			currentCandidate.setId(0L);
-			currentCandidate.setName("Não Encontrado");			
-		
+			goToError();		
 		}
 		
 	}
@@ -91,6 +93,10 @@ public class CandidateDetailsMB implements Serializable {
 
 	public void setMessageTitle(String messageTitle) {
 		this.messageTitle = messageTitle;
+	}
+	
+	private String goToError(){
+		return "404.xhtml?faces-redirect=true";
 	}
 	
 	

@@ -62,4 +62,10 @@ public class ResumeDaoMockup extends BasicDaoMockup implements Crud<Resume> {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM openjobs_Resumes").getSingleResult();
 	}
 
+	@Override
+	public Resume saveOrUpdate(Resume entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

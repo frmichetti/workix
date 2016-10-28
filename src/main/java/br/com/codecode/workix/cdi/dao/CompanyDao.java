@@ -58,4 +58,27 @@ public class CompanyDao extends BasicDao implements Crud<Company> {
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Company").getSingleResult();
 	}
+	
+	@Override
+	public Company saveOrUpdate(Company entity) {
+
+		if (entity == null){
+			throw new IllegalArgumentException("One valid Entity is required to persist");		
+
+		}
+
+		if(entity.getId() == null){
+
+			em.persist(entity);
+
+		}else
+
+		{
+			em.merge(entity);
+
+		}
+
+		return entity;
+
+	}
 }

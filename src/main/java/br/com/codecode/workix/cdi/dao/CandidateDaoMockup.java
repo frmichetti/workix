@@ -10,7 +10,6 @@ import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.scaffold.User;
 
 @Mockup
 public class CandidateDaoMockup extends BasicDaoMockup implements Crud<Candidate>{
@@ -69,6 +68,12 @@ public class CandidateDaoMockup extends BasicDaoMockup implements Crud<Candidate
 	@Override
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM openjobs_Candidates").getSingleResult();
+	}
+
+	@Override
+	public Candidate saveOrUpdate(Candidate entity) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

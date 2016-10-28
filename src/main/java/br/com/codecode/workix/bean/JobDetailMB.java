@@ -15,7 +15,7 @@ public class JobDetailMB {
 	@Inject @Mockup
 	private Crud<Job> dao;
 	
-	private Long id = 0L;
+	private Long id;
 	
 	private Job currentJob ;
 	
@@ -28,18 +28,21 @@ public class JobDetailMB {
 		
 		System.out.println("JOB ID RECEIVED -> " + id);
 		
+		if(id == null || id ==0){
+			goToError();
+		}
+		
 		if(id > 0){
 			currentJob = dao.findById(id);	
 		}		
 		
 		if (currentJob == null){
-			currentJob = new Job();
-			currentJob.setId(0L);
-			currentJob.setTitle("Não Encontrado");			
-		
+			goToError();			
 		}
 		
 	}
+
+
 
 	public Long getId() {
 		return id;
@@ -56,6 +59,11 @@ public class JobDetailMB {
 	
 	public void signup(){
 		messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
+		
+	}
+	
+	private String goToError() {
+		return "404.xhtml?faces-redirect=true";
 		
 	}
 	

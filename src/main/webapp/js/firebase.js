@@ -20,9 +20,11 @@ function toggleSignIn() {
 		// [START createprovider]
 		var provider = new firebase.auth.GoogleAuthProvider();
 		// [END createprovider]
+
 		// [START addscopes]
 		provider.addScope('https://www.googleapis.com/auth/plus.login');
 		// [END addscopes]
+		
 		// [START signin]
 		firebase.auth().signInWithPopup(provider).then(function(result) {
 			// This gives you a Google Access Token. You can use it to access the Google API.
@@ -215,10 +217,7 @@ function initApp() {
 		}
 		// [START_EXCLUDE]		
 		$('#quickstart-sign-in').attr("disabled", false);
-		// [END_EXCLUDE]
-		
-		
-		
+		// [END_EXCLUDE]	
 		
 
 		

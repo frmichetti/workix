@@ -63,5 +63,28 @@ public class CandidateDao extends BasicDao implements Crud<Candidate> {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Candidate").getSingleResult();
 	}
 
+	@Override
+	public Candidate saveOrUpdate(Candidate entity) {
+
+		if (entity == null){
+			throw new IllegalArgumentException("One valid Entity is required to persist");		
+
+		}
+
+		if(entity.getId() == null){
+
+			em.persist(entity);
+
+		}else
+
+		{
+			em.merge(entity);
+
+		}
+
+		return entity;
+
+	}
+
 	
 }

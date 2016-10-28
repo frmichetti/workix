@@ -63,4 +63,10 @@ public class UserDaoMockup extends BasicDaoMockup implements Crud<User> {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM openjobs_Users").getSingleResult();
 	}
 
+	@Override
+	public User saveOrUpdate(User entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -58,4 +58,10 @@ public class CompanyDaoMockup extends BasicDaoMockup implements Crud<Company> {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM openjobs_Companies").getSingleResult();
 	}
 
+	@Override
+	public Company saveOrUpdate(Company entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -55,4 +55,10 @@ public class JobDaoMockup extends BasicDaoMockup implements Crud<Job> {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM openjobs_Jobs").getSingleResult();
 	}
 
+	@Override
+	public Job saveOrUpdate(Job entity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
