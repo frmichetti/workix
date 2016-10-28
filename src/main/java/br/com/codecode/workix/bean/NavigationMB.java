@@ -21,7 +21,7 @@ public class NavigationMB {
 
 	@PostConstruct
 	private void init(){
-		prefix = "/" + facesContext.getExternalContext().getContextName();
+		prefix = facesContext.getExternalContext().getRequestContextPath();
 		sufix = "?faces-redirect=true";
 	}
 

@@ -2,7 +2,6 @@ package br.com.codecode.workix.bean;
 
 import java.io.Serializable;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

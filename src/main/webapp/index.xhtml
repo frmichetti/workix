@@ -37,14 +37,15 @@
 		
 		</script>
 		
-		<ui:param name="basePath" value=" #{request.getContextPath()}/layout" />
-		
-		
 		<script type="text/javascript">
 			console.info("Current Base Path Var = #{basePath}");
 		</script>
+		
+		<ui:param name="basePath" value=" #{request.getContextPath()}/layout" />
+			
 
 	</h:head>
+	
 	<body id="home">		
 
 		<!-- ============ PAGE LOADER START ============ -->
@@ -65,9 +66,13 @@
 
 		<ui:insert name="slides">		
 			<ui:include src="slides.xhtml" />
-		</ui:insert>		
+		</ui:insert>			
+				
+		<ui:insert name="modal">		
+			<ui:include src="tempMessage.xhtml" />
+		</ui:insert>
 
-		<!-- ============ JOBS START ============ -->
+		<!-- ============ JOBS START ============ -->		
 
 		<section id="jobs">
 			<div class="container">
@@ -345,7 +350,7 @@
 		</ui:insert>
 
 		<ui:insert name="testimonials">		
-			<ui:include src="testimonials.xhtml" />
+			<ui:include src="testimonials-part.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="blog">		
@@ -422,7 +427,15 @@
 		
 		<ui:insert name="alerts">		
 			<ui:include src="alerts.xhtml" />
-		</ui:insert>		
+		</ui:insert>	
+		
+		<ui:insert name="secrets">		
+			<ui:include src="secrets.xhtml" />
+		</ui:insert>
+		
+		<script type="text/javascript">
+		$('#myModal').modal('show');    
+		</script>	
 		
 
 	</body>
