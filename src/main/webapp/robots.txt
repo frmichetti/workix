@@ -1,0 +1,9 @@
+User-Agent: *
+Disallow: /scaffold
+Disallow: /template
+Disallow: /forbidden
+Disallow: /test
+Disallow: /image
+Disallow: /images
+
+Sitemap: http://www.workix.com.br/sitemap.xml

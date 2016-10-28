@@ -12,7 +12,7 @@ import br.com.codecode.workix.model.scaffold.Candidate;
  * DAO for Candidate
  */
 @Persist
-public class CandidateDao extends BasicDao implements Crud<Candidate> {
+public class CandidateDao extends BaseDao implements Crud<Candidate> {
 
 	private static final long serialVersionUID = -4430675125218575581L;
 	

@@ -17,9 +17,9 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		
+
 	</build>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>javax</groupId>
@@ -54,6 +54,7 @@
 			<artifactId>jboss-as-security</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -87,7 +88,7 @@
 		<name>codecode.com.br</name>
 		<url>http://www.codecode.com.br</url>
 	</organization>
-	<url>http://powerofjava.frmichetti.rhcloud.com</url>
+	<url>http://www.workix.com.br</url>
 
 
 

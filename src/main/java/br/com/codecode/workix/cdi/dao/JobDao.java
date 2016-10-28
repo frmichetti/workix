@@ -12,7 +12,7 @@ import br.com.codecode.workix.model.scaffold.Job;
  * DAO for Job
  */
 @Persist
-public class JobDao extends BasicDao implements Crud<Job>{
+public class JobDao extends BaseDao implements Crud<Job>{
 
 	private static final long serialVersionUID = 4029639665489024760L;
 	

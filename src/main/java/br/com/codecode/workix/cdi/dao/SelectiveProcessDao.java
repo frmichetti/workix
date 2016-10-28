@@ -12,7 +12,7 @@ import br.com.codecode.workix.model.scaffold.SelectiveProcess;
  * DAO for SelectiveProcess
  */
 @Persist
-public class SelectiveProcessDao extends BasicDao implements Crud<SelectiveProcess> {
+public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProcess> {
 
 	private static final long serialVersionUID = 5942334208981147237L;
 

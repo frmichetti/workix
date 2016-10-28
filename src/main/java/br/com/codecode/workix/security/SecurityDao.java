@@ -9,11 +9,11 @@ package br.com.codecode.workix.security;
 
 import javax.ejb.Stateless;
 
-import br.com.codecode.workix.cdi.dao.BasicDao;
+import br.com.codecode.workix.cdi.dao.BaseDao;
 
 
 @Stateless
-public class SecurityDao extends BasicDao {
+public class SecurityDao extends BaseDao {
 
 	private static final long serialVersionUID = -3575890815048830157L;
 	

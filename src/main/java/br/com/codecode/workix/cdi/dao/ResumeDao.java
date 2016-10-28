@@ -16,7 +16,7 @@ import br.com.codecode.workix.model.scaffold.Resume;
  */
 @Stateless
 @Persist
-public class ResumeDao extends BasicDao implements Crud<Resume>{
+public class ResumeDao extends BaseDao implements Crud<Resume>{
 
 	private static final long serialVersionUID = 4029639665489024760L;
 	

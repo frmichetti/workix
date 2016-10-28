@@ -16,7 +16,7 @@ import br.com.codecode.workix.model.scaffold.User;
  */
 @Stateless
 @Persist
-public class UserDao extends BasicDao implements Crud<User>{
+public class UserDao extends BaseDao implements Crud<User>{
 
 	private static final long serialVersionUID = 4029639665489024760L;
 	

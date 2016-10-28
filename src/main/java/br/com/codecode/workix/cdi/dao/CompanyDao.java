@@ -13,7 +13,7 @@ import br.com.codecode.workix.model.scaffold.Company;
  */
 
 @Persist
-public class CompanyDao extends BasicDao implements Crud<Company> {	
+public class CompanyDao extends BaseDao implements Crud<Company> {	
 
 	private static final long serialVersionUID = -6997728484075279219L;
 

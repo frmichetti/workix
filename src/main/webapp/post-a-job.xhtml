@@ -38,11 +38,11 @@
 
 		
 		<ui:insert name="navigation">		
-			<ui:include src="navigation.xhtml" />
+			<ui:include src="fragments/navigation.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="header">		
-			<ui:include src="header.xhtml" />
+			<ui:include src="fragments/header.xhtml" />
 		</ui:insert>
 
 		<!-- ============ JOBS START ============ -->
@@ -52,21 +52,19 @@
 				<div class="row text-center">
 					<div class="col-sm-12">
 						<h1>Publicar Vaga</h1>
-						<h4>Encontre um Candidato</h4>
-						
+						<h4>Encontre um Candidato</h4>					
+							
 						<div class="jumbotron">
-							
-								<h3>Tem uma conta?</h3>
-								<p> Se você não tiver uma conta, você pode criar um abaixo, digitando o seu endereço de e-mail / nome de usuário. <br />
-								A senha será enviada automaticamente para você. </p>
-								<p><a href="#" class="btn btn-primary">Entrar</a></p>
-							
+							<h3>Have an account?</h3>
+							<p>If you don’t have an account you can create one below by entering your email address/username.<br />
+							A password will be automatically emailed to you.</p>
+							<p><a href="#" class="btn btn-primary">Sign In</a></p>
 						</div>
 						
 					</div>
 				</div>
 
-				<h:form>
+				<h:form rendered="false">
 					<div class="row">
 						<div class="col-sm-6">
 							<h2>Detalhes da Vaga</h2>
@@ -209,31 +207,31 @@
 		<!-- ============ JOBS END ============ -->
 
 		<ui:insert name="contact">		
-			<ui:include src="contact.xhtml" />
+			<ui:include src="fragments/contact.xhtml" />
 		</ui:insert>
 		
 		<ui:insert name="footer">		
-			<ui:include src="footer.xhtml" />
+			<ui:include src="fragments/footer.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="login">		
-			<ui:include src="login.xhtml" />
+			<ui:include src="fragments/login.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="register">		
-			<ui:include src="register.xhtml" />
+			<ui:include src="fragments/register.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="scripts">		
-			<ui:include src="scripts.xhtml" />
+			<ui:include src="fragments/scripts.xhtml" />
 		</ui:insert>
 		
 		<ui:insert name="secrets">		
-			<ui:include src="secrets.xhtml" />
+			<ui:include src="fragments/secrets.xhtml" />
 		</ui:insert>		
 		
 		<ui:insert name="alerts">		
-			<ui:include src="alerts.xhtml" />
+			<ui:include src="fragments/alerts.xhtml" />
 		</ui:insert>	
 
 

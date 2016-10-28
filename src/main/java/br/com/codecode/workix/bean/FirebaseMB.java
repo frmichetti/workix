@@ -24,107 +24,55 @@ public class FirebaseMB implements Serializable {
 	@PostConstruct
 	private void init(){		
 
-		try{
-			initFirebaseConfig();	
-			
-			System.out.println("Firebase Key Loaded with Success");
-			
-			
-		}catch (Exception e) {
-			System.err.println("Firebase Not Loaded");
-		}
-				
-		
-		
-		
 
 	}
 
-	private void initFirebaseConfig() {
-/*
-		FirebaseOptions options = null;
-
-		try {
-
-			options = new FirebaseOptions.Builder()
-					.setServiceAccount(new URL("http://localhost:8080/jobs/server-api-key.json").openStream())					
-					.build();
-
-			FirebaseApp.initializeApp(options);		
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-
-			System.err.println("Cannot Initialize Firebase App - Config File not Found");
-		}
-*/
+	public String getName() {
+		System.out.println("Name " + name );
+		return name;		
 	}
 
-	public String getIdToken() {
-		System.out.println(idToken);
-		return idToken;
-	}
-
-	public void setIdToken(String idToken) {
-
-		this.idToken = idToken;
-
-		if(idToken != null)
-			if(!idToken.equals(""))
-
-		verifyToken(idToken);
-
-	}
-
-
-	private void verifyToken(String token) {
-/*
-		FirebaseAuth.getInstance().verifyIdToken(token)		
-		.addOnSuccessListener(new OnSuccessListener<FirebaseToken>() {
-
-			@Override
-			public void onSuccess(FirebaseToken decodedToken) {
-
-				uid = decodedToken.getUid();
-
-				email = decodedToken.getEmail();
-
-				name = decodedToken.getName();
-
-				photo = decodedToken.getPicture();
-				
-				System.out.println(email);
-				
-				System.out.println(name);
-
-				// ...
-			}
-
-
-
-		});
-*/
+	public void setName(String name) {
+		this.name = name;
+		System.out.println("Name " + name );
 	}
 
 	public String getEmail() {
-		System.out.println("Email = " + email);
-		return email;		
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getUid() {
+		return uid;
+	}
+
+	public void setUid(String uid) {
+		this.uid = uid;
 	}
 
 	public String getPhoto() {
 		return photo;
 	}
 
-	public String getName() {
-		System.out.println("Name = " + name);
-		return name;
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
-	public String getUid() {
-		System.out.println("UID = " + uid);
-		return uid;		
+	public String getIdToken() {
+		return idToken;
 	}
+
+	public void setIdToken(String idToken) {
+		this.idToken = idToken;
+	}
+	
+	
+
+	
+	
 
 
 

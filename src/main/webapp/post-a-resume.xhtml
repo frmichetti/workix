@@ -37,11 +37,11 @@
 		<!-- ============ PAGE LOADER END ============ -->
 
 		<ui:insert name="navigation">		
-			<ui:include src="navigation.xhtml" />
+			<ui:include src="fragments/navigation.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="header">		
-			<ui:include src="header.xhtml" />
+			<ui:include src="fragments/header.xhtml" />
 		</ui:insert>
 
 		<!-- ============ RESUME START ============ -->
@@ -52,16 +52,18 @@
 					<div class="col-sm-12">
 						<h1>Publicação de Currículum</h1>
 						<h4>Encontre o seu Trabalho Perfeito</h4>
+						
 						<div class="jumbotron">
 							<h3>Have an account?</h3>
 							<p>If you don’t have an account you can create one below by entering your email address/username.<br />
 							A password will be automatically emailed to you.</p>
 							<p><a href="#" class="btn btn-primary">Sign In</a></p>
 						</div>
+						
 					</div>
 				</div>
 
-				<h:form>
+				<h:form rendered="false">
 
 					<!-- Resume Details Start -->
 					<div class="row">
@@ -361,31 +363,31 @@
 		<!-- ============ RESUME END ============ -->
 
 		<ui:insert name="contact">		
-			<ui:include src="contact.xhtml" />
+			<ui:include src="fragments/contact.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="footer">		
-			<ui:include src="footer.xhtml" />
+			<ui:include src="fragments/footer.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="login">		
-			<ui:include src="login.xhtml" />
+			<ui:include src="fragments/login.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="register">		
-			<ui:include src="register.xhtml" />
+			<ui:include src="fragments/register.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="scripts">		
-			<ui:include src="scripts.xhtml" />
+			<ui:include src="fragments/scripts.xhtml" />
 		</ui:insert>
 		
 		<ui:insert name="secrets">		
-			<ui:include src="secrets.xhtml" />
+			<ui:include src="fragments/secrets.xhtml" />
 		</ui:insert>		
 		
 		<ui:insert name="alerts">		
-			<ui:include src="alerts.xhtml" />
+			<ui:include src="fragments/alerts.xhtml" />
 		</ui:insert>
 
 

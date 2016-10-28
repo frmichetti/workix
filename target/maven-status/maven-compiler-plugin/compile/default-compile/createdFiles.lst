@@ -14,10 +14,12 @@ br/com/codecode/workix/security/CurrentUserMB.class
 br/com/codecode/workix/model/scaffold/interfaces/BasicEntity.class
 br/com/codecode/workix/bean/JobsMB.class
 br/com/codecode/workix/model/enums/JobType.class
+br/com/codecode/workix/bean/FindMB.class
 br/com/codecode/workix/cdi/notify/MailMessage.class
 br/com/codecode/workix/filter/CharacterEncodingFilter.class
 br/com/codecode/workix/cdi/dao/BasicDaoMockup.class
 br/com/codecode/workix/rest/CompanyEndpoint.class
+br/com/codecode/workix/rest/android/SaveOrUpdateEndpoint.class
 br/com/codecode/workix/model/scaffold/Job.class
 br/com/codecode/workix/model/scaffold/interfaces/Traceable.class
 br/com/codecode/workix/cdi/dao/Crud.class
@@ -35,10 +37,14 @@ br/com/codecode/workix/jsf/util/converter/CalendarConverter.class
 br/com/codecode/workix/cdi/dao/ResumeDaoMockup.class
 br/com/codecode/workix/cdi/event/SelectiveProcessObserver.class
 br/com/codecode/workix/security/SecurityDao.class
+br/com/codecode/workix/rest/android/Token.class
+br/com/codecode/workix/cdi/dao/Dao.class
 br/com/codecode/workix/bean/SignupMB.class
 br/com/codecode/workix/model/scaffold/Candidate.class
 br/com/codecode/workix/jms/listener/JobListener.class
+br/com/codecode/workix/ejb/TimerBean.class
 br/com/codecode/workix/cdi/qualifier/Persist.class
+br/com/codecode/workix/rest/android/LoginEndpoint.class
 br/com/codecode/workix/rest/CandidateEndpoint.class
 br/com/codecode/workix/util/ReadFile.class
 br/com/codecode/workix/model/tests/SelectiveProcess.class
@@ -50,6 +56,7 @@ br/com/codecode/workix/jsf/util/converter/SimpleEntityConverter.class
 br/com/codecode/workix/cdi/dao/CompanyDaoMockup.class
 br/com/codecode/workix/util/Http.class
 br/com/codecode/workix/jsf/util/MessagesHelper.class
+br/com/codecode/workix/cdi/dao/BaseDao.class
 br/com/codecode/workix/jms/listener/UserListener.class
 br/com/codecode/workix/cdi/event/UserObserver.class
 br/com/codecode/workix/cdi/dao/ResumeDao.class
@@ -57,7 +64,6 @@ br/com/codecode/workix/bean/SecurityMB.class
 br/com/codecode/workix/util/MailBodyBuilder.class
 br/com/codecode/workix/bean/ApplicationMB.class
 br/com/codecode/workix/rest/ResumeEndpoint.class
-br/com/codecode/workix/cdi/dao/BasicDao.class
 br/com/codecode/workix/cdi/dao/CompanyDao.class
 br/com/codecode/workix/bean/ContactMB.class
 br/com/codecode/workix/model/scaffold/Company.class
@@ -66,6 +72,7 @@ br/com/codecode/workix/model/scaffold/Loggable.class
 br/com/codecode/workix/model/scaffold/Resume.class
 br/com/codecode/workix/bean/CandidatesMB.class
 br/com/codecode/workix/cdi/event/JobsObserver$1.class
+br/com/codecode/workix/cdi/DaoProducer.class
 br/com/codecode/workix/model/scaffold/Education.class
 br/com/codecode/workix/jsf/util/converter/EntityConverter.class
 br/com/codecode/workix/cdi/dao/SelectiveProcessDao.class
