@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
@@ -33,9 +34,8 @@ import com.google.gson.annotations.Expose;
 
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
-
 @Entity
-@Table(name="workix_SelectiveProcesses")
+@Table(name="workix_Processes")
 @XmlRootElement
 public class SelectiveProcess extends Observable implements Observer, BasicEntity, Serializable{
 
@@ -72,6 +72,7 @@ public class SelectiveProcess extends Observable implements Observer, BasicEntit
 	@Expose
 	@Min(1)
 	@OneToMany
+	@JoinTable(name="workix_Processes_Candidates")
 	private Set<Candidate> candidates;
 
 	@Expose

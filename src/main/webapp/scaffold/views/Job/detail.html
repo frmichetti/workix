@@ -86,22 +86,6 @@
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': JobForm.city.$invalid}">
-        <label for="city" class="col-sm-2 control-label">City</label>
-        <div id="cityControls" class="col-sm-10">
-            <input id="city" name="city" type="text" class="form-control" ng-model="job.city" placeholder="Enter the Job City"></input>
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': JobForm.estate.$invalid}">
-        <label for="estate" class="col-sm-2 control-label">Estate</label>
-        <div id="estateControls" class="col-sm-10">
-        <select id="estate" name="estate" class="form-control" ng-model="job.estate" ng-options="e for e in estateList"  >
-            <option value="">Choose a Estate</option>
-        </select>
-        </div>
-    </div>
-
     <div class="form-group" ng-class="{'has-error': JobForm.employeer.$invalid}">
         <label for="employeer" class="col-sm-2 control-label">Employeer</label>
         <div id="employeerControls" class="col-sm-10">
@@ -116,6 +100,41 @@
         <label for="active" class="col-sm-2 control-label">Active</label>
         <div id="activeControls" class="col-sm-10">
             <input id="active" name="active" type="checkbox" class="checkbox" ng-model="job.active" placeholder="Enter the Job Active"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.locale.zipCode.$invalid}">
+        <label for="locale.zipCode" class="col-sm-2 control-label">Zip Code</label>
+        <div id="locale.zipCodeControls" class="col-sm-10">
+            <input id="locale.zipCode" name="locale.zipCode" type="text" class="form-control" ng-model="job.locale.zipCode" placeholder="Enter the Job Zip Code"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.locale.city.$invalid}">
+        <label for="locale.city" class="col-sm-2 control-label">City</label>
+        <div id="locale.cityControls" class="col-sm-10">
+            <input id="locale.city" name="locale.city" type="text" class="form-control" ng-model="job.locale.city" placeholder="Enter the Job City"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.locale.neighborhood.$invalid}">
+        <label for="locale.neighborhood" class="col-sm-2 control-label">Neighborhood</label>
+        <div id="locale.neighborhoodControls" class="col-sm-10">
+            <input id="locale.neighborhood" name="locale.neighborhood" type="text" class="form-control" ng-model="job.locale.neighborhood" placeholder="Enter the Job Neighborhood"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.locale.street.$invalid}">
+        <label for="locale.street" class="col-sm-2 control-label">Street</label>
+        <div id="locale.streetControls" class="col-sm-10">
+            <input id="locale.street" name="locale.street" type="text" class="form-control" ng-model="job.locale.street" placeholder="Enter the Job Street"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': JobForm.locale.number.$invalid}">
+        <label for="locale.number" class="col-sm-2 control-label">Number</label>
+        <div id="locale.numberControls" class="col-sm-10">
+            <input id="locale.number" name="locale.number" type="text" class="form-control" ng-model="job.locale.number" placeholder="Enter the Job Number"></input>
         </div>
     </div>
 

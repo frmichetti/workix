@@ -28,35 +28,6 @@ angular.module('workix').controller('SearchJobController', function($scope, $htt
         "MANAGEMENT",
         "OPERATOR"
     ];
-    $scope.estateList = [
-        "AC",
-        "AL",
-        "AP",
-        "AM",
-        "BA",
-        "CE",
-        "DF",
-        "ES",
-        "GO",
-        "MA",
-        "MT",
-        "MS",
-        "MG",
-        "PA",
-        "PB",
-        "PR",
-        "PE",
-        "PI",
-        "RJ",
-        "RN",
-        "RS",
-        "RO",
-        "RR",
-        "SC",
-        "SP",
-        "SE",
-        "TO"
-    ];
     $scope.employeerList = CompanyResource.queryAll();
     $scope.activeList = [
         "true",

@@ -4,17 +4,24 @@ import java.math.BigInteger;
 
 import javax.persistence.Embeddable;
 
+import com.google.gson.annotations.Expose;
+
 @Embeddable
 public class Locale {
 	
+	@Expose
 	private BigInteger zipCode;
 	
+	@Expose
 	private String city;
 	
+	@Expose
 	private String neighborhood;
 	
+	@Expose
 	private String street;
 	
+	@Expose
 	private String number;
 	
 	public Locale(){}

@@ -34,20 +34,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="experiences" class="col-sm-2 control-label">Experiences</label>
-        <div class="col-sm-10">
-            <input id="experiences" name="experiences" class="form-control" type="text" ng-model="search.experiences" placeholder="Enter the Resume Experiences"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="educations" class="col-sm-2 control-label">Educations</label>
-        <div class="col-sm-10">
-            <input id="educations" name="educations" class="form-control" type="text" ng-model="search.educations" placeholder="Enter the Resume Educations"></input>
-        </div>
-    </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-sm-10">
@@ -64,8 +50,6 @@
                     <th>Owner</th>
                     <th>Objective</th>
                     <th>Content</th>
-                    <th>Experiences</th>
-                    <th>Educations</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
@@ -73,8 +57,6 @@
                         <td><a href="#/Resumes/edit/{{result.id}}">{{result.owner.id}}</a></td>
                     <td><a href="#/Resumes/edit/{{result.id}}">{{result.objective}}</a></td>
                     <td><a href="#/Resumes/edit/{{result.id}}">{{result.content}}</a></td>
-                    <td><a href="#/Resumes/edit/{{result.id}}">{{result.experiences}}</a></td>
-                    <td><a href="#/Resumes/edit/{{result.id}}">{{result.educations}}</a></td>
                 </tr>
             </tbody>
         </table>

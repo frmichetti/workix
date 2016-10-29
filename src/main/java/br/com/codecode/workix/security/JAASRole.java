@@ -12,6 +12,7 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -22,6 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @version
  */
 @Entity
+@Table(name="JAAS_Role")
 @XmlRootElement
 public class JAASRole implements Serializable {
 

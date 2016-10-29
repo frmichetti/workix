@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -24,7 +25,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
@@ -98,13 +98,9 @@ public class Job extends Loggable implements BasicEntity {
 	@Enumerated(EnumType.STRING)
 	private JobCategory category;	
 	
-	@Expose
-	@Column
-	private String city;
-	
-	@Expose
-	@Enumerated(EnumType.STRING)
-	private Estate estate;	
+	@Expose	
+	@Embedded
+	private Locale locale;	
 
 	@Expose
 	@Column
@@ -212,23 +208,7 @@ public class Job extends Loggable implements BasicEntity {
 
 	public void setCategory(JobCategory category) {
 		this.category = category;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-	public Estate getEstate() {
-		return estate;
-	}
-
-	public void setEstate(Estate estate) {
-		this.estate = estate;
-	}
+	}	
 
 	public boolean isActive() {
 		return active;
@@ -244,6 +224,16 @@ public class Job extends Loggable implements BasicEntity {
 
 	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
+	}
+	
+	
+
+	public Locale getLocale() {
+		return locale;
+	}
+
+	public void setLocale(Locale locale) {
+		this.locale = locale;
 	}
 
 	@Override

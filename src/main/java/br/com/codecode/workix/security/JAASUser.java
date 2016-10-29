@@ -8,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -21,6 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @version
  */
 @Entity
+@Table(name="JAAS_User")
 @XmlRootElement
 public class JAASUser implements Serializable {
 
@@ -37,7 +40,8 @@ public class JAASUser implements Serializable {
 	@Column
 	private String password;
 
-	@ManyToMany
+	@ManyToMany	
+	@JoinTable(name="JAAS_Roles")
 	private List<JAASRole> roles;
 
 	public JAASUser() {

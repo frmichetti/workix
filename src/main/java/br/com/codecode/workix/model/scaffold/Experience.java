@@ -14,8 +14,17 @@ public class Experience {
 	private Date startDate,endDate;
 	
 	public Experience() {
-		// TODO Auto-generated constructor stub
+
+	}	
+
+	public Experience(String employer, String jobTitle, Date startDate, Date endDate) {
+		super();
+		this.employer = employer;
+		this.jobTitle = jobTitle;
+		this.startDate = startDate;
+		this.endDate = endDate;
 	}
+
 
 	public String getEmployer() {
 		return employer;

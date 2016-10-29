@@ -59,8 +59,7 @@ public class PostAJobMB {
 			currentJob.setStart(new Date());
 			currentJob.setExpire(new Date());
 			currentJob.setActive(true);
-			currentJob.setCategory(JobCategory.OPERATOR);
-			currentJob.setCity("Whatever City");
+			currentJob.setCategory(JobCategory.OPERATOR);	
 			currentJob.setEmployeer(employeers.get(3));
 			currentJob.setDescription("WHATEVER TEXT ");			
 			

@@ -1,11 +1,16 @@
 package br.com.codecode.workix.model.scaffold;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -46,22 +51,39 @@ public class Resume extends Loggable implements BasicEntity {
 	@Column
 	private String content;	
 	
-	@Expose
-	@Lob
-	@Column
 	/**
-	 * OneToMany //TODO -> Json
+	 * OneToMany 
 	 */
-	private String experiences;
+	@Expose		
+	@ElementCollection(fetch=FetchType.EAGER)
+	@JoinTable(name="workix_Resumes_Experiences")
+	private Set<Experience> experiences;
 	
-
-	@Expose
-	@Lob
-	@Column
 	/**
-	 * OneToMany //TODO -> Json
+	 * OneToMany 
 	 */
-	private String educations;	
+	@Expose	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@JoinTable(name="workix_Resumes_Educations")
+	private Set<Education> educations;	
+	
+	/**
+	 * OneToMany 
+	 */
+	@Expose	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@JoinTable(name="workix_Resumes_Skills")
+	private Set<Skill> skills;	
+	
+	public Resume() {
+		configure();
+	}
+
+	private void configure() {
+		educations = new HashSet<>();
+		experiences = new HashSet<>();
+		skills = new HashSet<>();		
+	}
 
 	public Long getId() {
 		return this.id;
@@ -77,8 +99,7 @@ public class Resume extends Loggable implements BasicEntity {
 
 	public void setOwner(Candidate owner) {
 		this.owner = owner;
-	}
-	
+	}	
 
 	public String getObjective() {
 		return objective;
@@ -96,21 +117,53 @@ public class Resume extends Loggable implements BasicEntity {
 		this.content = content;
 	}
 
-	public String getExperiences() {
+	public Set<Experience> getExperiences() {
 		return experiences;
 	}
 
-	public void setExperiences(String experiences) {
+	public void setExperiences(Set<Experience> experiences) {
 		this.experiences = experiences;
 	}
+	
+	public void addExperience(Experience experience){
+		this.experiences.add(experience);
+	}
+	
+	public void removeExperience(Experience experience){
+		this.experiences.remove(experience);
+	}
 
-	public String getEducations() {
+	public Set<Education> getEducations() {
 		return educations;
 	}
 
-	public void setEducations(String educations) {
+	public void setEducations(Set<Education> educations) {
 		this.educations = educations;
 	}
+	
+	public void addEducation(Education education){
+		this.educations.add(education);
+	}
+	
+	public void removeEducation(Education education){
+		this.educations.remove(education);
+	}	
+
+	public Set<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(Set<Skill> skills) {
+		this.skills = skills;
+	}
+	
+	public void addSkill(Skill skill){
+		this.skills.add(skill);
+	}
+	
+	public void removeSkill(Skill skill){
+		this.skills.remove(skill);
+	}	
 
 	@Override
 	public boolean equals(Object obj) {

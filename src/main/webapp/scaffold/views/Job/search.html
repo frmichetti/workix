@@ -74,22 +74,6 @@
     </div>
 
     <div class="form-group">
-        <label for="city" class="col-sm-2 control-label">City</label>
-        <div class="col-sm-10">
-            <input id="city" name="city" class="form-control" type="text" ng-model="search.city" placeholder="Enter the Job City"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="estate" class="col-sm-2 control-label">Estate</label>
-        <div class="col-sm-10">
-            <select id="estate" name="estate" class="form-control" ng-model="search.estate" ng-options="e as e for e in estateList">
-                <option value="">Choose a Estate</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="form-group">
         <label for="employeer" class="col-sm-2 control-label">Employeer</label>
         <div class="col-sm-10">
             <select id="employeer" name="employeer" class="form-control" ng-model="search.employeer" ng-options="e as e.id for e in employeerList">
@@ -104,6 +88,41 @@
             <select id="active" name="active" class="form-control" ng-model="search.active" ng-options="a as a for a in activeList">
                 <option value="">Choose a Active</option>
             </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.zipCode" class="col-sm-2 control-label">Zip Code</label>
+        <div class="col-sm-10">
+            <input id="locale.zipCode" name="locale.zipCode" class="form-control" type="text" ng-model="search.locale.zipCode" placeholder="Enter the Job Zip Code"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+            <input id="locale.city" name="locale.city" class="form-control" type="text" ng-model="search.locale.city" placeholder="Enter the Job City"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.neighborhood" class="col-sm-2 control-label">Neighborhood</label>
+        <div class="col-sm-10">
+            <input id="locale.neighborhood" name="locale.neighborhood" class="form-control" type="text" ng-model="search.locale.neighborhood" placeholder="Enter the Job Neighborhood"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.street" class="col-sm-2 control-label">Street</label>
+        <div class="col-sm-10">
+            <input id="locale.street" name="locale.street" class="form-control" type="text" ng-model="search.locale.street" placeholder="Enter the Job Street"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.number" class="col-sm-2 control-label">Number</label>
+        <div class="col-sm-10">
+            <input id="locale.number" name="locale.number" class="form-control" type="text" ng-model="search.locale.number" placeholder="Enter the Job Number"></input>
         </div>
     </div>
 
@@ -130,10 +149,13 @@
                     <th>Expire</th>
                     <th>Type</th>
                     <th>Category</th>
-                    <th>City</th>
-                    <th>Estate</th>
                     <th>Employeer</th>
                     <th>Active</th>
+                    <th>Zip Code</th>
+                    <th>City</th>
+                    <th>Neighborhood</th>
+                    <th>Street</th>
+                    <th>Number</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
@@ -148,10 +170,13 @@
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.expire| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.type}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.category}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.city}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.estate}}</a></td>
                         <td><a href="#/Jobs/edit/{{result.id}}">{{result.employeer.id}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.active}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.locale.zipCode}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.locale.city}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.locale.street}}</a></td>
+                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.locale.number}}</a></td>
                 </tr>
             </tbody>
         </table>

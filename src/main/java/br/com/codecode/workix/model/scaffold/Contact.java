@@ -4,9 +4,12 @@ import java.math.BigInteger;
 
 import javax.persistence.Embeddable;
 
+import com.google.gson.annotations.Expose;
+
 @Embeddable
 public class Contact {
 	
+	@Expose
 	private BigInteger mobilePhone;
 	
 	public Contact(){}

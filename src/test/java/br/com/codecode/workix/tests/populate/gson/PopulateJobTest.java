@@ -16,14 +16,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.Job;
@@ -100,10 +98,6 @@ public class PopulateJobTest {
 			assertTrue(j.getStart().before(j.getExpire()));
 			
 			j.setType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
-			
-			j.setCity("São José dos Campos");
-			
-			j.setEstate(Estate.SP);
 			
 			j.setMinPayment(new BigDecimal(1_00 * x+1+10));
 			

@@ -14,7 +14,15 @@ public class Education {
 	private String qualification;
 	
 	public Education() {
-		// TODO Auto-generated constructor stub
+	
+	}	
+
+	public Education(String schoolName, Date startDate, Date endDate, String qualification) {
+		super();
+		this.schoolName = schoolName;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.qualification = qualification;
 	}
 
 	public String getSchoolName() {

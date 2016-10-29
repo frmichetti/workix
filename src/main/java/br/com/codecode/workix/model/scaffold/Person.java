@@ -27,9 +27,11 @@ public abstract class Person extends Loggable implements BasicEntity {
 	@OneToOne(optional=false)
 	protected User user;
 	
+	@Expose
 	@Embedded
 	private Locale locale;
 	
+	@Expose
 	@Embedded
 	private Contact contact;
 	

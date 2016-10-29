@@ -1,0 +1,1 @@
+scaffold-generate --provider AngularJS --web-root /scaffold --targets br.com.codecode.workix.model.scaffold.* --generate-rest-resources --generator JPA_ENTITY --package-name br.com.codecode.workix.rest.scaffold
