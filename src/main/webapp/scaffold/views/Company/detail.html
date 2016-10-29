@@ -4,14 +4,6 @@
 </header>
 <form id="CompanyForm" name="CompanyForm" class="form-horizontal" role="form">
     
-    <div class="form-group" ng-class="{'has-error': CompanyForm.name.$invalid}">
-        <label for="name" class="col-sm-2 control-label">Name</label>
-        <div id="nameControls" class="col-sm-10">
-            <input id="name" name="name" type="text" required class="form-control" ng-model="company.name" placeholder="Enter the Company Name"></input>
-            <span class="help-block error" ng-show="CompanyForm.name.$error.required">required</span> 
-        </div>
-    </div>
-
     <div class="form-group" ng-class="{'has-error': CompanyForm.cnpj.$invalid}">
         <label for="cnpj" class="col-sm-2 control-label">Cnpj</label>
         <div id="cnpjControls" class="col-sm-10">
@@ -25,6 +17,66 @@
         <div id="segmentControls" class="col-sm-10">
             <input id="segment" name="segment" type="text" required class="form-control" ng-model="company.segment" placeholder="Enter the Company Segment"></input>
             <span class="help-block error" ng-show="CompanyForm.segment.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" required class="form-control" ng-model="company.name" placeholder="Enter the Company Name"></input>
+            <span class="help-block error" ng-show="CompanyForm.name.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.user.$invalid}">
+        <label for="user" class="col-sm-2 control-label">User</label>
+        <div id="userControls" class="col-sm-10">
+        <select id="user" name="user" class="form-control" ng-model="userSelection" ng-options="u.text for u in userSelectionList" required >
+            <option value="">Choose a User</option>
+        </select>
+        <span class="help-block error" ng-show="CompanyForm.user.$error.required">required</span> 
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.locale.zipCode.$invalid}">
+        <label for="locale.zipCode" class="col-sm-2 control-label">Zip Code</label>
+        <div id="locale.zipCodeControls" class="col-sm-10">
+            <input id="locale.zipCode" name="locale.zipCode" type="text" class="form-control" ng-model="company.locale.zipCode" placeholder="Enter the Company Zip Code"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.locale.city.$invalid}">
+        <label for="locale.city" class="col-sm-2 control-label">City</label>
+        <div id="locale.cityControls" class="col-sm-10">
+            <input id="locale.city" name="locale.city" type="text" class="form-control" ng-model="company.locale.city" placeholder="Enter the Company City"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.locale.neighborhood.$invalid}">
+        <label for="locale.neighborhood" class="col-sm-2 control-label">Neighborhood</label>
+        <div id="locale.neighborhoodControls" class="col-sm-10">
+            <input id="locale.neighborhood" name="locale.neighborhood" type="text" class="form-control" ng-model="company.locale.neighborhood" placeholder="Enter the Company Neighborhood"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.locale.street.$invalid}">
+        <label for="locale.street" class="col-sm-2 control-label">Street</label>
+        <div id="locale.streetControls" class="col-sm-10">
+            <input id="locale.street" name="locale.street" type="text" class="form-control" ng-model="company.locale.street" placeholder="Enter the Company Street"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.locale.number.$invalid}">
+        <label for="locale.number" class="col-sm-2 control-label">Number</label>
+        <div id="locale.numberControls" class="col-sm-10">
+            <input id="locale.number" name="locale.number" type="text" class="form-control" ng-model="company.locale.number" placeholder="Enter the Company Number"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CompanyForm.contact.mobilePhone.$invalid}">
+        <label for="contact.mobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
+        <div id="contact.mobilePhoneControls" class="col-sm-10">
+            <input id="contact.mobilePhone" name="contact.mobilePhone" type="text" class="form-control" ng-model="company.contact.mobilePhone" placeholder="Enter the Company Mobile Phone"></input>
         </div>
     </div>
 

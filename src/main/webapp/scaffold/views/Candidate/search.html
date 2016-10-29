@@ -12,16 +12,16 @@
     <form id="CandidateSearch" class="form-horizontal">
         
     <div class="form-group">
-        <label for="name" class="col-sm-2 control-label">Name</label>
+        <label for="cpf" class="col-sm-2 control-label">Cpf</label>
         <div class="col-sm-10">
-            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Candidate Name"></input>
+            <input id="cpf" name="cpf" class="form-control" type="text" ng-model="search.cpf" placeholder="Enter the Candidate Cpf"></input>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="cpf" class="col-sm-2 control-label">Cpf</label>
+        <label for="name" class="col-sm-2 control-label">Name</label>
         <div class="col-sm-10">
-            <input id="cpf" name="cpf" class="form-control" type="text" ng-model="search.cpf" placeholder="Enter the Candidate Cpf"></input>
+            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Candidate Name"></input>
         </div>
     </div>
 
@@ -31,6 +31,48 @@
             <select id="user" name="user" class="form-control" ng-model="search.user" ng-options="u as u.id for u in userList">
                 <option value="">Choose a User</option>
             </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.zipCode" class="col-sm-2 control-label">Zip Code</label>
+        <div class="col-sm-10">
+            <input id="locale.zipCode" name="locale.zipCode" class="form-control" type="text" ng-model="search.locale.zipCode" placeholder="Enter the Candidate Zip Code"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+            <input id="locale.city" name="locale.city" class="form-control" type="text" ng-model="search.locale.city" placeholder="Enter the Candidate City"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.neighborhood" class="col-sm-2 control-label">Neighborhood</label>
+        <div class="col-sm-10">
+            <input id="locale.neighborhood" name="locale.neighborhood" class="form-control" type="text" ng-model="search.locale.neighborhood" placeholder="Enter the Candidate Neighborhood"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.street" class="col-sm-2 control-label">Street</label>
+        <div class="col-sm-10">
+            <input id="locale.street" name="locale.street" class="form-control" type="text" ng-model="search.locale.street" placeholder="Enter the Candidate Street"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="locale.number" class="col-sm-2 control-label">Number</label>
+        <div class="col-sm-10">
+            <input id="locale.number" name="locale.number" class="form-control" type="text" ng-model="search.locale.number" placeholder="Enter the Candidate Number"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contact.mobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
+        <div class="col-sm-10">
+            <input id="contact.mobilePhone" name="contact.mobilePhone" class="form-control" type="text" ng-model="search.contact.mobilePhone" placeholder="Enter the Candidate Mobile Phone"></input>
         </div>
     </div>
 
@@ -47,16 +89,28 @@
         <table class="table table-responsive table-bordered table-striped clearfix">
             <thead>
                 <tr>
-                    <th>Name</th>
                     <th>Cpf</th>
+                    <th>Name</th>
                     <th>User</th>
+                    <th>Zip Code</th>
+                    <th>City</th>
+                    <th>Neighborhood</th>
+                    <th>Street</th>
+                    <th>Number</th>
+                    <th>Mobile Phone</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
-                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.name}}</a></td>
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.cpf}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.name}}</a></td>
                         <td><a href="#/Candidates/edit/{{result.id}}">{{result.user.id}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.zipCode}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.city}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.street}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.number}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.contact.mobilePhone}}</a></td>
                 </tr>
             </tbody>
         </table>

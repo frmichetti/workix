@@ -1,5 +1,5 @@
 
-angular.module('openjobs').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , JobResource, CandidateResource) {
+angular.module('workix').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , JobResource, CandidateResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.selectiveProcess = $scope.selectiveProcess || {};

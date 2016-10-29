@@ -1,4 +1,4 @@
-package br.com.codecode.openjobs.tests.util;
+package br.com.codecode.workix.tests.util;
 
 public class HttpConfig {
 			

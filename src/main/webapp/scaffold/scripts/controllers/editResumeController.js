@@ -1,6 +1,6 @@
 
 
-angular.module('openjobs').controller('EditResumeController', function($scope, $routeParams, $location, flash, ResumeResource , CandidateResource) {
+angular.module('workix').controller('EditResumeController', function($scope, $routeParams, $location, flash, ResumeResource , CandidateResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;

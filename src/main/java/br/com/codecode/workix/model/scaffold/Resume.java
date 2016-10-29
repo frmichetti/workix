@@ -19,7 +19,7 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="openjobs_Resumes")
+@Table(name="workix_Resumes")
 @XmlRootElement
 public class Resume extends Loggable implements BasicEntity {
 

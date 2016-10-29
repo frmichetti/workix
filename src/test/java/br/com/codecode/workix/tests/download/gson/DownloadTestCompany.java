@@ -1,4 +1,4 @@
-package br.com.codecode.openjobs.tests.download.gson;
+package br.com.codecode.workix.tests.download.gson;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -13,10 +13,10 @@ import org.junit.Test;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.openjobs.tests.download.DownloadTest;
-import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
-import br.com.codecode.openjobs.tests.util.HttpTests;
 import br.com.codecode.workix.model.scaffold.Company;
+import br.com.codecode.workix.tests.download.DownloadTest;
+import br.com.codecode.workix.tests.util.GsonDateDeserializer;
+import br.com.codecode.workix.tests.util.HttpTests;
 
 public class DownloadTestCompany implements DownloadTest{
 	

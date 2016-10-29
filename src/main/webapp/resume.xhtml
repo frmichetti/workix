@@ -3,7 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-	<head>
+	<h:head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -23,7 +23,13 @@
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
 
-	</head>
+	</h:head>
+	
+	<f:metadata>
+		<f:viewParam id="id" name="id" value="#{resumeMB.id}" />	
+		<f:viewAction action="#{resumeMB.init()}" />
+	</f:metadata>
+	
 	<body>
 
 		<!-- ============ PAGE LOADER START ============ -->
@@ -35,11 +41,11 @@
 		<!-- ============ PAGE LOADER END ============ -->
 
 		<ui:insert name="navigation">		
-			<ui:include src="navigation.xhtml" />
+			<ui:include src="fragments/navigation.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="header">		
-			<ui:include src="header.xhtml" />
+			<ui:include src="fragments/header.xhtml" />
 		</ui:insert>
 
 		<!-- ============ TITLE START ============ -->
@@ -48,8 +54,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1>Andy Spencer</h1>
-						<h4>Senior Web Designer</h4>
+						<h1><h:outputText value="#{resumeMB.resume.owner.name}"/></h1>
+						<h4><h:outputText value="#{resumeMB.resume.objective}"/></h4>
 					</div>
 				</div>
 			</div>
@@ -64,7 +70,7 @@
 				<div class="row">
 					<div class="col-sm-8">
 						<article>
-							<h2>Job Details</h2>
+							<h2>Resumo</h2>
 							<img src="http://placehold.it/220x273.jpg" alt="" class="pull-left" />
 							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
 							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
@@ -78,7 +84,7 @@
 								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
 								<li>Morbi rhoncus luctus interdum.</li>
 							</ul>
-							<h3>Work Experience</h3>
+							<h3>Experiências</h3>
 							<div class="row work-experience">
 								<div class="col-sm-2">
 									<div class="img-circle">
@@ -156,14 +162,14 @@
 						</div>
 						<hr />
 						<div class="sidebar-widget" id="widget-contact">
-							<h2>Contact</h2>
+							<h2>Contato</h2>
 							<ul>
-								<li><i class="fa fa-user"></i>Andy Spencer</li>
-								<li><i class="fa fa-briefcase"></i>Senior Web Designer</li>
+								<li><i class="fa fa-user"></i><h:outputText value="#{resumeMB.resume.owner.name}" /></li>
+								<li><i class="fa fa-briefcase"></i><h:outputText value="#{resumeMB.resume.objective}"/></li>
 								<li><i class="fa fa-birthday-cake"></i>28/08/1983</li>
 								<li><i class="fa fa-map-marker"></i>New York City</li>
 								<li><i class="fa fa-phone"></i>01.22.987.8392</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:andy.spencer@yourdomain.com">Send an email</a></li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:#{resumeMB.resume.owner.user.email}">Enviar Email</a></li>
 							</ul>
 						</div>
 						<hr />
@@ -189,31 +195,31 @@
 		<!-- ============ CONTENT END ============ -->
 
 		<ui:insert name="contact">		
-			<ui:include src="contact.xhtml" />
+			<ui:include src="fragments/contact.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="footer">		
-			<ui:include src="footer.xhtml" />
+			<ui:include src="fragments/footer.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="login">		
-			<ui:include src="login.xhtml" />
+			<ui:include src="fragments/login.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="register">		
-			<ui:include src="register.xhtml" />
+			<ui:include src="fragments/register.xhtml" />
 		</ui:insert>
 
 		<ui:insert name="scripts">		
-			<ui:include src="scripts.xhtml" />
+			<ui:include src="fragments/scripts.xhtml" />
 		</ui:insert>	
 		
 		<ui:insert name="secrets">		
-			<ui:include src="secrets.xhtml" />
+			<ui:include src="fragments/secrets.xhtml" />
 		</ui:insert>		
 		
 		<ui:insert name="alerts">		
-			<ui:include src="alerts.xhtml" />
+			<ui:include src="fragments/alerts.xhtml" />
 		</ui:insert>	
 		
 	</body>

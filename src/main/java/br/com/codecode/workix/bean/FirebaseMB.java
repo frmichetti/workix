@@ -2,10 +2,8 @@ package br.com.codecode.workix.bean;
 
 import java.io.Serializable;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
-
 
 @SessionScoped
 @Named
@@ -21,20 +19,12 @@ public class FirebaseMB implements Serializable {
 		System.out.println("[CDI] " + getClass().getSimpleName());
 	}
 
-	@PostConstruct
-	private void init(){		
-
-
-	}
-
-	public String getName() {
-		System.out.println("Name " + name );
+	public String getName() {		
 		return name;		
 	}
 
 	public void setName(String name) {
-		this.name = name;
-		System.out.println("Name " + name );
+		this.name = name;		
 	}
 
 	public String getEmail() {
@@ -68,12 +58,5 @@ public class FirebaseMB implements Serializable {
 	public void setIdToken(String idToken) {
 		this.idToken = idToken;
 	}
-	
-	
-
-	
-	
-
-
 
 }

@@ -1,6 +1,6 @@
 
 
-angular.module('openjobs').controller('SearchUserController', function($scope, $http, $filter, UserResource ) {
+angular.module('workix').controller('SearchUserController', function($scope, $http, $filter, UserResource ) {
 
     $scope.search={};
     $scope.currentPage = 0;

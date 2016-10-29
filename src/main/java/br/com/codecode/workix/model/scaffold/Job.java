@@ -30,7 +30,7 @@ import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="openjobs_Jobs")
+@Table(name="workix_Jobs")
 @XmlRootElement
 public class Job extends Loggable implements BasicEntity {
 

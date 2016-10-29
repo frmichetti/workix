@@ -5,9 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -17,12 +15,12 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="openjobs_Candidates")
+@Table(name="workix_Candidates")
 @XmlRootElement
-public class Candidate extends Loggable implements BasicEntity{
+public class Candidate extends Person implements BasicEntity{
 
-	private static final long serialVersionUID = 531807027259604477L;
-
+	private static final long serialVersionUID = 531807027259604477L;	
+	
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,21 +29,11 @@ public class Candidate extends Loggable implements BasicEntity{
 
 	@NotEmpty
 	@Expose
-	@Column(nullable = false)
-	private String name;
-
-	@NotEmpty
-	@Expose
 	@Column(nullable = false,unique=true)
 	private String cpf;
-
-	@NotNull
-	@Expose
-	@OneToOne(optional=false)
-	private User user;
 	
-	public Candidate(){}
-		
+	public Candidate(){}	
+	
 	public Long getId() {
 		return this.id;
 	}
@@ -54,14 +42,6 @@ public class Candidate extends Loggable implements BasicEntity{
 		this.id = id;
 	}	
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getCpf() {
 		return cpf;
 	}
@@ -69,14 +49,7 @@ public class Candidate extends Loggable implements BasicEntity{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -105,7 +78,7 @@ public class Candidate extends Loggable implements BasicEntity{
 
 	@Override
 	public String toString() {
-		return "Candidate [name=" + name + ", cpf=" + cpf + "]";
+		return "Candidate [name=" + super.name + ", cpf=" + cpf + "]";
 	}	
 	
 	

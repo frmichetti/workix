@@ -15,12 +15,13 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@MappedSuperclass
+
 /**
  * Common Fields for Persistent Entity
  * @author felipe
  *
  */
+@MappedSuperclass
 public abstract class Loggable implements Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;

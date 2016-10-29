@@ -1,8 +1,23 @@
 
-angular.module('openjobs').controller('NewCompanyController', function ($scope, $location, locationParser, flash, CompanyResource ) {
+angular.module('workix').controller('NewCompanyController', function ($scope, $location, locationParser, flash, CompanyResource , UserResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.company = $scope.company || {};
+    
+    $scope.userList = UserResource.queryAll(function(items){
+        $scope.userSelectionList = $.map(items, function(item) {
+            return ( {
+                value : item.id,
+                text : item.id
+            });
+        });
+    });
+    $scope.$watch("userSelection", function(selection) {
+        if ( typeof selection != 'undefined') {
+            $scope.company.user = {};
+            $scope.company.user.id = selection.value;
+        }
+    });
     
 
     $scope.save = function() {

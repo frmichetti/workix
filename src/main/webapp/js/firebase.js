@@ -154,15 +154,15 @@ function initApp() {
 
 				});
 				
-				$('#fbName').text(googleName);
+				$('#fbName').val(googleName);
 				
-				$('#fbUser').text(googleMail);
+				$('#fbUser').val(googleMail);
 
-				$('#fbPhoto').text(googlePhoto);
+				$('#fbPhoto').val(googlePhoto);
 
-				$('#fbEmail').text(googleMail);
+				$('#fbEmail').val(googleMail);
 				
-				$('#fbToken').text(userUID);
+				$('#fbToken').val(userUID);
 			}	
 
 

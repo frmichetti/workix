@@ -1,6 +1,6 @@
 
 
-angular.module('openjobs').controller('EditCompanyController', function($scope, $routeParams, $location, flash, CompanyResource ) {
+angular.module('workix').controller('EditCompanyController', function($scope, $routeParams, $location, flash, CompanyResource , UserResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -9,6 +9,23 @@ angular.module('openjobs').controller('EditCompanyController', function($scope, 
         var successCallback = function(data){
             self.original = data;
             $scope.company = new CompanyResource(self.original);
+            UserResource.queryAll(function(items) {
+                $scope.userSelectionList = $.map(items, function(item) {
+                    var wrappedObject = {
+                        id : item.id
+                    };
+                    var labelObject = {
+                        value : item.id,
+                        text : item.id
+                    };
+                    if($scope.company.user && item.id == $scope.company.user.id) {
+                        $scope.userSelection = labelObject;
+                        $scope.company.user = wrappedObject;
+                        self.original.user = $scope.company.user;
+                    }
+                    return labelObject;
+                });
+            });
         };
         var errorCallback = function() {
             flash.setMessage({'type': 'error', 'text': 'The company could not be found.'});
@@ -55,6 +72,12 @@ angular.module('openjobs').controller('EditCompanyController', function($scope, 
         $scope.company.$remove(successCallback, errorCallback);
     };
     
+    $scope.$watch("userSelection", function(selection) {
+        if (typeof selection != 'undefined') {
+            $scope.company.user = {};
+            $scope.company.user.id = selection.value;
+        }
+    });
     
     $scope.get();
 });

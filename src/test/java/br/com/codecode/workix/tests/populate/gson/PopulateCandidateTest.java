@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.openjobs.tests.populate.gson;
+package br.com.codecode.workix.tests.populate.gson;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -21,11 +21,11 @@ import org.junit.Test;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.openjobs.tests.util.HttpTests;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.User;
-import br.com.codecode.openjobs.tests.util.GsonDateDeserializer;
-import br.com.codecode.openjobs.tests.util.HttpConfig;
+import br.com.codecode.workix.tests.util.GsonDateDeserializer;
+import br.com.codecode.workix.tests.util.HttpConfig;
+import br.com.codecode.workix.tests.util.HttpTests;
 /**
  * 
  * Populate DB with Candidates

@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
 
-public class Dao<T> implements Serializable {
+public class GenericDao<T> implements Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
 
@@ -16,7 +16,7 @@ public class Dao<T> implements Serializable {
 	  @PersistenceContext
 	  private EntityManager em;
 	 
-	  public Dao(Class<T> classe) {
+	  public GenericDao(Class<T> classe) {
 	    this.classe = classe;
 	  }
 	 

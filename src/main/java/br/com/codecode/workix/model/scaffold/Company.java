@@ -15,12 +15,12 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="openjobs_Companies")
+@Table(name="workix_Companies")
 @XmlRootElement
-public class Company extends Loggable implements BasicEntity {
+public class Company extends Person implements BasicEntity {
 
 	private static final long serialVersionUID = 47663377480544994L;
-
+	
 	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,35 +28,26 @@ public class Company extends Loggable implements BasicEntity {
 	private Long id;
 
 	@NotEmpty
-	@Expose
-	@Column(nullable = false)
-	private String name;
-	
+	@Expose	
+	@Column(nullable = false,unique=true)
+	private String cnpj;
+		
 	@Expose
 	@Column(nullable = false)
 	private String segment;
 	
-	@Expose
-	@NotEmpty
-	@Column(nullable = false,unique=true)
-	private String cnpj;
-
+	public Company() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Long getId() {
 		return this.id;
 	}
 
 	public void setId(final Long id) {
 		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
+	}	
+	
 	public String getCnpj() {
 		return cnpj;
 	}
@@ -101,7 +92,7 @@ public class Company extends Loggable implements BasicEntity {
 
 	@Override
 	public String toString() {
-		return "Company [name=" + name + ", segment=" + segment + "]";
+		return "Company [name=" + super.name + ", segment=" + segment + "]";
 	}
 
 	

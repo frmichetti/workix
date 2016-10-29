@@ -1,4 +1,4 @@
-package br.com.codecode.openjobs.test.bean;
+package br.com.codecode.workix.test.bean;
 
 import static org.junit.Assert.assertEquals;
 

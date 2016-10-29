@@ -17,14 +17,18 @@ public class TimerBean {
 
 	@PostConstruct
 	public void init() {
+		
 		System.out.println("[TimerBean] Iniciando o EJB com timer");
+		
 		System.out
 				.println("[TimerBean] Criando agendamento na inicializaçao");
 	}
 
 	@PreDestroy
 	public void destroy() {
+		
 		System.out.println("[TimerBean] Finalizando agendamento ...");
+		
 		//timer.cancel();
 	}
 

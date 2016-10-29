@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('openjobs',['ngRoute','ngResource'])
+angular.module('workix',['ngRoute','ngResource'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/',{templateUrl:'views/landing.html',controller:'LandingPageController'})

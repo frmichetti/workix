@@ -43,7 +43,7 @@
 		<display-name>Scaffold Pages</display-name>
 		<web-resource-collection>
 			<web-resource-name>Scaffold Pages</web-resource-name>
-			<url-pattern>/scaffold/*</url-pattern>
+			<url-pattern>error/scaffold/*</url-pattern>
 			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 			<http-method>PUT</http-method>
@@ -63,7 +63,7 @@
 		<display-name>Services</display-name>
 		<web-resource-collection>
 			<web-resource-name>Services Rest</web-resource-name>
-			<url-pattern>/services/*</url-pattern>
+			<url-pattern>error/services/*</url-pattern>
 			<http-method>POST</http-method>
 			<http-method>PUT</http-method>
 			<http-method>DELETE</http-method>

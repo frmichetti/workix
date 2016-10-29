@@ -2,7 +2,7 @@
  *
  * @author frmichetti
  * <Felipe Rodrigues Michetti at http://www.codecode.com.br>
- * Contact frmichetti@gmail.com
+ * Locale frmichetti@gmail.com
  */
 package br.com.codecode.workix.infra;
 

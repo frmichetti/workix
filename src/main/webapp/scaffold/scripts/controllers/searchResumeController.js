@@ -1,6 +1,6 @@
 
 
-angular.module('openjobs').controller('SearchResumeController', function($scope, $http, $filter, ResumeResource , CandidateResource) {
+angular.module('workix').controller('SearchResumeController', function($scope, $http, $filter, ResumeResource , CandidateResource) {
 
     $scope.search={};
     $scope.currentPage = 0;

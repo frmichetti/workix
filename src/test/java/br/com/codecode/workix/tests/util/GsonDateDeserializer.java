@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.openjobs.tests.util;
+package br.com.codecode.workix.tests.util;
 
 import java.lang.reflect.Type;
 import java.util.Date;

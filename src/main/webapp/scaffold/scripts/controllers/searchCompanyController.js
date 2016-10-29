@@ -1,6 +1,6 @@
 
 
-angular.module('openjobs').controller('SearchCompanyController', function($scope, $http, $filter, CompanyResource ) {
+angular.module('workix').controller('SearchCompanyController', function($scope, $http, $filter, CompanyResource , UserResource) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -17,6 +17,7 @@ angular.module('openjobs').controller('SearchCompanyController', function($scope
         }
         return max;
     };
+    $scope.userList = UserResource.queryAll();
 
     $scope.performSearch = function() {
         $scope.searchResults = CompanyResource.queryAll(function(){

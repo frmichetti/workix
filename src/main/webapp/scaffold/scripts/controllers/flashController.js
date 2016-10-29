@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('openjobs').controller('FlashController', ['$scope','flash', function ($scope, flash) {
+angular.module('workix').controller('FlashController', ['$scope','flash', function ($scope, flash) {
     $scope.flash = flash;
     $scope.showAlert = false;
 

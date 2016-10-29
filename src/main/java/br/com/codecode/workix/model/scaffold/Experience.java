@@ -2,6 +2,9 @@ package br.com.codecode.workix.model.scaffold;
 
 import java.util.Date;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Experience {
 	
 	private String employer;

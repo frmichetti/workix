@@ -35,7 +35,7 @@ import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 
 @Entity
-@Table(name="openjobs_SelectiveProcesses")
+@Table(name="workix_SelectiveProcesses")
 @XmlRootElement
 public class SelectiveProcess extends Observable implements Observer, BasicEntity, Serializable{
 

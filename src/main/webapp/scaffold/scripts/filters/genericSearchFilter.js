@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('openjobs').filter('searchFilter', function() {
+angular.module('workix').filter('searchFilter', function() {
 
     function matchObjectProperties(expectedObject, actualObject) {
         var flag = true;

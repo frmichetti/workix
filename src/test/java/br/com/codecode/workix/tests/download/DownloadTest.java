@@ -1,6 +1,6 @@
-package br.com.codecode.openjobs.tests.download;
+package br.com.codecode.workix.tests.download;
 
-import br.com.codecode.openjobs.tests.util.HttpConfig;
+import br.com.codecode.workix.tests.util.HttpConfig;
 
 public interface DownloadTest {
 	

@@ -58,7 +58,7 @@ public class CandidatesMB {
 
 		System.out.println("Received Candidate " + candidate.toString());
 
-		return prefix + "/candidate-details.xhtml?id=" + String.valueOf(candidate.getId()) + sufix ;
+		return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix ;
 	}
 	
 	

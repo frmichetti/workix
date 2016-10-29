@@ -1,5 +1,5 @@
 
-angular.module('openjobs').controller('NewCandidateController', function ($scope, $location, locationParser, flash, CandidateResource , UserResource) {
+angular.module('workix').controller('NewCandidateController', function ($scope, $location, locationParser, flash, CandidateResource , UserResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.candidate = $scope.candidate || {};

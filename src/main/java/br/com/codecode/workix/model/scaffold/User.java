@@ -16,7 +16,7 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="openjobs_Users")
+@Table(name="workix_Users")
 @XmlRootElement
 public class User extends Loggable implements BasicEntity{
 

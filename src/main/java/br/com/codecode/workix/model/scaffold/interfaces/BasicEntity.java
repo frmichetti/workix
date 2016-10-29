@@ -17,6 +17,6 @@ package br.com.codecode.workix.model.scaffold.interfaces;
  */
 public interface BasicEntity {  
 
-	public Long getId();  
+	public Long getId();	
 
 }  

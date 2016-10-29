@@ -5,9 +5,9 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.openjobs.tests.populate;
+package br.com.codecode.workix.tests.populate;
 
-import br.com.codecode.openjobs.tests.util.HttpConfig;
+import br.com.codecode.workix.tests.util.HttpConfig;
 
 public interface PopulateTest {
 	
