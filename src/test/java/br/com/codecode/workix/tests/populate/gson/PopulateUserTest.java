@@ -38,13 +38,15 @@ public class PopulateUserTest{
 	private List<User> users;
 
 	private String resp;
+	
+	private int howManyUsers = 100;
 
 	@Before	
 	public void create() {		
 		
 		users = new ArrayList<>();
 			
-		for(int x=0 ; x < 25;x++){
+		for(int x=0 ; x < howManyUsers;x++){
 			
 			User u = new User();			
 			
@@ -52,9 +54,7 @@ public class PopulateUserTest{
 			
 			assertNotNull(u.getEmail());
 			
-			assertNotEquals("",u.getEmail());			
-			
-		
+			assertNotEquals("",u.getEmail());		
 			
 			u.setFirebaseUUID(UUID.randomUUID().toString());
 			
@@ -65,7 +65,7 @@ public class PopulateUserTest{
 			addToList(u);
 		}
 		
-		assertEquals(25,users.size());
+		assertEquals(howManyUsers,users.size());
 
 	}
 

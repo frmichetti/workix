@@ -72,6 +72,8 @@ public class PopulateCandidateTest {
 		
 		assertTrue(users.size() > 0);
 		
+		users = users.subList(0, users.size()/2);
+		
 		candidates = new ArrayList<>();		
 		
 		for (User u : users) {

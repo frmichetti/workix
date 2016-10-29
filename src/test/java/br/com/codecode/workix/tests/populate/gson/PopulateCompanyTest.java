@@ -9,16 +9,21 @@ package br.com.codecode.workix.tests.populate.gson;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.Company;
+import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpConfig;
 import br.com.codecode.workix.tests.util.HttpTests;
 
@@ -31,44 +36,79 @@ import br.com.codecode.workix.tests.util.HttpTests;
  * @version
  */
 public class PopulateCompanyTest {	
-	
+
 	private String server = HttpConfig.JAVAEE_PROJ_TEST;
 
 	private List<Company> companies ;
 
 	private String resp;
 
+	private List<User> users;
+
 	@Before
+	public void downloadUsers(){		
+
+		System.out.println("[downloadUsers]");
+
+		users = new ArrayList<>();
+
+		resp = HttpTests.sendGet(server + "users");						
+
+		users = new GsonBuilder()
+				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
+				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+				.enableComplexMapKeySerialization()			
+				.create()
+				.fromJson(resp, new TypeToken<List<User>>(){}.getType());
+
+		assertTrue(users.size() > 0);
+
+	}
+
+
 	public void create() {	
+
+		assertNotNull(users);
+
+		assertTrue(users.size() > 0);
+
+		users = users.subList((users.size()/2), users.size());
 		
+		assertEquals(51L,users.get(0).getId().longValue());
+
 		companies = new ArrayList<>();
+		
+		for (User u : users) {						
 
-		for(int x = 0 ;x < 1_000 ; x++){			
+				Company c = new Company();		
+				
+				c.setUser(u);
 
-			Company c = new Company();				
+				c.setName("Company Mockup N# " + String.valueOf(u.getId()));			
 
-			c.setName("Company Mockup N# " + String.valueOf(x+1));			
+				c.setCnpj(String.valueOf(u.getId()));
+
+				c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
+
+				System.out.println("[create] " + c.getName());
+
+				addToList(c);
+
 			
-			c.setCnpj(String.valueOf(x+1));
-			
-			c.setSegment("Segment " + String.valueOf(x+1));
-
-			System.out.println("[create] " + c.getName());
-
-			addToList(c);
-
 		}
 
-		assertEquals(1_000,companies.size());
+		
+
+		assertEquals(50,companies.size());
 
 
 	}
 
 
 	private void addToList(Company company){		
-		
+
 		assertNotNull(company);
-		
+
 		assertNotNull(companies);
 
 		System.out.println("[addToList] " + company.getName());
@@ -79,6 +119,10 @@ public class PopulateCompanyTest {
 
 	@Test	
 	public void sendToServer(){	
+
+	assertNotNull(users);				
+		
+		create();
 		
 		assertNotNull(companies);
 

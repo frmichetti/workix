@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -42,12 +43,13 @@ public class PopulateJobTest {
 	
 	private String server = HttpConfig.JAVAEE_PROJ_TEST;
 
-
 	private List<Company> companies;
 
 	private List<Job> jobs;	
 
 	private String resp;
+	
+	private int howManyJobs = 50;
 
 	@Before
 	public void downloadCompanies(){
@@ -77,18 +79,19 @@ public class PopulateJobTest {
 		assertTrue(companies.size() > 0);
 		
 		jobs = new ArrayList<>();
-
-		for(int x=1 ; x <= 100;x++){
+		
+		
+		for(int x=0 ; x < howManyJobs;x++){
 
 			Job j = new Job();	
 
-			j.setTitle("Mockup Job N# " + String.valueOf(x));
+			j.setTitle("Mockup Job N# " + String.valueOf(x+1));
 			
-			j.setDescription("Description of Job " + String.valueOf(x));
+			j.setDescription("Description of Job " + String.valueOf(x+1));
 			
-			j.setRequirement("Requirement of Job " + String.valueOf(x));		
+			j.setRequirement("Requirement of Job " + String.valueOf(x+1));		
 			
-			j.setBenefits("Benefits of Job " + String.valueOf(x));		
+			j.setBenefits("Benefits of Job " + String.valueOf(x+1));		
 			
 			j.setStart(new Date());
 					
@@ -102,9 +105,9 @@ public class PopulateJobTest {
 			
 			j.setEstate(Estate.SP);
 			
-			j.setMinPayment(new BigDecimal(1_00 * x+10));
+			j.setMinPayment(new BigDecimal(1_00 * x+1+10));
 			
-			j.setMaxPayment(new BigDecimal(1_00 * x+20));
+			j.setMaxPayment(new BigDecimal(1_00 * x+1+20));
 			
 			j.setEmployeer(companies.get(x));			
 	
@@ -114,7 +117,7 @@ public class PopulateJobTest {
 		}
 
 
-		assertEquals(1_000,companies.size());
+		assertEquals(howManyJobs,companies.size());
 
 	}
 
