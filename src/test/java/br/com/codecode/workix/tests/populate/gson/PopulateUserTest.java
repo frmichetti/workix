@@ -22,7 +22,7 @@ import com.google.gson.GsonBuilder;
 
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.tests.util.HttpConfig;
-import br.com.codecode.workix.tests.util.HttpTests;
+import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
  * Populate DB with Users
@@ -87,7 +87,7 @@ public class PopulateUserTest{
 			
 			System.out.println("[sendToServer] " + u.getEmail());
 		
-			resp = HttpTests.sendPost(server + "users",
+			resp = HttpTest.sendPost(server + "users",
 					new GsonBuilder()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 					.create().toJson(u));

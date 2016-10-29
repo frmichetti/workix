@@ -28,6 +28,10 @@ public class User extends Loggable implements BasicEntity{
 	@Column(updatable = false, nullable = false)
 	private Long id;	
 	
+	@Expose
+	@Column
+	private boolean active;
+	
 	@NotEmpty
 	@Email
 	@Expose
@@ -52,6 +56,16 @@ public class User extends Loggable implements BasicEntity{
 	public void setId(final Long id) {
 		this.id = id;
 	}	
+	
+	
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
 	public String getEmail() {
 		return email;
@@ -107,7 +121,7 @@ public class User extends Loggable implements BasicEntity{
 		return "User [email=" + email + "]";
 	}
 	
-	public String uniqueId(){
+	public String getUniqueID(){
 		return super.getUuid();
 	}
 	

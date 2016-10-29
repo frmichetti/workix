@@ -16,7 +16,7 @@ import com.google.gson.reflect.TypeToken;
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.tests.download.DownloadTest;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
-import br.com.codecode.workix.tests.util.HttpTests;
+import br.com.codecode.workix.tests.util.HttpTest;
 
 public class DownloadTestUser implements DownloadTest {
 
@@ -27,7 +27,7 @@ public class DownloadTestUser implements DownloadTest {
 
 		System.out.println("downloadItens");
 		
-		resp = HttpTests.sendGet(server + "users");
+		resp = HttpTest.sendGet(server + "users");
 		
 		assertFalse(resp.isEmpty());
 

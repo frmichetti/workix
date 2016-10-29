@@ -17,6 +17,10 @@ angular.module('workix').controller('SearchUserController', function($scope, $ht
         }
         return max;
     };
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
 
     $scope.performSearch = function() {
         $scope.searchResults = UserResource.queryAll(function(){

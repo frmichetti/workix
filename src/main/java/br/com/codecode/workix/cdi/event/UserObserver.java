@@ -31,7 +31,7 @@ public class UserObserver {
 
 		System.out.println("[-----------------------]");
 
-		jmsContext.createProducer().send(destination, user.uniqueId());
+		jmsContext.createProducer().send(destination, user.getUniqueID());
 			
 	}
 

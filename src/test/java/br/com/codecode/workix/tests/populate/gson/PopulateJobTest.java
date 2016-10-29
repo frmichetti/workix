@@ -27,7 +27,7 @@ import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.Job;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpConfig;
-import br.com.codecode.workix.tests.util.HttpTests;
+import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * 
  * Populate DB with Jobs
@@ -54,7 +54,7 @@ public class PopulateJobTest {
 
 		System.out.println("[downloadCompanies]");
 
-		resp = HttpTests.sendGet(server + "companies");						
+		resp = HttpTest.sendGet(server + "companies");						
 
 		companies = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
@@ -139,7 +139,7 @@ public class PopulateJobTest {
 
 			System.out.println("[sendToServer] " + j.getTitle());
 
-			resp = HttpTests.sendPost(server + "jobs",
+			resp = HttpTest.sendPost(server + "jobs",
 					new GsonBuilder()				
 					.setPrettyPrinting()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")

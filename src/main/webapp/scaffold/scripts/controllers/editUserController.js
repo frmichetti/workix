@@ -55,6 +55,10 @@ angular.module('workix').controller('EditUserController', function($scope, $rout
         $scope.user.$remove(successCallback, errorCallback);
     };
     
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
     
     $scope.get();
 });

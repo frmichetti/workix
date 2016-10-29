@@ -25,6 +25,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -65,12 +66,12 @@ public class SelectiveProcess extends Observable implements Observer, BasicEntit
 	private Date updatedAt;
 
 	@Expose
-	@NotEmpty
+	@NotNull
 	@ManyToOne(optional=false)
 	private Job job;	
 
 	@Expose
-	@Min(1)
+	@NotNull
 	@OneToMany
 	@JoinTable(name="workix_Processes_Candidates")
 	private Set<Candidate> candidates;

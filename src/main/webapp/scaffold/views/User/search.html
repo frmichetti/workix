@@ -32,6 +32,22 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="uniqueID" class="col-sm-2 control-label">Unique ID</label>
+        <div class="col-sm-10">
+            <input id="uniqueID" name="uniqueID" class="form-control" type="text" ng-model="search.uniqueID" placeholder="Enter the User Unique ID"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="active" class="col-sm-2 control-label">Active</label>
+        <div class="col-sm-10">
+            <select id="active" name="active" class="form-control" ng-model="search.active" ng-options="a as a for a in activeList">
+                <option value="">Choose a Active</option>
+            </select>
+        </div>
+    </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-sm-10">
@@ -48,6 +64,8 @@
                     <th>Email</th>
                     <th>Firebase UUID</th>
                     <th>Firebase Message Token</th>
+                    <th>Unique ID</th>
+                    <th>Active</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
@@ -55,6 +73,8 @@
                     <td><a href="#/Users/edit/{{result.id}}">{{result.email}}</a></td>
                     <td><a href="#/Users/edit/{{result.id}}">{{result.firebaseUUID}}</a></td>
                     <td><a href="#/Users/edit/{{result.id}}">{{result.firebaseMessageToken}}</a></td>
+                    <td><a href="#/Users/edit/{{result.id}}">{{result.uniqueID}}</a></td>
+                    <td><a href="#/Users/edit/{{result.id}}">{{result.active}}</a></td>
                 </tr>
             </tbody>
         </table>

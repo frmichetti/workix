@@ -4,6 +4,11 @@ angular.module('workix').controller('NewUserController', function ($scope, $loca
     $scope.$location = $location;
     $scope.user = $scope.user || {};
     
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
+
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){

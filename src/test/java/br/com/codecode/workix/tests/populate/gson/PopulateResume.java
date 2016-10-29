@@ -17,7 +17,7 @@ import br.com.codecode.workix.model.scaffold.Resume;
 import br.com.codecode.workix.model.scaffold.Skill;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpConfig;
-import br.com.codecode.workix.tests.util.HttpTests;
+import br.com.codecode.workix.tests.util.HttpTest;
 
 public class PopulateResume {
 
@@ -30,7 +30,7 @@ public class PopulateResume {
 	@Before
 	public void downloadCandidate(){
 
-		resp = HttpTests.sendGet(server + "candidates/51");	
+		resp = HttpTest.sendGet(server + "candidates/51");	
 
 		candidate = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
@@ -75,7 +75,7 @@ public class PopulateResume {
 		
 		System.out.println("[sendToServer] " + r.getOwner().getName() + " CV");
 
-		resp = HttpTests.sendPost(server + "resumes",
+		resp = HttpTest.sendPost(server + "resumes",
 				new GsonBuilder()
 				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 				.create().toJson(r));

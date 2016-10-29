@@ -25,7 +25,7 @@ import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpConfig;
-import br.com.codecode.workix.tests.util.HttpTests;
+import br.com.codecode.workix.tests.util.HttpTest;
 
 
 /**
@@ -52,7 +52,7 @@ public class PopulateCompanyTest {
 
 		users = new ArrayList<>();
 
-		resp = HttpTests.sendGet(server + "users");						
+		resp = HttpTest.sendGet(server + "users");						
 
 		users = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
@@ -130,7 +130,7 @@ public class PopulateCompanyTest {
 
 			System.out.println("[sendToServer] " + c.getName());
 
-			resp = HttpTests.sendPost(server + "companies",
+			resp = HttpTest.sendPost(server + "companies",
 					new GsonBuilder()						
 					.create().toJson(c));
 
