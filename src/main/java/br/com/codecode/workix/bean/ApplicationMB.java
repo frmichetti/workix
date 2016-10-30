@@ -23,7 +23,7 @@ public class ApplicationMB {
 
 		appName = "Workix";
 
-		year = LocalDate.now().getYear();	
+		year = LocalDate.now().getYear();		
 
 	}
 

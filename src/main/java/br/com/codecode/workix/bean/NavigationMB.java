@@ -56,5 +56,13 @@ public class NavigationMB {
 		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
 		return prefix + "/about.xhtml" + sufix;
 	}
+	
+	public String goToGooglePlayStore(){		
+		return "https://play.google.com/store/apps/details?id=br.com.frmichetti.openjobs.android";
+	}
+	
+	public String goToYoutube(){
+		return "https://www.youtube.com/embed/VqHbQ-WwMfk";
+	}
 
 }

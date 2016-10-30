@@ -5,8 +5,12 @@ import java.math.BigInteger;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import com.google.gson.annotations.Expose;
+
+import br.com.codecode.workix.model.enums.Estate;
 
 @Embeddable
 public class Locale implements Serializable {
@@ -32,6 +36,11 @@ public class Locale implements Serializable {
 	@Expose
 	@Column
 	private String number;
+	
+	@Expose
+	@Column
+	@Enumerated(EnumType.STRING)
+	private Estate estate;
 	
 	public Locale(){}
 
@@ -74,6 +83,16 @@ public class Locale implements Serializable {
 	public void setNumber(String number) {
 		this.number = number;
 	}
+
+	public Estate getEstate() {
+		return estate;
+	}
+
+	public void setEstate(Estate estate) {
+		this.estate = estate;
+	}
+	
+	
 	
 	
 	
