@@ -1,31 +1,33 @@
 package br.com.codecode.workix.model.scaffold;
 
+import java.io.Serializable;
+
 import javax.persistence.Embeddable;
 
 import com.google.gson.annotations.Expose;
 
 @Embeddable
-public class Skill {
+public class Skill implements Serializable {
+
+	private static final long serialVersionUID = -5975419980185059163L;
 	
 	@Expose
-	private String name;
+	private String skillName;
 	
-	public Skill() {
-		
-	}	
+	public Skill(){}	
 
-	public Skill(String name) {
+	public Skill(String skillName) {
 		super();
-		this.name = name;
+		this.skillName = skillName;
 	}
 
-	public String getName() {
-		return name;
+	public String getSkillName() {
+		return skillName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSkillName(String skillName) {
+		this.skillName = skillName;
 	}
 	
-	
+
 }

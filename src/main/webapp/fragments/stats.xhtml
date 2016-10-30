@@ -13,29 +13,29 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h1>Estatísticas #{applicationMB.appName} </h1>
+						<h1>Estatísticas <h:outputText value="#{applicationMB.appName}"/> </h1>
 						<h4>Quantas Pessoas Temos ajudado</h4>
 					</div>
 				</div>
 				<div class="row" id="counter">
 					
 					<div class="counter">
-						<div class="number">#{statsMB.counterCandidates}</div>
+						<div class="number"><h:outputText value="#{statsMB.counterCandidates}" /></div>
 						<div class="description">Candidatos</div>
 					</div>
 				
 					<div class="counter">
-						<div class="number">#{statsMB.counterJobs}</div>
+						<div class="number"><h:outputText value="#{statsMB.counterJobs}" /></div>
 						<div class="description">Vagas</div>
 					</div>
 				
 					<div class="counter">
-						<div class="number">#{statsMB.counterResumes}</div>
+						<div class="number"><h:outputText value="#{statsMB.counterResumes}" /></div>
 						<div class="description">Currículos</div>
 					</div>
 				
 					<div class="counter">
-						<div class="number">#{statsMB.counterEmployeers}</div>
+						<div class="number"><h:outputText value="#{statsMB.counterEmployeers}" /></div>
 						<div class="description">Empresas</div>
 					</div>
 

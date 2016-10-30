@@ -1,11 +1,14 @@
 package br.com.codecode.workix.model.scaffold;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -15,7 +18,6 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="workix_Candidates")
 @XmlRootElement
 public class Candidate extends Person implements BasicEntity{
 
@@ -27,13 +29,26 @@ public class Candidate extends Person implements BasicEntity{
 	@Column(updatable = false, nullable = false)
 	private Long id;
 
+	//@CPF
 	@NotEmpty
 	@Expose
 	@Column(nullable = false,unique=true)
 	private String cpf;
 	
-	public Candidate(){}	
+	//@Past
+	@Expose
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable=false)
+	private Date birthDate;
 	
+	public Candidate(){
+		configure();		
+	}	
+	
+	private void configure() {
+		birthDate = new Date();		
+	}
+
 	public Long getId() {
 		return this.id;
 	}
@@ -48,8 +63,16 @@ public class Candidate extends Person implements BasicEntity{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
+	}	
 	
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
 
 	@Override
 	public int hashCode() {

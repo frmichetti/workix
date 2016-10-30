@@ -56,7 +56,7 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 
 	@Override
 	public BigInteger countRegisters() {
-		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Company").getSingleResult();
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Company.class.getSimpleName()).getSingleResult();
 	}
 	
 	@Override

@@ -1,21 +1,27 @@
 package br.com.codecode.workix.model.scaffold;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Embeddable;
 
+import com.google.gson.annotations.Expose;
+
 @Embeddable
-public class Education {
-	
+public class Education implements Serializable {
+
+	private static final long serialVersionUID = -1514012744160609145L;
+
+	@Expose
 	private String schoolName;
 	
+	@Expose
 	private Date startDate,endDate;
 	
+	@Expose
 	private String qualification;
 	
-	public Education() {
-	
-	}	
+	public Education(){}	
 
 	public Education(String schoolName, Date startDate, Date endDate, String qualification) {
 		super();

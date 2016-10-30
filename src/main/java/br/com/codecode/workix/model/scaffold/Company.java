@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -15,7 +14,6 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="workix_Companies")
 @XmlRootElement
 public class Company extends Person implements BasicEntity {
 

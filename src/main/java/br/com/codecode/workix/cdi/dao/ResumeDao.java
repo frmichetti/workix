@@ -65,7 +65,7 @@ public class ResumeDao extends BaseDao implements Crud<Resume>{
 
 	@Override
 	public BigInteger countRegisters() {		
-		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Resume").getSingleResult();
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Resume.class.getSimpleName()).getSingleResult();
 	}
 	
 	@Override

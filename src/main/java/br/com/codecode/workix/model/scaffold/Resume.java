@@ -5,15 +5,14 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,7 +23,6 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="workix_Resumes")
 @XmlRootElement
 public class Resume extends Loggable implements BasicEntity {
 
@@ -36,13 +34,13 @@ public class Resume extends Loggable implements BasicEntity {
 	@Column(updatable = false, nullable = false)
 	private Long id;
 	
-	@NotNull
 	@Expose
+	@NotNull	
 	@OneToOne(fetch=FetchType.EAGER,optional=false)
 	private Candidate owner;
 	
-	@NotEmpty
 	@Expose
+	@NotEmpty	
 	@Column
 	private String objective;
 	
@@ -54,25 +52,25 @@ public class Resume extends Loggable implements BasicEntity {
 	/**
 	 * OneToMany 
 	 */
-	@Expose		
-	@ElementCollection(fetch=FetchType.EAGER)
-	@JoinTable(name="workix_Resumes_Experiences")
+	@Expose
+	@Embedded
+	@ElementCollection(fetch=FetchType.EAGER)	
 	private Set<Experience> experiences;
 	
 	/**
 	 * OneToMany 
 	 */
 	@Expose	
-	@ElementCollection(fetch=FetchType.EAGER)
-	@JoinTable(name="workix_Resumes_Educations")
+	@Embedded
+	@ElementCollection(fetch=FetchType.EAGER)	
 	private Set<Education> educations;	
 	
 	/**
 	 * OneToMany 
 	 */
 	@Expose	
-	@ElementCollection(fetch=FetchType.EAGER)
-	@JoinTable(name="workix_Resumes_Skills")
+	@Embedded
+	@ElementCollection(fetch=FetchType.EAGER)	
 	private Set<Skill> skills;	
 	
 	public Resume() {
@@ -99,7 +97,7 @@ public class Resume extends Loggable implements BasicEntity {
 
 	public void setOwner(Candidate owner) {
 		this.owner = owner;
-	}	
+	}
 
 	public String getObjective() {
 		return objective;

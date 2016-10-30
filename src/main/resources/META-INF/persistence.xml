@@ -5,31 +5,10 @@
 	<persistence-unit name="JPU" transaction-type="JTA">
 		<description>Persistence Unit for Local MySQL Database</description>
 		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
-		<class>br.com.codecode.workix.model.scaffold.Candidate</class>
-		<class>br.com.codecode.workix.model.scaffold.Company</class>
-		<class>br.com.codecode.workix.model.scaffold.Education</class>
-		<class>br.com.codecode.workix.model.scaffold.Experience</class>
-		<class>br.com.codecode.workix.model.scaffold.Job</class>
-		<class>br.com.codecode.workix.model.scaffold.Locale</class>
-		<class>br.com.codecode.workix.model.scaffold.Loggable</class>
-		<class>br.com.codecode.workix.model.scaffold.Person</class>
-		<class>br.com.codecode.workix.model.scaffold.Resume</class>
-		<class>br.com.codecode.workix.model.scaffold.SelectiveProcess</class>
-		<class>br.com.codecode.workix.model.scaffold.User</class>
-		<class>br.com.codecode.workix.security.JAASRole</class>
-		<class>br.com.codecode.workix.security.JAASUser</class>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 		<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>		
 		</properties>
-	</persistence-unit>
+	</persistence-unit>	
 	
-	<!-- <persistence-unit name="chpu-remote" transaction-type="JTA">
-		<description>Persistence Unit for Local MySQL Database</description>
-		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-		<properties>
-		<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>		
-		</properties>
-	</persistence-unit> -->
 </persistence>

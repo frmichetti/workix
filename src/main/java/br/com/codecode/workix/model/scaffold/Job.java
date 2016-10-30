@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMin;
@@ -30,7 +29,6 @@ import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="workix_Jobs")
 @XmlRootElement
 public class Job extends Loggable implements BasicEntity {
 

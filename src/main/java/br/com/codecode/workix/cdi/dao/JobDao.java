@@ -54,7 +54,7 @@ public class JobDao extends BaseDao implements Crud<Job>{
 
 	@Override
 	public BigInteger countRegisters() {
-		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM Job").getSingleResult();
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Job.class.getSimpleName()).getSingleResult();
 	}
 	
 	@Override

@@ -2,9 +2,11 @@ package br.com.codecode.workix.security;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,8 +24,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @since 1.0
  * @version
  */
-@Entity
 @Table(name="JAAS_User")
+@Entity
 @XmlRootElement
 public class JAASUser implements Serializable {
 
@@ -40,9 +42,9 @@ public class JAASUser implements Serializable {
 	@Column
 	private String password;
 
-	@ManyToMany	
 	@JoinTable(name="JAAS_Roles")
-	private List<JAASRole> roles;
+	@ManyToMany(fetch=FetchType.EAGER,targetEntity=JAASUser.class)		
+	private Set<JAASRole> roles;
 
 	public JAASUser() {
 		// TODO Auto-generated constructor stub
@@ -64,11 +66,11 @@ public class JAASUser implements Serializable {
 		this.password = password;
 	}
 
-	public List<JAASRole> getRoles() {
+	public Set<JAASRole> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<JAASRole> roles) {
+	public void setRoles(Set<JAASRole> roles) {
 		this.roles = roles;
 	}
 

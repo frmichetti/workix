@@ -72,10 +72,17 @@
 						<article>
 							<h2>Resumo</h2>
 							<img src="http://placehold.it/220x273.jpg" alt="" class="pull-left" />
+							<p><h:outputText value="#{resumeMB.resume.content}"/></p>
+							<ui:remove>
 							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
 							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-							<h3>Skills</h3>
+							</ui:remove>
+							<h3>Habilidades</h3>
 							<ul>
+								<ui:repeat var="skill" value="#{resumeMB.resume.skills}">
+								<li><h:outputText value="#{skill.skillName}" /></li>
+								</ui:repeat>
+								<ui:remove>
 								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
 								<li>Quisque pretium convallis pulvinar.</li>
 								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
@@ -83,6 +90,7 @@
 								<li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
 								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
 								<li>Morbi rhoncus luctus interdum.</li>
+								</ui:remove>
 							</ul>
 							<h3>Experiências</h3>
 							<div class="row work-experience">
@@ -165,14 +173,21 @@
 							<h2>Contato</h2>
 							<ul>
 								<li><i class="fa fa-user"></i><h:outputText value="#{resumeMB.resume.owner.name}" /></li>
-								<li><i class="fa fa-briefcase"></i><h:outputText value="#{resumeMB.resume.objective}"/></li>
-								<li><i class="fa fa-birthday-cake"></i>28/08/1983</li>
-								<li><i class="fa fa-map-marker"></i>New York City</li>
-								<li><i class="fa fa-phone"></i>01.22.987.8392</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:#{resumeMB.resume.owner.user.email}">Enviar Email</a></li>
+								<li><i class="fa fa-briefcase"></i><h:outputText value="#{resumeMB.resume.objective}" /></li>
+								<li><i class="fa fa-birthday-cake"></i><h:outputText value="#{resumeMB.resume.owner.birthDate}" /></li>
+								<li><i class="fa fa-map-marker"></i><h:outputText value="#{resumeMB.resume.owner.locale.city}" /></li>
+								<li><i class="fa fa-phone"></i><h:outputText value="#{resumeMB.resume.owner.contact.mobilePhone}" /></li>
+								
+								<!-- Trigger the modal with a button -->
+								<li><i class="fa fa-envelope"></i><a href="#" data-toggle="modal" data-target="#myModal">Enviar Email</a></li>
+								<!-- Trigger the modal with a button -->
+								<li><i class="fa fa-mobile fa-2x"></i><a href="#" data-toggle="modal" data-target="#myModal">Enviar Mensagem Celular</a></li>
+														
 							</ul>
 						</div>
+						
 						<hr />
+						
 						<div class="sidebar-widget" id="skills">
 							<h2>Key skills</h2>
 							<a class="badge">Photoshop</a>
@@ -191,6 +206,10 @@
 				</div>
 			</div>
 		</section>
+		
+		<ui:insert name="modal">		
+			<ui:include src="fragments/messageModal.xhtml" />
+		</ui:insert>
 
 		<!-- ============ CONTENT END ============ -->
 
@@ -220,7 +239,7 @@
 		
 		<ui:insert name="alerts">		
 			<ui:include src="fragments/alerts.xhtml" />
-		</ui:insert>	
+		</ui:insert>					
 		
 	</body>
 </html>

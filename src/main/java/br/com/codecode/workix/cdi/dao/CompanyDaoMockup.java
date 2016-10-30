@@ -55,7 +55,7 @@ public class CompanyDaoMockup extends BasicDaoMockup implements Crud<Company> {
 
 	@Override
 	public BigInteger countRegisters() {
-		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM openjobs_Companies").getSingleResult();
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Company.class.getSimpleName()).getSingleResult();
 	}
 
 	@Override

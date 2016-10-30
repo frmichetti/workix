@@ -16,7 +16,6 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="workix_Users")
 @XmlRootElement
 public class User extends Loggable implements BasicEntity{
 
@@ -32,14 +31,14 @@ public class User extends Loggable implements BasicEntity{
 	@Column
 	private boolean active;
 	
-	@NotEmpty
-	@Email
 	@Expose
+	@NotEmpty
+	@Email	
 	@Column(nullable = false,unique=true)
 	private String email;
 
-	@NotEmpty
 	@Expose
+	@NotEmpty	
 	@Column
 	private String firebaseUUID;
 

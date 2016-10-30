@@ -15,12 +15,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
@@ -28,15 +26,12 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
-@Table(name="workix_Processes")
 @XmlRootElement
 public class SelectiveProcess extends Observable implements Observer, BasicEntity, Serializable{
 
@@ -67,13 +62,12 @@ public class SelectiveProcess extends Observable implements Observer, BasicEntit
 
 	@Expose
 	@NotNull
-	@ManyToOne(optional=false)
+	@ManyToOne(optional=false,targetEntity=Job.class)
 	private Job job;	
 
 	@Expose
-	@NotNull
-	@OneToMany
-	@JoinTable(name="workix_Processes_Candidates")
+	@NotNull	
+	@OneToMany	
 	private Set<Candidate> candidates;
 
 	@Expose

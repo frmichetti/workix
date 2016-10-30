@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.ResumeCompleteDao;
@@ -23,7 +24,7 @@ public class ResumeMB implements Serializable {
 
 	@Inject @Mockup
 	private Crud<Candidate> dao;
-	
+
 	@Inject 
 	private ResumeCompleteDao daoResume;
 
@@ -32,13 +33,13 @@ public class ResumeMB implements Serializable {
 
 	@Inject
 	private MessagesHelper messagesHelper;
-	
+
 	private Long id;	
 
 	private String messageTitle,messageBody;
 
 	private Candidate candidate;
-	
+
 	private Resume resume;
 
 	public ResumeMB(){}
@@ -47,19 +48,15 @@ public class ResumeMB implements Serializable {
 
 		System.out.println("Candidate ID RECEIVED -> " + id);
 
-		if(id == null || id ==0){
-			goToError();
+		candidate = dao.findById(id);	
+		if(candidate == null){
+			goToErrorPage();
 		}
-
-		if(id > 0){
-			
-			candidate = dao.findById(id);	
-			
-			resume = daoResume.findResumebyOwner(candidate);
-		}		
-
-		if (candidate == null){
-			goToError();		
+		
+		resume = daoResume.findResumebyOwner(candidate);
+		
+		if(resume == null){
+			goToErrorPage();
 		}
 
 	}
@@ -86,7 +83,7 @@ public class ResumeMB implements Serializable {
 
 	public void notifyByPush(){
 		messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-		notification.doSendMessage(candidate, messageTitle, messageBody);
+		notification.doSendMessage(resume.getOwner(), messageTitle, messageBody);
 	}
 
 	public String getMessageBody() {
@@ -105,9 +102,11 @@ public class ResumeMB implements Serializable {
 		this.messageTitle = messageTitle;
 	}
 
-	private String goToError(){
-		return "404.xhtml?faces-redirect=true";
+	private String goToErrorPage(){
+		return "/404.xhtml?faces-redirect=true";
 	}
+	
+	
 
 
 

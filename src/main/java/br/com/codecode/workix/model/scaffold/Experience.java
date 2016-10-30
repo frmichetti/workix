@@ -1,37 +1,43 @@
 package br.com.codecode.workix.model.scaffold;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Embeddable;
 
+import com.google.gson.annotations.Expose;
+
 @Embeddable
-public class Experience {
+public class Experience implements Serializable {
+
+	private static final long serialVersionUID = -6311235469498858665L;
+
+	@Expose
+	private String employerName;
 	
-	private String employer;
-	
+	@Expose
 	private String jobTitle;
 	
+	@Expose
 	private Date startDate,endDate;
 	
-	public Experience() {
+	public Experience(){}	
 
-	}	
-
-	public Experience(String employer, String jobTitle, Date startDate, Date endDate) {
+	public Experience(String employerName, String jobTitle, Date startDate, Date endDate) {
 		super();
-		this.employer = employer;
+		this.employerName = employerName;
 		this.jobTitle = jobTitle;
 		this.startDate = startDate;
 		this.endDate = endDate;
 	}
 
 
-	public String getEmployer() {
-		return employer;
+	public String getEmployerName() {
+		return employerName;
 	}
 
-	public void setEmployer(String employer) {
-		this.employer = employer;
+	public void setEmployerName(String employerName) {
+		this.employerName = employerName;
 	}
 
 	public String getJobTitle() {
