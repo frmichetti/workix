@@ -25,30 +25,22 @@ public abstract class Person extends Loggable implements BasicEntity {
 	@NotNull
 	@Expose
 	@OneToOne(optional=false)
-	protected User user;
-		
-	@Embedded
-	private Locale locale;
+	protected User user;	
 		
 	@Embedded
 	private Contact contact;
+	
+	@Embedded	
+	private Locale locale;
 	
 	public Person(){}	
 
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
-	}
-	
-	public Locale getLocale() {
-		return locale;
-	}
-
-	public void setLocale(Locale locale) {
-		this.locale = locale;
 	}	
 	
 	public Contact getContact() {
@@ -66,6 +58,19 @@ public abstract class Person extends Loggable implements BasicEntity {
 	public void setUser(User user) {
 		this.user = user;
 	}
+	
+	public Locale getLocale() {
+		return locale;
+	}
+	
+	public void setLocale(Locale locale) {
+		this.locale = locale;
+	}
+
+	
+	
+	
+	
 
 
 	

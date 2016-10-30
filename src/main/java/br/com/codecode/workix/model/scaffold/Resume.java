@@ -3,14 +3,15 @@ package br.com.codecode.workix.model.scaffold;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
@@ -37,7 +38,7 @@ public class Resume extends Loggable implements BasicEntity {
 	@Expose
 	@NotNull	
 	@OneToOne(fetch=FetchType.EAGER,optional=false)
-	private Candidate owner;
+	private Candidate candidate;
 	
 	@Expose
 	@NotEmpty	
@@ -52,25 +53,25 @@ public class Resume extends Loggable implements BasicEntity {
 	/**
 	 * OneToMany 
 	 */
-	@Expose
-	@Embedded
+	@Expose	
 	@ElementCollection(fetch=FetchType.EAGER)	
+	@CollectionTable(name = "Resume_experiences",joinColumns=@JoinColumn(name="id"))
 	private Set<Experience> experiences;
 	
 	/**
 	 * OneToMany 
 	 */
 	@Expose	
-	@Embedded
-	@ElementCollection(fetch=FetchType.EAGER)	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name = "Resume_educations",joinColumns=@JoinColumn(name="id"))
 	private Set<Education> educations;	
 	
 	/**
 	 * OneToMany 
 	 */
 	@Expose	
-	@Embedded
-	@ElementCollection(fetch=FetchType.EAGER)	
+	@ElementCollection(fetch=FetchType.EAGER)
+	@CollectionTable(name = "Resume_skills",joinColumns=@JoinColumn(name="id"))
 	private Set<Skill> skills;	
 	
 	public Resume() {
@@ -91,12 +92,12 @@ public class Resume extends Loggable implements BasicEntity {
 		this.id = id;
 	}	
 	
-	public Candidate getOwner() {
-		return owner;
+	public Candidate getCandidate() {
+		return candidate;
 	}
 
-	public void setOwner(Candidate owner) {
-		this.owner = owner;
+	public void setCandidate(Candidate candidate) {
+		this.candidate = candidate;
 	}
 
 	public String getObjective() {

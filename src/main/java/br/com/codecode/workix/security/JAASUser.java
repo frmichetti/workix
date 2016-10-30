@@ -46,9 +46,7 @@ public class JAASUser implements Serializable {
 	@ManyToMany(fetch=FetchType.EAGER,targetEntity=JAASUser.class)		
 	private Set<JAASRole> roles;
 
-	public JAASUser() {
-		// TODO Auto-generated constructor stub
-	}
+	public JAASUser(){}
 
 	public String getLogin() {
 		return login;

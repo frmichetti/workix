@@ -32,11 +32,9 @@ public class Company extends Person implements BasicEntity {
 		
 	@Expose
 	@Column(nullable = false)
-	private String segment;
+	private String segment;	
 	
-	public Company() {
-		// TODO Auto-generated constructor stub
-	}
+	public Company(){}
 	
 	public Long getId() {
 		return this.id;
@@ -62,6 +60,11 @@ public class Company extends Person implements BasicEntity {
 		this.segment = companySegment;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+
 	
 	@Override
 	public boolean equals(Object obj) {

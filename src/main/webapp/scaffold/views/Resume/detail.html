@@ -4,20 +4,13 @@
 </header>
 <form id="ResumeForm" name="ResumeForm" class="form-horizontal" role="form">
     
-    <div class="form-group" ng-class="{'has-error': ResumeForm.owner.$invalid}">
-        <label for="owner" class="col-sm-2 control-label">Owner</label>
-        <div id="ownerControls" class="col-sm-10">
-        <select id="owner" name="owner" class="form-control" ng-model="ownerSelection" ng-options="o.text for o in ownerSelectionList" required >
-            <option value="">Choose a Owner</option>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.candidate.$invalid}">
+        <label for="candidate" class="col-sm-2 control-label">Candidate</label>
+        <div id="candidateControls" class="col-sm-10">
+        <select id="candidate" name="candidate" class="form-control" ng-model="candidateSelection" ng-options="c.text for c in candidateSelectionList" required >
+            <option value="">Choose a Candidate</option>
         </select>
-        <span class="help-block error" ng-show="ResumeForm.owner.$error.required">required</span> 
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': ResumeForm.summary.$invalid}">
-        <label for="summary" class="col-sm-2 control-label">Summary</label>
-        <div id="summaryControls" class="col-sm-10">
-            <input id="summary" name="summary" type="text" class="form-control" ng-model="resume.summary" placeholder="Enter the Resume Summary"></input>
+        <span class="help-block error" ng-show="ResumeForm.candidate.$error.required">required</span> 
         </div>
     </div>
 

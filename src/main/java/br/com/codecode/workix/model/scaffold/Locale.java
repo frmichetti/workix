@@ -1,27 +1,36 @@
 package br.com.codecode.workix.model.scaffold;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import com.google.gson.annotations.Expose;
 
 @Embeddable
-public class Locale {
-	
-	@Expose
+public class Locale implements Serializable {
+
+	private static final long serialVersionUID = -607806075186010186L;
+
+	@Expose	
+	@Column
 	private BigInteger zipCode;
 	
-	@Expose
+	@Expose	
+	@Column
 	private String city;
 	
-	@Expose
+	@Expose	
+	@Column
 	private String neighborhood;
 	
 	@Expose
+	@Column
 	private String street;
 	
 	@Expose
+	@Column
 	private String number;
 	
 	public Locale(){}

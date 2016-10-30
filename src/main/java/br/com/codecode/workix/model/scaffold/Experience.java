@@ -3,6 +3,7 @@ package br.com.codecode.workix.model.scaffold;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import com.google.gson.annotations.Expose;
@@ -12,14 +13,21 @@ public class Experience implements Serializable {
 
 	private static final long serialVersionUID = -6311235469498858665L;
 
-	@Expose
+	@Expose	
+	@Column
 	private String employerName;
 	
 	@Expose
+	@Column
 	private String jobTitle;
 	
 	@Expose
-	private Date startDate,endDate;
+	@Column
+	private Date startDate;
+	
+	@Expose
+	@Column
+	private Date endDate;
 	
 	public Experience(){}	
 

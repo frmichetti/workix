@@ -4,18 +4,18 @@ angular.module('workix').controller('NewResumeController', function ($scope, $lo
     $scope.$location = $location;
     $scope.resume = $scope.resume || {};
     
-    $scope.ownerList = CandidateResource.queryAll(function(items){
-        $scope.ownerSelectionList = $.map(items, function(item) {
+    $scope.candidateList = CandidateResource.queryAll(function(items){
+        $scope.candidateSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
                 text : item.id
             });
         });
     });
-    $scope.$watch("ownerSelection", function(selection) {
+    $scope.$watch("candidateSelection", function(selection) {
         if ( typeof selection != 'undefined') {
-            $scope.resume.owner = {};
-            $scope.resume.owner.id = selection.value;
+            $scope.resume.candidate = {};
+            $scope.resume.candidate.id = selection.value;
         }
     });
     

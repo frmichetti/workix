@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -95,10 +94,6 @@ public class Job extends Loggable implements BasicEntity {
 	@Column
 	@Enumerated(EnumType.STRING)
 	private JobCategory category;	
-	
-	@Expose	
-	@Embedded
-	private Locale locale;	
 
 	@Expose
 	@Column
@@ -222,16 +217,6 @@ public class Job extends Loggable implements BasicEntity {
 
 	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
-	}
-	
-	
-
-	public Locale getLocale() {
-		return locale;
-	}
-
-	public void setLocale(Locale locale) {
-		this.locale = locale;
 	}
 
 	@Override

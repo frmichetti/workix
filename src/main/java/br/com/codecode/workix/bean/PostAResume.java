@@ -43,7 +43,7 @@ public class PostAResume {
 	private void debug() {
 		currentResume.setContent("STUB CONTENT HERE");
 		currentResume.setObjective("STUB OBJECTIVE");		
-		currentResume.setOwner(candidates.get(candidates.size()-1));
+		currentResume.setCandidate(candidates.get(candidates.size()-1));
 		
 	}
 

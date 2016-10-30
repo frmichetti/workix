@@ -81,7 +81,7 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-name-group">
 								<label for="resume-name">Nome</label>
-								<h:inputText pt:type="text" class="form-control" pt:id="resume-name" pt:placeholder="e.g. John Doe" pt:value="#{postAResume.currentResume.owner.name}" />
+								<h:inputText pt:type="text" class="form-control" pt:id="resume-name" pt:placeholder="e.g. John Doe" pt:value="#{postAResume.currentResume.candidate.name}" />
 							</div>
 						</div>
 						
@@ -119,14 +119,14 @@
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-email-group">
 								<label for="resume-email">Email</label>
-								<h:inputText pt:type="email" class="form-control" id="resume-email" pt:placeholder="you@yourdomain.com" pt:value="#{postAResume.currentResume.owner.user.email}"/>
+								<h:inputText pt:type="email" class="form-control" id="resume-email" pt:placeholder="you@yourdomain.com" pt:value="#{postAResume.currentResume.candidate.user.email}"/>
 							</div>
 						</div>
 						
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-category-group">
 								<label for="resume-category">Candidato</label>
-								<h:selectOneMenu value="#{postAResume.currentResume.owner}" styleClass="form-control" id="resume-category" pt:required="required">
+								<h:selectOneMenu value="#{postAResume.currentResume.candidate}" styleClass="form-control" id="resume-category" pt:required="required">
 								<f:ajax execute="resume-name" event="change"  />
 								<f:ajax execute="resume-email" event="change" />  
 								<f:selectItem itemValue="" itemLabel="Selecione um Dono"/>  

@@ -17,7 +17,7 @@ angular.module('workix').controller('SearchResumeController', function($scope, $
         }
         return max;
     };
-    $scope.ownerList = CandidateResource.queryAll();
+    $scope.candidateList = CandidateResource.queryAll();
 
     $scope.performSearch = function() {
         $scope.searchResults = ResumeResource.queryAll(function(){

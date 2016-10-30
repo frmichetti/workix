@@ -1,11 +1,12 @@
 package br.com.codecode.workix.bean;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
-import javax.persistence.NoResultException;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.ResumeCompleteDao;
@@ -14,7 +15,10 @@ import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.scaffold.Education;
+import br.com.codecode.workix.model.scaffold.Experience;
 import br.com.codecode.workix.model.scaffold.Resume;
+import br.com.codecode.workix.model.scaffold.Skill;
 
 @Model
 public class ResumeMB implements Serializable {
@@ -41,6 +45,12 @@ public class ResumeMB implements Serializable {
 	private Candidate candidate;
 
 	private Resume resume;
+	
+	private List<Skill> skills = new ArrayList<>();
+	
+	private List<Education> educations = new ArrayList<>();
+	
+	private List<Experience> experiences = new ArrayList<>();
 
 	public ResumeMB(){}
 
@@ -49,6 +59,7 @@ public class ResumeMB implements Serializable {
 		System.out.println("Candidate ID RECEIVED -> " + id);
 
 		candidate = dao.findById(id);	
+		
 		if(candidate == null){
 			goToErrorPage();
 		}
@@ -58,6 +69,12 @@ public class ResumeMB implements Serializable {
 		if(resume == null){
 			goToErrorPage();
 		}
+		
+		skills.addAll(resume.getSkills());
+		
+		educations.addAll(resume.getEducations());
+		
+		experiences.addAll(resume.getExperiences());
 
 	}
 
@@ -76,6 +93,20 @@ public class ResumeMB implements Serializable {
 	public Resume getResume() {
 		return resume;
 	}
+	
+	
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public List<Education> getEducations() {
+		return educations;
+	}
+
+	public List<Experience> getExperiences() {
+		return experiences;
+	}
 
 	public void notifyByEmail(){
 		messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
@@ -83,7 +114,7 @@ public class ResumeMB implements Serializable {
 
 	public void notifyByPush(){
 		messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-		notification.doSendMessage(resume.getOwner(), messageTitle, messageBody);
+		notification.doSendMessage(resume.getCandidate(), messageTitle, messageBody);
 	}
 
 	public String getMessageBody() {

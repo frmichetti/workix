@@ -3,6 +3,7 @@ package br.com.codecode.workix.model.scaffold;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import com.google.gson.annotations.Expose;
@@ -13,12 +14,15 @@ public class Education implements Serializable {
 	private static final long serialVersionUID = -1514012744160609145L;
 
 	@Expose
+	@Column
 	private String schoolName;
 	
 	@Expose
+	@Column
 	private Date startDate,endDate;
 	
 	@Expose
+	@Column
 	private String qualification;
 	
 	public Education(){}	

@@ -1,8 +1,11 @@
 package br.com.codecode.workix.tests.populate.gson;
 
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -25,62 +28,82 @@ public class PopulateResume {
 
 	private String resp;
 
-	private Candidate candidate;
+	private List<Candidate> candidates;
 
 	@Before
 	public void downloadCandidate(){
 
-		resp = HttpTest.sendGet(server + "candidates/51");	
+		resp = HttpTest.sendGet(server + "candidates");	
 
-		candidate = new GsonBuilder()
+		candidates = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
 				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 				.enableComplexMapKeySerialization()			
 				.create()
-				.fromJson(resp, new TypeToken<Candidate>(){}.getType());
+				.fromJson(resp, new TypeToken<List<Candidate>>(){}.getType());
 
-		assertNotNull(candidate);
+				
+		assertTrue(candidates.size() > 0);
 
 	}
 
-	private Resume create(){
+	private List<Resume> create(){
+		
+		assertNotNull(candidates);
+		
+		List<Resume> res = new ArrayList<>();
+		
+		for (Candidate c : candidates) {
+			
+			Resume r = new Resume();
 
-		Resume r = new Resume();
+			r.setContent("Content of " + c.getName());
 
-		r.setContent("Content");
+			r.setObjective("Objective of " + c.getName());
 
-		r.setObjective("Objective");
+			r.setCandidate(c);
 
-		r.setOwner(candidate);
+			r.addExperience(new Experience("Employer 1","Title 1",new Date(),new Date()));
 
-		r.addExperience(new Experience("Employer 1","Titulo 1",new Date(),new Date()));
+			r.addExperience(new Experience("Employeer 2", "Title 2", new Date(), new Date()));
 
-		r.addExperience(new Experience("Employeer 2", "Titulo 2", new Date(), new Date()));
+			r.addEducation(new Education("School 1", new Date(), new Date(), "Qualification"));
+			
+			r.addEducation(new Education("School 2", new Date(), new Date(), "Qualification 2"));
 
-		r.addEducation(new Education("School 1", new Date(), new Date(), "Qualification"));
+			r.addSkill(new Skill("Skill 1"));
+			
+			r.addSkill(new Skill("Skill 2"));
+			
+			res.add(r);
+			
+		}	
 
-		r.addSkill(new Skill("Skill 1"));
 
-
-		return r;
+		return res;
 
 	}	
 
 	@Test	
 	public void sendToServer() {	
 		
-		Resume r = create();
+		List<Resume> res = create();
 		
-		assertNotNull(r);
-		
-		System.out.println("[sendToServer] " + r.getOwner().getName() + " CV");
+		assertNotNull(res);		
 
-		resp = HttpTest.sendPost(server + "resumes",
-				new GsonBuilder()
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.create().toJson(r));
+		res.forEach(r -> {
+			
+			System.out.println("[sendToServer] " + r.getContent());
 
-		assertNotNull(resp);	
+			resp = HttpTest.sendPost(server + "resumes",
+					new GsonBuilder()				
+					.setPrettyPrinting()
+					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
+					.enableComplexMapKeySerialization()
+					.create().toJson(r));
+
+			assertNotNull(resp);
+		});
 
 
 

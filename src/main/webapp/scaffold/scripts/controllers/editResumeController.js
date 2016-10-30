@@ -10,7 +10,7 @@ angular.module('workix').controller('EditResumeController', function($scope, $ro
             self.original = data;
             $scope.resume = new ResumeResource(self.original);
             CandidateResource.queryAll(function(items) {
-                $scope.ownerSelectionList = $.map(items, function(item) {
+                $scope.candidateSelectionList = $.map(items, function(item) {
                     var wrappedObject = {
                         id : item.id
                     };
@@ -18,10 +18,10 @@ angular.module('workix').controller('EditResumeController', function($scope, $ro
                         value : item.id,
                         text : item.id
                     };
-                    if($scope.resume.owner && item.id == $scope.resume.owner.id) {
-                        $scope.ownerSelection = labelObject;
-                        $scope.resume.owner = wrappedObject;
-                        self.original.owner = $scope.resume.owner;
+                    if($scope.resume.candidate && item.id == $scope.resume.candidate.id) {
+                        $scope.candidateSelection = labelObject;
+                        $scope.resume.candidate = wrappedObject;
+                        self.original.candidate = $scope.resume.candidate;
                     }
                     return labelObject;
                 });
@@ -72,10 +72,10 @@ angular.module('workix').controller('EditResumeController', function($scope, $ro
         $scope.resume.$remove(successCallback, errorCallback);
     };
     
-    $scope.$watch("ownerSelection", function(selection) {
+    $scope.$watch("candidateSelection", function(selection) {
         if (typeof selection != 'undefined') {
-            $scope.resume.owner = {};
-            $scope.resume.owner.id = selection.value;
+            $scope.resume.candidate = {};
+            $scope.resume.candidate.id = selection.value;
         }
     });
     

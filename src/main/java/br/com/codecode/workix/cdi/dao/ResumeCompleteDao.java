@@ -17,7 +17,7 @@ public class ResumeCompleteDao implements Serializable {
 
 	public Resume findResumebyOwner(Candidate candidate){
 
-		String jpql = "select r from Resume r where r.owner = :candidate";
+		String jpql = "select r from Resume r where r.candidate = :candidate";
 
 		Resume resume = em.createQuery(jpql,Resume.class).
 				setParameter("candidate",candidate).getSingleResult() ;

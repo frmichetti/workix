@@ -54,7 +54,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h1><h:outputText value="#{resumeMB.resume.owner.name}"/></h1>
+						<h1><h:outputText value="#{resumeMB.resume.candidate.name}"/></h1>
 						<h4><h:outputText value="#{resumeMB.resume.objective}"/></h4>
 					</div>
 				</div>
@@ -79,10 +79,12 @@
 							</ui:remove>
 							<h3>Habilidades</h3>
 							<ul>
-								<ui:repeat var="skill" value="#{resumeMB.resume.skills}">
+								<ui:repeat var="skill" value="#{resumeMB.skills}">
 								<li><h:outputText value="#{skill.skillName}" /></li>
 								</ui:repeat>
-								<ui:remove>
+								
+								
+								
 								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
 								<li>Quisque pretium convallis pulvinar.</li>
 								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
@@ -90,7 +92,8 @@
 								<li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
 								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
 								<li>Morbi rhoncus luctus interdum.</li>
-								</ui:remove>
+							
+								
 							</ul>
 							<h3>Experiências</h3>
 							<div class="row work-experience">
@@ -172,11 +175,11 @@
 						<div class="sidebar-widget" id="widget-contact">
 							<h2>Contato</h2>
 							<ul>
-								<li><i class="fa fa-user"></i><h:outputText value="#{resumeMB.resume.owner.name}" /></li>
+								<li><i class="fa fa-user"></i><h:outputText value="#{resumeMB.resume.candidate.name}" /></li>
 								<li><i class="fa fa-briefcase"></i><h:outputText value="#{resumeMB.resume.objective}" /></li>
-								<li><i class="fa fa-birthday-cake"></i><h:outputText value="#{resumeMB.resume.owner.birthDate}" /></li>
-								<li><i class="fa fa-map-marker"></i><h:outputText value="#{resumeMB.resume.owner.locale.city}" /></li>
-								<li><i class="fa fa-phone"></i><h:outputText value="#{resumeMB.resume.owner.contact.mobilePhone}" /></li>
+								<li><i class="fa fa-birthday-cake"></i><h:outputText value="#{resumeMB.resume.candidate.birthDate}" /></li>
+								<li><i class="fa fa-map-marker"></i><h:outputText value="#{resumeMB.resume.candidate.locale.city}" /></li>
+								<li><i class="fa fa-phone"></i><h:outputText value="#{resumeMB.resume.candidate.contact.mobilePhone}" /></li>
 								
 								<!-- Trigger the modal with a button -->
 								<li><i class="fa fa-envelope"></i><a href="#" data-toggle="modal" data-target="#myModal">Enviar Email</a></li>

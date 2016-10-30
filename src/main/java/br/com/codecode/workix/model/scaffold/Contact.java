@@ -2,6 +2,7 @@ package br.com.codecode.workix.model.scaffold;
 
 import java.math.BigInteger;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import com.google.gson.annotations.Expose;
@@ -10,6 +11,7 @@ import com.google.gson.annotations.Expose;
 public class Contact {
 	
 	@Expose
+	@Column
 	private BigInteger mobilePhone;
 	
 	public Contact(){}

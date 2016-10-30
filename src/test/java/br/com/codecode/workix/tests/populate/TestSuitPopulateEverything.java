@@ -7,6 +7,7 @@ import org.junit.runners.Suite.SuiteClasses;
 import br.com.codecode.workix.tests.populate.gson.PopulateCandidateTest;
 import br.com.codecode.workix.tests.populate.gson.PopulateCompanyTest;
 import br.com.codecode.workix.tests.populate.gson.PopulateJobTest;
+import br.com.codecode.workix.tests.populate.gson.PopulateResume;
 import br.com.codecode.workix.tests.populate.gson.PopulateUserTest;
 
 @RunWith(Suite.class)
@@ -14,6 +15,7 @@ import br.com.codecode.workix.tests.populate.gson.PopulateUserTest;
 	PopulateUserTest.class,	
 	PopulateCandidateTest.class,	
 	PopulateCompanyTest.class,	
-	PopulateJobTest.class
+	PopulateJobTest.class,
+	PopulateResume.class
 })
 public class TestSuitPopulateEverything {}

@@ -36,6 +36,13 @@
     </div>
 
     <div class="form-group">
+        <label for="contact.mobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
+        <div class="col-sm-10">
+            <input id="contact.mobilePhone" name="contact.mobilePhone" class="form-control" type="text" ng-model="search.contact.mobilePhone" placeholder="Enter the Candidate Mobile Phone"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="locale.zipCode" class="col-sm-2 control-label">Zip Code</label>
         <div class="col-sm-10">
             <input id="locale.zipCode" name="locale.zipCode" class="form-control" type="text" ng-model="search.locale.zipCode" placeholder="Enter the Candidate Zip Code"></input>
@@ -70,13 +77,6 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="contact.mobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
-        <div class="col-sm-10">
-            <input id="contact.mobilePhone" name="contact.mobilePhone" class="form-control" type="text" ng-model="search.contact.mobilePhone" placeholder="Enter the Candidate Mobile Phone"></input>
-        </div>
-    </div>
-
 
         <div class="form-group">
             <div class="col-md-offset-2 col-sm-10">
@@ -94,12 +94,12 @@
                     <th>Birth Date</th>
                     <th>Name</th>
                     <th>User</th>
+                    <th>Mobile Phone</th>
                     <th>Zip Code</th>
                     <th>City</th>
                     <th>Neighborhood</th>
                     <th>Street</th>
                     <th>Number</th>
-                    <th>Mobile Phone</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
@@ -108,12 +108,12 @@
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.birthDate| date:'yyyy-MM-dd HH:mm:ss Z'}}</a></td>
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.name}}</a></td>
                         <td><a href="#/Candidates/edit/{{result.id}}">{{result.user.id}}</a></td>
+                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.contact.mobilePhone}}</a></td>
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.zipCode}}</a></td>
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.city}}</a></td>
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.street}}</a></td>
                     <td><a href="#/Candidates/edit/{{result.id}}">{{result.locale.number}}</a></td>
-                    <td><a href="#/Candidates/edit/{{result.id}}">{{result.contact.mobilePhone}}</a></td>
                 </tr>
             </tbody>
         </table>

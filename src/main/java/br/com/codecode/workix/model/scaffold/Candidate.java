@@ -39,7 +39,7 @@ public class Candidate extends Person implements BasicEntity{
 	@Expose
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(nullable=false)
-	private Date birthDate;
+	private Date birthDate;	
 	
 	public Candidate(){
 		configure();		

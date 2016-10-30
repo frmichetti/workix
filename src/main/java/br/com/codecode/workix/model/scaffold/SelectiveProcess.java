@@ -62,7 +62,7 @@ public class SelectiveProcess extends Observable implements Observer, BasicEntit
 
 	@Expose
 	@NotNull
-	@ManyToOne(optional=false,targetEntity=Job.class)
+	@ManyToOne(optional=false)
 	private Job job;	
 
 	@Expose
