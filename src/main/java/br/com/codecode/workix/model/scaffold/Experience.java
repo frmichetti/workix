@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Lob;
 
 import com.google.gson.annotations.Expose;
 
@@ -28,6 +29,11 @@ public class Experience implements Serializable {
 	@Expose
 	@Column
 	private Date endDate;
+	
+	@Expose
+	@Column
+	@Lob
+	private String description;
 	
 	public Experience(){}	
 
@@ -71,6 +77,16 @@ public class Experience implements Serializable {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 	
 	
 	

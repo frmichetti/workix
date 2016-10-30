@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.Lob;
 
 import com.google.gson.annotations.Expose;
 
@@ -24,6 +25,11 @@ public class Education implements Serializable {
 	@Expose
 	@Column
 	private String qualification;
+	
+	@Expose
+	@Column
+	@Lob
+	private String description;
 	
 	public Education(){}	
 
@@ -66,6 +72,16 @@ public class Education implements Serializable {
 	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 	
 	
 	

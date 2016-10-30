@@ -83,6 +83,15 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="locale.estate" class="col-sm-2 control-label">Estate</label>
+        <div class="col-sm-10">
+            <select id="locale.estate" name="locale.estate" class="form-control" ng-model="search.locale.estate" ng-options="l as l for l in localeestateList">
+                <option value="">Choose a Estate</option>
+            </select>
+        </div>
+    </div>
+
 
         <div class="form-group">
             <div class="col-md-offset-2 col-sm-10">
@@ -106,6 +115,7 @@
                     <th>Neighborhood</th>
                     <th>Street</th>
                     <th>Number</th>
+                    <th>Estate</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
@@ -120,6 +130,7 @@
                     <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
                     <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.street}}</a></td>
                     <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.number}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.estate}}</a></td>
                 </tr>
             </tbody>
         </table>

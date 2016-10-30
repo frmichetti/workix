@@ -19,6 +19,36 @@ angular.module('workix').controller('NewCompanyController', function ($scope, $l
         }
     });
     
+    $scope.localeestateList = [
+        "AC",
+        "AL",
+        "AP",
+        "AM",
+        "BA",
+        "CE",
+        "DF",
+        "ES",
+        "GO",
+        "MA",
+        "MT",
+        "MS",
+        "MG",
+        "PA",
+        "PB",
+        "PR",
+        "PE",
+        "PI",
+        "RJ",
+        "RN",
+        "RS",
+        "RO",
+        "RR",
+        "SC",
+        "SP",
+        "SE",
+        "TO"
+    ];
+    
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){
