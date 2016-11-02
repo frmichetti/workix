@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Experimentando Ajax do JSF 2.0</title>
+</h:head>
+<h:body>
+	<center>
+		<h2>Exemplo 1: Geração randomica no servidor!</h2>
+		<br />
+		<h:form id="idF1">
+			<h:commandButton value="Executar!"
+				action="#{geradorNumeros.randomize}">
+				<f:ajax render="idF1:numField1" />
+			</h:commandButton>
+			<br />
+			<h2>
+				<h:outputText value="#{geradorNumeros.number}" id="numField1" />
+			</h2>
+		</h:form>
+		<br />
+		<h2>Exemplo 2: Login</h2>
+		<br />
+		<h:form prependId="false">
+			<h:outputText value="Usuario: " />
+			<h:inputText value="#{login.usuario}" id="idUsr" onchange="submit()" >
+			<f:valueChangeListener type="br.com.codecode.workix.jsf.util.listener.MyValueChangeListener" />			
+			</h:inputText>
+			
+			<br />
+			<h:outputText value="Senha:" />
+			<h:inputSecret value="#{login.senha}" id="idPsw" />
+			<h:commandButton value="Logar" action="#{login.logar}">
+				<f:ajax execute="idUsr idPsw" render="saidaLogin" />
+			</h:commandButton>
+			<br />
+			<h2>
+				<h:outputText value="#{login.mensagem}" id="saidaLogin" />
+			</h2>
+		</h:form>
+	</center>
+</h:body>
+</html>

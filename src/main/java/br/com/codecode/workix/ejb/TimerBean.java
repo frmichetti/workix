@@ -29,10 +29,10 @@ public class TimerBean {
 		
 		System.out.println("[TimerBean] Finalizando agendamento ...");
 		
-		//timer.cancel();
+		timer.cancel();
 	}
 
-	@Schedule(hour="*",minute="*",second="0/30")
+	@Schedule(hour="*",minute="0/30",second="*",persistent=false)
 	public void executar() {
 		System.out.println("[TimerBean] Executando agendamento ... " + Instant.now());
 	}
