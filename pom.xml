@@ -54,7 +54,7 @@
 			<artifactId>jboss-as-security</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>

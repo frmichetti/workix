@@ -32,7 +32,7 @@ public class TimerBean {
 		timer.cancel();
 	}
 
-	@Schedule(hour="*",minute="0/30",second="*",persistent=false)
+	@Schedule(hour="*",minute="0/30",second="0",persistent=false)
 	public void executar() {
 		System.out.println("[TimerBean] Executando agendamento ... " + Instant.now());
 	}

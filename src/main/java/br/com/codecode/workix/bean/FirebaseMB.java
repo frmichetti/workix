@@ -2,7 +2,10 @@ package br.com.codecode.workix.bean;
 
 import java.io.Serializable;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 @SessionScoped
@@ -12,11 +15,19 @@ public class FirebaseMB implements Serializable {
 	private String name,email,uid,photo;
 
 	private String idToken;
+	
+	@Inject
+	private FacesContext context; 
 
 	private static final long serialVersionUID = -6683482350467577281L;	
 
 	public FirebaseMB() {
 		System.out.println("[CDI] " + getClass().getSimpleName());
+	}
+	
+	@PostConstruct
+	private void init(){
+		
 	}
 
 	public String getName() {		
@@ -52,11 +63,14 @@ public class FirebaseMB implements Serializable {
 	}
 
 	public String getIdToken() {
+		System.out.println("TOKEN " + idToken);
 		return idToken;
 	}
 
 	public void setIdToken(String idToken) {
 		this.idToken = idToken;
+		System.out.println("TOKEN " + idToken);
 	}
+
 
 }

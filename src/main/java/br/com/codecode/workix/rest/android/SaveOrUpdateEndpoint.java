@@ -2,6 +2,7 @@ package br.com.codecode.workix.rest.android;
 
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -35,6 +36,7 @@ public class SaveOrUpdateEndpoint {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
+	@Transactional
 	public Response save(User user) {
 	
 		user = daoUser.saveOrUpdate(user);
@@ -48,6 +50,7 @@ public class SaveOrUpdateEndpoint {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
+	@Transactional
 	public Response save(Candidate candidate) {
 	
 		candidate = daoCandidate.saveOrUpdate(candidate);				
@@ -59,6 +62,7 @@ public class SaveOrUpdateEndpoint {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
+	@Transactional
 	public Response save(Resume resume) {
 	
 		resume = daoResume.saveOrUpdate(resume);				

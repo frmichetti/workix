@@ -34,7 +34,7 @@ public class LoginEndpoint {
 		if (token == null) {
 
 			return Response.status(Status.BAD_REQUEST).build();
-			
+
 		}else if((token.getKey().equals("")) || (token.getKey().isEmpty())){
 
 			System.err.println("!!! Unauthorized !!!");
@@ -45,67 +45,69 @@ public class LoginEndpoint {
 
 		System.out.println(token);		
 
-			User user;	
+		User user;	
 
-			try {
+		try {
 
-				user = em.createQuery(
-								"select u from User u where u.firebaseUUID=:firebaseUUID",
-								User.class)
-						.setParameter("firebaseUUID", token.getKey())
-						.getSingleResult();				
+			user = em.createQuery(
+					"select u from User u where u.firebaseUUID=:firebaseUUID",
+					User.class)
+					.setParameter("firebaseUUID", token.getKey())
+					.getSingleResult();				
 
-			} catch (NoResultException nre) {
+		} catch (NoResultException nre) {
 
-				user = null;
+			user = null;
 
-				System.err.println(nre);
+			System.err.println(nre);
 
-			}
+		}
 
-			if (user == null) {
+		if (user == null) {
 
-				//return Response.status(Status.NOT_FOUND).build();
-				return Response.ok("{}").build();
+			//return Response.status(Status.NOT_FOUND).build();
+			return Response.ok("{}").build();
 
-			}
+		}
 
 
-			//TODO Verify for user Owner //
+		//TODO Verify for user Owner //
 
-			Candidate candidate;			
+		Candidate candidate;			
 
-			try {
-				
-				candidate = em
-						.createQuery(
-								"select c from Candidate c where c.user=:user",
-								Candidate.class)
-						.setParameter("user", user)
-						.getSingleResult();
-				
-			} catch (NoResultException nre) {
+		try {
 
-				candidate = null;
+			candidate = em
+					.createQuery(
+							"select c from Candidate c where c.user=:user",
+							Candidate.class)
+					.setParameter("user", user)
+					.getSingleResult();
 
-				System.err.println(nre);
+		} catch (NoResultException nre) {
 
-			}
-			
-			System.out.println("[OUT -->]");
-			
-			if (candidate == null) {
+			candidate = null;
 
-				System.out.println(user.toString());
-				
-				return Response.ok(user).build();	
+			System.err.println(nre);
 
-			}
-			
-			System.out.println(candidate.toString());
+		}
+
+		System.out.println("[OUT -->]");
+
+		if (candidate == null) {			
+
+			candidate = new Candidate();
+
+			candidate.setUser(user);
 
 			return Response.ok(candidate).build();	
 
-		}	
+		}
+
+		System.out.println(candidate.toString());
+
+		return Response.ok(candidate).build();	
+
+	}	
 
 }

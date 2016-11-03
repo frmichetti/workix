@@ -9,6 +9,7 @@ public class MyValueChangeListener implements ValueChangeListener{
 
 	@Override
 	public void processValueChange(ValueChangeEvent event) throws AbortProcessingException {
+		if(event != null)
 		System.out.println("OLD Value " + event.getOldValue());
 		System.out.println("New Value " + event.getNewValue());
 		
