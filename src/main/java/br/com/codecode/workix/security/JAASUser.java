@@ -1,7 +1,6 @@
 package br.com.codecode.workix.security;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -25,7 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @version
  */
 @Table(name="JAAS_User")
-@Entity
+@Entity(name="JAASUser")
 @XmlRootElement
 public class JAASUser implements Serializable {
 

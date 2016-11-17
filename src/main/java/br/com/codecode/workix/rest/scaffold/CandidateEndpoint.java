@@ -3,6 +3,7 @@ package br.com.codecode.workix.rest.scaffold;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
@@ -20,6 +21,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
+
 import br.com.codecode.workix.model.scaffold.Candidate;
 
 /**
@@ -28,7 +30,8 @@ import br.com.codecode.workix.model.scaffold.Candidate;
 @Stateless
 @Path("/candidates")
 public class CandidateEndpoint {
-	@PersistenceContext(unitName = "JPU")
+	
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	@POST

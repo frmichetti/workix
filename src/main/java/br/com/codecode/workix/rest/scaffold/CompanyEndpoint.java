@@ -28,7 +28,8 @@ import br.com.codecode.workix.model.scaffold.Company;
 @Stateless
 @Path("/companies")
 public class CompanyEndpoint {
-	@PersistenceContext(unitName = "JPU")
+	
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	@POST

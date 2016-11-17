@@ -9,7 +9,7 @@ public abstract class BaseDao implements Serializable{
 
 	private static final long serialVersionUID = 3943660229318614845L;
 	
-	@PersistenceContext
+	@PersistenceContext(unitName="DefaultPU")
 	protected EntityManager em;
 	
 	

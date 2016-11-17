@@ -12,7 +12,7 @@ public class ResumeCompleteDao implements Serializable {
 
 	private static final long serialVersionUID = -5431107883362073057L;
 
-	@PersistenceContext
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	public Resume findResumebyOwner(Candidate candidate){

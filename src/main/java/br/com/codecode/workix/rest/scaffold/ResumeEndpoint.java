@@ -28,7 +28,8 @@ import br.com.codecode.workix.model.scaffold.Resume;
 @Stateless
 @Path("/resumes")
 public class ResumeEndpoint {
-	@PersistenceContext(unitName = "JPU")
+	
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	@POST

@@ -17,8 +17,7 @@ public class BasicDaoMockup implements Serializable {
 	@Inject
 	protected MessagesHelper messagesHelper;
 	
-
-	@PersistenceContext
+	@PersistenceContext(unitName="DefaultPU")
 	protected EntityManager em;
 
 }

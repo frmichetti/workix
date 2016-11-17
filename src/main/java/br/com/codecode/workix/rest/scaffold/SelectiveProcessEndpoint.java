@@ -28,7 +28,8 @@ import br.com.codecode.workix.model.scaffold.SelectiveProcess;
 @Stateless
 @Path("/selectiveprocesses")
 public class SelectiveProcessEndpoint {
-	@PersistenceContext(unitName = "JPU")
+	
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	@POST

@@ -28,7 +28,8 @@ import br.com.codecode.workix.model.scaffold.Job;
 @Stateless
 @Path("/jobs")
 public class JobEndpoint {
-	@PersistenceContext(unitName = "JPU")
+	
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	@POST

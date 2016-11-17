@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.cdi;
+package br.com.codecode.workix.cdi.producer;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
@@ -15,12 +15,10 @@ import javax.faces.context.FacesContext;
 @ApplicationScoped
 public class FacesContextProducer {
 
-    @Produces
-    @RequestScoped
-    public FacesContext get() {
-    	
-        return FacesContext.getCurrentInstance();
-        
-    }
+	@Produces
+	@RequestScoped
+	public FacesContext getFacesContext() {    	
+		return FacesContext.getCurrentInstance();        
+	}
 
 }

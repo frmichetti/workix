@@ -18,7 +18,7 @@ import br.com.codecode.workix.model.scaffold.User;
 @Path("login")
 public class LoginEndpoint {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	@POST

@@ -28,7 +28,8 @@ import br.com.codecode.workix.model.scaffold.User;
 @Stateless
 @Path("/users")
 public class UserEndpoint {
-	@PersistenceContext(unitName = "JPU")
+	
+	@PersistenceContext(unitName="DefaultPU")
 	private EntityManager em;
 
 	@POST

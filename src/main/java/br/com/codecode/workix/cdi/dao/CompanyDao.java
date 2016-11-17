@@ -11,7 +11,6 @@ import br.com.codecode.workix.model.scaffold.Company;
 /**
  * DAO for Company
  */
-
 @Persist
 public class CompanyDao extends BaseDao implements Crud<Company> {	
 
