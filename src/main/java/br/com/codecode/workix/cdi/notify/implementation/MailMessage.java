@@ -5,12 +5,13 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.cdi.notify;
+package br.com.codecode.workix.cdi.notify.implementation;
 
 import java.io.Serializable;
 
 import javax.inject.Inject;
 
+import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.infra.MailSender;
 import br.com.codecode.workix.model.scaffold.Candidate;

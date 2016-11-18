@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.cdi.notify;
+package br.com.codecode.workix.cdi.notify.implementation;
 
 import java.io.Serializable;
 
@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
 
+import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.util.Http;

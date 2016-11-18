@@ -13,7 +13,6 @@ import br.com.codecode.workix.model.scaffold.Company;
 @Mockup
 public class CompanyDaoMockup extends BasicDaoMockup implements Crud<Company> {
 
-
 	private static final long serialVersionUID = 8018323736641984258L;
 
 	@Override

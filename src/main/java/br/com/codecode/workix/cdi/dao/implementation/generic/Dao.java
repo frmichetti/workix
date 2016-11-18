@@ -7,8 +7,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.producer.DaoProducer;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
-
+/**
+ * Generic Dao Implementation
+ * @see DaoProducer
+ * @author felipe
+ *
+ * @param <T>
+ */
 public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
@@ -58,9 +65,7 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 
 	@Override
 	public void deleteById(Long id) {
-
 		em.remove(findById(id));
-
 	}
 
 	@Override

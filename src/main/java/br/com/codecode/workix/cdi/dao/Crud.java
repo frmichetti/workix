@@ -4,7 +4,13 @@ import java.math.BigInteger;
 import java.util.List;
 
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
-
+/**
+ * Crud Interface for CDI Implementation Uses
+ * @author felipe
+ * @since 1.0
+ * @category Persistence
+ * @param <T>
+ */
 public interface Crud<T extends BasicEntity> {
 
 	public void save(T entity);

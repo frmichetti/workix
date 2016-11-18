@@ -8,7 +8,13 @@
 package br.com.codecode.workix.cdi.notify;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
-
+/**
+ * Notification Interface for CDI Implementation Uses
+ * @author felipe
+ * @since 1.0
+ * @category FeedBack
+ *
+ */
 public interface Notification {
 	
 	void doSendMessage(Candidate to,String title, String body);

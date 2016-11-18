@@ -9,6 +9,11 @@ package br.com.codecode.workix.config;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
-
+/**
+ * Configure Context Path for JaxRs
+ * @see 
+ * @author felipe
+ *
+ */
 @ApplicationPath("services")
-public class JaxRsConfigurationJob extends Application{}
+public class JaxRsConfiguration extends Application{}

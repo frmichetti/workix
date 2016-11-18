@@ -10,7 +10,7 @@ import br.com.codecode.workix.cdi.qualifier.Persist;
 import br.com.codecode.workix.model.scaffold.Candidate;
 
 /**
- * DAO for Candidate
+ * DAO Implementation for Candidate
  */
 @Persist
 public class CandidateDao extends BaseDao implements Crud<Candidate> {
