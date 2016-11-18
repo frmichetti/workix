@@ -1,10 +1,10 @@
-package br.com.codecode.workix.cdi.dao;
+package br.com.codecode.workix.cdi.dao.implementation.mockup;
 
 import java.io.Serializable;
 
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
@@ -17,7 +17,7 @@ public class BasicDaoMockup implements Serializable {
 	@Inject
 	protected MessagesHelper messagesHelper;
 	
-	@PersistenceContext(unitName="DefaultPU")
+	@Inject @Default
 	protected EntityManager em;
 
 }

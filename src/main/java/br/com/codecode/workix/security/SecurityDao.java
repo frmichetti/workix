@@ -9,7 +9,7 @@ package br.com.codecode.workix.security;
 
 import javax.ejb.Stateless;
 
-import br.com.codecode.workix.cdi.dao.BaseDao;
+import br.com.codecode.workix.cdi.dao.implementation.persist.BaseDao;
 
 
 @Stateless

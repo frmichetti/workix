@@ -1,4 +1,4 @@
-package br.com.codecode.workix.cdi.dao;
+package br.com.codecode.workix.cdi.dao.implementation.generic;
 
 import java.io.Serializable;
 import java.math.BigInteger;
@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {

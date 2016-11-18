@@ -8,7 +8,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
-import br.com.codecode.workix.cdi.dao.Dao;
+import br.com.codecode.workix.cdi.dao.implementation.generic.Dao;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Test;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;

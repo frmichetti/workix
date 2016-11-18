@@ -1,4 +1,4 @@
-package br.com.codecode.workix.cdi.dao;
+package br.com.codecode.workix.cdi.dao.implementation.persist;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -8,6 +8,7 @@ import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
 
+import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Persist;
 import br.com.codecode.workix.model.scaffold.User;
 

@@ -1,4 +1,4 @@
-package br.com.codecode.workix.cdi.dao;
+package br.com.codecode.workix.cdi.dao.implementation.persist;
 
 import java.io.Serializable;
 
