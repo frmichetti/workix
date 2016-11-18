@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.transaction.Transactional;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
@@ -20,10 +20,10 @@ import br.com.codecode.workix.model.scaffold.Job;
 @Model
 public class PostAJobMB {
 
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Job> dao;
 	
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Company> companyDao;
 
 	private Job currentJob;
@@ -62,15 +62,9 @@ public class PostAJobMB {
 			currentJob.setCategory(JobCategory.OPERATOR);	
 			currentJob.setEmployeer(employeers.get(3));
 			currentJob.setDescription("WHATEVER TEXT ");			
-			
-			
-			
 		}
 
 	}
-	
-	
-
 	
 	public List<Estate> getEstates() {
 		return estates;

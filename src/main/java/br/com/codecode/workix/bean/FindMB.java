@@ -18,9 +18,7 @@ public class FindMB {
 	public FindMB(){}
 	
 	@PostConstruct
-	public void init(){
-		
-	}
+	private void init(){}
 	
 	public void doFind(){
 		if (!query.equals("")){

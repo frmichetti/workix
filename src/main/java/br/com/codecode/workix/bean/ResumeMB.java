@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.ResumeCompleteDao;
 import br.com.codecode.workix.cdi.notify.Notification;
-import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
@@ -25,8 +25,7 @@ public class ResumeMB implements Serializable {
 
 	private static final long serialVersionUID = 3136618928143380363L;
 
-
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Candidate> dao;
 
 	@Inject 

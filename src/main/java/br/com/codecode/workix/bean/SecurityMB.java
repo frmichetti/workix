@@ -20,9 +20,7 @@ public class SecurityMB implements Serializable{
 	}
 	
 	@PostConstruct
-	public void discoverInput(){
-		
-		
+	public void discoverInput(){		
 		
 	}
 	

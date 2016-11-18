@@ -9,7 +9,7 @@ import javax.inject.Named;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.notify.Notification;
-import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
@@ -22,7 +22,7 @@ public class CandidateDetailsMB implements Serializable {
 	
 	private String messageTitle,messageBody;
 	
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Candidate> dao;
 	
 	@Inject @Push

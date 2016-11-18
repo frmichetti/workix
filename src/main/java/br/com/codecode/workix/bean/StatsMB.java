@@ -5,7 +5,7 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.Job;
@@ -13,15 +13,14 @@ import br.com.codecode.workix.model.scaffold.Job;
 @Model
 public class StatsMB {
 	
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Job> jobDao;
 	
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Company> companyDao;
 	
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Candidate> candidateDao;
-
 	
 	private int counterJobs;
 	
@@ -31,9 +30,7 @@ public class StatsMB {
 	
 	private int counterResumes;
 	
-	public StatsMB() {
-		// TODO Auto-generated constructor stub
-	}
+	public StatsMB(){}
 	
 	@PostConstruct
 	private void init(){

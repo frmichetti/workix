@@ -6,8 +6,6 @@ import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Persist;
 import br.com.codecode.workix.model.scaffold.User;

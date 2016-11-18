@@ -26,9 +26,7 @@ public class FirebaseMB implements Serializable {
 	}
 	
 	@PostConstruct
-	private void init(){
-		
-	}
+	private void init(){}
 
 	public String getName() {		
 		return name;		

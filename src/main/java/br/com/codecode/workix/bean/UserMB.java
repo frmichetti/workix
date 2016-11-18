@@ -14,7 +14,7 @@ import javax.enterprise.inject.Model;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.scaffold.User;
 
 @Model
@@ -22,7 +22,7 @@ public class UserMB implements Serializable {
 
 	private static final long serialVersionUID = -5397549790844672393L;	
 	
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<User> userDao;
 	
 	private User activeObject;

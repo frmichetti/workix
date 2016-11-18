@@ -11,7 +11,7 @@ import javax.inject.Inject;
 import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.scaffold.Job;
 
 @Model
@@ -20,7 +20,7 @@ public class JobsMB {
 	@Inject
 	private FacesContext facesContext;	
 
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Job> dao;
 
 	private DataModel<?> list;
