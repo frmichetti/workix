@@ -7,7 +7,7 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Persist;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.scaffold.User;
 
 @Model
@@ -18,7 +18,7 @@ public class RegisterMB implements Serializable {
 	@Inject
 	private FacesContext facescontext;
 
-	@Inject @Persist
+	@Inject @Generic
 	private Crud<User> dao;
 
 	@Inject

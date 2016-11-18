@@ -23,8 +23,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @since 1.0
  * @version
  */
-@Table(name="JAAS_User")
+
 @Entity
+@Table(name="JAAS_User")
 @XmlRootElement
 public class JAASUser implements Serializable {
 

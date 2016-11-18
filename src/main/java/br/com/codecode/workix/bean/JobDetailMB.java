@@ -5,14 +5,14 @@ import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Job;
 
 @Model
 public class JobDetailMB {
 	
-	@Inject @Mockup
+	@Inject @Generic
 	private Crud<Job> dao;
 	
 	private Long id;

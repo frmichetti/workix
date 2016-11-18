@@ -22,10 +22,11 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 
+import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.scaffold.Company;
 
 /**
- * 
+ * @see JaxRsConfiguration
  */
 @Stateless
 @Path("companies")

@@ -24,6 +24,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,6 +35,7 @@ import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class SelectiveProcess extends Observable implements Observer, BasicEntity, Serializable{
 
 	private static final long serialVersionUID = -5336099006523168288L;

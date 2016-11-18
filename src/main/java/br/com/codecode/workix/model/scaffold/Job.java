@@ -17,6 +17,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -29,6 +31,7 @@ import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Job extends Loggable implements BasicEntity {
 
 	private static final long serialVersionUID = 2246753300384053586L;

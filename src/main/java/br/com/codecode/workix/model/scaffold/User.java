@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
@@ -16,6 +18,7 @@ import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User extends Loggable implements BasicEntity{
 
 	private static final long serialVersionUID = -610648880358327958L;
@@ -54,7 +57,6 @@ public class User extends Loggable implements BasicEntity{
 	public void setId(final Long id) {
 		this.id = id;
 	}	
-	
 	
 
 	public boolean isActive() {

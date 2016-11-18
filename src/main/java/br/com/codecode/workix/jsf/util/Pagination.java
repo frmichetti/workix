@@ -1,5 +1,9 @@
 package br.com.codecode.workix.jsf.util;
-
+/**
+ * TODO Pagination for Pages
+ * @author felipe
+ *
+ */
 public class Pagination {		
 
 	/**

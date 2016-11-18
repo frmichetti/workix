@@ -12,11 +12,16 @@ import javax.ws.rs.core.Response;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.Resume;
 import br.com.codecode.workix.model.scaffold.User;
 
-
+/**
+ * @see JaxRsConfiguration
+ * @author felipe
+ *
+ */
 @Path("save")
 public class SaveOrUpdateEndpoint {
 	

@@ -1,5 +1,9 @@
 package br.com.codecode.workix.model.enums;
-
+/**
+ * Possible States of Brazil
+ * @author felipe
+ *
+ */
 public enum Estate {
 	AC,	 
 	AL,	 

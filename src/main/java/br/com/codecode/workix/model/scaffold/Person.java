@@ -5,6 +5,8 @@ import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -13,6 +15,7 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 @MappedSuperclass
+@XmlAccessorType(XmlAccessType.FIELD)
 public abstract class Person extends Loggable implements BasicEntity {
 
 	private static final long serialVersionUID = 703693002246144451L;
