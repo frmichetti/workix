@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producer.DaoProducer;
@@ -16,6 +17,7 @@ import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
  *
  * @param <T>
  */
+@SuppressWarnings("unchecked")
 public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
@@ -68,16 +70,28 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 		em.remove(findById(id));
 	}
 
+	
 	@Override
 	public List<T> listAll(Integer start, Integer end) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		TypedQuery<?> findAllQuery = em.createQuery(
+				"SELECT DISTINCT x FROM " + clazz.getSimpleName() + " x ORDER BY x.id",
+				clazz);
+		
+		if (start != null) {
+			findAllQuery.setFirstResult(start);
+		}
+		
+		if (end != null) {
+			findAllQuery.setMaxResults(end);
+		}
+		
+		return (List<T>) findAllQuery.getResultList();
 	}
 
 	@Override
 	public BigInteger countRegisters() {
-		// TODO Auto-generated method stub
-		return null;
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + clazz.getSimpleName()).getSingleResult();
 	}
 
 
