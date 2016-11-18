@@ -20,7 +20,7 @@ public class UserDaoMockup extends BasicDaoMockup implements Crud<User> {
 	private Event<User> alertNewUser;
 
 	@Override
-	public void create(User entity) {		
+	public void save(User entity) {		
 
 		alertNewUser.fire(entity);
 		

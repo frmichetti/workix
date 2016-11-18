@@ -17,7 +17,7 @@ public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProces
 	private static final long serialVersionUID = 5942334208981147237L;
 
 	@Override
-	public void create(SelectiveProcess entity) {
+	public void save(SelectiveProcess entity) {
 		em.persist(entity);
 	}
 	

@@ -1,12 +1,13 @@
 package br.com.codecode.workix.cdi.dao;
 
-import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.List;
 
-public interface Crud<T extends Serializable> {
+import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
-	public void create(T entity);
+public interface Crud<T extends BasicEntity> {
+
+	public void save(T entity);
 	
 	public T update(T entity);
 	

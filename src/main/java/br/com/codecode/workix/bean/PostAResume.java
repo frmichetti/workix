@@ -62,7 +62,7 @@ public class PostAResume {
 	@Transactional
 	public void commit(){		
 
-		dao.create(currentResume);		
+		dao.save(currentResume);		
 
 	}
 	

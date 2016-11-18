@@ -20,7 +20,7 @@ public class CandidateDaoMockup extends BasicDaoMockup implements Crud<Candidate
 	private Event<Candidate> alertNewVisit;
 
 	@Override
-	public void create(Candidate entity) {
+	public void save(Candidate entity) {
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Salvo com Sucesso!"));		
 	}
 

@@ -24,7 +24,7 @@ public class UserDao extends BaseDao implements Crud<User>{
 	private Event<User> alertNewUser;
 	
 	@Override
-	public void create(User entity) {
+	public void save(User entity) {
 		
 		em.persist(entity);
 		

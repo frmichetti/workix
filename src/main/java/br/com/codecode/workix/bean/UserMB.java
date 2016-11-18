@@ -45,7 +45,7 @@ public class UserMB implements Serializable {
 	
 	
 	public void save(){
-		userDao.create(activeObject);
+		userDao.save(activeObject);
 	}
 	
 

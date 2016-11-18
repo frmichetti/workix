@@ -10,7 +10,8 @@ import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.dao.Dao;
 import br.com.codecode.workix.cdi.qualifier.Generic;
-import br.com.codecode.workix.cdi.qualifier.Production;
+import br.com.codecode.workix.cdi.qualifier.Test;
+import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 /**
  * Factory for Generic {@link Dao} Injection
@@ -22,16 +23,16 @@ import br.com.codecode.workix.cdi.qualifier.Production;
 public class DaoProducer {	
 	
 	/**
-	 * May Change for {@link @Production} or {@link @Test} 
+	 * MAY Change for {@link @Production} or {@link @Test} 
 	 * Default is Test
 	 */
-	@Inject @Production
+	@Inject @Test
 	private EntityManager em;	
 			
 	@Produces
 	@Dependent
 	@Generic
-	public <T> Dao<T> getDao(InjectionPoint injectionPoint) {		
+	public <T extends BasicEntity> Dao<T> getDao(InjectionPoint injectionPoint) {		
 
 		ParameterizedType type = (ParameterizedType) injectionPoint.getType();
 

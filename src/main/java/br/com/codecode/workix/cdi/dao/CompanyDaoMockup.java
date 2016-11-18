@@ -16,7 +16,7 @@ public class CompanyDaoMockup extends BasicDaoMockup implements Crud<Company> {
 	private static final long serialVersionUID = 8018323736641984258L;
 
 	@Override
-	public void create(Company entity) {
+	public void save(Company entity) {
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Salvo com Sucesso!"));	
 		
 	}

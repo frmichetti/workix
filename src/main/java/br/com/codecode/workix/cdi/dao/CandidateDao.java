@@ -18,7 +18,7 @@ public class CandidateDao extends BaseDao implements Crud<Candidate> {
 	
 	
 	@Override
-	public void create(Candidate entity) {
+	public void save(Candidate entity) {
 		em.persist(entity);
 	}
 

@@ -24,7 +24,7 @@ public class ResumeDao extends BaseDao implements Crud<Resume>{
 	private Event<Resume> alertNewResume;
 	
 	@Override
-	public void create(Resume entity) {
+	public void save(Resume entity) {
 		
 		em.persist(entity);
 		

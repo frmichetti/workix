@@ -17,7 +17,7 @@ public class JobDao extends BaseDao implements Crud<Job>{
 	private static final long serialVersionUID = 4029639665489024760L;
 	
 	@Override
-	public void create(Job entity) {
+	public void save(Job entity) {
 		em.persist(entity);
 	}
 

@@ -15,7 +15,7 @@ public class JobDaoMockup extends BasicDaoMockup implements Crud<Job> {
 	private static final long serialVersionUID = -7524434066008227524L;
 
 	@Override
-	public void create(Job entity) {
+	public void save(Job entity) {
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getTitle() + " Salvo com Sucesso!"));		
 		
 	}

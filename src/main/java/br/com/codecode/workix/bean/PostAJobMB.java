@@ -95,7 +95,7 @@ public class PostAJobMB {
 	@Transactional
 	public void commit(){		
 
-		dao.create(currentJob);		
+		dao.save(currentJob);		
 
 	}
 

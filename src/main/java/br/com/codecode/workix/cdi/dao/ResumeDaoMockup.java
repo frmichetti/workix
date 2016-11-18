@@ -20,7 +20,7 @@ public class ResumeDaoMockup extends BasicDaoMockup implements Crud<Resume> {
 	private Event<Resume> alertNewResume;
 
 	@Override
-	public void create(Resume entity) {
+	public void save(Resume entity) {
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getObjective() + " Salvo com Sucesso!"));
 		
 		alertNewResume.fire(entity);

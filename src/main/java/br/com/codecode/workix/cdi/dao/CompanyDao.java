@@ -17,7 +17,7 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 	private static final long serialVersionUID = -6997728484075279219L;
 
 	@Override
-	public void create(Company entity) {
+	public void save(Company entity) {
 		em.persist(entity);
 	}
 
