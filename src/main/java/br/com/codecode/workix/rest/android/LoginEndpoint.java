@@ -1,8 +1,9 @@
 package br.com.codecode.workix.rest.android;
 
+import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -18,7 +19,7 @@ import br.com.codecode.workix.model.scaffold.User;
 @Path("login")
 public class LoginEndpoint {
 
-	@PersistenceContext(unitName="DefaultPU")
+	@Inject @Default
 	private EntityManager em;
 
 	@POST

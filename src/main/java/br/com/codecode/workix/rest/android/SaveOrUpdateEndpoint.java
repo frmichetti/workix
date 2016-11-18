@@ -11,7 +11,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Persist;
+import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.Resume;
 import br.com.codecode.workix.model.scaffold.User;
@@ -23,13 +23,13 @@ public class SaveOrUpdateEndpoint {
 	@Inject
 	private Event<User> alertNewUser;
 
-	@Inject	@Persist
+	@Inject	@Generic
 	private Crud<User> daoUser;
 	
-	@Inject @Persist
+	@Inject @Generic
 	private Crud<Candidate> daoCandidate;
 	
-	@Inject @Persist
+	@Inject @Generic
 	private Crud<Resume> daoResume;
 	
 	@Path("user")

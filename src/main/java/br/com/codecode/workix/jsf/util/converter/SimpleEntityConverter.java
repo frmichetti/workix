@@ -16,9 +16,6 @@ import javax.faces.convert.FacesConverter;
 
 import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
-
-
-
 @FacesConverter("SimpleEntityConverter")
 public class SimpleEntityConverter implements Converter {  
 	  

@@ -8,10 +8,10 @@
 package br.com.codecode.workix.model.scaffold.interfaces;
 
 /**
- * Its only for works with Simple Entity Manager
- * and Another Entity Converter to JSF
- * {@link} AnotherEntityConverter
- * {@link} SimpleEntityConverter
+ * Its only for works with {@link} SimpleEntityConverter
+ * and {@link} AnotherEntityConverter to JSF
+ * 
+ * 
  * @author Felipe Rodrigues Michetti
  *
  */

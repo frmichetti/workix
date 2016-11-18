@@ -3,10 +3,11 @@ package br.com.codecode.workix.rest.scaffold;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -20,16 +21,17 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
+
 import br.com.codecode.workix.model.scaffold.Company;
 
 /**
  * 
  */
 @Stateless
-@Path("/companies")
+@Path("companies")
 public class CompanyEndpoint {
 	
-	@PersistenceContext(unitName="DefaultPU")
+	@Inject @Default
 	private EntityManager em;
 
 	@POST

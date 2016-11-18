@@ -3,11 +3,11 @@ package br.com.codecode.workix.rest.scaffold;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
-import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -28,10 +28,10 @@ import br.com.codecode.workix.model.scaffold.Candidate;
  * 
  */
 @Stateless
-@Path("/candidates")
+@Path("candidates")
 public class CandidateEndpoint {
 	
-	@PersistenceContext(unitName="DefaultPU")
+	@Inject @Default
 	private EntityManager em;
 
 	@POST

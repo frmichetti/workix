@@ -20,10 +20,13 @@ public class EntityManagerProducer implements Serializable {
 	private static final long serialVersionUID = -1826763804778726145L;
 	
 	@PersistenceUnit(unitName = "ProductionDS")
-	private EntityManagerFactory emfProduction ;
+	private EntityManagerFactory emfProduction;
 	
 	@PersistenceUnit(unitName = "TestDS")
-	private EntityManagerFactory emfTest ;
+	private EntityManagerFactory emfTest;
+	
+	@PersistenceUnit(unitName = "DefaultPU")
+	private EntityManagerFactory emfDefault;
 	
 	@Produces
 	@RequestScoped
@@ -34,10 +37,16 @@ public class EntityManagerProducer implements Serializable {
 	
 	@Produces
 	@RequestScoped
-	@Test
-	@Default
+	@Test	
 	public EntityManager getTestEntityManager() {
 		return emfTest.createEntityManager();
+	}	
+
+	@Produces
+	@RequestScoped	
+	@Default
+	public EntityManager getDefaultEntityManager() {
+		return emfDefault.createEntityManager();
 	}
 
 	public void close(@Disposes EntityManager em) {
