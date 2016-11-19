@@ -24,7 +24,6 @@ import com.google.gson.reflect.TypeToken;
 import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
-import br.com.codecode.workix.tests.util.HttpConfig;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 
@@ -35,9 +34,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version
  */
-public class PopulateCompanyTest {	
-
-	private String server = HttpConfig.JAVAEE_PROJ_TEST;
+public class PopulateCompanyTest  extends BaseTest {	
 
 	private List<Company> companies ;
 

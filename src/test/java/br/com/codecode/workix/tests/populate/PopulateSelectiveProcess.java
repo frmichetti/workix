@@ -1,7 +1,8 @@
 package br.com.codecode.workix.tests.populate;
 
-import static org.junit.Assert.*;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +17,6 @@ import com.google.gson.reflect.TypeToken;
 import br.com.codecode.workix.model.scaffold.Job;
 import br.com.codecode.workix.model.scaffold.SelectiveProcess;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
-import br.com.codecode.workix.tests.util.HttpConfig;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
@@ -24,9 +24,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @author felipe
  *
  */
-public class PopulateSelectiveProcess {
-
-	private String server = HttpConfig.JAVAEE_PROJ_TEST;
+public class PopulateSelectiveProcess extends BaseTest {
 
 	private String resp;
 

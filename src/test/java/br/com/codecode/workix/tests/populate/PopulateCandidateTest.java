@@ -11,7 +11,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +24,6 @@ import com.google.gson.reflect.TypeToken;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
-import br.com.codecode.workix.tests.util.HttpConfig;
 import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * 
@@ -36,9 +34,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @version
  *
  */
-public class PopulateCandidateTest {
-	
-	private String server = HttpConfig.JAVAEE_PROJ_TEST;
+public class PopulateCandidateTest extends BaseTest {
 
 	private List<Candidate> candidates;
 

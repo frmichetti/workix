@@ -19,12 +19,9 @@ import br.com.codecode.workix.model.scaffold.Experience;
 import br.com.codecode.workix.model.scaffold.Resume;
 import br.com.codecode.workix.model.scaffold.Skill;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
-import br.com.codecode.workix.tests.util.HttpConfig;
 import br.com.codecode.workix.tests.util.HttpTest;
 
-public class PopulateResume {
-
-	private String server = HttpConfig.JAVAEE_PROJ_TEST;
+public class PopulateResume extends BaseTest {
 
 	private String resp;
 

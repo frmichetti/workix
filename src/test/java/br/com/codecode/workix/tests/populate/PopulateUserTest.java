@@ -8,6 +8,7 @@
 package br.com.codecode.workix.tests.populate;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
@@ -16,12 +17,10 @@ import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 import com.google.gson.GsonBuilder;
 
 import br.com.codecode.workix.model.scaffold.User;
-import br.com.codecode.workix.tests.util.HttpConfig;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
@@ -31,9 +30,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version
  */
-public class PopulateUserTest{
-	
-	private String server = HttpConfig.JAVAEE_PROJ_TEST;
+public class PopulateUserTest extends BaseTest{
 
 	private List<User> users;
 

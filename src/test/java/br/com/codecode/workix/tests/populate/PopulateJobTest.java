@@ -26,7 +26,6 @@ import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.Job;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
-import br.com.codecode.workix.tests.util.HttpConfig;
 import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * 
@@ -37,10 +36,8 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @version
  *
  */
-public class PopulateJobTest {
+public class PopulateJobTest extends BaseTest {
 	
-	private String server = HttpConfig.JAVAEE_PROJ_TEST;
-
 	private List<Company> companies;
 
 	private List<Job> jobs;	

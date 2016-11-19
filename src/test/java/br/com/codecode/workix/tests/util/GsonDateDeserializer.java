@@ -22,8 +22,7 @@ public class GsonDateDeserializer implements JsonDeserializer<Date> {
 	
 		Long date = element.getAsLong();	
 			
-		return new Date(date);
-			
+		return new Date(date);			
 		
 	}
 
