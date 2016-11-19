@@ -17,7 +17,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement

@@ -17,6 +17,8 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import br.com.codecode.workix.model.interfaces.Traceable;
+
 
 /**
  * Common Fields for Persistent Entity
@@ -25,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 @MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class Loggable implements Serializable {
+public abstract class Loggable implements Traceable, Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;
 
@@ -55,30 +57,32 @@ public abstract class Loggable implements Serializable {
 	public Loggable(){}
 	
 	@PrePersist
-	private void prepareToPersist(){
-		insertTimeStamp();
-		generateUUID();		
+	@Override
+	public void prepareToPersist(){
+		Traceable.super.prepareToPersist();	
 	}
 
-	
-	private void generateUUID(){
+	@Override
+	public void generateUUID(){
 		uuid = UUID.randomUUID().toString();
 	}
 
-	
-	private void insertTimeStamp(){
+	@Override
+	public void insertTimeStamp(){
 		createdAt = new Date();
 	}
 
 	@PreUpdate
-	private void updateTimeStamp(){
+	@Override
+	public void updateTimeStamp(){
 		updatedAt = new Date();
 	}
 	
 	private int getVersion() {
 		return version;
 	}
-
+	
+	
 	private void setVersion(int version) {
 		this.version = version;
 	}

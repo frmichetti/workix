@@ -10,8 +10,8 @@ import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.dao.implementation.generic.Dao;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.model.interfaces.BasicEntity;
 import br.com.codecode.workix.cdi.qualifier.Development;
-import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
 
 /**
  * Factory for Generic {@link Dao} Injection

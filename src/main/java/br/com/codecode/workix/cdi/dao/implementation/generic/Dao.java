@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producer.DaoProducer;
-import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BasicEntity;
 /**
  * Generic Dao Implementation
  * @see DaoProducer

@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.model.scaffold.interfaces;
+package br.com.codecode.workix.model.interfaces;
 
 /**
  * Its only for works with {@link} SimpleEntityConverter

@@ -31,7 +31,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BasicEntity;
 
 @Entity
 @XmlRootElement

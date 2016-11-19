@@ -3,7 +3,7 @@ package br.com.codecode.workix.cdi.dao;
 import java.math.BigInteger;
 import java.util.List;
 
-import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BasicEntity;
 /**
  * Crud Interface for CDI Implementation Uses
  * @author felipe

@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import br.com.codecode.workix.model.scaffold.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BasicEntity;
 
 @FacesConverter("SimpleEntityConverter")
 public class SimpleEntityConverter implements Converter {  
