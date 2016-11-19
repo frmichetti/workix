@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="DefaultPU" transaction-type="JTA">
-		<description>Persistence Unit for Local MySQL Database</description>
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+	 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+
+	<persistence-unit name="MySQLDS" transaction-type="JTA">
+		<description>Persistence Unit for OpenShift</description>
 		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>				
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
@@ -11,21 +13,21 @@
 		</properties>
 	</persistence-unit>	
 	
-	<persistence-unit name="TestDS" transaction-type="JTA">
-		<description>Test Persistence Unit</description>
+	<persistence-unit name="DevDS" transaction-type="JTA">
+		<description>Development Persistence Unit</description>
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>java:/TestDS</jta-data-source>
+		<jta-data-source>java:/DevDS</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>			
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
 		</properties>
 	</persistence-unit>
 
-	<persistence-unit name="ProductionDS"
+	<persistence-unit name="ProdDS"
 		transaction-type="JTA">
-		<description>Forge Persistence Unit</description>
+		<description>Production Persistence Unit</description>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<jta-data-source>java:/ProductionDS</jta-data-source>
+		<jta-data-source>java:/ProdDS</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>			
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />

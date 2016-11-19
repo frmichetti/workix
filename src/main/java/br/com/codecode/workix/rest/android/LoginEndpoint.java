@@ -1,8 +1,5 @@
 package br.com.codecode.workix.rest.android;
 
-import javax.enterprise.inject.Default;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -15,6 +12,7 @@ import javax.ws.rs.core.Response.Status;
 import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.rest.scaffold.BaseEndpoint;
 
 /**
  * @see JaxRsConfiguration
@@ -22,10 +20,7 @@ import br.com.codecode.workix.model.scaffold.User;
  *
  */
 @Path("login")
-public class LoginEndpoint {
-
-	@Inject @Default
-	private EntityManager em;
+public class LoginEndpoint extends BaseEndpoint {
 
 	@POST
 	@Path("firebaselogin")

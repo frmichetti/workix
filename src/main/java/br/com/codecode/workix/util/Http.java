@@ -16,7 +16,11 @@ import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-
+/**
+ * HTTP Request for Firebase
+ * @author felipe
+ *
+ */
 public class Http implements Serializable {
 
 	private static final long serialVersionUID = 17758102869840354L;

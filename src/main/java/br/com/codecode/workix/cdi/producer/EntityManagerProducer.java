@@ -12,46 +12,80 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 
 import br.com.codecode.workix.cdi.qualifier.Production;
-import br.com.codecode.workix.cdi.qualifier.Test;
+import br.com.codecode.workix.cdi.qualifier.Development;
+import br.com.codecode.workix.cdi.qualifier.OpenShift;
 
 @ApplicationScoped
 public class EntityManagerProducer implements Serializable {
 
 	private static final long serialVersionUID = -1826763804778726145L;
 	
-	@PersistenceUnit(unitName = "ProductionDS")
-	private EntityManagerFactory emfProduction;
+	@PersistenceUnit(unitName = "ProdDS")
+	private EntityManagerFactory emfProd;
 	
-	@PersistenceUnit(unitName = "TestDS")
-	private EntityManagerFactory emfTest;
+	@PersistenceUnit(unitName = "DevDS")
+	private EntityManagerFactory emfDev;
 	
-	@PersistenceUnit(unitName = "DefaultPU")
-	private EntityManagerFactory emfDefault;
+	@PersistenceUnit(unitName = "MySQLDS")
+	private EntityManagerFactory emfOpenShift;	
 	
 	@Produces
 	@RequestScoped
 	@Production	
-	public EntityManager getProductionEntityManager() {
-		return emfProduction.createEntityManager();
+	public EntityManager getProdEntityManager() {
+		return emfProd.createEntityManager();
 	}
 	
 	@Produces
 	@RequestScoped
-	@Test	
-	public EntityManager getTestEntityManager() {
-		return emfTest.createEntityManager();
+	@Development	
+	public EntityManager getDevEntityManager() {
+		return emfDev.createEntityManager();
+	}	
+	
+	@Produces
+	@RequestScoped
+	@OpenShift	
+	public EntityManager getOpenShiftEntityManager() {
+		return emfOpenShift.createEntityManager();
 	}	
 
 	@Produces
 	@RequestScoped	
 	@Default
 	public EntityManager getDefaultEntityManager() {
-		return emfDefault.createEntityManager();
+		
+		System.out.println("INIT PARAM >> " + getInitParam());
+
+		EntityManagerFactory emf = null;
+
+		if (getInitParam().equals("Production")){	
+			
+			emf = emfProd;
+
+		}else if (getInitParam().equals("Development")){
+			
+			emf = emfDev;
+
+		}else{
+			throw new RuntimeException("Init Param is NULL or Undefined");
+		}
+		
+		return emf.createEntityManager();
 	}
 
 	public void close(@Disposes EntityManager em) {
 		if (em.isOpen()) {
 			em.close();
 		}
+	}
+	
+	/**
+	 * TODO GET WEBINF PARAM
+	 * @return
+	 */
+	private String getInitParam(){
+		
+		return "Development";
 	}
 }

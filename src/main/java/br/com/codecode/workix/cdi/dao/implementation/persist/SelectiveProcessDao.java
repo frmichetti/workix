@@ -10,7 +10,7 @@ import br.com.codecode.workix.cdi.qualifier.Persist;
 import br.com.codecode.workix.model.scaffold.SelectiveProcess;
 
 /**
- * DAO for SelectiveProcess
+ * DAO for Selective Process
  */
 @Persist
 public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProcess> {

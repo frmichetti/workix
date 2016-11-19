@@ -15,4 +15,4 @@ import javax.inject.Qualifier;
 @Target({ METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)
 @Documented
-public @interface Test{}
+public @interface Development{}

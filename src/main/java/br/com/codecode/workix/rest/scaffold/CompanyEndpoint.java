@@ -3,9 +3,6 @@ package br.com.codecode.workix.rest.scaffold;
 import java.util.List;
 
 import javax.ejb.Stateless;
-import javax.enterprise.inject.Default;
-import javax.inject.Inject;
-import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
 import javax.persistence.TypedQuery;
@@ -30,15 +27,14 @@ import br.com.codecode.workix.model.scaffold.Company;
  */
 @Stateless
 @Path("companies")
-public class CompanyEndpoint {
-	
-	@Inject @Default
-	private EntityManager em;
+public class CompanyEndpoint extends BaseEndpoint {
 
 	@POST
 	@Consumes("application/json")
 	public Response create(Company entity) {
+	
 		em.persist(entity);
+		
 		return Response.created(
 				UriBuilder.fromResource(CompanyEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
@@ -47,11 +43,15 @@ public class CompanyEndpoint {
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") Long id) {
+	
 		Company entity = em.find(Company.class, id);
+		
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
+		
 		em.remove(entity);
+		
 		return Response.noContent().build();
 	}
 
@@ -59,20 +59,26 @@ public class CompanyEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") Long id) {
-		TypedQuery<Company> findByIdQuery = em
-				.createQuery(
+		
+		TypedQuery<Company> findByIdQuery = 
+				em.createQuery(
 						"SELECT DISTINCT c FROM Company c WHERE c.id = :entityId ORDER BY c.id",
 						Company.class);
+		
 		findByIdQuery.setParameter("entityId", id);
+		
 		Company entity;
+		
 		try {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
-			entity = null;
+			entity = null;		
 		}
+		
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
+		
 		return Response.ok(entity).build();
 	}
 
@@ -80,16 +86,20 @@ public class CompanyEndpoint {
 	@Produces("application/json")
 	public List<Company> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
-		TypedQuery<Company> findAllQuery = em
-				.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
+		
+		TypedQuery<Company> findAllQuery = 
+				em.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
 						Company.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
+		
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
+		
 		final List<Company> results = findAllQuery.getResultList();
+		
 		return results;
 	}
 
@@ -97,18 +107,23 @@ public class CompanyEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
 	public Response update(@PathParam("id") Long id, Company entity) {
+		
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
+		
 		if (id == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
+		
 		if (!id.equals(entity.getId())) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
+		
 		if (em.find(Company.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
+		
 		try {
 			entity = em.merge(entity);
 		} catch (OptimisticLockException e) {
