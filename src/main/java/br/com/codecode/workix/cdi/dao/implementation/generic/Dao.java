@@ -33,7 +33,7 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 		this.clazz = clazz;
 		this.em = em;
 
-		System.out.println("Dao.Dao(" + clazz.getSimpleName() + ")");
+		System.out.println("[CDI] - Dao(" + clazz.getSimpleName() + ")");
 		System.out.println("Entity Manager Hash -> " + em.hashCode());
 	}
 
@@ -70,22 +70,33 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 		em.remove(findById(id));
 	}
 
-	
+	@Override
+	public T findByUuid(String uuid) {
+
+		String jpql = "SELECT x FROM " + clazz.getSimpleName() + "x WHERE x.uuid = :uuid";
+
+		return em.createQuery(jpql,clazz).
+				setParameter("uuid",uuid).getSingleResult() ;
+
+
+	}
+
+
 	@Override
 	public List<T> listAll(Integer start, Integer end) {
-		
+
 		TypedQuery<?> findAllQuery = em.createQuery(
 				"SELECT DISTINCT x FROM " + clazz.getSimpleName() + " x ORDER BY x.id",
 				clazz);
-		
+
 		if (start != null) {
 			findAllQuery.setFirstResult(start);
 		}
-		
+
 		if (end != null) {
 			findAllQuery.setMaxResults(end);
 		}
-		
+
 		return (List<T>) findAllQuery.getResultList();
 	}
 
@@ -93,6 +104,8 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + clazz.getSimpleName()).getSingleResult();
 	}
+
+
 
 
 

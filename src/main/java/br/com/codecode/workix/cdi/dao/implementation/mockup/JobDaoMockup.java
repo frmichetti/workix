@@ -62,4 +62,10 @@ public class JobDaoMockup extends BasicDaoMockup implements Crud<Job> {
 		return null;
 	}
 
+	@Override
+	public Job findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -64,4 +64,10 @@ public class CompanyDaoMockup extends BasicDaoMockup implements Crud<Company> {
 		return null;
 	}
 
+	@Override
+	public Company findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

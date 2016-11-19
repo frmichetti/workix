@@ -81,4 +81,10 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 		return entity;
 
 	}
+
+	@Override
+	public Company findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

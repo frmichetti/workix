@@ -83,5 +83,11 @@ public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProces
 		return entity;
 
 	}
+
+	@Override
+	public SelectiveProcess findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

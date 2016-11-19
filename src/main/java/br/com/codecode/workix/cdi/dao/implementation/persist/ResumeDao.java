@@ -91,4 +91,10 @@ public class ResumeDao extends BaseDao implements Crud<Resume>{
 		return entity;
 
 	}
+
+	@Override
+	public Resume findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

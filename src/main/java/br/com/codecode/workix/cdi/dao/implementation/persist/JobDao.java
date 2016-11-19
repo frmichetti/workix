@@ -80,4 +80,10 @@ public class JobDao extends BaseDao implements Crud<Job>{
 		return entity;
 
 	}
+
+	@Override
+	public Job findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

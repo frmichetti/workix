@@ -77,4 +77,10 @@ public class CandidateDaoMockup extends BasicDaoMockup implements Crud<Candidate
 		return null;
 	}
 
+	@Override
+	public Candidate findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

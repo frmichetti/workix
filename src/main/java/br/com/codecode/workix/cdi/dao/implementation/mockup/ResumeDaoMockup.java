@@ -69,4 +69,10 @@ public class ResumeDaoMockup extends BasicDaoMockup implements Crud<Resume> {
 		return null;
 	}
 
+	@Override
+	public Resume findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -22,6 +22,8 @@ public interface Crud<T extends BasicEntity> {
 	public void deleteById(Long id);
 
 	public T findById(Long id);	
+	
+	public T findByUuid(String uuid);
 
 	public List<T> listAll(Integer start, Integer end);
 	

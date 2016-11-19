@@ -91,6 +91,12 @@ public class UserDao extends BaseDao implements Crud<User>{
 		return entity;
 
 	}
+
+	@Override
+	public User findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }

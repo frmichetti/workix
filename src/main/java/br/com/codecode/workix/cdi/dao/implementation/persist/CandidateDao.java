@@ -86,5 +86,11 @@ public class CandidateDao extends BaseDao implements Crud<Candidate> {
 
 	}
 
+	@Override
+	public Candidate findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

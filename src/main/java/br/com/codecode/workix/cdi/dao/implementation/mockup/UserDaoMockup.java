@@ -70,4 +70,10 @@ public class UserDaoMockup extends BasicDaoMockup implements Crud<User> {
 		return null;
 	}
 
+	@Override
+	public User findByUuid(String uuid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
