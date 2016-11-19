@@ -15,6 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
@@ -30,7 +31,7 @@ import br.com.codecode.workix.model.scaffold.Candidate;
 public class CandidateEndpoint extends BaseEndpoint {
 
 	@POST
-	@Consumes("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(Candidate entity) {
 
 		em.persist(entity);
@@ -57,7 +58,7 @@ public class CandidateEndpoint extends BaseEndpoint {
 
 	@GET
 	@Path("/{id:[0-9][0-9]*}")
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response findById(@PathParam("id") Long id) {
 		
 		TypedQuery<Candidate> findByIdQuery = em
@@ -81,7 +82,7 @@ public class CandidateEndpoint extends BaseEndpoint {
 	}
 
 	@GET
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Candidate> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
 		TypedQuery<Candidate> findAllQuery = em.createQuery(
@@ -99,7 +100,7 @@ public class CandidateEndpoint extends BaseEndpoint {
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
-	@Consumes("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response update(@PathParam("id") Long id, Candidate entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();

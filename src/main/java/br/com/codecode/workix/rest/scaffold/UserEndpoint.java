@@ -15,6 +15,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
@@ -30,7 +31,7 @@ import br.com.codecode.workix.model.scaffold.User;
 public class UserEndpoint extends BaseEndpoint {
 
 	@POST
-	@Consumes("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(User entity) {
 		
 		em.persist(entity);
@@ -57,7 +58,7 @@ public class UserEndpoint extends BaseEndpoint {
 
 	@GET
 	@Path("/{id:[0-9][0-9]*}")
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public Response findById(@PathParam("id") Long id) {
 		
 		TypedQuery<User> findByIdQuery = em
@@ -82,7 +83,7 @@ public class UserEndpoint extends BaseEndpoint {
 	}
 
 	@GET
-	@Produces("application/json")
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<User> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
 		
@@ -103,7 +104,7 @@ public class UserEndpoint extends BaseEndpoint {
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
-	@Consumes("application/json")
+	@Consumes(MediaType.APPLICATION_JSON)
 	public Response update(@PathParam("id") Long id, User entity) {
 		
 		if (entity == null) {
