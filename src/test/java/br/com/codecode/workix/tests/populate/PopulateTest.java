@@ -11,7 +11,7 @@ import br.com.codecode.workix.tests.util.HttpConfig;
 
 public interface PopulateTest {
 	
-	String server = HttpConfig.JAVAEE_PROJ_PROD;
+	String server = HttpConfig.JAVAEE_PROJ_TEST;
 	
 	void create();
 	

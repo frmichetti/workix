@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.populate.gson;
+package br.com.codecode.workix.tests.populate;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

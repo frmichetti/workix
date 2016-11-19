@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.scaffold;
+package br.com.codecode.workix.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -33,7 +33,7 @@ public abstract class Loggable implements Serializable {
 	@JsonIgnore
 	@Version
 	@Column
-	private int version;
+	private transient int version;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@XmlTransient
