@@ -12,7 +12,7 @@ import javax.ejb.Timer;
 @Singleton
 @Startup
 public class TimerBean {
-	
+		
 	private Timer timer;
 
 	@PostConstruct
@@ -28,6 +28,8 @@ public class TimerBean {
 	public void destroy() {
 		
 		System.out.println("[TimerBean] Finalizando agendamento ...");
+		
+		if(timer != null)
 		
 		timer.cancel();
 	}

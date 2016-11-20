@@ -1,5 +1,10 @@
 package br.com.codecode.workix.model.interfaces;
 
+/**
+ * Mark Interface for Loggable 
+ * @author felipe
+ *
+ */
 public interface Traceable {
 
 	/**

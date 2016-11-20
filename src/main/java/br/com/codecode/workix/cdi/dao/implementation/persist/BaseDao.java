@@ -5,6 +5,7 @@ import java.io.Serializable;
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+
 /**
  * Only for Share Entity Manager
  * @author felipe
