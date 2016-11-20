@@ -1,16 +1,18 @@
 package br.com.codecode.workix.jsf.util;
+
 /**
- * TODO Pagination for Pages
+ * Pagination Helper
  * @author felipe
+ * @version 1.0
  *
  */
 public class Pagination {		
 
 	/**
-	 * 
+	 * Discover Total Pages
 	 * @param limitRows
 	 * @param maxRows
-	 * @return
+	 * @return number of Pages between Limit and Max Rows
 	 */
 	public int discoverTotalPages(int limitRows, int maxRows){
 
@@ -18,10 +20,10 @@ public class Pagination {
 	}
 
 	/**
-	 * 
+	 * Discover Max Rows between Limit and Total Pages
 	 * @param limitRows
 	 * @param totalPages
-	 * @return
+	 * @return number of Rows between Limit and Total Pages
 	 */
 	public int discoverMaxRows(int limitRows,int totalPages){
 
@@ -29,35 +31,34 @@ public class Pagination {
 	}
 
 	/**
+	 * Discover Start Range between Total Pages and Limit
+	 * @param limitRows
+	 * @param currentPage
 	 * @param totalPages
-	 * @param limitRows 
-	 * @return
+	 * @return start Point for Pagination
+	 * @throws IllegalArgumentException
 	 */
-	public int discoverRange(int totalPages,int limitRows){	
+	public int discoverStartRange(int limitRows,int currentPage,int totalPages) throws IllegalArgumentException {
 
-		return (totalPages / limitRows);
+		if(currentPage < 1){
+			throw new IllegalArgumentException("Current Page Minor than 1");
+		}
+
+		return (limitRows * currentPage) - limitRows + 1;
+
 	}
 
 	/**
-	 * 
+	 * Discover End Range between Total Pages and Limit
 	 * @param limitRows
 	 * @param currentPage
-	 * @return
+	 * @param totalPages
+	 * @return end Point for Pagination
 	 */
-	public int discoverStartRange(int limitRows,int currentPage,int totalPages){
+	public int discoverEndRange(int limitRows,int currentPage,int totalPages){	
 
-		return (discoverRange(totalPages, limitRows) * currentPage) - limitRows;
-	}
 
-	/**
-	 * 
-	 * @param limitRows
-	 * @param currentPage
-	 * @return
-	 */
-	public int discoverEndRange(int limitRows,int currentPage,int totalPages){		
-
-		return discoverRange(totalPages, limitRows) * currentPage;
+		return discoverStartRange(limitRows, currentPage, totalPages) + limitRows - 1;
 
 	}
 

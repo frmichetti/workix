@@ -23,8 +23,8 @@ public class CompanyDaoMockup extends BasicDaoMockup implements Crud<Company> {
 
 	@Override
 	public Company update(Company entity) {
-		// TODO Auto-generated method stub
-		return null;
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Atualizado com Sucesso!"));
+		return entity;
 	}
 
 	@Override

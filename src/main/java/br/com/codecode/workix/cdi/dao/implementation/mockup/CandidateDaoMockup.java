@@ -27,8 +27,10 @@ public class CandidateDaoMockup extends BasicDaoMockup implements Crud<Candidate
 
 	@Override
 	public Candidate update(Candidate entity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Atualizado com Sucesso!"));
+
+		return entity;
 	}
 
 	@Override
@@ -51,6 +53,7 @@ public class CandidateDaoMockup extends BasicDaoMockup implements Crud<Candidate
 
 	@Override
 	public List<Candidate> listAll(Integer start, Integer end) {
+		
 		TypedQuery<Candidate> findAllQuery = em.createQuery(
 				"SELECT DISTINCT c FROM Candidate c ORDER BY c.id",
 				Candidate.class);

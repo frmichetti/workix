@@ -81,7 +81,7 @@ public class EntityManagerProducer implements Serializable {
 	}
 	
 	/**
-	 * TODO GET WEBINF PARAM
+	 * FIXME GET WEBINF PARAM
 	 * @return
 	 */
 	private String getInitParam(){

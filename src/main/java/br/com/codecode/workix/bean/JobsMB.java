@@ -39,18 +39,13 @@ public class JobsMB {
 	@PostConstruct
 	public void init(){
 
-
-
-
 		totalRows = dao.countRegisters().intValue();
 
 		setTotalPages((totalRows / limitRows));
 
+		start = (page >= 1) ? (page * limitRows) - limitRows : 0; 
 
-
-		start = (page > 1) ? (page * limitRows) - limitRows : 0; 
-
-		end = (page > 1) ? start + limitRows : limitRows;
+		end = start + limitRows;
 
 		list = new ListDataModel<Job>(dao.listAll(start,end));
 

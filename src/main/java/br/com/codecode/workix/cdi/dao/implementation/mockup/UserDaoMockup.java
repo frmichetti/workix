@@ -30,8 +30,10 @@ public class UserDaoMockup extends BasicDaoMockup implements Crud<User> {
 
 	@Override
 	public User update(User entity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getEmail() + " Atualizado com Sucesso!"));
+
+		return entity;
 	}
 
 	@Override

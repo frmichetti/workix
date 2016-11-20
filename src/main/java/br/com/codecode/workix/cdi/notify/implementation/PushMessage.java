@@ -18,7 +18,6 @@ import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.util.Http;
 
-
 @Push
 public class PushMessage implements Notification, Serializable{
 

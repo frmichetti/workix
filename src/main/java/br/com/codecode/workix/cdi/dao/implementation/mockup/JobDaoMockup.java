@@ -23,8 +23,8 @@ public class JobDaoMockup extends BasicDaoMockup implements Crud<Job> {
 
 	@Override
 	public Job update(Job entity) {
-		// TODO Auto-generated method stub
-		return null;
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getTitle() + " Atualizado com Sucesso!"));		
+		return entity;
 	}
 
 	@Override

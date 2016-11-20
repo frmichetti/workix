@@ -22,6 +22,7 @@ public class ResumeDaoMockup extends BasicDaoMockup implements Crud<Resume> {
 
 	@Override
 	public void save(Resume entity) {
+
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getObjective() + " Salvo com Sucesso!"));
 		
 		alertNewResume.fire(entity);
@@ -30,8 +31,10 @@ public class ResumeDaoMockup extends BasicDaoMockup implements Crud<Resume> {
 
 	@Override
 	public Resume update(Resume entity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getObjective() + " Atualizado com Sucesso!"));
+		
+		return entity;
 	}
 
 	@Override

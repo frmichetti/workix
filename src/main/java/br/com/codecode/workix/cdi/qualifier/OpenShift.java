@@ -15,6 +15,4 @@ import javax.inject.Qualifier;
 @Target({ METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)
 @Documented
-public @interface OpenShift {
-
-}
+public @interface OpenShift{}
