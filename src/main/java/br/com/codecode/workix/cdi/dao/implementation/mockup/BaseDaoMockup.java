@@ -8,7 +8,12 @@ import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
-public class BasicDaoMockup implements Serializable {
+/**
+ * BaseClass for Mockup Implementation
+ * @author felipe
+ *
+ */
+public class BaseDaoMockup implements Serializable {
 
 	private static final long serialVersionUID = -4533114503790241039L;
 	

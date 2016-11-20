@@ -13,7 +13,7 @@ import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.model.scaffold.User;
 
 @Mockup
-public class UserDaoMockup extends BasicDaoMockup implements Crud<User> {
+public class UserDaoMockup extends BaseDaoMockup implements Crud<User> {
 
 	private static final long serialVersionUID = 8746840143580709391L;
 	

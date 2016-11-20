@@ -11,7 +11,7 @@ import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.model.scaffold.Job;
 
 @Mockup
-public class JobDaoMockup extends BasicDaoMockup implements Crud<Job> {
+public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
 
 	private static final long serialVersionUID = -7524434066008227524L;
 

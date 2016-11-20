@@ -11,6 +11,14 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
+import br.com.codecode.workix.cdi.producer.EntityManagerProducer;
+
+/**
+ * CDI Qualifier for Persistence Unit
+ * @see EntityManagerProducer
+ * @author felipe
+ *
+ */
 @Qualifier
 @Target({ METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)
