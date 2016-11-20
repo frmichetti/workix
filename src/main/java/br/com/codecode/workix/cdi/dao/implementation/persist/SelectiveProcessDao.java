@@ -21,38 +21,38 @@ public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProces
 	public void save(SelectiveProcess entity) {
 		em.persist(entity);
 	}
-	
+
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		SelectiveProcess entity = em.find(SelectiveProcess.class, id);
 		if (entity != null) {
 			em.remove(entity);
 		}
 	}
-	
+
 	@Override
-	public SelectiveProcess findById(Long id) {
+	public SelectiveProcess findById(long id) {
 		return em.find(SelectiveProcess.class, id);
 	}
-	
+
 	@Override
 	public SelectiveProcess update(SelectiveProcess entity) {
 		return em.merge(entity);
 	}
-	
+
 	@Override
-	public List<SelectiveProcess> listAll(Integer startPosition,
-			Integer maxResult) {
+	public List<SelectiveProcess> listAll(int startPosition,
+			int maxResult) {
+
 		TypedQuery<SelectiveProcess> findAllQuery = em
 				.createQuery(
 						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.job LEFT JOIN FETCH s.employeer LEFT JOIN FETCH s.candidates ORDER BY s.id",
 						SelectiveProcess.class);
-		if (startPosition != null) {
-			findAllQuery.setFirstResult(startPosition);
-		}
-		if (maxResult != null) {
-			findAllQuery.setMaxResults(maxResult);
-		}
+
+		findAllQuery.setFirstResult(startPosition);
+
+		findAllQuery.setMaxResults(maxResult);
+
 		return findAllQuery.getResultList();
 	}
 
@@ -60,7 +60,7 @@ public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProces
 	public BigInteger countRegisters() {		
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + SelectiveProcess.class.getSimpleName()).getSingleResult();
 	}
-	
+
 	@Override
 	public SelectiveProcess saveOrUpdate(SelectiveProcess entity) {
 
@@ -89,5 +89,5 @@ public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProces
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 }

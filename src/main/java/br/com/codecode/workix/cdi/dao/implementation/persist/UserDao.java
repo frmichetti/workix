@@ -20,21 +20,21 @@ import br.com.codecode.workix.model.scaffold.User;
 public class UserDao extends BaseDao implements Crud<User>{
 
 	private static final long serialVersionUID = 4029639665489024760L;
-	
+
 	@Inject
 	private Event<User> alertNewUser;
-	
+
 	@Override
 	public void save(User entity) {
-		
+
 		em.persist(entity);
-		
+
 		alertNewUser.fire(entity);
-		
+
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		User entity = em.find(User.class, id);
 		if (entity != null) {
 			em.remove(entity);
@@ -42,7 +42,7 @@ public class UserDao extends BaseDao implements Crud<User>{
 	}
 
 	@Override
-	public User findById(Long id) {
+	public User findById(long id) {
 		return em.find(User.class, id);
 	}
 
@@ -52,15 +52,15 @@ public class UserDao extends BaseDao implements Crud<User>{
 	}
 
 	@Override
-	public List<User> listAll(Integer startPosition, Integer maxResult) {
+	public List<User> listAll(int startPosition, int maxResult) {
+
 		TypedQuery<User> findAllQuery = em.createQuery(
 				"SELECT DISTINCT u FROM User u ORDER BY u.id", User.class);
-		if (startPosition != null) {
-			findAllQuery.setFirstResult(startPosition);
-		}
-		if (maxResult != null) {
-			findAllQuery.setMaxResults(maxResult);
-		}
+
+		findAllQuery.setFirstResult(startPosition);
+
+		findAllQuery.setMaxResults(maxResult);
+
 		return findAllQuery.getResultList();
 	}
 
@@ -68,7 +68,7 @@ public class UserDao extends BaseDao implements Crud<User>{
 	public BigInteger countRegisters() {		
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + User.class.getSimpleName()).getSingleResult();
 	}
-	
+
 	@Override
 	public User saveOrUpdate(User entity) {
 
@@ -97,6 +97,6 @@ public class UserDao extends BaseDao implements Crud<User>{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
+
+
 }

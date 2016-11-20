@@ -23,7 +23,7 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		Company entity = em.find(Company.class, id);
 		if (entity != null) {
 			em.remove(entity);
@@ -31,7 +31,7 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 	}
 
 	@Override
-	public Company findById(Long id) {
+	public Company findById(long id) {
 		return em.find(Company.class, id);
 	}
 
@@ -41,16 +41,16 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 	}
 
 	@Override
-	public List<Company> listAll(Integer startPosition, Integer maxResult) {
+	public List<Company> listAll(int startPosition, int maxResult) {
+		
 		TypedQuery<Company> findAllQuery = em.createQuery(
 				"SELECT DISTINCT c FROM Company c ORDER BY c.id",
 				Company.class);
-		if (startPosition != null) {
-			findAllQuery.setFirstResult(startPosition);
-		}
-		if (maxResult != null) {
-			findAllQuery.setMaxResults(maxResult);
-		}
+
+		findAllQuery.setFirstResult(startPosition);
+
+		findAllQuery.setMaxResults(maxResult);
+
 		return findAllQuery.getResultList();
 	}
 
@@ -58,7 +58,7 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Company.class.getSimpleName()).getSingleResult();
 	}
-	
+
 	@Override
 	public Company saveOrUpdate(Company entity) {
 

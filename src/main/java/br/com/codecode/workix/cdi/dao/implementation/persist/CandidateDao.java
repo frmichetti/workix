@@ -16,14 +16,14 @@ import br.com.codecode.workix.model.scaffold.Candidate;
 public class CandidateDao extends BaseDao implements Crud<Candidate> {
 
 	private static final long serialVersionUID = -4430675125218575581L;	
-	
+
 	@Override
 	public void save(Candidate entity) {
 		em.persist(entity);
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		Candidate entity = em.find(Candidate.class, id);
 		if (entity != null) {
 			em.remove(entity);
@@ -31,7 +31,7 @@ public class CandidateDao extends BaseDao implements Crud<Candidate> {
 	}
 
 	@Override
-	public Candidate findById(Long id) {
+	public Candidate findById(long id) {
 		return em.find(Candidate.class, id);
 	}
 
@@ -39,22 +39,18 @@ public class CandidateDao extends BaseDao implements Crud<Candidate> {
 	public Candidate update(Candidate entity) {
 		return em.merge(entity);
 	}
-	
+
 	@Override
-	public List<Candidate> listAll(Integer startPosition, Integer maxResult) {
-		
+	public List<Candidate> listAll(int startPosition, int maxResult) {
+
 		TypedQuery<Candidate> findAllQuery = em.createQuery(
 				"SELECT DISTINCT c FROM Candidate c ORDER BY c.id",
 				Candidate.class);
-		
-		if (startPosition != null) {
-			findAllQuery.setFirstResult(startPosition);
-		}
-		
-		if (maxResult != null) {
-			findAllQuery.setMaxResults(maxResult);
-		}
-		
+
+		findAllQuery.setFirstResult(startPosition);
+
+		findAllQuery.setMaxResults(maxResult);
+
 		return findAllQuery.getResultList();
 	}
 
@@ -92,5 +88,5 @@ public class CandidateDao extends BaseDao implements Crud<Candidate> {
 		return null;
 	}
 
-	
+
 }

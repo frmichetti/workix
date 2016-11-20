@@ -20,21 +20,21 @@ import br.com.codecode.workix.model.scaffold.Resume;
 public class ResumeDao extends BaseDao implements Crud<Resume>{
 
 	private static final long serialVersionUID = 4029639665489024760L;
-	
+
 	@Inject
 	private Event<Resume> alertNewResume;
-	
+
 	@Override
 	public void save(Resume entity) {
-		
+
 		em.persist(entity);
-		
+
 		alertNewResume.fire(entity);
-		
+
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		Resume entity = em.find(Resume.class, id);
 		if (entity != null) {
 			em.remove(entity);
@@ -42,7 +42,7 @@ public class ResumeDao extends BaseDao implements Crud<Resume>{
 	}
 
 	@Override
-	public Resume findById(Long id) {
+	public Resume findById(long id) {
 		return em.find(Resume.class, id);
 	}
 
@@ -52,15 +52,15 @@ public class ResumeDao extends BaseDao implements Crud<Resume>{
 	}
 
 	@Override
-	public List<Resume> listAll(Integer startPosition, Integer maxResult) {
+	public List<Resume> listAll(int startPosition, int maxResult) {
+
 		TypedQuery<Resume> findAllQuery = em.createQuery(
 				"SELECT DISTINCT r FROM Resume r ORDER BY r.id", Resume.class);
-		if (startPosition != null) {
-			findAllQuery.setFirstResult(startPosition);
-		}
-		if (maxResult != null) {
-			findAllQuery.setMaxResults(maxResult);
-		}
+
+		findAllQuery.setFirstResult(startPosition);
+
+		findAllQuery.setMaxResults(maxResult);
+
 		return findAllQuery.getResultList();
 	}
 
@@ -68,7 +68,7 @@ public class ResumeDao extends BaseDao implements Crud<Resume>{
 	public BigInteger countRegisters() {		
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Resume.class.getSimpleName()).getSingleResult();
 	}
-	
+
 	@Override
 	public Resume saveOrUpdate(Resume entity) {
 
