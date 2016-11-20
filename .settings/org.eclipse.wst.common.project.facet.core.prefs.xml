@@ -1,7 +1,7 @@
 <root>
   <facet id="jpt.jpa">
     <node name="libprov">
-      <attribute name="provider-id" value="jpa-no-op-library-provider"/>
+      <attribute name="provider-id" value="runtime-library-provider"/>
     </node>
   </facet>
   <facet id="jst.jaxrs">
@@ -15,6 +15,11 @@
     </node>
     <node name="platform">
       <attribute name="platform-id" value="generic_2_2"/>
+    </node>
+  </facet>
+  <facet id="jst.jsf">
+    <node name="libprov">
+      <attribute name="provider-id" value="jsf-no-op-library-provider"/>
     </node>
   </facet>
 </root>
