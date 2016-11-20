@@ -4,11 +4,6 @@
       <attribute name="provider-id" value="jpa-no-op-library-provider"/>
     </node>
   </facet>
-  <facet id="jst.jsf">
-    <node name="libprov">
-      <attribute name="provider-id" value="jsf-no-op-library-provider"/>
-    </node>
-  </facet>
   <facet id="jst.jaxrs">
     <node name="libprov">
       <attribute name="provider-id" value="jaxrs-no-op-library-provider"/>
@@ -16,7 +11,7 @@
   </facet>
   <facet id="jpt.jaxb">
     <node name="libprov">
-      <attribute name="provider-id" value="jaxb-no-op-library-provider"/>
+      <attribute name="provider-id" value="runtime-library-provider"/>
     </node>
     <node name="platform">
       <attribute name="platform-id" value="generic_2_2"/>

@@ -33,9 +33,9 @@ public abstract class Loggable implements Traceable, Serializable {
 
 	@XmlTransient
 	@JsonIgnore
-	@Version
+	@Version	
 	@Column
-	private transient int version;
+	private int version;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@XmlTransient
@@ -78,12 +78,12 @@ public abstract class Loggable implements Traceable, Serializable {
 		updatedAt = new Date();
 	}
 	
-	private int getVersion() {
+	protected int getVersion() {
 		return version;
 	}
 	
 	
-	private void setVersion(int version) {
+	protected void setVersion(int version) {
 		this.version = version;
 	}
 
