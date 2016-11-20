@@ -28,9 +28,7 @@ public class CandidatesMB {
 	@Min(1)
 	private int page;
 
-	public CandidatesMB() {
-		// TODO Auto-generated constructor stub
-	}
+	public CandidatesMB(){}
 
 	@PostConstruct
 	private void init(){

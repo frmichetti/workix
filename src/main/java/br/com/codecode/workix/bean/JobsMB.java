@@ -2,7 +2,6 @@ package br.com.codecode.workix.bean;
 
 import java.io.IOException;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
@@ -12,6 +11,7 @@ import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.jsf.util.Pagination;
 import br.com.codecode.workix.model.scaffold.Job;
 
 @Model
@@ -20,6 +20,9 @@ public class JobsMB {
 	@Inject
 	private FacesContext facesContext;	
 
+	@Inject
+	private Pagination pagination;
+
 	@Inject @Generic
 	private Crud<Job> dao;
 
@@ -27,6 +30,9 @@ public class JobsMB {
 
 	private String prefix,sufix;
 
+	/**
+	 * Max Results By Page
+	 */
 	private final int limitRows = 10;
 
 	private int start,end,totalRows,totalPages;
@@ -36,16 +42,18 @@ public class JobsMB {
 
 	public JobsMB(){}
 
-	@PostConstruct
+	/**
+	 * Must be Called by f:viewAction After f:viewParam Page
+	 */
 	public void init(){
 
 		totalRows = dao.countRegisters().intValue();
 
-		setTotalPages((totalRows / limitRows));
+		totalPages = pagination.discoverTotalPages(limitRows, totalRows);
 
-		start = (page >= 1) ? (page * limitRows) - limitRows : 0; 
+		start = pagination.discoverStartRange(limitRows, page, totalPages);
 
-		end = start + limitRows;
+		end = pagination.discoverEndRange(limitRows, page, totalPages);
 
 		list = new ListDataModel<Job>(dao.listAll(start,end));
 
@@ -53,15 +61,19 @@ public class JobsMB {
 
 		sufix = "&faces-redirect=true";
 
-		System.out.println("Current Page : " + page);		
+		debug:{
+			System.out.println("Current Page : " + page);		
 
-		System.out.println("Current totalRows : " + totalRows);
+			System.out.println("Current totalRows : " + totalRows);
 
-		System.out.println("Current totalPages : " + totalPages);
-		
-		System.out.println("Start " + start);
-		
-		System.out.println("End " + end);
+			System.out.println("Current totalPages : " + totalPages);
+
+			System.out.println("Start " + start);
+
+			System.out.println("End " + end);
+		}
+
+
 
 	}	
 
@@ -124,6 +136,7 @@ public class JobsMB {
 		return page;
 	}
 
+
 	public void setPage(int page) {
 		this.page = page;
 	}
@@ -132,9 +145,7 @@ public class JobsMB {
 		return totalPages;
 	}
 
-	public void setTotalPages(int totalPages) {
-		this.totalPages = totalPages;
-	}
+
 
 
 

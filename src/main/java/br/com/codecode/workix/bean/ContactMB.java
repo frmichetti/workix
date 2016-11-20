@@ -13,7 +13,7 @@ public class ContactMB {
 	@Inject
 	private MessagesHelper messagesHelper;
 	
-	public ContactMB() {}
+	public ContactMB(){}
 	
 	@Inject
 	private MailSender mailSender;
