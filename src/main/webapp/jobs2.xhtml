@@ -30,13 +30,12 @@
 
 						<div class="jobs">
 						
-						<ui:repeat var="job" value="#{jobsMB.list}">
-						
+						<ui:repeat var="job" value="#{jobsMB.list}">						
 										
 							<a href="#{basePath}/job-details.xhtml?id=#{job.id}" class="featured applied">
 								<div class="row">
 									<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
-										<img src="http://placehold.it/60x60.jpg" alt="" class="img-responsive" />
+										<img src="#{basePath}/image/placeholder/60x60.jpg" alt="" class="img-responsive" />
 									</div>
 									<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 job-title">
 										<h5><h:outputText value="#{job.title}" /></h5>

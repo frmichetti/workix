@@ -17,12 +17,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.workix.model.interfaces.BasicEntity;
-
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Candidate extends Person implements BasicEntity{
+public class Candidate extends Person {
 
 	private static final long serialVersionUID = 531807027259604477L;	
 	

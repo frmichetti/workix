@@ -42,7 +42,7 @@ public class NavigationMB {
 
 	public String goToCandidates(){
 		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
-		return prefix + "/candidates2.xhtml" + sufix;
+		return prefix + "/candidates2.xhtml?page=1" + sufix.replace("?", "&");
 	}
 
 
