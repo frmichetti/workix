@@ -1,6 +1,5 @@
 package br.com.codecode.workix.bean;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
@@ -10,9 +9,8 @@ import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
-import br.com.codecode.workix.jsf.util.Pagination;
+import br.com.codecode.workix.jsf.util.PaginationHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.scaffold.Job;
 
 @Model
 public class CandidatesMB {
@@ -21,7 +19,7 @@ public class CandidatesMB {
 	private FacesContext facesContext;
 	
 	@Inject
-	private Pagination pagination;
+	private PaginationHelper pagination;
 
 	@Inject @Generic
 	private Crud<Candidate> dao;
@@ -55,13 +53,13 @@ public class CandidatesMB {
 
 		end = pagination.discoverEndRange(limitRows, page, totalPages);
 
-		list = new ListDataModel<Candidate>(dao.listAll(start,end));		
+		list = new ListDataModel<Candidate>(dao.listAll(start-1,end));		
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 
 		sufix = "&faces-redirect=true";
 		
-		debug:{
+		{
 			System.out.println("Current Page : " + page);		
 
 			System.out.println("Current totalRows : " + totalRows);

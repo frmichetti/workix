@@ -1,12 +1,15 @@
 package br.com.codecode.workix.jsf.util;
 
+import javax.enterprise.context.RequestScoped;
+
 /**
  * Pagination Helper
  * @author felipe
  * @version 1.0
  *
  */
-public class Pagination {		
+@RequestScoped
+public class PaginationHelper {		
 
 	/**
 	 * Discover Total Pages
@@ -55,11 +58,10 @@ public class Pagination {
 	 * @param totalPages
 	 * @return end Point for Pagination
 	 */
-	public int discoverEndRange(int limitRows,int currentPage,int totalPages){	
-
-
+	public int discoverEndRange(int limitRows,int currentPage,int totalPages){
+		
 		return discoverStartRange(limitRows, currentPage, totalPages) + limitRows - 1;
-
+		
 	}
 
 

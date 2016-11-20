@@ -11,7 +11,7 @@ import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
-import br.com.codecode.workix.jsf.util.Pagination;
+import br.com.codecode.workix.jsf.util.PaginationHelper;
 import br.com.codecode.workix.model.scaffold.Job;
 
 @Model
@@ -21,7 +21,7 @@ public class JobsMB {
 	private FacesContext facesContext;	
 
 	@Inject
-	private Pagination pagination;
+	private PaginationHelper pagination;
 
 	@Inject @Generic
 	private Crud<Job> dao;
@@ -55,25 +55,23 @@ public class JobsMB {
 
 		end = pagination.discoverEndRange(limitRows, page, totalPages);
 
-		list = new ListDataModel<Job>(dao.listAll(start,end));
+		list = new ListDataModel<Job>(dao.listAll(start-1,end));
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 
 		sufix = "&faces-redirect=true";
 
-		debug:{
+		{
 			System.out.println("Current Page : " + page);		
 
-			System.out.println("Current totalRows : " + totalRows);
+			System.out.println("Total Rows : " + totalRows);
 
-			System.out.println("Current totalPages : " + totalPages);
+			System.out.println("Total Pages : " + totalPages);
 
 			System.out.println("Start " + start);
 
 			System.out.println("End " + end);
 		}
-
-
 
 	}	
 
