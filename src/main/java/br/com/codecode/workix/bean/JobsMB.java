@@ -26,7 +26,7 @@ public class JobsMB {
 	@Inject @Generic
 	private Crud<Job> dao;
 
-	private DataModel<?> list;
+	private DataModel<Job> list;
 
 	private String prefix,sufix;
 
@@ -43,7 +43,7 @@ public class JobsMB {
 	public JobsMB(){}
 
 	/**
-	 * Must be Called by f:viewAction After f:viewParam Page
+	 * Must be Called by f:viewAction After f:viewParam {@link page} 
 	 */
 	public void init(){
 
@@ -77,7 +77,7 @@ public class JobsMB {
 
 	}	
 
-	public DataModel<?> getList() {
+	public DataModel<Job> getList() {
 		return list;
 	}
 
@@ -90,11 +90,11 @@ public class JobsMB {
 	}
 
 	public String goToLastPage(){
-		return prefix + "/jobs.xhtml?page=" + String.valueOf(totalPages) + sufix;
+		return prefix + "/jobs2.xhtml?page=" + String.valueOf(totalPages) + sufix;
 	}
 
 	public String goToFirstPage(){
-		return prefix + "/jobs.xhtml?page=" + String.valueOf(1) + sufix;
+		return prefix + "/jobs2.xhtml?page=" + String.valueOf(1) + sufix;
 	}
 
 	public void goToNextPage(){
@@ -104,7 +104,7 @@ public class JobsMB {
 			page++;
 
 		try {
-			facesContext.getExternalContext().redirect(prefix + "/jobs.xhtml?page=" + String.valueOf(page) + sufix);
+			facesContext.getExternalContext().redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -119,7 +119,7 @@ public class JobsMB {
 			page--;
 
 		try {
-			facesContext.getExternalContext().redirect(prefix + "/jobs.xhtml?page=" + String.valueOf(page) + sufix);
+			facesContext.getExternalContext().redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -129,7 +129,7 @@ public class JobsMB {
 	}
 
 	public String goToPage(int page){
-		return prefix + "/jobs.xhtml?page=" + String.valueOf(page) + sufix;
+		return prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix;
 	}
 
 	public int getPage() {

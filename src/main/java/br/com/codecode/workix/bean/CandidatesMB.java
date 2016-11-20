@@ -10,13 +10,18 @@ import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.jsf.util.Pagination;
 import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.scaffold.Job;
 
 @Model
 public class CandidatesMB {
 
 	@Inject
 	private FacesContext facesContext;
+	
+	@Inject
+	private Pagination pagination;
 
 	@Inject @Generic
 	private Crud<Candidate> dao;
@@ -25,19 +30,48 @@ public class CandidatesMB {
 
 	private String prefix,sufix;	
 	
+	/**
+	 * Max Results By Page
+	 */
+	private final int limitRows = 10;
+
+	private int start,end,totalRows,totalPages;
+	
 	@Min(1)
 	private int page;
 
 	public CandidatesMB(){}
 
-	@PostConstruct
-	private void init(){
-	
-		list = new ListDataModel<Candidate>(dao.listAll(0, 100));
+	/**
+	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 */
+	public void init(){		
+
+		totalRows = dao.countRegisters().intValue();
+
+		totalPages = pagination.discoverTotalPages(limitRows, totalRows);
+
+		start = pagination.discoverStartRange(limitRows, page, totalPages);
+
+		end = pagination.discoverEndRange(limitRows, page, totalPages);
+
+		list = new ListDataModel<Candidate>(dao.listAll(start,end));		
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 
 		sufix = "&faces-redirect=true";
+		
+		debug:{
+			System.out.println("Current Page : " + page);		
+
+			System.out.println("Current totalRows : " + totalRows);
+
+			System.out.println("Current totalPages : " + totalPages);
+
+			System.out.println("Start " + start);
+
+			System.out.println("End " + end);
+		}
 	}
 	
 	public int getPage() {

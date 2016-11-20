@@ -25,6 +25,11 @@
 		
 		<ui:param name="basePath" value=" #{request.getContextPath()}" />
 		
+		<f:metadata>
+			<f:viewParam id="page" name="page" value="#{candidatesMB.page}" />	
+			<f:viewAction action="#{candidatesMB.init()}" />
+		</f:metadata>
+		
 		
 		<script type="text/javascript">
 			console.info("Current Base Path Var = #{basePath}");
