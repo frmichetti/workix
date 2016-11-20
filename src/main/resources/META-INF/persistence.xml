@@ -23,8 +23,7 @@
 		</properties>
 	</persistence-unit>
 
-	<persistence-unit name="ProdDS"
-		transaction-type="JTA">
+	<persistence-unit name="ProdDS"	transaction-type="JTA">
 		<description>Production Persistence Unit</description>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/ProdDS</jta-data-source>

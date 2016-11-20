@@ -41,7 +41,7 @@ public class Resume extends Loggable implements BasicEntity {
 	
 	@Expose
 	@NotNull	
-	@OneToOne(fetch=FetchType.EAGER,optional=false)
+	@OneToOne(fetch=FetchType.EAGER,optional=false,targetEntity=Candidate.class)
 	private Candidate candidate;
 	
 	@Expose
