@@ -83,7 +83,7 @@ public abstract class Loggable implements Traceable, Serializable {
 	}
 	
 	
-	protected void setVersion(int version) {
+	protected void setVersion(final int version) {
 		this.version = version;
 	}
 

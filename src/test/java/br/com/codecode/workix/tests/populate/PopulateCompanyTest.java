@@ -71,7 +71,7 @@ public class PopulateCompanyTest  extends BaseTest {
 
 		users = users.subList((users.size()/2), users.size());
 		
-		assertEquals(51L,users.get(0).getId().longValue());
+		assertEquals(51L,users.get(0).getId());
 
 		companies = new ArrayList<>();
 		

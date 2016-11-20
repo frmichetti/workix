@@ -14,7 +14,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
-import br.com.codecode.workix.model.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BaseEntity;
 
 @FacesConverter("SimpleEntityConverter")
 public class SimpleEntityConverter implements Converter {  
@@ -31,7 +31,7 @@ public class SimpleEntityConverter implements Converter {
         if (value != null  
                 && !"".equals(value)) {  
   
-            BasicEntity entity = (BasicEntity) value;  
+            BaseEntity entity = (BaseEntity) value;  
   
             // adiciona item como atributo do componente  
             this.addAttribute(component, entity);  
@@ -45,9 +45,11 @@ public class SimpleEntityConverter implements Converter {
         return (String) value;  
     }  
   
-    protected void addAttribute(UIComponent component, BasicEntity o) {  
-        String key = o.getId().toString(); // codigo da empresa como chave neste caso  
-        this.getAttributesFrom(component).put(key, o);  
+    protected void addAttribute(UIComponent component, BaseEntity o) {  
+        
+    	String key = String.valueOf(o.getId()); // codigo da empresa como chave neste caso  
+        
+    	this.getAttributesFrom(component).put(key, o);  
     }  
   
     protected Map<String, Object> getAttributesFrom(UIComponent component) {  

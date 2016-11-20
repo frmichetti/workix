@@ -24,6 +24,10 @@ public class JobDetailMB {
 	
 	public JobDetailMB(){}
 
+
+	/**
+	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 */
 	public void init(){
 		
 		System.out.println("JOB ID RECEIVED -> " + id);

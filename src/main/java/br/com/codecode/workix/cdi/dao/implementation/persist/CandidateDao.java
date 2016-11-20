@@ -67,7 +67,7 @@ public class CandidateDao extends BaseDao implements Crud<Candidate> {
 
 		}
 
-		if(entity.getId() == null){
+		if(entity.getId() == 0){
 
 			em.persist(entity);
 

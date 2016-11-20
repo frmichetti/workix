@@ -28,12 +28,12 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.Loggable;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
-import br.com.codecode.workix.model.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BaseEntity;
 
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Job extends Loggable implements BasicEntity {
+public class Job extends Loggable implements BaseEntity {
 
 	private static final long serialVersionUID = 2246753300384053586L;
 
@@ -41,7 +41,7 @@ public class Job extends Loggable implements BasicEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)	
-	private Long id;
+	private long id;
 
 	@NotEmpty
 	@Expose
@@ -118,12 +118,13 @@ public class Job extends Loggable implements BasicEntity {
 		active = true;
 		start = new Date();		
 	}
-
-	public Long getId() {
+	
+	@Override
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(final long id) {
 		this.id = id;
 	}	
 
@@ -221,13 +222,13 @@ public class Job extends Loggable implements BasicEntity {
 
 	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
-	}
-
+	}	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + (int) (id ^ (id >>> 32));
 		return result;
 	}
 
@@ -240,14 +241,11 @@ public class Job extends Loggable implements BasicEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		Job other = (Job) obj;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
+		if (id != other.id)
 			return false;
 		return true;
 	}
-	
+
 	public String uniqueId(){
 		return super.getUuid();
 	}

@@ -3,7 +3,7 @@ package br.com.codecode.workix.cdi.dao;
 import java.math.BigInteger;
 import java.util.List;
 
-import br.com.codecode.workix.model.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BaseEntity;
 /**
  * Crud Interface for CDI Implementation Uses
  * @author felipe
@@ -11,7 +11,7 @@ import br.com.codecode.workix.model.interfaces.BasicEntity;
  * @category Persistence
  * @param <T>
  */
-public interface Crud<T extends BasicEntity> {
+public interface Crud<T extends BaseEntity> {
 
 	public void save(T entity);
 	

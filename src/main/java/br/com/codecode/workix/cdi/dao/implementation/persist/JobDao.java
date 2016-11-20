@@ -65,7 +65,7 @@ public class JobDao extends BaseDao implements Crud<Job>{
 
 		}
 
-		if(entity.getId() == null){
+		if(entity.getId() == 0){
 
 			em.persist(entity);
 

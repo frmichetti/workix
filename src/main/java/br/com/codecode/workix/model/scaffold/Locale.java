@@ -90,12 +90,7 @@ public class Locale implements Serializable {
 
 	public void setEstate(Estate estate) {
 		this.estate = estate;
-	}
-	
-	
-	
-	
-	
+	}	
 	
 
 }

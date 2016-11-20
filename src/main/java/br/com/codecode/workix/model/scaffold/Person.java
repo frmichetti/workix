@@ -13,11 +13,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 import com.google.gson.annotations.Expose;
 
 import br.com.codecode.workix.model.Loggable;
-import br.com.codecode.workix.model.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BaseEntity;
 
 @MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class Person extends Loggable implements BasicEntity {
+public abstract class Person extends Loggable implements BaseEntity {
 
 	private static final long serialVersionUID = 703693002246144451L;
 
@@ -70,14 +70,6 @@ public abstract class Person extends Loggable implements BasicEntity {
 	public void setLocale(Locale locale) {
 		this.locale = locale;
 	}
-
-	
-	
-	
-	
-
-
-	
 	
 
 }

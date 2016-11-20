@@ -69,7 +69,7 @@ public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProces
 
 		}
 
-		if(entity.getId() == null){
+		if(entity.getId() == 0){
 
 			em.persist(entity);
 

@@ -53,6 +53,9 @@ public class ResumeMB implements Serializable {
 
 	public ResumeMB(){}
 
+	/**
+	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 */
 	public void init(){
 
 		System.out.println("Candidate ID RECEIVED -> " + id);

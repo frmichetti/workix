@@ -37,6 +37,10 @@ public class CandidateDetailsMB implements Serializable {
 	
 	public CandidateDetailsMB(){}
 	
+
+	/**
+	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 */
 	public void init(){
 		
 		System.out.println("Candidate ID RECEIVED -> " + id);

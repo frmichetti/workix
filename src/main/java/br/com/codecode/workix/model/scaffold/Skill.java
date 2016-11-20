@@ -29,7 +29,6 @@ public class Skill implements Serializable {
 
 	public void setSkillName(String skillName) {
 		this.skillName = skillName;
-	}
-	
+	}	
 
 }

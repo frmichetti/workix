@@ -72,7 +72,7 @@ public class LoginFirebaseTest implements LoginTest{
 
 		assertTrue(u instanceof User);		
 
-		assertTrue(u.getId().longValue() > 0);
+		assertTrue(u.getId() > 0);
 
 		assertEquals(u.isActive(),true);
 

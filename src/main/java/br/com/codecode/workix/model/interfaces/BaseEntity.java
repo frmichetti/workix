@@ -8,15 +8,16 @@
 package br.com.codecode.workix.model.interfaces;
 
 /**
- * Its only for works with {@link} SimpleEntityConverter
- * and {@link} AnotherEntityConverter to JSF
+ * Markup Interface
+ * Its only for works with SimpleEntityConverter
+ * and AnotherEntityConverter to JSF
  * 
  * 
  * @author Felipe Rodrigues Michetti
  *
  */
-public interface BasicEntity {  
+public interface BaseEntity {  
 
-	public Long getId();	
+	public long getId();	
 
 }  

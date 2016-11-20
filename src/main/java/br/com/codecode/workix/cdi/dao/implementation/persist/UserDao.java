@@ -77,7 +77,7 @@ public class UserDao extends BaseDao implements Crud<User>{
 
 		}
 
-		if(entity.getId() == null){
+		if(entity.getId() == 0){
 
 			em.persist(entity);
 

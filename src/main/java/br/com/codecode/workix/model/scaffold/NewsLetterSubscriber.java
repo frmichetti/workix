@@ -11,17 +11,17 @@ import javax.persistence.Id;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BaseEntity;
 
 @Entity
-public class NewsLetterSubscriber implements BasicEntity, Serializable{
+public class NewsLetterSubscriber implements BaseEntity, Serializable{
 
 	private static final long serialVersionUID = 6675137603968146834L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
-	private Long id;
+	private long id;
 
 	@NotEmpty
 	@Email	
@@ -35,11 +35,12 @@ public class NewsLetterSubscriber implements BasicEntity, Serializable{
 		this.email = email;
 	}
 
-	public Long getId() {
+	@Override
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

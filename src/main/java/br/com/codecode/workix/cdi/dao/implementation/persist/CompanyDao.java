@@ -42,7 +42,7 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 
 	@Override
 	public List<Company> listAll(int startPosition, int maxResult) {
-		
+
 		TypedQuery<Company> findAllQuery = em.createQuery(
 				"SELECT DISTINCT c FROM Company c ORDER BY c.id",
 				Company.class);
@@ -67,7 +67,7 @@ public class CompanyDao extends BaseDao implements Crud<Company> {
 
 		}
 
-		if(entity.getId() == null){
+		if(entity.getId() == 0){
 
 			em.persist(entity);
 

@@ -77,7 +77,7 @@ public class ResumeDao extends BaseDao implements Crud<Resume>{
 
 		}
 
-		if(entity.getId() == null){
+		if(entity.getId() == 0){
 
 			em.persist(entity);
 

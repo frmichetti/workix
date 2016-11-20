@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producer.DaoProducer;
-import br.com.codecode.workix.model.interfaces.BasicEntity;
+import br.com.codecode.workix.model.interfaces.BaseEntity;
 /**
  * Generic Dao Implementation
  * @see DaoProducer
@@ -18,7 +18,7 @@ import br.com.codecode.workix.model.interfaces.BasicEntity;
  * @param <T>
  */
 @SuppressWarnings("unchecked")
-public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
+public class Dao<T extends BaseEntity> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
 
@@ -56,7 +56,7 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 	@Override
 	public T saveOrUpdate(T entity) {
 
-		if(entity.getId() == null){
+		if(entity.getId() == 0){
 			em.persist(entity);
 		}else{
 			em.merge(entity);			

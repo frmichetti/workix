@@ -82,9 +82,4 @@ public class Education implements Serializable {
 	}
 	
 	
-	
-	
-	
-	
-	
 }
