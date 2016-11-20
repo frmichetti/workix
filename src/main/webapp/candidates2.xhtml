@@ -2,75 +2,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="description" content="#{applicationMB.appName} - Job Board Responsive HTML Template" />
-		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu" />
-		<title>#{applicationMB.appName} - Candidatos</title>
-		<link rel="shortcut icon" href="images/favicon.png" />
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-		<!-- Main Stylesheet -->
-		<link href="css/style.css" rel="stylesheet" />
-		
-		<link href="css/notify.css" rel="stylesheet" />
+<ui:composition template="/template.xhtml">
 
-		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
-		
-		<ui:param name="basePath" value=" #{request.getContextPath()}" />
-		
-		<f:metadata>
-			<f:viewParam id="page" name="page" value="#{candidatesMB.page}" />	
-			<f:viewAction action="#{candidatesMB.init()}" />
-		</f:metadata>
-		
-		
-		<script type="text/javascript">
-			console.info("Current Base Path Var = #{basePath}");
-		</script>
+	<f:metadata>
+		<f:viewParam id="page" name="page" value="#{candidatesMB.page}" />
+		<f:viewAction action="#{candidatesMB.init()}" />
+	</f:metadata>
 
-	</head>
-	<body>
+	<ui:define name="headerTitle">#{applicationMB.appName} - Candidatos 2</ui:define>
 
-		<!-- ============ PAGE LOADER START ============ -->
+	<ui:define name="title">
+		<h1>Candidatos</h1>
+		<h4>Encontre seu funcionário</h4>
+	</ui:define>
 
-		<div id="loader">
-			<i class="fa fa-cog fa-4x fa-spin"></i>
-		</div>
-
-		<!-- ============ PAGE LOADER END ============ -->
-		
-			<ui:insert name="navigation">		
-				<ui:include src="fragments/navigation.xhtml" />
-			</ui:insert>
-
-			<ui:insert name="header">		
-				<ui:include src="fragments/header.xhtml" />
-			</ui:insert>
-
-	
-
-		<!-- ============ TITLE START ============ -->
-
-		<section id="title">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12 text-center">
-						<h1>Candidatos</h1>
-						<h4>Encontre seu funcionário</h4>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- ============ TITLE END ============ -->
-
+	<ui:define name="content">
 		<!-- ============ JOBS START ============ -->
 
 		<section id="jobs">
@@ -80,45 +29,54 @@
 						<h2>Candidatos</h2>
 
 						<div class="jobs">
-						
+
 							<ui:repeat var="candidate" value="#{candidatesMB.list}">
-							
-							<a href="#{basePath}/resume.xhtml?id=#{candidate.id}" class="featured">
-								<div class="row">
-									<div class="col-xs-3 col-sm-2 col-lg-1">
-										<img src="#{basePath}/image/placeholder/60x60.jpg" alt="" class="img-circle img-responsive" />
+
+								<a href="#{basePath}/resume.xhtml?id=#{candidate.id}"
+									class="featured">
+									<div class="row">
+										<div class="col-xs-3 col-sm-2 col-lg-1">
+											<img src="#{basePath}/image/placeholder/60x60.jpg" alt=""
+												class="img-circle img-responsive" />
+										</div>
+										<div
+											class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
+											<h5>#{candidate.name}</h5>
+											<p>
+												<strong>#{candidate.cpf}</strong>
+											</p>
+										</div>
+										<div
+											class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+											<p>
+												<strong>New York City, NY, USA</strong>
+											</p>
+											<p>743.6 mi away</p>
+										</div>
+										<div class="hidden-xs hidden-sm hidden-md col-lg-3">
+											<p class="candidate-date">Updated 3 weeks ago}</p>
+											<p class="candidate-tags">
+												<span class="badge">Marketing</span> <span class="badge">Sale</span>
+											</p>
+										</div>
 									</div>
-									<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-										<h5>#{candidate.name}</h5>
-										<p><strong>#{candidate.cpf}</strong></p>
-									</div>
-									<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-										<p><strong>New York City, NY, USA</strong></p>
-										<p>743.6 mi away</p>
-									</div>
-									<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-										<p class="candidate-date">Updated 3 weeks ago}</p>
-										<p class="candidate-tags">
-											<span class="badge">Marketing</span>
-											<span class="badge">Sale</span>
-										</p>
-									</div>
-								</div>
-							</a>							
-							
-							</ui:repeat>								
+								</a>
+
+							</ui:repeat>
 
 						</div>
 
 						<nav>
 							<ul class="pagination">
-								<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">B</span></a></li>
+								<li class="disabled"><a href="#" aria-label="Previous"><span
+										aria-hidden="true">B</span></a></li>
 								<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
 								<li><a href="#">5</a></li>
-								<li><a href="#" aria-label="Next"><span aria-hidden="true">F</span></a></li>
+								<li><a href="#" aria-label="Next"><span
+										aria-hidden="true">F</span></a></li>
 							</ul>
 						</nav>
 
@@ -129,33 +87,7 @@
 
 		<!-- ============ JOBS END ============ -->
 
-		<ui:insert name="contact">		
-			<ui:include src="fragments/contact.xhtml" />
-		</ui:insert>
+	</ui:define>
 
-		<ui:insert name="footer">		
-			<ui:include src="fragments/footer.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="login">		
-			<ui:include src="fragments/login.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="register">		
-				<ui:include src="fragments/register.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="scripts">		
-			<ui:include src="fragments/scripts.xhtml" />
-		</ui:insert>	
-		
-		<ui:insert name="secrets">		
-			<ui:include src="fragments/secrets.xhtml" />
-		</ui:insert>		
-		
-		<ui:insert name="alerts">		
-			<ui:include src="fragments/alerts.xhtml" />
-		</ui:insert>		
-
-	</body>
+</ui:composition>
 </html>

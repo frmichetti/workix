@@ -2,45 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
-	<head>
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="description" content="#{applicationMB.appName} - Job Board Responsive HTML Template" />
-		<meta name="author" content="Coffeecream Themes, info@coffeecream.eu" />
-		<title>#{applicationMB.appName} - Perfil</title>
-		<link rel="shortcut icon" href="images/favicon.png" />
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-		<!-- Main Stylesheet -->
-		<link href="css/style.css" rel="stylesheet" />		
-			
-		<link href="css/notify.css" rel="stylesheet" />
+<ui:composition template="/template.xhtml">
 
-		<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
-
-	</head>
-	<body>
-
-		<!-- ============ PAGE LOADER START ============ -->
-
-		<div id="loader">
-			<i class="fa fa-cog fa-4x fa-spin"></i>
-		</div>
-
-		<!-- ============ PAGE LOADER END ============ -->
-
-		<ui:insert name="navigation">		
-			<ui:include src="fragments/navigation.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="header">		
-			<ui:include src="fragments/header.xhtml" />
-		</ui:insert>
+	<ui:define name="headerTitle">#{applicationMB.appName} - Perfil</ui:define>
+		
+	<ui:define name="title">
+	
+	</ui:define>	
+	
+	<ui:define name="content">	
 
 		<!-- ============ TITLE START ============ -->
 
@@ -89,33 +62,7 @@
 
 		<!-- ============ CONTENT END ============ -->
 
-		<ui:insert name="contact">		
-			<ui:include src="fragments/contact.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="footer">		
-			<ui:include src="fragments/footer.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="login">		
-			<ui:include src="fragments/login.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="register">		
-			<ui:include src="fragments/register.xhtml" />
-		</ui:insert>
-
-		<ui:insert name="scripts">		
-			<ui:include src="fragments/scripts.xhtml" />
-		</ui:insert>	
-		
-		<ui:insert name="secrets">		
-			<ui:include src="fragments/secrets.xhtml" />
-		</ui:insert>		
-		
-		<ui:insert name="alerts">		
-			<ui:include src="fragments/alerts.xhtml" />
-		</ui:insert>	
-
-	</body>
+	</ui:define>
+	
+	</ui:composition>
 </html>

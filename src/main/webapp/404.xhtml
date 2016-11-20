@@ -4,23 +4,22 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
 <ui:composition template="/template.xhtml">
+
+	<ui:define name="headerTitle">Workix - Página Solicitada Não Encontrada</ui:define>	
+
+	<ui:define name="title">
+		<h1>Erro 404 - Página não encontrada</h1>
+		<h4>Talvez você se interesse por ...</h4>
+	</ui:define>
+
 	<ui:define name="content">
-		<section>
-			<div class="container">
-				<div class="row text-center">
-
-					<h1>Erro 404 - Página não encontrada</h1>
-					<h4>Talvez você se interesse por ...</h4>
-
-				</div>
-			</div>
-		</section>
 
 		<ui:insert name="blog">
 			<ui:include src="fragments/blog.xhtml" />
 		</ui:insert>
-		
+
 	</ui:define>
 </ui:composition>
 

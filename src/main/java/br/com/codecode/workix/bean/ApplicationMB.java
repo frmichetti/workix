@@ -10,7 +10,7 @@ import javax.inject.Named;
 @Named
 public class ApplicationMB {
 
-	private String appName ;
+	private String appName, slogan ;
 
 	private int year;
 
@@ -22,6 +22,8 @@ public class ApplicationMB {
 	private void init(){
 
 		appName = "Workix";
+		
+		slogan = "Plataforma de Empregos Totalmente Grátis";
 
 		year = LocalDate.now().getYear();		
 
@@ -29,6 +31,10 @@ public class ApplicationMB {
 
 	public String getAppName() {
 		return appName;
+	}	
+
+	public String getSlogan() {
+		return slogan;
 	}
 
 	public int getYear() {
