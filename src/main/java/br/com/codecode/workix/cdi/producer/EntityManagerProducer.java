@@ -15,6 +15,12 @@ import br.com.codecode.workix.cdi.qualifier.Production;
 import br.com.codecode.workix.cdi.qualifier.Development;
 import br.com.codecode.workix.cdi.qualifier.OpenShift;
 
+/**
+ * Entity Manager Producer
+ * @see {@link persistence.xml} 
+ * @author felipe
+ *
+ */
 @ApplicationScoped
 public class EntityManagerProducer implements Serializable {
 

@@ -49,7 +49,7 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 	}
 
 	@Override
-	public T findById(Long id) {
+	public T findById(long id) {
 		return em.find(clazz,id);
 	}
 
@@ -66,7 +66,7 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		em.remove(findById(id));
 	}
 
@@ -83,19 +83,15 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 
 
 	@Override
-	public List<T> listAll(Integer start, Integer end) {
+	public List<T> listAll(int start, int end) {
 
 		TypedQuery<?> findAllQuery = em.createQuery(
 				"SELECT DISTINCT x FROM " + clazz.getSimpleName() + " x ORDER BY x.id",
 				clazz);
 
-		if (start != null) {
-			findAllQuery.setFirstResult(start);
-		}
+		findAllQuery.setFirstResult(start);
 
-		if (end != null) {
-			findAllQuery.setMaxResults(end);
-		}
+		findAllQuery.setMaxResults(end);
 
 		return (List<T>) findAllQuery.getResultList();
 	}
@@ -104,10 +100,5 @@ public class Dao<T extends BasicEntity> implements Crud<T>, Serializable {
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + clazz.getSimpleName()).getSingleResult();
 	}
-
-
-
-
-
 
 }

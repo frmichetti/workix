@@ -12,6 +12,11 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
 
+/**
+ * Faces Context Producer
+ * @author felipe
+ *
+ */
 @ApplicationScoped
 public class FacesContextProducer {
 

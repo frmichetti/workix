@@ -18,7 +18,7 @@ public class CompanyDaoMockup extends BaseDaoMockup implements Crud<Company> {
 	@Override
 	public void save(Company entity) {
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Salvo com Sucesso!"));	
-		
+
 	}
 
 	@Override
@@ -28,28 +28,27 @@ public class CompanyDaoMockup extends BaseDaoMockup implements Crud<Company> {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public Company findById(Long id) {
+	public Company findById(long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Company> listAll(Integer start, Integer end) {
+	public List<Company> listAll(int start, int end) {
 		TypedQuery<Company> findAllQuery = em.createQuery(
 				"SELECT DISTINCT c FROM Company c ORDER BY c.id",
 				Company.class);
-		if (start != null) {
-			findAllQuery.setFirstResult(start);
-		}
-		if (end != null) {
-			findAllQuery.setMaxResults(end);
-		}
+
+		findAllQuery.setFirstResult(start);
+
+		findAllQuery.setMaxResults(end);
+
 		return findAllQuery.getResultList();
 	}
 

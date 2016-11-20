@@ -16,7 +16,7 @@ import br.com.codecode.workix.model.scaffold.Resume;
 public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {
 
 	private static final long serialVersionUID = -7123666749649316280L;
-	
+
 	@Inject
 	private Event<Resume> alertNewResume;
 
@@ -24,40 +24,39 @@ public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {
 	public void save(Resume entity) {
 
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getObjective() + " Salvo com Sucesso!"));
-		
+
 		alertNewResume.fire(entity);
-		
+
 	}
 
 	@Override
 	public Resume update(Resume entity) {
-		
+
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getObjective() + " Atualizado com Sucesso!"));
-		
+
 		return entity;
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public Resume findById(Long id) {
+	public Resume findById(long id) {
 		return em.find(Resume.class, id);
 	}
 
 	@Override
-	public List<Resume> listAll(Integer start, Integer end) {
+	public List<Resume> listAll(int start, int end) {
 		TypedQuery<Resume> findAllQuery = em.createQuery(
 				"SELECT DISTINCT r FROM Resume r ORDER BY r.id", Resume.class);
-		if (start != null) {
-			findAllQuery.setFirstResult(start);
-		}
-		if (end != null) {
-			findAllQuery.setMaxResults(end);
-		}
+
+		findAllQuery.setFirstResult(start);		
+
+		findAllQuery.setMaxResults(end);
+
 		return findAllQuery.getResultList();
 	}
 

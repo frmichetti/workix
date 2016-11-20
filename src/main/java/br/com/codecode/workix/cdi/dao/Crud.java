@@ -19,13 +19,13 @@ public interface Crud<T extends BasicEntity> {
 	
 	public T saveOrUpdate(T entity);
 	
-	public void deleteById(Long id);
+	public void deleteById(long id);
 
-	public T findById(Long id);	
+	public T findById(long id);	
 	
 	public T findByUuid(String uuid);
 
-	public List<T> listAll(Integer start, Integer end);
+	public List<T> listAll(int start, int end);
 	
 	public BigInteger countRegisters();
 }

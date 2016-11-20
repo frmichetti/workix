@@ -16,7 +16,7 @@ import br.com.codecode.workix.model.scaffold.User;
 public class UserDaoMockup extends BaseDaoMockup implements Crud<User> {
 
 	private static final long serialVersionUID = 8746840143580709391L;
-	
+
 	@Inject
 	private Event<User> alertNewUser;
 
@@ -24,40 +24,39 @@ public class UserDaoMockup extends BaseDaoMockup implements Crud<User> {
 	public void save(User entity) {		
 
 		alertNewUser.fire(entity);
-		
+
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getEmail() + " Salvo com Sucesso!"));		
 	}
 
 	@Override
 	public User update(User entity) {
-		
+
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getEmail() + " Atualizado com Sucesso!"));
 
 		return entity;
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public User findById(Long id) {
+	public User findById(long id) {
 		return em.find(User.class, id);
 	}
 
 	@Override
-	public List<User> listAll(Integer start, Integer end) {
-		
+	public List<User> listAll(int start, int end) {
+
 		TypedQuery<User> findAllQuery = em.createQuery(
 				"SELECT DISTINCT u FROM User u ORDER BY u.id", User.class);
-		if (start != null) {
-			findAllQuery.setFirstResult(start);
-		}
-		if (end != null) {
-			findAllQuery.setMaxResults(end);
-		}
+
+		findAllQuery.setFirstResult(start);		
+
+		findAllQuery.setMaxResults(end);
+
 		return findAllQuery.getResultList();
 	}
 

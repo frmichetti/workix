@@ -27,20 +27,20 @@ public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate>
 
 	@Override
 	public Candidate update(Candidate entity) {
-		
+
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Atualizado com Sucesso!"));
 
 		return entity;
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public Candidate findById(Long id) {
+	public Candidate findById(long id) {
 
 		Candidate c = em.find(Candidate.class, id);
 
@@ -52,19 +52,15 @@ public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate>
 	}
 
 	@Override
-	public List<Candidate> listAll(Integer start, Integer end) {
-		
+	public List<Candidate> listAll(int start, int end) {
+
 		TypedQuery<Candidate> findAllQuery = em.createQuery(
 				"SELECT DISTINCT c FROM Candidate c ORDER BY c.id",
 				Candidate.class);
 
-		if (start != null) {
-			findAllQuery.setFirstResult(start);
-		}
+		findAllQuery.setFirstResult(start);
 
-		if (end != null) {
-			findAllQuery.setMaxResults(end);
-		}
+		findAllQuery.setMaxResults(end);
 
 		return findAllQuery.getResultList();
 	}

@@ -18,7 +18,7 @@ public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
 	@Override
 	public void save(Job entity) {
 		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getTitle() + " Salvo com Sucesso!"));		
-		
+
 	}
 
 	@Override
@@ -28,26 +28,25 @@ public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(long id) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public Job findById(Long id) {
+	public Job findById(long id) {
 		return em.find(Job.class, id);
 	}
 
 	@Override
-	public List<Job> listAll(Integer start, Integer end) {
+	public List<Job> listAll(int start, int end) {
 		TypedQuery<Job> findAllQuery = em.createQuery(
 				"SELECT DISTINCT j FROM Job j ORDER BY j.id", Job.class);
-		if (start != null) {
-			findAllQuery.setFirstResult(start);
-		}
-		if (end != null) {
-			findAllQuery.setMaxResults(end);
-		}
+
+		findAllQuery.setFirstResult(start);
+
+		findAllQuery.setMaxResults(end);
+
 		return findAllQuery.getResultList();
 	}
 
