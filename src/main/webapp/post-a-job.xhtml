@@ -45,13 +45,13 @@
 							
 							<div class="form-group" id="job-location-group">
 								<label for="job-location">Cidade</label>
-								<input type="text" class="form-control" id="job-location" placeholder="e.g. New York" pt:value="#{postAJobMB.currentJob.city}" pt:required="required" />
+								<input type="text" class="form-control" id="job-location" placeholder="e.g. New York" pt:value="#{postAJobMB.currentJob.employeer.locale.city}" pt:required="required" />
 							</div>
 							
 							<div class="form-group" id="job-region-group">
 								<label for="job-region">Estado</label>
 								
-								<h:selectOneMenu value="#{postAJobMB.currentJob.estate}" styleClass="form-control" id="job-region" pt:required="required">
+								<h:selectOneMenu value="#{postAJobMB.currentJob.employeer.locale.estate}" styleClass="form-control" id="job-region" pt:required="required">
    									<f:selectItem itemValue="" itemLabel="Selecione um estado"/>  
                 					<f:selectItems value="#{postAJobMB.estates}" var="e" itemLabel="#{e.name()}" itemValue="#{e}"/>     							   							
 								</h:selectOneMenu>	
