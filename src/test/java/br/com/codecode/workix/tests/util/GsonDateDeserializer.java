@@ -18,9 +18,10 @@ import com.google.gson.JsonParseException;
 public class GsonDateDeserializer implements JsonDeserializer<Date> {
 
 	@Override
-	public Date deserialize(JsonElement element, Type arg1, JsonDeserializationContext arg2) throws JsonParseException {
+	public Date deserialize(JsonElement json, Type type,
+			JsonDeserializationContext context) throws JsonParseException {
 	
-		Long date = element.getAsLong();	
+		long date = json.getAsLong();	
 			
 		return new Date(date);			
 		

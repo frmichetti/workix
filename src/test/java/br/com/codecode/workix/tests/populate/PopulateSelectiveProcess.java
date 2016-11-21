@@ -5,18 +5,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.Job;
 import br.com.codecode.workix.model.scaffold.SelectiveProcess;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
@@ -41,13 +38,7 @@ public class PopulateSelectiveProcess extends BaseTest {
 
 		resp = HttpTest.sendGet(server + "jobs");						
 
-		jobs = new GsonBuilder()
-				.excludeFieldsWithoutExposeAnnotation()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.enableComplexMapKeySerialization()			
-				.create()
-				.fromJson(resp, new TypeToken<List<Job>>(){}.getType());
+		jobs = getGson().fromJson(resp, new TypeToken<List<Job>>(){}.getType());
 
 		assertNotNull(jobs);
 
@@ -105,12 +96,7 @@ public class PopulateSelectiveProcess extends BaseTest {
 			System.out.println("[sendToServer] " + p.getJob().getTitle());
 
 			resp = HttpTest.sendPost(server + "selectiveprocesses",
-					new GsonBuilder()				
-					.setPrettyPrinting()
-					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-					.enableComplexMapKeySerialization()				
-					.excludeFieldsWithoutExposeAnnotation()
-					.create().toJson(p));
+					getGson().toJson(p));
 
 			assertNotNull(resp);
 

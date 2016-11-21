@@ -1,14 +1,21 @@
 package br.com.codecode.workix.model.scaffold;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Lob;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.gson.annotations.Expose;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Experience implements Serializable {
 
@@ -24,11 +31,13 @@ public class Experience implements Serializable {
 	
 	@Expose
 	@Column
-	private Date startDate;
+	@Temporal(TemporalType.DATE)
+	private Calendar startDate;
 	
 	@Expose
 	@Column
-	private Date endDate;
+	@Temporal(TemporalType.DATE)
+	private Calendar endDate;
 	
 	@Expose
 	@Column
@@ -37,7 +46,7 @@ public class Experience implements Serializable {
 	
 	public Experience(){}	
 
-	public Experience(String employerName, String jobTitle, Date startDate, Date endDate) {
+	public Experience(String employerName, String jobTitle, Calendar startDate, Calendar endDate) {
 		super();
 		this.employerName = employerName;
 		this.jobTitle = jobTitle;
@@ -62,19 +71,19 @@ public class Experience implements Serializable {
 		this.jobTitle = jobTitle;
 	}
 
-	public Date getStartDate() {
+	public Calendar getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(Calendar startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public Calendar getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(Calendar endDate) {
 		this.endDate = endDate;
 	}
 

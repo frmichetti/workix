@@ -9,7 +9,12 @@ package br.com.codecode.workix.tests.populate;
 
 import br.com.codecode.workix.tests.util.HttpConfig;
 
-public interface PopulateTest {
+/**
+ * Markup Interface for Test
+ * @author felipe
+ *
+ */
+public interface CommonPopTest {
 	
 	String server = HttpConfig.JAVAEE_PROJ_TEST;
 	

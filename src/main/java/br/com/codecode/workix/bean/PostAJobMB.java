@@ -1,7 +1,7 @@
 package br.com.codecode.workix.bean;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -56,8 +56,8 @@ public class PostAJobMB {
 
 	private void debug() {
 		if (currentJob != null){
-			currentJob.setStart(new Date());
-			currentJob.setExpire(new Date());
+			currentJob.setStart(Calendar.getInstance());
+			currentJob.setExpire(Calendar.getInstance());
 			currentJob.setActive(true);
 			currentJob.setCategory(JobCategory.OPERATOR);	
 			currentJob.setEmployeer(employeers.get(3));

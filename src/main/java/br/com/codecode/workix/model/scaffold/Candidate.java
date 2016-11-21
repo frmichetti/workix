@@ -1,6 +1,6 @@
 package br.com.codecode.workix.model.scaffold;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,9 +17,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.Expose;
 
-@Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@Entity
 public class Candidate extends Person {
 
 	private static final long serialVersionUID = 531807027259604477L;	
@@ -37,17 +37,17 @@ public class Candidate extends Person {
 	private String cpf;
 	
 	//@Past
-	@Expose
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable=false)
-	private Date birthDate;	
+	@Expose		
+	@Column(nullable=false)	
+	@Temporal(TemporalType.DATE)
+	private Calendar birthDate;	
 	
 	public Candidate(){
 		configure();		
 	}	
 	
 	private void configure() {
-		birthDate = new Date();		
+		birthDate = Calendar.getInstance();		
 	}
 
 	public long getId() {
@@ -66,12 +66,11 @@ public class Candidate extends Person {
 		this.cpf = cpf;
 	}	
 	
-
-	public Date getBirthDate() {
+	public Calendar getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(Calendar birthDate) {
 		this.birthDate = birthDate;
 	}	
 

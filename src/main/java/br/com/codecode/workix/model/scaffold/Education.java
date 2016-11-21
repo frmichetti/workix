@@ -1,14 +1,21 @@
 package br.com.codecode.workix.model.scaffold;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Lob;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.gson.annotations.Expose;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Education implements Serializable {
 
@@ -20,20 +27,26 @@ public class Education implements Serializable {
 	
 	@Expose
 	@Column
-	private Date startDate,endDate;
+	@Temporal(TemporalType.DATE)
+	private Calendar startDate;
+	
+	@Expose
+	@Column
+	@Temporal(TemporalType.DATE)
+	private Calendar endDate;
 	
 	@Expose
 	@Column
 	private String qualification;
 	
 	@Expose
-	@Column
 	@Lob
+	@Column	
 	private String description;
 	
 	public Education(){}	
 
-	public Education(String schoolName, Date startDate, Date endDate, String qualification) {
+	public Education(String schoolName, Calendar startDate, Calendar endDate, String qualification) {
 		super();
 		this.schoolName = schoolName;
 		this.startDate = startDate;
@@ -49,19 +62,19 @@ public class Education implements Serializable {
 		this.schoolName = schoolName;
 	}
 
-	public Date getStartDate() {
+	public Calendar getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(Calendar startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public Calendar getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(Calendar endDate) {
 		this.endDate = endDate;
 	}
 

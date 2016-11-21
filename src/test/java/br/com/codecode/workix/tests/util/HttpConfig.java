@@ -1,5 +1,9 @@
 package br.com.codecode.workix.tests.util;
-
+/**
+ * Start Config for Unit Tests
+ * @author felipe
+ *
+ */
 public class HttpConfig {
 			
 	public static final String JAVAEE_PROJ_TEST = "http://localhost:8080/workix/services/";

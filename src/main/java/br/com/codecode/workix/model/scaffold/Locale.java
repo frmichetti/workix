@@ -7,11 +7,16 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import com.google.gson.annotations.Expose;
 
 import br.com.codecode.workix.model.enums.Estate;
 
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Locale implements Serializable {
 

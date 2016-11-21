@@ -1,7 +1,7 @@
 package br.com.codecode.workix.model.scaffold;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,9 +30,9 @@ import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.interfaces.BaseEntity;
 
-@Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@Entity
 public class Job extends Loggable implements BaseEntity {
 
 	private static final long serialVersionUID = 2246753300384053586L;
@@ -77,17 +77,17 @@ public class Job extends Loggable implements BaseEntity {
 	private String benefits;
 	
 	@NotNull	
-	@Expose
-	@Temporal(TemporalType.TIMESTAMP)
+	@Expose	
 	@Column(nullable = false, updatable = false)
-	private Date start;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar start;
 
 	@NotNull
 	@Future
 	@Expose
+	@Column(nullable = false)	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(nullable = false)
-	private Date expire;
+	private Calendar expire;
 	
 	@Expose
 	@Column
@@ -116,7 +116,7 @@ public class Job extends Loggable implements BaseEntity {
 		minPayment = BigDecimal.TEN;
 		maxPayment = BigDecimal.TEN; 
 		active = true;
-		start = new Date();		
+		start = Calendar.getInstance();		
 	}
 	
 	@Override
@@ -175,20 +175,20 @@ public class Job extends Loggable implements BaseEntity {
 	public void setBenefits(String benefits) {
 		this.benefits = benefits;
 	}
-
-	public Date getStart() {
+		
+	public Calendar getStart() {
 		return start;
 	}
 
-	public void setStart(Date start) {
+	public void setStart(Calendar start) {
 		this.start = start;
-	}
-
-	public Date getExpire() {
+	}	
+	
+	public Calendar getExpire() {
 		return expire;
 	}
 
-	public void setExpire(Date expire) {
+	public void setExpire(Calendar expire) {
 		this.expire = expire;
 	}
 

@@ -16,7 +16,16 @@ import javax.jms.JMSDestinationDefinition;
  * @author Felipe
  *
  */
-@JMSDestinationDefinition(
-		name="java:/jms/topics/jobsTopic",
-		interfaceName="javax.jms.Topic")
-public class JMSDestinationConfiguration{}
+public class JMSDestinationConfiguration{
+	
+	@JMSDestinationDefinition(
+			name="java:/jms/topics/jobsTopic",
+			interfaceName="javax.jms.Topic")
+	public class JobsTopicConfig{}
+	
+	@JMSDestinationDefinition(
+			name="java:/jms/topics/usersTopic",
+			interfaceName="javax.jms.Topic")
+	public class UsersTopicConfig{}	
+	
+}

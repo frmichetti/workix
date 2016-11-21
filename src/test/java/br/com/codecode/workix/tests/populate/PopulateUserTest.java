@@ -18,8 +18,6 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
-
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -85,10 +83,7 @@ public class PopulateUserTest extends BaseTest{
 			System.out.println("[sendToServer] " + u.getEmail());
 		
 			resp = HttpTest.sendPost(server + "users",
-					new GsonBuilder()
-					.excludeFieldsWithoutExposeAnnotation()
-					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-					.create().toJson(u));
+					getGson().toJson(u));
 
 			assertNotNull(resp);	
 			

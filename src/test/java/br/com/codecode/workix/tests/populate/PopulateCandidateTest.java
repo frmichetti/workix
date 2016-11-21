@@ -12,18 +12,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.User;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * 
@@ -51,12 +48,7 @@ public class PopulateCandidateTest extends BaseTest {
 
 		resp = HttpTest.sendGet(server + "users");						
 
-		users = new GsonBuilder()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.enableComplexMapKeySerialization()			
-				.create()
-				.fromJson(resp, new TypeToken<List<User>>(){}.getType());
+		users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType());
 
 		assertTrue(users.size() > 0);
 
@@ -117,12 +109,7 @@ public class PopulateCandidateTest extends BaseTest {
 			System.out.println("[sendToServer] " + c.getName());
 
 			resp = HttpTest.sendPost(server + "candidates",
-					new GsonBuilder()
-					.excludeFieldsWithoutExposeAnnotation()
-					.setPrettyPrinting()
-					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-					.enableComplexMapKeySerialization()
-					.create().toJson(c));
+					getGson().toJson(c));
 
 			assertNotNull(resp);
 		});

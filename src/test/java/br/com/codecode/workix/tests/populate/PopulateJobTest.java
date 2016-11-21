@@ -13,19 +13,17 @@ import static org.junit.Assert.assertTrue;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.Job;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * 
@@ -53,13 +51,7 @@ public class PopulateJobTest extends BaseTest {
 
 		resp = HttpTest.sendGet(server + "companies");						
 
-		companies = new GsonBuilder()
-				.excludeFieldsWithoutExposeAnnotation()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.enableComplexMapKeySerialization()			
-				.create()
-				.fromJson(resp, new TypeToken<List<Company>>(){}.getType());
+		companies = getGson().fromJson(resp, new TypeToken<List<Company>>(){}.getType());
 
 		assertNotNull(companies);
 
@@ -89,11 +81,13 @@ public class PopulateJobTest extends BaseTest {
 			
 			j.setBenefits("Benefits of Job " + String.valueOf(x+1));		
 			
-			j.setStart(new Date());
+			j.setStart(Calendar.getInstance());
 					
-			j.setExpire(new Date(2017,03,11));
+			j.setExpire(Calendar.getInstance());
 			
-			assertTrue(j.getStart().before(j.getExpire()));
+			j.getExpire().add(Calendar.DAY_OF_YEAR, 50);
+			
+			assertTrue(j.getExpire().after(j.getStart()));
 			
 			j.setType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
 			
@@ -138,12 +132,7 @@ public class PopulateJobTest extends BaseTest {
 			System.out.println("[sendToServer] " + j.getTitle());
 
 			resp = HttpTest.sendPost(server + "jobs",
-					new GsonBuilder()				
-					.setPrettyPrinting()
-					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-					.enableComplexMapKeySerialization()				
-					.excludeFieldsWithoutExposeAnnotation()
-					.create().toJson(j));
+					getGson().toJson(j));
 
 			assertNotNull(resp);
 			

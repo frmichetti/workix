@@ -1,9 +1,8 @@
 package br.com.codecode.workix.model.scaffold;
 
 import java.io.Serializable;
-import java.time.Instant;
+import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Observable;
 import java.util.Observer;
@@ -27,15 +26,16 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.google.gson.annotations.Expose;
 
 import br.com.codecode.workix.model.interfaces.BaseEntity;
 
-@Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@SuppressWarnings({"unchecked","unused"})
+@Entity
 public class SelectiveProcess extends Observable implements Observer, BaseEntity, Serializable{
 
 	private static final long serialVersionUID = -5336099006523168288L;
@@ -45,23 +45,25 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private long id;
-
-	@JsonIgnore
+	
+	@XmlTransient
 	@Version
 	@Column
 	private int version;
-	
+
 	@Expose
 	@Column(nullable = false)
 	private String uuid;
-	
+
+	@XmlTransient
+	@Column	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column
-	private Date createdAt;
-	
+	private Calendar createdAt;
+
+	@XmlTransient
+	@Column	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column
-	private Date updatedAt;
+	private Calendar updatedAt;
 
 	@Expose
 	@NotNull
@@ -76,9 +78,10 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	@Expose
 	@Column
 	private boolean active;	
-
-	@JsonIgnore
-	private Instant disabledAt;
+	
+	@Column
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar disabledAt;
 
 	@Expose
 	@Min(1)
@@ -88,7 +91,7 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	public SelectiveProcess() {
 		configure();		
 	}
-	
+
 	private void configure(){		
 		this.addObserver(this);
 		active = true;
@@ -99,17 +102,17 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	public long getId() {
 		return this.id;
 	}
-	
+
 	public void setId(final long id) {
 		this.id = id;
 	}
 
-	
+
 	private int getVersion() {
 		return this.version;
 	}
-	
-	
+
+
 	private void setVersion(final int version) {
 		this.version = version;
 	}	
@@ -161,7 +164,7 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	private void setActive(boolean active) {
 
 		if(!active){
-			disabledAt = Instant.now();
+			disabledAt = Calendar.getInstance();
 		}
 
 		this.active = active;
@@ -172,12 +175,12 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	public int getMaxCandidates() {
 		return maxCandidates;
 	}
-	
+
 	public void setMaxCandidates(int maxCandidates) {
 		this.maxCandidates = maxCandidates;
 	}
 
-	@JsonIgnore
+	@XmlTransient
 	private boolean isElegible(){
 		System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
 		System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates+ "]");
@@ -192,7 +195,7 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	private void countCandidates(Set<Candidate> collection){		
 		maxCandidates = collection.size();	
 	}
-	
+
 	public int countCandidates(){
 		return maxCandidates - candidates.size();
 	}
@@ -237,6 +240,7 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 		return "SelectiveProcess [active=" + active + ", maxCandidates=" + maxCandidates + "]";
 	}
 
+
 	@Override
 	public void update(Observable observable, Object object) {	
 
@@ -257,24 +261,24 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 
 		}
 	}
-	
+
 	@PrePersist
 	private void prepareToPersist(){
 		insertTimeStamp();
 		generateUUID();		
 	}	
-	
+
 	private void insertTimeStamp() {
-		createdAt = new Date();
-		
+		createdAt = Calendar.getInstance();
+
 	}
 
 	@PreUpdate
 	private void updateTimeStamp() {
-		updatedAt = new Date();
-		
+		updatedAt = Calendar.getInstance();
+
 	}
-	
+
 	private void generateUUID() {
 		uuid = UUID.randomUUID().toString();		
 	}

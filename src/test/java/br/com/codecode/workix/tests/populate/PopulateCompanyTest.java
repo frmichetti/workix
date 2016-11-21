@@ -12,18 +12,15 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.Company;
 import br.com.codecode.workix.model.scaffold.User;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 
@@ -51,13 +48,7 @@ public class PopulateCompanyTest  extends BaseTest {
 
 		resp = HttpTest.sendGet(server + "users");						
 
-		users = new GsonBuilder()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.excludeFieldsWithoutExposeAnnotation()
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.enableComplexMapKeySerialization()			
-				.create()
-				.fromJson(resp, new TypeToken<List<User>>(){}.getType());
+		users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType());
 
 		assertTrue(users.size() > 0);
 
@@ -129,9 +120,7 @@ public class PopulateCompanyTest  extends BaseTest {
 			System.out.println("[sendToServer] " + c.getName());
 
 			resp = HttpTest.sendPost(server + "companies",
-					new GsonBuilder()
-					.excludeFieldsWithoutExposeAnnotation()
-					.create().toJson(c));
+					getGson().toJson(c));
 
 			assertNotNull(resp);
 		});

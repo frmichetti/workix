@@ -13,9 +13,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.Expose;
 
-@Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@Entity
 public class Company extends Person {
 
 	private static final long serialVersionUID = 47663377480544994L;

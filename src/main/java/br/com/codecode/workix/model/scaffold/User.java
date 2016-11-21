@@ -17,9 +17,9 @@ import com.google.gson.annotations.Expose;
 import br.com.codecode.workix.model.Loggable;
 import br.com.codecode.workix.model.interfaces.BaseEntity;
 
-@Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
+@Entity
 public class User extends Loggable implements BaseEntity{
 
 	private static final long serialVersionUID = -610648880358327958L;

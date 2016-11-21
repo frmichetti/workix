@@ -4,13 +4,12 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
@@ -18,7 +17,6 @@ import br.com.codecode.workix.model.scaffold.Education;
 import br.com.codecode.workix.model.scaffold.Experience;
 import br.com.codecode.workix.model.scaffold.Resume;
 import br.com.codecode.workix.model.scaffold.Skill;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 public class PopulateResume extends BaseTest {
@@ -32,13 +30,7 @@ public class PopulateResume extends BaseTest {
 
 		resp = HttpTest.sendGet(server + "candidates");	
 
-		candidates = new GsonBuilder()
-				.excludeFieldsWithoutExposeAnnotation()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.enableComplexMapKeySerialization()			
-				.create()
-				.fromJson(resp, new TypeToken<List<Candidate>>(){}.getType());
+		candidates = getGson().fromJson(resp, new TypeToken<List<Candidate>>(){}.getType());
 
 				
 		assertTrue(candidates.size() > 0);
@@ -61,13 +53,13 @@ public class PopulateResume extends BaseTest {
 
 			r.setCandidate(c);
 
-			r.addExperience(new Experience("Employer 1","Title 1",new Date(),new Date()));
+			r.addExperience(new Experience("Employer 1","Title 1",Calendar.getInstance(),Calendar.getInstance()));
 
-			r.addExperience(new Experience("Employeer 2", "Title 2", new Date(), new Date()));
+			r.addExperience(new Experience("Employeer 2", "Title 2", Calendar.getInstance(), Calendar.getInstance()));
 
-			r.addEducation(new Education("School 1", new Date(), new Date(), "Qualification"));
+			r.addEducation(new Education("School 1", Calendar.getInstance(), Calendar.getInstance(), "Qualification"));
 			
-			r.addEducation(new Education("School 2", new Date(), new Date(), "Qualification 2"));
+			r.addEducation(new Education("School 2", Calendar.getInstance(), Calendar.getInstance(), "Qualification 2"));
 
 			r.addSkill(new Skill("Skill 1"));
 			
@@ -94,12 +86,7 @@ public class PopulateResume extends BaseTest {
 			System.out.println("[sendToServer] " + r.getContent());
 
 			resp = HttpTest.sendPost(server + "resumes",
-					new GsonBuilder()	
-					.excludeFieldsWithoutExposeAnnotation()
-					.setPrettyPrinting()
-					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-					.enableComplexMapKeySerialization()
-					.create().toJson(r));
+					getGson().toJson(r));
 
 			assertNotNull(resp);
 		});

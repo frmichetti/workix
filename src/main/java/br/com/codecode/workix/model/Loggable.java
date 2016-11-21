@@ -1,7 +1,7 @@
 package br.com.codecode.workix.model;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.Calendar;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -15,8 +15,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import br.com.codecode.workix.model.interfaces.Traceable;
 
 
@@ -27,35 +25,31 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  */
 @MappedSuperclass
 @XmlAccessorType(XmlAccessType.FIELD)
+@SuppressWarnings("unused")
 public abstract class Loggable implements Traceable, Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;
 
 	@XmlTransient
-	@JsonIgnore
 	@Version	
 	@Column
 	private int version;
 
-	@Temporal(TemporalType.TIMESTAMP)
 	@XmlTransient
-	@JsonIgnore
 	@Column(updatable=false,nullable=false)
-	private Date createdAt;
-
 	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar createdAt;
+
 	@XmlTransient
-	@JsonIgnore
 	@Column
-	private Date updatedAt;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Calendar updatedAt;
 	
-	@XmlTransient
-	@JsonIgnore
 	@Column(updatable=false,nullable=false)
 	private String uuid;
-	
+
 	public Loggable(){}
-	
+
 	@PrePersist
 	@Override
 	public void prepareToPersist(){
@@ -69,37 +63,37 @@ public abstract class Loggable implements Traceable, Serializable {
 
 	@Override
 	public void insertTimeStamp(){
-		createdAt = new Date();
+		createdAt = Calendar.getInstance();
 	}
 
 	@PreUpdate
 	@Override
 	public void updateTimeStamp(){
-		updatedAt = new Date();
+		updatedAt = Calendar.getInstance();
 	}
-	
+
 	protected int getVersion() {
 		return version;
 	}
-	
-	
+
+
 	protected void setVersion(final int version) {
 		this.version = version;
 	}
 
-	protected Date getCreatedAt() {
+	protected Calendar getCreatedAt() {
 		return createdAt;
 	}
 
-	private void setCreatedAt(Date createdAt) {
+	private void setCreatedAt(Calendar createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	protected Date getUpdatedAt() {
+	protected Calendar getUpdatedAt() {
 		return updatedAt;
 	}
 
-	private void setUpdatedAt(Date updatedAt) {
+	private void setUpdatedAt(Calendar updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
@@ -110,7 +104,7 @@ public abstract class Loggable implements Traceable, Serializable {
 	private void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-	
-	
+
+
 
 }
