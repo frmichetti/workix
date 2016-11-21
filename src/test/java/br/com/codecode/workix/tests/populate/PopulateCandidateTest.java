@@ -117,7 +117,8 @@ public class PopulateCandidateTest extends BaseTest {
 			System.out.println("[sendToServer] " + c.getName());
 
 			resp = HttpTest.sendPost(server + "candidates",
-					new GsonBuilder()				
+					new GsonBuilder()
+					.excludeFieldsWithoutExposeAnnotation()
 					.setPrettyPrinting()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 					.enableComplexMapKeySerialization()

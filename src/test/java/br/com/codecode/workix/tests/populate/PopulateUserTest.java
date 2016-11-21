@@ -86,6 +86,7 @@ public class PopulateUserTest extends BaseTest{
 		
 			resp = HttpTest.sendPost(server + "users",
 					new GsonBuilder()
+					.excludeFieldsWithoutExposeAnnotation()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 					.create().toJson(u));
 

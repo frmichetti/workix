@@ -33,6 +33,7 @@ public class PopulateResume extends BaseTest {
 		resp = HttpTest.sendGet(server + "candidates");	
 
 		candidates = new GsonBuilder()
+				.excludeFieldsWithoutExposeAnnotation()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
 				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 				.enableComplexMapKeySerialization()			
@@ -93,7 +94,8 @@ public class PopulateResume extends BaseTest {
 			System.out.println("[sendToServer] " + r.getContent());
 
 			resp = HttpTest.sendPost(server + "resumes",
-					new GsonBuilder()				
+					new GsonBuilder()	
+					.excludeFieldsWithoutExposeAnnotation()
 					.setPrettyPrinting()
 					.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 					.enableComplexMapKeySerialization()

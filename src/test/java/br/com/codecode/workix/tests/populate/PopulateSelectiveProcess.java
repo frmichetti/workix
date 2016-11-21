@@ -42,6 +42,7 @@ public class PopulateSelectiveProcess extends BaseTest {
 		resp = HttpTest.sendGet(server + "jobs");						
 
 		jobs = new GsonBuilder()
+				.excludeFieldsWithoutExposeAnnotation()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
 				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 				.enableComplexMapKeySerialization()			

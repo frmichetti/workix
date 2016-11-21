@@ -53,6 +53,7 @@ public class PopulateCompanyTest  extends BaseTest {
 
 		users = new GsonBuilder()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
+				.excludeFieldsWithoutExposeAnnotation()
 				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
 				.enableComplexMapKeySerialization()			
 				.create()
@@ -128,7 +129,8 @@ public class PopulateCompanyTest  extends BaseTest {
 			System.out.println("[sendToServer] " + c.getName());
 
 			resp = HttpTest.sendPost(server + "companies",
-					new GsonBuilder()						
+					new GsonBuilder()
+					.excludeFieldsWithoutExposeAnnotation()
 					.create().toJson(c));
 
 			assertNotNull(resp);
