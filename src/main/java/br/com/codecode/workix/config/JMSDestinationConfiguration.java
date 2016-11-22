@@ -32,5 +32,10 @@ public class JMSDestinationConfiguration{
 			destinationName = "usersTopic", 
 			interfaceName="javax.jms.Topic")
 	public class UsersTopicConfig{}	
+	@JMSDestinationDefinition(
+			name="java:/jms/topics/selectiveProcessesTopic",
+			destinationName = "selectiveProcessesTopic",
+			interfaceName="javax.jms.Topic")
+	public class SelectiveProcessesConfig{}
 	
 }

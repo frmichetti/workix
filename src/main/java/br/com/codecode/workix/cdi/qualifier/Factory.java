@@ -6,8 +6,7 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
-import br.com.codecode.workix.cdi.dao.implementation.generic.Dao;
-import br.com.codecode.workix.cdi.producer.GenericDaoProducer;
+import br.com.codecode.workix.cdi.notify.Notification;
 
 import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.ElementType.METHOD;
@@ -16,9 +15,8 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * CDI - Qualifier for Dao Instance
- * @see Dao
- * @see GenericDaoProducer
+ * CDI Qualifier for Factory Producers
+ * @see Notification
  * @author felipe
  *
  */
@@ -26,4 +24,6 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({ TYPE, METHOD, PARAMETER, FIELD })
 @Retention(RUNTIME)
 @Documented
-public @interface Generic{}
+public @interface Factory {
+
+}

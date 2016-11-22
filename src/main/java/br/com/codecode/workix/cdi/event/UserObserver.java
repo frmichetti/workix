@@ -2,23 +2,26 @@ package br.com.codecode.workix.cdi.event;
 
 import java.time.Instant;
 
-import javax.annotation.Resource;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.jms.Destination;
-import javax.jms.JMSConnectionFactory;
-import javax.jms.JMSContext;
+import javax.jms.JMSProducer;
 
+import br.com.codecode.workix.cdi.qualifier.Factory;
+import br.com.codecode.workix.cdi.qualifier.UserTopic;
 import br.com.codecode.workix.model.scaffold.User;
 
-
+/**
+ * CDI Observer Class for User
+ * @author felipe
+ *
+ */
 public class UserObserver {	
 
-	@Inject
-	@JMSConnectionFactory("java:/ConnectionFactory")
-	private JMSContext jmsContext;
+	@Inject @Factory
+	private JMSProducer jmsProducer; 
 
-	@Resource(mappedName="java:/jms/topics/usersTopic")
+	@Inject @Factory @UserTopic
 	private Destination destination;
 
 	public void alert(@Observes User user){
@@ -31,7 +34,7 @@ public class UserObserver {
 
 		System.out.println("[-----------------------]");
 
-		jmsContext.createProducer().send(destination, user.getUniqueID());
+		jmsProducer.send(destination, user.getUniqueID());
 			
 	}
 

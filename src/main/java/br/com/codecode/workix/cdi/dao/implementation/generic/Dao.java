@@ -11,12 +11,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.producer.DaoProducer;
+import br.com.codecode.workix.cdi.producer.GenericDaoProducer;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
  * Generic Dao Implementation
- * @see DaoProducer
+ * @see GenericDaoProducer
  * @author felipe
  *
  * @param <T>

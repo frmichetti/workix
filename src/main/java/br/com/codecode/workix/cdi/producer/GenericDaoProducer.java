@@ -21,7 +21,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  *
  */
 @SuppressWarnings({"unchecked","rawtypes"})
-public class DaoProducer {	
+public class GenericDaoProducer {	
 	
 	/**
 	 * MAY Change for {@link @Production} or {@link @Test} 
@@ -29,7 +29,12 @@ public class DaoProducer {
 	 */
 	@Inject @Default
 	private EntityManager em;	
-			
+	
+	/**
+	 * Produces a {@link Dao} based on <T> param from {@link InjectionPoint}
+	 * @param injectionPoint
+	 * @return
+	 */
 	@Produces
 	@Dependent
 	@Generic

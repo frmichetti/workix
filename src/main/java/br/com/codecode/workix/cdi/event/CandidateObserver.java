@@ -9,7 +9,11 @@ import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.model.scaffold.Candidate;
 
-
+/**
+ * CDI Observer Class for {@link Candidate}
+ * @author felipe
+ *
+ */
 public class CandidateObserver {	
 	
 	@Inject @Push

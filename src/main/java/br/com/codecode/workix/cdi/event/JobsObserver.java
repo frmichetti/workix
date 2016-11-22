@@ -2,22 +2,26 @@ package br.com.codecode.workix.cdi.event;
 
 import java.time.Instant;
 
-import javax.annotation.Resource;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.jms.Destination;
-import javax.jms.JMSConnectionFactory;
-import javax.jms.JMSContext;
+import javax.jms.JMSProducer;
 
+import br.com.codecode.workix.cdi.qualifier.Factory;
+import br.com.codecode.workix.cdi.qualifier.JobTopic;
 import br.com.codecode.workix.model.scaffold.Job;
 
+/**
+ * CDI Observer Class for {@link Jobs}
+ * @author felipe
+ *
+ */
 public class JobsObserver {	
 
-	@Inject
-	@JMSConnectionFactory("java:/ConnectionFactory")
-	private JMSContext jmsContext;
+	@Inject @Factory
+	private JMSProducer jmsProducer; 
 
-	@Resource(mappedName="java:/jms/topics/jobsTopic")
+	@Inject @Factory @JobTopic
 	private Destination destination;
 
 	public void alert(@Observes Job job){
@@ -29,7 +33,7 @@ public class JobsObserver {
 		System.out.println(Instant.now());		
 
 		System.out.println("[-----------------------]");
-		
+
 		if(job.getCategory() != null){
 			switch (job.getCategory()) {
 
@@ -37,21 +41,23 @@ public class JobsObserver {
 				System.out.println("SEND Notification for Management Job");
 			}
 			break;
-			
+
 			case OPERATOR: {
 				System.out.println("SEND Notification for Operator Job");
 			}
 			break;
-			
+
 			default:{
 				System.out.println("SEND Notification for Default Job");
 			}
-				break;
-				
+			break;
+
 			}
 		}		
 
-		jmsContext.createProducer().send(destination, job.uniqueId());	
+		jmsProducer.send(destination, job.uniqueId());	
+
+
 
 
 	}

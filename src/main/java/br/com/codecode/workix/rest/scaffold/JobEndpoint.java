@@ -3,6 +3,8 @@ package br.com.codecode.workix.rest.scaffold;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.enterprise.event.Event;
+import javax.inject.Inject;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
 import javax.persistence.TypedQuery;
@@ -30,12 +32,16 @@ import br.com.codecode.workix.model.scaffold.Job;
 @Path("jobs")
 public class JobEndpoint extends BaseEndpoint {
 
-
+	@Inject
+	private Event<Job> jobAlert;
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response create(Job entity) {
 		
 		em.persist(entity);
+		
+		jobAlert.fire(entity);
 		
 		return Response.created(
 				UriBuilder.fromResource(JobEndpoint.class)

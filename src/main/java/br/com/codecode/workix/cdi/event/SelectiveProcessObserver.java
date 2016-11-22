@@ -2,22 +2,26 @@ package br.com.codecode.workix.cdi.event;
 
 import java.time.Instant;
 
-import javax.annotation.Resource;
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.jms.Destination;
-import javax.jms.JMSConnectionFactory;
-import javax.jms.JMSContext;
+import javax.jms.JMSProducer;
 
+import br.com.codecode.workix.cdi.qualifier.Factory;
+import br.com.codecode.workix.cdi.qualifier.SelectiveProcessTopic;
 import br.com.codecode.workix.model.scaffold.SelectiveProcess;
 
-public class SelectiveProcessObserver {
-	
-	@Inject
-	@JMSConnectionFactory("java:/ConnectionFactory")
-	private JMSContext jmsContext;
+/**
+ * CDI Observer Class for {@link SelectiveProcess}
+ * @author felipe
+ *
+ */
+public class SelectiveProcessObserver {	
 
-	@Resource(mappedName="java:/jms/topics/selectiveProcessesTopic")
+	@Inject @Factory
+	private JMSProducer jmsProducer;
+
+	@Inject @Factory @SelectiveProcessTopic
 	private Destination destination;
 
 	public void alert(@Observes SelectiveProcess process){
@@ -37,7 +41,7 @@ public class SelectiveProcessObserver {
 			System.out.println("Process is Disabled from Database");
 		}
 
-		jmsContext.createProducer().send(destination, process.getId());	
+		jmsProducer.send(destination, process.getId());	
 
 	}
 
