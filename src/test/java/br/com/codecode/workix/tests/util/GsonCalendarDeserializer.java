@@ -12,7 +12,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 /**
- * Simple Calendar Converter for Gson
+ * Simple Calendar Deserializer for Gson
+ * Register in GsonBuilder
+ * Example: <code>new GsonBuilder()			
+				.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			
+				.create();</code>
  * @author felipe
  *
  */
@@ -66,8 +70,6 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 		}else
 			throw new JsonParseException("Cannot Parse Json Object");
 
-
-
 	}
 
 	private int getInt(String name, JsonElement element) {
@@ -75,7 +77,5 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 		return element.getAsJsonObject().get(name).getAsInt();
 
 	} 
-
-
 
 }
