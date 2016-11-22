@@ -12,34 +12,27 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.google.gson.annotations.Expose;
-
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Experience implements Serializable {
 
 	private static final long serialVersionUID = -6311235469498858665L;
-
-	@Expose	
+	
 	@Column
 	private String employerName;
 	
-	@Expose
 	@Column
 	private String jobTitle;
 	
-	@Expose
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Calendar startDate;
 	
-	@Expose
 	@Column
 	@Temporal(TemporalType.DATE)
 	private Calendar endDate;
 	
-	@Expose
 	@Column
 	@Lob
 	private String description;

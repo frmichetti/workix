@@ -28,19 +28,16 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-import com.google.gson.annotations.Expose;
-
-import br.com.codecode.workix.model.interfaces.BaseEntity;
+import br.com.codecode.workix.model.interfaces.Persistable;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @SuppressWarnings({"unchecked","unused"})
 @Entity
-public class SelectiveProcess extends Observable implements Observer, BaseEntity, Serializable{
+public class SelectiveProcess extends Observable implements Observer, Persistable, Serializable{
 
 	private static final long serialVersionUID = -5336099006523168288L;
-
-	@Expose
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
@@ -51,39 +48,35 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	@Column
 	private int version;
 
-	@Expose
+	@XmlTransient
 	@Column(nullable = false)
 	private String uuid;
 
 	@XmlTransient
-	@Column	
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column	
 	private Calendar createdAt;
 
 	@XmlTransient
-	@Column	
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column		
 	private Calendar updatedAt;
-
-	@Expose
+	
 	@NotNull
 	@ManyToOne(optional=false)
 	private Job job;	
 
-	@Expose
 	@NotNull	
 	@OneToMany	
 	private Set<Candidate> candidates;
 
-	@Expose
 	@Column
 	private boolean active;	
 	
+	@Temporal(TemporalType.TIMESTAMP)	
 	@Column
-	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar disabledAt;
-
-	@Expose
+	
 	@Min(1)
 	@Column(nullable = false)
 	private int maxCandidates;
@@ -103,15 +96,14 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 		return this.id;
 	}
 
+	@Override
 	public void setId(final long id) {
 		this.id = id;
 	}
 
-
 	private int getVersion() {
 		return this.version;
 	}
-
 
 	private void setVersion(final int version) {
 		this.version = version;
@@ -147,7 +139,6 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 		this.job = job;
 	}
 
-
 	public Set<Candidate> getCandidates() {
 		return this.candidates;
 	}
@@ -179,8 +170,7 @@ public class SelectiveProcess extends Observable implements Observer, BaseEntity
 	public void setMaxCandidates(int maxCandidates) {
 		this.maxCandidates = maxCandidates;
 	}
-
-	@XmlTransient
+	
 	private boolean isElegible(){
 		System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
 		System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates+ "]");

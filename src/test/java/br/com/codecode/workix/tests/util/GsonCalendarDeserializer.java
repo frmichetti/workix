@@ -1,7 +1,10 @@
 package br.com.codecode.workix.tests.util;
 
 import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.Date;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -17,9 +20,9 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 
 	@Override
 	public Calendar deserialize(JsonElement json, Type type,
-			JsonDeserializationContext context)	throws JsonParseException {
+			JsonDeserializationContext context)	throws JsonParseException {	
 
-		if(json.isJsonObject()){				
+		if(json.isJsonObject()){
 
 			int year = 	getInt("year", json);
 
@@ -39,13 +42,38 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 
 			return c;
 
-		}else{
-			throw new JsonParseException("Cannot Convert Json to Calendar");
-		}
+		}else if (json.isJsonPrimitive()){
+
+			String dateRaw = json.getAsString();
+
+			Calendar c = Calendar.getInstance();
+
+			Date d = new Date();
+
+			try {
+				
+				d = DateFormat.getInstance().parse(dateRaw);
+				
+			} catch (ParseException e) {
+
+				e.printStackTrace();
+			}
+
+			c.setTime(d);
+
+			return c;
+
+		}else
+			throw new JsonParseException("Cannot Parse Json Object");
+
+
+
 	}
 
 	private int getInt(String name, JsonElement element) {
-		return element.getAsInt();
+
+		return element.getAsJsonObject().get(name).getAsInt();
+
 	} 
 
 

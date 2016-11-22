@@ -12,12 +12,13 @@ package br.com.codecode.workix.model.interfaces;
  * Its only for works with SimpleEntityConverter
  * and AnotherEntityConverter to JSF
  * 
- * 
  * @author Felipe Rodrigues Michetti
  *
  */
-public interface BaseEntity {  
+public interface Persistable {  
 
 	public long getId();	
+	
+	public void setId(final long id);
 
 }  

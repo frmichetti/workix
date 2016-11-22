@@ -1,5 +1,5 @@
 /**
- * Models Package for Workix
+ * Models Package for Workix Entities
  * 
  * @author felipe
  */

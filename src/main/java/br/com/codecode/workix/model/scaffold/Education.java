@@ -12,34 +12,27 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.google.gson.annotations.Expose;
-
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Education implements Serializable {
 
 	private static final long serialVersionUID = -1514012744160609145L;
-
-	@Expose
+	
 	@Column
 	private String schoolName;
-	
-	@Expose
-	@Column
+
 	@Temporal(TemporalType.DATE)
+	@Column	
 	private Calendar startDate;
 	
-	@Expose
-	@Column
 	@Temporal(TemporalType.DATE)
+	@Column	
 	private Calendar endDate;
 	
-	@Expose
 	@Column
 	private String qualification;
 	
-	@Expose
 	@Lob
 	@Column	
 	private String description;

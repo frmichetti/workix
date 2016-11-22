@@ -9,7 +9,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
@@ -24,10 +23,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @since 1.0
  * @version
  */
-
-@Entity
-@Table(name="JAAS_User")
 @XmlRootElement
+@Table(name="JAAS_User")
+@Entity
 public class JAASUser implements Serializable {
 
 	private static final long serialVersionUID = -1917498851904653016L;

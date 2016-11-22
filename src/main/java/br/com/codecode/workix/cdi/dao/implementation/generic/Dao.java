@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producer.DaoProducer;
-import br.com.codecode.workix.model.interfaces.BaseEntity;
+import br.com.codecode.workix.model.interfaces.Persistable;
 /**
  * Generic Dao Implementation
  * @see DaoProducer
@@ -18,7 +18,7 @@ import br.com.codecode.workix.model.interfaces.BaseEntity;
  * @param <T>
  */
 @SuppressWarnings("unchecked")
-public class Dao<T extends BaseEntity> implements Crud<T>, Serializable {
+public class Dao<T extends Persistable> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
 

@@ -15,6 +15,7 @@ import br.com.codecode.workix.tests.util.HttpConfig;
  *
  */
 public class BaseTest {
+	
 	/**
 	 * Must Be Changed 
 	 * @see {@link HttpConfig}
@@ -28,11 +29,9 @@ public class BaseTest {
 	}
 
 	private Gson buildGson(){
-		return new GsonBuilder()
-				.excludeFieldsWithoutExposeAnnotation()
+		return new GsonBuilder()				
 				.setPrettyPrinting()
-				//.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.setDateFormat("dd-MM-yyyy'T'HH:mm:ssZ")
+				.setDateFormat("dd-MM-yyyy'T'HH:mm:ss")				
 				.enableComplexMapKeySerialization()
 				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
 				.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			

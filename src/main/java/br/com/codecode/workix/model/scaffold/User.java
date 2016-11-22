@@ -2,64 +2,34 @@ package br.com.codecode.workix.model.scaffold;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.google.gson.annotations.Expose;
+import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.interfaces.Persistable;
 
-import br.com.codecode.workix.model.Loggable;
-import br.com.codecode.workix.model.interfaces.BaseEntity;
-
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class User extends Loggable implements BaseEntity{
+public class User extends BaseEntity implements Persistable{
 
 	private static final long serialVersionUID = -610648880358327958L;
-
-	@Expose
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	private long id;	
-
-	@Expose
+	
 	@Column
 	private boolean active;
-
-	@Expose
-	@NotEmpty
-	@Email	
+	
+	@Email
 	@Column(nullable = false,unique=true)
 	private String email;
 
-	@Expose
-	@NotEmpty	
+	@NotEmpty
 	@Column
 	private String firebaseUUID;
 
-	@Expose
+	@NotEmpty
 	@Column
 	private String firebaseMessageToken;
 
-	public User(){}
-
-	@Override
-	public long getId() {
-		return this.id;
-	}
-
-	public void setId(final long id) {
-		this.id = id;
-	}	
-
+	public User(){}	
 
 	public boolean isActive() {
 		return active;
@@ -101,7 +71,7 @@ public class User extends Loggable implements BaseEntity{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		return result;
 	}
 
@@ -114,7 +84,7 @@ public class User extends Loggable implements BaseEntity{
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (id != other.id)
+		if (getId() != other.getId())
 			return false;
 		return true;
 	}
@@ -123,8 +93,5 @@ public class User extends Loggable implements BaseEntity{
 	public String toString() {
 		return "User [email=" + email + "]";
 	}
-
-
-
 
 }

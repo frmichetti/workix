@@ -13,6 +13,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -22,9 +24,10 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @since 1.0
  * @version
  */
-@Entity
-@Table(name="JAAS_Role")
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+@Table(name="JAAS_Role")
+@Entity
 public class JAASRole implements Serializable {
 
 	private static final long serialVersionUID = -3259219990958750371L;
@@ -33,8 +36,7 @@ public class JAASRole implements Serializable {
 	@Column(unique = true, nullable = false)
 	private String name;
 
-	protected JAASRole() {
-	}
+	protected JAASRole(){}
 
 	public JAASRole(String name) {
 		this();

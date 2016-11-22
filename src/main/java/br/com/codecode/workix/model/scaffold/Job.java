@@ -7,9 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -17,34 +14,22 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.workix.model.Loggable;
+import br.com.codecode.workix.model.BaseEntity;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
-import br.com.codecode.workix.model.interfaces.BaseEntity;
+import br.com.codecode.workix.model.interfaces.Persistable;
 
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class Job extends Loggable implements BaseEntity {
+public class Job extends BaseEntity implements Persistable {
 
 	private static final long serialVersionUID = 2246753300384053586L;
 
-	@Expose
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)	
-	private long id;
-
 	@NotEmpty
-	@Expose
 	@Column(nullable = false)
 	private String title;
 
@@ -52,80 +37,61 @@ public class Job extends Loggable implements BaseEntity {
 	@Expose
 	@Column
 	private BigDecimal minPayment;
-	
-	@DecimalMin("10")
-	@Expose
+
+	@DecimalMin("10")	
 	@Column
 	private BigDecimal maxPayment;
 
-	@NotEmpty
-	@Expose
+	@NotEmpty	
 	@Lob
 	@Column(nullable = false)
 	private String description;
-	
-	@NotEmpty
-	@Expose
+
+	@NotEmpty	
 	@Lob
 	@Column(nullable = false)	
 	private String requirement;
-	
-	@NotEmpty
-	@Expose
+
+	@NotEmpty	
 	@Lob
 	@Column(nullable = false)	
 	private String benefits;
-	
-	@NotNull	
-	@Expose	
-	@Column(nullable = false, updatable = false)
+
+	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false, updatable = false)	
 	private Calendar start;
 
 	@NotNull
-	@Future
-	@Expose
-	@Column(nullable = false)	
+	@Future	
 	@Temporal(TemporalType.TIMESTAMP)
+	@Column(nullable = false)	
 	private Calendar expire;
-	
-	@Expose
-	@Column
+
 	@Enumerated(EnumType.STRING)
+	@Column
 	private JobType type;
 
-	@Expose
-	@Column
 	@Enumerated(EnumType.STRING)
+	@Column	
 	private JobCategory category;	
 
-	@Expose
 	@Column
 	private boolean active;
-	
+
 	@NotNull
-	@Expose
 	@ManyToOne(optional=false)
 	private Company employeer;
-	
+
 	public Job(){
 		configure();
 	}
-	
+
 	private void configure(){
 		minPayment = BigDecimal.TEN;
 		maxPayment = BigDecimal.TEN; 
 		active = true;
 		start = Calendar.getInstance();		
-	}
-	
-	@Override
-	public long getId() {
-		return id;
-	}
-
-	public void setId(final long id) {
-		this.id = id;
 	}	
 
 	public String getTitle() {
@@ -159,7 +125,7 @@ public class Job extends Loggable implements BaseEntity {
 	public void setDescription(String resume) {
 		this.description = resume;
 	}
-	
+
 	public String getRequirement() {
 		return requirement;
 	}
@@ -175,7 +141,7 @@ public class Job extends Loggable implements BaseEntity {
 	public void setBenefits(String benefits) {
 		this.benefits = benefits;
 	}
-		
+
 	public Calendar getStart() {
 		return start;
 	}
@@ -183,7 +149,7 @@ public class Job extends Loggable implements BaseEntity {
 	public void setStart(Calendar start) {
 		this.start = start;
 	}	
-	
+
 	public Calendar getExpire() {
 		return expire;
 	}
@@ -223,12 +189,12 @@ public class Job extends Loggable implements BaseEntity {
 	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
 	}	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		return result;
 	}
 
@@ -241,7 +207,7 @@ public class Job extends Loggable implements BaseEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		Job other = (Job) obj;
-		if (id != other.id)
+		if (getId() != other.getId())
 			return false;
 		return true;
 	}
@@ -249,5 +215,5 @@ public class Job extends Loggable implements BaseEntity {
 	public String uniqueId(){
 		return super.getUuid();
 	}
-	
+
 }

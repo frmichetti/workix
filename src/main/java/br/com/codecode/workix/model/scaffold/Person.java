@@ -8,25 +8,21 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.google.gson.annotations.Expose;
-
-import br.com.codecode.workix.model.Loggable;
-import br.com.codecode.workix.model.interfaces.BaseEntity;
+import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.interfaces.Persistable;
 
 @MappedSuperclass
-public abstract class Person extends Loggable implements BaseEntity {
+public abstract class Person extends BaseEntity implements Persistable {
 
 	private static final long serialVersionUID = 703693002246144451L;
 
-	@NotEmpty
-	@Expose
+	@NotEmpty	
 	@Column(nullable = false)
-	protected String name;
+	private String name;
 	
-	@NotNull
-	@Expose
+	@NotNull	
 	@OneToOne(optional=false)
-	protected User user;	
+	private User user;	
 		
 	@Embedded
 	private Contact contact;

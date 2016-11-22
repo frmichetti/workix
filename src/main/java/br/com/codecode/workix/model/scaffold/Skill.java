@@ -8,19 +8,16 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.google.gson.annotations.Expose;
-
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Skill implements Serializable {
 
 	private static final long serialVersionUID = -5975419980185059163L;
-	
-	@Expose	
+
 	@Column
 	private String skillName;
-	
+
 	public Skill(){}	
 
 	public Skill(String skillName) {

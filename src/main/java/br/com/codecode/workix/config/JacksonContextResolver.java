@@ -2,6 +2,7 @@ package br.com.codecode.workix.config;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -14,9 +15,13 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import br.com.codecode.workix.jaxrs.deserializer.CalendarDeserializer;
-
+/**
+ * This Class define Startup Properties for Jackson
+ * @author felipe
+ *
+ */
 @Provider
-@Produces(MediaType.APPLICATION_JSON)
+@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 public class JacksonContextResolver implements ContextResolver<ObjectMapper> {
 
 	private static final ObjectMapper om = init();
@@ -28,19 +33,20 @@ public class JacksonContextResolver implements ContextResolver<ObjectMapper> {
 
 	private static ObjectMapper init() {
 
-		ObjectMapper om = new ObjectMapper()		
-
-				//.setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")) 
-				.setDateFormat(new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ssZ"))
+		ObjectMapper om = new ObjectMapper()				
+				
+				.setLocale(new Locale("Portuguese", "Brazil"))
+				
+				.setDateFormat(new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss"))
 
 				.registerModule(new JavaTimeModule())
 
 				.registerModule(new SimpleModule()
 						.addDeserializer(Calendar.class,new CalendarDeserializer()))
-
-				.enable(SerializationFeature.INDENT_OUTPUT)
-
-				.disable(SerializationFeature.WRITE_DATE_KEYS_AS_TIMESTAMPS);
+				
+				.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
+				
+				.enable(SerializationFeature.INDENT_OUTPUT);			
 
 		return om;
 	}

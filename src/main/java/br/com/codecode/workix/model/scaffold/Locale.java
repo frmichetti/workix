@@ -11,8 +11,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.google.gson.annotations.Expose;
-
 import br.com.codecode.workix.model.enums.Estate;
 
 @XmlRootElement
@@ -22,29 +20,23 @@ public class Locale implements Serializable {
 
 	private static final long serialVersionUID = -607806075186010186L;
 
-	@Expose	
 	@Column
 	private BigInteger zipCode;
 	
-	@Expose	
 	@Column
 	private String city;
 	
-	@Expose	
 	@Column
 	private String neighborhood;
 	
-	@Expose
 	@Column
 	private String street;
 	
-	@Expose
 	@Column
 	private String number;
-	
-	@Expose
-	@Column
+
 	@Enumerated(EnumType.STRING)
+	@Column
 	private Estate estate;
 	
 	public Locale(){}
@@ -95,7 +87,6 @@ public class Locale implements Serializable {
 
 	public void setEstate(Estate estate) {
 		this.estate = estate;
-	}	
-	
+	}		
 
 }

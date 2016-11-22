@@ -9,16 +9,13 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.google.gson.annotations.Expose;
-
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
 public class Contact implements Serializable{
 
 	private static final long serialVersionUID = -2482737185460142872L;
-	
-	@Expose	
+		
 	@Column
 	private BigInteger mobilePhone;
 	

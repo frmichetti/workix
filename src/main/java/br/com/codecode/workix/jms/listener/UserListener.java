@@ -47,19 +47,17 @@ public class UserListener implements MessageListener{
 
 		TextMessage text = (TextMessage) message;
 
-		System.out.println("Received Message -> " + text);
-
-		String uuid = "";
+		System.out.println("Received Message -> " + text);		
 
 		try {
 
-			uuid = text.getText();
-			
-			
+			String uuid = text.getText();			
 
 			managedExecutorService.execute(() -> {	
 				
 				System.out.println("TODO SEND A MAIL TO USER " + Instant.now());
+				
+				System.out.println("UUID " + uuid);
 
 
 			});

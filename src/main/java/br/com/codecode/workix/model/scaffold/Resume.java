@@ -8,76 +8,54 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.google.gson.annotations.Expose;
+import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.interfaces.Persistable;
 
-import br.com.codecode.workix.model.Loggable;
-import br.com.codecode.workix.model.interfaces.BaseEntity;
-
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
-public class Resume extends Loggable implements BaseEntity {
+public class Resume extends BaseEntity implements Persistable {
 
 	private static final long serialVersionUID = 7569771700044121495L;
 
-	@Expose
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	private long id;
-	
-	@Expose
 	@NotNull	
 	@OneToOne(fetch=FetchType.EAGER,optional=false,targetEntity=Candidate.class)
 	private Candidate candidate;
-	
-	@Expose
+
 	@NotEmpty	
 	@Column
 	private String objective;
-	
-	@Expose
+
 	@Lob
 	@Column
 	private String content;	
-	
+
 	/**
 	 * OneToMany 
 	 */
-	@Expose	
 	@ElementCollection(fetch=FetchType.EAGER)	
 	@CollectionTable(name = "Resume_experiences",joinColumns=@JoinColumn(name="id"))
 	private Set<Experience> experiences;
-	
+
 	/**
 	 * OneToMany 
 	 */
-	@Expose	
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name = "Resume_educations",joinColumns=@JoinColumn(name="id"))
 	private Set<Education> educations;	
-	
+
 	/**
 	 * OneToMany 
 	 */
-	@Expose	
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name = "Resume_skills",joinColumns=@JoinColumn(name="id"))
 	private Set<Skill> skills;	
-	
+
 	public Resume() {
 		configure();
 	}
@@ -88,15 +66,6 @@ public class Resume extends Loggable implements BaseEntity {
 		skills = new HashSet<>();		
 	}
 
-	@Override
-	public long getId() {
-		return this.id;
-	}
-
-	public void setId(final long id) {
-		this.id = id;
-	}	
-	
 	public Candidate getCandidate() {
 		return candidate;
 	}
@@ -128,11 +97,11 @@ public class Resume extends Loggable implements BaseEntity {
 	public void setExperiences(Set<Experience> experiences) {
 		this.experiences = experiences;
 	}
-	
+
 	public void addExperience(Experience experience){
 		this.experiences.add(experience);
 	}
-	
+
 	public void removeExperience(Experience experience){
 		this.experiences.remove(experience);
 	}
@@ -144,11 +113,11 @@ public class Resume extends Loggable implements BaseEntity {
 	public void setEducations(Set<Education> educations) {
 		this.educations = educations;
 	}
-	
+
 	public void addEducation(Education education){
 		this.educations.add(education);
 	}
-	
+
 	public void removeEducation(Education education){
 		this.educations.remove(education);
 	}	
@@ -160,11 +129,11 @@ public class Resume extends Loggable implements BaseEntity {
 	public void setSkills(Set<Skill> skills) {
 		this.skills = skills;
 	}
-	
+
 	public void addSkill(Skill skill){
 		this.skills.add(skill);
 	}
-	
+
 	public void removeSkill(Skill skill){
 		this.skills.remove(skill);
 	}
@@ -173,7 +142,7 @@ public class Resume extends Loggable implements BaseEntity {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		return result;
 	}
 
@@ -186,7 +155,7 @@ public class Resume extends Loggable implements BaseEntity {
 		if (getClass() != obj.getClass())
 			return false;
 		Resume other = (Resume) obj;
-		if (id != other.id)
+		if (getId() != other.getId())
 			return false;
 		return true;
 	}
