@@ -5,11 +5,11 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.util;
+package br.com.codecode.workix.util.gson.deserializer;
 
 import java.lang.reflect.Type;
-import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.google.gson.JsonDeserializationContext;
@@ -40,12 +40,21 @@ public class GsonDateDeserializer implements JsonDeserializer<Date> {
 			Date d = new Date();
 
 			try {
-
-				d = DateFormat.getInstance().parse(dateRaw);
+				
+				/**
+				 * 
+				 * attempt for DateFormat , Pattern Must be Equals {@link JacksonContextResolver #init()}
+				 * @return
+				 */
+				d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
 
 				return d;
 
 			} catch (ParseException e) {
+				
+				System.err.println(e);
+				
+				System.out.println("Try get Date as Long ...");
 
 				long date = json.getAsLong();	
 

@@ -28,7 +28,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * 
  * @author felipe
  * @since 1.0
- * @version
+ * @version 1.0
  *
  */
 public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Candidate>{

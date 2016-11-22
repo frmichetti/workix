@@ -1,8 +1,8 @@
-package br.com.codecode.workix.tests.util;
+package br.com.codecode.workix.util.gson.deserializer;
 
 import java.lang.reflect.Type;
-import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -56,9 +56,14 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 
 			Date d = new Date();
 
-			try {
+			try {			
 				
-				d = DateFormat.getInstance().parse(dateRaw);
+				/**
+				 * 
+				 * attempt for DateFormat , Pattern Must be Equals {@link JacksonContextResolver #init()}
+				 * @return
+				 */
+				d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
 				
 			} catch (ParseException e) {
 

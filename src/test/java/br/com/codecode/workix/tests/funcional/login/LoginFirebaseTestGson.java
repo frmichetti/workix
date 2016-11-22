@@ -5,36 +5,31 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.funcional.login.gson;
+package br.com.codecode.workix.tests.funcional.login;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Date;
-
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.rest.android.Token;
-import br.com.codecode.workix.tests.funcional.login.LoginTest;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
+import br.com.codecode.workix.tests.populate.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
-
 
 
 /**
  * Do Login With Firebase Server with Gson
  * @author felipe
  * @since 1.0
- * @version
+ * @version 1.0
  */
-public class LoginFirebaseTest implements LoginTest{
+public class LoginFirebaseTestGson extends BaseTest implements LoginTest{
 
-	private String url = "http://localhost:8080/carhollics-javaee/services/login/firebaselogin";
+	private String url = server + "/login/firebaselogin";
 
 	private String json;
 
@@ -48,7 +43,7 @@ public class LoginFirebaseTest implements LoginTest{
 
 		t.setKey("QAUOsCHKWfP1L6G4OvgBekX6ONG3");
 
-		json = HttpTest.sendPost(url, new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'").create().toJson(t));		
+		json = HttpTest.sendPost(url, getGson().toJson(t));		
 
 		assertNotNull("", json);
 
@@ -64,9 +59,7 @@ public class LoginFirebaseTest implements LoginTest{
 
 		System.out.println(json);
 
-		User u = new GsonBuilder()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.create().fromJson(json, new TypeToken<User>(){}.getType());	
+		User u = getGson().fromJson(json, new TypeToken<User>(){}.getType());	
 
 		assertNotNull(u);	
 

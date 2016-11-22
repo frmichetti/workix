@@ -37,7 +37,8 @@ public class DownloadTestCandidate extends BaseTest implements DownloadTest{
 		
 		System.out.println("parseItens");		
 		
-		List<Candidate> companies = getGson().fromJson(resp, new TypeToken<List<Candidate>>(){}.getType()); 
+		List<Candidate> companies = getGson().fromJson(resp, 
+				new TypeToken<List<Candidate>>(){}.getType()); 
 		
 		assertNotNull(companies);
 		

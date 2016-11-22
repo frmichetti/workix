@@ -18,6 +18,8 @@ import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
  * Populate DB with Selective Processes
+ * @since 1.0
+ * @version 1.0
  * @author felipe
  *
  */

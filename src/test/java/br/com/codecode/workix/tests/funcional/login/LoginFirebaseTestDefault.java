@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.funcional.login.def;
+package br.com.codecode.workix.tests.funcional.login;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -22,7 +22,7 @@ import org.junit.Test;
 
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.rest.android.Token;
-import br.com.codecode.workix.tests.funcional.login.LoginTest;
+import br.com.codecode.workix.tests.populate.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 
@@ -32,9 +32,9 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version
  */
-public class LoginFirebaseTest implements LoginTest{
+public class LoginFirebaseTestDefault extends BaseTest implements LoginTest{
 
-	private String url = "http://localhost:8080/carhollics-javaee/services/login/firebaselogin";
+	private String url = server + "/login/firebaselogin";
 
 	private String json;
 
@@ -86,8 +86,7 @@ public class LoginFirebaseTest implements LoginTest{
 		u.setFirebaseUUID(jo.getString("firebaseUuid"));
 		
 		assertEquals("QAUOsCHKWfP1L6G4OvgBekX6ONG3", u.getFirebaseUUID());
-
-		//TODO FIXME TO Continue ...
+		
 		jr.close();
 	}
 

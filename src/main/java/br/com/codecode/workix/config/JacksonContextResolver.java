@@ -37,7 +37,7 @@ public class JacksonContextResolver implements ContextResolver<ObjectMapper> {
 				
 				.setLocale(new Locale("Portuguese", "Brazil"))				
 				
-				.setDateFormat(new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss"))
+				.setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ"))
 
 				.registerModule(new JavaTimeModule())
 
