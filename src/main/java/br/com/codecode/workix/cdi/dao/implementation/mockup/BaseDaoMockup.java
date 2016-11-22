@@ -21,6 +21,10 @@ public class BaseDaoMockup implements Serializable {
 	
 	protected static final String TITLE = "MOCKUP";
 	
+	protected static final String SAVEMESSAGE = " Salvo com Sucesso!";
+	
+	protected static final String UPDATEMESSAGE = " Atualizado com Sucesso!";
+	
 	@Inject
 	protected MessagesHelper messagesHelper;
 	

@@ -31,13 +31,13 @@ public class UserDaoMockup extends BaseDaoMockup implements Crud<User> {
 
 		alertNewUser.fire(entity);
 
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getEmail() + " Salvo com Sucesso!"));		
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getEmail() + SAVEMESSAGE));		
 	}
 
 	@Override
 	public User update(User entity) {
 
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getEmail() + " Atualizado com Sucesso!"));
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getEmail() + UPDATEMESSAGE));
 
 		return entity;
 	}

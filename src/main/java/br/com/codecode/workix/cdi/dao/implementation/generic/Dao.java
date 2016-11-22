@@ -5,7 +5,6 @@ import java.math.BigInteger;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.ejb.Stateless;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -22,7 +21,6 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  * @param <T>
  */
 @SuppressWarnings("unchecked")
-@Stateless
 public class Dao<T extends Persistable & Serializable> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;

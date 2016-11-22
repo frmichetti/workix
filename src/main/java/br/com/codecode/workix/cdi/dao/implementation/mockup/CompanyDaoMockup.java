@@ -23,13 +23,13 @@ public class CompanyDaoMockup extends BaseDaoMockup implements Crud<Company> {
 
 	@Override
 	public void save(Company entity) {
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Salvo com Sucesso!"));	
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + SAVEMESSAGE));	
 
 	}
 
 	@Override
 	public Company update(Company entity) {
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Atualizado com Sucesso!"));
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + UPDATEMESSAGE));
 		return entity;
 	}
 

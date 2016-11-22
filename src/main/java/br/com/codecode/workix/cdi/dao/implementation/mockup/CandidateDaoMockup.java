@@ -28,13 +28,13 @@ public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate>
 
 	@Override
 	public void save(Candidate entity) {
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Salvo com Sucesso!"));		
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + SAVEMESSAGE));		
 	}
 
 	@Override
 	public Candidate update(Candidate entity) {
 
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + " Atualizado com Sucesso!"));
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getName() + UPDATEMESSAGE));
 
 		return entity;
 	}

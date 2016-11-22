@@ -7,6 +7,8 @@
  * */
 package br.com.codecode.workix.config;
 
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.mail.MailSessionDefinition;
 
 /**
@@ -24,4 +26,6 @@ import javax.mail.MailSessionDefinition;
 		transportProtocol="smtp",
 		from="fake@gmail.com",
 		properties={"mail.smtp.port=465"})
+@Startup
+@Singleton
 public class MailConfiguration{}

@@ -72,7 +72,8 @@ public class ContactMB {
 
 	private String showMessage(){		
 		
-		messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Mensagem Enviada com Sucesso", "Obrigado!"));
+		messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO,
+				"Mensagem Enviada com Sucesso", "Obrigado!"));
 
 		return "./index.xhtml?faces-redirect=true";
 	}

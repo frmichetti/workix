@@ -3,6 +3,7 @@ package br.com.codecode.workix.bean;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
@@ -20,7 +21,8 @@ public class SignupMB {
 	private Crud<NewsLetterSubscriber> dao;
 	
 	private String email;
-		
+	
+	@Transactional
 	public void addToList(){
 		
 		NewsLetterSubscriber subscriber = new NewsLetterSubscriber(email);
@@ -28,6 +30,9 @@ public class SignupMB {
 		try {
 			
 			dao.save(subscriber);
+			
+			messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, subscriber.getEmail() + 
+					" inscrito na Lista de Novidades", "Obrigado!"));
 			
 		} catch (NotImplementedYetException e) {
 			// TODO Auto-generated catch block
@@ -37,8 +42,7 @@ public class SignupMB {
 					"Not Implemented Yet"));
 		}
 		
-		messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, subscriber.getEmail() + 
-				" inscrito na Lista de Novidades", "Obrigado!"));
+		
 	}
 
 

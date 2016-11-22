@@ -23,13 +23,13 @@ public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
 
 	@Override
 	public void save(Job entity) {
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getTitle() + " Salvo com Sucesso!"));		
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getTitle() + SAVEMESSAGE));		
 
 	}
 
 	@Override
 	public Job update(Job entity) {
-		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getTitle() + " Atualizado com Sucesso!"));		
+		messagesHelper.addFlash(new FacesMessage(TITLE,entity.getTitle() + UPDATEMESSAGE));		
 		return entity;
 	}
 
