@@ -49,13 +49,11 @@ public abstract class BaseEntity implements Traceable, Persistable, Serializable
 	private int version;
 
 	@XmlTransient
-	@Column(updatable=false,nullable=false)
-	//@Temporal(TemporalType.TIMESTAMP)
+	@Column(updatable=false,nullable=false)	
 	private Timestamp createdAt;
 
 	@XmlTransient
 	@Column
-	//@Temporal(TemporalType.TIMESTAMP)
 	private Timestamp updatedAt;
 		
 	@XmlTransient	

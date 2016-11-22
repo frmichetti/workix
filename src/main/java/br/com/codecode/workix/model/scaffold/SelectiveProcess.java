@@ -1,7 +1,8 @@
 package br.com.codecode.workix.model.scaffold;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Observable;
@@ -18,8 +19,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -38,12 +37,12 @@ import br.com.codecode.workix.model.interfaces.Traceable;
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable{
 
 	private static final long serialVersionUID = -5336099006523168288L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
 	private long id;
-	
+
 	@XmlTransient
 	@Version
 	@Column
@@ -53,16 +52,14 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	@Column(nullable = false)
 	private String uuid;
 
-	@XmlTransient
-	@Temporal(TemporalType.TIMESTAMP)
+	@XmlTransient	
 	@Column	
-	private Calendar createdAt;
+	private Timestamp createdAt;
 
-	@XmlTransient
-	@Temporal(TemporalType.TIMESTAMP)
+	@XmlTransient	
 	@Column		
-	private Calendar updatedAt;
-	
+	private Timestamp updatedAt;
+
 	@NotNull
 	@ManyToOne(optional=false)
 	private Job job;	
@@ -73,11 +70,10 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
 	@Column
 	private boolean active;	
-	
-	@Temporal(TemporalType.TIMESTAMP)	
+
 	@Column
-	private Calendar disabledAt;
-	
+	private Timestamp disabledAt;
+
 	@Min(1)
 	@Column(nullable = false)
 	private int maxCandidates;
@@ -156,7 +152,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	private void setActive(boolean active) {
 
 		if(!active){
-			disabledAt = Calendar.getInstance();
+			disabledAt = Timestamp.from(Instant.now());
 		}
 
 		this.active = active;
@@ -171,7 +167,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	public void setMaxCandidates(int maxCandidates) {
 		this.maxCandidates = maxCandidates;
 	}
-	
+
 	private boolean isElegible(){
 		System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
 		System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates+ "]");
@@ -266,13 +262,13 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
 	@Override
 	public void insertTimeStamp(){
-		createdAt = Calendar.getInstance();
+		createdAt = Timestamp.from(Instant.now());
 	}
 
 	@PreUpdate
 	@Override
 	public void updateTimeStamp(){
-		updatedAt = Calendar.getInstance();
+		updatedAt = Timestamp.from(Instant.now());
 	}
 
 
