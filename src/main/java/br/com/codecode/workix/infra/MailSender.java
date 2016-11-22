@@ -9,6 +9,7 @@ package br.com.codecode.workix.infra;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.mail.Message;
+import javax.mail.Message.RecipientType;
 import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -41,7 +42,7 @@ public class MailSender {
 
 		try {
 
-			mimeMessage.setRecipients(javax.mail.Message.RecipientType.TO, InternetAddress.parse(to));
+			mimeMessage.setRecipients(RecipientType.TO, InternetAddress.parse(to));
 
 			mimeMessage.setFrom(new InternetAddress(from));
 			

@@ -23,7 +23,7 @@ public class JmsContextProducer {
 	private JMSContext jmsContext;
 
 	/**
-	 * Produce {@link JMSProducer} for CDI Injection Points 
+	 * Produces {@link JMSProducer} for CDI Injection Points 
 	 * @return {@link JMSProducer} Instance
 	 */
 	@Produces

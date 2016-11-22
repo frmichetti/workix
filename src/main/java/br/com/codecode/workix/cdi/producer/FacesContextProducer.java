@@ -9,8 +9,11 @@ package br.com.codecode.workix.cdi.producer;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
+
+import br.com.codecode.workix.cdi.qualifier.Factory;
 
 /**
  * Faces Context Producer
@@ -26,6 +29,8 @@ public class FacesContextProducer {
 	 */
 	@Produces
 	@RequestScoped
+	@Factory
+	@Default
 	public FacesContext getFacesContext() {    	
 		return FacesContext.getCurrentInstance();        
 	}

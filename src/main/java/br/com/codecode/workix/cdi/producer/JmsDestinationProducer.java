@@ -29,7 +29,7 @@ public class JmsDestinationProducer {
 	private Destination selectiveProcessesTopic;
 	
 	/**
-	 * Produce JMS {@link Destination} for CDI Injection Points 
+	 * Produces JMS {@link Destination} for CDI Injection Points 
 	 * @return JMS {@link Destination} Instance
 	 */
 	@Produces
@@ -41,7 +41,7 @@ public class JmsDestinationProducer {
 	}
 	
 	/**
-	 * Produce JMS {@link Destination} for CDI Injection Points 
+	 * Produces JMS {@link Destination} for CDI Injection Points 
 	 * @return JMS {@link Destination} Instance
 	 */
 	@Produces
@@ -53,7 +53,7 @@ public class JmsDestinationProducer {
 	}
 	
 	/**
-	 * Produce JMS {@link Destination} for CDI Injection Points 
+	 * Produces JMS {@link Destination} for CDI Injection Points 
 	 * @return JMS {@link Destination} Instance
 	 */
 	@Produces

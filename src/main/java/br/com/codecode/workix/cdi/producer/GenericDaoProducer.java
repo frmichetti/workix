@@ -36,7 +36,7 @@ public class GenericDaoProducer {
 	 * @return
 	 */
 	@Produces
-	@Dependent
+	@Dependent	
 	@Generic
 	public <T extends Persistable & Serializable> Dao<T> getDao(InjectionPoint injectionPoint) {		
 

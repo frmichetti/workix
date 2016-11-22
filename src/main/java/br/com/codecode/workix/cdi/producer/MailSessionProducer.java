@@ -22,7 +22,7 @@ public class MailSessionProducer {
 	private Session sessionGmail;
 	
 	/**
-	 * Produce Session for {@link MailSender} use in CDI Injection Points 
+	 * Produces Session for {@link MailSender} use in CDI Injection Points 
 	 * @return Session Instance for {@link MailSender} 
 	 */
 	@Produces
