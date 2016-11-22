@@ -21,9 +21,9 @@ import com.google.gson.JsonParseException;
  * Register in GsonBuilder <br>
  * Example: <br>
  * <code>new GsonBuilder()				
-	.registerTypeAdapter(Date.class, new GsonDateDeserializer())						
-	.create();
-	</code>
+ *	.registerTypeAdapter(Date.class, new GsonDateDeserializer())						
+ *	.create();
+ *	</code>
  * @author felipe
  *
  */

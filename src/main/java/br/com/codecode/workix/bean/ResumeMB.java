@@ -1,16 +1,19 @@
 package br.com.codecode.workix.bean;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.implementation.persist.ResumeCompleteDao;
 import br.com.codecode.workix.cdi.notify.Notification;
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.exception.NotImplementedYetException;
@@ -34,11 +37,16 @@ public class ResumeMB implements Serializable {
 
 	@Inject @Push
 	private Notification notification;	
+	
+	@Inject @Factory
+	private FacesContext facesContext;
 
 	@Inject
 	private MessagesHelper messagesHelper;
 
-	private Long id;	
+	private Long id;		
+
+	private String prefix, sufix; 	
 
 	private String messageTitle,messageBody;
 
@@ -58,6 +66,10 @@ public class ResumeMB implements Serializable {
 	 * Must be Called by f:viewAction After f:viewParam {@link page} 
 	 */
 	public void init(){
+		
+		prefix = facesContext.getExternalContext().getRequestContextPath();
+		
+		sufix = "?faces-redirect=true";
 
 		System.out.println("Candidate ID RECEIVED -> " + id);
 
@@ -66,11 +78,17 @@ public class ResumeMB implements Serializable {
 			candidate = dao.findById(id);
 
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 
 			goToErrorPage();
-		}	
+			
+		} catch (Exception e){
+			
+			e.printStackTrace();
+			
+			goToErrorPage();
+		}
 
 		if(candidate == null){
 			goToErrorPage();
@@ -143,8 +161,17 @@ public class ResumeMB implements Serializable {
 		this.messageTitle = messageTitle;
 	}
 
-	private String goToErrorPage(){
-		return "/404.xhtml?faces-redirect=true";
+	private String goToErrorPage(){	
+	
+		try {
+			
+			facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+			
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		return prefix + "/404.xhtml" + sufix;
 	}
 
 

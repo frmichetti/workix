@@ -3,7 +3,12 @@ package br.com.codecode.workix.jaxrs.converter;
 import java.time.LocalDate;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
-
+/**
+ * Converter for Java 8 Dates {@link LocalDate}
+ * FIXME Not Working with JaxRs Jackson
+ * @author felipe
+ *
+ */
 public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
    
 	@Override

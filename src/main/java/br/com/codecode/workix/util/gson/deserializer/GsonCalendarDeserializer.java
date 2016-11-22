@@ -16,9 +16,9 @@ import com.google.gson.JsonParseException;
  * Register in GsonBuilder
  * <br>Example:<br>
  * <code>new GsonBuilder()			
-	.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			
-	.create();
-	</code>
+ *	.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			
+ *	.create();
+ *	</code>
  * @author felipe
  *
  */
