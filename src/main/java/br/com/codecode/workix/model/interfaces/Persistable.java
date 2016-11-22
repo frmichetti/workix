@@ -8,9 +8,9 @@
 package br.com.codecode.workix.model.interfaces;
 
 /**
- * Markup Interface
- * Its only for works with SimpleEntityConverter
- * and AnotherEntityConverter to JSF
+ * Markup Interface for Persistable Entities
+ * Implements this for works with SimpleEntityConverter
+ * and AnotherEntityConverter for JSF
  * 
  * @author Felipe Rodrigues Michetti
  *

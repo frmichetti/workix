@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
@@ -32,9 +31,8 @@ public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 	private List<Candidate> candidates;
 
 	private List<Resume> res; 
-
-	@Before
-	public void downloadCandidate(){
+	
+	private void downloadCandidate(){
 
 		resp = HttpTest.sendGet(server + "candidates");	
 
@@ -47,6 +45,8 @@ public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 
 	@Override
 	public void create(){
+		
+		downloadCandidate();
 
 		assertNotNull(candidates);
 
@@ -81,8 +81,6 @@ public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 
 	}
 
-
-
 	@Override
 	public void addToList(Resume resume) {
 
@@ -99,6 +97,8 @@ public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 	@Test	
 	@Override
 	public void sendToServer() {	
+		
+		create();
 
 		assertNotNull(res);		
 

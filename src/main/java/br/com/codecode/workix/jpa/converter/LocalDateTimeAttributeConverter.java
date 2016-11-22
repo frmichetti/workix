@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 /**
- * http://www.thoughts-on-java.org/persist-localdate-localdatetime-jpa/
+ * @see <a href="http://www.thoughts-on-java.org/persist-localdate-localdatetime-jpa"> Persist LocalDate LocalDateTime</a>
  * @author felipe
  *
  */

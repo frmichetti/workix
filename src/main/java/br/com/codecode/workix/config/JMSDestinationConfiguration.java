@@ -12,6 +12,9 @@ import javax.jms.JMSDestinationDefinition;
 /**
  * Replace Configuration on JMS HORNETQ inside the Server 
  * not work on WildFly 9.0.2
+ * @see <a href="http://www.adam-bien.com/roller/abien/entry/auto_creating_jms_destinations_with"> JMS Destinations </a>
+ * 
+ * 
  * JAVA EE 7
  * @author Felipe
  *
@@ -20,11 +23,13 @@ public class JMSDestinationConfiguration{
 	
 	@JMSDestinationDefinition(
 			name="java:/jms/topics/jobsTopic",
+			destinationName = "jobsTopic",
 			interfaceName="javax.jms.Topic")
 	public class JobsTopicConfig{}
 	
 	@JMSDestinationDefinition(
 			name="java:/jms/topics/usersTopic",
+			destinationName = "usersTopic", 
 			interfaceName="javax.jms.Topic")
 	public class UsersTopicConfig{}	
 	

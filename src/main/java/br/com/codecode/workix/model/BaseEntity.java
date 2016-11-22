@@ -1,6 +1,8 @@
 package br.com.codecode.workix.model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -48,13 +50,13 @@ public abstract class BaseEntity implements Traceable, Persistable, Serializable
 
 	@XmlTransient
 	@Column(updatable=false,nullable=false)
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar createdAt;
+	//@Temporal(TemporalType.TIMESTAMP)
+	private Timestamp createdAt;
 
 	@XmlTransient
 	@Column
-	@Temporal(TemporalType.TIMESTAMP)
-	private Calendar updatedAt;
+	//@Temporal(TemporalType.TIMESTAMP)
+	private Timestamp updatedAt;
 		
 	@XmlTransient	
 	@Column(updatable=false,nullable=false)
@@ -85,37 +87,36 @@ public abstract class BaseEntity implements Traceable, Persistable, Serializable
 
 	@Override
 	public void insertTimeStamp(){
-		createdAt = Calendar.getInstance();
+		createdAt = Timestamp.from(Instant.now());
 	}
 
 	@PreUpdate
 	@Override
 	public void updateTimeStamp(){
-		updatedAt = Calendar.getInstance();
+		updatedAt = Timestamp.from(Instant.now());
 	}
 
-	protected int getVersion() {
+	private int getVersion() {
 		return version;
 	}
 
-
-	protected void setVersion(final int version) {
+	private void setVersion(final int version) {
 		this.version = version;
 	}
 
-	protected Calendar getCreatedAt() {
+	protected Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	private void setCreatedAt(Calendar createdAt) {
+	private void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	protected Calendar getUpdatedAt() {
+	protected Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	private void setUpdatedAt(Calendar updatedAt) {
+	private void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 

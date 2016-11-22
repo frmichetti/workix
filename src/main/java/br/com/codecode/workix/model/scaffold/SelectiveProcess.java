@@ -29,12 +29,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.model.interfaces.Traceable;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @SuppressWarnings({"unchecked","unused"})
 @Entity
-public class SelectiveProcess extends Observable implements Observer, Persistable, Serializable{
+public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable{
 
 	private static final long serialVersionUID = -5336099006523168288L;
 	
@@ -253,24 +254,25 @@ public class SelectiveProcess extends Observable implements Observer, Persistabl
 	}
 
 	@PrePersist
-	private void prepareToPersist(){
-		insertTimeStamp();
-		generateUUID();		
+	@Override
+	public void prepareToPersist(){
+		Traceable.super.prepareToPersist();	
 	}	
 
-	private void insertTimeStamp() {
-		createdAt = Calendar.getInstance();
+	@Override
+	public void generateUUID(){
+		uuid = UUID.randomUUID().toString();
+	}
 
+	@Override
+	public void insertTimeStamp(){
+		createdAt = Calendar.getInstance();
 	}
 
 	@PreUpdate
-	private void updateTimeStamp() {
+	@Override
+	public void updateTimeStamp(){
 		updatedAt = Calendar.getInstance();
-
-	}
-
-	private void generateUUID() {
-		uuid = UUID.randomUUID().toString();		
 	}
 
 

@@ -10,6 +10,13 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 
+import br.com.codecode.workix.config.JacksonContextResolver;
+/**
+ * Calendar Deserializer for Jackson
+ * @see JacksonContextResolver #init()
+ * @author felipe
+ *
+ */
 public class CalendarDeserializer extends JsonDeserializer<Calendar>  {
 
 	@Override

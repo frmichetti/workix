@@ -12,6 +12,11 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+/**
+ * JSF Messages Helper
+ * @author felipe
+ *
+ */
 @RequestScoped
 public class MessagesHelper {
 

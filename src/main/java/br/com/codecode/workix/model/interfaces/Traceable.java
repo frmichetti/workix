@@ -1,7 +1,7 @@
 package br.com.codecode.workix.model.interfaces;
 
 /**
- * Mark Interface for Loggable 
+ * Markup Interface for Traceable Entities 
  * @author felipe
  *
  */
