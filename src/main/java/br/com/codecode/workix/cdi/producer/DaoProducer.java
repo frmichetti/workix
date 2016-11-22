@@ -1,5 +1,6 @@
 package br.com.codecode.workix.cdi.producer;
 
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
 import javax.enterprise.context.Dependent;
@@ -32,7 +33,7 @@ public class DaoProducer {
 	@Produces
 	@Dependent
 	@Generic
-	public <T extends Persistable> Dao<T> getDao(InjectionPoint injectionPoint) {		
+	public <T extends Persistable & Serializable> Dao<T> getDao(InjectionPoint injectionPoint) {		
 
 		ParameterizedType type = (ParameterizedType) injectionPoint.getType();
 

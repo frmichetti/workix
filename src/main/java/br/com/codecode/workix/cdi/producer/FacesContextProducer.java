@@ -19,7 +19,11 @@ import javax.faces.context.FacesContext;
  */
 @ApplicationScoped
 public class FacesContextProducer {
-
+	
+	/**
+	 * Produce FacesContext for CDI Injection Points 
+	 * @return {@link FacesContext} Instance
+	 */
 	@Produces
 	@RequestScoped
 	public FacesContext getFacesContext() {    	

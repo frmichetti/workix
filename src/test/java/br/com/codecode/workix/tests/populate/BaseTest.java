@@ -10,14 +10,14 @@ import br.com.codecode.workix.tests.util.GsonCalendarDeserializer;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpConfig;
 /**
- * BaseTest Share Common Fields
+ * BaseTest Class Share Common Fields
  * @author felipe
  *
  */
 public class BaseTest {
-	
+
 	/**
-	 * Must Be Changed 
+	 * Must Be Changed Startup Configuration
 	 * @see {@link HttpConfig} 
 	 * {@link HttpConfig #JAVAEE_PROJ_PROD} or {@link HttpConfig #JAVAEE_PROJ_TEST} 
 	 */
@@ -26,7 +26,12 @@ public class BaseTest {
 	private Gson gson;
 
 	public BaseTest() {
+
 		gson = buildGson();
+
+		if(gson == null)
+			throw new RuntimeException("Gson is Null - Generated Gson Before Start");
+
 	}
 
 	private Gson buildGson(){
@@ -39,9 +44,11 @@ public class BaseTest {
 				.create();
 	}
 
-	public Gson getGson(){
-
-		return gson;
+	public Gson getGson() throws RuntimeException{
+		if(gson != null)
+			return gson;
+		else
+			throw new RuntimeException("Gson is Null - Generated Gson Before Start");
 	}
 
 }

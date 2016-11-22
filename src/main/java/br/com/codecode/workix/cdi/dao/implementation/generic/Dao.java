@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producer.DaoProducer;
 import br.com.codecode.workix.model.interfaces.Persistable;
+
 /**
  * Generic Dao Implementation
  * @see DaoProducer
@@ -18,22 +21,36 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  * @param <T>
  */
 @SuppressWarnings("unchecked")
-public class Dao<T extends Persistable> implements Crud<T>, Serializable {
+public class Dao<T extends Persistable & Serializable> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
 
 	private Class<T> clazz;
 
 	private EntityManager em;
-
+	
+	/**
+	 * STUB Constructor
+	 */
 	private Dao(){}
-
+	
+	/**
+	 * {@link EntityManager} Must be in the construction Method
+	 * else Causes NullPointerException on {@link InjectionPoint} 
+	 * @param clazz
+	 * @param em
+	 */
 	public Dao(Class<T> clazz, EntityManager em) {
 		this();
 		this.clazz = clazz;
 		this.em = em;
+	}
 
+	@PostConstruct
+	private void init(){
+		
 		System.out.println("[CDI] - Dao(" + clazz.getSimpleName() + ")");
+
 		System.out.println("Entity Manager Hash -> " + em.hashCode());
 	}
 
@@ -78,7 +95,6 @@ public class Dao<T extends Persistable> implements Crud<T>, Serializable {
 		return em.createQuery(jpql,clazz).
 				setParameter("uuid",uuid).getSingleResult() ;
 
-
 	}
 
 
@@ -98,7 +114,8 @@ public class Dao<T extends Persistable> implements Crud<T>, Serializable {
 
 	@Override
 	public BigInteger countRegisters() {
-		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + clazz.getSimpleName()).getSingleResult();
+		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + 
+				clazz.getSimpleName()).getSingleResult();
 	}
 
 }

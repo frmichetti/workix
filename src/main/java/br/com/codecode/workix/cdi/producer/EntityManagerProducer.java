@@ -17,7 +17,7 @@ import br.com.codecode.workix.cdi.qualifier.OpenShift;
 
 /**
  * Entity Manager Producer
- * @see {@link persistence.xml} 
+ * @see {@link persistence.xml}
  * @author felipe
  *
  */
@@ -35,6 +35,10 @@ public class EntityManagerProducer implements Serializable {
 	@PersistenceUnit(unitName = "MySQLDS")
 	private EntityManagerFactory emfOpenShift;	
 	
+	/**
+	 * Produce EntityManager for CDI Injection Points 
+	 * @return {@link Production} Implementation
+	 */
 	@Produces
 	@RequestScoped
 	@Production	
@@ -42,6 +46,10 @@ public class EntityManagerProducer implements Serializable {
 		return emfProd.createEntityManager();
 	}
 	
+	/**
+	 * Produce EntityManager for CDI Injection Points 
+	 * @return {@link Development} Implementation
+	 */
 	@Produces
 	@RequestScoped
 	@Development	
@@ -49,6 +57,10 @@ public class EntityManagerProducer implements Serializable {
 		return emfDev.createEntityManager();
 	}	
 	
+	/**
+	 * Produce EntityManager for CDI Injection Points 
+	 * @return {@link OpenShift} Implementation
+	 */
 	@Produces
 	@RequestScoped
 	@OpenShift	
@@ -56,30 +68,43 @@ public class EntityManagerProducer implements Serializable {
 		return emfOpenShift.createEntityManager();
 	}	
 
+	/**
+	 * Produce EntityManager for CDI Injection Points based
+	 * on WEB-INF/web.xml ContextParam javax.faces.PROJECT_STAGE
+	 * @return {@link EntityManager}
+	 */
 	@Produces
 	@RequestScoped	
 	@Default
 	public EntityManager getDefaultEntityManager() {
 		
-		System.out.println("INIT PARAM >> " + getInitParam());
+		System.out.println("INIT PARAM >> " + getContextParam());
 
 		EntityManagerFactory emf = null;
 
-		if (getInitParam().equals("Production")){	
+		if (getContextParam().equals("Production")){	
 			
 			emf = emfProd;
 
-		}else if (getInitParam().equals("Development")){
+		}else if (getContextParam().equals("Development")){
 			
 			emf = emfDev;
 
+		}else if (getContextParam().equals("OpenShift")){
+			
+			emf = emfOpenShift;
+
 		}else{
-			throw new RuntimeException("Init Param is NULL or Undefined");
+			throw new RuntimeException("Context Param is NULL or Undefined");
 		}
 		
 		return emf.createEntityManager();
 	}
-
+	
+	/**
+	 * Closes Entity Manager when Necessary
+	 * @param em
+	 */
 	public void close(@Disposes EntityManager em) {
 		if (em.isOpen()) {
 			em.close();
@@ -87,10 +112,10 @@ public class EntityManagerProducer implements Serializable {
 	}
 	
 	/**
-	 * FIXME GET WEBINF PARAM
-	 * @return
+	 * TODO FIXME GET ContextParam 
+	 * @return String Representation for Entity Manager Selection
 	 */
-	private String getInitParam(){
+	private String getContextParam(){
 		
 		return "Development";
 	}

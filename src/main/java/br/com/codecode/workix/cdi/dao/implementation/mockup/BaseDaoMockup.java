@@ -6,6 +6,7 @@ import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
+import br.com.codecode.workix.cdi.producer.EntityManagerProducer;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
 /**
@@ -22,6 +23,11 @@ public class BaseDaoMockup implements Serializable {
 	@Inject
 	protected MessagesHelper messagesHelper;
 	
+	/**
+	 * CDI Injection Point for {@link EntityManager}
+	 * @see EntityManagerProducer
+	 * Possible values {@link @Default} {@link @Production} {@link @Development} {@link @OpenShift}
+	 */
 	@Inject @Default
 	protected EntityManager em;
 

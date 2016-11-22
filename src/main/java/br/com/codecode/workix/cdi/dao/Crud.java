@@ -1,5 +1,6 @@
 package br.com.codecode.workix.cdi.dao;
 
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  * @category Persistence
  * @param <T>
  */
-public interface Crud<T extends Persistable> {
+public interface Crud<T extends Persistable & Serializable> {
 
 	public void save(T entity);
 	
