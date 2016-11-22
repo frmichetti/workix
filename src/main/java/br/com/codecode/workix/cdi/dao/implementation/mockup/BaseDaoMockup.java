@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.producer.EntityManagerProducer;
+import br.com.codecode.workix.cdi.qualifier.Factory;
+import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
 /**
@@ -15,6 +17,7 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
  * @category Mockup
  *
  */
+@Mockup
 public class BaseDaoMockup implements Serializable {
 
 	private static final long serialVersionUID = -4533114503790241039L;
@@ -33,7 +36,7 @@ public class BaseDaoMockup implements Serializable {
 	 * @see EntityManagerProducer
 	 * Possible values {@link @Default} {@link @Production} {@link @Development} {@link @OpenShift}
 	 */
-	@Inject @Default
+	@Inject @Factory @Default
 	protected EntityManager em;
 
 }
