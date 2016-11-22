@@ -9,7 +9,6 @@ package br.com.codecode.workix.jms.listener;
 
 import java.time.Instant;
 
-import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
 import javax.enterprise.concurrent.ManagedExecutorService;
@@ -21,6 +20,7 @@ import javax.jms.TextMessage;
 
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Email;
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Push;
 
 
@@ -29,7 +29,7 @@ import br.com.codecode.workix.cdi.qualifier.Push;
 				propertyValue="java:/jms/topics/jobsTopic")})
 public class JobListener implements MessageListener{	
 
-	@Resource(name = "java:comp/DefaultManagedExecutorService")
+	@Inject @Factory
 	private ManagedExecutorService managedExecutorService;
 
 	@Inject @Email

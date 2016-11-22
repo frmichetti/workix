@@ -16,6 +16,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
 /**
  * Generic Dao Implementation
  * @see GenericDaoProducer
+ * @category Generic
  * @author felipe
  *
  * @param <T>
@@ -86,8 +87,7 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 				setParameter("uuid",uuid).getSingleResult() ;
 
 	}
-
-
+	
 	@Override
 	public List<T> listAll(int start, int end) {
 

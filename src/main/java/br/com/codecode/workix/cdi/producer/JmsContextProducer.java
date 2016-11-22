@@ -11,7 +11,7 @@ import javax.jms.JMSProducer;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 
 /**
- * Jms Context Producer
+ * JMS Context Producer
  * @author felipe
  *
  */

@@ -12,7 +12,7 @@ import br.com.codecode.workix.cdi.qualifier.SelectiveProcessTopic;
 import br.com.codecode.workix.cdi.qualifier.UserTopic;
 
 /**
- * 
+ * JMS Destination Producer
  * @author felipe
  *
  */

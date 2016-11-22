@@ -21,7 +21,8 @@ public class ReadFile {
 
 		StringBuffer sb = null;
 
-		try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(),StandardCharsets.UTF_8))) {
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(),
+				StandardCharsets.UTF_8))) {
 
 			String inputLine;
 
