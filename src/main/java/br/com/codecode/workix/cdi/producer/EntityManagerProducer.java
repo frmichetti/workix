@@ -13,10 +13,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 
-import br.com.codecode.workix.cdi.qualifier.Production;
 import br.com.codecode.workix.cdi.qualifier.Development;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.OpenShift;
+import br.com.codecode.workix.cdi.qualifier.Production;
 
 /**
  * Entity Manager Producer
@@ -112,10 +112,12 @@ public class EntityManagerProducer implements Serializable {
 	 * Closes Entity Manager when Necessary
 	 * @param em
 	 */
-	public void close(@Disposes EntityManager em) {
+	public void close(@Disposes EntityManager em) {	
+		
 		if (em.isOpen()) {
 			em.close();
 		}
+		
 	}
 
 	@Inject @Factory

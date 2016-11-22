@@ -3,6 +3,7 @@ package br.com.codecode.workix.cdi.producer;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
@@ -11,6 +12,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.dao.implementation.generic.Dao;
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
@@ -21,13 +23,14 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  *
  */
 @SuppressWarnings({"unchecked","rawtypes"})
+@ApplicationScoped
 public class GenericDaoProducer {	
 	
 	/**
 	 * MAY Change for {@link @Production} or {@link @Test} 
-	 * Default is Test
+	 * Default is AutoDiscover
 	 */
-	@Inject @Default
+	@Inject @Factory @Default
 	private EntityManager em;	
 	
 	/**
