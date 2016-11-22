@@ -8,6 +8,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.codecode.workix.cdi.qualifier.Factory;
+
 @Named
 @SessionScoped
 public class FirebaseMB implements Serializable {
@@ -16,7 +18,7 @@ public class FirebaseMB implements Serializable {
 
 	private String idToken;
 	
-	@Inject
+	@Inject @Factory
 	private FacesContext context; 
 
 	private static final long serialVersionUID = -6683482350467577281L;	

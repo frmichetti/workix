@@ -1,9 +1,11 @@
 package br.com.codecode.workix.bean;
 
+import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.infra.MailSender;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
@@ -12,6 +14,9 @@ public class ContactMB {
 
 	@Inject
 	private MessagesHelper messagesHelper;
+	
+	@Inject @Factory
+	private ManagedExecutorService managedExecutorService;
 
 	public ContactMB(){}
 
@@ -53,21 +58,25 @@ public class ContactMB {
 	}
 		
 	public void doSendAMessage(){
-
-		System.out.println("[DEBUG - doSendAMessage]");
-
-		System.out.println("Received Name " + getName());
-
-		System.out.println("Received Email " + getEmail());
-
-		System.out.println("Received Subject " + getSubject());
-
-		System.out.println("Received Body Message " + getBody());
-
-		mailSender.send(email, email, subject, body);
 		
-		showMessage();
+		managedExecutorService.execute(()->{
+			
+			System.out.println("[DEBUG - doSendAMessage]");
 
+			System.out.println("Received Name " + getName());
+
+			System.out.println("Received Email " + getEmail());
+
+			System.out.println("Received Subject " + getSubject());
+
+			System.out.println("Received Body Message " + getBody());
+
+			mailSender.send(email, email, subject, body);
+			
+			
+		});		
+
+		showMessage();
 	}
 
 	private String showMessage(){		
