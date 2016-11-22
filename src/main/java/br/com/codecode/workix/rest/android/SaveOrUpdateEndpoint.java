@@ -24,8 +24,8 @@ import br.com.codecode.workix.model.scaffold.User;
  * @author felipe
  *
  */
-@Path("save")
 @Stateless
+@Path("save")
 public class SaveOrUpdateEndpoint {
 	
 	@Inject
