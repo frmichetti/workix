@@ -51,7 +51,7 @@ public class ContactMB {
 	public void setBody(String body) {
 		this.body = body;
 	}
-	
+		
 	public void doSendAMessage(){
 
 		System.out.println("[DEBUG - doSendAMessage]");

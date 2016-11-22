@@ -35,11 +35,18 @@ public class SignupMB {
 					" inscrito na Lista de Novidades", "Obrigado!"));
 			
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 			
 			messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error on Save " + subscriber.getEmail() ,
 					"Not Implemented Yet"));
+			
+		}catch (Exception e) {			
+			
+			e.printStackTrace();
+			
+			messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error on Save " + subscriber.getEmail() ,
+					e.toString()));
 		}
 		
 		

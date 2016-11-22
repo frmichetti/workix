@@ -1,5 +1,6 @@
 package br.com.codecode.workix.rest.android;
 
+import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -24,6 +25,7 @@ import br.com.codecode.workix.model.scaffold.User;
  *
  */
 @Path("save")
+@Stateless
 public class SaveOrUpdateEndpoint {
 	
 	@Inject
