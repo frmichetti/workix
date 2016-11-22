@@ -7,6 +7,7 @@ import javax.enterprise.inject.Produces;
 import javax.mail.Session;
 
 import br.com.codecode.workix.cdi.qualifier.Factory;
+import br.com.codecode.workix.cdi.qualifier.Fake;
 import br.com.codecode.workix.cdi.qualifier.Gmail;
 import br.com.codecode.workix.infra.MailSender;
 
@@ -21,6 +22,9 @@ public class MailSessionProducer {
 	@Resource(mappedName="java:jboss/mail/gmail")
 	private Session sessionGmail;
 	
+	@Resource(mappedName="java:jboss/mail/fake")
+	private Session sessionFake;
+	
 	/**
 	 * Produces Session for {@link MailSender} use in CDI Injection Points 
 	 * @return Session Instance for {@link MailSender} 
@@ -29,8 +33,20 @@ public class MailSessionProducer {
 	@Dependent
 	@Factory 
 	@Gmail
-	public Session getSession(){
+	public Session getSessionGmail(){
 		return sessionGmail;
+	}
+	
+	/**
+	 * Produces Session for {@link MailSender} use in CDI Injection Points 
+	 * @return Session Instance for {@link MailSender} 
+	 */
+	@Produces
+	@Dependent
+	@Factory 
+	@Fake
+	public Session getSessionFake(){
+		return sessionFake;
 	}
 	
 	
