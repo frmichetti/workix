@@ -8,8 +8,8 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@SessionScoped
 @Named
+@SessionScoped
 public class FirebaseMB implements Serializable {
 
 	private String name,email,uid,photo;

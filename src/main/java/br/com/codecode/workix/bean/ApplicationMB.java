@@ -6,8 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-@ApplicationScoped
 @Named
+@ApplicationScoped
 public class ApplicationMB {
 
 	private String appName, slogan ;

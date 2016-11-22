@@ -1,32 +1,39 @@
 package br.com.codecode.workix.bean;
 
-import javax.enterprise.inject.Default;
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
-import javax.persistence.EntityManager;
+
+import br.com.codecode.workix.jsf.util.MessagesHelper;
 
 @Model
 public class SearchMB {
 	
-	@Inject @Default
-	private EntityManager em;
-	
-	private String keyword;
+	@Inject
+	private MessagesHelper messagesHelper;
+
+	private String query;
 	
 	public SearchMB(){}
-
-	public String getKeyword() {
-		return keyword;
-	}
-
-	public void setKeyword(String keyword) {
-		this.keyword = keyword;
-	}
 	
-	public String fetch(){
-		return "";
+	@PostConstruct
+	private void init(){}
+	
+	public void doFind(){
+		if (!query.equals("")){
+			messagesHelper.addFlash(new FacesMessage("Looking for " + query));
+		}
 	}
 	
-	
 
+	public String getQuery() {
+		return query;
+	}
+
+	public void setQuery(String query) {
+		this.query = query;
+	}
+	
+	
 }

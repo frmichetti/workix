@@ -6,8 +6,8 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
-@SessionScoped
 @Named
+@SessionScoped
 public class SecurityMB implements Serializable{
 
 	private static final long serialVersionUID = 4062470003123871957L;
@@ -20,10 +20,6 @@ public class SecurityMB implements Serializable{
 	}
 	
 	@PostConstruct
-	public void discoverInput(){		
-		
-	}
-	
-	
+	public void discoverInput(){}	
 
 }

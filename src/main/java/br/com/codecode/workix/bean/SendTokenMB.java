@@ -47,8 +47,10 @@ public class SendTokenMB {
 
 	@PostConstruct
 	private void init(){
+		
 		try {
 			candidates = dao.listAll(0, Integer.MAX_VALUE);
+			
 		} catch (NotImplementedYetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

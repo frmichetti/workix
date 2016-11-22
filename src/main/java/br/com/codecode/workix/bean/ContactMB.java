@@ -1,5 +1,6 @@
 package br.com.codecode.workix.bean;
 
+import javax.ejb.Asynchronous;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
@@ -52,6 +53,7 @@ public class ContactMB {
 		this.body = body;
 	}
 	
+	@Asynchronous
 	public String doSendAMessage(){
 		
 		System.out.println("[DEBUG - doSendAMessage]");
