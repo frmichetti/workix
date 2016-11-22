@@ -12,6 +12,11 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.model.scaffold.Candidate;
 
+/**
+ * Mockup Class for Demonstration Only
+ * @author felipe
+ * @category Mockup
+ */
 @Mockup
 public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate>{
 
@@ -68,12 +73,6 @@ public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate>
 	@Override
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Candidate.class.getSimpleName()).getSingleResult();
-	}
-
-	@Override
-	public Candidate saveOrUpdate(Candidate entity) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override

@@ -66,31 +66,9 @@ public class UserDao extends BaseDao implements Crud<User>{
 
 	@Override
 	public BigInteger countRegisters() {		
+
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + User.class.getSimpleName()).getSingleResult();
-	}
-
-	@Override
-	public User saveOrUpdate(User entity) {
-
-		if (entity == null){
-			throw new IllegalArgumentException("One valid Entity is required to persist");		
-
-		}
-
-		if(entity.getId() == 0){
-
-			em.persist(entity);
-
-		}else
-
-		{
-			em.merge(entity);
-
-		}
-
-		return entity;
-
-	}
+	}	
 
 	@Override
 	public User findByUuid(String uuid) {

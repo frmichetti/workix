@@ -12,6 +12,7 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
 /**
  * BaseClass for Mockup Implementation
  * @author felipe
+ * @category Mockup
  *
  */
 public class BaseDaoMockup implements Serializable {

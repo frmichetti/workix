@@ -60,29 +60,7 @@ public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProces
 	public BigInteger countRegisters() {		
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + SelectiveProcess.class.getSimpleName()).getSingleResult();
 	}
-
-	@Override
-	public SelectiveProcess saveOrUpdate(SelectiveProcess entity) {
-
-		if (entity == null){
-			throw new IllegalArgumentException("One valid Entity is required to persist");		
-
-		}
-
-		if(entity.getId() == 0){
-
-			em.persist(entity);
-
-		}else
-
-		{
-			em.merge(entity);
-
-		}
-
-		return entity;
-
-	}
+	
 
 	@Override
 	public SelectiveProcess findByUuid(String uuid) {

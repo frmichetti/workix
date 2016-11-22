@@ -55,30 +55,7 @@ public class JobDao extends BaseDao implements Crud<Job>{
 	@Override
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Job.class.getSimpleName()).getSingleResult();
-	}
-
-	@Override
-	public Job saveOrUpdate(Job entity) {
-
-		if (entity == null){
-			throw new IllegalArgumentException("One valid Entity is required to persist");		
-
-		}
-
-		if(entity.getId() == 0){
-
-			em.persist(entity);
-
-		}else
-
-		{
-			em.merge(entity);
-
-		}
-
-		return entity;
-
-	}
+	}	
 
 	@Override
 	public Job findByUuid(String uuid) {

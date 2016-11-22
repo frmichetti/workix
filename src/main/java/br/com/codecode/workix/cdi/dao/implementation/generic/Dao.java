@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.Stateless;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -21,6 +22,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  * @param <T>
  */
 @SuppressWarnings("unchecked")
+@Stateless
 public class Dao<T extends Persistable & Serializable> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
@@ -28,12 +30,12 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 	private Class<T> clazz;
 
 	private EntityManager em;
-	
+
 	/**
 	 * STUB Constructor
 	 */
 	private Dao(){}
-	
+
 	/**
 	 * {@link EntityManager} Must be in the construction Method
 	 * else Causes NullPointerException on {@link InjectionPoint} 
@@ -45,13 +47,13 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 		this.clazz = clazz;
 		this.em = em;
 	}
-	
+
 	/**
 	 * For Debug only
 	 */
 	@PostConstruct
 	private void init(){
-		
+
 		System.out.println("[CDI] - Dao(" + clazz.getSimpleName() + ")");
 
 		System.out.println("Entity Manager Hash -> " + em.hashCode());
@@ -62,7 +64,6 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 		em.persist(obj);
 	}
 
-
 	@Override
 	public T update(T obj) {
 		return em.merge(obj);
@@ -71,18 +72,6 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 	@Override
 	public T findById(long id) {
 		return em.find(clazz,id);
-	}
-
-	@Override
-	public T saveOrUpdate(T entity) {
-
-		if(entity.getId() == 0){
-			em.persist(entity);
-		}else{
-			em.merge(entity);			
-		}
-
-		return entity;
 	}
 
 	@Override

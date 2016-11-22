@@ -10,6 +10,11 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.model.scaffold.Job;
 
+/**
+ * Mockup Class for Demonstration Only
+ * @author felipe
+ * @category Mockup
+ */
 @Mockup
 public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
 
@@ -53,12 +58,6 @@ public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
 	@Override
 	public BigInteger countRegisters() {
 		return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Job.class.getSimpleName()).getSingleResult();
-	}
-
-	@Override
-	public Job saveOrUpdate(Job entity) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
