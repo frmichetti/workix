@@ -11,6 +11,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  * Markup Interface <br>
  * Abstract BaseCrud Interface With Minimal Functions
  * @author felipe
+ * @category Persistence
  * @param <T>
  * 
  */

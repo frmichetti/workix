@@ -2,34 +2,49 @@ package br.com.codecode.workix.model.scaffold;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 @Entity
 public class User extends BaseEntity implements Persistable{
 
 	private static final long serialVersionUID = -610648880358327958L;
-	
+
 	@Column
 	private boolean active;
 	
+	@NotEmpty
 	@Email
 	@Column(nullable = false,unique=true)
 	private String email;
 
-	@NotEmpty
 	@Column
 	private String firebaseUUID;
-
-	@NotEmpty
+	
 	@Column
 	private String firebaseMessageToken;
 
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
 	public User(){}	
+
+	public User(@NotNull UserBuilder userBuilder){
+
+		this.active = userBuilder.active;
+
+		this.email = userBuilder.email;
+
+		this.firebaseUUID = userBuilder.firebaseUUID;
+
+		this.firebaseMessageToken = userBuilder.firebaseMessageToken;
+	}
 
 	public boolean isActive() {
 		return active;
@@ -93,5 +108,77 @@ public class User extends BaseEntity implements Persistable{
 	public String toString() {
 		return "User [email=" + email + "]";
 	}
+
+	/**
+	 * Builder InnerClass for User 
+	 * @category Builder
+	 * @author felipe
+	 *
+	 */
+	public static class UserBuilder implements Buildable<User> {	
+
+		private boolean active;
+
+		private String email;
+
+		private String firebaseUUID;
+
+		private String firebaseMessageToken;		
+
+		private UserBuilder(){}		
+
+		public UserBuilder(boolean active, String email) {
+			this();
+			this.active = active;
+			this.email = email;
+		}
+
+		public UserBuilder(boolean active, String email, String firebaseUUID, String firebaseMessageToken) {
+			this(active,email);			
+			this.firebaseUUID = firebaseUUID;
+			this.firebaseMessageToken = firebaseMessageToken;
+		}		
+		
+		/**
+		 * @param active the active to set
+		 */
+		public UserBuilder setActive(boolean active) {
+			this.active = active;
+			return this;
+		}
+
+		/**
+		 * @param email the email to set
+		 */
+		public UserBuilder setEmail(String email) {
+			this.email = email;
+			return this;
+		}
+
+		/**
+		 * @param firebaseUUID the firebaseUUID to set
+		 */
+		public UserBuilder setFirebaseUUID(String firebaseUUID) {
+			this.firebaseUUID = firebaseUUID;
+			return this;
+		}
+
+		/**
+		 * @param firebaseMessageToken the firebaseMessageToken to set
+		 */
+		public UserBuilder setFirebaseMessageToken(String firebaseMessageToken) {
+			this.firebaseMessageToken = firebaseMessageToken;
+			return this;
+		}
+
+		@Override
+		public User build()
+		{
+			return new User(this);
+		}
+
+
+
+	}	
 
 }
