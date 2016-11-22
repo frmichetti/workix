@@ -9,9 +9,9 @@ package br.com.codecode.workix.jms.listener;
 
 import java.time.Instant;
 
-import javax.annotation.Resource;
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.ejb.MessageDrivenBean;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.inject.Inject;
 import javax.jms.JMSException;
@@ -21,15 +21,21 @@ import javax.jms.TextMessage;
 
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Email;
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Push;
 
-
+/**
+ * {@link MessageDrivenBean} for User
+ * Execute Actions {@link #onMessage(Message)}
+ * @author felipe
+ *
+ */
 @MessageDriven(activationConfig={
 		@ActivationConfigProperty(propertyName="destinationLookup",
 				propertyValue="java:/jms/topics/usersTopic")})
 public class UserListener implements MessageListener{		
 
-	@Resource(name = "java:comp/DefaultManagedExecutorService")
+	@Inject @Factory
 	private ManagedExecutorService managedExecutorService;
 
 	@Inject @Email

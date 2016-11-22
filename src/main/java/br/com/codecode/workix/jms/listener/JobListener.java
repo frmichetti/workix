@@ -11,6 +11,7 @@ import java.time.Instant;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.ejb.MessageDrivenBean;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.inject.Inject;
 import javax.jms.JMSException;
@@ -23,7 +24,12 @@ import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Push;
 
-
+/**
+ * {@link MessageDrivenBean} for Job
+ * Execute Actions {@link #onMessage(Message)}
+ * @author felipe
+ *
+ */
 @MessageDriven(activationConfig={
 		@ActivationConfigProperty(propertyName="destinationLookup",
 				propertyValue="java:/jms/topics/jobsTopic")})

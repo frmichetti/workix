@@ -6,8 +6,8 @@
  */
 package br.com.codecode.workix.infra;
 
-import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -15,10 +15,17 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import br.com.codecode.workix.cdi.qualifier.Gmail;
+
+/**
+ * This Class Prepare and Send a Email
+ * @author felipe
+ *
+ */
 @ApplicationScoped
 public class MailSender {
 
-	@Resource(mappedName="java:jboss/mail/gmail")
+	@Inject @Gmail
 	private Session session;	
 
 	/**
@@ -30,7 +37,7 @@ public class MailSender {
 	 */
 	public void send(String from,String to,String subject,String body){
 
-		Message mimeMessage =  new MimeMessage(session);
+		Message mimeMessage = new MimeMessage(session);
 
 		try {
 
