@@ -35,15 +35,15 @@ public class User extends BaseEntity implements Persistable{
 	 */
 	public User(){}	
 
-	public User(@NotNull UserBuilder userBuilder){
+	public User(@NotNull Builder builder){
 
-		this.active = userBuilder.active;
+		this.active = builder.active;
 
-		this.email = userBuilder.email;
+		this.email = builder.email;
 
-		this.firebaseUUID = userBuilder.firebaseUUID;
+		this.firebaseUUID = builder.firebaseUUID;
 
-		this.firebaseMessageToken = userBuilder.firebaseMessageToken;
+		this.firebaseMessageToken = builder.firebaseMessageToken;
 	}
 
 	public boolean isActive() {
@@ -115,7 +115,7 @@ public class User extends BaseEntity implements Persistable{
 	 * @author felipe
 	 *
 	 */
-	public static class UserBuilder implements Buildable<User> {	
+	public static class Builder implements Buildable<User> {	
 
 		private boolean active;
 
@@ -125,15 +125,15 @@ public class User extends BaseEntity implements Persistable{
 
 		private String firebaseMessageToken;		
 
-		private UserBuilder(){}		
+		private Builder(){}		
 
-		public UserBuilder(boolean active, String email) {
+		public Builder(boolean active, String email) {
 			this();
 			this.active = active;
 			this.email = email;
 		}
 
-		public UserBuilder(boolean active, String email, String firebaseUUID, String firebaseMessageToken) {
+		public Builder(boolean active, String email, String firebaseUUID, String firebaseMessageToken) {
 			this(active,email);			
 			this.firebaseUUID = firebaseUUID;
 			this.firebaseMessageToken = firebaseMessageToken;
@@ -142,7 +142,7 @@ public class User extends BaseEntity implements Persistable{
 		/**
 		 * @param active the active to set
 		 */
-		public UserBuilder setActive(boolean active) {
+		public Builder setActive(boolean active) {
 			this.active = active;
 			return this;
 		}
@@ -150,7 +150,7 @@ public class User extends BaseEntity implements Persistable{
 		/**
 		 * @param email the email to set
 		 */
-		public UserBuilder setEmail(String email) {
+		public Builder setEmail(String email) {
 			this.email = email;
 			return this;
 		}
@@ -158,7 +158,7 @@ public class User extends BaseEntity implements Persistable{
 		/**
 		 * @param firebaseUUID the firebaseUUID to set
 		 */
-		public UserBuilder setFirebaseUUID(String firebaseUUID) {
+		public Builder setFirebaseUUID(String firebaseUUID) {
 			this.firebaseUUID = firebaseUUID;
 			return this;
 		}
@@ -166,7 +166,7 @@ public class User extends BaseEntity implements Persistable{
 		/**
 		 * @param firebaseMessageToken the firebaseMessageToken to set
 		 */
-		public UserBuilder setFirebaseMessageToken(String firebaseMessageToken) {
+		public Builder setFirebaseMessageToken(String firebaseMessageToken) {
 			this.firebaseMessageToken = firebaseMessageToken;
 			return this;
 		}
