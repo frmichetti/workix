@@ -4,21 +4,19 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.User;
 import br.com.codecode.workix.tests.download.DownloadTest;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
+import br.com.codecode.workix.tests.populate.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
-public class DownloadTestUser implements DownloadTest {
+public class DownloadTestUser extends BaseTest implements DownloadTest {
 
 	private String resp;
 
@@ -40,12 +38,7 @@ public class DownloadTestUser implements DownloadTest {
 		
 		System.out.println("parseItens");		
 
-		List<User> users = new GsonBuilder()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.enableComplexMapKeySerialization()			
-				.create()
-				.fromJson(resp, new TypeToken<List<User>>(){}.getType()); 
+		List<User> users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType()); 
 
 		assertNotNull(users);
 

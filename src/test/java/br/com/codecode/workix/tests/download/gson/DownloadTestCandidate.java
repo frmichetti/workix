@@ -4,21 +4,19 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.Date;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.tests.download.DownloadTest;
-import br.com.codecode.workix.tests.util.GsonDateDeserializer;
+import br.com.codecode.workix.tests.populate.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
-public class DownloadTestCandidate implements DownloadTest{
+public class DownloadTestCandidate extends BaseTest implements DownloadTest{
 	
 	private String resp;
 
@@ -39,12 +37,7 @@ public class DownloadTestCandidate implements DownloadTest{
 		
 		System.out.println("parseItens");		
 		
-		List<Candidate> companies = new GsonBuilder()
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-				.setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
-				.enableComplexMapKeySerialization()			
-				.create()
-				.fromJson(resp, new TypeToken<List<Candidate>>(){}.getType()); 
+		List<Candidate> companies = getGson().fromJson(resp, new TypeToken<List<Candidate>>(){}.getType()); 
 		
 		assertNotNull(companies);
 		

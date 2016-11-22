@@ -18,7 +18,8 @@ public class BaseTest {
 	
 	/**
 	 * Must Be Changed 
-	 * @see {@link HttpConfig}
+	 * @see {@link HttpConfig} 
+	 * {@link HttpConfig #JAVAEE_PROJ_PROD} or {@link HttpConfig #JAVAEE_PROJ_TEST} 
 	 */
 	protected String server = HttpConfig.JAVAEE_PROJ_TEST;
 
