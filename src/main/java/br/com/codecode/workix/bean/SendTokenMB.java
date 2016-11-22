@@ -19,9 +19,9 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
-
 
 @Model
 public class SendTokenMB {
@@ -47,7 +47,12 @@ public class SendTokenMB {
 
 	@PostConstruct
 	private void init(){
-		candidates = dao.listAll(0, Integer.MAX_VALUE);
+		try {
+			candidates = dao.listAll(0, Integer.MAX_VALUE);
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public String getTitle() {

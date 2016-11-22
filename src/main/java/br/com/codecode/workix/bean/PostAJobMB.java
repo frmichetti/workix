@@ -7,10 +7,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
@@ -49,7 +49,12 @@ public class PostAJobMB {
 		
 		jobCategories = Arrays.asList(JobCategory.values());
 		
-		employeers = companyDao.listAll(0, 100);
+		try {
+			employeers = companyDao.listAll(0, 100);
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		debug();
 	}
@@ -85,11 +90,17 @@ public class PostAJobMB {
 	public void setCurrentJob(Job currentJob) {
 		this.currentJob = currentJob;
 	}
-
-	@Transactional
+	
 	public void commit(){		
 
-		dao.save(currentJob);		
+		try {
+			
+			dao.save(currentJob);
+			
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 
 	}
 

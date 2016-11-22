@@ -13,6 +13,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.model.interfaces.Persistable;
 
+/**
+ * 
+ * @author felipe
+ *
+ */
 @Entity
 public class NewsLetterSubscriber implements Persistable, Serializable{
 

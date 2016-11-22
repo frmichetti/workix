@@ -3,10 +3,10 @@ package br.com.codecode.workix.bean;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.NewsLetterSubscriber;
 
@@ -20,13 +20,22 @@ public class SignupMB {
 	private Crud<NewsLetterSubscriber> dao;
 	
 	private String email;
-	
-	@Transactional
+		
 	public void addToList(){
 		
 		NewsLetterSubscriber subscriber = new NewsLetterSubscriber(email);
 		
-		dao.save(subscriber);
+		try {
+			
+			dao.save(subscriber);
+			
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+			messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error on Save " + subscriber.getEmail() ,
+					"Not Implemented Yet"));
+		}
 		
 		messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, subscriber.getEmail() + 
 				" inscrito na Lista de Novidades", "Obrigado!"));

@@ -11,11 +11,12 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
 
-@SessionScoped
 @Named
+@SessionScoped
 public class CandidateDetailsMB implements Serializable {
 
 	private static final long serialVersionUID = 8847505514073013416L;
@@ -50,7 +51,15 @@ public class CandidateDetailsMB implements Serializable {
 		}
 		
 		if(id > 0){
-			currentCandidate = dao.findById(id);	
+			
+			try {
+				
+				currentCandidate = dao.findById(id);
+				
+			} catch (NotImplementedYetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}		
 		
 		if (currentCandidate == null){

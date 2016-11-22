@@ -10,6 +10,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.scaffold.Resume;
 
 /**
@@ -43,9 +44,8 @@ public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {
 	}
 
 	@Override
-	public void deleteById(long id) {
-		// TODO Auto-generated method stub
-
+	public void deleteById(long id) throws NotImplementedYetException {
+		throw new NotImplementedYetException();
 	}
 
 	@Override
@@ -71,9 +71,8 @@ public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {
 	}
 
 	@Override
-	public Resume findByUuid(String uuid) {
-		// TODO Auto-generated method stub
-		return null;
+	public Resume findByUuid(String uuid) throws NotImplementedYetException {
+		throw new NotImplementedYetException();
 	}
 
 }

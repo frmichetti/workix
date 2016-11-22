@@ -2,7 +2,6 @@ package br.com.codecode.workix.rest.android;
 
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -13,11 +12,13 @@ import javax.ws.rs.core.Response;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.config.JaxRsConfiguration;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.Resume;
 import br.com.codecode.workix.model.scaffold.User;
 
 /**
+ * This Class is a Simple StandAlone Endpoint for Android Uses
  * @see JaxRsConfiguration
  * @author felipe
  *
@@ -40,13 +41,21 @@ public class SaveOrUpdateEndpoint {
 	@Path("user")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
+	@Produces(MediaType.APPLICATION_JSON)	
 	public Response save(User user) {
 	
-		user = daoUser.saveOrUpdate(user);
+		try {
+			
+			user = daoUser.saveOrUpdate(user);
+			
+			alertNewUser.fire(user);
+			
+		} catch (IllegalArgumentException | NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		alertNewUser.fire(user);		
+				
 		
 		return Response.ok(user).build();
 	}
@@ -54,11 +63,17 @@ public class SaveOrUpdateEndpoint {
 	@Path("candidate")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
+	@Produces(MediaType.APPLICATION_JSON)	
 	public Response save(Candidate candidate) {
 	
-		candidate = daoCandidate.saveOrUpdate(candidate);				
+		try {
+			
+			candidate = daoCandidate.saveOrUpdate(candidate);
+			
+		} catch (IllegalArgumentException | NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}				
 		
 		return Response.ok(candidate).build();
 	}
@@ -66,11 +81,17 @@ public class SaveOrUpdateEndpoint {
 	@Path("resume")
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	@Transactional
+	@Produces(MediaType.APPLICATION_JSON)	
 	public Response save(Resume resume) {
 	
-		resume = daoResume.saveOrUpdate(resume);				
+		try {
+			
+			resume = daoResume.saveOrUpdate(resume);
+			
+		} catch (IllegalArgumentException | NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}				
 		
 		return Response.ok(resume).build();
 	}

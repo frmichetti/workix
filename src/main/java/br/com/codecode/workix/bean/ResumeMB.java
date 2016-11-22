@@ -13,6 +13,7 @@ import br.com.codecode.workix.cdi.dao.implementation.persist.ResumeCompleteDao;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.Education;
@@ -44,11 +45,11 @@ public class ResumeMB implements Serializable {
 	private Candidate candidate;
 
 	private Resume resume;
-	
+
 	private List<Skill> skills = new ArrayList<>();
-	
+
 	private List<Education> educations = new ArrayList<>();
-	
+
 	private List<Experience> experiences = new ArrayList<>();
 
 	public ResumeMB(){}
@@ -60,22 +61,31 @@ public class ResumeMB implements Serializable {
 
 		System.out.println("Candidate ID RECEIVED -> " + id);
 
-		candidate = dao.findById(id);	
-		
+		try {
+
+			candidate = dao.findById(id);
+
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+			goToErrorPage();
+		}	
+
 		if(candidate == null){
 			goToErrorPage();
 		}
-		
+
 		resume = daoResume.findResumebyOwner(candidate);
-		
+
 		if(resume == null){
 			goToErrorPage();
 		}
-		
+
 		skills.addAll(resume.getSkills());
-		
+
 		educations.addAll(resume.getEducations());
-		
+
 		experiences.addAll(resume.getExperiences());
 
 	}
@@ -95,8 +105,6 @@ public class ResumeMB implements Serializable {
 	public Resume getResume() {
 		return resume;
 	}
-	
-	
 
 	public List<Skill> getSkills() {
 		return skills;
@@ -138,9 +146,6 @@ public class ResumeMB implements Serializable {
 	private String goToErrorPage(){
 		return "/404.xhtml?faces-redirect=true";
 	}
-	
-	
-
 
 
 }

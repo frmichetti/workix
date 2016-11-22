@@ -11,6 +11,7 @@ import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.PaginationHelper;
 import br.com.codecode.workix.model.scaffold.Job;
 
@@ -47,7 +48,14 @@ public class JobsMB {
 	 */
 	public void init(){
 
-		totalRows = dao.countRegisters().intValue();
+		try {
+			
+			totalRows = dao.countRegisters().intValue();
+			
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		totalPages = pagination.discoverTotalPages(limitRows, totalRows);
 
@@ -55,7 +63,14 @@ public class JobsMB {
 
 		end = pagination.discoverEndRange(limitRows, page, totalPages);
 
-		list = new ListDataModel<Job>(dao.listAll(start-1,end));
+		try {
+			
+			list = new ListDataModel<Job>(dao.listAll(start-1,end));
+			
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 

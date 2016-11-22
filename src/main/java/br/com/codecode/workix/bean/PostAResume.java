@@ -5,10 +5,10 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
-import javax.transaction.Transactional;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.Resume;
 
@@ -25,16 +25,19 @@ public class PostAResume {
 	
 	private List<Candidate> candidates;
 	
-	public PostAResume() {
-		// TODO Auto-generated constructor stub
-	}
+	public PostAResume(){}
 	
 	@PostConstruct
 	private void init(){
 		
 		currentResume = new Resume();
 		
-		candidates = candidateDao.listAll(0, 100);
+		try {
+			candidates = candidateDao.listAll(0, 100);
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		debug();
 		
@@ -58,11 +61,15 @@ public class PostAResume {
 	public List<Candidate> getCandidates() {
 		return candidates;
 	}
-	
-	@Transactional
+		
 	public void commit(){		
 
-		dao.save(currentResume);		
+		try {
+			dao.save(currentResume);
+		} catch (NotImplementedYetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
 
 	}
 	

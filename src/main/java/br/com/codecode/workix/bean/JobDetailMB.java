@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.scaffold.Job;
 
@@ -37,7 +38,15 @@ public class JobDetailMB {
 		}
 		
 		if(id > 0){
-			currentJob = dao.findById(id);	
+			
+			try {
+				
+				currentJob = dao.findById(id);
+				
+			} catch (NotImplementedYetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
 		}		
 		
 		if (currentJob == null){
