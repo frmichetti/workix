@@ -12,11 +12,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 /**
- * Simple Calendar Deserializer for Gson
+ * Simple Calendar Deserializer for Gson <br>
  * Register in GsonBuilder
- * Example: <code>new GsonBuilder()			
-				.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			
-				.create();</code>
+ * <br>Example:<br>
+ * <code>new GsonBuilder()			
+	.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			
+	.create();
+	</code>
  * @author felipe
  *
  */

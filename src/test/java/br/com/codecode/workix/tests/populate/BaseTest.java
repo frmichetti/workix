@@ -6,9 +6,11 @@ import java.util.Date;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import br.com.codecode.workix.config.JacksonContextResolver;
 import br.com.codecode.workix.tests.util.GsonCalendarDeserializer;
 import br.com.codecode.workix.tests.util.GsonDateDeserializer;
 import br.com.codecode.workix.tests.util.HttpConfig;
+
 /**
  * BaseTest Class Share Common Fields
  * @author felipe
@@ -33,7 +35,11 @@ public class BaseTest {
 			throw new RuntimeException("Gson is Null - Generated Gson Before Start");
 
 	}
-
+	/**
+	 * Generate a Custom Gson
+	 * attempt for DateFormat , Pattern Must be Equals {@link JacksonContextResolver #init()}
+	 * @return
+	 */
 	private Gson buildGson(){
 		return new GsonBuilder()				
 				.setPrettyPrinting()

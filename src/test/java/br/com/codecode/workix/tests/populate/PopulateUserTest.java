@@ -28,7 +28,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version
  */
-public class PopulateUserTest extends BaseTest{
+public class PopulateUserTest extends BaseTest implements CommonPopTest<User>{
 
 	private List<User> users;
 
@@ -37,6 +37,7 @@ public class PopulateUserTest extends BaseTest{
 	private int howManyUsers = 100;
 
 	@Before	
+	@Override
 	public void create() {		
 		
 		users = new ArrayList<>();
@@ -64,8 +65,8 @@ public class PopulateUserTest extends BaseTest{
 
 	}
 
-
-	private void addToList(User u) {
+	@Override
+	public void addToList(User u) {
 		
 		assertNotNull(u);
 
@@ -76,6 +77,7 @@ public class PopulateUserTest extends BaseTest{
 	}
 	
 	@Test	
+	@Override
 	public void sendToServer() {		
 
 		users.stream().forEach(u -> {

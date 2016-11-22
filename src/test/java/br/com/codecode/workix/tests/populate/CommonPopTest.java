@@ -7,21 +7,31 @@
  * */
 package br.com.codecode.workix.tests.populate;
 
-import br.com.codecode.workix.tests.util.HttpConfig;
+import java.io.Serializable;
+
+import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
- * Markup Interface for Test
+ * Markup Interface for Populate Test Units
  * @author felipe
  *
  */
-public interface CommonPopTest {
+public interface CommonPopTest<Whatever extends Persistable & Serializable> {
 	
-	String server = HttpConfig.JAVAEE_PROJ_TEST;
-	
+	/**
+	 * Create and Populate Entities
+	 */
 	void create();
 	
-	void addToList();
+	/**
+	 * Add To List for Send To Server
+	 * @param whatever
+	 */
+	void addToList(Whatever whatever);
 	
+	/**
+	 * Send a Prepared List of Entities to Server
+	 */
 	void sendToServer();
 
 }

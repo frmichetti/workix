@@ -45,7 +45,10 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 		this.clazz = clazz;
 		this.em = em;
 	}
-
+	
+	/**
+	 * For Debug only
+	 */
 	@PostConstruct
 	private void init(){
 		

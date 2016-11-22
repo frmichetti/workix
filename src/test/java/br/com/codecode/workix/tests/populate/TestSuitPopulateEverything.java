@@ -4,6 +4,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+/**
+ * Runs All Unit Tests on br.com.codecode.workix.tests.populate<br>
+ * MUST ALL Lights Green
+ * @author felipe
+ *
+ */
 @RunWith(Suite.class)
 @SuiteClasses({	
 	PopulateUserTest.class,	
@@ -12,4 +18,4 @@ import org.junit.runners.Suite.SuiteClasses;
 	PopulateJobTest.class,
 	PopulateResume.class
 })
-public class TestSuitPopulateEverything {}
+public class TestSuitPopulateEverything{}

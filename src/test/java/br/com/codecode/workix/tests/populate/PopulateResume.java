@@ -19,32 +19,35 @@ import br.com.codecode.workix.model.scaffold.Resume;
 import br.com.codecode.workix.model.scaffold.Skill;
 import br.com.codecode.workix.tests.util.HttpTest;
 
-public class PopulateResume extends BaseTest {
+public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 
 	private String resp;
 
 	private List<Candidate> candidates;
+
+	private List<Resume> res; 
 
 	@Before
 	public void downloadCandidate(){
 
 		resp = HttpTest.sendGet(server + "candidates");	
 
-		candidates = getGson().fromJson(resp, new TypeToken<List<Candidate>>(){}.getType());
+		candidates = getGson().fromJson(resp, 
+				new TypeToken<List<Candidate>>(){}.getType());
 
-				
 		assertTrue(candidates.size() > 0);
 
 	}
 
-	private List<Resume> create(){
-		
+	@Override
+	public void create(){
+
 		assertNotNull(candidates);
-		
-		List<Resume> res = new ArrayList<>();
-		
+
+		res = new ArrayList<>();
+
 		for (Candidate c : candidates) {
-			
+
 			Resume r = new Resume();
 
 			r.setContent("Content of " + c.getName());
@@ -58,31 +61,43 @@ public class PopulateResume extends BaseTest {
 			r.addExperience(new Experience("Employeer 2", "Title 2", Calendar.getInstance(), Calendar.getInstance()));
 
 			r.addEducation(new Education("School 1", Calendar.getInstance(), Calendar.getInstance(), "Qualification"));
-			
+
 			r.addEducation(new Education("School 2", Calendar.getInstance(), Calendar.getInstance(), "Qualification 2"));
 
 			r.addSkill(new Skill("Skill 1"));
-			
+
 			r.addSkill(new Skill("Skill 2"));
-			
-			res.add(r);
-			
+
+			addToList(r);
+
 		}	
 
 
-		return res;
+	}
 
-	}	
+
+
+	@Override
+	public void addToList(Resume resume) {
+
+		assertNotNull(candidates);
+
+		assertNotNull(resume);
+
+		System.out.println("[addToList]" + resume.getContent());
+
+		res.add(resume);
+
+	}
 
 	@Test	
+	@Override
 	public void sendToServer() {	
-		
-		List<Resume> res = create();
-		
+
 		assertNotNull(res);		
 
 		res.forEach(r -> {
-			
+
 			System.out.println("[sendToServer] " + r.getContent());
 
 			resp = HttpTest.sendPost(server + "resumes",

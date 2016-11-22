@@ -31,7 +31,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @version
  *
  */
-public class PopulateCandidateTest extends BaseTest {
+public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Candidate>{
 
 	private List<Candidate> candidates;
 
@@ -54,8 +54,8 @@ public class PopulateCandidateTest extends BaseTest {
 
 	}
 	
-	
-	private void create() {		
+	@Override
+	public void create() {		
 		
 		assertNotNull(users);
 		
@@ -84,7 +84,8 @@ public class PopulateCandidateTest extends BaseTest {
 
 	}
 
-	private void addToList(Candidate candidate) {		
+	@Override
+	public void addToList(Candidate candidate) {		
 		
 		assertNotNull(candidates);
 		
@@ -96,6 +97,7 @@ public class PopulateCandidateTest extends BaseTest {
 	}
 
 	@Test	
+	@Override
 	public void sendToServer() {
 		
 		assertNotNull(users);				

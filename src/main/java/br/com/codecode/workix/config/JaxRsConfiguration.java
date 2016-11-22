@@ -10,8 +10,9 @@ package br.com.codecode.workix.config;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 /**
- * Configure Context Path for JaxRs
- * @see 
+ * Configure Application Path for JaxRs
+ * @see br.com.codecode.workix.rest.android
+ * @see br.com.codecode.workix.rest.scaffold
  * @author felipe
  *
  */

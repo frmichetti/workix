@@ -31,7 +31,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version
  */
-public class PopulateCompanyTest  extends BaseTest {	
+public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Company> {	
 
 	private List<Company> companies ;
 
@@ -55,6 +55,7 @@ public class PopulateCompanyTest  extends BaseTest {
 	}
 
 
+	@Override
 	public void create() {	
 
 		assertNotNull(users);
@@ -62,39 +63,39 @@ public class PopulateCompanyTest  extends BaseTest {
 		assertTrue(users.size() > 0);
 
 		users = users.subList((users.size()/2), users.size());
-		
+
 		assertEquals(51L,users.get(0).getId());
 
 		companies = new ArrayList<>();
-		
+
 		for (User u : users) {						
 
-				Company c = new Company();		
-				
-				c.setUser(u);
+			Company c = new Company();		
 
-				c.setName("Company Mockup N# " + String.valueOf(u.getId()));			
+			c.setUser(u);
 
-				c.setCnpj(String.valueOf(u.getId()));
+			c.setName("Company Mockup N# " + String.valueOf(u.getId()));			
 
-				c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
+			c.setCnpj(String.valueOf(u.getId()));
 
-				System.out.println("[create] " + c.getName());
+			c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
 
-				addToList(c);
+			System.out.println("[create] " + c.getName());
 
-			
+			addToList(c);
+
+
 		}
 
-		
+
 
 		assertEquals(50,companies.size());
 
 
 	}
 
-
-	private void addToList(Company company){		
+	@Override
+	public void addToList(Company company){		
 
 		assertNotNull(company);
 
@@ -106,13 +107,14 @@ public class PopulateCompanyTest  extends BaseTest {
 
 	}
 
-	@Test	
+	@Test
+	@Override
 	public void sendToServer(){	
 
-	assertNotNull(users);				
-		
+		assertNotNull(users);				
+
 		create();
-		
+
 		assertNotNull(companies);
 
 		companies.stream().forEach(c ->{			

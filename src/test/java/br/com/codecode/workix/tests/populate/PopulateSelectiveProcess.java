@@ -21,7 +21,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @author felipe
  *
  */
-public class PopulateSelectiveProcess extends BaseTest {
+public class PopulateSelectiveProcess extends BaseTest implements CommonPopTest<SelectiveProcess> {
 
 	private String resp;
 
@@ -46,7 +46,8 @@ public class PopulateSelectiveProcess extends BaseTest {
 
 	}
 
-	private void addToList(SelectiveProcess selectiveProcess) {	
+	@Override
+	public void addToList(SelectiveProcess selectiveProcess) {	
 
 		assertNotNull(selectiveProcess);
 
@@ -58,7 +59,7 @@ public class PopulateSelectiveProcess extends BaseTest {
 	}
 
 
-
+	@Override
 	public void create() {
 
 		assertNotNull(jobs);
@@ -68,21 +69,22 @@ public class PopulateSelectiveProcess extends BaseTest {
 		processes = new ArrayList<>();
 
 		for(int x = 0;x < howManyProcesses; x++){
-			
+
 			SelectiveProcess sp = new SelectiveProcess();
-			
+
 			sp.setJob(jobs.get(x));
-			
+
 			sp.setMaxCandidates(1);			
-			
+
 			addToList(sp);
 		}
-		
+
 		assertEquals(50,processes.size());
 
 	}
 
 	@Test	
+	@Override
 	public void sendToServer() {
 
 		create();

@@ -17,11 +17,13 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 /**
- * Simple Date Deserializer for Gson
- * Register in GsonBuilder
- * Example: <code>new GsonBuilder()				
-				.registerTypeAdapter(Date.class, new GsonDateDeserializer())						
-				.create();</code>
+ * Simple Date Deserializer for Gson <br>
+ * Register in GsonBuilder <br>
+ * Example: <br>
+ * <code>new GsonBuilder()				
+	.registerTypeAdapter(Date.class, new GsonDateDeserializer())						
+	.create();
+	</code>
  * @author felipe
  *
  */

@@ -1,6 +1,6 @@
 package br.com.codecode.workix.tests.util;
 /**
- * Start Config for Unit Tests
+ * Startup Config for Unit Tests
  * @author felipe
  *
  */

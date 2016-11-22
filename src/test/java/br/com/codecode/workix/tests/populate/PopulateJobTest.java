@@ -34,14 +34,14 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @version
  *
  */
-public class PopulateJobTest extends BaseTest {
-	
+public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
+
 	private List<Company> companies;
 
 	private List<Job> jobs;	
 
 	private String resp;
-	
+
 	private int howManyJobs = 50;
 
 	@Before
@@ -59,44 +59,44 @@ public class PopulateJobTest extends BaseTest {
 
 	}
 
+	@Override
+	public void create() {
 
-	private void create() {
-		
 		assertNotNull(companies);
-		
+
 		assertTrue(companies.size() > 0);
-		
+
 		jobs = new ArrayList<>();
-		
-		
+
+
 		for(int x=0 ; x < howManyJobs;x++){
 
 			Job j = new Job();	
 
 			j.setTitle("Mockup Job N# " + String.valueOf(x+1));
-			
+
 			j.setDescription("Description of Job " + String.valueOf(x+1));
-			
+
 			j.setRequirement("Requirement of Job " + String.valueOf(x+1));		
-			
+
 			j.setBenefits("Benefits of Job " + String.valueOf(x+1));		
-			
+
 			j.setStart(Calendar.getInstance());
-					
+
 			j.setExpire(Calendar.getInstance());
-			
+
 			j.getExpire().add(Calendar.DAY_OF_YEAR, 50);
-			
+
 			assertTrue(j.getExpire().after(j.getStart()));
-			
+
 			j.setType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
-			
+
 			j.setMinPayment(new BigDecimal(1_00 * x+1+10));
-			
+
 			j.setMaxPayment(new BigDecimal(1_00 * x+1+20));
-			
+
 			j.setEmployeer(companies.get(x));			
-	
+
 			System.out.println("[create] " + j.getTitle());			
 
 			addToList(j);
@@ -107,10 +107,11 @@ public class PopulateJobTest extends BaseTest {
 
 	}
 
-	private void addToList(Job job) {	
-		
+	@Override
+	public void addToList(Job job) {	
+
 		assertNotNull(job);
-		
+
 		assertNotNull(jobs);
 
 		System.out.println("[addToList]" + job.getTitle());
@@ -119,12 +120,13 @@ public class PopulateJobTest extends BaseTest {
 	}
 
 	@Test	
+	@Override
 	public void sendToServer() {
 
 		create();
-		
+
 		assertNotNull(jobs);
-		
+
 		assertTrue(jobs.size() > 0);
 
 		jobs.forEach(j -> {
@@ -135,8 +137,8 @@ public class PopulateJobTest extends BaseTest {
 					getGson().toJson(j));
 
 			assertNotNull(resp);
-			
-			
+
+
 		});	
 
 	}
