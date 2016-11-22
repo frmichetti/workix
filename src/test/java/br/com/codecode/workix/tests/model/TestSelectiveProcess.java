@@ -1,4 +1,4 @@
-package br.com.codecode.workix.test.model;
+package br.com.codecode.workix.tests.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -11,7 +11,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.tests.SelectiveProcess;
 
 public class TestSelectiveProcess {
 

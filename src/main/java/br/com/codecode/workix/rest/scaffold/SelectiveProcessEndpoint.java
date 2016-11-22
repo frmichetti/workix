@@ -24,6 +24,7 @@ import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.scaffold.SelectiveProcess;
 
 /**
+ * JaxRs Endpoint for {@link SelectiveProcess}
  * @see JaxRsConfiguration
  */
 @Stateless

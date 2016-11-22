@@ -11,7 +11,11 @@ import javax.ejb.Stateless;
 
 import br.com.codecode.workix.cdi.dao.implementation.persist.BaseDao;
 
-
+/**
+ * Dao for JAASUser 
+ * @author felipe
+ *
+ */
 @Stateless
 public class SecurityDao extends BaseDao {
 

@@ -24,6 +24,7 @@ import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.scaffold.Candidate;
 
 /**
+ * JaxRs Endpoint for {@link Candidate}
  * @see JaxRsConfiguration
  */
 @Stateless
@@ -85,16 +86,21 @@ public class CandidateEndpoint extends BaseEndpoint {
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Candidate> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
+		
 		TypedQuery<Candidate> findAllQuery = em.createQuery(
 				"SELECT DISTINCT c FROM Candidate c ORDER BY c.id",
 				Candidate.class);
+		
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
+		
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
+		
 		final List<Candidate> results = findAllQuery.getResultList();
+		
 		return results;
 	}
 
@@ -102,18 +108,23 @@ public class CandidateEndpoint extends BaseEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response update(@PathParam("id") Long id, Candidate entity) {
+		
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
+		
 		if (id == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
+		
 		if (!id.equals(entity.getId())) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
+		
 		if (em.find(Candidate.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
+		
 		try {
 			entity = em.merge(entity);
 		} catch (OptimisticLockException e) {

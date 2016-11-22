@@ -14,7 +14,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
  * 
@@ -24,16 +28,17 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @version
  */
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 @Table(name="JAAS_User")
 @Entity
-public class JAASUser implements Serializable {
+public class JAASUser implements Persistable, Serializable {
 
 	private static final long serialVersionUID = -1917498851904653016L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
-	private Long id;
+	private long id;
 
 	@Column
 	private String login;
@@ -80,6 +85,16 @@ public class JAASUser implements Serializable {
 	@Override
 	public String toString() {
 		return login;
+	}
+
+	@Override
+	public long getId() {
+		return id;
+	}
+
+	@Override
+	public void setId(final long id) {
+		this.id = id;		
 	}
 
 }

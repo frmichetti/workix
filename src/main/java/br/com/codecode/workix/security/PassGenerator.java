@@ -12,6 +12,12 @@ import java.security.NoSuchAlgorithmException;
 
 import org.jboss.security.Base64Encoder;
 
+/**
+ * This Class Encodes Strings
+ * Use with {@link JAASUser #setPassword(String)} 
+ * @author felipe
+ *
+ */
 public class PassGenerator {
     
 	public static String generate(String rawPassword){

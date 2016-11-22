@@ -10,16 +10,18 @@ package br.com.codecode.workix.security;
 import java.io.Serializable;
 import java.security.Principal;
 
-import javax.annotation.ManagedBean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
-
+/**
+ * This Class Verify for {@link JAASUser} is Signed In Session
+ * @author felipe
+ *
+ */
 @Named
-@ManagedBean
 @SessionScoped
 public class CurrentUserMB implements Serializable {
 

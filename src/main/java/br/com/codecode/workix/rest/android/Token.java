@@ -8,6 +8,7 @@
 package br.com.codecode.workix.rest.android;
 
 import java.util.Date;
+
 /**
  * Token Model
  * 

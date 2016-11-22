@@ -24,6 +24,7 @@ import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.scaffold.Resume;
 
 /**
+ * JaxRs Endpoint for {@link Resume}
  * @see JaxRsConfiguration
  */
 @Stateless

@@ -24,6 +24,7 @@ import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.scaffold.Company;
 
 /**
+ * JaxRs Endpoint for {@link Company}
  * @see JaxRsConfiguration
  */
 @Stateless
@@ -91,6 +92,7 @@ public class CompanyEndpoint extends BaseEndpoint {
 		TypedQuery<Company> findAllQuery = 
 				em.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
 						Company.class);
+		
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
@@ -126,7 +128,9 @@ public class CompanyEndpoint extends BaseEndpoint {
 		}
 		
 		try {
+			
 			entity = em.merge(entity);
+			
 		} catch (OptimisticLockException e) {
 			return Response.status(Response.Status.CONFLICT)
 					.entity(e.getEntity()).build();

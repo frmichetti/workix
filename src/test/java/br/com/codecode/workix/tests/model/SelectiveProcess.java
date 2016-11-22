@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.tests;
+package br.com.codecode.workix.tests.model;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -9,6 +9,12 @@ import java.util.Observer;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
 
+/**
+ * TDD for Class {@link SelectiveProcess}
+ * @author felipe
+ *
+ */
+@SuppressWarnings("unchecked")
 public class SelectiveProcess extends Observable implements Observer,Serializable  {
 
 	private static final long serialVersionUID = -8009482242264135346L;
@@ -90,6 +96,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 	}
 
 
+	
 	@Override
 	public void update(Observable observable, Object object) {	
 
@@ -99,7 +106,7 @@ public class SelectiveProcess extends Observable implements Observer,Serializabl
 
 				if(object instanceof Collection<?>){								
 
-					countCandidates((ArrayList<Candidate>) object);
+					countCandidates(((ArrayList<Candidate>) object));
 
 				}
 

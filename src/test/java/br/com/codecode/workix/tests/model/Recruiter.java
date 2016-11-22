@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.tests;
+package br.com.codecode.workix.tests.model;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,14 +7,18 @@ import java.util.Observer;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
 import javax.inject.Named;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
 
-@ManagedBean
+/**
+ * 
+ * @author felipe
+ *
+ */
 @Named
 @ApplicationScoped
+@SuppressWarnings("unchecked")
 public class Recruiter extends Observable implements Observer {
 
 	private Collection<SelectiveProcess> processes = new ArrayList<>();
@@ -121,6 +125,7 @@ public class Recruiter extends Observable implements Observer {
 		notifyObservers(selectiveProcesses);
 	}
 
+	
 	@Override
 	public void update(Observable o, Object arg) {		
 
