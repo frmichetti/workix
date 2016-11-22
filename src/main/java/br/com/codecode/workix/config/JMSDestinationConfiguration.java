@@ -7,35 +7,39 @@
  * */
 package br.com.codecode.workix.config;
 
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.jms.JMSDestinationDefinition;
+import javax.jms.JMSDestinationDefinitions;
 
 /**
  * Replace Configuration on JMS HORNETQ inside the Server 
- * not work on WildFly 9.0.2
- * @see <a href="http://www.adam-bien.com/roller/abien/entry/auto_creating_jms_destinations_with"> JMS Destinations </a>
  * 
+ * @see <a href="http://www.adam-bien.com/roller/abien/entry/auto_creating_jms_destinations_with">
+ * JMS Destinations JAVA EE 7</a>
  * 
- * JAVA EE 7
  * @author Felipe
  *
  */
-public class JMSDestinationConfiguration{
-	
-	@JMSDestinationDefinition(
-			name="java:/jms/topics/jobsTopic",
-			destinationName = "jobsTopic",
-			interfaceName="javax.jms.Topic")
-	public class JobsTopicConfig{}
-	
-	@JMSDestinationDefinition(
-			name="java:/jms/topics/usersTopic",
-			destinationName = "usersTopic", 
-			interfaceName="javax.jms.Topic")
-	public class UsersTopicConfig{}	
-	@JMSDestinationDefinition(
-			name="java:/jms/topics/selectiveProcessesTopic",
-			destinationName = "selectiveProcessesTopic",
-			interfaceName="javax.jms.Topic")
-	public class SelectiveProcessesConfig{}
-	
-}
+@JMSDestinationDefinitions(
+        value = {
+            @JMSDestinationDefinition(
+            		name="java:/jms/topics/jobsTopic",
+        			destinationName = "jobsTopic",
+        			interfaceName="javax.jms.Topic"
+            ),
+            @JMSDestinationDefinition(
+            		name="java:/jms/topics/usersTopic",
+        			destinationName = "usersTopic", 
+        			interfaceName="javax.jms.Topic"
+            ),
+            @JMSDestinationDefinition(
+            		name="java:/jms/topics/selectiveProcessesTopic",
+        			destinationName = "selectiveProcessesTopic",
+        			interfaceName="javax.jms.Topic"
+            )
+        }
+)
+@Startup
+@Singleton
+public class JMSDestinationConfiguration{}
