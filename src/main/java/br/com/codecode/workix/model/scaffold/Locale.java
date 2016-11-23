@@ -22,68 +22,80 @@ public class Locale implements Serializable {
 
 	@Column
 	private BigInteger zipCode;
-	
+
 	@Column
 	private String city;
-	
+
 	@Column
 	private String neighborhood;
-	
+
 	@Column
 	private String street;
-	
+
 	@Column
 	private String number;
 
 	@Enumerated(EnumType.STRING)
 	@Column
 	private Estate estate;
-	
+
 	public Locale(){}
+
 
 	public BigInteger getZipCode() {
 		return zipCode;
 	}
 
+
 	public void setZipCode(BigInteger zipCode) {
 		this.zipCode = zipCode;
 	}
+
 
 	public String getCity() {
 		return city;
 	}
 
+
 	public void setCity(String city) {
 		this.city = city;
 	}
+
 
 	public String getNeighborhood() {
 		return neighborhood;
 	}
 
+
 	public void setNeighborhood(String neighborhood) {
 		this.neighborhood = neighborhood;
 	}
+
 
 	public String getStreet() {
 		return street;
 	}
 
+
 	public void setStreet(String street) {
 		this.street = street;
 	}
+
 
 	public String getNumber() {
 		return number;
 	}
 
+
 	public void setNumber(String number) {
 		this.number = number;
 	}
 
+
 	public Estate getEstate() {
 		return estate;
 	}
+
 
 	public void setEstate(Estate estate) {
 		this.estate = estate;

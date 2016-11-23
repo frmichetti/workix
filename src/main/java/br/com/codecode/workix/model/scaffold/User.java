@@ -7,18 +7,18 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 @Entity
-public class User extends BaseEntity implements Persistable{
+public class User extends MyEntity implements Persistable {
 
 	private static final long serialVersionUID = -610648880358327958L;
 
 	@Column
 	private boolean active;
-	
+
 	@NotEmpty
 	@Email
 	@Column(nullable = false,unique=true)
@@ -26,7 +26,7 @@ public class User extends BaseEntity implements Persistable{
 
 	@Column
 	private String firebaseUUID;
-	
+
 	@Column
 	private String firebaseMessageToken;
 
@@ -46,33 +46,41 @@ public class User extends BaseEntity implements Persistable{
 		this.firebaseMessageToken = builder.firebaseMessageToken;
 	}
 
+
 	public boolean isActive() {
 		return active;
 	}
+
 
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
+
 	public String getEmail() {
 		return email;
 	}
+
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+
 	public String getFirebaseUUID() {
 		return firebaseUUID;
 	}
+
 
 	public void setFirebaseUUID(String firebaseUUID) {
 		this.firebaseUUID = firebaseUUID;
 	}
 
+
 	public String getFirebaseMessageToken() {
 		return firebaseMessageToken;
 	}
+
 
 	public void setFirebaseMessageToken(String firebaseMessageToken) {
 		this.firebaseMessageToken = firebaseMessageToken;
@@ -82,7 +90,7 @@ public class User extends BaseEntity implements Persistable{
 		return super.getUuid();
 	}	
 
-	@Override
+
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -90,7 +98,7 @@ public class User extends BaseEntity implements Persistable{
 		return result;
 	}
 
-	@Override
+
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -104,7 +112,7 @@ public class User extends BaseEntity implements Persistable{
 		return true;
 	}
 
-	@Override
+
 	public String toString() {
 		return "User [email=" + email + "]";
 	}
@@ -138,7 +146,7 @@ public class User extends BaseEntity implements Persistable{
 			this.firebaseUUID = firebaseUUID;
 			this.firebaseMessageToken = firebaseMessageToken;
 		}		
-		
+
 		/**
 		 * @param active the active to set
 		 */
@@ -171,7 +179,7 @@ public class User extends BaseEntity implements Persistable{
 			return this;
 		}
 
-		@Override
+
 		public User build()
 		{
 			return new User(this);

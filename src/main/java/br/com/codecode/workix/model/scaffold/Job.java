@@ -19,13 +19,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import com.google.gson.annotations.Expose;
 
-import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 @Entity
-public class Job extends BaseEntity implements Persistable {
+public class Job extends MyEntity implements Persistable {
 
 	private static final long serialVersionUID = 2246753300384053586L;
 
@@ -94,101 +94,126 @@ public class Job extends BaseEntity implements Persistable {
 		start = Calendar.getInstance();		
 	}	
 
+
 	public String getTitle() {
 		return title;
 	}
+
 
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+
 	public BigDecimal getMinPayment() {
 		return minPayment;
 	}
+
 
 	public void setMinPayment(BigDecimal minPayment) {
 		this.minPayment = minPayment;
 	}
 
+
 	public BigDecimal getMaxPayment() {
 		return maxPayment;
 	}
+
 
 	public void setMaxPayment(BigDecimal maxPayment) {
 		this.maxPayment = maxPayment;
 	}
 
+
 	public String getDescription() {
 		return description;
 	}
+
 
 	public void setDescription(String resume) {
 		this.description = resume;
 	}
 
+
 	public String getRequirement() {
 		return requirement;
 	}
+
 
 	public void setRequirement(String requirement) {
 		this.requirement = requirement;
 	}	
 
+
 	public String getBenefits() {
 		return benefits;
 	}
+
 
 	public void setBenefits(String benefits) {
 		this.benefits = benefits;
 	}
 
+
 	public Calendar getStart() {
 		return start;
 	}
+
 
 	public void setStart(Calendar start) {
 		this.start = start;
 	}	
 
+
 	public Calendar getExpire() {
 		return expire;
 	}
+
 
 	public void setExpire(Calendar expire) {
 		this.expire = expire;
 	}
 
+
 	public JobType getType() {
 		return type;
 	}
+
 
 	public void setType(JobType type) {
 		this.type = type;
 	}
 
+
 	public JobCategory getCategory() {
 		return category;
 	}
+
 
 	public void setCategory(JobCategory category) {
 		this.category = category;
 	}	
 
+
 	public boolean isActive() {
 		return active;
 	}
+
 
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
+
 	public Company getEmployeer() {
 		return employeer;
 	}
 
+
 	public void setEmployeer(Company employeer) {
 		this.employeer = employeer;
 	}	
+
 
 	@Override
 	public int hashCode() {
@@ -197,6 +222,7 @@ public class Job extends BaseEntity implements Persistable {
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {

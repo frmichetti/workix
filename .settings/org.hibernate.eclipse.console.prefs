@@ -1,3 +1,3 @@
-default.configuration=workix
+default.configuration=workix-hibernate
 eclipse.preferences.version=1
 hibernate3.enabled=true

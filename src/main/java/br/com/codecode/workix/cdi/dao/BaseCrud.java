@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
@@ -33,7 +33,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable>  {
 	public T update(T entity) throws NotImplementedYetException;
 	
 	/**
-	 * Localize Entity by {@link BaseEntity #getId()}
+	 * Localize Entity by {@link MyEntity #getId()}
 	 * @param id
 	 * @return
 	 * @throws NotImplementedYetException 
@@ -41,7 +41,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable>  {
 	public T findById(long id) throws NotImplementedYetException;
 	
 	/**
-	 * Localize Entity by {@link BaseEntity #getId()} and Delete
+	 * Localize Entity by {@link MyEntity #getId()} and Delete
 	 * @param id
 	 * @return
 	 * @throws NotImplementedYetException 

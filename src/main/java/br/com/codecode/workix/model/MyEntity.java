@@ -3,7 +3,6 @@ package br.com.codecode.workix.model;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Calendar;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -13,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,11 +30,10 @@ import br.com.codecode.workix.model.interfaces.Traceable;
 @MappedSuperclass
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@SuppressWarnings("unused")
-public abstract class BaseEntity implements Traceable, Persistable, Serializable {
+public abstract class MyEntity implements Traceable, Persistable, Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(updatable = false, nullable = false)
@@ -49,31 +45,33 @@ public abstract class BaseEntity implements Traceable, Persistable, Serializable
 	private int version;
 
 	@XmlTransient
-	@Column(updatable=false,nullable=false)	
+	@Column(updatable = false, nullable = false)	
 	private Timestamp createdAt;
 
 	@XmlTransient
 	@Column
 	private Timestamp updatedAt;
-		
+
 	@XmlTransient	
-	@Column(updatable=false,nullable=false)
+	@Column(updatable = false, nullable = false)
 	private String uuid;
 
-	public BaseEntity(){}
-	
+	public MyEntity(){}
+
+
 	@Override
 	public long getId() {
 		return this.id;
 	}
+
 
 	@Override
 	public void setId(final long id) {
 		this.id = id;
 	}
 
-	@PrePersist
 	@Override
+	@PrePersist
 	public void prepareToPersist(){
 		Traceable.super.prepareToPersist();	
 	}
@@ -88,41 +86,46 @@ public abstract class BaseEntity implements Traceable, Persistable, Serializable
 		createdAt = Timestamp.from(Instant.now());
 	}
 
-	@PreUpdate
 	@Override
+	@PreUpdate
+
 	public void updateTimeStamp(){
 		updatedAt = Timestamp.from(Instant.now());
 	}
 
-	private int getVersion() {
+	public int getVersion() {
 		return version;
 	}
 
-	private void setVersion(final int version) {
+	public void setVersion(final int version) {
 		this.version = version;
 	}
 
-	protected Timestamp getCreatedAt() {
+	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
 
-	private void setCreatedAt(Timestamp createdAt) {
+	public void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	protected Timestamp getUpdatedAt() {
+
+	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
 
-	private void setUpdatedAt(Timestamp updatedAt) {
+
+	public void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
 
-	protected String getUuid() {
+
+	public String getUuid() {
 		return uuid;
 	}
 
-	private void setUuid(String uuid) {
+
+	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
 

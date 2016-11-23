@@ -1,7 +1,6 @@
 package br.com.codecode.workix.model.scaffold;
 
 import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -15,16 +14,16 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 @Entity
-public class Resume extends BaseEntity implements Persistable {
+public class Resume extends MyEntity implements Persistable {
 
 	private static final long serialVersionUID = 7569771700044121495L;
 
 	@NotNull	
-	@OneToOne(fetch=FetchType.EAGER,optional=false,targetEntity=Candidate.class)
+	@OneToOne(fetch=FetchType.EAGER,optional=false)
 	private Candidate candidate;
 
 	@NotEmpty	
@@ -39,22 +38,25 @@ public class Resume extends BaseEntity implements Persistable {
 	 * OneToMany 
 	 */
 	@ElementCollection(fetch=FetchType.EAGER)	
-	@CollectionTable(name = "Resume_experiences",joinColumns=@JoinColumn(name="id"))
-	private Set<Experience> experiences;
+	@CollectionTable(name = "Resume_experiences", 
+	joinColumns=@JoinColumn(name="id"))
+	private HashSet<Experience> experiences;
 
 	/**
 	 * OneToMany 
 	 */
 	@ElementCollection(fetch=FetchType.EAGER)
-	@CollectionTable(name = "Resume_educations",joinColumns=@JoinColumn(name="id"))
-	private Set<Education> educations;	
+	@CollectionTable(name = "Resume_educations", 
+	joinColumns=@JoinColumn(name="id"))
+	private HashSet<Education> educations;	
 
 	/**
 	 * OneToMany 
 	 */
 	@ElementCollection(fetch=FetchType.EAGER)
-	@CollectionTable(name = "Resume_skills",joinColumns=@JoinColumn(name="id"))
-	private Set<Skill> skills;	
+	@CollectionTable(name = "Resume_skills", 
+	joinColumns=@JoinColumn(name="id"))
+	private HashSet<Skill> skills;	
 
 	public Resume() {
 		configure();
@@ -90,11 +92,11 @@ public class Resume extends BaseEntity implements Persistable {
 		this.content = content;
 	}
 
-	public Set<Experience> getExperiences() {
+	public HashSet<Experience> getExperiences() {
 		return experiences;
 	}
 
-	public void setExperiences(Set<Experience> experiences) {
+	public void setExperiences(HashSet<Experience> experiences) {
 		this.experiences = experiences;
 	}
 
@@ -106,11 +108,11 @@ public class Resume extends BaseEntity implements Persistable {
 		this.experiences.remove(experience);
 	}
 
-	public Set<Education> getEducations() {
+	public HashSet<Education> getEducations() {
 		return educations;
 	}
 
-	public void setEducations(Set<Education> educations) {
+	public void setEducations(HashSet<Education> educations) {
 		this.educations = educations;
 	}
 
@@ -122,11 +124,11 @@ public class Resume extends BaseEntity implements Persistable {
 		this.educations.remove(education);
 	}	
 
-	public Set<Skill> getSkills() {
+	public HashSet<Skill> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(Set<Skill> skills) {
+	public void setSkills(HashSet<Skill> skills) {
 		this.skills = skills;
 	}
 
@@ -159,5 +161,6 @@ public class Resume extends BaseEntity implements Persistable {
 			return false;
 		return true;
 	}
+
 
 }

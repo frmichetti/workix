@@ -12,7 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
-public class Contact implements Serializable{
+public class Contact implements Serializable {
 
 	private static final long serialVersionUID = -2482737185460142872L;
 		
@@ -20,7 +20,7 @@ public class Contact implements Serializable{
 	private BigInteger mobilePhone;
 	
 	public Contact(){}
-
+	
 	public BigInteger getMobilePhone() {
 		return mobilePhone;
 	}

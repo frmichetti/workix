@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.BaseEntity;
+import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
@@ -17,7 +17,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
 public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
 
 	/**
-	 * Save Or Update Currenty Entity Based on {@link BaseEntity #getId()}  
+	 * Save Or Update Currenty Entity Based on {@link MyEntity #getId()}  
 	 * @param entity
 	 * @return
 	 * @throws NotImplementedYetException , IllegalArgumentException
@@ -42,7 +42,7 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
 	}	
 
 	/**
-	 * Fetch for {@link Persistable} Entities with {@link BaseEntity #getUuid()}
+	 * Fetch for {@link Persistable} Entities with {@link MyEntity #getUuid()}
 	 * @param uuid
 	 * @return <T>
 	 * @throws NotImplementedYetException 
