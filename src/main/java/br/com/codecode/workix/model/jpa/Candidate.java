@@ -6,18 +6,17 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.hibernate.validator.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 
 @Entity
 public class Candidate extends Person {
 
 	private static final long serialVersionUID = 531807027259604477L;	
-
-	@NotEmpty	
+		
 	@Column(nullable = false,unique = true)
-	private String cpf;
+	private long cpf;
 
+	@Past
 	@Temporal(TemporalType.DATE)
 	@Column(nullable = false)	
 	private Calendar birthDate;	
@@ -28,23 +27,19 @@ public class Candidate extends Person {
 
 	private void configure() {
 		birthDate = Calendar.getInstance();		
-	}	
+	}
 
-
-	public String getCpf() {
+	public long getCpf() {
 		return cpf;
 	}
 
-
-	public void setCpf(String cpf) {
+	public void setCpf(long cpf) {
 		this.cpf = cpf;
-	}	
-
+	}
 
 	public Calendar getBirthDate() {
 		return birthDate;
 	}
-
 
 	public void setBirthDate(Calendar birthDate) {
 		this.birthDate = birthDate;

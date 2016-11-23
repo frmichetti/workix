@@ -3,34 +3,31 @@ package br.com.codecode.workix.model.jpa;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 @Entity
 public class Company extends Person {
 
 	private static final long serialVersionUID = 47663377480544994L;
-
-	@NotEmpty	
+	
 	@Column(nullable = false, unique = true)
-	private String cnpj;
+	private long cnpj;
 
 	@Column(nullable = false)
 	private String segment;	
 
 	public Company(){}
 
-	public String getCnpj() {
+	public long getCnpj() {
 		return cnpj;
 	}
 
-	public void setCnpj(String cnpj) {
+	public void setCnpj(long cnpj) {
 		this.cnpj = cnpj;
 	}
 
 	public String getSegment() {
 		return segment;
 	}
-	
+
 	public void setSegment(String companySegment) {
 		this.segment = companySegment;
 	}

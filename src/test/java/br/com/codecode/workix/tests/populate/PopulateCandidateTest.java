@@ -11,8 +11,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -71,7 +73,7 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
 			
 			c.setName("Mockup Candidate N# " + String.valueOf(u.getId()));			
 			
-			c.setCpf(String.valueOf(u.getId()));			
+			c.setCpf(new BigInteger(36, new Random()).longValue());			
 			
 			c.setUser(u);
 			

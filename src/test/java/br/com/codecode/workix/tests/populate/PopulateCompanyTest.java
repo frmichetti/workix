@@ -76,7 +76,7 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 
 			c.setName("Company Mockup N# " + String.valueOf(u.getId()));			
 
-			c.setCnpj(String.valueOf(u.getId()));
+			c.setCnpj(Long.MAX_VALUE - u.getId());
 
 			c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
 
