@@ -1,10 +1,13 @@
 package br.com.codecode.workix.model.base;
 
-import java.math.BigInteger;
-
+/**
+ * Markup Interface for Contact Implementation
+ * @author felipe
+ *
+ */
 public interface BaseContact {
 
-	BigInteger getMobilePhone();
+	Number getMobilePhone();
 
-	void setMobilePhone(BigInteger mobilePhone);
+	void setMobilePhone(Number mobilePhone);
 }

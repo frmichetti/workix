@@ -11,13 +11,13 @@ import br.com.codecode.workix.model.base.BaseCompany;
 class Company extends Person implements BaseCompany {
 
 	@Override
-	public String getCnpj() {
+	public Number getCnpj() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setCnpj(String cnpj) {
+	public void setCnpj(Number cnpj) {
 		// TODO Auto-generated method stub
 		
 	}

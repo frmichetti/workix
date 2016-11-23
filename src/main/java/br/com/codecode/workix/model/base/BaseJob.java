@@ -1,25 +1,29 @@
 package br.com.codecode.workix.model.base;
 
-import java.math.BigDecimal;
 import java.util.Calendar;
 
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.jpa.Company;
 
+/**
+ * Markup Interface for Job Implementation
+ * @author felipe
+ *
+ */
 public interface BaseJob extends BaseEntity{
 
 	String getTitle();
 
 	void setTitle(String title);
 
-	BigDecimal getMinPayment();
+	Number getMinPayment();
 
-	void setMinPayment(BigDecimal minPayment);
+	void setMinPayment(Number minPayment);
 
-	BigDecimal getMaxPayment();
+	Number getMaxPayment();
 
-	void setMaxPayment(BigDecimal maxPayment);
+	void setMaxPayment(Number maxPayment);
 
 	String getDescription();
 

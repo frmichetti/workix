@@ -1,7 +1,7 @@
 package br.com.codecode.workix.model.base;
 
 /**
- * Markup Entity for User
+ * Markup Interface for User Implementation
  * @author felipe
  *
  */

@@ -1,6 +1,5 @@
 package br.com.codecode.workix.model.pojo;
 
-import java.math.BigDecimal;
 import java.util.Calendar;
 
 import br.com.codecode.workix.model.base.BaseJob;
@@ -29,25 +28,25 @@ class Job extends MyEntity implements BaseJob{
 	}
 
 	@Override
-	public BigDecimal getMinPayment() {
+	public Number getMinPayment() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setMinPayment(BigDecimal minPayment) {
+	public void setMinPayment(Number minPayment) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public BigDecimal getMaxPayment() {
+	public Number getMaxPayment() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setMaxPayment(BigDecimal maxPayment) {
+	public void setMaxPayment(Number maxPayment) {
 		// TODO Auto-generated method stub
 		
 	}

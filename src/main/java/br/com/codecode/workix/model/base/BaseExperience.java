@@ -2,6 +2,11 @@ package br.com.codecode.workix.model.base;
 
 import java.util.Calendar;
 
+/**
+ * Markup Interface for Experience Implementation
+ * @author felipe
+ *
+ */
 public interface BaseExperience {
 
 	String getEmployerName();

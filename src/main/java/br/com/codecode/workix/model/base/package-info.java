@@ -1,5 +1,5 @@
 /**
- * Container of Base Classes Based On Template
+ * Container of Base Interfaces Based On Template
  * @author felipe
  *
  */

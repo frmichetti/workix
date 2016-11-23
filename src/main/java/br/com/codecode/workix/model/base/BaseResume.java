@@ -1,7 +1,12 @@
 package br.com.codecode.workix.model.base;
 
-import java.util.Set;
+import java.util.Collection;
 
+/**
+ * Markup Interface for Resume Implementation
+ * @author felipe
+ *
+ */
 public interface BaseResume extends BaseEntity {
 
 	BaseCandidate getCandidate();
@@ -16,25 +21,25 @@ public interface BaseResume extends BaseEntity {
 
 	void setContent(String content);
 
-	Set<BaseExperience> getExperiences();
+	Collection<BaseExperience> getExperiences();
 
-	void setExperiences(Set<BaseExperience> experiences);
+	void setExperiences(Collection<BaseExperience> experiences);
 
 	void addExperience(BaseExperience experience);
 
 	void removeExperience(BaseExperience experience);
 
-	Set<BaseEducation> getEducations();
+	Collection<BaseEducation> getEducations();
 
-	void setEducations(Set<BaseEducation> educations);
+	void setEducations(Collection<BaseEducation> educations);
 
 	void addEducation(BaseEducation education);
 
 	void removeEducation(BaseEducation education);
 
-	Set<BaseSkill> getSkills();
+	Collection<BaseSkill> getSkills();
 
-	void setSkills(Set<BaseSkill> skills);
+	void setSkills(Collection<BaseSkill> skills);
 
 	void addSkill(BaseSkill skill);
 

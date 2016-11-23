@@ -1,25 +1,26 @@
 package br.com.codecode.workix.model.base;
 
-import br.com.codecode.workix.model.jpa.Contact;
-import br.com.codecode.workix.model.jpa.Locale;
-import br.com.codecode.workix.model.jpa.User;
-
+/**
+ * Markup Interface for Person Implementation
+ * @author felipe
+ *
+ */
 public interface BasePerson extends BaseEntity{
 
 	String getName();
-	
+
 	void setName(String name);
-	
-	Contact getContact();
 
-	void setContact(Contact contact);
+	BaseContact getContact();
 
-	User getUser();
+	void setContact(BaseContact contact);
 
-	void setUser(User user);
-	
-	Locale getLocale();
-	
-	void setLocale(Locale locale);	
-	
+	BaseUser getUser();
+
+	void setUser(BaseUser user);
+
+	BaseLocale getLocale();
+
+	void setLocale(BaseLocale locale);	
+
 }

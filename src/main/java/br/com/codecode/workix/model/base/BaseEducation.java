@@ -2,6 +2,11 @@ package br.com.codecode.workix.model.base;
 
 import java.util.Calendar;
 
+/**
+ * Markup Interface for Education Implementation
+ * @author felipe
+ *
+ */
 public interface BaseEducation {
 
 	String getSchoolName();

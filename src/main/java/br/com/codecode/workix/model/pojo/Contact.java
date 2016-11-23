@@ -1,7 +1,5 @@
 package br.com.codecode.workix.model.pojo;
 
-import java.math.BigInteger;
-
 import br.com.codecode.workix.model.base.BaseContact;
 
 /**
@@ -13,13 +11,13 @@ import br.com.codecode.workix.model.base.BaseContact;
 class Contact implements BaseContact {
 
 	@Override
-	public BigInteger getMobilePhone() {
+	public Number getMobilePhone() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setMobilePhone(BigInteger mobilePhone) {
+	public void setMobilePhone(Number mobilePhone) {
 		// TODO Auto-generated method stub
 		
 	}

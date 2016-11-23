@@ -1,9 +1,9 @@
 package br.com.codecode.workix.model.pojo;
 
+import br.com.codecode.workix.model.base.BaseContact;
+import br.com.codecode.workix.model.base.BaseLocale;
 import br.com.codecode.workix.model.base.BasePerson;
-import br.com.codecode.workix.model.jpa.Contact;
-import br.com.codecode.workix.model.jpa.Locale;
-import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.model.base.BaseUser;
 
 /**
  * Draft Person Class
@@ -26,37 +26,37 @@ class Person extends MyEntity implements BasePerson {
 	}
 
 	@Override
-	public Contact getContact() {
+	public BaseContact getContact() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setContact(Contact contact) {
+	public void setContact(BaseContact contact) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public User getUser() {
+	public BaseUser getUser() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setUser(User user) {
+	public void setUser(BaseUser user) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Locale getLocale() {
+	public BaseLocale getLocale() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setLocale(Locale locale) {
+	public void setLocale(BaseLocale locale) {
 		// TODO Auto-generated method stub
 		
 	}

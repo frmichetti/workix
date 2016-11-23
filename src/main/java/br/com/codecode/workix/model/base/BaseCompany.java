@@ -1,10 +1,15 @@
 package br.com.codecode.workix.model.base;
 
+/**
+ * Markup Interface for Company Implementation
+ * @author felipe
+ *
+ */
 public interface BaseCompany extends BasePerson {
 
-	String getCnpj();
+	Number getCnpj();
 
-	void setCnpj(String cnpj);
+	void setCnpj(Number cnpj);
 
 	String getSegment();
 
