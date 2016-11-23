@@ -1,69 +1,75 @@
 package br.com.codecode.workix.model.pojo;
 
-import java.util.Calendar;
+import java.sql.Timestamp;
 
-import br.com.codecode.workix.model.base.BaseEducation;
+import br.com.codecode.workix.model.base.BaseEntity;
 
-public class PojoEducation implements BaseEducation {
+/**
+ * Draft MyEntity Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class MyEntity implements BaseEntity{
 
 	@Override
-	public String getSchoolName() {
+	public long getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setId(long id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public int getVersion() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setVersion(int version) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Timestamp getCreatedAt() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setSchoolName(String schoolName) {
+	public void setCreatedAt(Timestamp createdAt) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public Calendar getStartDate() {
+	public Timestamp getUpdatedAt() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setStartDate(Calendar startDate) {
+	public void setUpdatedAt(Timestamp updatedAt) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
-	public Calendar getEndDate() {
+	public String getUuid() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setEndDate(Calendar endDate) {
+	public void setUuid(String uuid) {
 		// TODO Auto-generated method stub
-		
-	}
 
-	@Override
-	public String getQualification() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setQualification(String qualification) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setDescription(String description) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

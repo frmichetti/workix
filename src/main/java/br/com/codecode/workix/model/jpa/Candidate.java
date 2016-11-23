@@ -2,12 +2,19 @@ package br.com.codecode.workix.model.jpa;
 
 import java.util.Calendar;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 
+/**
+ * Candidate JPA {@link Entity}
+ * 
+ * @author felipe
+ * @category JPA
+ */
 @Entity
 public class Candidate extends Person {
 
@@ -21,11 +28,13 @@ public class Candidate extends Person {
 	@Column(nullable = false)	
 	private Calendar birthDate;	
 
-	public Candidate(){
-		configure();		
-	}	
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
+	public Candidate(){}	
 
-	private void configure() {
+	@PostConstruct
+	private void init() {
 		birthDate = Calendar.getInstance();		
 	}
 

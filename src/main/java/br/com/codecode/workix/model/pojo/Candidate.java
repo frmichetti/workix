@@ -4,7 +4,13 @@ import java.util.Calendar;
 
 import br.com.codecode.workix.model.base.BaseCandidate;
 
-class PojoCandidate extends PojoPerson implements BaseCandidate{
+/**
+ * Draft Candidate Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Candidate extends Person implements BaseCandidate{
 
 	@Override
 	public String getCpf() {

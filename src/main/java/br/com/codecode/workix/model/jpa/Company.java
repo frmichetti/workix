@@ -3,6 +3,12 @@ package br.com.codecode.workix.model.jpa;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+/**
+ * Company JPA {@link Entity}
+ * 
+ * @author felipe
+ * @category JPA
+ */
 @Entity
 public class Company extends Person {
 
@@ -14,6 +20,9 @@ public class Company extends Person {
 	@Column(nullable = false)
 	private String segment;	
 
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
 	public Company(){}
 
 	public long getCnpj() {

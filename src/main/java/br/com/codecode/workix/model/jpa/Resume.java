@@ -3,6 +3,7 @@ package br.com.codecode.workix.model.jpa;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -15,10 +16,14 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.interfaces.Persistable;
-
+/**
+ * Resume JPA {@link Entity}
+ * 
+ * @author felipe
+ * @category JPA
+ */
 @Entity
-public class Resume extends MyEntity implements Persistable {
+public class Resume extends MyEntity {
 
 	private static final long serialVersionUID = 7569771700044121495L;
 
@@ -35,7 +40,7 @@ public class Resume extends MyEntity implements Persistable {
 	private String content;	
 
 	/**
-	 * OneToMany 
+	 * One {@link Resume} To Many {@link Experience} 
 	 */
 	@ElementCollection(fetch=FetchType.EAGER)	
 	@CollectionTable(name = "Resume_Experiences", 
@@ -43,7 +48,7 @@ public class Resume extends MyEntity implements Persistable {
 	private Set<Experience> experiences;
 
 	/**
-	 * OneToMany 
+	 * One {@link Resume} To Many {@link Education} 
 	 */
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name = "Resume_Educations", 
@@ -51,18 +56,17 @@ public class Resume extends MyEntity implements Persistable {
 	private Set<Education> educations;	
 
 	/**
-	 * OneToMany 
+	 * One {@link Resume} To Many {@link Skill} 
 	 */
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name = "Resume_Skills", 
 	joinColumns=@JoinColumn(name="id"))
 	private Set<Skill> skills;	
 
-	public Resume() {
-		configure();
-	}
+	public Resume(){}
 
-	private void configure() {
+	@PostConstruct
+	private void init() {
 		educations = new HashSet<Education>();
 		experiences = new HashSet<Experience>();
 		skills = new HashSet<Skill>();		

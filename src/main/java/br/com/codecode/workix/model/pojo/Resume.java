@@ -8,7 +8,13 @@ import br.com.codecode.workix.model.base.BaseExperience;
 import br.com.codecode.workix.model.base.BaseResume;
 import br.com.codecode.workix.model.base.BaseSkill;
 
-class PojoResume extends PojoEntity implements BaseResume {
+/**
+ * Draft Resume Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Resume extends MyEntity implements BaseResume {
 
 	@Override
 	public BaseCandidate getCandidate() {

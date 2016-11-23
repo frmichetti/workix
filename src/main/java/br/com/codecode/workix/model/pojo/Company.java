@@ -2,7 +2,13 @@ package br.com.codecode.workix.model.pojo;
 
 import br.com.codecode.workix.model.base.BaseCompany;
 
-class PojoCompany extends PojoPerson implements BaseCompany {
+/**
+ * Draft Company Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Company extends Person implements BaseCompany {
 
 	@Override
 	public String getCnpj() {

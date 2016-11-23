@@ -1,5 +1,8 @@
 package br.com.codecode.workix.model.interfaces;
 
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
+
 /**
  * Markup Interface for Traceable Entities 
  * @author felipe
@@ -8,7 +11,7 @@ package br.com.codecode.workix.model.interfaces;
 public interface Traceable {
 
 	/**
-	 * Must Be Called on JPA Pre-Persist Event
+	 * Must Be Called on JPA {@link PrePersist} Event
 	 */
 	default void prepareToPersist(){
 		insertTimeStamp();
@@ -20,11 +23,8 @@ public interface Traceable {
 	void generateUUID();
 
 	/**
-	 * Must be Called on JPA On-Update Event
+	 * Must be Called on JPA {@link PreUpdate} Event
 	 */
 	void updateTimeStamp();
-
-
-
 
 }

@@ -1,5 +1,6 @@
 /**
  * Container for Pojo Classes
+ * @category POJO
  * @author felipe
  *
  */

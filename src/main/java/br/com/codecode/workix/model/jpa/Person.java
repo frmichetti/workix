@@ -8,10 +8,14 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.interfaces.Persistable;
-
+/**
+ * Person JPA {@link MappedSuperclass} 
+ * <br>Share common Fields with {@link Company} and {@link Candidate}
+ * @author felipe
+ * @category JPA
+ */
 @MappedSuperclass
-public abstract class Person extends MyEntity implements Persistable {
+public abstract class Person extends MyEntity {
 
 	private static final long serialVersionUID = 703693002246144451L;
 
@@ -29,6 +33,9 @@ public abstract class Person extends MyEntity implements Persistable {
 	@Embedded	
 	private Locale locale;
 
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
 	public Person(){}
 
 	public String getName() {

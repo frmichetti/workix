@@ -5,7 +5,13 @@ import br.com.codecode.workix.model.jpa.Contact;
 import br.com.codecode.workix.model.jpa.Locale;
 import br.com.codecode.workix.model.jpa.User;
 
-class PojoPerson extends PojoEntity implements BasePerson {
+/**
+ * Draft Person Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Person extends MyEntity implements BasePerson {
 
 	@Override
 	public String getName() {

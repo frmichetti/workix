@@ -21,10 +21,15 @@ import com.google.gson.annotations.Expose;
 
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
-import br.com.codecode.workix.model.interfaces.Persistable;
 
+/**
+ * Job JPA {@link Entity}
+ * 
+ * @author felipe
+ * @category JPA
+ */
 @Entity
-public class Job extends MyEntity implements Persistable {
+public class Job extends MyEntity {
 
 	private static final long serialVersionUID = 2246753300384053586L;
 

@@ -13,6 +13,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.model.enums.Estate;
 
+/**
+ * Locale JPA {@link Embeddable}  
+ * @author felipe
+ * @category JPA
+ */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable

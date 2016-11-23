@@ -33,6 +33,12 @@ import javax.xml.bind.annotation.XmlTransient;
 import br.com.codecode.workix.model.interfaces.Persistable;
 import br.com.codecode.workix.model.interfaces.Traceable;
 
+/**
+ * SelectiveProcess JPA {@link Entity}
+ * 
+ * @author felipe
+ * @category JPA
+ */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @SuppressWarnings({"unchecked","unused"})

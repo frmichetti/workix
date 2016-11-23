@@ -16,9 +16,9 @@ import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
- * 
+ * Subscriber JPA {@link Entity}
  * @author felipe
- *
+ * @category JPA
  */
 @Entity
 public class Subscriber implements Persistable, Serializable{
@@ -50,6 +50,7 @@ public class Subscriber implements Persistable, Serializable{
 		return id;
 	}
 	
+	@Override
 	public void setId(long id) {
 		this.id = id;
 	}
@@ -84,9 +85,6 @@ public class Subscriber implements Persistable, Serializable{
 			this.email = email;
 		}		
 
-		/**
-		 * @param email the email to set
-		 */
 		public Builder setEmail(String email) {
 			this.email = email;
 			return this;

@@ -8,10 +8,14 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
-import br.com.codecode.workix.model.interfaces.Persistable;
 
+/**
+ * User JPA {@link Entity}
+ * @author felipe
+ * @category JPA
+ */
 @Entity
-public class User extends MyEntity implements Persistable {
+public class User extends MyEntity {
 
 	private static final long serialVersionUID = -610648880358327958L;
 
@@ -31,9 +35,14 @@ public class User extends MyEntity implements Persistable {
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
-	 */
+	 */	
 	public User(){}	
 
+	/**
+	 * Public Constructor for Builder Compatibility
+	 * @see Buildable
+	 * @param builder
+	 */
 	public User(@NotNull Builder builder){
 
 		this.active = builder.active;
@@ -136,35 +145,23 @@ public class User extends MyEntity implements Persistable {
 			this(active,email);			
 			this.firebaseUUID = firebaseUUID;
 			this.firebaseMessageToken = firebaseMessageToken;
-		}		
+		}	
 
-		/**
-		 * @param active the active to set
-		 */
 		public Builder setActive(boolean active) {
 			this.active = active;
 			return this;
 		}
 
-		/**
-		 * @param email the email to set
-		 */
 		public Builder setEmail(String email) {
 			this.email = email;
 			return this;
 		}
 
-		/**
-		 * @param firebaseUUID the firebaseUUID to set
-		 */
 		public Builder setFirebaseUUID(String firebaseUUID) {
 			this.firebaseUUID = firebaseUUID;
 			return this;
 		}
 
-		/**
-		 * @param firebaseMessageToken the firebaseMessageToken to set
-		 */
 		public Builder setFirebaseMessageToken(String firebaseMessageToken) {
 			this.firebaseMessageToken = firebaseMessageToken;
 			return this;

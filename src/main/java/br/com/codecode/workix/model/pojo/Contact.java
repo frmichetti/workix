@@ -4,7 +4,13 @@ import java.math.BigInteger;
 
 import br.com.codecode.workix.model.base.BaseContact;
 
-class PojoContact implements BaseContact {
+/**
+ * Draft Contact Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Contact implements BaseContact {
 
 	@Override
 	public BigInteger getMobilePhone() {

@@ -1,16 +1,15 @@
-/**
- *
+/** 
  * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
+ * @see <a href="http://portfolio-frmichetti.rhcloud.com">portfolio-frmichetti.rhcloud.com</a>
+ * @see <a href="http://www.codecode.com.br">www.codecode.com.br</a>
+ * @see <a href="mailto:frmichetti@gmail.com">frmichetti@gmail.com</a>
  * */
 package br.com.codecode.workix.model.interfaces;
 
 /**
- * Markup Interface for Persistable Entities
- * Implements this for works with SimpleEntityConverter
- * and AnotherEntityConverter for JSF
+ * Markup Interface for Persistable Entities <br>
+ * Implements this for works with <br> {@link SimpleEntityConverter}
+ * and {@link AnotherEntityConverter} in JSF
  * 
  * @author Felipe Rodrigues Michetti
  *
@@ -18,5 +17,7 @@ package br.com.codecode.workix.model.interfaces;
 public interface Persistable {  
 
 	public long getId();	
+	
+	public void setId(long id);
 
 }  

@@ -8,7 +8,13 @@ import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.jpa.Company;
 
-class PojoJob extends PojoEntity implements BaseJob{
+/**
+ * Draft Job Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Job extends MyEntity implements BaseJob{
 
 	@Override
 	public String getTitle() {

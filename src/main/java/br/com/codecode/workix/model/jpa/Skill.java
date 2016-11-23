@@ -8,6 +8,11 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Skill {@link Embeddable} JPA Class
+ * @author felipe
+ *
+ */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable

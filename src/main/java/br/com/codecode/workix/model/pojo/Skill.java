@@ -2,7 +2,13 @@ package br.com.codecode.workix.model.pojo;
 
 import br.com.codecode.workix.model.base.BaseSkill;
 
-class PojoSkill implements BaseSkill {
+/**
+ * Draft Skill Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Skill implements BaseSkill {
 
 	@Override
 	public String getSkillName() {

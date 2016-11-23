@@ -2,30 +2,24 @@ package br.com.codecode.workix.model.pojo;
 
 import java.util.Calendar;
 
-import br.com.codecode.workix.model.base.BaseExperience;
+import br.com.codecode.workix.model.base.BaseEducation;
 
-class PojoExperience implements BaseExperience {
+/**
+ * Draft Education Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+public class Education implements BaseEducation {
 
 	@Override
-	public String getEmployerName() {
+	public String getSchoolName() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setEmployerName(String employerName) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public String getJobTitle() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setJobTitle(String jobTitle) {
+	public void setSchoolName(String schoolName) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -50,6 +44,18 @@ class PojoExperience implements BaseExperience {
 
 	@Override
 	public void setEndDate(Calendar endDate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public String getQualification() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setQualification(String qualification) {
 		// TODO Auto-generated method stub
 		
 	}

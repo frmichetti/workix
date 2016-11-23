@@ -5,7 +5,13 @@ import java.math.BigInteger;
 import br.com.codecode.workix.model.base.BaseLocale;
 import br.com.codecode.workix.model.enums.Estate;
 
-class PojoLocale implements BaseLocale{
+/**
+ * Draft Locale Class
+ * @author felipe
+ * @category POJO
+ *
+ */
+class Locale implements BaseLocale{
 
 	@Override
 	public BigInteger getZipCode() {
