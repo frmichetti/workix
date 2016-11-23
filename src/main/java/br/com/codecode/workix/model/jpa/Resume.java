@@ -108,11 +108,17 @@ public class Resume extends MyEntity {
 	}
 
 	public void addExperience(Experience experience){
-		this.experiences.add(experience);
+		if(experiences == null)
+			experiences = new HashSet<>(); 
+		else
+			this.experiences.add(experience);
 	}
 
 	public void removeExperience(Experience experience){
-		this.experiences.remove(experience);
+		if(experiences == null)
+			experiences = new HashSet<>(); 
+		else
+			this.experiences.remove(experience);
 	}
 
 	public Set<Education> getEducations() {
@@ -120,11 +126,17 @@ public class Resume extends MyEntity {
 	}
 
 	public void setEducations(Set<Education> educations) {
-		this.educations = educations;
+		if(educations == null)
+			educations = new HashSet<>(); 
+		else
+			this.educations = educations;
 	}
 
 	public void addEducation(Education education){
-		this.educations.add(education);
+		if(educations == null)
+			educations = new HashSet<>(); 
+		else
+			this.educations.add(education);
 	}
 
 	public void removeEducation(Education education){
@@ -140,11 +152,18 @@ public class Resume extends MyEntity {
 	}
 
 	public void addSkill(Skill skill){
-		this.skills.add(skill);
+		if(skills == null)
+			skills = new HashSet<>(); 
+		else
+			this.skills.add(skill);
+
 	}
 
 	public void removeSkill(Skill skill){
-		this.skills.remove(skill);
+		if(skills == null)
+			skills = new HashSet<>(); 
+		else
+			this.skills.remove(skill);
 	}
 
 	@Override

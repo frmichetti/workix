@@ -12,13 +12,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
-
-import com.google.gson.annotations.Expose;
 
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
@@ -37,13 +34,10 @@ public class Job extends MyEntity {
 	@NotEmpty
 	@Column(nullable = false)
 	private String title;
-
-	@DecimalMin("10")
-	@Expose
+		
 	@Column
 	private BigDecimal minPayment;
 
-	@DecimalMin("10")	
 	@Column
 	private BigDecimal maxPayment;
 

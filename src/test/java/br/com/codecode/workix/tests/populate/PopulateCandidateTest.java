@@ -13,6 +13,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -69,7 +70,13 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
 		
 		for (User u : users) {
 			
-			Candidate c = new Candidate();		
+			Candidate c = new Candidate();
+		
+			Calendar cc = Calendar.getInstance();
+			
+			cc.set(1989, 02, 03);
+			
+			c.setBirthDate(cc);
 			
 			c.setName("Mockup Candidate N# " + String.valueOf(u.getId()));			
 			

@@ -32,17 +32,17 @@ public class Experience implements Serializable {
 
 	@Column
 	private String jobTitle;
-
-	@Column
+	
 	@Temporal(TemporalType.DATE)
+	@Column	
 	private Calendar startDate;
 
-	@Column
 	@Temporal(TemporalType.DATE)
+	@Column	
 	private Calendar endDate;
 
-	@Column
 	@Lob
+	@Column	
 	private String description;
 
 	/**

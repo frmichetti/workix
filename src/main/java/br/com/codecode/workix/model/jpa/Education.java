@@ -39,6 +39,7 @@ public class Education implements Serializable {
 	@Column	
 	private Calendar endDate;
 
+	@Lob
 	@Column
 	private String qualification;
 
