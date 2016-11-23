@@ -16,7 +16,7 @@ public class UserBuilderTest {
 	private User.Builder u;
 	
 	@Test
-	public void testInstance(){
+	public void testInstance(){			
 		
 		u = new User.Builder(false, "");
 		

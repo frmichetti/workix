@@ -28,7 +28,7 @@ public class FacesContextProducer {
 	 * @return {@link FacesContext} Instance
 	 */
 	@Produces
-	@RequestScoped
+	@RequestScoped	
 	@Factory
 	@Default
 	public FacesContext getFacesContext() {    	

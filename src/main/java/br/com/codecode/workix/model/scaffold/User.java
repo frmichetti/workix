@@ -7,7 +7,6 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
@@ -46,41 +45,33 @@ public class User extends MyEntity implements Persistable {
 		this.firebaseMessageToken = builder.firebaseMessageToken;
 	}
 
-
 	public boolean isActive() {
 		return active;
 	}
-
 
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public String getFirebaseUUID() {
 		return firebaseUUID;
 	}
-
 
 	public void setFirebaseUUID(String firebaseUUID) {
 		this.firebaseUUID = firebaseUUID;
 	}
 
-
 	public String getFirebaseMessageToken() {
 		return firebaseMessageToken;
 	}
-
 
 	public void setFirebaseMessageToken(String firebaseMessageToken) {
 		this.firebaseMessageToken = firebaseMessageToken;
@@ -88,9 +79,9 @@ public class User extends MyEntity implements Persistable {
 
 	public String getUniqueID(){
 		return super.getUuid();
-	}	
+	}
 
-
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -98,7 +89,7 @@ public class User extends MyEntity implements Persistable {
 		return result;
 	}
 
-
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
@@ -112,7 +103,7 @@ public class User extends MyEntity implements Persistable {
 		return true;
 	}
 
-
+	@Override
 	public String toString() {
 		return "User [email=" + email + "]";
 	}
@@ -178,14 +169,12 @@ public class User extends MyEntity implements Persistable {
 			this.firebaseMessageToken = firebaseMessageToken;
 			return this;
 		}
-
-
+	
+		@Override
 		public User build()
 		{
 			return new User(this);
 		}
-
-
 
 	}	
 

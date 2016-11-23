@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.pojo;
+package br.com.codecode.workix.model.base;
 
 import java.math.BigDecimal;
 import java.util.Calendar;

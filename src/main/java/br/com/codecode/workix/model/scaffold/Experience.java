@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Experience implements Serializable {
 
 	private static final long serialVersionUID = -6311235469498858665L;
-
+	
 	@Column
 	private String employerName;
 
@@ -45,58 +45,46 @@ public class Experience implements Serializable {
 		this.jobTitle = jobTitle;
 		this.startDate = startDate;
 		this.endDate = endDate;
-	}
-
-
+	}	
 
 	public String getEmployerName() {
 		return employerName;
 	}
-
-
+	
 	public void setEmployerName(String employerName) {
 		this.employerName = employerName;
 	}
-
-
+	
 	public String getJobTitle() {
 		return jobTitle;
 	}
-
-
+	
 	public void setJobTitle(String jobTitle) {
 		this.jobTitle = jobTitle;
 	}
-
-
+	
 	public Calendar getStartDate() {
 		return startDate;
 	}
-
-
+	
 	public void setStartDate(Calendar startDate) {
 		this.startDate = startDate;
 	}
-
-
+	
 	public Calendar getEndDate() {
 		return endDate;
 	}
-
-
+	
 	public void setEndDate(Calendar endDate) {
 		this.endDate = endDate;
 	}
-
-
+	
 	public String getDescription() {
 		return description;
 	}
-
-
+	
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
 
 }

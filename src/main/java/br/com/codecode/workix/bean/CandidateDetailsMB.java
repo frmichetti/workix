@@ -21,7 +21,7 @@ public class CandidateDetailsMB implements Serializable {
 
 	private static final long serialVersionUID = 8847505514073013416L;
 	
-	private String messageTitle,messageBody;
+	private String messageTitle, messageBody;
 	
 	@Inject @Generic
 	private Crud<Candidate> dao;
@@ -29,9 +29,9 @@ public class CandidateDetailsMB implements Serializable {
 	@Inject @Push
 	private Notification notification;
 	
-	private Long id;
+	private long id;
 	
-	private Candidate currentCandidate ;
+	private Candidate candidate ;
 	
 	@Inject
 	private MessagesHelper messagesHelper;
@@ -46,15 +46,13 @@ public class CandidateDetailsMB implements Serializable {
 		
 		System.out.println("Candidate ID RECEIVED -> " + id);
 		
-		if(id == null || id ==0){
+		if(id == 0){
 			goToError();
-		}
-		
-		if(id > 0){
+		}else{
 			
 			try {
 				
-				currentCandidate = dao.findById(id);
+				candidate = dao.findById(id);
 				
 			} catch (NotImplementedYetException e) {
 				// TODO Auto-generated catch block
@@ -62,22 +60,22 @@ public class CandidateDetailsMB implements Serializable {
 			}	
 		}		
 		
-		if (currentCandidate == null){
+		if (candidate == null){
 			goToError();		
 		}
 		
 	}
 	
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public Candidate getCurrentCandidate() {
-		return currentCandidate;
+	public Candidate getCandidate() {
+		return candidate;
 	}
 	
 	public void notifyByEmail(){
@@ -87,7 +85,7 @@ public class CandidateDetailsMB implements Serializable {
 	
 	public void notifyByPush(){
 		messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-		notification.doSendMessage(currentCandidate, messageTitle, messageBody);
+		notification.doSendMessage(candidate, messageTitle, messageBody);
 		
 	}
 

@@ -45,53 +45,43 @@ public class Education implements Serializable {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.qualification = qualification;
-	}
-
+	}	
 
 	public String getSchoolName() {
 		return schoolName;
 	}
 
-
 	public void setSchoolName(String schoolName) {
 		this.schoolName = schoolName;
 	}
-
 
 	public Calendar getStartDate() {
 		return startDate;
 	}
 
-
 	public void setStartDate(Calendar startDate) {
 		this.startDate = startDate;
 	}
-
 
 	public Calendar getEndDate() {
 		return endDate;
 	}
 
-
 	public void setEndDate(Calendar endDate) {
 		this.endDate = endDate;
 	}
-
 
 	public String getQualification() {
 		return qualification;
 	}
 
-
 	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
 
-
 	public String getDescription() {
 		return description;
 	}
-
 
 	public void setDescription(String description) {
 		this.description = description;

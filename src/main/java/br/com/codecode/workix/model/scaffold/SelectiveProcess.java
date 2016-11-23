@@ -12,13 +12,16 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -33,6 +36,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @SuppressWarnings({"unchecked","unused"})
+@Table(name="Selective_Process")
 @Entity
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable{
 
@@ -64,8 +68,9 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	@ManyToOne(optional=false)
 	private Job job;	
 
-	@NotNull	
-	@OneToMany	
+	@NotNull
+	@JoinTable(name="Selective_Process_Candidates")
+	@OneToMany(fetch = FetchType.EAGER)	
 	private Set<Candidate> candidates;
 
 	@Column
@@ -92,9 +97,8 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	public long getId() {
 		return this.id;
 	}
-
-	@Override
-	public void setId(final long id) {
+	
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -140,7 +144,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 		return this.candidates;
 	}
 
-	public void setCandidates(final Set<Candidate> candidates) {
+	public void setCandidates(Set<Candidate> candidates) {
 		this.candidates = candidates;
 		notifyChanges();
 	}
@@ -227,7 +231,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 		return "SelectiveProcess [active=" + active + ", maxCandidates=" + maxCandidates + "]";
 	}
 
-
 	@Override
 	public void update(Observable observable, Object object) {	
 
@@ -270,6 +273,5 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	public void updateTimeStamp(){
 		updatedAt = Timestamp.from(Instant.now());
 	}
-
 
 }

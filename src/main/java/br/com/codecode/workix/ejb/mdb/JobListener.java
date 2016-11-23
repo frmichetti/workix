@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.jms.listener;
+package br.com.codecode.workix.ejb.mdb;
 
 import java.time.Instant;
 
@@ -25,46 +25,46 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Push;
 
 /**
- * {@link MessageDrivenBean} for User
+ * {@link MessageDrivenBean} for Job
  * Execute Actions {@link #onMessage(Message)}
  * @author felipe
  *
  */
 @MessageDriven(activationConfig={
 		@ActivationConfigProperty(propertyName="destinationLookup",
-				propertyValue="java:/jms/topics/usersTopic")})
-public class UserListener implements MessageListener{		
+				propertyValue="java:/jms/topics/jobsTopic")})
+public class JobListener implements MessageListener{	
 
 	@Inject @Factory
 	private ManagedExecutorService managedExecutorService;
 
 	@Inject @Email
-	private Notification sendMail;	
+	private Notification sendMail;
 
 	@Inject @Push
 	private Notification sendPush;
 
-	public UserListener(){}
+	public JobListener(){}
 
 	@Override	
 	public void onMessage(Message message) {
 
 		System.out.println("[MDB - onMessage]");
 
-		TextMessage text = (TextMessage) message;
+		TextMessage text = (TextMessage) message;		
 
-		System.out.println("Received Message -> " + text);		
+		System.out.println("Received Message -> " + text);
+		
 
 		try {
 
-			String uuid = text.getText();			
+			String uuid = text.getText();
 
-			managedExecutorService.execute(() -> {	
-				
+			managedExecutorService.submit(() ->{
+
 				System.out.println("TODO SEND A MAIL TO USER " + Instant.now());
 				
 				System.out.println("UUID " + uuid);
-
 
 			});
 
@@ -73,9 +73,8 @@ public class UserListener implements MessageListener{
 			System.err.println("---Error on Read Message---");
 
 			e.printStackTrace();
-			
-		}
 
+		}
 	}
 
 }

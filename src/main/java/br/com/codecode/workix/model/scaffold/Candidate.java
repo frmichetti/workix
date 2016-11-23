@@ -30,21 +30,25 @@ public class Candidate extends Person {
 		birthDate = Calendar.getInstance();		
 	}	
 
+
 	public String getCpf() {
 		return cpf;
 	}
+
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}	
 
+
 	public Calendar getBirthDate() {
 		return birthDate;
 	}
 
+
 	public void setBirthDate(Calendar birthDate) {
 		this.birthDate = birthDate;
-	}	
+	}
 
 	@Override
 	public int hashCode() {

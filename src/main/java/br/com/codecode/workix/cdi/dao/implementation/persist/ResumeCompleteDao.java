@@ -2,7 +2,11 @@ package br.com.codecode.workix.cdi.dao.implementation.persist;
 
 import br.com.codecode.workix.model.scaffold.Candidate;
 import br.com.codecode.workix.model.scaffold.Resume;
-
+/**
+ * StandAlone Dao for Resume
+ * @author felipe
+ *
+ */
 public class ResumeCompleteDao extends BaseDao {
 
 	private static final long serialVersionUID = -5431107883362073057L;

@@ -11,7 +11,7 @@ public class Company extends Person {
 	private static final long serialVersionUID = 47663377480544994L;
 
 	@NotEmpty	
-	@Column(nullable = false,unique = true)
+	@Column(nullable = false, unique = true)
 	private String cnpj;
 
 	@Column(nullable = false)
@@ -19,26 +19,21 @@ public class Company extends Person {
 
 	public Company(){}
 
-
 	public String getCnpj() {
 		return cnpj;
 	}
-
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
 	}
 
-
 	public String getSegment() {
 		return segment;
 	}
-
-
+	
 	public void setSegment(String companySegment) {
 		this.segment = companySegment;
 	}
-
 
 	@Override
 	public int hashCode() {
@@ -47,7 +42,6 @@ public class Company extends Person {
 		result = prime * result + (int) (getId() ^ (getId() >>> 32));
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -62,7 +56,6 @@ public class Company extends Person {
 			return false;
 		return true;
 	}
-
 
 	@Override
 	public String toString() {

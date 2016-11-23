@@ -7,8 +7,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
@@ -120,18 +118,17 @@ public class EntityManagerProducer implements Serializable {
 		
 	}
 
-	@Inject @Factory
-	private FacesContext facesContext;
-
 	/**
 	 * Discover Project Stage Parameter to Choose Default EntityManager  
 	 * @return String Representation for Entity Manager Selection
 	 * @throws RuntimeException
 	 */
 	private String getContextParam() throws RuntimeException{
+		
+		String s = "Development";
 
-		if(facesContext != null){
-			return facesContext.getExternalContext().getInitParameter("javax.faces.PROJECT_STAGE");
+		if(!s.isEmpty()){
+			return s;
 		}else
 			throw new RuntimeException("Impossible to Discover Runtime Environment");
 

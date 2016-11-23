@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
@@ -46,14 +47,15 @@ public class JAASUser implements Persistable, Serializable {
 	@Column
 	private String password;
 
-	@JoinTable(name="JAAS_Roles")
-	@ManyToMany(fetch=FetchType.EAGER,targetEntity=JAASUser.class)		
+	@JoinTable(name="JAAS_Roles",joinColumns=@JoinColumn(name="id"),
+			inverseJoinColumns=@JoinColumn(name="role_name"))
+	@ManyToMany(fetch = FetchType.EAGER)		
 	private Set<JAASRole> roles;
 
 	public JAASUser(){}
 
 	public String getLogin() {
-		return login;
+		return login;		
 	}
 
 	public void setLogin(String login) {
@@ -91,9 +93,8 @@ public class JAASUser implements Persistable, Serializable {
 	public long getId() {
 		return id;
 	}
-
-	@Override
-	public void setId(final long id) {
+	
+	public void setId(long id) {
 		this.id = id;		
 	}
 

@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.pojo;
+package br.com.codecode.workix.model.base;
 
 import br.com.codecode.workix.model.scaffold.Contact;
 import br.com.codecode.workix.model.scaffold.Locale;

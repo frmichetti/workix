@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model;
+package br.com.codecode.workix.model.scaffold;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -57,78 +57,69 @@ public abstract class MyEntity implements Traceable, Persistable, Serializable {
 	private String uuid;
 
 	public MyEntity(){}
-
-
+	
 	@Override
 	public long getId() {
 		return this.id;
 	}
-
-
-	@Override
-	public void setId(final long id) {
+		
+	public void setId(long id) {
 		this.id = id;
 	}
-
+	
 	@Override
 	@PrePersist
 	public void prepareToPersist(){
 		Traceable.super.prepareToPersist();	
 	}
-
+	
 	@Override
 	public void generateUUID(){
-		uuid = UUID.randomUUID().toString();
+		this.setUuid(UUID.randomUUID().toString());
 	}
-
+	
 	@Override
 	public void insertTimeStamp(){
-		createdAt = Timestamp.from(Instant.now());
+		this.setCreatedAt(Timestamp.from(Instant.now()));
 	}
-
+	
 	@Override
 	@PreUpdate
-
 	public void updateTimeStamp(){
-		updatedAt = Timestamp.from(Instant.now());
+		this.setUpdatedAt(Timestamp.from(Instant.now()));
 	}
-
-	public int getVersion() {
+	
+	protected int getVersion() {
 		return version;
 	}
-
-	public void setVersion(final int version) {
+	
+	private void setVersion(int version) {
 		this.version = version;
 	}
-
+	
 	public Timestamp getCreatedAt() {
 		return createdAt;
 	}
-
-	public void setCreatedAt(Timestamp createdAt) {
+	
+	private void setCreatedAt(Timestamp createdAt) {
 		this.createdAt = createdAt;
 	}
-
-
+	
 	public Timestamp getUpdatedAt() {
 		return updatedAt;
 	}
-
-
-	public void setUpdatedAt(Timestamp updatedAt) {
+	
+	private void setUpdatedAt(Timestamp updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-
+	
 	public String getUuid() {
 		return uuid;
 	}
-
-
-	public void setUuid(String uuid) {
+	
+	private void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-
 
 
 }

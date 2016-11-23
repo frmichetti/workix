@@ -9,7 +9,7 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
-import br.com.codecode.workix.model.scaffold.NewsLetterSubscriber;
+import br.com.codecode.workix.model.scaffold.Subscriber;
 
 @Model
 public class SignupMB {
@@ -18,14 +18,14 @@ public class SignupMB {
 	private MessagesHelper messagesHelper;
 	
 	@Inject @Generic
-	private Crud<NewsLetterSubscriber> dao;
+	private Crud<Subscriber> dao;
 	
 	private String email;
 	
 	@Transactional
 	public void addToList(){
 		
-		NewsLetterSubscriber subscriber = new NewsLetterSubscriber(email);
+		Subscriber subscriber = new Subscriber.Builder(email).build();
 		
 		try {
 			

@@ -18,7 +18,7 @@ public class CandidatesMB {
 
 	@Inject
 	private FacesContext facesContext;
-	
+
 	@Inject
 	private PaginationHelper pagination;
 
@@ -28,14 +28,14 @@ public class CandidatesMB {
 	private DataModel<Candidate> list;
 
 	private String prefix,sufix;	
-	
+
 	/**
 	 * Max Results By Page
 	 */
 	private final int limitRows = 10;
 
 	private int start,end,totalRows,totalPages;
-	
+
 	@Min(1)
 	private int page;
 
@@ -47,9 +47,9 @@ public class CandidatesMB {
 	public void init(){		
 
 		try {
-			
+
 			totalRows = dao.countRegisters().intValue();
-			
+
 		} catch (NotImplementedYetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -61,10 +61,10 @@ public class CandidatesMB {
 
 		end = pagination.discoverEndRange(limitRows, page, totalPages);
 
-		try {
-			
+		try {		
+
 			list = new ListDataModel<Candidate>(dao.listAll(start-1,end));
-			
+
 		} catch (NotImplementedYetException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -73,7 +73,7 @@ public class CandidatesMB {
 		prefix = "/" + facesContext.getExternalContext().getContextName();
 
 		sufix = "&faces-redirect=true";
-		
+
 		{
 			System.out.println("Current Page : " + page);		
 
@@ -86,7 +86,7 @@ public class CandidatesMB {
 			System.out.println("End " + end);
 		}
 	}
-	
+
 	public int getPage() {
 		return page;
 	}
@@ -98,15 +98,15 @@ public class CandidatesMB {
 	public DataModel<Candidate> getList() {
 		return list;
 	}
-	
+
 	public String goToCandidateDetail(Candidate candidate){
 
 		System.out.println("Received Candidate " + candidate.toString());
 
 		return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix ;
 	}
-	
-	
-	
+
+
+
 
 }

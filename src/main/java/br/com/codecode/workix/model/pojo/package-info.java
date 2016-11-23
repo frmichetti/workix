@@ -1,5 +1,5 @@
 /**
- * Container of Pojo Classes Based On Template
+ * Container for Pojo Classes
  * @author felipe
  *
  */

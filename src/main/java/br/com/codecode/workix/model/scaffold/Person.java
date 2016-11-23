@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 @MappedSuperclass
@@ -30,7 +29,7 @@ public abstract class Person extends MyEntity implements Persistable {
 	@Embedded	
 	private Locale locale;
 
-	public Person(){}	
+	public Person(){}
 
 	public String getName() {
 		return name;

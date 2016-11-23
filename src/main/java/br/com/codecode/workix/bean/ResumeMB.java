@@ -3,11 +3,12 @@ package br.com.codecode.workix.bean;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
@@ -37,14 +38,14 @@ public class ResumeMB implements Serializable {
 
 	@Inject @Push
 	private Notification notification;	
-	
+
 	@Inject @Factory
 	private FacesContext facesContext;
 
 	@Inject
 	private MessagesHelper messagesHelper;
 
-	private Long id;		
+	private long id;		
 
 	private String prefix, sufix; 	
 
@@ -54,11 +55,11 @@ public class ResumeMB implements Serializable {
 
 	private Resume resume;
 
-	private List<Skill> skills = new ArrayList<>();
+	private DataModel<Skill> skills;
 
-	private List<Education> educations = new ArrayList<>();
+	private DataModel<Education> educations;
 
-	private List<Experience> experiences = new ArrayList<>();
+	private DataModel<Experience> experiences;
 
 	public ResumeMB(){}
 
@@ -66,9 +67,9 @@ public class ResumeMB implements Serializable {
 	 * Must be Called by f:viewAction After f:viewParam {@link page} 
 	 */
 	public void init(){
-		
+
 		prefix = facesContext.getExternalContext().getRequestContextPath();
-		
+
 		sufix = "?faces-redirect=true";
 
 		System.out.println("Candidate ID RECEIVED -> " + id);
@@ -78,15 +79,15 @@ public class ResumeMB implements Serializable {
 			candidate = dao.findById(id);
 
 		} catch (NotImplementedYetException e) {
-			
+
 			e.printStackTrace();
 
 			goToErrorPage();
-			
+
 		} catch (Exception e){
-			
+
 			e.printStackTrace();
-			
+
 			goToErrorPage();
 		}
 
@@ -100,19 +101,35 @@ public class ResumeMB implements Serializable {
 			goToErrorPage();
 		}
 
-		skills.addAll(resume.getSkills());
 
-		educations.addAll(resume.getEducations());
+		ArrayList<Skill> skillList = new ArrayList<>();
 
-		experiences.addAll(resume.getExperiences());
+		skillList.addAll(resume.getSkills());
+
+		skills = new ListDataModel<Skill>(skillList);
+
+
+		ArrayList<Education> educationList = new ArrayList<>();
+
+		educationList.addAll(resume.getEducations());
+
+		educations = new ListDataModel<>(educationList);
+
+
+		ArrayList<Experience> experienceList = new ArrayList<>();
+
+		experienceList.addAll(resume.getExperiences());
+
+		experiences = new ListDataModel<>(experienceList);
+
 
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -124,15 +141,15 @@ public class ResumeMB implements Serializable {
 		return resume;
 	}
 
-	public List<Skill> getSkills() {
+	public DataModel<Skill> getSkills() {
 		return skills;
 	}
 
-	public List<Education> getEducations() {
+	public DataModel<Education> getEducations() {
 		return educations;
 	}
 
-	public List<Experience> getExperiences() {
+	public DataModel<Experience> getExperiences() {
 		return experiences;
 	}
 
@@ -162,11 +179,11 @@ public class ResumeMB implements Serializable {
 	}
 
 	private String goToErrorPage(){	
-	
+
 		try {
-			
+
 			facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
-			
+
 		} catch (IOException e) {
 
 			e.printStackTrace();

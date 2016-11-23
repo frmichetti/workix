@@ -4,8 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.MyEntity;
 import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.model.scaffold.MyEntity;
 
 /**
  * Markup Interface <br>

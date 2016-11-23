@@ -1,6 +1,6 @@
-package br.com.codecode.workix.model.pojo;
+package br.com.codecode.workix.model.base;
 
-import java.util.Collection;
+import java.util.Set;
 
 public interface BaseResume extends BaseEntity {
 
@@ -16,25 +16,25 @@ public interface BaseResume extends BaseEntity {
 
 	void setContent(String content);
 
-	Collection<? extends BaseExperience> getExperiences();
+	Set<BaseExperience> getExperiences();
 
-	void setExperiences(Collection<? extends BaseExperience> experiences);
+	void setExperiences(Set<BaseExperience> experiences);
 
 	void addExperience(BaseExperience experience);
 
 	void removeExperience(BaseExperience experience);
 
-	Collection<?> getEducations();
+	Set<BaseEducation> getEducations();
 
-	void setEducations(Collection<?> educations);
+	void setEducations(Set<BaseEducation> educations);
 
 	void addEducation(BaseEducation education);
 
 	void removeEducation(BaseEducation education);
 
-	Collection<?> getSkills();
+	Set<BaseSkill> getSkills();
 
-	void setSkills(Collection<?> skills);
+	void setSkills(Set<BaseSkill> skills);
 
 	void addSkill(BaseSkill skill);
 

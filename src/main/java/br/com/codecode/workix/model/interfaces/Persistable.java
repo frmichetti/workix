@@ -18,7 +18,5 @@ package br.com.codecode.workix.model.interfaces;
 public interface Persistable {  
 
 	public long getId();	
-	
-	public void setId(final long id);
 
 }  

@@ -15,12 +15,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Contact implements Serializable {
 
 	private static final long serialVersionUID = -2482737185460142872L;
-		
+
 	@Column
 	private BigInteger mobilePhone;
-	
+
 	public Contact(){}
-	
+
 	public BigInteger getMobilePhone() {
 		return mobilePhone;
 	}
@@ -28,7 +28,7 @@ public class Contact implements Serializable {
 	public void setMobilePhone(BigInteger mobilePhone) {
 		this.mobilePhone = mobilePhone;
 	}
-	
-	
+
+
 
 }
