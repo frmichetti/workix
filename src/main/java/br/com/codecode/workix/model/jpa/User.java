@@ -128,20 +128,31 @@ public class User extends MyEntity {
 
 		private boolean active;
 
-		private String email;
+		private String email, firebaseUUID, firebaseMessageToken;		
 
-		private String firebaseUUID;
-
-		private String firebaseMessageToken;		
-
+		/**
+		 * Disabled Empty Constructor
+		 */
 		private Builder(){}		
-
+		
+		/**
+		 * Constructor with Required Fields
+		 * @param active
+		 * @param email
+		 */
 		public Builder(boolean active, String email) {
 			this();
 			this.active = active;
 			this.email = email;
 		}
-
+		
+		/**
+		 * Constructor with All Fields
+		 * @param active
+		 * @param email
+		 * @param firebaseUUID
+		 * @param firebaseMessageToken
+		 */
 		public Builder(boolean active, String email, String firebaseUUID, String firebaseMessageToken) {
 			this(active,email);			
 			this.firebaseUUID = firebaseUUID;
@@ -167,7 +178,7 @@ public class User extends MyEntity {
 			this.firebaseMessageToken = firebaseMessageToken;
 			return this;
 		}
-	
+
 		@Override
 		public User build()
 		{

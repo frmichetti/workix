@@ -95,8 +95,8 @@ public class Job extends MyEntity {
 
 	@PostConstruct
 	private void init(){
-		minPayment = BigDecimal.TEN;
-		maxPayment = BigDecimal.TEN; 
+		minPayment = BigDecimal.ZERO;
+		maxPayment = BigDecimal.ZERO; 
 		active = true;
 		start = Calendar.getInstance();		
 	}
@@ -219,8 +219,11 @@ public class Job extends MyEntity {
 		return true;
 	}
 
-	public String uniqueId(){
-		return super.getUuid();
+	@Override
+	public String toString() {
+		return "Job [title=" + title + ", description=" + description + ", employeer=" + employeer + "]";
 	}
+	
+	
 
 }

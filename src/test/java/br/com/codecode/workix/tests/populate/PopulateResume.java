@@ -62,9 +62,9 @@ public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 
 			r.setCandidate(c);
 
-			r.addExperience(new Experience("Employer 1","Title 1",Calendar.getInstance(),Calendar.getInstance()));
+			r.addExperience(new Experience.Builder("Employer 1","Title 1",Calendar.getInstance(),Calendar.getInstance()).build());
 
-			r.addExperience(new Experience("Employeer 2", "Title 2", Calendar.getInstance(), Calendar.getInstance()));
+			r.addExperience(new Experience.Builder("Employeer 2", "Title 2", Calendar.getInstance(), Calendar.getInstance()).build());
 
 			r.addEducation(new Education.Builder("School 1", Calendar.getInstance(), Calendar.getInstance(), "Qualification","Description").build());
 

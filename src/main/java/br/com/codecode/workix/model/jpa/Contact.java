@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -36,7 +37,7 @@ public class Contact implements Serializable {
 	 * @param builder
 	 * @category Builder
 	 */
-	public Contact(Builder builder) {
+	public Contact(@NotNull Builder builder) {
 		this.mobilePhone = builder.mobilePhone;
 	}
 

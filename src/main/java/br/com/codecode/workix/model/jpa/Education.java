@@ -8,6 +8,7 @@ import javax.persistence.Embeddable;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -56,7 +57,7 @@ public class Education implements Serializable {
 	 * @param builder
 	 * @category Builder
 	 */
-	public Education(Builder builder) {
+	public Education(@NotNull Builder builder) {
 		this.schoolName = builder.schoolName;
 		this.startDate = builder.startDate;
 		this.endDate = builder.endDate;
@@ -127,6 +128,9 @@ public class Education implements Serializable {
 
 		private String description;
 
+		/**
+		 * Disabled Empty Constructor
+		 */
 		private Builder(){}		
 
 		public Builder(String schoolName,Calendar startDate) {

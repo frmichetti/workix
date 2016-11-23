@@ -5,6 +5,7 @@ package br.com.codecode.workix.model.interfaces;
  * <br> Builders Must Have:<br>
  * <ul>
  * <li>Empty Default Constructor with Private Accessor</li>
+ * <li>Contains Same Fields of Implementation Class</li>
  * <li>Constructor with Required Fields</li>
  * <li>All Setter Fields Must Return {@link this} or Current Builder</li>
  * </ul>
@@ -15,10 +16,9 @@ package br.com.codecode.workix.model.interfaces;
 public interface Buildable<T> {
 
 	/**
-	 * Return a Finished Object <T>
+	 * Return a Finished Object<T>
 	 * 
 	 * @return
 	 */
-	public T build();
-
+	T build();
 }

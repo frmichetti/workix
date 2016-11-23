@@ -78,21 +78,39 @@ public class Subscriber implements Persistable, Serializable{
 	 */
 	public static class Builder implements Buildable<Subscriber> {
 
-		public long id;
+		private long id;
 		
 		private String email;
 		
+		/**
+		 * Disabled Empty Constructor
+		 */
 		private Builder(){}
 
+		/**
+		 * Constructor with Required Fields
+		 * @param email
+		 */
 		public Builder(String email) {
 			this();
 			this.email = email;
 		}	
 		
+		/**
+		 * Constructor with All Fields
+		 * @param id
+		 * @param email
+		 */
+		public Builder(long id, String email) {
+			super();
+			this.id = id;
+			this.email = email;
+		}
+
 		public Builder setId(long id) {
 			this.id = id;
 			return this;
-		}
+		}		
 
 		public Builder setEmail(String email) {
 			this.email = email;

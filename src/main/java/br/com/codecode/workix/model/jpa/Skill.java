@@ -63,8 +63,15 @@ public class Skill implements Serializable {
 
 		private String skillName;
 
+		/**
+		 * Disabled Empty Constructor
+		 */
 		private Builder(){}		
 
+		/**
+		 * Constructor with Required Fields
+		 * @param skillName
+		 */
 		public Builder(String skillName) {
 			this();			
 			this.skillName = skillName;
