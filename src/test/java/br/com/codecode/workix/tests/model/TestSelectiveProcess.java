@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.jpa.Candidate;
 
 public class TestSelectiveProcess {
 

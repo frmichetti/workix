@@ -21,7 +21,7 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 
 import br.com.codecode.workix.config.JaxRsConfiguration;
-import br.com.codecode.workix.model.scaffold.Company;
+import br.com.codecode.workix.model.jpa.Company;
 
 /**
  * JaxRs Endpoint for {@link Company}

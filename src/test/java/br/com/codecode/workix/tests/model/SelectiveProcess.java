@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
-import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.jpa.Candidate;
 
 /**
  * TDD for Class {@link SelectiveProcess}

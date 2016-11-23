@@ -5,7 +5,7 @@ import java.util.Calendar;
 
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
-import br.com.codecode.workix.model.scaffold.Company;
+import br.com.codecode.workix.model.jpa.Company;
 
 public interface BaseJob extends BaseEntity{
 

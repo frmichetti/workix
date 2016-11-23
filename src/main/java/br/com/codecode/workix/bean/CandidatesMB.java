@@ -11,7 +11,7 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.PaginationHelper;
-import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.jpa.Candidate;
 
 @Model
 public class CandidatesMB {

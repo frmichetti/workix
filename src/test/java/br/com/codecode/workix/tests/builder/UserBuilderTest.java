@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.interfaces.Persistable;
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.User;
 
 public class UserBuilderTest {
 	

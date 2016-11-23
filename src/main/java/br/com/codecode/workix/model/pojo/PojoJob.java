@@ -6,7 +6,7 @@ import java.util.Calendar;
 import br.com.codecode.workix.model.base.BaseJob;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
-import br.com.codecode.workix.model.scaffold.Company;
+import br.com.codecode.workix.model.jpa.Company;
 
 class PojoJob extends PojoEntity implements BaseJob{
 

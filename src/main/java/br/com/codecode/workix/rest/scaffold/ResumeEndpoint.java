@@ -21,7 +21,7 @@ import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 
 import br.com.codecode.workix.config.JaxRsConfiguration;
-import br.com.codecode.workix.model.scaffold.Resume;
+import br.com.codecode.workix.model.jpa.Resume;
 
 /**
  * JaxRs Endpoint for {@link Resume}

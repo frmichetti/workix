@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.User;
 
 @Model
 public class UserMB implements Serializable {

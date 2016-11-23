@@ -1,7 +1,7 @@
 package br.com.codecode.workix.cdi.dao.implementation.persist;
 
-import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.scaffold.Resume;
+import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.model.jpa.Resume;
 /**
  * StandAlone Dao for Resume
  * @author felipe

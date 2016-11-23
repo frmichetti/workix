@@ -18,7 +18,7 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.User;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**

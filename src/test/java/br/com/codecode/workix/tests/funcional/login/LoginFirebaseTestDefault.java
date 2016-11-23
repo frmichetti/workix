@@ -20,7 +20,7 @@ import javax.json.JsonReader;
 
 import org.junit.Test;
 
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.User;
 import br.com.codecode.workix.rest.android.Token;
 import br.com.codecode.workix.tests.populate.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;

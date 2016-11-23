@@ -9,8 +9,8 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.scaffold.Resume;
+import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.model.jpa.Resume;
 
 @Model
 public class PostAResume {

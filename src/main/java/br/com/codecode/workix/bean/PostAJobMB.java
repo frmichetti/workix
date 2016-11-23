@@ -14,8 +14,8 @@ import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
-import br.com.codecode.workix.model.scaffold.Company;
-import br.com.codecode.workix.model.scaffold.Job;
+import br.com.codecode.workix.model.jpa.Company;
+import br.com.codecode.workix.model.jpa.Job;
 
 @Model
 public class PostAJobMB {

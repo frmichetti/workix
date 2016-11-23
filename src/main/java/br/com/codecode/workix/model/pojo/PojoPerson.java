@@ -1,9 +1,9 @@
 package br.com.codecode.workix.model.pojo;
 
 import br.com.codecode.workix.model.base.BasePerson;
-import br.com.codecode.workix.model.scaffold.Contact;
-import br.com.codecode.workix.model.scaffold.Locale;
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.Contact;
+import br.com.codecode.workix.model.jpa.Locale;
+import br.com.codecode.workix.model.jpa.User;
 
 class PojoPerson extends PojoEntity implements BasePerson {
 

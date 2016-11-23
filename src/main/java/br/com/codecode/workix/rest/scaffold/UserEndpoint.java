@@ -24,7 +24,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import br.com.codecode.workix.cdi.event.UserObserver;
 import br.com.codecode.workix.config.JaxRsConfiguration;
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.User;
 
 /**
  * JaxRs Endpoint for {@link User}

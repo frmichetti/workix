@@ -9,7 +9,7 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
-import br.com.codecode.workix.model.scaffold.Subscriber;
+import br.com.codecode.workix.model.jpa.Subscriber;
 
 @Model
 public class SignupMB {

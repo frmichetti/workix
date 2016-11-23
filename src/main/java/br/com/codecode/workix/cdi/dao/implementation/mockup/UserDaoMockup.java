@@ -11,7 +11,7 @@ import javax.persistence.TypedQuery;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.User;
 
 /**
  * Mockup Class for Demonstration Only

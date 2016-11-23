@@ -13,7 +13,7 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.PaginationHelper;
-import br.com.codecode.workix.model.scaffold.Job;
+import br.com.codecode.workix.model.jpa.Job;
 
 @Model
 public class JobsMB {

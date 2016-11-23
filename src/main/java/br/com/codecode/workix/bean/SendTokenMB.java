@@ -21,7 +21,7 @@ import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
-import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.jpa.Candidate;
 
 @Model
 public class SendTokenMB {

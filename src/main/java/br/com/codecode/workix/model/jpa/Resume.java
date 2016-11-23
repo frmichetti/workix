@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.scaffold;
+package br.com.codecode.workix.model.jpa;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -19,11 +19,11 @@ import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
-import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.scaffold.Education;
-import br.com.codecode.workix.model.scaffold.Experience;
-import br.com.codecode.workix.model.scaffold.Resume;
-import br.com.codecode.workix.model.scaffold.Skill;
+import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.model.jpa.Education;
+import br.com.codecode.workix.model.jpa.Experience;
+import br.com.codecode.workix.model.jpa.Resume;
+import br.com.codecode.workix.model.jpa.Skill;
 
 @Model
 public class ResumeMB implements Serializable {

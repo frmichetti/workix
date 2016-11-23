@@ -14,7 +14,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.infra.MailSender;
-import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.jpa.Candidate;
 
 
 @Email

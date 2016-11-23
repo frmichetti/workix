@@ -24,7 +24,7 @@ import javax.ws.rs.core.UriBuilder;
 
 import br.com.codecode.workix.cdi.event.JobsObserver;
 import br.com.codecode.workix.config.JaxRsConfiguration;
-import br.com.codecode.workix.model.scaffold.Job;
+import br.com.codecode.workix.model.jpa.Job;
 
 /**
  * JaxRs Endpoint for {@link Job}

@@ -9,7 +9,7 @@ import javax.jms.JMSProducer;
 
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.JobTopic;
-import br.com.codecode.workix.model.scaffold.Job;
+import br.com.codecode.workix.model.jpa.Job;
 
 /**
  * CDI Observer Class for {@link Jobs}

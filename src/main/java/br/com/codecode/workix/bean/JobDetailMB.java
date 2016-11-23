@@ -12,7 +12,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
-import br.com.codecode.workix.model.scaffold.Job;
+import br.com.codecode.workix.model.jpa.Job;
 
 @Model
 public class JobDetailMB {

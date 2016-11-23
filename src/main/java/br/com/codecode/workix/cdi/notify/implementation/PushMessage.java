@@ -15,7 +15,7 @@ import javax.json.JsonObject;
 
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Push;
-import br.com.codecode.workix.model.scaffold.Candidate;
+import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.util.Http;
 
 @Push

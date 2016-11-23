@@ -10,8 +10,8 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import br.com.codecode.workix.config.JaxRsConfiguration;
-import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.scaffold.User;
+import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.model.jpa.User;
 import br.com.codecode.workix.rest.scaffold.BaseEndpoint;
 
 /**

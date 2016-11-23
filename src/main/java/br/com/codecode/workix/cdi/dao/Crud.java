@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.interfaces.Persistable;
-import br.com.codecode.workix.model.scaffold.MyEntity;
+import br.com.codecode.workix.model.jpa.MyEntity;
 
 /**
  * Concrete Crud Interface for CDI Implementation Uses

@@ -11,11 +11,11 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.model.scaffold.Candidate;
-import br.com.codecode.workix.model.scaffold.Education;
-import br.com.codecode.workix.model.scaffold.Experience;
-import br.com.codecode.workix.model.scaffold.Resume;
-import br.com.codecode.workix.model.scaffold.Skill;
+import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.model.jpa.Education;
+import br.com.codecode.workix.model.jpa.Experience;
+import br.com.codecode.workix.model.jpa.Resume;
+import br.com.codecode.workix.model.jpa.Skill;
 import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * Populate DB with Resumes

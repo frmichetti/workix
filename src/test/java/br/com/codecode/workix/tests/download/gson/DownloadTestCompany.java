@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.model.scaffold.Company;
+import br.com.codecode.workix.model.jpa.Company;
 import br.com.codecode.workix.tests.download.DownloadTest;
 import br.com.codecode.workix.tests.populate.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
