@@ -3,6 +3,7 @@ package br.com.codecode.workix.model.jpa;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -87,11 +88,13 @@ public class Job extends MyEntity {
 	@ManyToOne(optional=false)
 	private Company employeer;
 
-	public Job(){
-		configure();
-	}
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
+	public Job(){}
 
-	private void configure(){
+	@PostConstruct
+	private void init(){
 		minPayment = BigDecimal.TEN;
 		maxPayment = BigDecimal.TEN; 
 		active = true;

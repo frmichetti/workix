@@ -1,7 +1,6 @@
 package br.com.codecode.workix.model.jpa;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -26,7 +25,7 @@ public class Locale implements Serializable {
 	private static final long serialVersionUID = -607806075186010186L;
 
 	@Column
-	private BigInteger zipCode;
+	private long zipCode;
 
 	@Column
 	private String city;
@@ -44,13 +43,16 @@ public class Locale implements Serializable {
 	@Column
 	private Estate estate;
 
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
 	public Locale(){}
 
-	public BigInteger getZipCode() {
+	public long getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(BigInteger zipCode) {
+	public void setZipCode(long zipCode) {
 		this.zipCode = zipCode;
 	}
 

@@ -42,6 +42,9 @@ public class Experience implements Serializable {
 	@Lob
 	private String description;
 
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
 	public Experience(){}	
 
 	public Experience(String employerName, String jobTitle, Calendar startDate, Calendar endDate) {

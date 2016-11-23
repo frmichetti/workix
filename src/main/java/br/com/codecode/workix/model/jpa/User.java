@@ -39,9 +39,10 @@ public class User extends MyEntity {
 	public User(){}	
 
 	/**
-	 * Public Constructor for Builder Compatibility
+	 * Public Constructor for {@link Builder} Compatibility
 	 * @see Buildable
 	 * @param builder
+	 * @category Builder
 	 */
 	public User(@NotNull Builder builder){
 
@@ -118,7 +119,7 @@ public class User extends MyEntity {
 	}
 
 	/**
-	 * Builder InnerClass for User 
+	 * Builder NestedClass for {@link User} 
 	 * @category Builder
 	 * @author felipe
 	 *

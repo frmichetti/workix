@@ -10,12 +10,14 @@ import java.util.Observer;
 import java.util.Set;
 import java.util.UUID;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -89,11 +91,13 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	@Column(nullable = false)
 	private int maxCandidates;
 
-	public SelectiveProcess() {
-		configure();		
-	}
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
+	public SelectiveProcess(){}
 
-	private void configure(){		
+	@PostConstruct
+	private void init(){		
 		this.addObserver(this);
 		active = true;
 		candidates = new HashSet<>();		

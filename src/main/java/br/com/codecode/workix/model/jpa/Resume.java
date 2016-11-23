@@ -63,6 +63,9 @@ public class Resume extends MyEntity {
 	joinColumns=@JoinColumn(name="id"))
 	private Set<Skill> skills;	
 
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
 	public Resume(){}
 
 	@PostConstruct

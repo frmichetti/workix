@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * Person JPA {@link MappedSuperclass} 
- * <br>Share common Fields with {@link Company} and {@link Candidate}
+ * <br>Abstract Class for share common Fields with {@link Company} and {@link Candidate}
  * @author felipe
  * @category JPA
  */

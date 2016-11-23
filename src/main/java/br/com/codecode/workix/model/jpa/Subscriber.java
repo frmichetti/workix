@@ -41,6 +41,8 @@ public class Subscriber implements Persistable, Serializable{
 	public Subscriber(){}	
 
 	public Subscriber(@NotNull Builder builder){
+		
+		this.id = builder.id;
 
 		this.email = builder.email;
 	}
@@ -69,13 +71,15 @@ public class Subscriber implements Persistable, Serializable{
 	}
 
 	/**
-	 * Builder InnerClass for Subscriber 
+	 * Builder NestedClass for Subscriber 
 	 * @category Builder
 	 * @author felipe
 	 *
 	 */
 	public static class Builder implements Buildable<Subscriber> {
 
+		public long id;
+		
 		private String email;
 		
 		private Builder(){}
@@ -83,12 +87,17 @@ public class Subscriber implements Persistable, Serializable{
 		public Builder(String email) {
 			this();
 			this.email = email;
-		}		
+		}	
+		
+		public Builder setId(long id) {
+			this.id = id;
+			return this;
+		}
 
 		public Builder setEmail(String email) {
 			this.email = email;
 			return this;
-		}
+		}	
 
 		@Override
 		public Subscriber build() {
@@ -97,8 +106,5 @@ public class Subscriber implements Persistable, Serializable{
 		}
 
 	}
-
-
-
 
 }
