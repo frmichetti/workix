@@ -23,6 +23,8 @@ import br.com.codecode.workix.model.enums.JobType;
 /**
  * Job JPA {@link Entity}
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  */
 @Entity
 public class Job extends MyEntity {

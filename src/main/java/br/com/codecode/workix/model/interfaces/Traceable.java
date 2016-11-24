@@ -18,8 +18,14 @@ public interface Traceable {
 		generateUUID();		
 	}
 
+	/**
+	 * Insert TIme Stamp
+	 */
 	void insertTimeStamp();
 
+	/**
+	 * Generate UUID
+	 */
 	void generateUUID();
 
 	/**

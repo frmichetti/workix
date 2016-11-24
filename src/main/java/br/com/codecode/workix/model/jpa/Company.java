@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 
 /**
  * Company JPA {@link Entity}
+ * @see Person
  * @author felipe
  */
 @Entity

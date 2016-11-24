@@ -14,25 +14,21 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.model.root.RootSubscriber;
 
 /**
  * Subscriber JPA {@link Entity}
  * @author felipe
+ * @since 1.0
+ * @version 1.0
+ * @see RootSubscriber
+ * @see Persistable
+ * @see Serializable
  */
 @Entity
-public class Subscriber implements Persistable, Serializable{
+public class Subscriber extends RootSubscriber implements Persistable, Serializable{
 
 	private static final long serialVersionUID = 6675137603968146834L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	private long id;
-
-	@NotEmpty
-	@Email	
-	@Column(nullable = false,unique = true)
-	private String email;
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -46,27 +42,33 @@ public class Subscriber implements Persistable, Serializable{
 	 */
 	public Subscriber(@NotNull Builder builder){
 		
-		this.id = builder.id;
+		this.id = builder.getId();
 
-		this.email = builder.email;
+		this.email = builder.getEmail();
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(updatable = false, nullable = false)
 	@Override
 	public long getId() {
 		return id;
 	}
 	
-	@Override
-	public void setId(long id) {
-		this.id = id;
-	}
-
+	@NotEmpty
+	@Email	
+	@Column(nullable = false,unique = true)
 	public String getEmail() {
 		return email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	@Override
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	@Override
@@ -77,12 +79,10 @@ public class Subscriber implements Persistable, Serializable{
 	/**
 	 * Builder NestedClass for Subscriber 
 	 * @author felipe
+	 * @since 1.0
+	 * @version 1.0
 	 */
-	public static class Builder implements Buildable<Subscriber> {
-
-		private long id;
-		
-		private String email;
+	public final static class Builder extends RootSubscriber implements Buildable<Subscriber> {
 		
 		/**
 		 * Disabled Empty Constructor
@@ -108,17 +108,42 @@ public class Subscriber implements Persistable, Serializable{
 			this.id = id;
 			this.email = email;
 		}
+		
+		/**
+		 * @return the id
+		 */
+		public final long getId() {
+			return id;
+		}				
 
-		public Builder setId(long id) {
-			this.id = id;
-			return this;
-		}		
+		/**
+		 * @return the email
+		 */
+		public final String getEmail() {
+			return email;
+		}
 
+		/**
+		 * @param email the email to set
+		 * @return Builder
+		 */
 		public Builder setEmail(String email) {
 			this.email = email;
 			return this;
 		}	
+		
+		/**
+		 * @param id the id to set
+		 * @return Builder
+		 */
+		public Builder setId(long id) {
+			this.id = id;
+			return this;
+		}
 
+		/**
+		 * @return A new Subscriber
+		 */
 		@Override
 		public Subscriber build() {
 

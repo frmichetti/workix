@@ -11,6 +11,7 @@ import javax.validation.constraints.Past;
 
 /**
  * Candidate JPA {@link Entity}
+ * @see Person
  * @author felipe
  */
 @Entity

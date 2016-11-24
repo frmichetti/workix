@@ -9,10 +9,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
+import br.com.codecode.workix.model.root.RootSkill;
 
 /**
  * Skill {@link Embeddable} JPA Class
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -35,7 +38,7 @@ public class Skill implements Serializable {
 	 * @param builder Builder for Generate a New Skill
 	 */
 	public Skill(Builder builder) {
-		this.skillName = builder.skillName;
+		this.skillName = builder.getSkillName();
 	}
 
 	public String getSkillName() {
@@ -54,11 +57,11 @@ public class Skill implements Serializable {
 	/**
 	 * Builder NestedClass for {@link Skill} 
 	 * @author felipe
+	 * @since 1.0
+	 * @version 1.0
 	 */
-	public static class Builder implements Buildable<Skill> {	
-
-		private String skillName;
-
+	public final static class Builder extends RootSkill implements Buildable<Skill> {	
+	
 		/**
 		 * Disabled Empty Constructor
 		 */
@@ -72,12 +75,26 @@ public class Skill implements Serializable {
 			this();			
 			this.skillName = skillName;
 		}
+		
+		/**
+		 * @return the skillName
+		 */
+		public final String getSkillName() {
+			return skillName;
+		}
 
+		/**
+		 * @param skillName the skillName to set
+		 * @return Builder
+		 */
 		public Builder setSkillName(String skillName) {
 			this.skillName = skillName;
 			return this;
 		}
-	
+		
+		/**
+		 * Return a New Skill
+		 */
 		@Override
 		public Skill build()
 		{

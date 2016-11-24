@@ -24,7 +24,11 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Resume extends MyEntity {
 
 	private static final long serialVersionUID = 7569771700044121495L;
-
+	
+	/**
+	 * Owner of Resume<br> 
+	 * One {@link Resume} To One {@link Candidate}
+	 */
 	@NotNull	
 	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	private Candidate candidate;

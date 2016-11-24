@@ -10,20 +10,20 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
+import br.com.codecode.workix.model.root.RootContact;
 
 /**
  * Contact JPA {@link Embeddable}
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
-public class Contact implements Serializable {
+public class Contact extends RootContact implements Serializable {
 
 	private static final long serialVersionUID = -2482737185460142872L;
-
-	@Column
-	private long mobilePhone;
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -36,9 +36,10 @@ public class Contact implements Serializable {
 	 * @param builder Builder for Generate a New Contact
 	 */
 	public Contact(@NotNull Builder builder) {
-		this.mobilePhone = builder.mobilePhone;
+		this.mobilePhone = builder.getMobilePhone();
 	}
 
+	@Column
 	public long getMobilePhone() {
 		return mobilePhone;
 	}
@@ -55,33 +56,43 @@ public class Contact implements Serializable {
 	/**
 	 * Builder NestedClass for {@link Contact} 
 	 * @author felipe
+	 * @since 1.0
+	 * @version 1.0
 	 */
-	public static class Builder implements Buildable<Contact> {	
+	public final static class Builder extends RootContact implements Buildable<Contact> {		
 
-		private long mobilePhone;
-
+		/**
+		 * Disabled Empty Constructor
+		 */
 		private Builder(){}		
 
+		/**
+		 * Constructor with Required Fields
+		 * @param mobilePhone Mobile Phone 
+		 */
 		public Builder(long mobilePhone) {
 			this();			
 			this.mobilePhone = mobilePhone;
-		}
+		}		
 		
-		public Builder(int mobilePhone) {
-			this();			
-			this.mobilePhone = mobilePhone;
+		/**
+		 * @return the mobilePhone
+		 */
+		public final long getMobilePhone() {
+			return mobilePhone;
 		}
 	
+		/**
+		 * @param mobilePhone the mobilePhone to set
+		 */
 		public Builder setMobilePhone(long mobilePhone) {
 			this.mobilePhone = mobilePhone;
 			return this;
-		}
-		
-		public Builder setMobilePhone(int mobilePhone) {
-			this.mobilePhone = mobilePhone;
-			return this;
-		}
+		}		
 
+		/**
+		 * @return A new Contact
+		 */
 		@Override
 		public Contact build()
 		{

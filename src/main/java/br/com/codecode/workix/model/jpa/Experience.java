@@ -14,10 +14,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
+import br.com.codecode.workix.model.root.RootExperience;
 
 /**
  * Experience JPA {@link Embeddable}
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -56,13 +59,13 @@ public class Experience implements Serializable {
 	 */
 	public Experience(@NotNull Builder builder) {
 		
-		this.employerName = builder.employerName;
+		this.employerName = builder.getEmployerName();
 
-		this.jobTitle = builder.jobTitle;
+		this.jobTitle = builder.getJobTitle();
 
-		this.startDate = builder.startDate;
+		this.startDate = builder.getStartDate();
 		
-		this.endDate = builder.endDate;
+		this.endDate = builder.getEndDate();
 
 	}
 
@@ -114,16 +117,10 @@ public class Experience implements Serializable {
 	/**
 	 * Builder NestedClass for {@link Experience} 
 	 * @author felipe
+	 * @since 1.0
+	 * @version 1.0
 	 */
-	public static class Builder implements Buildable<Experience> {
-		
-		private String employerName;
-
-		private String jobTitle;
-		
-		private Calendar startDate;
-		
-		private Calendar endDate;
+	public final static class Builder extends RootExperience implements Buildable<Experience> {
 		
 		/**
 		 * Disabled Empty Constructor
@@ -153,27 +150,93 @@ public class Experience implements Serializable {
 			this.startDate = startDate;
 			this.endDate = endDate;
 		}
+		
+		/**
+		 * @return the employerName
+		 */
+		public final String getEmployerName() {
+			return employerName;
+		}
 
+		/**
+		 * @return the jobTitle
+		 */
+		public final String getJobTitle() {
+			return jobTitle;
+		}
+
+		/**
+		 * @return the startDate
+		 */
+		public final Calendar getStartDate() {
+			return startDate;
+		}
+
+		/**
+		 * @return the endDate
+		 */
+		public final Calendar getEndDate() {
+			return endDate;
+		}
+
+		/**
+		 * @return the description
+		 */
+		public final String getDescription() {
+			return description;
+		}
+
+
+		/**
+		 * @param employerName the employerName to set
+		 * @return Builder
+		 */
 		public Builder setEmployerName(String employerName) {
 			this.employerName = employerName;
 			return this;
 		}
 
+
+		/**
+		 * @param jobTitle the jobTitle to set
+		 * @return Builder
+		 */
 		public Builder setJobTitle(String jobTitle) {
 			this.jobTitle = jobTitle;
 			return this;
 		}
 
+		/**
+		 * @param startDate the startDate to set
+		 * @return Builder
+		 */
 		public Builder setStartDate(Calendar startDate) {
 			this.startDate = startDate;
 			return this;
 		}	
 
+
+		/**
+		 * @param endDate the endDate to set
+		 * @return Builder
+		 */
 		public Builder setEndDate(Calendar endDate) {
 			this.endDate = endDate;
 			return this;
 		}
+		
+		/**
+		 * @param description the description to set
+		 * @return Builder
+		 */
+		public Builder setDescription(String description) {
+			this.description = description;
+			return this;
+		}
 
+		/**
+		 * @return Return a new Experience
+		 */
 		@Override
 		public Experience build() {
 			

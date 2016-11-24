@@ -36,11 +36,12 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  * </tr>
  * </table>
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  */
 @MappedSuperclass
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@SuppressWarnings("unused")
 public abstract class MyEntity implements Traceable, Persistable, Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;
@@ -108,7 +109,7 @@ public abstract class MyEntity implements Traceable, Persistable, Serializable {
 		return version;
 	}
 	
-	private void setVersion(int version) {
+	protected void setVersion(int version) {
 		this.version = version;
 	}
 	

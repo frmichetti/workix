@@ -8,10 +8,13 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
+import br.com.codecode.workix.model.root.RootUser;
 
 /**
  * User JPA {@link Entity}
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  */
 @Entity
 public class User extends MyEntity {
@@ -44,13 +47,13 @@ public class User extends MyEntity {
 	 */
 	public User(@NotNull Builder builder){
 
-		this.active = builder.active;
+		this.active = builder.isActive();
 
-		this.email = builder.email;
+		this.email = builder.getEmail();
 
-		this.firebaseUUID = builder.firebaseUUID;
+		this.firebaseUUID = builder.getFirebaseUUID();
 
-		this.firebaseMessageToken = builder.firebaseMessageToken;
+		this.firebaseMessageToken = builder.getFirebaseMessageToken();
 	}
 
 	public boolean isActive() {
@@ -119,12 +122,10 @@ public class User extends MyEntity {
 	/**
 	 * Builder NestedClass for {@link User} 
 	 * @author felipe
+	 * @since 1.0
+	 * @version 1.0
 	 */
-	public static class Builder implements Buildable<User> {	
-
-		private boolean active;
-
-		private String email, firebaseUUID, firebaseMessageToken;		
+	public final static class Builder extends RootUser implements Buildable<User> {	
 
 		/**
 		 * Disabled Empty Constructor
@@ -153,28 +154,75 @@ public class User extends MyEntity {
 			this(active,email);			
 			this.firebaseUUID = firebaseUUID;
 			this.firebaseMessageToken = firebaseMessageToken;
-		}	
+		}		
+		
+		/**
+		 * @return the active
+		 */
+		public final boolean isActive() {
+			return active;
+		}
 
+		/**
+		 * @return the email
+		 */
+		public final String getEmail() {
+			return email;
+		}
+
+		/**
+		 * @return the firebaseUUID
+		 */
+		public final String getFirebaseUUID() {
+			return firebaseUUID;
+		}
+
+		/**
+		 * @return the firebaseMessageToken
+		 */
+		public final String getFirebaseMessageToken() {
+			return firebaseMessageToken;
+		}
+
+		/**
+		 * @param active the active to set
+		 * @return Builder
+		 */
 		public Builder setActive(boolean active) {
 			this.active = active;
 			return this;
 		}
 
+		/**
+		 * @param email the email to set
+		 * @return Builder
+		 */
 		public Builder setEmail(String email) {
 			this.email = email;
 			return this;
 		}
 
+		/**
+		 * @param firebaseUUID the firebaseUUID to set
+		 * @return Builder
+		 */
 		public Builder setFirebaseUUID(String firebaseUUID) {
 			this.firebaseUUID = firebaseUUID;
 			return this;
 		}
 
+		/**
+		 * @param firebaseMessageToken the firebaseMessageToken to set
+		 * @return Builder
+		 */
 		public Builder setFirebaseMessageToken(String firebaseMessageToken) {
 			this.firebaseMessageToken = firebaseMessageToken;
 			return this;
 		}
 
+		/**
+		 * Return a New User
+		 */
 		@Override
 		public User build()
 		{

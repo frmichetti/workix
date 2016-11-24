@@ -14,10 +14,13 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.model.interfaces.Buildable;
+import br.com.codecode.workix.model.root.RootEducation;
 
 /**
  * Education JPA {@link Embeddable} 
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -56,11 +59,11 @@ public class Education implements Serializable {
 	 * @param builder Builder for Generate a new Education
 	 */
 	public Education(@NotNull Builder builder) {
-		this.schoolName = builder.schoolName;
-		this.startDate = builder.startDate;
-		this.endDate = builder.endDate;
-		this.qualification = builder.qualification;
-		this.description = builder.description;
+		this.schoolName = builder.getSchoolName();
+		this.startDate = builder.getStartDate();
+		this.endDate = builder.getEndDate();
+		this.qualification = builder.getQualification();
+		this.description = builder.getDescription();
 	}
 
 	public String getSchoolName() {
@@ -111,19 +114,10 @@ public class Education implements Serializable {
 	/**
 	 * Builder NestedClass for {@link Education} 
 	 * @author felipe
-	 *
+	 * @since 1.0
+	 * @version 1.0
 	 */
-	public static class Builder implements Buildable<Education> {	
-
-		private String schoolName;
-
-		private Calendar startDate;
-
-		private Calendar endDate;
-
-		private String qualification;
-
-		private String description;
+	public static class Builder extends RootEducation implements Buildable<Education> {	
 
 		/**
 		 * Disabled Empty Constructor
@@ -155,32 +149,91 @@ public class Education implements Serializable {
 			this.qualification = qualification;
 			this.description = description;
 		}		
+		
+		/**
+		 * @return the schoolName
+		 */
+		public final String getSchoolName() {
+			return schoolName;
+		}
+		
+		/**
+		 * @return the startDate
+		 */
+		public final Calendar getStartDate() {
+			return startDate;
+		}
+		
+		/**
+		 * @return the endDate
+		 */
+		public final Calendar getEndDate() {
+			return endDate;
+		}
+		
+		/**
+		 * @return the qualification
+		 */
+		public final String getQualification() {
+			return qualification;
+		}
+		
+		/**
+		 * @return the description
+		 */
+		public final String getDescription() {
+			return description;
+		}
 
+
+		/**
+		 * @param schoolName the schoolName to set
+		 * @return Builder
+		 */
 		public Builder setSchoolName(String schoolName) {
 			this.schoolName = schoolName;
 			return this;
 		}
 
+		/**
+		 * @param startDate the startDate to set
+		 * @return Builder
+		 */
 		public Builder setStartDate(Calendar startDate) {
 			this.startDate = startDate;
 			return this;
 		}
 
+		/**
+		 * @param endDate the endDate to set
+		 * @return Builder
+		 */
 		public Builder setEndDate(Calendar endDate) {
 			this.endDate = endDate;
 			return this;
 		}
 
+		/**
+		 * @param qualification the qualification to set
+		 * @return Builder
+		 */
 		public Builder setQualification(String qualification) {
 			this.qualification = qualification;
 			return this;
 		}
 
+		/**
+		 * @param description the description to set
+		 * @return Builder
+		 */
 		public Builder setDescription(String description) {
 			this.description = description;
 			return this;
 		}
 
+		/**
+		 * @return Return a new Education
+		 */
 		@Override
 		public Education build()
 		{
