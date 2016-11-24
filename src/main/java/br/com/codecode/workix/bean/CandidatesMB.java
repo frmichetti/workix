@@ -1,5 +1,8 @@
 package br.com.codecode.workix.bean;
 
+import java.io.IOException;
+
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
@@ -8,15 +11,23 @@ import javax.inject.Inject;
 import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.PaginationHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 
+/**
+ * This ManagedBean controls candidates.xhtml and candidates2.xhtml
+ * @author felipe
+ *
+ */
 @Model
-public class CandidatesMB {
+public class CandidatesMB extends BaseMB {
 
-	@Inject
+	private static final long serialVersionUID = -8522233496923137700L;
+
+	@Inject @Factory @Default
 	private FacesContext facesContext;
 
 	@Inject
@@ -27,7 +38,7 @@ public class CandidatesMB {
 
 	private DataModel<Candidate> list;
 
-	private String prefix,sufix;	
+	private String prefix, sufix;	
 
 	/**
 	 * Max Results By Page
@@ -39,8 +50,6 @@ public class CandidatesMB {
 	@Min(1)
 	private int page;
 
-	public CandidatesMB(){}
-
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {@link page} 
 	 */
@@ -51,8 +60,10 @@ public class CandidatesMB {
 			totalRows = dao.countRegisters().intValue();
 
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
+		}catch (Exception e) {
+			goToErrorPage();
 		}
 
 		totalPages = pagination.discoverTotalPages(limitRows, totalRows);
@@ -66,8 +77,10 @@ public class CandidatesMB {
 			list = new ListDataModel<Candidate>(dao.listAll(start-1,end));
 
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
+		}catch (Exception e) {
+			goToErrorPage();
 		}		
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();
@@ -104,6 +117,20 @@ public class CandidatesMB {
 		System.out.println("Received Candidate " + candidate.toString());
 
 		return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix ;
+	}
+
+	private String goToErrorPage(){	
+
+		try {
+
+			facesContext.getExternalContext()
+			.redirect(prefix + "/404.xhtml" + sufix);
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+		return prefix + "/404.xhtml" + sufix;
 	}
 
 

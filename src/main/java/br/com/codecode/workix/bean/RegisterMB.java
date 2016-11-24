@@ -1,21 +1,21 @@
 package br.com.codecode.workix.bean;
 
-import java.io.Serializable;
-
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.model.jpa.User;
 
 @Model
-public class RegisterMB implements Serializable {
+public class RegisterMB extends BaseMB {
 
 	private static final long serialVersionUID = 2464412752323820654L;
 
-	@Inject
+	@Inject @Factory @Default
 	private FacesContext facescontext;
 
 	@Inject @Generic

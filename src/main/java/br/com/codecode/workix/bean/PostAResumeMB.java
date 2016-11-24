@@ -12,8 +12,15 @@ import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.model.jpa.Resume;
 
+/**
+ * This ManagedBean controls post-a-resume.xhtml
+ * @author felipe
+ *
+ */
 @Model
-public class PostAResume {
+public class PostAResumeMB extends BaseMB {
+
+	private static final long serialVersionUID = 5277171937444867580L;
 
 	@Inject @Generic
 	private Crud<Resume> dao;
@@ -21,21 +28,18 @@ public class PostAResume {
 	@Inject @Generic
 	private Crud<Candidate> candidateDao;
 	
+	@Inject
 	private Resume currentResume;
 	
 	private List<Candidate> candidates;
-	
-	public PostAResume(){}
-	
+		
 	@PostConstruct
 	private void init(){
-		
-		currentResume = new Resume();
-		
+				
 		try {
 			candidates = candidateDao.listAll(0, 100);
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}
 		
@@ -65,9 +69,11 @@ public class PostAResume {
 	public void commit(){		
 
 		try {
+			
 			dao.save(currentResume);
+			
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+		
 			e.printStackTrace();
 		}		
 

@@ -52,7 +52,8 @@
 										</div>
 									</div>
 									<div class="col-sm-10">
-										<h4><h:outputText value="#{exp.startDate}" /> - <h:outputText value="#{exp.endDate}" /></h4>
+										<h4><h:outputText value="#{exp.startDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText> - 
+										<h:outputText value="#{exp.endDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></h4>
 										<h5><h:outputText value="#{exp.employerName}" /> - <h:outputText value="#{exp.jobTitle}" /></h5>
 										<p><h:outputText value="#{exp.description}" /></p>
 									</div>
@@ -70,7 +71,8 @@
 									</div>
 									
 									<div class="col-sm-10">
-										<h4><h:outputText value="#{educ.startDate}" /> - <h:outputText value="#{educ.endDate}" /></h4>
+										<h4><h:outputText value="#{educ.startDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText> - 
+										<h:outputText value="#{educ.endDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></h4>
 										<h5><h:outputText value="#{educ.schoolName}" /> - <h:outputText value="#{educ.qualification}" /></h5>
 										<p><h:outputText value="#{educ.description}" /></p>
 									</div>
@@ -97,10 +99,10 @@
 							<ul>
 								<li><i class="fa fa-user"></i><h:outputText value="#{resumeMB.resume.candidate.name}" /></li>
 								<li><i class="fa fa-briefcase"></i><h:outputText value="#{resumeMB.resume.objective}" /></li>
-								<li><i class="fa fa-birthday-cake"></i><h:outputText value="#{resumeMB.resume.candidate.birthDate}" /></li>
+								<li><i class="fa fa-birthday-cake"></i><h:outputText value="#{resumeMB.resume.candidate.birthDate.time}">
+								<f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></li>
 								<li><i class="fa fa-map-marker"></i><h:outputText value="#{resumeMB.resume.candidate.locale.city}" /></li>
-								<li><i class="fa fa-phone"></i><h:outputText value="#{resumeMB.resume.candidate.contact.mobilePhone}" /></li>
-								
+								<li><i class="fa fa-phone"></i><h:outputText value="#{resumeMB.resume.candidate.contact.mobilePhone}" /></li>								
 								<!-- Trigger the modal with a button -->
 								<li><i class="fa fa-envelope"></i><a href="#" data-toggle="modal" data-target="#myModal">Enviar Email</a></li>
 								<!-- Trigger the modal with a button -->

@@ -2,22 +2,29 @@ package br.com.codecode.workix.bean;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import br.com.codecode.workix.cdi.qualifier.Factory;
+
+/**
+ * This ManagedBean Shares info for navigation
+ * Execute with {@link ApplicationScoped}
+ * @author felipe
+ *
+ */
 @Named
 @ApplicationScoped
-public class NavigationMB {
+public class NavigationMB extends BaseMB {
 
-	@Inject
+	private static final long serialVersionUID = -8996534359439775766L;
+
+	@Inject @Factory @Default
 	private FacesContext facesContext;
 
-	private String prefix;
-
-	private String sufix; 	
-
-	public NavigationMB(){}
+	private String prefix, sufix;
 
 	@PostConstruct
 	private void init(){
@@ -25,35 +32,29 @@ public class NavigationMB {
 		sufix = "?faces-redirect=true";
 	}
 
-	public String goToIndex(){
-		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
+	public String goToIndex(){		
 		return prefix + "/index.xhtml" + sufix;
 	}
 
-	public String goToJobs(){
-		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
+	public String goToJobs(){		
 		return prefix + "/jobs2.xhtml?page=1" + sufix.replace("?", "&");
 	}
 
-	public String goToPostAJob(){
-		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
+	public String goToPostAJob(){		
 		return prefix + "/post-a-job.xhtml" + sufix;
 	}
 
-	public String goToCandidates(){
-		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
+	public String goToCandidates(){		
 		return prefix + "/candidates2.xhtml?page=1" + sufix.replace("?", "&");
 	}
 
 
-	public String goToPostAResume(){
-		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
+	public String goToPostAResume(){		
 		return prefix + "/post-a-resume.xhtml" + sufix;
 	}
 
 
-	public String goToAboutUs(){
-		System.out.println("Redirect to -> " + prefix + "/index.xhtml" + sufix );
+	public String goToAboutUs(){		
 		return prefix + "/about.xhtml" + sufix;
 	}
 	

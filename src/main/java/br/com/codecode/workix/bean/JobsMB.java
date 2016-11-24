@@ -2,6 +2,7 @@ package br.com.codecode.workix.bean;
 
 import java.io.IOException;
 
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
@@ -10,15 +11,24 @@ import javax.inject.Inject;
 import javax.validation.constraints.Min;
 
 import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.PaginationHelper;
 import br.com.codecode.workix.model.jpa.Job;
 
+/**
+ * This ManagedBean controls jobs.xhtml and jobs2.xhtml
+ * Execute with {@link Model}
+ * @author felipe
+ *
+ */
 @Model
-public class JobsMB {
+public class JobsMB extends BaseMB {
 
-	@Inject
+	private static final long serialVersionUID = -5107563330284898812L;
+
+	@Inject @Factory @Default
 	private FacesContext facesContext;	
 
 	@Inject
@@ -39,9 +49,7 @@ public class JobsMB {
 	private int start,end,totalRows,totalPages;
 
 	@Min(1)
-	private int page;
-
-	public JobsMB(){}
+	private int page;	
 
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {@link page} 
@@ -53,7 +61,7 @@ public class JobsMB {
 			totalRows = dao.countRegisters().intValue();
 			
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -68,7 +76,7 @@ public class JobsMB {
 			list = new ListDataModel<Job>(dao.listAll(start-1,end));
 			
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -117,9 +125,12 @@ public class JobsMB {
 			page++;
 
 		try {
-			facesContext.getExternalContext().redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
+			
+			facesContext.getExternalContext()
+			.redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
+			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -132,9 +143,12 @@ public class JobsMB {
 			page--;
 
 		try {
-			facesContext.getExternalContext().redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
+			
+			facesContext.getExternalContext()
+			.redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
+			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

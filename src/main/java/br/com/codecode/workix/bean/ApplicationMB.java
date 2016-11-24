@@ -6,17 +6,21 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
+/**
+ * This ManagedBean Shares info in index.xhtml
+ * Execute with {@link ApplicationScoped}
+ * @author felipe
+ *
+ */
 @Named
 @ApplicationScoped
-public class ApplicationMB {
+public class ApplicationMB extends BaseMB {
+
+	private static final long serialVersionUID = -8121534895073326681L;
 
 	private String appName, slogan ;
 
-	private int year;
-
-	public ApplicationMB() {
-		System.out.println("[CDI - " + this.getClass().getSimpleName() + "]");
-	}
+	private int year;	
 
 	@PostConstruct
 	private void init(){

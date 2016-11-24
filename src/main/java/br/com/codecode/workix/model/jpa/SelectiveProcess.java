@@ -17,7 +17,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -36,7 +35,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
 import br.com.codecode.workix.model.interfaces.Traceable;
 
 /**
- * SelectiveProcess JPA {@link Entity}
+ * Selective Process JPA {@link Entity}
  * 
  * @author felipe
  * @category JPA

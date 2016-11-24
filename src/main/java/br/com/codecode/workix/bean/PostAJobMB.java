@@ -17,8 +17,15 @@ import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.jpa.Company;
 import br.com.codecode.workix.model.jpa.Job;
 
+/**
+ * This ManagedBean controls post-a-job.xhtml
+ * @author felipe
+ *
+ */
 @Model
-public class PostAJobMB {
+public class PostAJobMB extends BaseMB {
+
+	private static final long serialVersionUID = -196732177799463607L;
 
 	@Inject @Generic
 	private Crud<Job> dao;
@@ -34,9 +41,7 @@ public class PostAJobMB {
 	
 	private List<JobCategory> jobCategories;
 	
-	private List<Company> employeers;
-
-	public PostAJobMB(){}
+	private List<Company> employeers;	
 
 	@PostConstruct
 	private void init(){
@@ -52,7 +57,7 @@ public class PostAJobMB {
 		try {
 			employeers = companyDao.listAll(0, 100);
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
@@ -98,7 +103,7 @@ public class PostAJobMB {
 			dao.save(currentJob);
 			
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}		
 

@@ -1,9 +1,9 @@
 package br.com.codecode.workix.bean;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -14,10 +14,10 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.implementation.persist.ResumeCompleteDao;
 import br.com.codecode.workix.cdi.notify.Notification;
+import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
-import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.model.jpa.Education;
@@ -25,8 +25,13 @@ import br.com.codecode.workix.model.jpa.Experience;
 import br.com.codecode.workix.model.jpa.Resume;
 import br.com.codecode.workix.model.jpa.Skill;
 
+/**
+ * This ManagedBean controls resume.xhtml
+ * @author felipe
+ *
+ */
 @Model
-public class ResumeMB implements Serializable {
+public class ResumeMB extends BaseMB {
 
 	private static final long serialVersionUID = 3136618928143380363L;
 
@@ -38,11 +43,14 @@ public class ResumeMB implements Serializable {
 
 	@Inject @Push
 	private Notification notification;	
+	
+	@Inject @Email
+	private Notification mailNotification;
 
-	@Inject @Factory
+	@Inject @Factory @Default
 	private FacesContext facesContext;
 
-	@Inject
+	@Inject 
 	private MessagesHelper messagesHelper;
 
 	private long id;		
@@ -52,16 +60,14 @@ public class ResumeMB implements Serializable {
 	private String messageTitle,messageBody;
 
 	private Candidate candidate;
-
+	
 	private Resume resume;
 
 	private DataModel<Skill> skills;
 
 	private DataModel<Education> educations;
 
-	private DataModel<Experience> experiences;
-
-	public ResumeMB(){}
+	private DataModel<Experience> experiences;	
 
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {@link page} 
@@ -78,20 +84,10 @@ public class ResumeMB implements Serializable {
 
 			candidate = dao.findById(id);
 
-		} catch (NotImplementedYetException e) {
-
-			e.printStackTrace();
-
-			goToErrorPage();
-
 		} catch (Exception e){
 
 			e.printStackTrace();
 
-			goToErrorPage();
-		}
-
-		if(candidate == null){
 			goToErrorPage();
 		}
 
@@ -155,6 +151,7 @@ public class ResumeMB implements Serializable {
 
 	public void notifyByEmail(){
 		messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
+		mailNotification.doSendMessage(candidate, messageTitle, messageBody);
 	}
 
 	public void notifyByPush(){
@@ -182,7 +179,8 @@ public class ResumeMB implements Serializable {
 
 		try {
 
-			facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+			facesContext.getExternalContext()
+			.redirect(prefix + "/404.xhtml" + sufix);
 
 		} catch (IOException e) {
 
