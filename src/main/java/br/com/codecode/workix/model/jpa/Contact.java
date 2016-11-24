@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.workix.model.base.BaseContact;
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.root.RootContact;
 
@@ -17,11 +18,13 @@ import br.com.codecode.workix.model.root.RootContact;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see BaseContact
+ * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
-public class Contact implements Serializable {
+public class Contact implements BaseContact, Serializable {
 
 	private static final long serialVersionUID = -2482737185460142872L;
 	
@@ -61,6 +64,8 @@ public class Contact implements Serializable {
 	 * @author felipe
 	 * @since 1.0
 	 * @version 1.0
+	 * @see Buildable
+	 * @see RootContact
 	 */
 	public final static class Builder extends RootContact implements Buildable<Contact> {		
 

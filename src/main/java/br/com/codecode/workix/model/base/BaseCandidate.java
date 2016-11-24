@@ -9,9 +9,9 @@ import java.util.Calendar;
  */
 public interface BaseCandidate extends BasePerson {
 
-	String getCpf();
+	long getCpf();
 
-	void setCpf(String cpf);
+	void setCpf(long cpf);
 
 	Calendar getBirthDate();
 

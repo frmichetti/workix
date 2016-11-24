@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.workix.model.base.BaseLocale;
 import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.root.RootLocale;
@@ -18,12 +19,13 @@ import br.com.codecode.workix.model.root.RootLocale;
 /**
  * Locale JPA {@link Embeddable}  
  * @author felipe
+ * @see BaseLocale
  * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
-public class Locale implements Serializable {
+public class Locale implements BaseLocale, Serializable {
 
 	private static final long serialVersionUID = -607806075186010186L;
 
@@ -125,7 +127,7 @@ public class Locale implements Serializable {
 	}	
 
 	/**
-	 * Builder NestedClass for {@link Skill} 
+	 * Builder NestedClass for {@link Locale} 
 	 * @author felipe
 	 * @see Buildable
 	 * @see RootLocale

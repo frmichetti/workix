@@ -1,7 +1,5 @@
 package br.com.codecode.workix.model.pojo;
 
-import java.math.BigInteger;
-
 import br.com.codecode.workix.model.base.BaseLocale;
 import br.com.codecode.workix.model.enums.Estate;
 
@@ -14,13 +12,13 @@ import br.com.codecode.workix.model.enums.Estate;
 class Locale implements BaseLocale{
 
 	@Override
-	public BigInteger getZipCode() {
+	public long getZipCode() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	public void setZipCode(BigInteger zipCode) {
+	public void setZipCode(long zipCode) {
 		// TODO Auto-generated method stub
 		
 	}

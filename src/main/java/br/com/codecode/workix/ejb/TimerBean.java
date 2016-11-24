@@ -31,11 +31,14 @@ public class TimerBean {
 	@PreDestroy
 	public void destroy() {		
 
-		if(timer != null)
-
 		System.out.println("[TimerBean] Finalizando agendamento ...");
 
-		timer.cancel();
+		if(timer != null)
+			timer.cancel();
+
+
+
+
 	}
 
 	@Schedule(hour="*",minute="0/30",second="0",persistent=false)

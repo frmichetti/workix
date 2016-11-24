@@ -5,7 +5,7 @@ import java.util.Observable;
 import java.util.Set;
 
 import br.com.codecode.workix.model.base.BaseCandidate;
-import br.com.codecode.workix.model.jpa.Job;
+import br.com.codecode.workix.model.base.BaseJob;
 
 /**
  * Root Abstract Class Selective Proccess<br>
@@ -38,7 +38,7 @@ public abstract class RootSelectiveProccess extends Observable {
 
 	protected Timestamp updatedAt;
 
-	protected Job job;	
+	protected BaseJob job;	
 
 	protected Set<BaseCandidate> candidates;
 

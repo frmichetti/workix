@@ -9,13 +9,17 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
 
+import br.com.codecode.workix.model.base.BaseCandidate;
+
 /**
  * Candidate JPA {@link Entity}
  * @see Person
  * @author felipe
+ * @see Person
+ * @see BaseCandidate
  */
 @Entity
-public class Candidate extends Person {
+public class Candidate extends Person implements BaseCandidate {
 
 	private static final long serialVersionUID = 531807027259604477L;	
 		
@@ -40,18 +44,22 @@ public class Candidate extends Person {
 		birthDate = Calendar.getInstance();		
 	}
 
+	@Override
 	public long getCpf() {
 		return cpf;
 	}
 
+	@Override
 	public void setCpf(long cpf) {
 		this.cpf = cpf;
 	}
 
+	@Override
 	public Calendar getBirthDate() {
 		return birthDate;
 	}
 
+	@Override
 	public void setBirthDate(Calendar birthDate) {
 		this.birthDate = birthDate;
 	}
@@ -76,7 +84,7 @@ public class Candidate extends Person {
 		if (getId() != other.getId())
 			return false;
 		return true;
-	}
+	}	
 
 	
 

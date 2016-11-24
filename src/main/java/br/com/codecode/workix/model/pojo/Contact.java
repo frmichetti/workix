@@ -11,13 +11,13 @@ import br.com.codecode.workix.model.base.BaseContact;
 class Contact implements BaseContact {
 
 	@Override
-	public Number getMobilePhone() {
+	public long getMobilePhone() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	public void setMobilePhone(Number mobilePhone) {
+	public void setMobilePhone(long mobilePhone) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -8,7 +8,7 @@ import br.com.codecode.workix.model.base.BaseUser;
  * 
  *
  */
-class User extends MyEntity implements BaseUser{
+public class User extends MyEntity implements BaseUser{
 
 	@Override
 	public boolean isActive() {

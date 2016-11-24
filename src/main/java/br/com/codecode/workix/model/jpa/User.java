@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.codecode.workix.model.base.BaseUser;
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.root.RootUser;
 
@@ -16,9 +17,10 @@ import br.com.codecode.workix.model.root.RootUser;
  * @since 1.0
  * @version 1.0
  * @see MyEntity
+ * @see BaseUser
  */
 @Entity
-public class User extends MyEntity {
+public class User extends MyEntity implements BaseUser {
 
 	private static final long serialVersionUID = -610648880358327958L;
 
@@ -34,7 +36,7 @@ public class User extends MyEntity {
 	private String firebaseUUID;
 
 	@Column
-	private String firebaseMessageToken;
+	private String firebaseMessageToken;	
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -57,34 +59,42 @@ public class User extends MyEntity {
 		this.firebaseMessageToken = builder.getFirebaseMessageToken();
 	}
 
+	@Override
 	public boolean isActive() {
 		return active;
 	}
 
+	@Override
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
+	@Override
 	public String getEmail() {
 		return email;
 	}
 
+	@Override
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	@Override
 	public String getFirebaseUUID() {
 		return firebaseUUID;
 	}
 
+	@Override
 	public void setFirebaseUUID(String firebaseUUID) {
 		this.firebaseUUID = firebaseUUID;
 	}
 
+	@Override
 	public String getFirebaseMessageToken() {
 		return firebaseMessageToken;
 	}
 
+	@Override
 	public void setFirebaseMessageToken(String firebaseMessageToken) {
 		this.firebaseMessageToken = firebaseMessageToken;
 	}	

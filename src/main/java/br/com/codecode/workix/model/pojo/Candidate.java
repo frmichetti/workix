@@ -13,13 +13,13 @@ import br.com.codecode.workix.model.base.BaseCandidate;
 class Candidate extends Person implements BaseCandidate{
 
 	@Override
-	public String getCpf() {
+	public long getCpf() {
 		// TODO Auto-generated method stub
-		return null;
+		return 0;
 	}
 
 	@Override
-	public void setCpf(String cpf) {
+	public void setCpf(long cpf) {
 		// TODO Auto-generated method stub
 		
 	}

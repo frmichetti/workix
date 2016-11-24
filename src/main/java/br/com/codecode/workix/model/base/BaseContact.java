@@ -7,7 +7,7 @@ package br.com.codecode.workix.model.base;
  */
 public interface BaseContact {
 
-	Number getMobilePhone();
+	long getMobilePhone();
 
-	void setMobilePhone(Number mobilePhone);
+	void setMobilePhone(long mobilePhone);
 }

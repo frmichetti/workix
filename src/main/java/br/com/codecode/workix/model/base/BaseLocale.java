@@ -1,7 +1,5 @@
 package br.com.codecode.workix.model.base;
 
-import java.math.BigInteger;
-
 import br.com.codecode.workix.model.enums.Estate;
 
 /**
@@ -11,9 +9,9 @@ import br.com.codecode.workix.model.enums.Estate;
  */
 public interface BaseLocale {
 
-	BigInteger getZipCode();
+	long getZipCode();
 
-	void setZipCode(BigInteger zipCode);
+	void setZipCode(long zipCode);
 
 	String getCity();
 

@@ -7,9 +7,9 @@ package br.com.codecode.workix.model.base;
  */
 public interface BaseCompany extends BasePerson {
 
-	Number getCnpj();
+	long getCnpj();
 
-	void setCnpj(Number cnpj);
+	void setCnpj(long cnpj);
 
 	String getSegment();
 

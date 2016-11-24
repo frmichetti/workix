@@ -5,7 +5,7 @@ package br.com.codecode.workix.model.base;
  * @author felipe
  *
  */
-public interface BasePerson extends BaseEntity{
+public abstract interface BasePerson extends BaseEntity {
 
 	String getName();
 

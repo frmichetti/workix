@@ -18,6 +18,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import br.com.codecode.workix.model.base.BaseEntity;
 import br.com.codecode.workix.model.interfaces.Persistable;
 import br.com.codecode.workix.model.interfaces.Traceable;
 
@@ -38,6 +39,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see BaseEntity
  * @see Traceable
  * @see Persistable
  * @see Serializable
@@ -45,7 +47,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
 @MappedSuperclass
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class MyEntity implements Traceable, Persistable, Serializable {
+public abstract class MyEntity implements BaseEntity, Traceable, Persistable, Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;
 

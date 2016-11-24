@@ -3,13 +3,17 @@ package br.com.codecode.workix.model.jpa;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
+import br.com.codecode.workix.model.base.BaseCompany;
+
 /**
  * Company JPA {@link Entity}
  * @see Person
  * @author felipe
+ * @see Person
+ * @see BaseCompany
  */
 @Entity
-public class Company extends Person {
+public class Company extends Person implements BaseCompany {
 
 	private static final long serialVersionUID = 47663377480544994L;
 	
@@ -24,18 +28,22 @@ public class Company extends Person {
 	 */
 	public Company(){}
 
+	@Override
 	public long getCnpj() {
 		return cnpj;
 	}
 
+	@Override
 	public void setCnpj(long cnpj) {
 		this.cnpj = cnpj;
 	}
 
+	@Override
 	public String getSegment() {
 		return segment;
 	}
 
+	@Override
 	public void setSegment(String companySegment) {
 		this.segment = companySegment;
 	}

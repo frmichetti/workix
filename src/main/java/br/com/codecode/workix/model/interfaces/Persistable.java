@@ -19,8 +19,8 @@ import br.com.codecode.workix.jsf.util.converter.SimpleEntityConverter;
  */
 public interface Persistable {  
 
-	public long getId();	
+	long getId();	
 	
-	public void setId(long id);
+	void setId(long id);
 
 }  
