@@ -8,7 +8,7 @@ import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.jpa.Company;
 
 /**
- * Root Abstract Class Skill<br>
+ * Root Abstract Class Job<br>
  * Use for Field Mapping/Share Only
  * <ul>
  * <li>{@link #title}</li>

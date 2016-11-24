@@ -3,7 +3,7 @@ package br.com.codecode.workix.model.root;
 import java.util.Calendar;
 
 /**
- * Root Abstract Class Skill<br>
+ * Root Abstract Class Experience<br>
  * Use for Field Mapping/Share Only
  * <ul>
  * <li>{@link #employerName}</li>

@@ -21,23 +21,14 @@ import br.com.codecode.workix.model.root.RootSubscriber;
  * @author felipe
  * @since 1.0
  * @version 1.0 
+ * @see RootSubscriber
  * @see Persistable
  * @see Serializable
  */
 @Entity
-public class Subscriber implements Persistable, Serializable {
+public class Subscriber extends RootSubscriber implements Persistable, Serializable {
 
 	private static final long serialVersionUID = 6675137603968146834L;
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	private long id;
-
-	@NotEmpty
-	@Email	
-	@Column(nullable = false,unique = true)
-	private String email;
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -51,29 +42,27 @@ public class Subscriber implements Persistable, Serializable {
 	 */
 	public Subscriber(@NotNull Builder builder){
 
-		this.id = builder.getId();
+		this.setId(builder.getId());
 
-		this.email = builder.getEmail();
+		this.setEmail(builder.getEmail());
 	}	
 	
 	/**
 	 * @return the id
 	 */
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(updatable = false, nullable = false)
 	@Override
 	public long getId() {
-		return this.id;
-	}	
+		return super.getId();
+	}		
 
-	/**
-	 * @param id the id to set
-	 */
-	@Override
-	public final void setId(long id) {
-		this.id = id;
-	}
-
+	@NotEmpty
+	@Email	
+	@Column(nullable = false,unique = true)
 	public String getEmail() {
-		return this.email;
+		return super.getEmail();
 	}
 
 	/**

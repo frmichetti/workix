@@ -2,7 +2,7 @@ package br.com.codecode.workix.model.root;
 
 import br.com.codecode.workix.model.base.BaseContact;
 import br.com.codecode.workix.model.base.BaseLocale;
-import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.model.base.BaseUser;
 
 /**
  * Root Abstract Class Person<br>
@@ -16,12 +16,13 @@ import br.com.codecode.workix.model.jpa.User;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see RootEntity
  */
 public abstract class RootPerson extends RootEntity {
 
 	protected String name;
 
-	protected User user;	
+	protected BaseUser user;	
 
 	protected BaseContact contact;
 
