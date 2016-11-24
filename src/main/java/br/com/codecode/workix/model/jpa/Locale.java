@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.interfaces.Buildable;
+import br.com.codecode.workix.model.root.RootLocale;
 
 /**
  * Locale JPA {@link Embeddable}  
@@ -56,17 +57,17 @@ public class Locale implements Serializable {
 	 */
 	public Locale(@NotNull Builder builder) {
 
-		this.zipCode = builder.zipCode;
+		this.zipCode = builder.getZipCode();
 
-		this.city = builder.city;
+		this.city = builder.getCity();
 
-		this.neighborhood = builder.neighborhood;
+		this.neighborhood = builder.getNeighborhood();
 
-		this.street = builder.street;
+		this.street = builder.getStreet();
 
-		this.number = builder.number;
+		this.number = builder.getNumber();
 
-		this.estate = builder.state;
+		this.estate = builder.getEstate();
 	}
 
 	public long getZipCode() {
@@ -126,20 +127,8 @@ public class Locale implements Serializable {
 	 * Builder NestedClass for {@link Skill} 
 	 * @author felipe
 	 */
-	public static class Builder implements Buildable<Locale> {	
-
-		private Estate state;
-
-		private String number;
-
-		private String street;
-
-		private String neighborhood;
-
-		private String city;
-
-		private long zipCode;
-
+	public static class Builder extends RootLocale implements Buildable<Locale> {	
+		
 		/**
 		 * Disabled Empty Constructor
 		 */
@@ -152,8 +141,8 @@ public class Locale implements Serializable {
 		 */
 		public Builder(long zipCode,String number) {
 			this();
-			this.zipCode = zipCode;
-			this.number = number;			
+			this.setZipCode(zipCode);
+			this.setNumber(number);			
 		}
 
 		/**
@@ -165,41 +154,41 @@ public class Locale implements Serializable {
 		 * @param street Street 
 		 * @param number Number of House
 		 */
-		public Builder(long zipCode, Estate state, String city, String neighborhood,String street,String number) {
+		public Builder(long zipCode, Estate estate, String city, String neighborhood,String street,String number) {
 			this(zipCode,number);
-			this.state = state;			
-			this.street = street;
-			this.neighborhood = neighborhood;
-			this.city = city;
+			this.setEstate(estate);			
+			this.setStreet(street);
+			this.setNeighborhood(neighborhood);
+			this.setCity(city);
 		}		
 
-		public Builder setState(Estate state) {
-			this.state = state;
+		public Builder withEstate(Estate estate) {
+			this.setEstate(estate);
 			return this;
 		}
 
-		public Builder setNumber(String number) {
-			this.number = number;
+		public Builder withNumber(String number) {
+			this.setNumber(number);
 			return this;
 		}
 
-		public Builder setStreet(String street) {
-			this.street = street;
+		public Builder withStreet(String street) {
+			this.setStreet(street);
 			return this;
 		}
 
-		public Builder setNeighborhood(String neighborhood) {
-			this.neighborhood = neighborhood;
+		public Builder withNeighborhood(String neighborhood) {
+			this.setNeighborhood(neighborhood);
 			return this;
 		}
 
-		public Builder setCity(String city) {
-			this.city = city;
+		public Builder withCity(String city) {
+			this.setCity(city);
 			return this;
 		}
 
-		public Builder setZipCode(long zipCode) {
-			this.zipCode = zipCode;
+		public Builder withZipCode(long zipCode) {
+			this.setZipCode(zipCode);
 			return this;
 		}
 

@@ -12,6 +12,25 @@ package br.com.codecode.workix.model.root;
  */
 public abstract class RootSkill {
 
-	protected String skillName;
+	private String skillName;
+	
+	/**
+	 * Public Empty Default Constructor
+	 */
+	public RootSkill(){}
+
+	/**
+	 * @return the Skill Name
+	 */
+	public String getSkillName() {
+		return skillName;
+	}
+
+	/**
+	 * @param skillName the Skill Name to set
+	 */
+	public final void setSkillName(String skillName) {
+		this.skillName = skillName;
+	}	
 	
 }

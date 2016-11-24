@@ -23,7 +23,7 @@ import br.com.codecode.workix.model.root.RootSkill;
 public class Skill implements Serializable {
 
 	private static final long serialVersionUID = -5975419980185059163L;
-
+	
 	@Column
 	private String skillName;
 
@@ -38,22 +38,23 @@ public class Skill implements Serializable {
 	 * @param builder Builder for Generate a New Skill
 	 */
 	public Skill(Builder builder) {
-		this.skillName = builder.getSkillName();
-	}
-
-	public String getSkillName() {
-		return skillName;
-	}
-
-	public void setSkillName(String skillName) {
+		this.setSkillName(builder.getSkillName()); 
+	}	
+	
+	/**
+	 * @return the Skill Name
+	 */
+	public final String getSkillName() {
+		return this.skillName;
+	}	
+	
+	/**
+	 * @param skillName the Skill Name to set
+	 */
+	public final void setSkillName(String skillName) {
 		this.skillName = skillName;
 	}
 
-	@Override
-	public String toString() {
-		return "Skill [skillName=" + skillName + "]";
-	}	
-	
 	/**
 	 * Builder NestedClass for {@link Skill} 
 	 * @author felipe
@@ -73,22 +74,15 @@ public class Skill implements Serializable {
 		 */
 		public Builder(String skillName) {
 			this();			
-			this.skillName = skillName;
-		}
-		
-		/**
-		 * @return the skillName
-		 */
-		public final String getSkillName() {
-			return skillName;
-		}
-
+			this.setSkillName(skillName);
+		}		
+	
 		/**
 		 * @param skillName the skillName to set
 		 * @return Builder
 		 */
-		public Builder setSkillName(String skillName) {
-			this.skillName = skillName;
+		public Builder withSkillName(String skillName) {
+			this.setSkillName(skillName);
 			return this;
 		}
 		

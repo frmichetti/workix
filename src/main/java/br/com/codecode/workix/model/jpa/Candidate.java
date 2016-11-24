@@ -32,6 +32,9 @@ public class Candidate extends Person {
 	 */
 	public Candidate(){}	
 
+	/**
+	 * Initialize Fields for CDI Injection
+	 */
 	@PostConstruct
 	private void init() {
 		birthDate = Calendar.getInstance();		
@@ -75,9 +78,6 @@ public class Candidate extends Person {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Candidate [name=" + getName() + ", cpf=" + cpf + "]";
-	}
+	
 
 }

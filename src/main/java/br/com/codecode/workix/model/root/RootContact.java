@@ -12,6 +12,25 @@ package br.com.codecode.workix.model.root;
  */
 public abstract class RootContact {
 	
-	protected long mobilePhone;	
+	private long mobilePhone;
+	
+	/**
+	 * Public Empty Default Constructor
+	 */
+	public RootContact(){}
+
+	/**
+	 * @return the Mobile Phone
+	 */
+	public long getMobilePhone() {
+		return mobilePhone;
+	}
+
+	/**
+	 * @param mobilePhone the Mobile Phone to set
+	 */
+	public final void setMobilePhone(long mobilePhone) {
+		this.mobilePhone = mobilePhone;
+	}		
 
 }

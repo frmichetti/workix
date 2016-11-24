@@ -18,7 +18,7 @@ public class UserBuilderTest {
 	@Test
 	public void testInstance(){			
 		
-		u = new User.Builder(false, "");
+		u = new User.Builder("");
 		
 		assertTrue(u instanceof Buildable<?>); 
 	}
@@ -26,7 +26,7 @@ public class UserBuilderTest {
 	@Test
 	public void constructorTest() {
 		
-		u = new User.Builder(true, "frmichetti@gmail.com");
+		u = new User.Builder("frmichetti@gmail.com");
 		
 		assertNotNull(u);		
 		
@@ -35,9 +35,10 @@ public class UserBuilderTest {
 	@Test
 	public void constructorWithFiels(){
 		
-		user = new User.Builder(true, "frmichetti@gmail.com")
-		.setFirebaseMessageToken("xxxxxxxxxxxxxxx")
-		.setFirebaseUUID("2345678974532")
+		user = new User.Builder("frmichetti@gmail.com")
+		.withActive(true)
+		.withFirebaseMessageToken("xxxxxxxxxxxxxxx")
+		.withFirebaseUUID("2345678974532")
 		.build();
 		
 		assertNotNull(user);

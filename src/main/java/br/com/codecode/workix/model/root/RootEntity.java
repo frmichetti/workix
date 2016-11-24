@@ -27,4 +27,9 @@ public abstract class RootEntity {
 	protected Timestamp updatedAt;
 
 	protected String uuid;
+	
+	/**
+	 * Public Empty Default Constructor
+	 */
+	public RootEntity(){}
 }

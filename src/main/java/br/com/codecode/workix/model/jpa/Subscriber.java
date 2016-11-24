@@ -26,9 +26,19 @@ import br.com.codecode.workix.model.root.RootSubscriber;
  * @see Serializable
  */
 @Entity
-public class Subscriber extends RootSubscriber implements Persistable, Serializable{
+public class Subscriber implements Persistable, Serializable {
 
 	private static final long serialVersionUID = 6675137603968146834L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(updatable = false, nullable = false)
+	private long id;
+
+	@NotEmpty
+	@Email	
+	@Column(nullable = false,unique = true)
+	private String email;
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -41,39 +51,30 @@ public class Subscriber extends RootSubscriber implements Persistable, Serializa
 	 * @param builder Builder for Generate New Subscriber
 	 */
 	public Subscriber(@NotNull Builder builder){
-		
+
 		this.id = builder.getId();
 
 		this.email = builder.getEmail();
-	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
+	}	
+	
+	/**
+	 * @return the id
+	 */
 	@Override
 	public long getId() {
-		return id;
-	}
-	
-	@NotEmpty
-	@Email	
-	@Column(nullable = false,unique = true)
-	public String getEmail() {
-		return email;
-	}
+		return this.id;
+	}	
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
+	/**
+	 * @param id the id to set
+	 */
 	@Override
-	public void setId(long id) {
+	public final void setId(long id) {
 		this.id = id;
 	}
 
-	@Override
-	public String toString() {
-		return "Subscriber [email=" + email + "]";
+	public String getEmail() {
+		return this.email;
 	}
 
 	/**
@@ -83,7 +84,7 @@ public class Subscriber extends RootSubscriber implements Persistable, Serializa
 	 * @version 1.0
 	 */
 	public final static class Builder extends RootSubscriber implements Buildable<Subscriber> {
-		
+
 		/**
 		 * Disabled Empty Constructor
 		 */
@@ -95,9 +96,9 @@ public class Subscriber extends RootSubscriber implements Persistable, Serializa
 		 */
 		public Builder(String email) {
 			this();
-			this.email = email;
+			this.setEmail(email);
 		}	
-		
+
 		/**
 		 * Constructor with All Fields
 		 * @param id Id
@@ -105,39 +106,25 @@ public class Subscriber extends RootSubscriber implements Persistable, Serializa
 		 */
 		public Builder(long id, String email) {
 			super();
-			this.id = id;
-			this.email = email;
-		}
-		
-		/**
-		 * @return the id
-		 */
-		public final long getId() {
-			return id;
-		}				
-
-		/**
-		 * @return the email
-		 */
-		public final String getEmail() {
-			return email;
-		}
+			this.setId(id);
+			this.setEmail(email);
+		}		
 
 		/**
 		 * @param email the email to set
 		 * @return Builder
 		 */
-		public Builder setEmail(String email) {
-			this.email = email;
+		public Builder withEmail(String email) {
+			this.setEmail(email);
 			return this;
 		}	
-		
+
 		/**
 		 * @param id the id to set
 		 * @return Builder
 		 */
-		public Builder setId(long id) {
-			this.id = id;
+		public Builder withId(long id) {
+			this.setId(id);
 			return this;
 		}
 

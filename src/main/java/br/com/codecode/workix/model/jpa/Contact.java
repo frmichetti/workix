@@ -21,9 +21,12 @@ import br.com.codecode.workix.model.root.RootContact;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @Embeddable
-public class Contact extends RootContact implements Serializable {
+public class Contact implements Serializable {
 
 	private static final long serialVersionUID = -2482737185460142872L;
+	
+	@Column
+	private long mobilePhone;
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -37,22 +40,22 @@ public class Contact extends RootContact implements Serializable {
 	 */
 	public Contact(@NotNull Builder builder) {
 		this.mobilePhone = builder.getMobilePhone();
-	}
-
-	@Column
+	}	
+	
+	/**
+	 * @return the Mobile Phone
+	 */
 	public long getMobilePhone() {
 		return mobilePhone;
-	}
-
-	public void setMobilePhone(long mobilePhone) {
+	}	
+	
+	/**
+	 * @param mobilePhone the Mobile Phone to set
+	 */
+	public final void setMobilePhone(long mobilePhone) {
 		this.mobilePhone = mobilePhone;
 	}
 
-	@Override
-	public String toString() {
-		return "Contact [mobilePhone=" + mobilePhone + "]";
-	}
-	
 	/**
 	 * Builder NestedClass for {@link Contact} 
 	 * @author felipe
@@ -72,21 +75,14 @@ public class Contact extends RootContact implements Serializable {
 		 */
 		public Builder(long mobilePhone) {
 			this();			
-			this.mobilePhone = mobilePhone;
+			this.setMobilePhone(mobilePhone);
 		}		
-		
-		/**
-		 * @return the mobilePhone
-		 */
-		public final long getMobilePhone() {
-			return mobilePhone;
-		}
 	
 		/**
-		 * @param mobilePhone the mobilePhone to set
+		 * @param mobilePhone the Mobile Phone to set
 		 */
-		public Builder setMobilePhone(long mobilePhone) {
-			this.mobilePhone = mobilePhone;
+		public Builder withMobilePhone(long mobilePhone) {
+			this.setMobilePhone(mobilePhone);
 			return this;
 		}		
 

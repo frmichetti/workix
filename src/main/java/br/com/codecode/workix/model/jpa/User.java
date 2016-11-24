@@ -137,10 +137,9 @@ public class User extends MyEntity {
 		 * @param active Active
 		 * @param email Email
 		 */
-		public Builder(boolean active, String email) {
-			this();
-			this.active = active;
-			this.email = email;
+		public Builder(String email) {
+			this();		
+			this.setEmail(email);
 		}
 		
 		/**
@@ -150,46 +149,19 @@ public class User extends MyEntity {
 		 * @param firebaseUUID Firebase UUID
 		 * @param firebaseMessageToken Firebase Message Token
 		 */
-		public Builder(boolean active, String email, String firebaseUUID, String firebaseMessageToken) {
-			this(active,email);			
-			this.firebaseUUID = firebaseUUID;
-			this.firebaseMessageToken = firebaseMessageToken;
+		public Builder(String email, boolean active, String firebaseUUID, String firebaseMessageToken) {
+			this(email);			
+			this.setActive(active);
+			this.setFirebaseUUID(firebaseUUID);
+			this.setFirebaseMessageToken(firebaseMessageToken);
 		}		
-		
-		/**
-		 * @return the active
-		 */
-		public final boolean isActive() {
-			return active;
-		}
-
-		/**
-		 * @return the email
-		 */
-		public final String getEmail() {
-			return email;
-		}
-
-		/**
-		 * @return the firebaseUUID
-		 */
-		public final String getFirebaseUUID() {
-			return firebaseUUID;
-		}
-
-		/**
-		 * @return the firebaseMessageToken
-		 */
-		public final String getFirebaseMessageToken() {
-			return firebaseMessageToken;
-		}
 
 		/**
 		 * @param active the active to set
 		 * @return Builder
 		 */
-		public Builder setActive(boolean active) {
-			this.active = active;
+		public Builder withActive(boolean active) {
+			this.setActive(active);
 			return this;
 		}
 
@@ -197,8 +169,8 @@ public class User extends MyEntity {
 		 * @param email the email to set
 		 * @return Builder
 		 */
-		public Builder setEmail(String email) {
-			this.email = email;
+		public Builder withEmail(String email) {
+			this.setEmail(email);
 			return this;
 		}
 
@@ -206,8 +178,8 @@ public class User extends MyEntity {
 		 * @param firebaseUUID the firebaseUUID to set
 		 * @return Builder
 		 */
-		public Builder setFirebaseUUID(String firebaseUUID) {
-			this.firebaseUUID = firebaseUUID;
+		public Builder withFirebaseUUID(String firebaseUUID) {
+			this.setFirebaseUUID(firebaseUUID);
 			return this;
 		}
 
@@ -215,8 +187,8 @@ public class User extends MyEntity {
 		 * @param firebaseMessageToken the firebaseMessageToken to set
 		 * @return Builder
 		 */
-		public Builder setFirebaseMessageToken(String firebaseMessageToken) {
-			this.firebaseMessageToken = firebaseMessageToken;
+		public Builder withFirebaseMessageToken(String firebaseMessageToken) {
+			this.setFirebaseMessageToken(firebaseMessageToken);
 			return this;
 		}
 

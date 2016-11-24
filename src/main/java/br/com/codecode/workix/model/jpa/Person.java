@@ -68,5 +68,10 @@ public abstract class Person extends MyEntity {
 	public void setLocale(Locale locale) {
 		this.locale = locale;
 	}
+	
+	@Override
+	public String toString() {
+		return "Person [name=" + name + "]";
+	}
 
 }
