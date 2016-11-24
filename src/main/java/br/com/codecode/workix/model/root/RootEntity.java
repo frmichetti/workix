@@ -21,12 +21,12 @@ public abstract class RootEntity {
 	protected long id;
 
 	protected int version;
+	
+	protected String uuid;
 
 	protected Timestamp createdAt;
 
-	protected Timestamp updatedAt;
-
-	protected String uuid;
+	protected Timestamp updatedAt;	
 	
 	/**
 	 * Public Empty Default Constructor
