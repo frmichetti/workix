@@ -11,6 +11,11 @@ import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Subscriber;
 
+/**
+ * This ManagedBean controls Signup Fragment in footer.xhtml 
+ * @author felipe
+ *
+ */
 @Model
 public class SignupMB {
 	

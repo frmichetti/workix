@@ -7,15 +7,21 @@ import javax.inject.Inject;
 
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
+/**
+ * This ManagedBean controls Search on HeaderPage
+ * Execute with {@link Model}
+ * @author felipe
+ *
+ */
 @Model
-public class SearchMB {
-	
+public class SearchMB extends BaseMB {
+
+	private static final long serialVersionUID = -7685004015144213436L;
+
 	@Inject
 	private MessagesHelper messagesHelper;
 
-	private String query;
-	
-	public SearchMB(){}
+	private String query;	
 	
 	@PostConstruct
 	private void init(){}

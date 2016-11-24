@@ -10,6 +10,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.implementation.persist.ResumeCompleteDao;
@@ -18,6 +19,7 @@ import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.model.jpa.Education;
@@ -84,12 +86,18 @@ public class ResumeMB extends BaseMB {
 
 			candidate = dao.findById(id);
 
-		} catch (Exception e){
+		} catch (NotImplementedYetException e) {
 
 			e.printStackTrace();
 
 			goToErrorPage();
-		}
+
+		}catch (NoResultException e) {
+			
+			e.printStackTrace();
+
+			goToErrorPage();
+		}	
 
 		resume = daoResume.findResumebyOwner(candidate);
 

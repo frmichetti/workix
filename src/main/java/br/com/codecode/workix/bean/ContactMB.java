@@ -9,16 +9,22 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.infra.MailSender;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
+/**
+ * This ManagedBean controls Contact Fragment in fragments/contact.xhtml
+ * 
+ * @author felipe
+ *
+ */
 @Model
-public class ContactMB {
+public class ContactMB extends BaseMB{
+
+	private static final long serialVersionUID = -1640448932752381824L;
 
 	@Inject
 	private MessagesHelper messagesHelper;
 	
 	@Inject @Factory
 	private ManagedExecutorService managedExecutorService;
-
-	public ContactMB(){}
 
 	@Inject
 	private MailSender mailSender;

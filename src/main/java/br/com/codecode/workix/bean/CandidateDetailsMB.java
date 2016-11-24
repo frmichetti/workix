@@ -7,6 +7,7 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.notify.Notification;
@@ -14,6 +15,7 @@ import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 
@@ -63,10 +65,22 @@ public class CandidateDetailsMB extends BaseMB {
 
 			candidate = dao.findById(id);
 
-		} catch (Exception e) {			
+		} catch (NotImplementedYetException e) {
+
+			e.printStackTrace();
 
 			goToErrorPage();
-		}				
+
+		}catch (NoResultException e) {
+			
+			e.printStackTrace();
+
+			goToErrorPage();
+		}
+		
+		if(candidate == null){
+			goToErrorPage();
+		}
 
 
 	}

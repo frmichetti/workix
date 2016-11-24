@@ -2,10 +2,12 @@ package br.com.codecode.workix.bean;
 
 import java.io.IOException;
 
+import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Factory;
@@ -15,25 +17,24 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Job;
 
 @Model
-public class JobDetailMB {
+public class JobDetailMB extends BaseMB {
+
+	private static final long serialVersionUID = -7234146150037004518L;
 
 	@Inject @Generic
 	private Crud<Job> dao;
 
-	private Long id;
+	private long id;
 
 	private Job currentJob ;
 
-	@Inject @Factory
+	@Inject @Factory @Default
 	private FacesContext facesContext;
 
 	private String prefix, sufix;
 
 	@Inject
 	private MessagesHelper messagesHelper;
-
-	public JobDetailMB(){}
-
 
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {@link page} 
@@ -46,11 +47,9 @@ public class JobDetailMB {
 
 		System.out.println("JOB ID RECEIVED -> " + id);
 
-		if(id == null || id ==0){
+		if(id < 1)
 			goToErrorPage();
-		}
-
-		if(id > 0){
+		else		
 
 			try {
 
@@ -62,14 +61,12 @@ public class JobDetailMB {
 
 				goToErrorPage();
 
-			}catch (Exception e) {
+			}catch (NoResultException e) {
 				
 				e.printStackTrace();
 
 				goToErrorPage();
-			}
-
-		}		
+			}				
 
 		if (currentJob == null){
 			goToErrorPage();			
@@ -77,20 +74,17 @@ public class JobDetailMB {
 
 	}
 
-
-
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
 	public Job getCurrentJob() {
 		return currentJob;
 	}
-
 
 	public void signup(){
 		messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
@@ -101,7 +95,8 @@ public class JobDetailMB {
 
 		try {
 
-			facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+			facesContext.getExternalContext()
+			.redirect(prefix + "/404.xhtml" + sufix);
 
 		} catch (IOException e) {
 
