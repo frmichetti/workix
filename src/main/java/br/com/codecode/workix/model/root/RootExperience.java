@@ -18,14 +18,91 @@ import java.util.Calendar;
  */
 public abstract class RootExperience {
 	
-	protected String employerName;
+	private String employerName;
 
-	protected String jobTitle;
+	private String jobTitle;
 	
-	protected Calendar startDate;
+	private Calendar startDate;
 
-	protected Calendar endDate;
+	private Calendar endDate;
 
-	protected String description;
+	private String description;
+	
+	/**
+	 * Empty Default Constructor
+	 */
+	public RootExperience(){}
+
+	/**
+	 * @return the employerName
+	 */
+	public final String getEmployerName() {
+		return employerName;
+	}
+
+	/**
+	 * @param employerName the employerName to set
+	 */
+	public final void setEmployerName(String employerName) {
+		this.employerName = employerName;
+	}
+
+	/**
+	 * @return the jobTitle
+	 */
+	public final String getJobTitle() {
+		return jobTitle;
+	}
+
+	/**
+	 * @param jobTitle the jobTitle to set
+	 */
+	public final void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	/**
+	 * @return the startDate
+	 */
+	public final Calendar getStartDate() {
+		return startDate;
+	}
+
+	/**
+	 * @param startDate the startDate to set
+	 */
+	public final void setStartDate(Calendar startDate) {
+		this.startDate = startDate;
+	}
+
+	/**
+	 * @return the endDate
+	 */
+	public final Calendar getEndDate() {
+		return endDate;
+	}
+
+	/**
+	 * @param endDate the endDate to set
+	 */
+	public final void setEndDate(Calendar endDate) {
+		this.endDate = endDate;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public final String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public final void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
 	
 }

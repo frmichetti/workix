@@ -19,6 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 /**
  * Resume JPA {@link Entity}
  * @author felipe
+ * @see MyEntity
  */
 @Entity
 public class Resume extends MyEntity {

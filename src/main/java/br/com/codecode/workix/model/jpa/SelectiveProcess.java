@@ -39,13 +39,18 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see Observable
+ * @see Observer
+ * @see Traceable
+ * @see Persistable
+ * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
 @SuppressWarnings({"unchecked","unused"})
 @Table(name="Selective_Process")
 @Entity
-public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable{
+public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
 
 	private static final long serialVersionUID = -5336099006523168288L;
 

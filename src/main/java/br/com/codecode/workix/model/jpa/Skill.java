@@ -16,6 +16,7 @@ import br.com.codecode.workix.model.root.RootSkill;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -60,6 +61,8 @@ public class Skill implements Serializable {
 	 * @author felipe
 	 * @since 1.0
 	 * @version 1.0
+	 * @see Buildable
+	 * @see RootSkill
 	 */
 	public final static class Builder extends RootSkill implements Buildable<Skill> {	
 	

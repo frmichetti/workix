@@ -20,8 +20,7 @@ import br.com.codecode.workix.model.root.RootSubscriber;
  * Subscriber JPA {@link Entity}
  * @author felipe
  * @since 1.0
- * @version 1.0
- * @see RootSubscriber
+ * @version 1.0 
  * @see Persistable
  * @see Serializable
  */
@@ -82,6 +81,8 @@ public class Subscriber implements Persistable, Serializable {
 	 * @author felipe
 	 * @since 1.0
 	 * @version 1.0
+	 * @see Buildable
+	 * @see RootSubscriber
 	 */
 	public final static class Builder extends RootSubscriber implements Buildable<Subscriber> {
 

@@ -15,6 +15,7 @@ import br.com.codecode.workix.model.root.RootUser;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see MyEntity
  */
 @Entity
 public class User extends MyEntity {
@@ -124,6 +125,8 @@ public class User extends MyEntity {
 	 * @author felipe
 	 * @since 1.0
 	 * @version 1.0
+	 * @see Buildable
+	 * @see RootUser
 	 */
 	public final static class Builder extends RootUser implements Buildable<User> {	
 

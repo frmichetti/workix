@@ -18,6 +18,7 @@ import br.com.codecode.workix.model.root.RootLocale;
 /**
  * Locale JPA {@link Embeddable}  
  * @author felipe
+ * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -126,6 +127,8 @@ public class Locale implements Serializable {
 	/**
 	 * Builder NestedClass for {@link Skill} 
 	 * @author felipe
+	 * @see Buildable
+	 * @see RootLocale
 	 */
 	public static class Builder extends RootLocale implements Buildable<Locale> {	
 		
@@ -191,7 +194,10 @@ public class Locale implements Serializable {
 			this.setZipCode(zipCode);
 			return this;
 		}
-
+		
+		/**
+		 * @return Return a New Locale
+		 */
 		@Override
 		public Locale build()
 		{

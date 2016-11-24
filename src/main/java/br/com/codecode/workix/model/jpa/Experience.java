@@ -21,6 +21,7 @@ import br.com.codecode.workix.model.root.RootExperience;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -119,6 +120,8 @@ public class Experience implements Serializable {
 	 * @author felipe
 	 * @since 1.0
 	 * @version 1.0
+	 * @see Buildable
+	 * @see RootExperience
 	 */
 	public final static class Builder extends RootExperience implements Buildable<Experience> {
 		
@@ -134,8 +137,8 @@ public class Experience implements Serializable {
 		 */
 		public Builder(String employerName, String jobTitle) {
 			this();
-			this.employerName = employerName;
-			this.jobTitle = jobTitle;
+			this.setEmployerName(employerName);
+			this.setJobTitle(jobTitle);
 		}
 
 		/**
@@ -147,52 +150,16 @@ public class Experience implements Serializable {
 		 */
 		public Builder(String employerName, String jobTitle, Calendar startDate, Calendar endDate) {
 			this(employerName,jobTitle);
-			this.startDate = startDate;
-			this.endDate = endDate;
+			this.setStartDate(startDate);
+			this.setEndDate(endDate);
 		}
 		
-		/**
-		 * @return the employerName
-		 */
-		public final String getEmployerName() {
-			return employerName;
-		}
-
-		/**
-		 * @return the jobTitle
-		 */
-		public final String getJobTitle() {
-			return jobTitle;
-		}
-
-		/**
-		 * @return the startDate
-		 */
-		public final Calendar getStartDate() {
-			return startDate;
-		}
-
-		/**
-		 * @return the endDate
-		 */
-		public final Calendar getEndDate() {
-			return endDate;
-		}
-
-		/**
-		 * @return the description
-		 */
-		public final String getDescription() {
-			return description;
-		}
-
-
 		/**
 		 * @param employerName the employerName to set
 		 * @return Builder
 		 */
-		public Builder setEmployerName(String employerName) {
-			this.employerName = employerName;
+		public Builder withEmployerName(String employerName) {
+			this.setEmployerName(employerName);
 			return this;
 		}
 
@@ -201,8 +168,8 @@ public class Experience implements Serializable {
 		 * @param jobTitle the jobTitle to set
 		 * @return Builder
 		 */
-		public Builder setJobTitle(String jobTitle) {
-			this.jobTitle = jobTitle;
+		public Builder withJobTitle(String jobTitle) {
+			this.setJobTitle(jobTitle);
 			return this;
 		}
 
@@ -210,8 +177,8 @@ public class Experience implements Serializable {
 		 * @param startDate the startDate to set
 		 * @return Builder
 		 */
-		public Builder setStartDate(Calendar startDate) {
-			this.startDate = startDate;
+		public Builder withStartDate(Calendar startDate) {
+			this.setStartDate(startDate);
 			return this;
 		}	
 
@@ -220,8 +187,8 @@ public class Experience implements Serializable {
 		 * @param endDate the endDate to set
 		 * @return Builder
 		 */
-		public Builder setEndDate(Calendar endDate) {
-			this.endDate = endDate;
+		public Builder withEndDate(Calendar endDate) {
+			this.setEndDate(endDate);
 			return this;
 		}
 		
@@ -229,8 +196,8 @@ public class Experience implements Serializable {
 		 * @param description the description to set
 		 * @return Builder
 		 */
-		public Builder setDescription(String description) {
-			this.description = description;
+		public Builder withDescription(String description) {
+			this.setDescription(description);
 			return this;
 		}
 

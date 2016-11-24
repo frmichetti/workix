@@ -25,6 +25,7 @@ import br.com.codecode.workix.model.enums.JobType;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see MyEntity
  */
 @Entity
 public class Job extends MyEntity {
@@ -78,6 +79,9 @@ public class Job extends MyEntity {
 	@Column
 	private boolean active;
 
+	/**
+	 * Many {@link Job} To One {@link Company}
+	 */
 	@NotNull
 	@ManyToOne(optional=false)
 	private Company employeer;
@@ -87,6 +91,9 @@ public class Job extends MyEntity {
 	 */
 	public Job(){}
 
+	/**
+	 * Initialize Fields for CDI Injection
+	 */
 	@PostConstruct
 	private void init(){
 		minPayment = BigDecimal.ZERO;

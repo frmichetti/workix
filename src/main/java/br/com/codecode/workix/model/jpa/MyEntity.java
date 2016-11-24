@@ -38,6 +38,9 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see Traceable
+ * @see Persistable
+ * @see Serializable
  */
 @MappedSuperclass
 @XmlRootElement
