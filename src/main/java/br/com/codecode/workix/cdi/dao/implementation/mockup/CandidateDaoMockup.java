@@ -15,8 +15,7 @@ import br.com.codecode.workix.model.jpa.Candidate;
 
 /**
  * Mockup Class for Demonstration Only
- * @author felipe
- * @category Mockup
+ * @author felipe 
  */
 @Mockup
 public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate>{

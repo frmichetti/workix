@@ -18,22 +18,22 @@
 
 				<div>
 					<h:outputLabel for="id" value="Id" />
-					<h:inputText id="id" value="#{userMB.user.id}"
-						autocomplete="false" readonly="true" />
+					<h:inputText id="id" value="#{userMB.user.id}" autocomplete="false"
+						readonly="true" />
 				</div>
-				
+
 				<div>
 					<h:outputLabel for="Email" value="Email" />
 					<h:inputText id="Email" value="#{userMB.user.email}"
 						autocomplete="true" readonly="false" />
 				</div>
 
-				
+
 				<div>
 					<h:commandButton value="Salvar" action="#{userMB.save()}"
 						icon="fa fa-save" />
 
-				
+
 				</div>
 
 

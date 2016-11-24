@@ -13,7 +13,6 @@ import br.com.codecode.workix.model.interfaces.Buildable;
 /**
  * Skill {@link Embeddable} JPA Class
  * @author felipe
- *
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -33,8 +32,7 @@ public class Skill implements Serializable {
 	/**
 	 * Public Constructor for {@link Builder} Compatibility
 	 * @see Buildable
-	 * @param builder
-	 * @category Builder
+	 * @param builder Builder for Generate a New Skill
 	 */
 	public Skill(Builder builder) {
 		this.skillName = builder.skillName;
@@ -55,9 +53,7 @@ public class Skill implements Serializable {
 	
 	/**
 	 * Builder NestedClass for {@link Skill} 
-	 * @category Builder
 	 * @author felipe
-	 *
 	 */
 	public static class Builder implements Buildable<Skill> {	
 
@@ -70,7 +66,7 @@ public class Skill implements Serializable {
 
 		/**
 		 * Constructor with Required Fields
-		 * @param skillName
+		 * @param skillName Skill Name
 		 */
 		public Builder(String skillName) {
 			this();			

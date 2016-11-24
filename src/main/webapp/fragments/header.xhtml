@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      >
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-	<!-- 
+<!-- 
 		Replace path to template, title, header and body
 		with actual data.
 	 -->
-	<ui:composition >
-	
-			<!-- ============ HEADER START ============ -->
+<ui:composition>
 
-		<header>
-			<div id="header-background"></div>
-			<div class="container">
-				<div class="pull-left">
-					<div id="logo"><a href="#{navigationMB.goToIndex()}">
-					<img src="images/logo.png" alt="#{applicationMB.appName} - Logo" /></a></div>
-				</div>
-				<div id="menu-open" class="pull-right">
-					<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
-				</div>
-				<div id="searchbox" class="pull-right">
-					<h:form>
-						<div class="form-group">
-							<label class="sr-only" for="searchfield">Searchbox</label>
-							<h:inputText pt:type="text" class="form-control" pt:id="searchfield" pt:placeholder="Procurando por ?" pt:value="#{findMB.query}" />
-						</div>
-					</h:form>
-				</div>
-				<div id="search" class="pull-right">
-					<a><i class="fa fa-search fa-lg"></i></a>
+	<!-- ============ HEADER START ============ -->
+
+	<header>
+		<div id="header-background"></div>
+		<div class="container">
+			<div class="pull-left">
+				<div id="logo">
+					<a href="#{navigationMB.goToIndex()}"> <img
+						src="images/logo.png" alt="#{applicationMB.appName} - Logo" /></a>
 				</div>
 			</div>
-		</header>
+			<div id="menu-open" class="pull-right">
+				<a class="fm-button"><i class="fa fa-bars fa-lg"></i></a>
+			</div>
+			<div id="searchbox" class="pull-right">
+				<h:form>
+					<div class="form-group">
+						<label class="sr-only" for="searchfield">Searchbox</label>
+						<h:inputText pt:type="text" class="form-control"
+							pt:id="searchfield" pt:placeholder="Procurando por ?"
+							pt:value="#{findMB.query}" />
+					</div>
+				</h:form>
+			</div>
+			<div id="search" class="pull-right">
+				<a><i class="fa fa-search fa-lg"></i></a>
+			</div>
+		</div>
+	</header>
 
-		<!-- ============ HEADER END ============ -->
-			
-	</ui:composition>
+	<!-- ============ HEADER END ============ -->
+
+</ui:composition>
 
 </html>

@@ -8,47 +8,49 @@
 <ui:composition template="/template.xhtml">
 
 	<ui:define name="headerTitle">#{applicationMB.appName} - Perfil</ui:define>
-	
+
 	<ui:define name="title">
-		
+
 	</ui:define>
 
 	<ui:define name="content">
-		
+
 		<!-- ============ CONTENT START ============ -->
 
-	<section id="register">
-		<div class="container">
-			<div class="row">
+		<section id="register">
+			<div class="container">
+				<div class="row">
 
 
 
 
 
-				<h:form>
-	
-					<div class="form-group">
-						<h:inputText pt:placeholder="Email" styleClass="form-control" pt:id="email" />
+					<h:form>
 
-						<h:inputText pt:placeholder="Senha" styleClass="form-control" pt:id="password"/>
+						<div class="form-group">
+							<h:inputText pt:placeholder="Email" styleClass="form-control"
+								pt:id="email" />
 
-						<h:commandButton value="Registrar" pt:id="quickstart-sign-in" />
-						
-					</div>
-				</h:form>
+							<h:inputText pt:placeholder="Senha" styleClass="form-control"
+								pt:id="password" />
 
+							<h:commandButton value="Registrar" pt:id="quickstart-sign-in" />
 
-
-
+						</div>
+					</h:form>
 
 
+
+
+
+
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<!-- ============ CONTENT END ============ -->
-	
-	<script type="text/javascript" charset="utf-8">
+		<!-- ============ CONTENT END ============ -->
+
+		<script type="text/javascript" charset="utf-8">
 
     /**
      * Handles the sign in button press.
@@ -217,12 +219,12 @@
     window.onload = function() {
       initApp();
     };
-  </script>	
+  </script>
 
 	</ui:define>
-	
-	</ui:composition>
-	
+
+</ui:composition>
+
 
 </body>
 </html>

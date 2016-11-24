@@ -5,7 +5,7 @@ import br.com.codecode.workix.model.base.BaseSkill;
 /**
  * Draft Skill Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Skill implements BaseSkill {

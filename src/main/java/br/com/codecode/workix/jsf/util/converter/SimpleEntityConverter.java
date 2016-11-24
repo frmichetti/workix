@@ -28,8 +28,7 @@ public class SimpleEntityConverter implements Converter {
   
     public String getAsString(FacesContext ctx, UIComponent component, Object value) {  
   
-        if (value != null  
-                && !"".equals(value)) {  
+        if (value != null && !"".equals(value)) {  
   
             Persistable entity = (Persistable) value;  
   

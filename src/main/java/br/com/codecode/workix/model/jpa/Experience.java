@@ -18,7 +18,6 @@ import br.com.codecode.workix.model.interfaces.Buildable;
 /**
  * Experience JPA {@link Embeddable}
  * @author felipe
- * @category JPA
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -53,8 +52,7 @@ public class Experience implements Serializable {
 	/**
 	 * Public Constructor for {@link Builder} Compatibility
 	 * @see Buildable
-	 * @param builder
-	 * @category Builder
+	 * @param builder Builder for Generate a New Experience
 	 */
 	public Experience(@NotNull Builder builder) {
 		
@@ -115,9 +113,7 @@ public class Experience implements Serializable {
 	
 	/**
 	 * Builder NestedClass for {@link Experience} 
-	 * @category Builder
 	 * @author felipe
-	 *
 	 */
 	public static class Builder implements Buildable<Experience> {
 		
@@ -136,8 +132,8 @@ public class Experience implements Serializable {
 
 		/**
 		 * Constructor with Required Fields
-		 * @param employerName
-		 * @param jobTitle
+		 * @param employerName Employer Name
+		 * @param jobTitle Job Title
 		 */
 		public Builder(String employerName, String jobTitle) {
 			this();
@@ -147,10 +143,10 @@ public class Experience implements Serializable {
 
 		/**
 		 * Constructor with All Fields
-		 * @param employerName
-		 * @param jobTitle
-		 * @param startDate
-		 * @param endDate
+		 * @param employerName Employer Name
+		 * @param jobTitle Job Title
+		 * @param startDate Start Date
+		 * @param endDate End Date
 		 */
 		public Builder(String employerName, String jobTitle, Calendar startDate, Calendar endDate) {
 			this(employerName,jobTitle);

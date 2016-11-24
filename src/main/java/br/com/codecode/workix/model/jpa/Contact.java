@@ -14,7 +14,6 @@ import br.com.codecode.workix.model.interfaces.Buildable;
 /**
  * Contact JPA {@link Embeddable}
  * @author felipe
- * @category JPA
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -34,8 +33,7 @@ public class Contact implements Serializable {
 	/**
 	 * Public Constructor for {@link Builder} Compatibility
 	 * @see Buildable
-	 * @param builder
-	 * @category Builder
+	 * @param builder Builder for Generate a New Contact
 	 */
 	public Contact(@NotNull Builder builder) {
 		this.mobilePhone = builder.mobilePhone;
@@ -56,9 +54,7 @@ public class Contact implements Serializable {
 	
 	/**
 	 * Builder NestedClass for {@link Contact} 
-	 * @category Builder
 	 * @author felipe
-	 *
 	 */
 	public static class Builder implements Buildable<Contact> {	
 

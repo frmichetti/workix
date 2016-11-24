@@ -18,7 +18,7 @@ import br.com.codecode.workix.cdi.qualifier.Production;
 
 /**
  * Entity Manager Producer
- * @see {@link persistence.xml}
+ * @see Produces
  * @author felipe
  *
  */
@@ -38,7 +38,7 @@ public class EntityManagerProducer implements Serializable {
 
 	/**
 	 * Produce EntityManager for CDI Injection Points 
-	 * @return {@link Production} Implementation
+	 * @return EntityManager Production Implementation
 	 */
 	@Produces
 	@RequestScoped
@@ -50,7 +50,7 @@ public class EntityManagerProducer implements Serializable {
 
 	/**
 	 * Produce EntityManager for CDI Injection Points 
-	 * @return {@link Development} Implementation
+	 * @return EntityManager Development Implementation
 	 */
 	@Produces
 	@RequestScoped
@@ -62,7 +62,7 @@ public class EntityManagerProducer implements Serializable {
 
 	/**
 	 * Produce EntityManager for CDI Injection Points 
-	 * @return {@link OpenShift} Implementation
+	 * @return EntityManager OpenShift Implementation
 	 */
 	@Produces
 	@RequestScoped
@@ -75,7 +75,7 @@ public class EntityManagerProducer implements Serializable {
 	/**
 	 * Produce EntityManager for CDI Injection Points based
 	 * on WEB-INF/web.xml ContextParam javax.faces.PROJECT_STAGE
-	 * @return {@link EntityManager}
+	 * @return EntityManager
 	 */
 	@Produces
 	@RequestScoped	
@@ -108,7 +108,7 @@ public class EntityManagerProducer implements Serializable {
 
 	/**
 	 * Closes Entity Manager when Necessary
-	 * @param em
+	 * @param em Provide a EntityManager AutoClose
 	 */
 	public void close(@Disposes EntityManager em) {	
 		
@@ -121,7 +121,7 @@ public class EntityManagerProducer implements Serializable {
 	/**
 	 * Discover Project Stage Parameter to Choose Default EntityManager  
 	 * @return String Representation for Entity Manager Selection
-	 * @throws RuntimeException
+	 * @throws RuntimeException if ContextParam is not Accessible
 	 */
 	private String getContextParam() throws RuntimeException{
 		

@@ -11,6 +11,8 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 /**
  * Managed Executor Service Producer<br>
  * Use for Asynchronous Tasks
+ * @see Produces
+ * @see ManagedExecutorService
  * @author felipe
  *
  */
@@ -21,8 +23,8 @@ public class ManagedExecutorServiceProducer {
 	private ManagedExecutorService managedExecutorService;
 	
 	/**
-	 * Produce {@link ManagedExecutorService} for CDI Injection Points 
-	 * @return {@link ManagedExecutorService} Instance
+	 * Produce ManagedExecutorService for CDI Injection Points 
+	 * @return ManagedExecutorService Instance
 	 */
 	@Produces
 	@Dependent

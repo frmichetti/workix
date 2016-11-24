@@ -7,13 +7,15 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.producer.EntityManagerProducer;
+import br.com.codecode.workix.cdi.qualifier.Development;
 import br.com.codecode.workix.cdi.qualifier.Factory;
+import br.com.codecode.workix.cdi.qualifier.OpenShift;
 import br.com.codecode.workix.cdi.qualifier.Persist;
+import br.com.codecode.workix.cdi.qualifier.Production;
 
 /**
  * Only for Share Entity Manager
- * @author felipe
- *
+ * @author felipe 
  */
 @Persist
 public abstract class BaseDao implements Serializable{
@@ -23,7 +25,7 @@ public abstract class BaseDao implements Serializable{
 	/**
 	 * CDI Injection Point for {@link EntityManager}
 	 * @see EntityManagerProducer
-	 * Possible values {@link @Default} {@link @Production} {@link @Development} {@link @OpenShift}
+	 * Possible values {@link Default} {@link Production} {@link Development} {@link OpenShift}
 	 */
 	@Inject @Factory @Default
 	protected EntityManager em;

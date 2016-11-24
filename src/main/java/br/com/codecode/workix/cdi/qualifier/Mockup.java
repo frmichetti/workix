@@ -12,6 +12,7 @@ import java.lang.annotation.Target;
 
 import javax.inject.Qualifier;
 
+import br.com.codecode.workix.cdi.dao.implementation.generic.Dao;
 import br.com.codecode.workix.cdi.dao.implementation.mockup.BaseDaoMockup;
 import br.com.codecode.workix.cdi.dao.implementation.mockup.CandidateDaoMockup;
 import br.com.codecode.workix.cdi.dao.implementation.mockup.CompanyDaoMockup;
@@ -20,7 +21,7 @@ import br.com.codecode.workix.cdi.dao.implementation.mockup.ResumeDaoMockup;
 import br.com.codecode.workix.cdi.dao.implementation.mockup.UserDaoMockup;
 
 /**
- * CDI - Qualifier for Dao Instance
+ * CDI - Qualifier for {@link Dao} Instance
  * @see BaseDaoMockup
  * @see CandidateDaoMockup
  * @see CompanyDaoMockup

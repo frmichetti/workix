@@ -14,7 +14,7 @@ import br.com.codecode.workix.model.jpa.Company;
 /**
  * Mockup Class for Demonstration Only
  * @author felipe
- * @category Mockup
+ * 
  */
 @Mockup
 public class CompanyDaoMockup extends BaseDaoMockup implements Crud<Company> {

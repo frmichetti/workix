@@ -8,29 +8,33 @@ import javax.ejb.Schedule;
 import javax.ejb.Singleton;
 import javax.ejb.Startup;
 import javax.ejb.Timer;
-
+/**
+ * This Class is a Enterprise Java Bean witch execute tasks in Some Periods
+ * @author felipe
+ *
+ */
 @Singleton
 @Startup
 public class TimerBean {
-		
+
 	private Timer timer;
 
 	@PostConstruct
 	public void init() {
-		
+
 		System.out.println("[TimerBean] Iniciando o EJB com timer");
-		
+
 		System.out
-				.println("[TimerBean] Criando agendamento na inicializaçao");
+		.println("[TimerBean] Criando agendamento na inicializaçao");
 	}
 
 	@PreDestroy
-	public void destroy() {
-		
-		System.out.println("[TimerBean] Finalizando agendamento ...");
-		
+	public void destroy() {		
+
 		if(timer != null)
-		
+
+		System.out.println("[TimerBean] Finalizando agendamento ...");
+
 		timer.cancel();
 	}
 

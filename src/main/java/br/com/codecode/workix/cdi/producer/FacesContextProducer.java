@@ -17,6 +17,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 
 /**
  * Faces Context Producer
+ * @see Produces
  * @author felipe
  *
  */

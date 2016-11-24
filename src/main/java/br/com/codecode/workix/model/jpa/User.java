@@ -12,7 +12,6 @@ import br.com.codecode.workix.model.interfaces.Buildable;
 /**
  * User JPA {@link Entity}
  * @author felipe
- * @category JPA
  */
 @Entity
 public class User extends MyEntity {
@@ -41,8 +40,7 @@ public class User extends MyEntity {
 	/**
 	 * Public Constructor for {@link Builder} Compatibility
 	 * @see Buildable
-	 * @param builder
-	 * @category Builder
+	 * @param builder Builder for Generate a New User
 	 */
 	public User(@NotNull Builder builder){
 
@@ -120,9 +118,7 @@ public class User extends MyEntity {
 
 	/**
 	 * Builder NestedClass for {@link User} 
-	 * @category Builder
 	 * @author felipe
-	 *
 	 */
 	public static class Builder implements Buildable<User> {	
 
@@ -137,8 +133,8 @@ public class User extends MyEntity {
 		
 		/**
 		 * Constructor with Required Fields
-		 * @param active
-		 * @param email
+		 * @param active Active
+		 * @param email Email
 		 */
 		public Builder(boolean active, String email) {
 			this();
@@ -148,10 +144,10 @@ public class User extends MyEntity {
 		
 		/**
 		 * Constructor with All Fields
-		 * @param active
-		 * @param email
-		 * @param firebaseUUID
-		 * @param firebaseMessageToken
+		 * @param active Active
+		 * @param email Email
+		 * @param firebaseUUID Firebase UUID
+		 * @param firebaseMessageToken Firebase Message Token
 		 */
 		public Builder(boolean active, String email, String firebaseUUID, String firebaseMessageToken) {
 			this(active,email);			

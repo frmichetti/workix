@@ -31,10 +31,10 @@ public class MailSender {
 
 	/**
 	 * Send Mail Message
-	 * @param from
-	 * @param to
-	 * @param subject
-	 * @param body
+	 * @param from Email from Sender
+	 * @param to Email to Deliver
+	 * @param subject Subject of Message
+	 * @param body Body Content of Message
 	 */
 	public void send(String from,String to,String subject,String body){
 

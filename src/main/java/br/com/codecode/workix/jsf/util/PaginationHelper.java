@@ -1,20 +1,17 @@
 package br.com.codecode.workix.jsf.util;
 
-import javax.enterprise.context.RequestScoped;
-
 /**
  * Pagination Helper
  * @author felipe
  * @version 1.0
  *
  */
-@RequestScoped
 public class PaginationHelper {		
 
 	/**
 	 * Discover Total Pages
-	 * @param limitRows
-	 * @param maxRows
+	 * @param limitRows Limit of Rows
+	 * @param maxRows Max Rows in Table
 	 * @return number of Pages between Limit and Max Rows
 	 */
 	public int discoverTotalPages(int limitRows, int maxRows){
@@ -24,8 +21,8 @@ public class PaginationHelper {
 
 	/**
 	 * Discover Max Rows between Limit and Total Pages
-	 * @param limitRows
-	 * @param totalPages
+	 * @param limitRows Limit of Rows
+	 * @param totalPages Number of Total Pages
 	 * @return number of Rows between Limit and Total Pages
 	 */
 	public int discoverMaxRows(int limitRows,int totalPages){
@@ -35,17 +32,15 @@ public class PaginationHelper {
 
 	/**
 	 * Discover Start Range between Total Pages and Limit
-	 * @param limitRows
-	 * @param currentPage
-	 * @param totalPages
+	 * @param limitRows Limit of Rows
+	 * @param currentPage Current Page
+	 * @param totalPages Number of Total Pages
 	 * @return start Point for Pagination
-	 * @throws IllegalArgumentException
+	 * @throws IllegalArgumentException if CurrentPage Minor Than One
 	 */
 	public int discoverStartRange(int limitRows,int currentPage,int totalPages) throws IllegalArgumentException {
 
-		if(currentPage < 1){
-			throw new IllegalArgumentException("Current Page Minor than 1");
-		}
+		if(currentPage < 1)	throw new IllegalArgumentException("Current Page Minor than 1");		
 
 		return (limitRows * currentPage) - limitRows + 1;
 
@@ -53,9 +48,9 @@ public class PaginationHelper {
 
 	/**
 	 * Discover End Range between Total Pages and Limit
-	 * @param limitRows
-	 * @param currentPage
-	 * @param totalPages
+	 * @param limitRows Limit of Rows
+	 * @param currentPage Current Page
+	 * @param totalPages Number of Total Pages
 	 * @return end Point for Pagination
 	 */
 	public int discoverEndRange(int limitRows,int currentPage,int totalPages){

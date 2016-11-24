@@ -18,8 +18,6 @@ import br.com.codecode.workix.model.interfaces.Buildable;
 /**
  * Education JPA {@link Embeddable} 
  * @author felipe
- * @category JPA
- *
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -55,8 +53,7 @@ public class Education implements Serializable {
 	/**
 	 * Public Constructor for {@link Builder} Compatibility
 	 * @see Buildable
-	 * @param builder
-	 * @category Builder
+	 * @param builder Builder for Generate a new Education
 	 */
 	public Education(@NotNull Builder builder) {
 		this.schoolName = builder.schoolName;
@@ -112,8 +109,7 @@ public class Education implements Serializable {
 	}
 
 	/**
-	 * Builder NestedClass for {@link Contact} 
-	 * @category Builder
+	 * Builder NestedClass for {@link Education} 
 	 * @author felipe
 	 *
 	 */
@@ -134,12 +130,25 @@ public class Education implements Serializable {
 		 */
 		private Builder(){}		
 
+		/**
+		 * Minimal Constructor with Required Fields
+		 * @param schoolName School Name
+		 * @param startDate Start Date
+		 */
 		public Builder(String schoolName,Calendar startDate) {
 			this();			
 			this.schoolName = schoolName;
 			this.startDate = startDate;
 		}		
 
+		/**
+		 * Constructor with All Fields
+		 * @param schoolName School Name
+		 * @param startDate Start Date
+		 * @param endDate End Date
+		 * @param qualification Qualification
+		 * @param description Description
+		 */
 		public Builder(String schoolName, Calendar startDate, Calendar endDate, String qualification, String description) {			
 			this(schoolName,startDate);			
 			this.endDate = endDate;

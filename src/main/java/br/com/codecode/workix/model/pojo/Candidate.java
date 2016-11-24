@@ -7,7 +7,7 @@ import br.com.codecode.workix.model.base.BaseCandidate;
 /**
  * Draft Candidate Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Candidate extends Person implements BaseCandidate{

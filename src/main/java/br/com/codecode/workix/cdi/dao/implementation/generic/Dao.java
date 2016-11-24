@@ -9,6 +9,7 @@ import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.com.codecode.workix.cdi.dao.BaseCrud;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producer.GenericDaoProducer;
 import br.com.codecode.workix.model.interfaces.Persistable;
@@ -16,10 +17,11 @@ import br.com.codecode.workix.model.interfaces.Persistable;
 /**
  * Generic Dao Implementation
  * @see GenericDaoProducer
- * @category Generic
+ * @see BaseCrud
+ * @see Crud 
  * @author felipe
  *
- * @param <T>
+ * @param <T> Any Entity witch implements Persistable and Serializable
  */
 @SuppressWarnings("unchecked")
 public class Dao<T extends Persistable & Serializable> implements Crud<T>, Serializable {
@@ -38,8 +40,8 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 	/**
 	 * {@link EntityManager} Must be in the construction Method
 	 * else Causes NullPointerException on {@link InjectionPoint} 
-	 * @param clazz
-	 * @param em
+	 * @param clazz Type of Clazz for Injection 
+	 * @param em Entity Manager used in DB Transactions
 	 */
 	public Dao(Class<T> clazz, EntityManager em) {
 		this();

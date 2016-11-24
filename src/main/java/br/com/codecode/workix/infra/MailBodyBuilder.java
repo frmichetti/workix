@@ -11,6 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
@@ -28,7 +29,7 @@ import br.com.codecode.workix.util.ReadFile;
  */
 public class MailBodyBuilder {
 	
-	@Inject @Factory
+	@Inject @Factory @Default
 	private FacesContext facesContext;
 
 	private String server, templatePath;

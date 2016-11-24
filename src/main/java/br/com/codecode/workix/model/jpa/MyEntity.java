@@ -26,6 +26,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  * <br>Base abstract Class for Share common Fields
  * <br>All inherited classes MUST contain<br>
  * <table> 	
+ * <caption> Inherited Fields </caption>
  * <tr>
  *   <th>{@link #id}</th>
  *   <th>{@link #version}</th>
@@ -35,8 +36,6 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  * </tr>
  * </table>
  * @author felipe
- * @category JPA
- *
  */
 @MappedSuperclass
 @XmlRootElement

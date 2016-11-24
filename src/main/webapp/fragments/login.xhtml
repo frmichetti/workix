@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
 
-	<!-- 
+<!-- 
 		Replace path to template, title, header and body
 		with actual data.
 	 -->
-	<ui:composition>
-	
+<ui:composition>
+
 	<!-- ============ LOGIN START ============ -->
 
-		<div class="popup" id="login">
-			<div class="popup-form">
-				<div class="popup-header">
-					<a class="close">
-					<i class="fa fa-remove fa-lg"></i></a>
-					<h2>Login</h2>					
-				</div>
-				<form>
-					<ul class="social-login">
-						<li><a class="btn btn-facebook">
-						<i class="fa fa-facebook"></i>Sign In with Facebook</a></li>
-						<li><a class="btn btn-google" id="quickstart-sign-in">
-						<i class="fa fa-google-plus"></i>Sign In with Google</a></li>
-						<li><a class="btn btn-linkedin">
-						<i class="fa fa-linkedin"></i>Sign In with LinkedIn</a></li>
-					</ul>
-					
-					<ui:remove>
+	<div class="popup" id="login">
+		<div class="popup-form">
+			<div class="popup-header">
+				<a class="close"> <i class="fa fa-remove fa-lg"></i></a>
+				<h2>Login</h2>
+			</div>
+			<form>
+				<ul class="social-login">
+					<li><a class="btn btn-facebook"> <i class="fa fa-facebook"></i>Sign
+							In with Facebook
+					</a></li>
+					<li><a class="btn btn-google" id="quickstart-sign-in"> <i
+							class="fa fa-google-plus"></i>Sign In with Google
+					</a></li>
+					<li><a class="btn btn-linkedin"> <i class="fa fa-linkedin"></i>Sign
+							In with LinkedIn
+					</a></li>
+				</ul>
+
+				<ui:remove>
 					<hr />
 					<div class="form-group">
-						<label for="login-username">Username</label>
-						<input type="text" class="form-control" id="login-username" />
+						<label for="login-username">Username</label> <input type="text"
+							class="form-control" id="login-username" />
 					</div>
 					<div class="form-group">
-						<label for="login-password">Password</label>
-						<input type="password" class="form-control" id="login-password" />
+						<label for="login-password">Password</label> <input
+							type="password" class="form-control" id="login-password" />
 					</div>
 					<button type="submit" class="btn btn-primary">Sign In</button>
-					</ui:remove>				
-					
-					
-				</form>
-			</div>
+				</ui:remove>
+
+
+			</form>
 		</div>
-			
-		<!-- ============ LOGIN END ============ -->
-			
-	</ui:composition>
+	</div>
+
+	<!-- ============ LOGIN END ============ -->
+
+</ui:composition>
 
 </html>

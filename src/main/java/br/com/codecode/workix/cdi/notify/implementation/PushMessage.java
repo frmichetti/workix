@@ -18,6 +18,12 @@ import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.util.Http;
 
+/**
+ * Push Message Implementation<br>
+ * Send a Text Message to Firebase
+ * @author felipe
+ *
+ */
 @Push
 public class PushMessage implements Notification, Serializable{
 

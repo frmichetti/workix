@@ -10,11 +10,12 @@ import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
+import javax.enterprise.inject.Produces;
 import javax.inject.Qualifier;
 
 /**
  * CDI Qualifier for Factory Producers
- * @see {@link br.com.codecode.workix.cdi.producer}
+ * @see Produces
  * @author felipe
  *
  */

@@ -3,26 +3,25 @@
 
 <html xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"	
-	 xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	>
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <f:view contentType="text/html">
 
 	<h:head>
-	
+
 		<title>Faces</title>
 		<f:facet name="first">
 			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
 		</f:facet>
 	</h:head>
 
-	<h:body>		
+	<h:body>
 		<h:messages showDetail="true" life="3000" autoUpdate="true" />
 
-			<ui:insert name="content">
-				<ui:include src="index.xhtml" />
-			</ui:insert>
+		<ui:insert name="content">
+			<ui:include src="index.xhtml" />
+		</ui:insert>
 
 
 

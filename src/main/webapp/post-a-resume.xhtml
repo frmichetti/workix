@@ -7,29 +7,34 @@
 
 <ui:composition template="/template.xhtml">
 
-<ui:define name="headerTitle">Workix - Postar Currículum</ui:define>
+	<ui:define name="headerTitle">Workix - Postar Currículum</ui:define>
 
-<ui:define name="title">
-	<h1>Publicação de Currículum</h1>
-	<h4>Encontre o seu Trabalho Perfeito</h4>
-</ui:define>
+	<ui:define name="title">
+		<h1>Publicação de Currículum</h1>
+		<h4>Encontre o seu Trabalho Perfeito</h4>
+	</ui:define>
 
-<ui:define name="content">
-	
-	<!-- ============ RESUME START ============ -->
+	<ui:define name="content">
+
+		<!-- ============ RESUME START ============ -->
 
 		<section id="resume">
 			<div class="container">
 				<div class="row text-center">
-					<div class="col-sm-12">						
-						
+					<div class="col-sm-12">
+
 						<div class="jumbotron">
 							<h3>Have an account?</h3>
-							<p>If you don’t have an account you can create one below by entering your email address/username.<br />
-							A password will be automatically emailed to you.</p>
-							<p><a href="#" class="btn btn-primary">Sign In</a></p>
+							<p>
+								If you don’t have an account you can create one below by
+								entering your email address/username.<br /> A password will be
+								automatically emailed to you.
+							</p>
+							<p>
+								<a href="#" class="btn btn-primary">Sign In</a>
+							</p>
 						</div>
-						
+
 					</div>
 				</div>
 
@@ -41,203 +46,231 @@
 							<h2>Detalhes do Currículum</h2>
 						</div>
 						<ui:remove>
-						<div class="col-sm-6 text-right">
-							<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i> LinkedIn Import</a>
-						</div>
+							<div class="col-sm-6 text-right">
+								<a class="btn btn-primary"><i class="fa fa-linkedin-square"></i>
+									LinkedIn Import</a>
+							</div>
 						</ui:remove>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-name-group">
 								<label for="resume-name">Nome</label>
-								<h:inputText pt:type="text" class="form-control" pt:id="resume-name" pt:placeholder="e.g. John Doe" pt:value="#{postAResume.currentResume.candidate.name}" />
+								<h:inputText pt:type="text" class="form-control"
+									pt:id="resume-name" pt:placeholder="e.g. John Doe"
+									pt:value="#{postAResume.currentResume.candidate.name}" />
 							</div>
 						</div>
-						
-						<ui:remove>						
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-photo-group">
-								<label for="resume-photo">Photo (Optional)</label>
-								<input type="file" id="resume-photo" />
+
+						<ui:remove>
+							<div class="col-sm-6">
+								<div class="form-group" id="resume-photo-group">
+									<label for="resume-photo">Photo (Optional)</label> <input
+										type="file" id="resume-photo" />
+								</div>
 							</div>
-						</div>
 						</ui:remove>
 					</div>
-					
+
 					<ui:remove>
-					
-					<div class="row">
-						
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-title-group">
-								<label for="resume-title">Title</label>
-								<input type="text" class="form-control" id="resume-title" placeholder="e.g. Web Designer" />
+
+						<div class="row">
+
+							<div class="col-sm-6">
+								<div class="form-group" id="resume-title-group">
+									<label for="resume-title">Title</label> <input type="text"
+										class="form-control" id="resume-title"
+										placeholder="e.g. Web Designer" />
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="form-group" id="resume-video-group">
+									<label for="resume-video">Video (Optional)</label> <input
+										type="text" class="form-control" id="resume-video"
+										placeholder="Video URL" />
+								</div>
 							</div>
 						</div>
-						
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-video-group">
-								<label for="resume-video">Video (Optional)</label>
-								<input type="text" class="form-control" id="resume-video" placeholder="Video URL" />
-							</div>
-						</div>
-					</div>
 					</ui:remove>
-					
+
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-email-group">
 								<label for="resume-email">Email</label>
-								<h:inputText pt:type="email" class="form-control" id="resume-email" pt:placeholder="you@yourdomain.com" pt:value="#{postAResume.currentResume.candidate.user.email}"/>
+								<h:inputText pt:type="email" class="form-control"
+									id="resume-email" pt:placeholder="you@yourdomain.com"
+									pt:value="#{postAResume.currentResume.candidate.user.email}" />
 							</div>
 						</div>
-						
+
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-category-group">
 								<label for="resume-category">Candidato</label>
-								<h:selectOneMenu value="#{postAResume.currentResume.candidate}" styleClass="form-control" id="resume-category" pt:required="required">
-								<f:ajax execute="resume-name" event="change"  />
-								<f:ajax execute="resume-email" event="change" />  
-								<f:selectItem itemValue="" itemLabel="Selecione um Dono"/>  
-                					<f:selectItems value="#{postAResume.candidates}" var="c" itemLabel="#{c.name}" itemValue="#{c}"/>								
+								<h:selectOneMenu value="#{postAResume.currentResume.candidate}"
+									styleClass="form-control" id="resume-category"
+									pt:required="required">
+									<f:ajax execute="resume-name" event="change" />
+									<f:ajax execute="resume-email" event="change" />
+									<f:selectItem itemValue="" itemLabel="Selecione um Dono" />
+									<f:selectItems value="#{postAResume.candidates}" var="c"
+										itemLabel="#{c.name}" itemValue="#{c}" />
 								</h:selectOneMenu>
-								
+
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-location-group">
-								<label for="resume-location">Localização</label>
-								<input type="text" class="form-control" id="resume-location" placeholder="e.g. New York City" />
+								<label for="resume-location">Localização</label> <input
+									type="text" class="form-control" id="resume-location"
+									placeholder="e.g. New York City" />
 							</div>
 						</div>
-						
+
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-skills-group">
 								<label for="resume-skills">Objetivo</label>
-								<h:inputText pt:type="text" class="form-control" id="resume-skills" pt:placeholder="e.g. Photoshop, HTML, CSS" pt:value="#{postAResume.currentResume.objective}" pt:required="required"/>
+								<h:inputText pt:type="text" class="form-control"
+									id="resume-skills" pt:placeholder="e.g. Photoshop, HTML, CSS"
+									pt:value="#{postAResume.currentResume.objective}"
+									pt:required="required" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="form-group" id="resume-content-group">
-								<label for="resume-content">Resume Content</label>								
-								<h:inputTextarea pt:value="#{postAResume.currentResume.content}" class="textarea form-control" pt:required="required" pt:id="resume-content"/>
+								<label for="resume-content">Resume Content</label>
+								<h:inputTextarea pt:value="#{postAResume.currentResume.content}"
+									class="textarea form-control" pt:required="required"
+									pt:id="resume-content" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-12">
 							<hr class="dashed" />
 						</div>
 					</div>
 					<ui:remove>
-					<div class="row social-network">
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-social-network-group">
-								<label for="resume-social-network">Choose Social Network</label>
-								<select  class="form-control" id="resume-social-network">
-									<option>Choose social network</option>
-									<option>Facebook</option>
-									<option>Twitter</option>
-									<option>Google+</option>
-									<option>LinkedIn</option>
-									<option>YouTube</option>
-									<option>Vimeo</option>
-									<option>Github</option>
-									<option>Flickr</option>
-									<option>YouTube</option>
-									<option>DeviantArt</option>
-									<option>ThemeForest</option>
-									<option>CodeCanyon</option>
-									<option>VideoHive</option>
-									<option>AudioJungle</option>
-									<option>GraphicRiver</option>
-									<option>PhotoDune</option>
-									<option>3dOcean</option>
-									<option>ActiveDen</option>
-									<option>Other</option>
-								</select>
+						<div class="row social-network">
+							<div class="col-sm-6">
+								<div class="form-group" id="resume-social-network-group">
+									<label for="resume-social-network">Choose Social
+										Network</label> <select class="form-control"
+										id="resume-social-network">
+										<option>Choose social network</option>
+										<option>Facebook</option>
+										<option>Twitter</option>
+										<option>Google+</option>
+										<option>LinkedIn</option>
+										<option>YouTube</option>
+										<option>Vimeo</option>
+										<option>Github</option>
+										<option>Flickr</option>
+										<option>YouTube</option>
+										<option>DeviantArt</option>
+										<option>ThemeForest</option>
+										<option>CodeCanyon</option>
+										<option>VideoHive</option>
+										<option>AudioJungle</option>
+										<option>GraphicRiver</option>
+										<option>PhotoDune</option>
+										<option>3dOcean</option>
+										<option>ActiveDen</option>
+										<option>Other</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="col-sm-6">
+								<div class="form-group" id="resume-social-network-url-group">
+									<label for="resume-social-network-url">URL</label> <input
+										type="text" class="form-control"
+										id="resume-social-network-url" placeholder="http://" />
+								</div>
 							</div>
 						</div>
-						
-						<div class="col-sm-6">
-							<div class="form-group" id="resume-social-network-url-group">
-								<label for="resume-social-network-url">URL</label>
-								<input type="text" class="form-control" id="resume-social-network-url" placeholder="http://" />
+
+						<div class="row">
+							<div class="col-sm-12">
+								<hr class="dashed" />
 							</div>
 						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-12">
-							<hr class="dashed" />
+						<div class="row">
+							<div class="col-sm-12">
+								<p>
+									<a id="add-social-network">+ Add Social Network</a>
+								</p>
+								<hr />
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<p><a id="add-social-network">+ Add Social Network</a></p>
-							<hr />
-						</div>
-					</div>
 					</ui:remove>
 					<!-- Resume Details End -->
 
 					<!-- Experience Start -->
 					<div class="row">
 						<div class="col-sm-12">
-							<p> </p>
+							<p></p>
 							<h2>Experiências</h2>
 						</div>
 					</div>
-					
+
 					<div class="row experience">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-employer-group">
-								<label for="resume-employer">Empregador</label>
-								<input type="text" class="form-control" id="resume-employer" placeholder="Company name" />
+								<label for="resume-employer">Empregador</label> <input
+									type="text" class="form-control" id="resume-employer"
+									placeholder="Company name" />
 							</div>
 						</div>
-						
+
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-experience-dates-group">
 								<label for="resume-experience-dates">Data de Início/Fim</label>
-								<input type="text" class="form-control" id="resume-experience-dates" placeholder="e.g. April 2010 - June 2013" />
+								<input type="text" class="form-control"
+									id="resume-experience-dates"
+									placeholder="e.g. April 2010 - June 2013" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-job-title-group">
-								<label for="resume-job-title">Cargo ou Função</label>
-								<input type="text" class="form-control" id="resume-job-title" placeholder="e.g. Web Designer" />
+								<label for="resume-job-title">Cargo ou Função</label> <input
+									type="text" class="form-control" id="resume-job-title"
+									placeholder="e.g. Web Designer" />
 							</div>
 						</div>
-						
+
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-responsibilities-group">
-								<label for="resume-responsibilities">Atribuições (Opcional)</label>
-								<input type="text" class="form-control" id="resume-responsibilities" placeholder="e.g. Developing new websites" />
+								<label for="resume-responsibilities">Atribuições
+									(Opcional)</label> <input type="text" class="form-control"
+									id="resume-responsibilities"
+									placeholder="e.g. Developing new websites" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-12">
 							<hr class="dashed" />
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-experience">+ Add Experience</a></p>
+							<p>
+								<a id="add-experience">+ Add Experience</a>
+							</p>
 							<hr />
 						</div>
 					</div>
@@ -246,82 +279,90 @@
 					<!-- Education Start -->
 					<div class="row">
 						<div class="col-sm-12">
-							<p> </p>
+							<p></p>
 							<h2>Education</h2>
 						</div>
 					</div>
-					
+
 					<div class="row education">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-school-group">
-								<label for="resume-school">School Name</label>
-								<input type="text" class="form-control" id="resume-school" placeholder="School name, city and country" />
+								<label for="resume-school">School Name</label> <input
+									type="text" class="form-control" id="resume-school"
+									placeholder="School name, city and country" />
 							</div>
 						</div>
-						
+
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-education-dates-group">
-								<label for="resume-education-dates">Start/End Date</label>
-								<input type="text" class="form-control" id="resume-education-dates" placeholder="e.g. April 2010 - June 2013" />
+								<label for="resume-education-dates">Start/End Date</label> <input
+									type="text" class="form-control" id="resume-education-dates"
+									placeholder="e.g. April 2010 - June 2013" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-qualifications-group">
-								<label for="resume-qualifications">Qualifications</label>
-								<input type="text" class="form-control" id="resume-qualifications" placeholder="e.g. Master Engineer" />
+								<label for="resume-qualifications">Qualifications</label> <input
+									type="text" class="form-control" id="resume-qualifications"
+									placeholder="e.g. Master Engineer" />
 							</div>
 						</div>
-						
+
 						<div class="col-sm-6">
 							<div class="form-group" id="resume-notes-group">
-								<label for="resume-notes">Notes (Optional)</label>
-								<input type="text" class="form-control" id="resume-notes" placeholder="Any achievements" />
+								<label for="resume-notes">Notes (Optional)</label> <input
+									type="text" class="form-control" id="resume-notes"
+									placeholder="Any achievements" />
 							</div>
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-12">
 							<hr class="dashed" />
 						</div>
 					</div>
-					
+
 					<div class="row">
 						<div class="col-sm-12">
-							<p><a id="add-education">+ Add Education</a></p>
+							<p>
+								<a id="add-education">+ Add Education</a>
+							</p>
 							<hr />
 						</div>
 					</div>
 					<!-- Education Start -->
 
-	<ui:remove>
-					<!-- Resume File Start -->
-					<div class="row">
-						<div class="col-sm-12">
-							<p> </p>
-							<h2>Resume File</h2>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="form-group" id="resume-file-group">
-								<label for="resume-file">Upload Your Resume (Optional)</label>
-								<input type="file" id="resume-file" />
-								<p class="help-block">Optionally upload your resume for employers to view. Max. file size: 64 MB.</p>
+					<ui:remove>
+						<!-- Resume File Start -->
+						<div class="row">
+							<div class="col-sm-12">
+								<p></p>
+								<h2>Resume File</h2>
 							</div>
 						</div>
-					</div>
-					<!-- Resume File Start -->
-	</ui:remove>
+
+						<div class="row">
+							<div class="col-sm-12">
+								<div class="form-group" id="resume-file-group">
+									<label for="resume-file">Upload Your Resume (Optional)</label>
+									<input type="file" id="resume-file" />
+									<p class="help-block">Optionally upload your resume for
+										employers to view. Max. file size: 64 MB.</p>
+								</div>
+							</div>
+						</div>
+						<!-- Resume File Start -->
+					</ui:remove>
 					<div class="row text-center">
 						<div class="col-sm-12">
-							<p> </p>
-							
-							<h:commandButton action="#{postAResume.commit()}" value="Postar"  styleClass="btn btn-primary btn-lg btn-block" />
+							<p></p>
+
+							<h:commandButton action="#{postAResume.commit()}" value="Postar"
+								styleClass="btn btn-primary btn-lg btn-block" />
 						</div>
 					</div>
 
@@ -331,9 +372,9 @@
 		</section>
 
 		<!-- ============ RESUME END ============ -->
-		
+
 	</ui:define>
-	
+
 </ui:composition>
 
 </html>

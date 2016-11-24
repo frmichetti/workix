@@ -26,7 +26,7 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  * Only for JAAS security
  * 
  * @since 1.0
- * @version
+ * @version 1.0
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

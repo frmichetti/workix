@@ -18,7 +18,6 @@ import br.com.codecode.workix.model.interfaces.Persistable;
 /**
  * Subscriber JPA {@link Entity}
  * @author felipe
- * @category JPA
  */
 @Entity
 public class Subscriber implements Persistable, Serializable{
@@ -40,6 +39,11 @@ public class Subscriber implements Persistable, Serializable{
 	 */
 	public Subscriber(){}	
 
+	/**
+	 * Public Constructor for {@link Builder} Compatibility
+	 * @see Buildable
+	 * @param builder Builder for Generate New Subscriber
+	 */
 	public Subscriber(@NotNull Builder builder){
 		
 		this.id = builder.id;
@@ -72,9 +76,7 @@ public class Subscriber implements Persistable, Serializable{
 
 	/**
 	 * Builder NestedClass for Subscriber 
-	 * @category Builder
 	 * @author felipe
-	 *
 	 */
 	public static class Builder implements Buildable<Subscriber> {
 
@@ -89,7 +91,7 @@ public class Subscriber implements Persistable, Serializable{
 
 		/**
 		 * Constructor with Required Fields
-		 * @param email
+		 * @param email Email
 		 */
 		public Builder(String email) {
 			this();
@@ -98,8 +100,8 @@ public class Subscriber implements Persistable, Serializable{
 		
 		/**
 		 * Constructor with All Fields
-		 * @param id
-		 * @param email
+		 * @param id Id
+		 * @param email Email
 		 */
 		public Builder(long id, String email) {
 			super();

@@ -23,9 +23,10 @@ import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Push;
+import br.com.codecode.workix.model.jpa.User;
 
 /**
- * {@link MessageDrivenBean} for User
+ * This Class is a {@link MessageDrivenBean} for {@link User}
  * Execute Actions {@link #onMessage(Message)}
  * @author felipe
  *

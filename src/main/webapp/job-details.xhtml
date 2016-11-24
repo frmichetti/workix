@@ -7,22 +7,22 @@
 
 <ui:composition template="/template.xhtml">
 
-<ui:define name="headerTitle">Workix - Detalhes da Vaga</ui:define>	
-	
+	<ui:define name="headerTitle">Workix - Detalhes da Vaga</ui:define>
+
 	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{jobDetailMB.id}" />	
+		<f:viewParam id="id" name="id" value="#{jobDetailMB.id}" />
 		<f:viewAction action="#{jobDetailMB.init()}" />
 	</f:metadata>
-	
+
 	<ui:define name="title">
-						<h1>#{jobDetailMB.currentJob.title}</h1>
-						<h4>
-							<span><i class="fa fa-map-marker"></i>#{jobDetailMB.currentJob.employeer.locale.city}</span>
-							<span><i class="fa fa-clock-o"></i>#{jobDetailMB.currentJob.type.name()}</span>
-							<span><i class="fa fa-dollar"></i>#{jobDetailMB.currentJob.maxPayment}</span>
-						</h4>
+		<h1>#{jobDetailMB.currentJob.title}</h1>
+		<h4>
+			<span><i class="fa fa-map-marker"></i>#{jobDetailMB.currentJob.employeer.locale.city}</span>
+			<span><i class="fa fa-clock-o"></i>#{jobDetailMB.currentJob.type.name()}</span>
+			<span><i class="fa fa-dollar"></i>#{jobDetailMB.currentJob.maxPayment}</span>
+		</h4>
 	</ui:define>
-	
+
 	<ui:define name="content">
 
 		<!-- ============ CONTENT START ============ -->
@@ -33,79 +33,131 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Detalhes da Vaga</h2>
-							
+
 							#{jobDetailMB.currentJob.description}
 							<ui:remove>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
+								<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
+									rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
+									convallis convallis nisi. Donec maximus accumsan purus vel
+									tempus. Aenean pretium luctus velit id fermentum. Aenean non
+									velit non nulla interdum venenatis. Integer in libero sagittis,
+									consequat est quis, commodo odio. Aliquam eu vulputate neque.
+									Nunc et massa leo. Vestibulum a pretium dolor. Proin et
+									fermentum sapien. Cras malesuada neque ac purus fermentum, a
+									placerat quam malesuada. Quisque sollicitudin tellus a ex
+									eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
+								<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
+									rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
+									convallis convallis nisi. Donec maximus accumsan purus vel
+									tempus. Aenean pretium luctus velit id fermentum. Aenean non
+									velit non nulla interdum venenatis. Integer in libero sagittis,
+									consequat est quis, commodo odio. Aliquam eu vulputate neque.
+									Nunc et massa leo. Vestibulum a pretium dolor. Proin et
+									fermentum sapien. Cras malesuada neque ac purus fermentum, a
+									placerat quam malesuada. Quisque sollicitudin tellus a ex
+									eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
 							</ui:remove>
 							<h3>Requerimentos</h3>
 							#{jobDetailMB.currentJob.requirement}
 							<ui:remove>
-							<ul>
-								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
-								<li>Quisque pretium convallis pulvinar.</li>
-								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
-								<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor dignissim sapien.</li>
-								<li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
-								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
-								<li>Morbi rhoncus luctus interdum.</li>
-							</ul>
+								<ul>
+									<li>Aliquam rhoncus justo eget tellus scelerisque, at
+										mollis mi aliquam.</li>
+									<li>Quisque pretium convallis pulvinar.</li>
+									<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis
+										sed.</li>
+									<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor
+										dignissim sapien.</li>
+									<li>Pellentesque ipsum ex, imperdiet quis consequat sed,
+										consectetur ut ante.</li>
+									<li>Aliquam libero felis, mollis vitae elementum vel,
+										bibendum eu tortor.</li>
+									<li>Morbi rhoncus luctus interdum.</li>
+								</ul>
 							</ui:remove>
-							
+
 							<h3>Benefícios</h3>
 							#{jobDetailMB.currentJob.benefits}
 							<ui:remove>
-							<ul>
-								<li>Aliquam rhoncus justo eget tellus scelerisque, at mollis mi aliquam.</li>
-								<li>Quisque pretium convallis pulvinar.</li>
-								<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis sed.</li>
-								<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor dignissim sapien.</li>
-								<li>Pellentesque ipsum ex, imperdiet quis consequat sed, consectetur ut ante.</li>
-								<li>Aliquam libero felis, mollis vitae elementum vel, bibendum eu tortor.</li>
-								<li>Morbi rhoncus luctus interdum.</li>
-							</ul>
+								<ul>
+									<li>Aliquam rhoncus justo eget tellus scelerisque, at
+										mollis mi aliquam.</li>
+									<li>Quisque pretium convallis pulvinar.</li>
+									<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis
+										sed.</li>
+									<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor
+										dignissim sapien.</li>
+									<li>Pellentesque ipsum ex, imperdiet quis consequat sed,
+										consectetur ut ante.</li>
+									<li>Aliquam libero felis, mollis vitae elementum vel,
+										bibendum eu tortor.</li>
+									<li>Morbi rhoncus luctus interdum.</li>
+								</ul>
 							</ui:remove>
-							
-							
+
+
 							<h3>Como se Candidatar</h3>
-							
+
 							<ui:remove>
-							
-							<p>Vivamus pulvinar <a href="mailto:hr@netvibes.com">hr@netvibes.com</a>
-							 lobortis placerat. Cras non est nibh. In a quam id justo aliquam elementum. In cursus urna ac sem tincidunt aliquet. 
-							 Vivamus a aliquet purus, luctus tincidunt orci.</p>
-							
+
+								<p>
+									Vivamus pulvinar <a href="mailto:hr@netvibes.com">hr@netvibes.com</a>
+									lobortis placerat. Cras non est nibh. In a quam id justo
+									aliquam elementum. In cursus urna ac sem tincidunt aliquet.
+									Vivamus a aliquet purus, luctus tincidunt orci.
+								</p>
+
 							</ui:remove>
-							
+
 							<p>Simplesmente Clique no botão abaixo</p>
-							
+
 							<p>
-							<h:form>
-								<h:commandButton action="#{jobDetailMB.signup()}" value="Candidatar Agora" styleClass="btn btn-primary btn-lg" />								
-							</h:form>								 
-								<ui:remove><a href="#" class="btn btn-default btn-lg">Apply via LinkedIn</a></ui:remove>
-							
+								<h:form>
+									<h:commandButton action="#{jobDetailMB.signup()}"
+										value="Candidatar Agora" styleClass="btn btn-primary btn-lg" />
+								</h:form>
+								<ui:remove>
+									<a href="#" class="btn btn-default btn-lg">Apply via
+										LinkedIn</a>
+								</ui:remove>
+
 							</p>
-							
+
 						</article>
 					</div>
 					<div class="col-sm-4" id="sidebar">
 						<div class="sidebar-widget" id="share">
 							<h2>Compartilhe essa Vaga</h2>
 							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=http://#/job-details.html"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=http://#/job-details.html"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=http://#/job-details.html"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://#/job-details.html&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
+								<li><a
+									href="https://www.facebook.com/sharer/sharer.php?u=http://#/job-details.html"><i
+										class="fa fa-facebook"></i></a></li>
+								<li><a
+									href="https://twitter.com/home?status=http://#/job-details.html"><i
+										class="fa fa-twitter"></i></a></li>
+								<li><a
+									href="https://plus.google.com/share?url=http://#/job-details.html"><i
+										class="fa fa-google-plus"></i></a></li>
+								<li><a
+									href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://#/job-details.html&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
+										class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 						<hr />
 						<div class="sidebar-widget" id="company">
 							<h2>Sobre a Empresa</h2>
-							<p><img src="http://placehold.it/300x109.gif" alt="" class="img-responsive" /></p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tristique euismod lorem, a consequat orci consequat a. Donec ullamcorper tincidunt nunc, ut aliquam est pellentesque porta. In neque erat, malesuada sit amet orci ac, laoreet laoreet mauris.</p>
-							<p><a href="company.html" class="btn btn-primary">Leia Mais</a></p>
+							<p>
+								<img src="http://placehold.it/300x109.gif" alt=""
+									class="img-responsive" />
+							</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Pellentesque tristique euismod lorem, a consequat orci consequat
+								a. Donec ullamcorper tincidunt nunc, ut aliquam est pellentesque
+								porta. In neque erat, malesuada sit amet orci ac, laoreet
+								laoreet mauris.</p>
+							<p>
+								<a href="company.html" class="btn btn-primary">Leia Mais</a>
+							</p>
 						</div>
 						<hr />
 						<div class="sidebar-widget" id="company-jobs">
@@ -122,8 +174,8 @@
 		</section>
 
 		<!-- ============ CONTENT END ============ -->
-		
+
 	</ui:define>
-</ui:composition>	
+</ui:composition>
 
 </html>

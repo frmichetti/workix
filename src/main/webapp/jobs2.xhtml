@@ -7,20 +7,20 @@
 
 <ui:composition template="/template.xhtml">
 
-		<f:metadata>
-			<f:viewParam id="page" name="page" value="#{jobsMB.page}" />	
-			<f:viewAction action="#{jobsMB.init()}" />
-		</f:metadata>
+	<f:metadata>
+		<f:viewParam id="page" name="page" value="#{jobsMB.page}" />
+		<f:viewAction action="#{jobsMB.init()}" />
+	</f:metadata>
 
 	<ui:define name="headerTitle">#{applicationMB.appName} - Vagas 2</ui:define>
-	
+
 	<ui:define name="title">
 		<h1>Encontre um emprego</h1>
 		<h4>Não há lugar melhor para começar</h4>
 	</ui:define>
-	
+
 	<ui:define name="content">
-	
+
 		<!-- ============ JOBS START ============ -->
 
 		<section id="jobs">
@@ -29,56 +29,77 @@
 					<div class="col-sm-12">
 
 						<div class="jobs">
-						
-						<ui:repeat var="job" value="#{jobsMB.list}">						
-										
-							<a href="#{basePath}/job-details.xhtml?id=#{job.id}" class="featured applied">
-								<div class="row">
-									<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
-										<img src="#{basePath}/image/placeholder/60x60.jpg" alt="" class="img-responsive" />
-									</div>
-									<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 job-title">
-										<h5><h:outputText value="#{job.title}" /></h5>
-										<p><strong><h:outputText value="#{job.employeer.name}" /></strong> <h:outputText value="#{job.employeer.segment}" /></p>
-									</div>
-									<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 job-location">
-										<p><strong><h:outputText value="#{job.employeer.locale.city}" />, 
-										<h:outputText value="#{job.employeer.locale.estate}" /></strong></p>
-										<p class="hidden-xs">126.3 miles away</p>
-									</div>
-									<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs job-type text-center">
-										<p class="job-salary"><strong>R$ <h:outputText value="#{job.maxPayment}" /></strong></p>
-										<p class="badge full-time"><h:outputText value="#{job.type}" /></p>
-									</div>
-									<div class="col-lg-2 job-dates visible-lg-block">
-										<p class="job-posted"><strong>Postada em <h:outputText value="#{job.start}" /></strong></p>
-										<p class="job-closes">Encerra em <h:outputText value="#{job.start}" /></p>
-									</div>
-								</div>
-							</a>
-						
-						
-						
-						
-						</ui:repeat>
-						
-						
-						</div>
-						
 
-						<ui:insert name="pagination">		
+							<ui:repeat var="job" value="#{jobsMB.list}">
+
+								<a href="#{basePath}/job-details.xhtml?id=#{job.id}"
+									class="featured applied">
+									<div class="row">
+										<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
+											<img src="#{basePath}/image/placeholder/60x60.jpg" alt=""
+												class="img-responsive" />
+										</div>
+										<div class="col-lg-4 col-md-5 col-sm-6 col-xs-12 job-title">
+											<h5>
+												<h:outputText value="#{job.title}" />
+											</h5>
+											<p>
+												<strong><h:outputText value="#{job.employeer.name}" /></strong>
+												<h:outputText value="#{job.employeer.segment}" />
+											</p>
+										</div>
+										<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 job-location">
+											<p>
+												<strong><h:outputText
+														value="#{job.employeer.locale.city}" />, <h:outputText
+														value="#{job.employeer.locale.estate}" /></strong>
+											</p>
+											<p class="hidden-xs">126.3 miles away</p>
+										</div>
+										<div
+											class="col-lg-2 col-md-2 col-sm-2 hidden-xs job-type text-center">
+											<p class="job-salary">
+												<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
+											</p>
+											<p class="badge full-time">
+												<h:outputText value="#{job.type}" />
+											</p>
+										</div>
+										<div class="col-lg-2 job-dates visible-lg-block">
+											<p class="job-posted">
+												<strong>Postada em <h:outputText
+														value="#{job.start}" /></strong>
+											</p>
+											<p class="job-closes">
+												Encerra em
+												<h:outputText value="#{job.start}" />
+											</p>
+										</div>
+									</div>
+								</a>
+
+
+
+
+							</ui:repeat>
+
+
+						</div>
+
+
+						<ui:insert name="pagination">
 							<ui:include src="fragments/pagination.xhtml" />
 						</ui:insert>
 
 					</div>
-				</div>			
+				</div>
 			</div>
-			
+
 		</section>
 
 		<!-- ============ JOBS END ============ -->
-		
-		</ui:define>
+
+	</ui:define>
 
 </ui:composition>
 

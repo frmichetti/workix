@@ -10,7 +10,7 @@ import br.com.codecode.workix.model.jpa.Company;
 /**
  * Draft Job Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Job extends MyEntity implements BaseJob{

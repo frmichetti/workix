@@ -22,7 +22,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
 
-import br.com.codecode.workix.cdi.event.JobsObserver;
+import br.com.codecode.workix.cdi.event.JobObserver;
 import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.jpa.Job;
 
@@ -35,7 +35,7 @@ import br.com.codecode.workix.model.jpa.Job;
 public class JobEndpoint extends BaseEndpoint {
 
 	/**
-	 * Notify for New Job {@link JobsObserver}
+	 * Notify for New Job {@link JobObserver}
 	 */
 	@Inject
 	private Event<Job> jobAlert;

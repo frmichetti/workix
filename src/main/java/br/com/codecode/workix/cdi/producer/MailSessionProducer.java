@@ -13,6 +13,8 @@ import br.com.codecode.workix.infra.MailSender;
 
 /**
  * Mail Session Producer
+ * @see Produces
+ * @see Session
  * @author felipe
  *
  */

@@ -52,7 +52,7 @@ public class CandidateDetailsMB extends BaseMB {
 	private Candidate candidate ;
 
 	/**
-	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	public void init(){		
 

@@ -16,7 +16,11 @@ import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.infra.MailSender;
 import br.com.codecode.workix.model.jpa.Candidate;
 
-
+/**
+ * Email Message Implementation
+ * @author felipe
+ *
+ */
 @Email
 public class MailMessage implements Notification, Serializable {	
 

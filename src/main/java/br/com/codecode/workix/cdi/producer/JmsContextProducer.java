@@ -12,6 +12,9 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 
 /**
  * JMS Context Producer
+ * @see Produces
+ * @see JMSContext
+ * @see JMSProducer
  * @author felipe
  *
  */
@@ -23,8 +26,8 @@ public class JmsContextProducer {
 	private JMSContext jmsContext;
 
 	/**
-	 * Produces {@link JMSProducer} for CDI Injection Points 
-	 * @return {@link JMSProducer} Instance
+	 * Produces JMSProducer for CDI Injection Points 
+	 * @return JMSProducer Instance
 	 */
 	@Produces
 	@Dependent

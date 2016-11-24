@@ -6,20 +6,24 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <ui:composition template="/template.xhtml">
-	
+
 	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{resumeMB.id}" />	
+		<f:viewParam id="id" name="id" value="#{resumeMB.id}" />
 		<f:viewAction action="#{resumeMB.init()}" />
 	</f:metadata>
 
 	<ui:define name="headerTitle">#{applicationMB.appName} - Currículum</ui:define>
-	
+
 	<ui:define name="title">
-		<h1><h:outputText value="#{resumeMB.resume.candidate.name}"/></h1>
-		<h4><h:outputText value="#{resumeMB.resume.objective}"/></h4>
+		<h1>
+			<h:outputText value="#{resumeMB.resume.candidate.name}" />
+		</h1>
+		<h4>
+			<h:outputText value="#{resumeMB.resume.objective}" />
+		</h4>
 	</ui:define>
 
-	<ui:define name="content">	
+	<ui:define name="content">
 
 		<!-- ============ CONTENT START ============ -->
 
@@ -29,21 +33,23 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Resumo</h2>
-								<img src="image/placeholder/220x273.jpg" alt="" class="pull-left" />
-							<p style="min-height: 25px"><h:outputText value="#{resumeMB.resume.content}"/></p>
-							
+							<img src="image/placeholder/220x273.jpg" alt="" class="pull-left" />
+							<p style="min-height: 25px">
+								<h:outputText value="#{resumeMB.resume.content}" />
+							</p>
+
 							<h3>Habilidades</h3>
 							<ul style="min-height: 200px">
-							
+
 								<ui:repeat var="skill" value="#{resumeMB.skills}">
 									<li><h:outputText value="#{skill.skillName}" /></li>
-								</ui:repeat>		
-													
-								
+								</ui:repeat>
+
+
 							</ul>
-							
+
 							<h3>Experiências</h3>
-							
+
 							<ui:repeat var="exp" value="#{resumeMB.experiences}">
 								<div class="row work-experience">
 									<div class="col-sm-2">
@@ -52,94 +58,137 @@
 										</div>
 									</div>
 									<div class="col-sm-10">
-										<h4><h:outputText value="#{exp.startDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText> - 
-										<h:outputText value="#{exp.endDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></h4>
-										<h5><h:outputText value="#{exp.employerName}" /> - <h:outputText value="#{exp.jobTitle}" /></h5>
-										<p><h:outputText value="#{exp.description}" /></p>
+										<h4>
+											<h:outputText value="#{exp.startDate.time}">
+												<f:convertDateTime pattern="dd/MM/yyyy" />
+											</h:outputText>
+											-
+											<h:outputText value="#{exp.endDate.time}">
+												<f:convertDateTime pattern="dd/MM/yyyy" />
+											</h:outputText>
+										</h4>
+										<h5>
+											<h:outputText value="#{exp.employerName}" />
+											-
+											<h:outputText value="#{exp.jobTitle}" />
+										</h5>
+										<p>
+											<h:outputText value="#{exp.description}" />
+										</p>
 									</div>
 								</div>
 							</ui:repeat>
-				
+
 							<h3>Educação</h3>
-							<ui:repeat var="educ" value="#{resumeMB.educations}">	
+							<ui:repeat var="educ" value="#{resumeMB.educations}">
 								<div class="row work-experience">
-														
+
 									<div class="col-sm-2">
 										<div class="img-circle">
 											<i class="fa fa-graduation-cap"></i>
 										</div>
 									</div>
-									
+
 									<div class="col-sm-10">
-										<h4><h:outputText value="#{educ.startDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText> - 
-										<h:outputText value="#{educ.endDate.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></h4>
-										<h5><h:outputText value="#{educ.schoolName}" /> - <h:outputText value="#{educ.qualification}" /></h5>
-										<p><h:outputText value="#{educ.description}" /></p>
+										<h4>
+											<h:outputText value="#{educ.startDate.time}">
+												<f:convertDateTime pattern="dd/MM/yyyy" />
+											</h:outputText>
+											-
+											<h:outputText value="#{educ.endDate.time}">
+												<f:convertDateTime pattern="dd/MM/yyyy" />
+											</h:outputText>
+										</h4>
+										<h5>
+											<h:outputText value="#{educ.schoolName}" />
+											-
+											<h:outputText value="#{educ.qualification}" />
+										</h5>
+										<p>
+											<h:outputText value="#{educ.description}" />
+										</p>
 									</div>
 								</div>
-							</ui:repeat>						
-							
-							<p> </p>
-							<p><a href="#" class="btn btn-primary btn-lg"><i class="fa fa-arrow-down"></i> Download Currículum</a></p>
+							</ui:repeat>
+
+							<p></p>
+							<p>
+								<a href="#" class="btn btn-primary btn-lg"><i
+									class="fa fa-arrow-down"></i> Download Currículum</a>
+							</p>
 						</article>
 					</div>
 					<div class="col-sm-4" id="sidebar">
 						<div class="sidebar-widget" id="share">
 							<h2>Compartilhar Currículum</h2>
 							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=#/themes/#{applicationMB.appName}/site/job-details.xhtml"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=http://#/themes/#{applicationMB.appName}/site/job-details.xhtml"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=http://#/themes/#{applicationMB.appName}/site/job-details.xhtml"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#/themes/#{applicationMB.appName}/site/job-details.xhtml&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
+								<li><a
+									href="https://www.facebook.com/sharer/sharer.php?u=#/themes/#{applicationMB.appName}/site/job-details.xhtml"><i
+										class="fa fa-facebook"></i></a></li>
+								<li><a
+									href="https://twitter.com/home?status=http://#/themes/#{applicationMB.appName}/site/job-details.xhtml"><i
+										class="fa fa-twitter"></i></a></li>
+								<li><a
+									href="https://plus.google.com/share?url=http://#/themes/#{applicationMB.appName}/site/job-details.xhtml"><i
+										class="fa fa-google-plus"></i></a></li>
+								<li><a
+									href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#/themes/#{applicationMB.appName}/site/job-details.xhtml&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
+										class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 						<hr />
 						<div class="sidebar-widget" id="widget-contact">
 							<h2>Contato</h2>
 							<ul>
-								<li><i class="fa fa-user"></i><h:outputText value="#{resumeMB.resume.candidate.name}" /></li>
-								<li><i class="fa fa-briefcase"></i><h:outputText value="#{resumeMB.resume.objective}" /></li>
-								<li><i class="fa fa-birthday-cake"></i><h:outputText value="#{resumeMB.resume.candidate.birthDate.time}">
-								<f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></li>
-								<li><i class="fa fa-map-marker"></i><h:outputText value="#{resumeMB.resume.candidate.locale.city}" /></li>
-								<li><i class="fa fa-phone"></i><h:outputText value="#{resumeMB.resume.candidate.contact.mobilePhone}" /></li>								
+								<li><i class="fa fa-user"></i>
+								<h:outputText value="#{resumeMB.resume.candidate.name}" /></li>
+								<li><i class="fa fa-briefcase"></i>
+								<h:outputText value="#{resumeMB.resume.objective}" /></li>
+								<li><i class="fa fa-birthday-cake"></i>
+								<h:outputText
+										value="#{resumeMB.resume.candidate.birthDate.time}">
+										<f:convertDateTime pattern="dd/MM/yyyy" />
+									</h:outputText></li>
+								<li><i class="fa fa-map-marker"></i>
+								<h:outputText value="#{resumeMB.resume.candidate.locale.city}" /></li>
+								<li><i class="fa fa-phone"></i>
+								<h:outputText
+										value="#{resumeMB.resume.candidate.contact.mobilePhone}" /></li>
 								<!-- Trigger the modal with a button -->
-								<li><i class="fa fa-envelope"></i><a href="#" data-toggle="modal" data-target="#myModal">Enviar Email</a></li>
+								<li><i class="fa fa-envelope"></i><a href="#"
+									data-toggle="modal" data-target="#myModal">Enviar Email</a></li>
 								<!-- Trigger the modal with a button -->
-								<li><i class="fa fa-mobile fa-2x"></i><a href="#" data-toggle="modal" data-target="#myModal">Enviar Mensagem Celular</a></li>
-														
+								<li><i class="fa fa-mobile fa-2x"></i><a href="#"
+									data-toggle="modal" data-target="#myModal">Enviar Mensagem
+										Celular</a></li>
+
 							</ul>
 						</div>
-						
+
 						<hr />
-						
+
 						<div class="sidebar-widget" id="skills">
 							<h2>Palavras Chave</h2>
-							<a class="badge">Photoshop</a>
-							<a class="badge">HTML5</a>
-							<a class="badge">CSS3</a>
-							<a class="badge">Javascript</a>
-							<a class="badge">jQuery</a>
-							<a class="badge">User Experience</a>
-							<a class="badge">User Interface</a>
-							<a class="badge">UX</a>
-							<a class="badge">UI</a>
-							<a class="badge">Front End Development</a>
+							<a class="badge">Photoshop</a> <a class="badge">HTML5</a> <a
+								class="badge">CSS3</a> <a class="badge">Javascript</a> <a
+								class="badge">jQuery</a> <a class="badge">User Experience</a> <a
+								class="badge">User Interface</a> <a class="badge">UX</a> <a
+								class="badge">UI</a> <a class="badge">Front End Development</a>
 							<a class="badge">Responsive Design</a>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
-		
-		<ui:insert name="modal">		
+
+		<ui:insert name="modal">
 			<ui:include src="fragments/messageModal.xhtml" />
 		</ui:insert>
 
-		<!-- ============ CONTENT END ============ -->		
-		
+		<!-- ============ CONTENT END ============ -->
+
 	</ui:define>
-	
+
 </ui:composition>
 
 </html>

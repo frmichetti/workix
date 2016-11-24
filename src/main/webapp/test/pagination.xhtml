@@ -17,8 +17,10 @@
 			<h1>Listagem</h1>
 
 			<h:form rendered="true">
-				<h:outputText value="Table is Null?" /><br />
-				<h:outputText escape="false" value="#{paginationTestMB.dtmdl.rowCount == 0}" />
+				<h:outputText value="Table is Null?" />
+				<br />
+				<h:outputText escape="false"
+					value="#{paginationTestMB.dtmdl.rowCount == 0}" />
 				<br />
 
 				<h:panelGroup rendered="#{paginationTestMB.dtmdl.rowCount > 0}">
@@ -26,9 +28,13 @@
 					<h:outputText
 						value="#{paginationTestMB.pagination.pageFirstItem + 1} .. #{paginationTestMB.pagination.pageLastItem + 1} / #{paginationTestMB.pagination.itemsCount} " />&nbsp;
 													
-				<h:commandLink action="#{paginationTestMB.previous}" value="{msg.Previous} #{paginationTestMB.pagination.pageSize}" rendered="#{dvd.pagination.hasPreviousPage}" />&nbsp;
+				<h:commandLink action="#{paginationTestMB.previous}"
+						value="{msg.Previous} #{paginationTestMB.pagination.pageSize}"
+						rendered="#{dvd.pagination.hasPreviousPage}" />&nbsp;
 													
-				<h:commandLink action="#{paginationTestMB.next}" value="{msg.Next} #{paginationTestMB.pagination.pageSize}" rendered="#{paginationTestMB.pagination.hasNextPage}" />&nbsp;
+				<h:commandLink action="#{paginationTestMB.next}"
+						value="{msg.Next} #{paginationTestMB.pagination.pageSize}"
+						rendered="#{paginationTestMB.pagination.hasNextPage}" />&nbsp;
 													
 											 
 							

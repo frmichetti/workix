@@ -41,9 +41,11 @@ public class UserMB extends BaseMB {
 	public void save(){
 		
 		try {
+			
 			userDao.save(user);
+			
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

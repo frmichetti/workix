@@ -5,7 +5,7 @@ import br.com.codecode.workix.model.base.BaseContact;
 /**
  * Draft Contact Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Contact implements BaseContact {

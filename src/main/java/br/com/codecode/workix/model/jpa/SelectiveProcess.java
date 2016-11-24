@@ -36,9 +36,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
 
 /**
  * Selective Process JPA {@link Entity}
- * 
  * @author felipe
- * @category JPA
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

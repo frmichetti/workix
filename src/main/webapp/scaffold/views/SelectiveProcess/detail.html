@@ -1,44 +1,73 @@
-<header ng-switch on="$location.path().indexOf('/SelectiveProcesses/new') > -1">
-    <h3 ng-switch-when="true">Create a new SelectiveProcess</h3>
-    <h3 ng-switch-when="false">View or edit SelectiveProcess</h3>
+<header ng-switch
+	on="$location.path().indexOf('/SelectiveProcesses/new') > -1">
+	<h3 ng-switch-when="true">Create a new SelectiveProcess</h3>
+	<h3 ng-switch-when="false">View or edit SelectiveProcess</h3>
 </header>
-<form id="SelectiveProcessForm" name="SelectiveProcessForm" class="form-horizontal" role="form">
-    
-    <div class="form-group" ng-class="{'has-error': SelectiveProcessForm.job.$invalid}">
-        <label for="job" class="col-sm-2 control-label">Job</label>
-        <div id="jobControls" class="col-sm-10">
-        <select id="job" name="job" class="form-control" ng-model="jobSelection" ng-options="j.text for j in jobSelectionList" required >
-            <option value="">Choose a Job</option>
-        </select>
-        <span class="help-block error" ng-show="SelectiveProcessForm.job.$error.required">required</span> 
-        </div>
-    </div>
+<form id="SelectiveProcessForm" name="SelectiveProcessForm"
+	class="form-horizontal" role="form">
 
-    <div class="form-group" ng-class="{'has-error': SelectiveProcessForm.candidates.$invalid}">
-        <label for="candidates" class="col-sm-2 control-label">Candidates</label>
-        <div id="candidatesControls" class="col-sm-10">
-            <select id="candidates" name="candidates" multiple class="form-control" ng-model="candidatesSelection" ng-options="c.text for c in candidatesSelectionList">
-                <option value="">Choose a Candidates</option>
-            </select>
-        </div>
-    </div>
+	<div class="form-group"
+		ng-class="{'has-error': SelectiveProcessForm.job.$invalid}">
+		<label for="job" class="col-sm-2 control-label">Job</label>
+		<div id="jobControls" class="col-sm-10">
+			<select id="job" name="job" class="form-control"
+				ng-model="jobSelection"
+				ng-options="j.text for j in jobSelectionList" required>
+				<option value="">Choose a Job</option>
+			</select> <span class="help-block error"
+				ng-show="SelectiveProcessForm.job.$error.required">required</span>
+		</div>
+	</div>
 
-    <div class="form-group" ng-class="{'has-error': SelectiveProcessForm.maxCandidates.$invalid}">
-        <label for="maxCandidates" class="col-sm-2 control-label">Max Candidates</label>
-        <div id="maxCandidatesControls" class="col-sm-10">
-            <input id="maxCandidates" name="maxCandidates" type="number" min="1" required class="form-control" ng-model="selectiveProcess.maxCandidates" placeholder="Enter the SelectiveProcess Max Candidates"></input>
-            <span class="help-block error" ng-show="SelectiveProcessForm.maxCandidates.$error.required">required</span> 
-            <span class="help-block error" ng-show="SelectiveProcessForm.maxCandidates.$error.number">not a number</span>
-            <span class="help-block error" ng-show="SelectiveProcessForm.maxCandidates.$error.min">minimum allowed is 1</span>
-        </div>
-    </div>
+	<div class="form-group"
+		ng-class="{'has-error': SelectiveProcessForm.candidates.$invalid}">
+		<label for="candidates" class="col-sm-2 control-label">Candidates</label>
+		<div id="candidatesControls" class="col-sm-10">
+			<select id="candidates" name="candidates" multiple
+				class="form-control" ng-model="candidatesSelection"
+				ng-options="c.text for c in candidatesSelectionList">
+				<option value="">Choose a Candidates</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': SelectiveProcessForm.maxCandidates.$invalid}">
+		<label for="maxCandidates" class="col-sm-2 control-label">Max
+			Candidates</label>
+		<div id="maxCandidatesControls" class="col-sm-10">
+			<input id="maxCandidates" name="maxCandidates" type="number" min="1"
+				required class="form-control"
+				ng-model="selectiveProcess.maxCandidates"
+				placeholder="Enter the SelectiveProcess Max Candidates"></input> <span
+				class="help-block error"
+				ng-show="SelectiveProcessForm.maxCandidates.$error.required">required</span>
+			<span class="help-block error"
+				ng-show="SelectiveProcessForm.maxCandidates.$error.number">not
+				a number</span> <span class="help-block error"
+				ng-show="SelectiveProcessForm.maxCandidates.$error.min">minimum
+				allowed is 1</span>
+		</div>
+	</div>
 
 
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button id="saveSelectiveProcess" name="saveSelectiveProcess" class="btn btn-primary" ng-disabled="isClean() || SelectiveProcessForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
-            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-            <button id="deleteSelectiveProcess" name="deleteSelectiveProcess" class="btn btn-danger" ng-show="selectiveProcess.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-        </div>
-    </div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button id="saveSelectiveProcess" name="saveSelectiveProcess"
+				class="btn btn-primary"
+				ng-disabled="isClean() || SelectiveProcessForm.$invalid"
+				ng-click="save()">
+				<span class="glyphicon glyphicon-ok-sign"></span> Save
+			</button>
+			<button id="cancel" name="cancel" class="btn btn-default"
+				ng-click="cancel()">
+				<span class="glyphicon glyphicon-remove-sign"></span> Cancel
+			</button>
+			<button id="deleteSelectiveProcess" name="deleteSelectiveProcess"
+				class="btn btn-danger" ng-show="selectiveProcess.id"
+				ng-click="remove()">
+				<span class="glyphicon glyphicon-trash"></span> Delete
+			</button>
+		</div>
+	</div>
 </form>

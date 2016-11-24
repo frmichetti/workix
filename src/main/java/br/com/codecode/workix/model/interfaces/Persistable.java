@@ -6,6 +6,9 @@
  * */
 package br.com.codecode.workix.model.interfaces;
 
+import br.com.codecode.workix.jsf.util.converter.AnotherEntityConverter;
+import br.com.codecode.workix.jsf.util.converter.SimpleEntityConverter;
+
 /**
  * Markup Interface for Persistable Entities <br>
  * Implements this for works with <br> {@link SimpleEntityConverter}

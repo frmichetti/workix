@@ -13,6 +13,8 @@ import br.com.codecode.workix.cdi.qualifier.UserTopic;
 
 /**
  * JMS Destination Producer
+ * @see Produces
+ * @see Destination
  * @author felipe
  *
  */
@@ -29,8 +31,8 @@ public class JmsDestinationProducer {
 	private Destination selectiveProcessesTopic;
 	
 	/**
-	 * Produces JMS {@link Destination} for CDI Injection Points 
-	 * @return JMS {@link Destination} Instance
+	 * Produces JMS Destination for CDI Injection Points 
+	 * @return JMS Destination Instance
 	 */
 	@Produces
 	@Dependent
@@ -41,8 +43,8 @@ public class JmsDestinationProducer {
 	}
 	
 	/**
-	 * Produces JMS {@link Destination} for CDI Injection Points 
-	 * @return JMS {@link Destination} Instance
+	 * Produces JMS Destination for CDI Injection Points 
+	 * @return JMS Destination Instance
 	 */
 	@Produces
 	@Dependent
@@ -53,8 +55,8 @@ public class JmsDestinationProducer {
 	}
 	
 	/**
-	 * Produces JMS {@link Destination} for CDI Injection Points 
-	 * @return JMS {@link Destination} Instance
+	 * Produces JMS Destination for CDI Injection Points 
+	 * @return JMS Destination Instance
 	 */
 	@Produces
 	@Dependent

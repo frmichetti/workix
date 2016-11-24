@@ -3,8 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
->
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 	<title>Experimentando Ajax do JSF 2.0</title>
 </h:head>
@@ -27,10 +26,11 @@
 		<br />
 		<h:form prependId="false">
 			<h:outputText value="Usuario: " />
-			<h:inputText value="#{login.usuario}" id="idUsr" onchange="submit()" >
-			<f:valueChangeListener type="br.com.codecode.workix.jsf.util.listener.MyValueChangeListener" />			
+			<h:inputText value="#{login.usuario}" id="idUsr" onchange="submit()">
+				<f:valueChangeListener
+					type="br.com.codecode.workix.jsf.util.listener.MyValueChangeListener" />
 			</h:inputText>
-			
+
 			<br />
 			<h:outputText value="Senha:" />
 			<h:inputSecret value="#{login.senha}" id="idPsw" />

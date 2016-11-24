@@ -52,7 +52,7 @@ public class JobsMB extends BaseMB {
 	private int page;	
 
 	/**
-	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	public void init(){
 

@@ -7,13 +7,13 @@
 
 <ui:composition template="/template.xhtml">
 
-	<ui:define name="headerTitle">#{applicationMB.appName} - Detalhes do Candidato</ui:define>	
-			
+	<ui:define name="headerTitle">#{applicationMB.appName} - Detalhes do Candidato</ui:define>
+
 	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{candidateDetailsMB.id}" />	
+		<f:viewParam id="id" name="id" value="#{candidateDetailsMB.id}" />
 		<f:viewAction action="#{candidateDetailsMB.init()}" />
 	</f:metadata>
-	
+
 	<ui:define name="title">
 		<img src="image/placeholder/332x120.gif" class="img-responsive" alt="" />
 	</ui:define>
@@ -25,78 +25,119 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8">
-						
+
 						<article>
 							<h2>Sobre este Candidato</h2>
 							<p>#{candidateDetailsMB.candidate.name}</p>
 							<p>Some more information about it</p>
 							<hr />
-							
+
 							<h2>Localização</h2>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at rutrum ipsum. Praesent augue quam, facilisis vitae felis vel, convallis convallis nisi. Donec maximus accumsan purus vel tempus. Aenean pretium luctus velit id fermentum. Aenean non velit non nulla interdum venenatis. Integer in libero sagittis, consequat est quis, commodo odio. Aliquam eu vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor. Proin et fermentum sapien. Cras malesuada neque ac purus fermentum, a placerat quam malesuada. Quisque sollicitudin tellus a ex eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
+							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
+								rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
+								convallis convallis nisi. Donec maximus accumsan purus vel
+								tempus. Aenean pretium luctus velit id fermentum. Aenean non
+								velit non nulla interdum venenatis. Integer in libero sagittis,
+								consequat est quis, commodo odio. Aliquam eu vulputate neque.
+								Nunc et massa leo. Vestibulum a pretium dolor. Proin et
+								fermentum sapien. Cras malesuada neque ac purus fermentum, a
+								placerat quam malesuada. Quisque sollicitudin tellus a ex
+								eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
+							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
+								rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
+								convallis convallis nisi. Donec maximus accumsan purus vel
+								tempus. Aenean pretium luctus velit id fermentum. Aenean non
+								velit non nulla interdum venenatis. Integer in libero sagittis,
+								consequat est quis, commodo odio. Aliquam eu vulputate neque.
+								Nunc et massa leo. Vestibulum a pretium dolor. Proin et
+								fermentum sapien. Cras malesuada neque ac purus fermentum, a
+								placerat quam malesuada. Quisque sollicitudin tellus a ex
+								eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
 							<hr />
-							
+
 							<h2>Ações</h2>
 							<h:form>
-							<div class="form-group">
-								
-									<h:commandButton action="#" value="Visualizar Currículum" styleClass="btn btn-primary form-control"/>
-									
+								<div class="form-group">
+
+									<h:commandButton action="#" value="Visualizar Currículum"
+										styleClass="btn btn-primary form-control" />
+
 									<!-- Trigger the modal with a button -->
-									<button type="button" class="btn btn-alert btn-lg form-control" data-toggle="modal" data-target="#myModal">Enviar Email</button>
-									
+									<button type="button" class="btn btn-alert btn-lg form-control"
+										data-toggle="modal" data-target="#myModal">Enviar
+										Email</button>
+
 									<!-- Trigger the modal with a button -->
-									<button type="button" class="btn btn-info btn-lg form-control" data-toggle="modal" data-target="#myModal">Enviar Mensagem Celular</button>
-								
-							</div>
+									<button type="button" class="btn btn-info btn-lg form-control"
+										data-toggle="modal" data-target="#myModal">Enviar
+										Mensagem Celular</button>
+
+								</div>
 							</h:form>
 							<hr />
-							
-							</article>
-							
-							
-							
-							<h:form>
+
+						</article>
+
+
+
+						<h:form>
 							<!-- Modal -->
-							<div id="myModal" class="modal fade" role="dialog" style="z-index:1000000000">
-							  <div class="modal-dialog">
-							
-							    <!-- Modal content-->
-							    <div class="modal-content">
-							      <div class="modal-header">
-							        <button type="button" class="close" data-dismiss="modal">x</button>
-							        <h4 class="modal-title">Enviar Mensagem</h4>
-							      </div>
-							      
-							      <div class="modal-body">
-								       <div class="form-group">
-								        <h:inputText pt:type="text" pt:value="#{candidateDetailsMB.messageTitle}" styleClass="form-control" pt:required="required" pt:placeholder="Insira um Título" />
-								        <h:inputTextarea pt:type="text"  pt:value="#{candidateDetailsMB.messageBody}" styleClass="form-control" pt:required="required" pt:placeholder="Conteúdo da Mensagem" />
-								        </div>
-								      </div>
-							      <div class="modal-footer">
-								      <div class="form-group">
-								        <button pt:type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-								        <h:commandButton action="#{candidateDetailsMB.notifyByPush()}" value="Enviar Mensagem" styleClass="btn btn-primary" />
-								      </div>
-							      </div>
-							      
-							    </div>
-							
-							  </div>
+							<div id="myModal" class="modal fade" role="dialog"
+								style="z-index: 1000000000">
+								<div class="modal-dialog">
+
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">x</button>
+											<h4 class="modal-title">Enviar Mensagem</h4>
+										</div>
+
+										<div class="modal-body">
+											<div class="form-group">
+												<h:inputText pt:type="text"
+													pt:value="#{candidateDetailsMB.messageTitle}"
+													styleClass="form-control" pt:required="required"
+													pt:placeholder="Insira um Título" />
+												<h:inputTextarea pt:type="text"
+													pt:value="#{candidateDetailsMB.messageBody}"
+													styleClass="form-control" pt:required="required"
+													pt:placeholder="Conteúdo da Mensagem" />
+											</div>
+										</div>
+										<div class="modal-footer">
+											<div class="form-group">
+												<button pt:type="button" class="btn btn-default"
+													data-dismiss="modal">Close</button>
+												<h:commandButton
+													action="#{candidateDetailsMB.notifyByPush()}"
+													value="Enviar Mensagem" styleClass="btn btn-primary" />
+											</div>
+										</div>
+
+									</div>
+
+								</div>
 							</div>
-							</h:form>
+						</h:form>
 					</div>
-						
+
 					<div class="col-sm-4" id="sidebar">
 						<div class="sidebar-widget" id="share">
 							<h2>Compartilhe</h2>
 							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=#/themes/#{applicationMB.appName}/site/job-details.html"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=#/themes/#{applicationMB.appName}/site/job-details.html"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=#/themes/#{applicationMB.appName}/site/job-details.html"><i class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#/themes/#{applicationMB.appName}/site/job-details.html&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i class="fa fa-linkedin"></i></a></li>
+								<li><a
+									href="https://www.facebook.com/sharer/sharer.php?u=#/themes/#{applicationMB.appName}/site/job-details.html"><i
+										class="fa fa-facebook"></i></a></li>
+								<li><a
+									href="https://twitter.com/home?status=#/themes/#{applicationMB.appName}/site/job-details.html"><i
+										class="fa fa-twitter"></i></a></li>
+								<li><a
+									href="https://plus.google.com/share?url=#/themes/#{applicationMB.appName}/site/job-details.html"><i
+										class="fa fa-google-plus"></i></a></li>
+								<li><a
+									href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#/themes/#{applicationMB.appName}/site/job-details.html&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
+										class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 						<hr />
@@ -107,7 +148,8 @@
 								<li><i class="fa fa-map-marker"></i>2 Madison Avenue</li>
 								<li><i class="fa"></i>New York City, 29478 USA</li>
 								<li><i class="fa fa-phone"></i>01.22.987.8392</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:company@yourdomain.com">Send an email</a></li>
+								<li><i class="fa fa-envelope"></i><a
+									href="mailto:company@yourdomain.com">Send an email</a></li>
 							</ul>
 						</div>
 					</div>
@@ -116,9 +158,9 @@
 		</section>
 
 		<!-- ============ CONTENT END ============ -->
-		
-		</ui:define>
-		
-	</ui:composition>
+
+	</ui:define>
+
+</ui:composition>
 
 </html>

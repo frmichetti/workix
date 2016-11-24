@@ -14,7 +14,7 @@ import java.util.Date;
  * 
  * @author felipe
  * @since 1.0
- * @version
+ * @version 1.0
  */
 public class Token {
 

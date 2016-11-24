@@ -11,8 +11,7 @@ import br.com.codecode.workix.model.jpa.Candidate;
 /**
  * Notification Interface for CDI Implementation Uses
  * @author felipe
- * @since 1.0
- * @category FeedBack
+ * @since 1.0 
  *
  */
 public interface Notification {

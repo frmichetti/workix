@@ -5,7 +5,7 @@ import br.com.codecode.workix.model.base.BaseCompany;
 /**
  * Draft Company Class
  * @author felipe
- * @category POJO
+ *
  *
  */
 class Company extends Person implements BaseCompany {

@@ -8,7 +8,7 @@ import br.com.codecode.workix.model.base.BaseUser;
 /**
  * Draft Person Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Person extends MyEntity implements BasePerson {

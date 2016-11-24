@@ -7,14 +7,16 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.producer.EntityManagerProducer;
+import br.com.codecode.workix.cdi.qualifier.Development;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Mockup;
+import br.com.codecode.workix.cdi.qualifier.OpenShift;
+import br.com.codecode.workix.cdi.qualifier.Production;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 
 /**
  * BaseClass for Mockup Implementation
- * @author felipe
- * @category Mockup
+ * @author felipe 
  *
  */
 @Mockup
@@ -34,7 +36,7 @@ public class BaseDaoMockup implements Serializable {
 	/**
 	 * CDI Injection Point for {@link EntityManager}
 	 * @see EntityManagerProducer
-	 * Possible values {@link @Default} {@link @Production} {@link @Development} {@link @OpenShift}
+	 * Possible values {@link Default} {@link Production} {@link Development} {@link OpenShift}
 	 */
 	@Inject @Factory @Default
 	protected EntityManager em;

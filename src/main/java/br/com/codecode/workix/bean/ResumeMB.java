@@ -70,7 +70,7 @@ public class ResumeMB extends BaseMB {
 	private DataModel<Experience> experiences;	
 
 	/**
-	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	public void init(){
 

@@ -12,11 +12,12 @@ import br.com.codecode.workix.cdi.qualifier.JobTopic;
 import br.com.codecode.workix.model.jpa.Job;
 
 /**
- * CDI Observer Class for {@link Jobs}
+ * CDI Observer Class for {@link Job}
+ * @see Observes
  * @author felipe
  *
  */
-public class JobsObserver {	
+public class JobObserver {	
 
 	@Inject @Factory
 	private JMSProducer jmsProducer; 
@@ -24,6 +25,10 @@ public class JobsObserver {
 	@Inject @Factory @JobTopic
 	private Destination destination;
 
+	/**
+	 * Execute an Action on Event as FiredUp
+	 * @param job Observer for Job Events
+	 */
 	public void alert(@Observes Job job){
 
 		System.out.println("[CDI - Alert for New Job]");

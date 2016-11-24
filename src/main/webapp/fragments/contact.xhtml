@@ -1,81 +1,105 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-      >
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
-	<!-- 
+<!-- 
 		Replace path to template, title, header and body
 		with actual data.
 	 -->
-	<ui:composition>
-	
-		<!-- ============ CONTACT START ============ -->
+<ui:composition>
 
-		<section id="contact" class="color2">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<h2>Deixe-nos uma Mensagem</h2>
-						<h:form role="form" name="contact-form" id="contact-form" action="process.php">
-							<div class="form-group has-success has-feedback" id="contact-name-group">
-								<label for="contact-name" class="sr-only">Nome</label>
-								<h:inputText pt:type="text" class="form-control" id="contact-name" pt:placeholder="Nome" value="#{contactMB.name}" pt:required="true" />
-							</div>
-							<div class="form-group has-success has-feedback" id="contact-email-group">
-								<label for="contact-email" class="sr-only">Email</label>
-								<h:inputText pt:type="email" class="form-control" id="contact-email" pt:placeholder="Email" value="#{contactMB.email}" pt:required="true" />
-							</div>
-							<div class="form-group has-success has-feedback" id="contact-subject-group">
-								<label for="contact-subject" class="sr-only">Assunto</label>
-								<h:inputText pt:type="text" class="form-control" id="contact-subject" pt:placeholder="Assunto" value="#{contactMB.subject}" pt:required="true" />
-							</div>
-							<div class="form-group has-success has-feedback" id="contact-message-group">
-								<label for="contact-message" class="sr-only">Mensagem</label>
-								<h:inputTextarea class="form-control" rows="3" id="contact-message" pt:placeholder="Mensagem" value="#{contactMB.body}" pt:required="true" />
-							</div>							
-							<h:commandButton action="#{contactMB.doSendAMessage()}" value="Enviar Mensagem" styleClass="btn btn-default" />
-						</h:form>
-					</div>
-					<ui:remove>
+	<!-- ============ CONTACT START ============ -->
+
+	<section id="contact" class="color2">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<h2>Deixe-nos uma Mensagem</h2>
+					<h:form role="form" name="contact-form" id="contact-form"
+						action="process.php">
+						<div class="form-group has-success has-feedback"
+							id="contact-name-group">
+							<label for="contact-name" class="sr-only">Nome</label>
+							<h:inputText pt:type="text" class="form-control"
+								id="contact-name" pt:placeholder="Nome"
+								value="#{contactMB.name}" pt:required="true" />
+						</div>
+						<div class="form-group has-success has-feedback"
+							id="contact-email-group">
+							<label for="contact-email" class="sr-only">Email</label>
+							<h:inputText pt:type="email" class="form-control"
+								id="contact-email" pt:placeholder="Email"
+								value="#{contactMB.email}" pt:required="true" />
+						</div>
+						<div class="form-group has-success has-feedback"
+							id="contact-subject-group">
+							<label for="contact-subject" class="sr-only">Assunto</label>
+							<h:inputText pt:type="text" class="form-control"
+								id="contact-subject" pt:placeholder="Assunto"
+								value="#{contactMB.subject}" pt:required="true" />
+						</div>
+						<div class="form-group has-success has-feedback"
+							id="contact-message-group">
+							<label for="contact-message" class="sr-only">Mensagem</label>
+							<h:inputTextarea class="form-control" rows="3"
+								id="contact-message" pt:placeholder="Mensagem"
+								value="#{contactMB.body}" pt:required="true" />
+						</div>
+						<h:commandButton action="#{contactMB.doSendAMessage()}"
+							value="Enviar Mensagem" styleClass="btn btn-default" />
+					</h:form>
+				</div>
+				<ui:remove>
 					<div class="col-sm-6">
 						<h2>Visit our office</h2>
 						<div class="row">
 							<div class="col-sm-6">
 								<h5>New York</h5>
-								<p>5 Park Avenue<br />
-								New York, NY 10016<br />
-								USA</p>
-								<p><i class="fa fa-phone"></i>+1 718.242.5555<br />
-								<i class="fa fa-fax"></i>+1 718.242.5556<br />
-								<i class="fa fa-envelope"></i><a href="mailto:ny@#{applicationMB.appName}.com">ny@#{applicationMB.appName}.com</a></p>
-								<p><i class="fa fa-clock-o"></i>Mon-Fri 9am - 5pm<br />
-								<i class="fa fa-clock-o"></i>Sat 10am - 2pm<br />
-								<i class="fa fa-clock-o"></i>Sun Closed</p>
+								<p>
+									5 Park Avenue<br /> New York, NY 10016<br /> USA
+								</p>
+								<p>
+									<i class="fa fa-phone"></i>+1 718.242.5555<br /> <i
+										class="fa fa-fax"></i>+1 718.242.5556<br /> <i
+										class="fa fa-envelope"></i><a
+										href="mailto:ny@#{applicationMB.appName}.com">ny@#{applicationMB.appName}.com</a>
+								</p>
+								<p>
+									<i class="fa fa-clock-o"></i>Mon-Fri 9am - 5pm<br /> <i
+										class="fa fa-clock-o"></i>Sat 10am - 2pm<br /> <i
+										class="fa fa-clock-o"></i>Sun Closed
+								</p>
 							</div>
 							<div class="col-sm-6">
 								<h5>Los Angeles</h5>
-								<p>8605 Santa Monica Blvd<br />
-								Los Angeles, CA 90069-4109<br />
-								USA</p>
-								<p><i class="fa fa-phone"></i>+1 985.562.5555<br />
-								<i class="fa fa-fax"></i>+1 985.562.5556<br />
-								<i class="fa fa-envelope"></i><a href="mailto:la@#{applicationMB.appName}.com">la@#{applicationMB.appName}.com</a></p>
-								<p><i class="fa fa-clock-o"></i>Mon-Fri 9am - 5pm<br />
-								<i class="fa fa-clock-o"></i>Sat 10am - 2pm<br />
-								<i class="fa fa-clock-o"></i>Sun Closed</p>
+								<p>
+									8605 Santa Monica Blvd<br /> Los Angeles, CA 90069-4109<br />
+									USA
+								</p>
+								<p>
+									<i class="fa fa-phone"></i>+1 985.562.5555<br /> <i
+										class="fa fa-fax"></i>+1 985.562.5556<br /> <i
+										class="fa fa-envelope"></i><a
+										href="mailto:la@#{applicationMB.appName}.com">la@#{applicationMB.appName}.com</a>
+								</p>
+								<p>
+									<i class="fa fa-clock-o"></i>Mon-Fri 9am - 5pm<br /> <i
+										class="fa fa-clock-o"></i>Sat 10am - 2pm<br /> <i
+										class="fa fa-clock-o"></i>Sun Closed
+								</p>
 							</div>
 						</div>
 					</div>
-					</ui:remove>
-				</div>
+				</ui:remove>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- ============ CONTACT END ============ -->
-			
-	</ui:composition>
+	<!-- ============ CONTACT END ============ -->
+
+</ui:composition>
 
 </html>

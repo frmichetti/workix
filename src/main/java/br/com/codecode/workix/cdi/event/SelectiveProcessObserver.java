@@ -13,6 +13,7 @@ import br.com.codecode.workix.model.jpa.SelectiveProcess;
 
 /**
  * CDI Observer Class for {@link SelectiveProcess}
+ * @see Observes
  * @author felipe
  *
  */
@@ -24,6 +25,10 @@ public class SelectiveProcessObserver {
 	@Inject @Factory @SelectiveProcessTopic
 	private Destination destination;
 
+	/**
+	 * Execute an Action on Event as FiredUp
+	 * @param process Observer for SelectiveProcess Events
+	 */
 	public void alert(@Observes SelectiveProcess process){
 
 		System.out.println("[CDI - Alert for Selective Processes]");

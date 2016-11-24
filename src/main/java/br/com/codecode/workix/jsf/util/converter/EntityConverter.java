@@ -66,14 +66,12 @@ public class EntityConverter implements Converter {
 		
 		return null;
 	}
+	
 	/**
 	 * Obtém, via expression language, a classe do objeto.
-	 *
-	 * @param FacesContext facesContext
-	 * 
-	 * @param UICompoment compoment
-	 *     
-	 * @return  Class<?>
+	 * @param facesContext FacesContext
+	 * @param component UICompoment
+	 * @return Class
 	 */
 	private Class<?> getClazz(FacesContext facesContext, UIComponent component) {
 		return component.getValueExpression("value").getType(
@@ -81,10 +79,13 @@ public class EntityConverter implements Converter {
 	}
 	/**
 	 * Retorna a representação em String do retorno do método anotado com @Id ou @EmbeddedId do objeto.
-	 *
-	 * @param Class<?> clazz
-	 *            
-	 * @return  String
+	 * @throws SecurityException
+	 * @throws NoSuchFieldException
+	 * @throws IllegalArgumentException
+	 * @throws IllegalAccessException
+	 * @param clazz Class
+	 * @param obj Object           
+	 * @return String
 	 */
 	public String getId(Class<?> clazz, Object obj) throws SecurityException,
 	NoSuchFieldException, IllegalArgumentException,
@@ -118,10 +119,8 @@ public class EntityConverter implements Converter {
 	}
 	/**
 	 * Retorna uma lista com a hierarquia de classes, sem considerar a classe Object.class
-	 *
-	 * @param Class<?> clazz
-	 *            
-	 * @return  List<Class<?>> clazz
+	 * @param clazz Class
+	 * @return List clazz
 	 */
 	public List<Class<?>> getHierarquiaDeClasses(Class<?> clazz) {
 	

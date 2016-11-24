@@ -11,9 +11,7 @@ import javax.validation.constraints.Past;
 
 /**
  * Candidate JPA {@link Entity}
- * 
  * @author felipe
- * @category JPA
  */
 @Entity
 public class Candidate extends Person {

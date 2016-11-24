@@ -11,6 +11,7 @@ import br.com.codecode.workix.model.jpa.Candidate;
 
 /**
  * CDI Observer Class for {@link Candidate}
+ * @see Observes
  * @author felipe
  *
  */
@@ -19,6 +20,10 @@ public class CandidateObserver {
 	@Inject @Push
 	private Notification sendPush;
 
+	/**
+	 * Execute an Action on Event as FiredUp
+	 * @param candidate Observer for Candidate Events
+	 */
 	public void alert(@Observes Candidate candidate){
 
 		System.out.println("[CDI - Alert for Candidate Visited]");

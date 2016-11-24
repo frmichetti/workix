@@ -10,18 +10,17 @@ import br.com.codecode.workix.model.jpa.MyEntity;
 /**
  * Concrete Crud Interface for CDI Implementation Uses
  * @author felipe
- * @since 1.0
- * @category Persistence
- * @param <T>
+ * @since 1.0 
+ * @param <T> Any Entity witch implements Persistable and Serializable
  */
 public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
 
 	/**
 	 * Save Or Update Currenty Entity Based on {@link MyEntity #getId()}  
-	 * @param entity
-	 * @return
-	 * @throws IllegalArgumentException
-	 * @throws NotImplementedYetException 
+	 * @param entity Entity Passed to Persist or Update
+	 * @return Managed Entity
+	 * @throws IllegalArgumentException if Entity is Null
+	 * @throws NotImplementedYetException if Methods is Not Implemented Yet
 	 */
 	default public T saveOrUpdate(T entity) throws IllegalArgumentException, NotImplementedYetException{
 		
@@ -37,16 +36,16 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
 
 	/**
 	 * Fetch for {@link Persistable} Entities with {@link MyEntity #getUuid()}
-	 * @param uuid
-	 * @return <T>	 
-	 * @throws NotImplementedYetException 
+	 * @param uuid Fetch for Entity by UUID Field
+	 * @return Fetched Entity 
+	 * @throws NotImplementedYetException if Method is Not Implemented Yet
 	 */
 	public T findByUuid(String uuid) throws NotImplementedYetException;	
 
 	/**
 	 * Count Registers on Database
 	 * @return Total Rows of Entity  
-	 * @throws NotImplementedYetException 
+	 * @throws NotImplementedYetException if Method is Not Implemented Yet
 	 */
 	public BigInteger countRegisters() throws NotImplementedYetException;
 }

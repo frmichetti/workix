@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Only for JAAS security
  * 
  * @since 1.0
- * @version
+ * @version 1.0
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

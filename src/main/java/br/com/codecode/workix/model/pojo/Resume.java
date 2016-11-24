@@ -11,7 +11,7 @@ import br.com.codecode.workix.model.base.BaseSkill;
 /**
  * Draft Resume Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Resume extends MyEntity implements BaseResume {

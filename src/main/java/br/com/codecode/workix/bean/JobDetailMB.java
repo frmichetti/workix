@@ -37,7 +37,7 @@ public class JobDetailMB extends BaseMB {
 	private MessagesHelper messagesHelper;
 
 	/**
-	 * Must be Called by f:viewAction After f:viewParam {@link page} 
+	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	public void init(){
 

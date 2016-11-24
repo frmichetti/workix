@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.jpa.User;
 
 @Model
@@ -41,7 +42,14 @@ public class RegisterMB extends BaseMB {
 		
 		System.out.println(fbToken);
 
-		//dao.saveOrUpdate(user);
+		try {
+			
+			dao.saveOrUpdate(user);
+			
+		} catch (IllegalArgumentException | NotImplementedYetException e) {
+			
+			e.printStackTrace();
+		}
 
 		return "main.xhtml";
 	}

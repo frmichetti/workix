@@ -17,7 +17,6 @@ import br.com.codecode.workix.model.interfaces.Buildable;
 /**
  * Locale JPA {@link Embeddable}  
  * @author felipe
- * @category JPA
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -53,8 +52,7 @@ public class Locale implements Serializable {
 	/**
 	 * Public Constructor for {@link Builder} Compatibility
 	 * @see Buildable
-	 * @param builder
-	 * @category Builder
+	 * @param builder Builder for Generate a New Locale
 	 */
 	public Locale(@NotNull Builder builder) {
 
@@ -126,9 +124,7 @@ public class Locale implements Serializable {
 
 	/**
 	 * Builder NestedClass for {@link Skill} 
-	 * @category Builder
 	 * @author felipe
-	 *
 	 */
 	public static class Builder implements Buildable<Locale> {	
 
@@ -151,8 +147,8 @@ public class Locale implements Serializable {
 
 		/**
 		 * Constructor with Required Fields
-		 * @param zipCode
-		 * @param number
+		 * @param zipCode Zip Code
+		 * @param number Number of House
 		 */
 		public Builder(long zipCode,String number) {
 			this();
@@ -162,12 +158,12 @@ public class Locale implements Serializable {
 
 		/**
 		 * Constructor with All Fields
-		 * @param zipCode
-		 * @param state
-		 * @param city
-		 * @param neighborhood
-		 * @param street
-		 * @param number
+		 * @param zipCode Zip Code 
+		 * @param state State
+		 * @param city City
+		 * @param neighborhood Neighborhood
+		 * @param street Street 
+		 * @param number Number of House
 		 */
 		public Builder(long zipCode, Estate state, String city, String neighborhood,String street,String number) {
 			this(zipCode,number);

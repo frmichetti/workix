@@ -12,13 +12,16 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.dao.implementation.generic.Dao;
+import br.com.codecode.workix.cdi.qualifier.Development;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
+import br.com.codecode.workix.cdi.qualifier.OpenShift;
+import br.com.codecode.workix.cdi.qualifier.Production;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
  * Factory for Generic {@link Dao} Injection
- * 
+ * @see Produces
  * @author felipe
  *
  */
@@ -27,16 +30,17 @@ import br.com.codecode.workix.model.interfaces.Persistable;
 public class GenericDaoProducer {	
 	
 	/**
-	 * MAY Change for {@link @Production} or {@link @Test} 
+	 * MAY Change for {@link Production} or {@link Development} or {@link OpenShift} 
 	 * Default is AutoDiscover
 	 */
 	@Inject @Factory @Default
 	private EntityManager em;	
 	
 	/**
-	 * Produces a {@link Dao} based on <T> param from {@link InjectionPoint}
-	 * @param injectionPoint
-	 * @return
+	 * Produces a Dao based on param from {@link InjectionPoint}
+	 * @param injectionPoint Injection Point Received by CDI
+	 * @param <T> ParameterizedType Received on InjectionPoint
+	 * @return Dao Implementation for Received Clazz
 	 */
 	@Produces
 	@Dependent	

@@ -3,8 +3,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	>
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <!-- 
 		Replace path to template, title, header and body
@@ -17,53 +16,55 @@
 	<div class="fm-container">
 		<!-- Menu -->
 		<div class="menu">
-			
+
 			<div class="button-close text-right">
 				<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
 			</div>
-			
+
 			<ul class="nav">
 				<li><a href="#{navigationMB.goToIndex()}">Início</a></li>
 
 				<li><a href="#{navigationMB.goToAboutUs()}">Sobre Nós</a></li>
-			
+
 				<li><a href="#">Candidatos</a>
 
 					<ul>
-						<li><a href="#{navigationMB.goToPostAResume()}">Publicar Curriculum</a></li>
+						<li><a href="#{navigationMB.goToPostAResume()}">Publicar
+								Curriculum</a></li>
 
 						<li><a href="resume.xhtml">Visualizar Currículum</a></li>
 
 					</ul></li>
-			
+
 				<li><a href="#">Recrutadores</a>
 					<ul>
-						<li><a href="#{navigationMB.goToPostAJob()}">Publicar Vaga</a></li>
-					
+						<li><a href="#{navigationMB.goToPostAJob()}">Publicar
+								Vaga</a></li>
+
 						<li><a href="#{navigationMB.goToCandidates()}">Candidatos</a></li>
-					
+
 						<li><a href="job-details.xhtml">Detalhes da Vaga</a></li>
 
 						<li><a href="company.xhtml">Company</a></li>
 
 					</ul></li>
-					
+
 				<li><a href="#{navigationMB.goToJobs()}">Vagas</a></li>
-				
+
 				<h:form rendered="true">
-				<li><a class="link-login">Entrar</a></li>
+					<li><a class="link-login">Entrar</a></li>
 				</h:form>
-				
+
 				<h:form rendered="true">
-				<li><a class="link-register">Registrar</a></li>
+					<li><a class="link-register">Registrar</a></li>
 				</h:form>
-				
+
 				<li><a href="blog.xhtml">Blog</a></li>
-				
+
 				<li><a href="post.xhtml">Postagem Blog</a></li>
-				
+
 				<li><a href="testimonials.xhtml">Depoimentos</a></li>
-				
+
 				<ui:remove>
 					<li><a href="options.xhtml">Opções</a></li>
 				</ui:remove>

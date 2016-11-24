@@ -8,7 +8,7 @@ import br.com.codecode.workix.model.enums.Estate;
 /**
  * Draft Locale Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Locale implements BaseLocale{

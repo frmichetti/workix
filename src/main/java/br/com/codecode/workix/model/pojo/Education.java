@@ -7,7 +7,7 @@ import br.com.codecode.workix.model.base.BaseEducation;
 /**
  * Draft Education Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 public class Education implements BaseEducation {

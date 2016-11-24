@@ -13,6 +13,7 @@ import br.com.codecode.workix.model.jpa.User;
 
 /**
  * CDI Observer Class for User
+ * @see Observes
  * @author felipe
  *
  */
@@ -24,6 +25,10 @@ public class UserObserver {
 	@Inject @Factory @UserTopic
 	private Destination destination;
 
+	/**
+	 * Execute an Action on Event as FiredUp
+	 * @param user Observer for User Events
+	 */
 	public void alert(@Observes User user){
 
 		System.out.println("[CDI - Alert for new User]");

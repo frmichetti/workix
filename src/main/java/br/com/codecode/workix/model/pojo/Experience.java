@@ -7,7 +7,7 @@ import br.com.codecode.workix.model.base.BaseExperience;
 /**
  * Draft Experience Class
  * @author felipe
- * @category POJO
+ * 
  *
  */
 class Experience implements BaseExperience {

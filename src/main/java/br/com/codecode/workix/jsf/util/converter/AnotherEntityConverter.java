@@ -20,6 +20,7 @@ package br.com.codecode.workix.jsf.util.converter;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -39,6 +40,7 @@ public class AnotherEntityConverter implements Converter {
 		
 		return null;
 	}
+	
 	public String getAsString(FacesContext ctx, UIComponent component,
 			Object obj) {
 		
@@ -66,25 +68,27 @@ public class AnotherEntityConverter implements Converter {
 		}
 		return null;
 	}
+
 	/**
-	 * Obtém, via expression language, a classe do objeto.
-	 *
-	 * @param FacesContext facesContext
-	 * 
-	 * @param UICompoment compoment
-	 *     
-	 * @return  Class<?>
+	 * Obtém, via expression language, a classe do objeto.	 
+	 * @param facesContext FacesContext 
+	 * @param component UICompoment 
+	 * @return  Classe
 	 */
 	private Class<?> getClazz(FacesContext facesContext, UIComponent component) {
 		return component.getValueExpression("value").getType(
 				facesContext.getELContext());
 	}
+	
 	/**
 	 * Retorna a representação em String do retorno do método anotado com @Id ou @EmbeddedId do objeto.
-	 *
-	 * @param Class<?> clazz
-	 *            
-	 * @return  String
+	 * @param clazz Class 
+	 * @param obj Object
+	 * @throws SecurityException
+	 * @throws NoSuchFieldException
+	 * @throws IllegalArgumentException	     
+	 * @throws IllegalAccessException     
+	 * @return String
 	 */
 	public String getId(Class<?> clazz, Object obj) throws SecurityException,
 			NoSuchFieldException, IllegalArgumentException,
@@ -107,12 +111,11 @@ public class AnotherEntityConverter implements Converter {
 		}
 		return null;
 	}
+	
 	/**
 	 * Retorna uma lista com a hierarquia de classes, sem considerar a classe Object.class
-	 *
-	 * @param Class<?> clazz
-	 *            
-	 * @return  List<Class<?>> clazz
+	 * @param clazz Class	            
+	 * @return Lista de Classes
 	 */
 	public List<Class<?>> getHierarquiaDeClasses(Class<?> clazz) {
 		List<Class<?>> hierarquiaDeClasses = new ArrayList<Class<?>>();

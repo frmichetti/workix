@@ -4,8 +4,7 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
-	>
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <h:head>
 	<title>Formulário de Mensagem</title>
@@ -21,7 +20,7 @@
 				<div>
 					<h:outputLabel for="titulo" value="Titulo" />
 					<h:inputText id="titulo" value="#{sendTokenMB.title}"
-						autocomplete="true" required="required"/>
+						autocomplete="true" required="required" />
 				</div>
 
 				<div>
@@ -35,13 +34,13 @@
 					<h:outputLabel for="user" value="Usuário" />
 
 					<h:selectOneMenu id="user" value="#{sendTokenMB.candidate}"
-						converter="AnotherEntityConverter" required="required" >
+						converter="AnotherEntityConverter" required="required">
 
 						<f:selectItems itemValue="#{user}"
 							value="#{sendTokenMB.candidates}" />
 					</h:selectOneMenu>
 				</div>
-				
+
 				<div>
 					<h:commandButton value="Enviar" action="#{sendTokenMB.doSendPush}"
 						icon="fa fa-envelope" />
