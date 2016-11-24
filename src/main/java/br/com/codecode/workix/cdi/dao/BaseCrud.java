@@ -3,6 +3,8 @@ package br.com.codecode.workix.cdi.dao;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Entity;
+
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.interfaces.Persistable;
 import br.com.codecode.workix.model.jpa.MyEntity;
@@ -28,14 +30,14 @@ public abstract interface BaseCrud<T extends Persistable & Serializable>  {
 	 * Update Entity in Database
 	 * @param entity
 	 * @return Updated Entity
-	 * @throws NotImplementedYetException 
+	 * @throws NotImplementedYetException   
 	 */	
 	public T update(T entity) throws NotImplementedYetException;
 	
 	/**
 	 * Localize Entity by {@link MyEntity #getId()}
 	 * @param id
-	 * @return
+	 * @return Fetch Entity 
 	 * @throws NotImplementedYetException 
 	 */	
 	public T findById(long id) throws NotImplementedYetException;
@@ -43,16 +45,16 @@ public abstract interface BaseCrud<T extends Persistable & Serializable>  {
 	/**
 	 * Localize Entity by {@link MyEntity #getId()} and Delete
 	 * @param id
-	 * @return
 	 * @throws NotImplementedYetException 
+	 *   
 	 */	
 	public void deleteById(long id) throws NotImplementedYetException;
 	
 	/**
-	 * List Registers of Entity between Start and End Index
+	 * List Registers of an {@link Entity} between Start and End Index
 	 * @param start
 	 * @param end
-	 * @return List<T>
+	 * @return List<T> of Results 
 	 * @throws NotImplementedYetException 
 	 */
 	public List<T> listAll(int start, int end) throws NotImplementedYetException;

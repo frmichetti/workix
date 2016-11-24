@@ -37,7 +37,9 @@ public class PostAResumeMB extends BaseMB {
 	private void init(){
 				
 		try {
+			
 			candidates = candidateDao.listAll(0, 100);
+			
 		} catch (NotImplementedYetException e) {
 		
 			e.printStackTrace();

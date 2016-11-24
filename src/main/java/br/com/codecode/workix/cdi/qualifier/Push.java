@@ -22,7 +22,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * CDI Qualifier for Notification
+ * CDI Qualifier for {@link Notification}
  * @see Notification  
  * @author felipe
  *

@@ -1,9 +1,8 @@
 package br.com.codecode.workix.bean;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
+import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -12,20 +11,14 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 
 @Named
 @SessionScoped
-public class FirebaseMB implements Serializable {
-
-	private String name,email,uid,photo;
-
-	private String idToken;
-	
-	@Inject @Factory
-	private FacesContext context; 
+public class FirebaseMB extends BaseMB {
 
 	private static final long serialVersionUID = -6683482350467577281L;	
-
-	public FirebaseMB() {
-		System.out.println("[CDI] " + getClass().getSimpleName());
-	}
+	
+	private String name, email, uid, photo, idToken;
+	
+	@Inject @Factory @Default
+	private FacesContext context;
 	
 	@PostConstruct
 	private void init(){}

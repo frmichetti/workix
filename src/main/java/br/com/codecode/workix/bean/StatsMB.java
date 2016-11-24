@@ -12,8 +12,16 @@ import br.com.codecode.workix.model.jpa.Company;
 import br.com.codecode.workix.model.jpa.Job;
 import br.com.codecode.workix.model.jpa.Resume;
 
+/**
+ * This ManagedBean controls Counter Fragment on HomePage
+ * 
+ * @author felipe
+ *
+ */
 @Model
-public class StatsMB {
+public class StatsMB extends BaseMB {
+
+	private static final long serialVersionUID = 5375151290773516794L;
 
 	@Inject @Generic
 	private Crud<Job> jobDao;
@@ -23,19 +31,11 @@ public class StatsMB {
 
 	@Inject @Generic
 	private Crud<Candidate> candidateDao;
-	
+
 	@Inject @Generic
 	private Crud<Resume> resumeDao;
 
-	private int counterJobs;
-
-	private int counterCandidates;
-
-	private int counterEmployeers;	
-
-	private int counterResumes;
-
-	public StatsMB(){}
+	private int counterJobs, counterCandidates, counterEmployeers, counterResumes;
 
 	@PostConstruct
 	private void init(){
@@ -53,7 +53,7 @@ public class StatsMB {
 			counterResumes = resumeDao.countRegisters().intValue();
 
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 

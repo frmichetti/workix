@@ -9,7 +9,7 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
 
 /**
  * This ManagedBean controls Search on HeaderPage
- * Execute with {@link Model}
+ *
  * @author felipe
  *
  */

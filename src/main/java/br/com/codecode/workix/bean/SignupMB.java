@@ -17,8 +17,10 @@ import br.com.codecode.workix.model.jpa.Subscriber;
  *
  */
 @Model
-public class SignupMB {
-	
+public class SignupMB extends BaseMB{
+
+	private static final long serialVersionUID = -2504261663617888396L;
+
 	@Inject
 	private MessagesHelper messagesHelper;
 	

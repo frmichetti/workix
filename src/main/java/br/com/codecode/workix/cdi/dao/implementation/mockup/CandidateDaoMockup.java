@@ -42,7 +42,6 @@ public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate>
 	@Override
 	public void deleteById(long id) throws NotImplementedYetException {
 		throw new NotImplementedYetException();
-
 	}
 
 	@Override

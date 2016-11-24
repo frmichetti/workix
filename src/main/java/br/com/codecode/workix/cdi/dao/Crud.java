@@ -20,23 +20,17 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
 	 * Save Or Update Currenty Entity Based on {@link MyEntity #getId()}  
 	 * @param entity
 	 * @return
-	 * @throws NotImplementedYetException , IllegalArgumentException
+	 * @throws IllegalArgumentException
+	 * @throws NotImplementedYetException 
 	 */
 	default public T saveOrUpdate(T entity) throws IllegalArgumentException, NotImplementedYetException{
 		
-		if (entity == null){
-			throw new IllegalArgumentException("Entity Passed to Persist is Null");		
+		if (entity == null)	throw new IllegalArgumentException("Entity Passed to Persist is Null");		
 
-		}
-
-		if(entity.getId() == 0){
-			
-			save(entity);
-			
-		}else{
-			
-			update(entity);			
-		}
+		if(entity.getId() == 0)
+			save(entity);			
+		else			
+			update(entity);		
 
 		return entity;
 	}	
@@ -44,14 +38,14 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
 	/**
 	 * Fetch for {@link Persistable} Entities with {@link MyEntity #getUuid()}
 	 * @param uuid
-	 * @return <T>
+	 * @return <T>	 
 	 * @throws NotImplementedYetException 
 	 */
 	public T findByUuid(String uuid) throws NotImplementedYetException;	
 
 	/**
 	 * Count Registers on Database
-	 * @return Total Rows of Entity
+	 * @return Total Rows of Entity  
 	 * @throws NotImplementedYetException 
 	 */
 	public BigInteger countRegisters() throws NotImplementedYetException;

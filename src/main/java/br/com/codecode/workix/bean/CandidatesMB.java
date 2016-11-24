@@ -60,9 +60,15 @@ public class CandidatesMB extends BaseMB {
 			totalRows = dao.countRegisters().intValue();
 
 		} catch (NotImplementedYetException e) {
-
+			
 			e.printStackTrace();
+			
+			goToErrorPage();
+			
 		}catch (Exception e) {
+			
+			e.printStackTrace();
+			
 			goToErrorPage();
 		}
 
@@ -79,8 +85,15 @@ public class CandidatesMB extends BaseMB {
 		} catch (NotImplementedYetException e) {
 
 			e.printStackTrace();
-		}catch (Exception e) {
+			
 			goToErrorPage();
+			
+		}catch (Exception e) {
+			
+			e.printStackTrace();
+			
+			goToErrorPage();
+			
 		}		
 
 		prefix = "/" + facesContext.getExternalContext().getContextName();

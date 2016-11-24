@@ -57,9 +57,7 @@ public class ResumeMB extends BaseMB {
 
 	private long id;		
 
-	private String prefix, sufix; 	
-
-	private String messageTitle,messageBody;
+	private String prefix, sufix, messageTitle, messageBody;
 
 	private Candidate candidate;
 	

@@ -7,7 +7,6 @@
  * */
 package br.com.codecode.workix.bean;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -24,7 +23,9 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 
 @Model
-public class SendTokenMB {
+public class SendTokenMB extends BaseMB{
+
+	private static final long serialVersionUID = -1733875145783240249L;
 
 	@Inject @Push
 	private Notification sendPush;
@@ -35,15 +36,12 @@ public class SendTokenMB {
 	@Inject @Generic
 	private Crud<Candidate> dao;
 
-	private List<Candidate> candidates = new ArrayList<>();
-
-	private Candidate candidate = new Candidate();
+	@Inject
+	private Candidate candidate;
 
 	private String title,message;
-
-	public SendTokenMB() {
-		System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
-	}
+	
+	private List<Candidate> candidates;
 
 	@PostConstruct
 	private void init(){
@@ -52,7 +50,7 @@ public class SendTokenMB {
 			candidates = dao.listAll(0, Integer.MAX_VALUE);
 			
 		} catch (NotImplementedYetException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

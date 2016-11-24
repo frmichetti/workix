@@ -2,6 +2,7 @@ package br.com.codecode.workix.bean;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
@@ -28,9 +29,11 @@ public class RegisterMB extends BaseMB {
 	
 	public String doRegister(){	
 		
-		fbEmail = facescontext.getExternalContext().getRequestParameterMap().get("fbUser");	
+		ExternalContext ec = facescontext.getExternalContext();
+		
+		fbEmail = ec.getRequestParameterMap().get("fbUser");	
 
-		fbToken = facescontext.getExternalContext().getRequestParameterMap().get("fbToken");
+		fbToken = ec.getRequestParameterMap().get("fbToken");
 		
 		System.out.println("[doRegister]");
 		

@@ -16,7 +16,7 @@ import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * CDI - Qualifier for Dao Instance
+ * CDI - Qualifier for {@link Dao} Instance
  * @see Dao
  * @see GenericDaoProducer
  * @author felipe
