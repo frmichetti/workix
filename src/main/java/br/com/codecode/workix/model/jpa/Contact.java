@@ -80,11 +80,12 @@ public class Contact implements BaseContact, Serializable {
 		 */
 		public Builder(long mobilePhone) {
 			this();			
-			this.setMobilePhone(mobilePhone);
+			this.setMobilePhone(mobilePhone);			
 		}		
 	
 		/**
 		 * @param mobilePhone the Mobile Phone to set
+		 * @return Builder
 		 */
 		public Builder withMobilePhone(long mobilePhone) {
 			this.setMobilePhone(mobilePhone);

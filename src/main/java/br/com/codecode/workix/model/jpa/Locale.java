@@ -153,7 +153,7 @@ public class Locale implements BaseLocale, Serializable {
 		/**
 		 * Constructor with All Fields
 		 * @param zipCode Zip Code 
-		 * @param state State
+		 * @param estate estate
 		 * @param city City
 		 * @param neighborhood Neighborhood
 		 * @param street Street 

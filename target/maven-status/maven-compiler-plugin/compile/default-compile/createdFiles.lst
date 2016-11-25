@@ -22,6 +22,7 @@ br/com/codecode/workix/rest/android/Token.class
 br/com/codecode/workix/ejb/TimerBean.class
 br/com/codecode/workix/model/jpa/Candidate.class
 br/com/codecode/workix/model/jpa/Company.class
+br/com/codecode/workix/model/root/RootResume.class
 br/com/codecode/workix/util/gson/deserializer/GsonDateDeserializer.class
 br/com/codecode/workix/model/enums/JobCategory.class
 br/com/codecode/workix/jsf/util/converter/SimpleEntityConverter.class
@@ -34,6 +35,7 @@ br/com/codecode/workix/cdi/qualifier/SelectiveProcessTopic.class
 br/com/codecode/workix/rest/scaffold/BaseEndpoint.class
 br/com/codecode/workix/model/jpa/Skill$Builder.class
 br/com/codecode/workix/cdi/dao/implementation/mockup/CandidateDaoMockup.class
+br/com/codecode/workix/model/root/RootUser.class
 br/com/codecode/workix/bean/NavigationMB.class
 br/com/codecode/workix/rest/scaffold/SelectiveProcessEndpoint.class
 br/com/codecode/workix/model/jpa/User.class
@@ -43,6 +45,7 @@ br/com/codecode/workix/ejb/mdb/JobListener.class
 br/com/codecode/workix/security/JAASUser.class
 br/com/codecode/workix/model/base/BaseSkill.class
 br/com/codecode/workix/cdi/dao/implementation/persist/ResumeCompleteDao.class
+br/com/codecode/workix/model/root/RootJob.class
 br/com/codecode/workix/jpa/converter/LocalDateTimeAttributeConverter.class
 br/com/codecode/workix/model/jpa/Subscriber$Builder.class
 br/com/codecode/workix/cdi/dao/implementation/mockup/ResumeDaoMockup.class
@@ -62,7 +65,9 @@ br/com/codecode/workix/security/SecurityDao.class
 br/com/codecode/workix/model/base/BaseContact.class
 br/com/codecode/workix/model/base/BaseEducation.class
 br/com/codecode/workix/cdi/notify/implementation/PushMessage.class
+br/com/codecode/workix/model/root/RootEntity.class
 br/com/codecode/workix/model/base/BaseEntity.class
+br/com/codecode/workix/model/root/RootLocale.class
 br/com/codecode/workix/model/base/BaseLocale.class
 br/com/codecode/workix/rest/android/LoginEndpoint.class
 br/com/codecode/workix/jsf/util/listener/MyValueChangeListener.class
@@ -74,6 +79,7 @@ br/com/codecode/workix/model/jpa/Resume.class
 br/com/codecode/workix/model/pojo/Locale.class
 br/com/codecode/workix/bean/RegisterMB.class
 br/com/codecode/workix/bean/CandidatesMB.class
+br/com/codecode/workix/model/root/RootContact.class
 br/com/codecode/workix/model/pojo/Candidate.class
 br/com/codecode/workix/model/interfaces/Traceable.class
 br/com/codecode/workix/model/base/BaseCompany.class
@@ -83,11 +89,13 @@ br/com/codecode/workix/model/pojo/User.class
 br/com/codecode/workix/cdi/dao/BaseCrud.class
 br/com/codecode/workix/model/pojo/Job.class
 br/com/codecode/workix/exception/NotImplementedYetException.class
+br/com/codecode/workix/model/root/RootSkill.class
 br/com/codecode/workix/jsf/util/converter/AnotherEntityConverter.class
 br/com/codecode/workix/cdi/dao/implementation/persist/ResumeDao.class
 br/com/codecode/workix/rest/scaffold/JobEndpoint.class
 br/com/codecode/workix/filter/CharacterEncodingFilter.class
 br/com/codecode/workix/bean/BaseMB.class
+br/com/codecode/workix/model/root/RootCompany.class
 br/com/codecode/workix/model/annotation/NeedUpgrade.class
 br/com/codecode/workix/model/jpa/Education.class
 br/com/codecode/workix/rest/scaffold/UserEndpoint.class
@@ -111,15 +119,20 @@ br/com/codecode/workix/util/gson/deserializer/GsonCalendarDeserializer.class
 br/com/codecode/workix/cdi/event/JobObserver.class
 br/com/codecode/workix/model/pojo/Contact.class
 br/com/codecode/workix/security/JAASRole.class
+br/com/codecode/workix/model/root/RootPerson.class
 br/com/codecode/workix/model/pojo/Resume.class
+br/com/codecode/workix/model/root/RootSelectiveProccess.class
 br/com/codecode/workix/bean/PostAJobMB.class
+br/com/codecode/workix/model/root/RootExperience.class
 br/com/codecode/workix/cdi/event/CandidateObserver.class
 br/com/codecode/workix/config/MailConfiguration.class
+br/com/codecode/workix/model/root/RootEducation.class
 br/com/codecode/workix/bean/StatsMB.class
 br/com/codecode/workix/model/jpa/Contact$Builder.class
 br/com/codecode/workix/model/enums/JobType.class
 br/com/codecode/workix/jpa/converter/LocalDateAttributeConverter.class
 br/com/codecode/workix/rest/android/SaveOrUpdateEndpoint.class
+br/com/codecode/workix/model/root/RootSubscriber.class
 br/com/codecode/workix/jaxrs/converter/LocalDateAdapter.class
 br/com/codecode/workix/jsf/util/converter/LocalDateTimeFacesConverter.class
 br/com/codecode/workix/model/jpa/Experience.class
@@ -149,6 +162,7 @@ br/com/codecode/workix/cdi/qualifier/UserTopic.class
 br/com/codecode/workix/jsf/util/converter/EntityConverter.class
 br/com/codecode/workix/bean/UserMB.class
 br/com/codecode/workix/cdi/producer/MailSessionProducer.class
+br/com/codecode/workix/model/root/RootCandidate.class
 br/com/codecode/workix/cdi/qualifier/Mockup.class
 br/com/codecode/workix/rest/scaffold/ResumeEndpoint.class
 br/com/codecode/workix/bean/JobDetailMB.class

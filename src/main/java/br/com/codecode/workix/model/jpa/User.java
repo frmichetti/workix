@@ -147,7 +147,6 @@ public class User extends MyEntity implements BaseUser {
 		
 		/**
 		 * Constructor with Required Fields
-		 * @param active Active
 		 * @param email Email
 		 */
 		public Builder(String email) {
