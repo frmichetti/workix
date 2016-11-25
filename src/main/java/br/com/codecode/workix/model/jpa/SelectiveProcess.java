@@ -169,7 +169,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 		return active;
 	}
 
-	private void setActive(boolean active) {
+	protected void setActive(boolean active) {
 
 		if(!active){
 			disabledAt = Timestamp.from(Instant.now());
