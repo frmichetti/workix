@@ -25,7 +25,7 @@ public class MessageDigestProducer {
 	/**
 	 * Produce MessageDigest for CDI Injection Points 
 	 * @return MessageDigest Instance
-	 * @throws NoSuchAlgorithmException 
+	 * @throws NoSuchAlgorithmException if Algorithm is Invalid
 	 */
 	@Produces
 	@Dependent

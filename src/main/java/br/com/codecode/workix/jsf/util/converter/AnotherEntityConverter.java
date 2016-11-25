@@ -75,7 +75,7 @@ public class AnotherEntityConverter implements Converter {
 	 * Obtém, via expression language, a classe do objeto.	 
 	 * @param facesContext FacesContext 
 	 * @param component UICompoment 
-	 * @return  Classe
+	 * @return Classe
 	 */
 	private Class<?> getClazz(FacesContext facesContext, UIComponent component) {
 		return component.getValueExpression("value").getType(
@@ -86,10 +86,10 @@ public class AnotherEntityConverter implements Converter {
 	 * Retorna a representação em String do retorno do método anotado com @Id ou @EmbeddedId do objeto.
 	 * @param clazz Class 
 	 * @param obj Object
-	 * @throws SecurityException
-	 * @throws NoSuchFieldException
-	 * @throws IllegalArgumentException	     
-	 * @throws IllegalAccessException     
+	 * @throws SecurityException SecurityException
+	 * @throws NoSuchFieldException NoSuchFieldException
+	 * @throws IllegalArgumentException	IllegalArgumentException      
+	 * @throws IllegalAccessException IllegalAccessException    
 	 * @return String
 	 */
 	public String getId(Class<?> clazz, Object obj) throws SecurityException,

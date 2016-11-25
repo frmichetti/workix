@@ -81,10 +81,10 @@ public class EntityConverter implements Converter {
 	}
 	/**
 	 * Retorna a representação em String do retorno do método anotado com @Id ou @EmbeddedId do objeto.
-	 * @throws SecurityException
-	 * @throws NoSuchFieldException
-	 * @throws IllegalArgumentException
-	 * @throws IllegalAccessException
+	 * @throws SecurityException SecurityException
+	 * @throws NoSuchFieldException NoSuchFieldException
+	 * @throws IllegalArgumentException IllegalArgumentException
+	 * @throws IllegalAccessException IllegalAccessException
 	 * @param clazz Class
 	 * @param obj Object           
 	 * @return String

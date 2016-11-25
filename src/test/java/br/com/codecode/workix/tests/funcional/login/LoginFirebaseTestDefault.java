@@ -30,7 +30,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * Do Login With Firebase Server with JsonP
  * @author felipe
  * @since 1.0
- * @version
+ * @version 1.0
  */
 public class LoginFirebaseTestDefault extends BaseTest implements LoginTest{
 
