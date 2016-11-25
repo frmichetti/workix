@@ -14,7 +14,44 @@ package br.com.codecode.workix.model.root;
  */
 public abstract class RootCompany extends RootPerson {
 	
-	protected long cnpj;
+	private long cnpj;
 	
-	protected String segment;
+	private String segment;
+	
+	/**
+	 * Empty Default Constructor
+	 */
+	public RootCompany(){}
+
+	/**
+	 * @return the cnpj
+	 */
+	public final long getCnpj() {
+		return cnpj;
+	}
+
+	/**
+	 * @param cnpj the cnpj to set
+	 */
+	public final void setCnpj(long cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	/**
+	 * @return the segment
+	 */
+	public final String getSegment() {
+		return segment;
+	}
+
+	/**
+	 * @param segment the segment to set
+	 */
+	public final void setSegment(String segment) {
+		this.segment = segment;
+	}
+	
+	
+	
+	
 }

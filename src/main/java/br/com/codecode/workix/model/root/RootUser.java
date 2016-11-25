@@ -15,6 +15,7 @@ package br.com.codecode.workix.model.root;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see RootEntity
  */
 public abstract class RootUser extends RootEntity {
 	

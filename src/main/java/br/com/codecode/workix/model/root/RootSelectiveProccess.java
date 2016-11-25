@@ -25,6 +25,7 @@ import br.com.codecode.workix.model.base.BaseJob;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see Observable
  */
 public abstract class RootSelectiveProccess extends Observable {
 	

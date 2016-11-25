@@ -5,7 +5,7 @@ package br.com.codecode.workix.model.base;
  * @author felipe
  *
  */
-public abstract interface BaseUser extends BaseEntity {
+public interface BaseUser extends BaseEntity {
 	
 	boolean isActive();
 	

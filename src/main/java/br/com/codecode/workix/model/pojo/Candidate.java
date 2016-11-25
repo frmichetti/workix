@@ -1,39 +1,14 @@
 package br.com.codecode.workix.model.pojo;
 
-import java.util.Calendar;
-
 import br.com.codecode.workix.model.base.BaseCandidate;
+import br.com.codecode.workix.model.root.RootCandidate;
 
 /**
  * Draft Candidate Class
  * @author felipe
- * 
- *
+ * @since 1.0
+ * @version 1.0
+ * @see RootCandidate
+ * @see BaseCandidate
  */
-class Candidate extends Person implements BaseCandidate{
-
-	@Override
-	public long getCpf() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void setCpf(long cpf) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Calendar getBirthDate() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setBirthDate(Calendar birthDate) {
-		// TODO Auto-generated method stub
-		
-	}
-
-}
+class Candidate extends RootCandidate implements BaseCandidate{}

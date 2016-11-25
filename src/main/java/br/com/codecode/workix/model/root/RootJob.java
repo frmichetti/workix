@@ -3,9 +3,9 @@ package br.com.codecode.workix.model.root;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
+import br.com.codecode.workix.model.base.BaseCompany;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
-import br.com.codecode.workix.model.jpa.Company;
 
 /**
  * Root Abstract Class Job<br>
@@ -27,31 +27,207 @@ import br.com.codecode.workix.model.jpa.Company;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see RootEntity
  */
 public abstract class RootJob extends RootEntity {
 	
-	protected String title;
+	private String title;
 		
-	protected BigDecimal minPayment;
+	private BigDecimal minPayment;
 
-	protected BigDecimal maxPayment;
+	private BigDecimal maxPayment;
 
-	protected String description;
+	private String description;
 
-	protected String requirement;
+	private String requirement;
 
-	protected String benefits;
+	private String benefits;
 
-	protected Calendar start;
+	private Calendar start;
 
-	protected Calendar expire;
+	private Calendar expire;
 
-	protected JobType type;
+	private JobType type;
 
-	protected JobCategory category;	
+	private JobCategory category;	
 
-	protected boolean active;
+	private boolean active;
 
-	protected Company employeer;
+	private BaseCompany employeer;
+	
+	/**
+	 * Public Empty Default Constructor
+	 */
+	public RootJob() {}
+
+	/**
+	 * @return the title
+	 */
+	public final String getTitle() {
+		return title;
+	}
+
+	/**
+	 * @param title the title to set
+	 */
+	public final void setTitle(String title) {
+		this.title = title;
+	}
+
+	/**
+	 * @return the minPayment
+	 */
+	public final BigDecimal getMinPayment() {
+		return minPayment;
+	}
+
+	/**
+	 * @param minPayment the minPayment to set
+	 */
+	public final void setMinPayment(BigDecimal minPayment) {
+		this.minPayment = minPayment;
+	}
+
+	/**
+	 * @return the maxPayment
+	 */
+	public final BigDecimal getMaxPayment() {
+		return maxPayment;
+	}
+
+	/**
+	 * @param maxPayment the maxPayment to set
+	 */
+	public final void setMaxPayment(BigDecimal maxPayment) {
+		this.maxPayment = maxPayment;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public final String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public final void setDescription(String description) {
+		this.description = description;
+	}
+
+	/**
+	 * @return the requirement
+	 */
+	public final String getRequirement() {
+		return requirement;
+	}
+
+	/**
+	 * @param requirement the requirement to set
+	 */
+	public final void setRequirement(String requirement) {
+		this.requirement = requirement;
+	}
+
+	/**
+	 * @return the benefits
+	 */
+	public final String getBenefits() {
+		return benefits;
+	}
+
+	/**
+	 * @param benefits the benefits to set
+	 */
+	public final void setBenefits(String benefits) {
+		this.benefits = benefits;
+	}
+
+	/**
+	 * @return the start
+	 */
+	public final Calendar getStart() {
+		return start;
+	}
+
+	/**
+	 * @param start the start to set
+	 */
+	public final void setStart(Calendar start) {
+		this.start = start;
+	}
+
+	/**
+	 * @return the expire
+	 */
+	public final Calendar getExpire() {
+		return expire;
+	}
+
+	/**
+	 * @param expire the expire to set
+	 */
+	public final void setExpire(Calendar expire) {
+		this.expire = expire;
+	}
+
+	/**
+	 * @return the type
+	 */
+	public final JobType getType() {
+		return type;
+	}
+
+	/**
+	 * @param type the type to set
+	 */
+	public final void setType(JobType type) {
+		this.type = type;
+	}
+
+	/**
+	 * @return the category
+	 */
+	public final JobCategory getCategory() {
+		return category;
+	}
+
+	/**
+	 * @param category the category to set
+	 */
+	public final void setCategory(JobCategory category) {
+		this.category = category;
+	}
+
+	/**
+	 * @return the active
+	 */
+	public final boolean isActive() {
+		return active;
+	}
+
+	/**
+	 * @param active the active to set
+	 */
+	public final void setActive(boolean active) {
+		this.active = active;
+	}
+
+	/**
+	 * @return the employeer
+	 */
+	public final BaseCompany getEmployeer() {
+		return employeer;
+	}
+
+	/**
+	 * @param employeer the employeer to set
+	 */
+	public final void setEmployeer(BaseCompany employeer) {
+		this.employeer = employeer;
+	}
+	
+	
 
 }

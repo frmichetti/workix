@@ -16,8 +16,42 @@ import java.util.Calendar;
  */
 public abstract class RootCandidate extends RootPerson {
 	
-	protected long cpf;
+	private long cpf;
 	
-	protected Calendar birthDate;
+	private Calendar birthDate;
+	
+	/**
+	 * Empty Default Construtor
+	 */
+	public RootCandidate(){}
+
+	/**
+	 * @return the cpf
+	 */
+	public final long getCpf() {
+		return cpf;
+	}
+
+	/**
+	 * @param cpf the cpf to set
+	 */
+	public final void setCpf(long cpf) {
+		this.cpf = cpf;
+	}
+
+	/**
+	 * @return the birthDate
+	 */
+	public final Calendar getBirthDate() {
+		return birthDate;
+	}
+
+	/**
+	 * @param birthDate the birthDate to set
+	 */
+	public final void setBirthDate(Calendar birthDate) {
+		this.birthDate = birthDate;
+	}
+	
 
 }

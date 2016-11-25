@@ -131,8 +131,8 @@ public class Education implements Serializable {
 		 */
 		public Builder(String schoolName,Calendar startDate) {
 			this();			
-			this.schoolName = schoolName;
-			this.startDate = startDate;
+			this.setSchoolName(schoolName);
+			this.setStartDate(startDate);
 		}		
 
 		/**
@@ -145,53 +145,17 @@ public class Education implements Serializable {
 		 */
 		public Builder(String schoolName, Calendar startDate, Calendar endDate, String qualification, String description) {			
 			this(schoolName,startDate);			
-			this.endDate = endDate;
-			this.qualification = qualification;
-			this.description = description;
-		}		
+			this.setEndDate(endDate);
+			this.setQualification(qualification);
+			this.setDescription(description);
+		}			
 		
-		/**
-		 * @return the schoolName
-		 */
-		public final String getSchoolName() {
-			return schoolName;
-		}
-		
-		/**
-		 * @return the startDate
-		 */
-		public final Calendar getStartDate() {
-			return startDate;
-		}
-		
-		/**
-		 * @return the endDate
-		 */
-		public final Calendar getEndDate() {
-			return endDate;
-		}
-		
-		/**
-		 * @return the qualification
-		 */
-		public final String getQualification() {
-			return qualification;
-		}
-		
-		/**
-		 * @return the description
-		 */
-		public final String getDescription() {
-			return description;
-		}
-
-
 		/**
 		 * @param schoolName the schoolName to set
 		 * @return Builder
 		 */
-		public Builder setSchoolName(String schoolName) {
-			this.schoolName = schoolName;
+		public Builder withSchoolName(String schoolName) {
+			this.setSchoolName(schoolName);
 			return this;
 		}
 
@@ -199,8 +163,8 @@ public class Education implements Serializable {
 		 * @param startDate the startDate to set
 		 * @return Builder
 		 */
-		public Builder setStartDate(Calendar startDate) {
-			this.startDate = startDate;
+		public Builder withStartDate(Calendar startDate) {
+			this.setStartDate(startDate);
 			return this;
 		}
 
@@ -208,8 +172,8 @@ public class Education implements Serializable {
 		 * @param endDate the endDate to set
 		 * @return Builder
 		 */
-		public Builder setEndDate(Calendar endDate) {
-			this.endDate = endDate;
+		public Builder withEndDate(Calendar endDate) {
+			this.setEndDate(endDate);
 			return this;
 		}
 
@@ -217,8 +181,8 @@ public class Education implements Serializable {
 		 * @param qualification the qualification to set
 		 * @return Builder
 		 */
-		public Builder setQualification(String qualification) {
-			this.qualification = qualification;
+		public Builder withQualification(String qualification) {
+			this.setQualification(qualification);
 			return this;
 		}
 
@@ -226,8 +190,8 @@ public class Education implements Serializable {
 		 * @param description the description to set
 		 * @return Builder
 		 */
-		public Builder setDescription(String description) {
-			this.description = description;
+		public Builder withDescription(String description) {
+			this.setDescription(description);
 			return this;
 		}
 

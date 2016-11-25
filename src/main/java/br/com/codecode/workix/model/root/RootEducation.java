@@ -18,14 +18,89 @@ import java.util.Calendar;
  */
 public abstract class RootEducation {
 	
-	protected String schoolName;
+	private String schoolName;
 
-	protected Calendar startDate;
+	private Calendar startDate;
 
-	protected Calendar endDate;
+	private Calendar endDate;
 
-	protected String qualification;
+	private String qualification;
 
-	protected String description;
+	private String description;
+	
+	/**
+	 * Default Empty Constructor
+	 */
+	public RootEducation(){}
+
+	/**
+	 * @return the schoolName
+	 */
+	public final String getSchoolName() {
+		return schoolName;
+	}
+
+	/**
+	 * @param schoolName the schoolName to set
+	 */
+	public final void setSchoolName(String schoolName) {
+		this.schoolName = schoolName;
+	}
+
+	/**
+	 * @return the startDate
+	 */
+	public final Calendar getStartDate() {
+		return startDate;
+	}
+
+	/**
+	 * @param startDate the startDate to set
+	 */
+	public final void setStartDate(Calendar startDate) {
+		this.startDate = startDate;
+	}
+
+	/**
+	 * @return the endDate
+	 */
+	public final Calendar getEndDate() {
+		return endDate;
+	}
+
+	/**
+	 * @param endDate the endDate to set
+	 */
+	public final void setEndDate(Calendar endDate) {
+		this.endDate = endDate;
+	}
+
+	/**
+	 * @return the qualification
+	 */
+	public final String getQualification() {
+		return qualification;
+	}
+
+	/**
+	 * @param qualification the qualification to set
+	 */
+	public final void setQualification(String qualification) {
+		this.qualification = qualification;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public final String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description the description to set
+	 */
+	public final void setDescription(String description) {
+		this.description = description;
+	}	
 	
 }
