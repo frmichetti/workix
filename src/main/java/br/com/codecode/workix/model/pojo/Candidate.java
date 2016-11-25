@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootCandidate;
  * @see RootCandidate
  * @see BaseCandidate
  */
-class Candidate extends RootCandidate implements BaseCandidate{}
+public final class Candidate extends RootCandidate implements BaseCandidate{}

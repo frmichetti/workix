@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootLocale;
  * @see RootLocale
  * @see BaseLocale
  */
-class Locale extends RootLocale implements BaseLocale{}
+public final class Locale extends RootLocale implements BaseLocale{}

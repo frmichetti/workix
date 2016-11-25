@@ -1,6 +1,3 @@
-/**
- * 
- */
 package br.com.codecode.workix.model.annotation;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
@@ -26,6 +23,7 @@ import java.lang.annotation.Target;
 /**
  * Mark Whatever Object as Useless 
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public @interface UseLess{}

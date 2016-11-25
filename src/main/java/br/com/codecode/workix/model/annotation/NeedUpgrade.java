@@ -23,6 +23,7 @@ import java.lang.annotation.Target;
 /**
  * Mark Object as needing upgrade
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public @interface NeedUpgrade{}

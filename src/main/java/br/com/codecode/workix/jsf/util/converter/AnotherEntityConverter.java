@@ -31,6 +31,7 @@ import javax.persistence.Id;
 @FacesConverter("AnotherEntityConverter")
 public class AnotherEntityConverter implements Converter {
 	
+	@Override
 	public Object getAsObject(FacesContext ctx, UIComponent component,
 			String value) {
 		
@@ -41,6 +42,7 @@ public class AnotherEntityConverter implements Converter {
 		return null;
 	}
 	
+	@Override
 	public String getAsString(FacesContext ctx, UIComponent component,
 			Object obj) {
 		
@@ -102,7 +104,7 @@ public class AnotherEntityConverter implements Converter {
 							.getDeclaredField(field.getName());
 					privateField.setAccessible(true);
 					if (privateField.get(clazz.cast(obj)) != null) {
-						return (String) field.getType()
+						return field.getType()
 								.cast(privateField.get(clazz.cast(obj)))
 								.toString();
 					}

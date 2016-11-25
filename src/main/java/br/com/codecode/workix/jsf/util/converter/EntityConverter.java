@@ -28,6 +28,7 @@ import javax.persistence.Id;
 @FacesConverter("EntityConverter")
 public class EntityConverter implements Converter {
 	
+	@Override
 	public Object getAsObject(FacesContext ctx, UIComponent component,
 			String value) {
 		
@@ -38,6 +39,7 @@ public class EntityConverter implements Converter {
 		return null;
 	}
 
+	@Override
 	public String getAsString(FacesContext ctx, UIComponent component,
 			Object obj) {
 		
@@ -108,7 +110,7 @@ public class EntityConverter implements Converter {
 					
 					if (privateField.get(clazz.cast(obj)) != null) {
 					
-						return (String) field.getType()
+						return field.getType()
 								.cast(privateField.get(clazz.cast(obj)))
 								.toString();
 					}

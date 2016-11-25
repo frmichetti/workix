@@ -19,14 +19,16 @@ import br.com.codecode.workix.model.interfaces.Persistable;
 @FacesConverter("SimpleEntityConverter")
 public class SimpleEntityConverter implements Converter {  
 	  
-    public Object getAsObject(FacesContext ctx, UIComponent component, String value) {  
+    @Override
+	public Object getAsObject(FacesContext ctx, UIComponent component, String value) {  
         if (value != null) {  
             return this.getAttributesFrom(component).get(value);  
         }  
         return null;  
     }  
   
-    public String getAsString(FacesContext ctx, UIComponent component, Object value) {  
+    @Override
+	public String getAsString(FacesContext ctx, UIComponent component, Object value) {  
   
         if (value != null && !"".equals(value)) {  
   

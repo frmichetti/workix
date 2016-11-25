@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootJob;
  * @see RootJob
  * @see BaseJob
  */
-class Job extends RootJob implements BaseJob{}
+public final class Job extends RootJob implements BaseJob{}

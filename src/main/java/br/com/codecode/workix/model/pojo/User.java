@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootUser;
  * @see RootUser
  * @see BaseUser
  */
-class User extends RootUser implements BaseUser{}
+public final class User extends RootUser implements BaseUser{}

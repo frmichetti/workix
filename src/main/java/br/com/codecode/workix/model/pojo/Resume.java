@@ -16,7 +16,7 @@ import br.com.codecode.workix.model.root.RootResume;
  * @see RootResume
  * @see BaseResume 
  */
-class Resume extends RootResume implements BaseResume{
+public final class Resume extends RootResume implements BaseResume{
 
 	@Override
 	public void addExperience(BaseExperience experience) {

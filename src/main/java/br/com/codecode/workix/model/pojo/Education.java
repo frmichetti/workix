@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootEducation;
  * @see RootEducation
  * @see BaseEducation
  */
-public class Education extends RootEducation implements BaseEducation{}
+public final class Education extends RootEducation implements BaseEducation{}

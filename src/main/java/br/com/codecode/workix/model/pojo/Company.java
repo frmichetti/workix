@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootCompany;
  * @see RootCompany
  * @see BaseCompany
  */
-class Company extends RootCompany implements BaseCompany{}
+public final class Company extends RootCompany implements BaseCompany{}

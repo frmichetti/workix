@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootContact;
  * @see RootContact
  * @see BaseContact
  */
-class Contact extends RootContact implements BaseContact{}
+public final class Contact extends RootContact implements BaseContact{}

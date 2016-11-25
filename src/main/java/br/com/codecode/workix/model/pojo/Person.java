@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootPerson;
  * @see RootPerson
  * @see BasePerson
  */
-abstract class Person extends RootPerson implements BasePerson{}
+public abstract class Person extends RootPerson implements BasePerson{}

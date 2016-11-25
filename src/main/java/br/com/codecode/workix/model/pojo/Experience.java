@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootExperience;
  * @see RootExperience
  * @see BaseExperience
  */
-class Experience extends RootExperience implements BaseExperience{}
+public final class Experience extends RootExperience implements BaseExperience{}

@@ -10,4 +10,4 @@ import br.com.codecode.workix.model.root.RootEntity;
  * @since 1.0
  * @version 1.0
  */
-class MyEntity extends RootEntity implements BaseEntity{}
+public final class MyEntity extends RootEntity implements BaseEntity{}

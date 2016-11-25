@@ -11,4 +11,4 @@ import br.com.codecode.workix.model.root.RootSkill;
  * @see RootSkill
  * @see BaseSkill
  */
-class Skill extends RootSkill implements BaseSkill{}
+public final class Skill extends RootSkill implements BaseSkill{}

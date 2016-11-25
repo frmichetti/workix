@@ -4,7 +4,7 @@ package br.com.codecode.workix.jsf.util;
  * Pagination Helper
  * @author felipe
  * @version 1.0
- *
+ * @since 1.0
  */
 public class PaginationHelper {		
 
@@ -40,7 +40,7 @@ public class PaginationHelper {
 	 */
 	public int discoverStartRange(int limitRows,int currentPage,int totalPages) throws IllegalArgumentException {
 
-		if(currentPage < 1)	throw new IllegalArgumentException("Current Page Minor than 1");		
+		if(currentPage < 1)	throw new IllegalArgumentException("Current Page Less than 1");		
 
 		return (limitRows * currentPage) - limitRows + 1;
 
