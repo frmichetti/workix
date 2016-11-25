@@ -14,7 +14,8 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
  * @see Produces
  * @see ManagedExecutorService
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @ApplicationScoped
 public class ManagedExecutorServiceProducer {

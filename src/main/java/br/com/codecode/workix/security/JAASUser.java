@@ -3,6 +3,7 @@ package br.com.codecode.workix.security;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.inject.Inject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,11 +23,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 import br.com.codecode.workix.model.interfaces.Persistable;
 
 /**
- * 
  * Only for JAAS security
- * 
  * @since 1.0
- * @version 1.0
+ * @version 1.1
+ * @see Persistable
+ * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -52,7 +53,13 @@ public class JAASUser implements Persistable, Serializable {
 	@ManyToMany(fetch = FetchType.EAGER)		
 	private Set<JAASRole> roles;
 
+	/**
+	 * Public Default Constructor for JPA Compatibility Only
+	 */
 	public JAASUser(){}
+	
+	@Inject
+	private transient PassGenerator passGenerator;
 
 	public String getLogin() {
 		return login;		
@@ -81,7 +88,7 @@ public class JAASUser implements Persistable, Serializable {
 	@PrePersist
 	@PreUpdate
 	private void encode() {
-		this.password = PassGenerator.generate(this.password);
+		this.password = passGenerator.generate(this.password);
 	}
 
 	@Override
@@ -94,6 +101,7 @@ public class JAASUser implements Persistable, Serializable {
 		return id;
 	}
 	
+	@Override
 	public void setId(long id) {
 		this.id = id;		
 	}

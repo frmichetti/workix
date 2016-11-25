@@ -18,11 +18,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * 
  * Only for JAAS security
- * 
  * @since 1.0
  * @version 1.0
+ * @see Serializable
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

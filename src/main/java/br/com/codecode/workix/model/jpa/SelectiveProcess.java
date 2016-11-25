@@ -17,6 +17,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -47,7 +48,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-@SuppressWarnings({"unchecked","unused"})
+@SuppressWarnings({"unchecked"})
 @Table(name="Selective_Process")
 @Entity
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
@@ -81,7 +82,8 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	private Job job;	
 
 	@NotNull
-	@JoinTable(name="Selective_Process_Candidates")
+	@JoinTable(name="Selective_Process_Candidates",joinColumns=@JoinColumn(name="sp_id"),
+			inverseJoinColumns=@JoinColumn(name="candidate_id"))
 	@OneToMany(fetch = FetchType.EAGER)	
 	private Set<Candidate> candidates;
 
@@ -116,11 +118,11 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 		this.id = id;
 	}
 
-	private int getVersion() {
+	protected int getVersion() {
 		return this.version;
 	}
 
-	private void setVersion(final int version) {
+	protected void setVersion(final int version) {
 		this.version = version;
 	}	
 

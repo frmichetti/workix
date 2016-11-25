@@ -16,7 +16,8 @@ import br.com.codecode.workix.infra.MailSender;
  * @see Produces
  * @see Session
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @ApplicationScoped
 public class MailSessionProducer {
