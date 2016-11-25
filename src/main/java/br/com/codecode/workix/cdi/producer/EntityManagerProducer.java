@@ -125,7 +125,7 @@ public class EntityManagerProducer implements Serializable {
 	 */
 	private String getContextParam() throws RuntimeException{
 		
-		String s = "Development";
+		String s = "OpenShift";
 
 		if(!s.isEmpty()){
 			return s;

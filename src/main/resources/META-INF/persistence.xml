@@ -12,7 +12,7 @@
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
 		</properties>
 	</persistence-unit>
-
+ 
 	<persistence-unit name="DevDS" transaction-type="JTA">
 		<description>Development Persistence Unit</description>
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -32,5 +32,5 @@
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
 		</properties>
 	</persistence-unit>
-
+ 
 </persistence>

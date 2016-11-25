@@ -11,12 +11,17 @@
 		<priority>1.00</priority>
 	</url>
 	<url>
-		<loc>http://www.workix.com.br/index.xhtml?faces-redirect=true</loc>
+		<loc>http://www.workix.com.br/index.xhtml</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.80</priority>
 	</url>
 	<url>
-		<loc>http://www.workix.com.br/about.xhtml?faces-redirect=true</loc>
+		<loc>http://www.workix.com.br/about.xhtml</loc>
+		<changefreq>daily</changefreq>
+		<priority>0.80</priority>
+	</url>
+	<url>
+		<loc>http://www.workix.com.br/docs/index.html</loc>
 		<changefreq>daily</changefreq>
 		<priority>0.80</priority>
 	</url>

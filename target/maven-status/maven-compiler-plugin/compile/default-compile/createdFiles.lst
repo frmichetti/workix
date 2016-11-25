@@ -158,6 +158,7 @@ br/com/codecode/workix/bean/ContactMB.class
 br/com/codecode/workix/bean/CandidateDetailsMB.class
 br/com/codecode/workix/cdi/qualifier/Generic.class
 br/com/codecode/workix/cdi/dao/implementation/persist/UserDao.class
+br/com/codecode/workix/cdi/producer/MessageDigestProducer.class
 br/com/codecode/workix/cdi/qualifier/UserTopic.class
 br/com/codecode/workix/jsf/util/converter/EntityConverter.class
 br/com/codecode/workix/bean/UserMB.class

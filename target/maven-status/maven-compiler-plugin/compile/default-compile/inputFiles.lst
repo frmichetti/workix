@@ -59,6 +59,7 @@
 /git/java/workix/src/main/java/br/com/codecode/workix/model/base/BaseEntity.java
 /git/java/workix/src/main/java/br/com/codecode/workix/jaxrs/converter/LocalDateAdapter.java
 /git/java/workix/src/main/java/br/com/codecode/workix/model/enums/JobCategory.java
+/git/java/workix/src/main/java/br/com/codecode/workix/cdi/producer/MessageDigestProducer.java
 /git/java/workix/src/main/java/br/com/codecode/workix/jpa/converter/LocalDateTimeAttributeConverter.java
 /git/java/workix/src/main/java/br/com/codecode/workix/model/root/RootLocale.java
 /git/java/workix/src/main/java/br/com/codecode/workix/rest/scaffold/UserEndpoint.java
