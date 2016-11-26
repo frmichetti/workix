@@ -68,11 +68,11 @@
 										<div class="col-lg-2 job-dates visible-lg-block">
 											<p class="job-posted">
 												<strong>Postada em <h:outputText
-														value="#{job.start}" /></strong>
+														value="#{job.start.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText></strong>
 											</p>
 											<p class="job-closes">
 												Encerra em
-												<h:outputText value="#{job.start}" />
+												<h:outputText value="#{job.expire.time}"><f:convertDateTime pattern="dd/MM/yyyy" /></h:outputText>
 											</p>
 										</div>
 									</div>

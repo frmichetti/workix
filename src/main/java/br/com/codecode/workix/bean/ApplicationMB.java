@@ -9,7 +9,7 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
+import java.io.Serializable;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 
 /**
@@ -21,7 +21,9 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
  */
 @Named
 @ApplicationScoped
-public class ApplicationMB extends BaseMB {
+public class ApplicationMB extends BaseMB implements Serializable {
+
+	private static final long serialVersionUID = -4759086144184129975L;
 
 	private String appName, slogan ;
 
