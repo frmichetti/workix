@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.download.gson;
+package br.com.codecode.workix.tests.download;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -12,7 +12,6 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.jpa.Company;
-import br.com.codecode.workix.tests.download.DownloadTest;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -25,7 +24,7 @@ public class DownloadTestCompany extends BaseTest implements DownloadTest{
 		
 		System.out.println("downloadItens");
 		
-		resp = HttpTest.sendGet(server + "companies");
+		resp = HttpTest.sendGet(server + "/companies");
 		
 		assertFalse(resp.isEmpty());
 		

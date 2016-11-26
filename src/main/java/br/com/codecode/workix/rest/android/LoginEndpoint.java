@@ -67,7 +67,7 @@ public class LoginEndpoint extends BaseEndpoint {
 		if (user == null) {
 
 			//return Response.status(Status.NOT_FOUND).build();
-			return Response.ok("{}").build();
+			return Response.ok("{\"action\":\"rebuild\"}").build();
 
 		}
 

@@ -22,7 +22,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version 1.1
  */
-public class LoginFirebaseTestGson extends BaseTest implements LoginTest{
+public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest{
 
 	private String url = server + "/login/firebaselogin";
 
@@ -52,7 +52,7 @@ public class LoginFirebaseTestGson extends BaseTest implements LoginTest{
 
 		System.out.println("[parseJson]");		
 		
-		assertTrue(json.startsWith("{}"));				
+		assertTrue(json.startsWith("{\"action\":\"rebuild\"}"));				
 
 	}
 

@@ -5,6 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import br.com.codecode.workix.model.base.BaseUser;
 import br.com.codecode.workix.model.interfaces.Buildable;
 import br.com.codecode.workix.model.interfaces.Persistable;
 import br.com.codecode.workix.model.jpa.User;
@@ -44,6 +45,8 @@ public class UserBuilderTest {
 		assertNotNull(user);
 		
 		assertTrue(user instanceof Persistable);
+		
+		assertTrue(user instanceof BaseUser);
 		
 	}
 	

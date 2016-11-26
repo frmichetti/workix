@@ -27,7 +27,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0 
  * @version 1.1
  */
-public class LoginFirebaseTestDefault extends BaseTest implements LoginTest{
+public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTest{
 
 	private String url = server + "/login/firebaselogin";
 
