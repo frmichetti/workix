@@ -1,11 +1,13 @@
-package br.com.codecode.workix.cdi.dao.implementation.persist;
+package br.com.codecode.workix.cdi.dao.implementation.standalone;
 
+import br.com.codecode.workix.cdi.dao.implementation.persist.BaseDao;
 import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.model.jpa.Resume;
 /**
- * StandAlone Dao for Resume
+ * Stand Alone DAO for Resume
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public class ResumeCompleteDao extends BaseDao {
 

@@ -11,6 +11,8 @@ import br.com.codecode.workix.model.jpa.Company;
 
 /**
  * DAO for Company
+ * @since 1.0
+ * @version 1.0
  */
 @Persist
 public class CompanyDao extends BaseDao implements Crud<Company> {	

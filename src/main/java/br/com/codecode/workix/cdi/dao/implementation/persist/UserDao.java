@@ -3,7 +3,6 @@ package br.com.codecode.workix.cdi.dao.implementation.persist;
 import java.math.BigInteger;
 import java.util.List;
 
-import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
@@ -14,8 +13,9 @@ import br.com.codecode.workix.model.jpa.User;
 
 /**
  * DAO for Job
+ * @since 1.0
+ * @version 1.0
  */
-@Stateless
 @Persist
 public class UserDao extends BaseDao implements Crud<User>{
 

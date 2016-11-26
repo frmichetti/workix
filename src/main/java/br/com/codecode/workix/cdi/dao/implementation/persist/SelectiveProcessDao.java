@@ -11,6 +11,8 @@ import br.com.codecode.workix.model.jpa.SelectiveProcess;
 
 /**
  * DAO for Selective Process
+ * @since 1.0
+ * @version 1.0
  */
 @Persist
 public class SelectiveProcessDao extends BaseDao implements Crud<SelectiveProcess> {

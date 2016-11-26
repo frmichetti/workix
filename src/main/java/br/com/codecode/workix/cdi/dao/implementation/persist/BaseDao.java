@@ -16,6 +16,9 @@ import br.com.codecode.workix.cdi.qualifier.Production;
 /**
  * Only for Share Entity Manager
  * @author felipe 
+ * @see Serializable
+ * @since 1.0
+ * @version 1.0
  */
 @Persist
 public abstract class BaseDao implements Serializable{

@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import javax.persistence.NoResultException;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.dao.implementation.persist.ResumeCompleteDao;
+import br.com.codecode.workix.cdi.dao.implementation.standalone.ResumeCompleteDao;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.cdi.qualifier.Factory;

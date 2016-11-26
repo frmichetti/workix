@@ -1,5 +1,5 @@
 /**
- * Implementations of Dao 
+ * Implementations of DAO 
  * 
  * @author felipe
  * @since 1.0

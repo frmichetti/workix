@@ -10,7 +10,6 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -22,9 +21,7 @@ import java.nio.charset.StandardCharsets;
  * @since 1.0
  * @version 1.0
  */
-public class Http implements Serializable {
-
-	private static final long serialVersionUID = 17758102869840354L;
+public class Http {	
 
 	private final String USER_AGENT = "Mozilla/5.0";
 

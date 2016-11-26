@@ -16,6 +16,8 @@ import br.com.codecode.workix.model.jpa.User;
 /**
  * Mockup Class for Demonstration Only
  * @author felipe 
+ * @since 1.0
+ * @version 1.0
  */
 @Mockup
 public class UserDaoMockup extends BaseDaoMockup implements Crud<User> {

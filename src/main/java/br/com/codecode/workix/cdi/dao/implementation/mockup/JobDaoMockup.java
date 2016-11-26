@@ -14,6 +14,8 @@ import br.com.codecode.workix.model.jpa.Job;
 /**
  * Mockup Class for Demonstration Only
  * @author felipe 
+ * @since 1.0
+ * @version 1.0
  */
 @Mockup
 public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
