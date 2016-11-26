@@ -18,7 +18,7 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Push;
-import br.com.codecode.workix.model.interfaces.Notificable;
+import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.util.Http;
 
 /**

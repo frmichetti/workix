@@ -7,7 +7,7 @@
  * */
 package br.com.codecode.workix.cdi.notify;
 
-import br.com.codecode.workix.model.interfaces.Notificable;
+import br.com.codecode.workix.interfaces.Notificable;
 /**
  * Notification Interface for CDI Implementation Uses
  * @author felipe

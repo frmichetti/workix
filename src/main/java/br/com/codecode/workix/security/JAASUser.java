@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Persistable;
 
 /**
  * Only for JAAS security

@@ -18,9 +18,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import br.com.codecode.workix.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Traceable;
 import br.com.codecode.workix.model.base.BaseEntity;
-import br.com.codecode.workix.model.interfaces.Persistable;
-import br.com.codecode.workix.model.interfaces.Traceable;
 
 /**
  * MyEntity JPA {@link MappedSuperclass} 

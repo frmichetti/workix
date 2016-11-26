@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.interfaces;
+package br.com.codecode.workix.interfaces;
 
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;

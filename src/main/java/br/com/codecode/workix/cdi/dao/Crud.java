@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.math.BigInteger;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Persistable;
 
 
 /**

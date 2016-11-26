@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Persistable;
 
 /**
  * Markup Interface <br>

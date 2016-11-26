@@ -12,7 +12,7 @@ import javax.persistence.TypedQuery;
 import br.com.codecode.workix.cdi.dao.BaseCrud;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producer.GenericDaoProducer;
-import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Persistable;
 
 /**
  * Generic Dao Implementation

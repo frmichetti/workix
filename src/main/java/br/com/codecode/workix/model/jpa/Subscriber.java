@@ -12,8 +12,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import br.com.codecode.workix.model.interfaces.Buildable;
-import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Buildable;
+import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.model.root.RootSubscriber;
 
 /**

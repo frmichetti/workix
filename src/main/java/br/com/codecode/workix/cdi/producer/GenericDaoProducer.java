@@ -17,7 +17,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.OpenShift;
 import br.com.codecode.workix.cdi.qualifier.Production;
-import br.com.codecode.workix.model.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Persistable;
 
 /**
  * Factory for Generic {@link Dao} Injection
