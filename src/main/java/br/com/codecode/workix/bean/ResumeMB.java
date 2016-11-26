@@ -46,7 +46,7 @@ public class ResumeMB extends BaseMB {
 
 	@Inject @Push
 	private Notification notification;	
-	
+
 	@Inject @Email
 	private Notification mailNotification;
 
@@ -61,7 +61,7 @@ public class ResumeMB extends BaseMB {
 	private String prefix, sufix, messageTitle, messageBody;
 
 	private Candidate candidate;
-	
+
 	private Resume resume;
 
 	private DataModel<Skill> skills;
@@ -74,35 +74,30 @@ public class ResumeMB extends BaseMB {
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	@Override
-	protected void init(){
+	public void init(){
 
 		prefix = facesContext.getExternalContext().getRequestContextPath();
 
 		sufix = "?faces-redirect=true";
 
-		System.out.println("Candidate ID RECEIVED -> " + id);
+		System.out.println("Candidate ID RECEIVED -> " + id);	
 
 		try {
 
 			candidate = dao.findById(id);
 
-		} catch (NotImplementedYetException e) {
+			if(candidate == null)
+				goToErrorPage();
+			else
+				resume = daoResume.findResumebyOwner(candidate);
 
-			e.printStackTrace();
+			if(resume == null)
+				goToErrorPage();
 
-			goToErrorPage();
+		} catch (NotImplementedYetException | NoResultException e) {
 
-		}catch (NoResultException e) {
-			
-			e.printStackTrace();
+			e.printStackTrace();	
 
-			goToErrorPage();
-		}	
-
-		resume = daoResume.findResumebyOwner(candidate);
-
-		if(resume == null){
-			goToErrorPage();
 		}
 
 
@@ -183,9 +178,9 @@ public class ResumeMB extends BaseMB {
 		this.messageTitle = messageTitle;
 	}
 
-	private String goToErrorPage(){	
+	private void goToErrorPage(){		
 
-		try {
+		try {			
 
 			facesContext.getExternalContext()
 			.redirect(prefix + "/404.xhtml" + sufix);
@@ -194,7 +189,7 @@ public class ResumeMB extends BaseMB {
 
 			e.printStackTrace();
 		}
-		return prefix + "/404.xhtml" + sufix;
+
 	}
 
 

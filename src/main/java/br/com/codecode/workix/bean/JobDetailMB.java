@@ -40,7 +40,7 @@ public class JobDetailMB extends BaseMB {
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	@Override
-	protected void init(){
+	public void init(){
 
 		prefix = facesContext.getExternalContext().getRequestContextPath();
 

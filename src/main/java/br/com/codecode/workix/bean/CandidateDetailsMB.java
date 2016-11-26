@@ -7,6 +7,7 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.notify.Notification;
@@ -36,10 +37,10 @@ public class CandidateDetailsMB extends BaseMB {
 
 	@Inject @Push
 	private Notification pushNotification;	
-	
+
 	@Inject @Email
 	private Notification mailNotification;
-	
+
 	@Inject
 	private MessagesHelper messagesHelper;
 
@@ -49,14 +50,14 @@ public class CandidateDetailsMB extends BaseMB {
 	private long id;	
 
 	private String prefix, sufix;
-	
+
 	private Candidate candidate ;
 
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */	
 	@Override
-	protected void init(){		
+	public void init(){		
 
 		prefix = facesContext.getExternalContext().getRequestContextPath();
 
@@ -66,22 +67,14 @@ public class CandidateDetailsMB extends BaseMB {
 
 			candidate = dao.findById(id);
 
-		} catch (NotImplementedYetException e) {
+			if(candidate == null)
+				goToErrorPage();
+
+		} catch (NotImplementedYetException | NoResultException e) {
 
 			e.printStackTrace();
 
-			goToErrorPage();
-
-		}catch (Exception e) {
-			
-			e.printStackTrace();
-
-			goToErrorPage();
-		}
-		
-		if(candidate == null){
-			goToErrorPage();
-		}
+		}	
 
 
 	}
