@@ -18,7 +18,7 @@ import javax.ws.rs.core.MediaType;
 
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Push;
-import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.model.interfaces.Notificable;
 import br.com.codecode.workix.util.Http;
 
 /**
@@ -29,7 +29,7 @@ import br.com.codecode.workix.util.Http;
  * @version 1.1
  */
 @Push
-public class PushMessage implements Notification, Serializable{
+public class PushMessage implements Notification, Serializable {
 
 	private static final long serialVersionUID = 7123778177220320094L;
 
@@ -43,10 +43,10 @@ public class PushMessage implements Notification, Serializable{
 	}
 
 	@Override
-	public void doSendMessage(Candidate to,String title, String body){
+	public void doSendMessage(Notificable to,String title, String body){
 
 		JsonObject jsonObject = Json.createObjectBuilder()
-				.add("to", to.getUser().getFirebaseMessageToken())
+				.add("to", to.getFirebaseMessageToken())
 				.add("notification", Json.createObjectBuilder()
 						.add("body", body)
 						.add("title", title)

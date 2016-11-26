@@ -23,7 +23,6 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  *
  * @param <T> Any Entity witch implements Persistable and Serializable
  */
-@SuppressWarnings("unchecked")
 public class Dao<T extends Persistable & Serializable> implements Crud<T>, Serializable {
 
 	private static final long serialVersionUID = 8476110516365062871L;
@@ -90,7 +89,8 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 
 	}
 	
-	@Override
+	@SuppressWarnings("unchecked")
+	@Override	
 	public List<T> listAll(int start, int end) {
 
 		TypedQuery<?> findAllQuery = em.createQuery(

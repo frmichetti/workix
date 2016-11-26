@@ -14,13 +14,13 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Email;
 import br.com.codecode.workix.infra.MailSender;
-import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.model.interfaces.Notificable;
 
 /**
  * Email Message Implementation
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 @Email
 public class MailMessage implements Notification, Serializable {	
@@ -38,9 +38,9 @@ public class MailMessage implements Notification, Serializable {
 		
 	
 	@Override
-	public void doSendMessage(Candidate to, String title, String body) {
+	public void doSendMessage(Notificable to, String title, String body) {
 
-		mailSender.send(FROM,to.getUser().getEmail(), title, body);
+		mailSender.send(FROM,to.getEmail(), title, body);
 
 	}
 

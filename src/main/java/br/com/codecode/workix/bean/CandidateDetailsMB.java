@@ -93,13 +93,13 @@ public class CandidateDetailsMB extends BaseMB {
 
 	public void notifyByEmail(){
 		messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
-		mailNotification.doSendMessage(candidate, messageTitle, messageBody);
+		mailNotification.doSendMessage(candidate.getUser(), messageTitle, messageBody);
 
 	}
 
 	public void notifyByPush(){
 		messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-		pushNotification.doSendMessage(candidate, messageTitle, messageBody);
+		pushNotification.doSendMessage(candidate.getUser(), messageTitle, messageBody);
 
 	}
 

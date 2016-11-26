@@ -55,7 +55,7 @@ public class CandidatesMB extends BaseMB {
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	@Override
-	protected void init(){		
+	public void init(){		
 
 		try {
 

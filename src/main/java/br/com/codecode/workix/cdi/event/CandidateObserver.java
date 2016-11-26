@@ -13,7 +13,8 @@ import br.com.codecode.workix.model.jpa.Candidate;
  * CDI Observer Class for {@link Candidate}
  * @see Observes
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 public class CandidateObserver {	
 	
@@ -34,7 +35,8 @@ public class CandidateObserver {
 
 		System.out.println("[-----------------------]");
 		
-		sendPush.doSendMessage(candidate, "Seu Perfil foi Visualizado", "Olá Seu Perfil Acabou de Ser Visualizado, Boa Sorte !");
+		sendPush.doSendMessage(candidate.getUser(), "Seu Perfil foi Visualizado", 
+				"Olá Seu Perfil Acabou de Ser Visualizado, Boa Sorte !");
 			
 	}
 

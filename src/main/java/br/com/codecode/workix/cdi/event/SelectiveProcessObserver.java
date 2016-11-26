@@ -15,7 +15,8 @@ import br.com.codecode.workix.model.jpa.SelectiveProcess;
  * CDI Observer Class for {@link SelectiveProcess}
  * @see Observes
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public class SelectiveProcessObserver {	
 

@@ -56,7 +56,7 @@ public class JobsMB extends BaseMB {
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
 	@Override
-	protected void init(){
+	public void init(){
 
 		try {
 			

@@ -1,9 +1,3 @@
-/**
- *
- * @author frmichetti
- * <Felipe Rodrigues Michetti at http://www.codecode.com.br>
- * Locale frmichetti@gmail.com
- */
 package br.com.codecode.workix.infra;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -15,6 +9,7 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.ws.rs.core.MediaType;
 
 import br.com.codecode.workix.cdi.qualifier.Gmail;
 
@@ -22,7 +17,7 @@ import br.com.codecode.workix.cdi.qualifier.Gmail;
  * This Class Prepare and Send a Email
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 @ApplicationScoped
 public class MailSender {
@@ -49,7 +44,7 @@ public class MailSender {
 			
 			mimeMessage.setSubject(subject);
 			
-			mimeMessage.setContent(body, "text/html");			
+			mimeMessage.setContent(body, MediaType.TEXT_HTML);			
 			
 			Transport.send(mimeMessage);
 			

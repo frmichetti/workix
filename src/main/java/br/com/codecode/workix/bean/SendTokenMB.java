@@ -22,6 +22,13 @@ import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.jsf.util.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 
+/**
+ * Send Token ManagedBean
+ * @author felipe
+ * @since 1.0
+ * @version 1.1
+ * @see BaseMB
+ */
 @Model
 public class SendTokenMB extends BaseMB{
 
@@ -90,14 +97,14 @@ public class SendTokenMB extends BaseMB{
 	
 	public void doSendPush(){
 	
-		sendPush.doSendMessage(candidate, title, message);
+		sendPush.doSendMessage(candidate.getUser(), title, message);
 
 		messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
 	}
 
 	public void doSendPush(String title, String message, Candidate candidate){
 
-		sendPush.doSendMessage(candidate, title, message);
+		sendPush.doSendMessage(candidate.getUser(), title, message);
 
 		messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
 
@@ -107,7 +114,7 @@ public class SendTokenMB extends BaseMB{
 
 		for (Candidate c : candidates) {
 
-			sendPush.doSendMessage(c, title, message);
+			sendPush.doSendMessage(c.getUser(), title, message);
 
 			messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
 

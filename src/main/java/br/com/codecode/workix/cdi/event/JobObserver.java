@@ -15,7 +15,8 @@ import br.com.codecode.workix.model.jpa.Job;
  * CDI Observer Class for {@link Job}
  * @see Observes
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public class JobObserver {	
 

@@ -9,18 +9,20 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.model.base.BaseUser;
 import br.com.codecode.workix.model.interfaces.Buildable;
+import br.com.codecode.workix.model.interfaces.Notificable;
 import br.com.codecode.workix.model.root.RootUser;
 
 /**
  * User JPA {@link Entity}
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see MyEntity
  * @see BaseUser
+ * @see Notificable
  */
 @Entity
-public class User extends MyEntity implements BaseUser {
+public class User extends MyEntity implements BaseUser, Notificable {
 
 	private static final long serialVersionUID = -610648880358327958L;
 

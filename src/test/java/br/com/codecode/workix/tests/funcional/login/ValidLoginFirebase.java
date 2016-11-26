@@ -2,11 +2,9 @@ package br.com.codecode.workix.tests.funcional.login;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-import com.arjuna.ats.internal.jts.recovery.transactions.AssumedCompleteServerTransaction;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.base.BaseUser;
@@ -25,11 +23,6 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest{
 
 	private String json;
 
-	
-	public void test() {
-		fail("Not yet implemented");
-	}
-
 	@Test
 	@Override
 	public void doLoginWithFirebase() {
@@ -38,7 +31,7 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest{
 
 		Token t = new Token();
 
-		t.setKey("HkwSYQd4rHUk22YPX2chHmqzwtR2");	
+		t.setKey("dfTHTEWyYRhsi6TCLSbYdYroKbJ3");	
 			
 		json = HttpTest.sendPost(url, getGson().toJson(t));					
 

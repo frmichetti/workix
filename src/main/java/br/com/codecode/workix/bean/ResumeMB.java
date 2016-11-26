@@ -58,9 +58,7 @@ public class ResumeMB extends BaseMB {
 
 	private long id;		
 
-	private String prefix, sufix, messageTitle, messageBody;
-
-	private Candidate candidate;
+	private String prefix, sufix, messageTitle, messageBody;	
 
 	private Resume resume;
 
@@ -84,7 +82,7 @@ public class ResumeMB extends BaseMB {
 
 		try {
 
-			candidate = dao.findById(id);
+			Candidate candidate = dao.findById(id);
 
 			if(candidate == null)
 				goToErrorPage();
@@ -121,7 +119,6 @@ public class ResumeMB extends BaseMB {
 
 		experiences = new ListDataModel<>(experienceList);
 
-
 	}
 
 	public long getId() {
@@ -130,10 +127,6 @@ public class ResumeMB extends BaseMB {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public Candidate getCandidate() {
-		return candidate;
 	}	
 
 	public Resume getResume() {
@@ -154,12 +147,12 @@ public class ResumeMB extends BaseMB {
 
 	public void notifyByEmail(){
 		messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
-		mailNotification.doSendMessage(candidate, messageTitle, messageBody);
+		mailNotification.doSendMessage(resume.getCandidate().getUser(), messageTitle, messageBody);
 	}
 
 	public void notifyByPush(){
 		messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-		notification.doSendMessage(resume.getCandidate(), messageTitle, messageBody);
+		notification.doSendMessage(resume.getCandidate().getUser(), messageTitle, messageBody);
 	}
 
 	public String getMessageBody() {
