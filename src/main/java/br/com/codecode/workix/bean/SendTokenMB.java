@@ -44,7 +44,8 @@ public class SendTokenMB extends BaseMB{
 	private List<Candidate> candidates;
 
 	@PostConstruct
-	private void init(){
+	@Override
+	protected void init(){
 		
 		try {
 			candidates = dao.listAll(0, Integer.MAX_VALUE);

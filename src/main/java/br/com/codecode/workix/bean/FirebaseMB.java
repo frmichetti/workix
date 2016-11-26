@@ -9,6 +9,12 @@ import javax.inject.Named;
 
 import br.com.codecode.workix.cdi.qualifier.Factory;
 
+/**
+ * Firebase ManagedBean
+ * @author felipe
+ * @since 1.0
+ * @version 1.1
+ */
 @Named
 @SessionScoped
 public class FirebaseMB extends BaseMB {
@@ -18,10 +24,11 @@ public class FirebaseMB extends BaseMB {
 	private String name, email, uid, photo, idToken;
 	
 	@Inject @Factory @Default
-	private FacesContext context;
+	private FacesContext context;	
 	
 	@PostConstruct
-	private void init(){}
+	@Override
+	protected void init(){}
 
 	public String getName() {		
 		return name;		

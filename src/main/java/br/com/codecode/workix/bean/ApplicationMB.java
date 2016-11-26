@@ -10,7 +10,8 @@ import javax.inject.Named;
  * This ManagedBean Shares info in index.xhtml
  * Execute with {@link ApplicationScoped}
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Named
 @ApplicationScoped
@@ -23,7 +24,8 @@ public class ApplicationMB extends BaseMB {
 	private int year;	
 
 	@PostConstruct
-	private void init(){
+	@Override
+	protected void init(){
 
 		appName = "Workix";
 		

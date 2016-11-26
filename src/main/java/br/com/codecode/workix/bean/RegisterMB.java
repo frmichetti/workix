@@ -1,5 +1,6 @@
 package br.com.codecode.workix.bean;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.context.ExternalContext;
@@ -11,7 +12,12 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.jpa.User;
-
+/**
+ * Register ManagedBean
+ * @author felipe
+ * @since 1.0
+ * @version 1.1
+ */
 @Model
 public class RegisterMB extends BaseMB {
 
@@ -27,6 +33,10 @@ public class RegisterMB extends BaseMB {
 	private User user;
 
 	private String fbEmail,fbToken;
+	
+	@PostConstruct
+	@Override
+	protected void init(){}
 	
 	public String doRegister(){	
 		
@@ -85,6 +95,8 @@ public class RegisterMB extends BaseMB {
 	public void setFbToken(String fbToken) {
 		this.fbToken = fbToken;
 	}
+
+	
 
 
 

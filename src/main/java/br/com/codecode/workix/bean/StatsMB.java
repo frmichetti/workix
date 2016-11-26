@@ -16,7 +16,8 @@ import br.com.codecode.workix.model.jpa.Resume;
  * This ManagedBean controls Counter Fragment on HomePage
  * 
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class StatsMB extends BaseMB {
@@ -38,7 +39,8 @@ public class StatsMB extends BaseMB {
 	private int counterJobs, counterCandidates, counterEmployeers, counterResumes;
 
 	@PostConstruct
-	private void init(){
+	@Override
+	protected void init(){		
 
 		try {
 

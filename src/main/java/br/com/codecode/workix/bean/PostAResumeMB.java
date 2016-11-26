@@ -15,7 +15,8 @@ import br.com.codecode.workix.model.jpa.Resume;
 /**
  * This ManagedBean controls post-a-resume.xhtml
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class PostAResumeMB extends BaseMB {
@@ -34,7 +35,8 @@ public class PostAResumeMB extends BaseMB {
 	private List<Candidate> candidates;
 		
 	@PostConstruct
-	private void init(){
+	@Override
+	protected void init(){
 				
 		try {
 			

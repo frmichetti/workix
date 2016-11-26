@@ -40,9 +40,14 @@ public class CurrentUserMB implements Serializable {
 	
 	@PostConstruct
 	private void init(){
+		
 		System.out.println("----Security Bean------");
+		
 		System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
+		
 		System.out.println("--> " + this.hashCode() + " <--");
+		
+		loadSystemUser();
 	}
 	
 	@Override
@@ -58,8 +63,7 @@ public class CurrentUserMB implements Serializable {
 	public boolean hasRole(String name){
 		return request.isUserInRole(name);
 	}
-
-	@PostConstruct
+	
 	private void loadSystemUser(){
 
 		Principal principal = request.getUserPrincipal();

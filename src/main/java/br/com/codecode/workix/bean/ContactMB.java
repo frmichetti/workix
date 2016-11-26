@@ -1,5 +1,6 @@
 package br.com.codecode.workix.bean;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
@@ -11,8 +12,9 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
 
 /**
  * This ManagedBean controls Contact Fragment in fragments/contact.xhtml
- * 
  * @author felipe
+ * @since 1.0
+ * @version 1.1
  *
  */
 @Model
@@ -29,7 +31,11 @@ public class ContactMB extends BaseMB{
 	@Inject
 	private MailSender mailSender;
 
-	private String name,email,subject,body;
+	private String name,email,subject,body;	
+	
+	@PostConstruct
+	@Override
+	protected void init(){}
 
 	public String getName() {
 		return name;
@@ -92,7 +98,6 @@ public class ContactMB extends BaseMB{
 
 		return "./index.xhtml?faces-redirect=true";
 	}
-
 
 
 }

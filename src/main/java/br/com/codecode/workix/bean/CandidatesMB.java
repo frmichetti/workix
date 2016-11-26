@@ -20,7 +20,8 @@ import br.com.codecode.workix.model.jpa.Candidate;
 /**
  * This ManagedBean controls candidates.xhtml and candidates2.xhtml
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class CandidatesMB extends BaseMB {
@@ -53,7 +54,8 @@ public class CandidatesMB extends BaseMB {
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
-	public void init(){		
+	@Override
+	protected void init(){		
 
 		try {
 

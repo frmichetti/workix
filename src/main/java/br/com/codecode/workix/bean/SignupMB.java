@@ -1,5 +1,6 @@
 package br.com.codecode.workix.bean;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
@@ -14,7 +15,8 @@ import br.com.codecode.workix.model.jpa.Subscriber;
 /**
  * This ManagedBean controls Signup Fragment in footer.xhtml 
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class SignupMB extends BaseMB{
@@ -28,6 +30,10 @@ public class SignupMB extends BaseMB{
 	private Crud<Subscriber> dao;
 	
 	private String email;
+	
+	@PostConstruct
+	@Override
+	protected void init(){}
 	
 	@Transactional
 	public void addToList(){
@@ -68,6 +74,9 @@ public class SignupMB extends BaseMB{
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
+	
 	
 
 }

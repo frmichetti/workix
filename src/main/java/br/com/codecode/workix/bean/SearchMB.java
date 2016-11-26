@@ -11,7 +11,8 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
  * This ManagedBean controls Search on HeaderPage
  *
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class SearchMB extends BaseMB {
@@ -24,7 +25,8 @@ public class SearchMB extends BaseMB {
 	private String query;	
 	
 	@PostConstruct
-	private void init(){}
+	@Override
+	protected void init(){}
 	
 	public void doFind(){
 		if (!query.equals("")){

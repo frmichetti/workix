@@ -21,7 +21,8 @@ import br.com.codecode.workix.model.jpa.Job;
  * This ManagedBean controls jobs.xhtml and jobs2.xhtml
  * Execute with {@link Model}
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class JobsMB extends BaseMB {
@@ -54,7 +55,8 @@ public class JobsMB extends BaseMB {
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
-	public void init(){
+	@Override
+	protected void init(){
 
 		try {
 			

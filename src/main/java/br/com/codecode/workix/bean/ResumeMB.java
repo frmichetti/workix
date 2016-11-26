@@ -30,7 +30,8 @@ import br.com.codecode.workix.model.jpa.Skill;
 /**
  * This ManagedBean controls resume.xhtml
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class ResumeMB extends BaseMB {
@@ -72,7 +73,8 @@ public class ResumeMB extends BaseMB {
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
-	public void init(){
+	@Override
+	protected void init(){
 
 		prefix = facesContext.getExternalContext().getRequestContextPath();
 

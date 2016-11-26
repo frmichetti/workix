@@ -21,7 +21,8 @@ import br.com.codecode.workix.model.jpa.Candidate;
 /**
  * This ManagedBean controls candidate-details.xhtml
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class CandidateDetailsMB extends BaseMB {
@@ -53,8 +54,9 @@ public class CandidateDetailsMB extends BaseMB {
 
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {page} 
-	 */
-	public void init(){		
+	 */	
+	@Override
+	protected void init(){		
 
 		prefix = facesContext.getExternalContext().getRequestContextPath();
 

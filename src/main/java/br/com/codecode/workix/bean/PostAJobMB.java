@@ -22,7 +22,8 @@ import br.com.codecode.workix.model.jpa.Job;
 /**
  * This ManagedBean controls post-a-job.xhtml
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Model
 public class PostAJobMB extends BaseMB {
@@ -45,9 +46,10 @@ public class PostAJobMB extends BaseMB {
 	private DataModel<JobCategory> jobCategories;
 	
 	private List<Company> employeers;	
-
+	
 	@PostConstruct
-	private void init(){
+	@Override
+	protected void init(){
 			
 		try {
 			

@@ -5,9 +5,10 @@ import java.io.Serializable;
 /**
  * Base ManagedBean Only for share common Fields or Methods
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
-public abstract class BaseMB implements Serializable {
+abstract class BaseMB implements Serializable {
 
 	private static final long serialVersionUID = 6010952451064142216L;
 
@@ -17,6 +18,8 @@ public abstract class BaseMB implements Serializable {
 	public BaseMB() {
 		System.out.println("[CDI - " + this.getClass().getSimpleName() + "]");
 		System.out.println("Hash code --> " + this.getClass().hashCode() + " <-- Hash code");
-	}
+	}	
+	
+	protected abstract void init();
 
 }

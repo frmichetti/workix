@@ -13,7 +13,8 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
  * This ManagedBean Shares info for navigation
  * Execute with {@link ApplicationScoped}
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Named
 @ApplicationScoped
@@ -27,7 +28,8 @@ public class NavigationMB extends BaseMB {
 	private String prefix, sufix;
 
 	@PostConstruct
-	private void init(){
+	@Override
+	protected void init(){		
 		prefix = facesContext.getExternalContext().getRequestContextPath();
 		sufix = "?faces-redirect=true";
 	}
