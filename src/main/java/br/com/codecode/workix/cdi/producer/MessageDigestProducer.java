@@ -12,7 +12,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 
 /**
  * MessageDigest Producer<br>
- * Use for Crypt Strings
+ * Use for Encrypt Strings
  * @see Produces
  * @see MessageDigest
  * @author felipe

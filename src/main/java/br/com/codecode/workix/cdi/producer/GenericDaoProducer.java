@@ -24,9 +24,8 @@ import br.com.codecode.workix.interfaces.Persistable;
  * @see Produces
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-@SuppressWarnings({"unchecked","rawtypes"})
 @ApplicationScoped
 public class GenericDaoProducer {	
 	
@@ -46,6 +45,7 @@ public class GenericDaoProducer {
 	@Produces
 	@Dependent	
 	@Generic
+	@SuppressWarnings({"unchecked","rawtypes"})
 	public <T extends Persistable & Serializable> Dao<T> getDao(InjectionPoint injectionPoint) {		
 
 		ParameterizedType type = (ParameterizedType) injectionPoint.getType();
