@@ -15,7 +15,8 @@ import br.com.codecode.workix.jsf.util.converter.SimpleEntityConverter;
  * and {@link AnotherEntityConverter} in JSF
  * 
  * @author Felipe Rodrigues Michetti
- *
+ * @since 1.0
+ * @version 1.0
  */
 public interface Persistable {  
 

@@ -12,6 +12,9 @@ import java.io.Serializable;
 import javax.inject.Inject;
 import javax.json.Json;
 import javax.json.JsonObject;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.MediaType;
 
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Push;
@@ -22,7 +25,8 @@ import br.com.codecode.workix.util.Http;
  * Push Message Implementation<br>
  * Send a Text Message to Firebase
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Push
 public class PushMessage implements Notification, Serializable{
@@ -44,14 +48,19 @@ public class PushMessage implements Notification, Serializable{
 		JsonObject jsonObject = Json.createObjectBuilder()
 				.add("to", to.getUser().getFirebaseMessageToken())
 				.add("notification", Json.createObjectBuilder()
-						.add("body", body).add("title", title)
+						.add("body", body)
+						.add("title", title)
 						.add("icon", "myicon")
 						.build())
 				.build();				
 
 		String json = jsonObject.toString() ;
 
-		System.out.println(json);
+		System.out.println(json);		
+		
+		//TODO FIXME TESTME Test this
+		ClientBuilder.newClient().target(FCM_SERVER)
+			.request(MediaType.APPLICATION_JSON).post(Entity.json(json));		
 		
 		//TODO UPDATE TO JAX2 Binding
 		String resp = http.sendPost(FCM_SERVER, json);

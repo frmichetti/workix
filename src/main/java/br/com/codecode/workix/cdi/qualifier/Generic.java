@@ -20,7 +20,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * @see Dao
  * @see GenericDaoProducer
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Qualifier
 @Target({ TYPE, METHOD, PARAMETER, FIELD })

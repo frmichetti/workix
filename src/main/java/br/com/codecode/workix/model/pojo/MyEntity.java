@@ -8,6 +8,6 @@ import br.com.codecode.workix.model.root.RootEntity;
  * @author felipe
  * @see RootEntity
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-public final class MyEntity extends RootEntity implements BaseEntity{}
+final class MyEntity extends RootEntity implements BaseEntity{}

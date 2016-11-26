@@ -17,6 +17,8 @@ import br.com.codecode.workix.model.base.BaseCandidate;
  * @author felipe
  * @see Person
  * @see BaseCandidate
+ * @since 1.0
+ * @version 1.0
  */
 @Entity
 public class Candidate extends Person implements BaseCandidate {

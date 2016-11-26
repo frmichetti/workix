@@ -21,6 +21,8 @@ import br.com.codecode.workix.model.base.BaseUser;
  * @author felipe
  * @see MyEntity
  * @see BasePerson
+ * @since 1.0
+ * @version 1.0
  * <a href= "http://wiki.fasterxml.com/JacksonFAQ#Deserializing_Abstract_types">Deserializing Abstract Types</a>
  */
 @MappedSuperclass

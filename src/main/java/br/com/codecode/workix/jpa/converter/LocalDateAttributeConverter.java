@@ -8,7 +8,8 @@ import javax.persistence.Converter;
 /**
  * @see <a href="http://www.thoughts-on-java.org/persist-localdate-localdatetime-jpa"> Persist LocalDate LocalDateTime</a>
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Converter(autoApply = true)
 public class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {

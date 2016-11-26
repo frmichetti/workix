@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.interfaces.Persistable;
-import br.com.codecode.workix.model.jpa.MyEntity;
 
 /**
  * Markup Interface <br>
@@ -34,7 +33,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable>  {
 	public T update(T entity) throws NotImplementedYetException;
 	
 	/**
-	 * Localize Entity by {@link MyEntity #getId()}
+	 * Localize Entity by {@link #getId()}
 	 * @param id Fetch for Entity by id Field
 	 * @return Fetched Entity
 	 * @throws NotImplementedYetException if Methods is Not Implemented Yet
@@ -42,7 +41,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable>  {
 	public T findById(long id) throws NotImplementedYetException;
 	
 	/**
-	 * Localize Entity by {@link MyEntity #getId()} and Delete
+	 * Localize Entity by {@link #getId()} and Delete
 	 * @param id Fetch for Entity by id Field and Delete
 	 * @throws NotImplementedYetException if Methods is Not Implemented Yet
 	 */	

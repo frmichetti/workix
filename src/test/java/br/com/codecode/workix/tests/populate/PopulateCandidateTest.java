@@ -49,7 +49,7 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
 		
 		users = new ArrayList<>();
 
-		resp = HttpTest.sendGet(server + "users");						
+		resp = HttpTest.sendGet(server + "/users");						
 
 		users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType());
 
@@ -119,7 +119,7 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
 			
 			System.out.println("[sendToServer] " + c.getName());
 
-			resp = HttpTest.sendPost(server + "candidates",
+			resp = HttpTest.sendPost(server + "/candidates",
 					getGson().toJson(c));
 
 			assertNotNull(resp);

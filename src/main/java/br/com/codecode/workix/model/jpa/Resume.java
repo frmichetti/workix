@@ -20,6 +20,8 @@ import org.hibernate.validator.constraints.NotEmpty;
  * Resume JPA {@link Entity}
  * @author felipe
  * @see MyEntity
+ * @since 1.0
+ * @version 1.0
  */
 @Entity
 public class Resume extends MyEntity {
@@ -71,6 +73,9 @@ public class Resume extends MyEntity {
 	 */
 	public Resume(){}
 
+	/**
+	 * Initialize Fields for CDI Injection
+	 */
 	@PostConstruct
 	private void init() {
 		educations = new HashSet<Education>();

@@ -16,7 +16,8 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
  * @see JMSContext
  * @see JMSProducer
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @ApplicationScoped
 public class JmsContextProducer {	

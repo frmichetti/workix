@@ -6,7 +6,8 @@ import javax.persistence.PreUpdate;
 /**
  * Markup Interface for Traceable Entities 
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public interface Traceable {
 
@@ -19,7 +20,7 @@ public interface Traceable {
 	}
 
 	/**
-	 * Insert TIme Stamp
+	 * Insert Time Stamp
 	 */
 	void insertTimeStamp();
 

@@ -23,7 +23,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * @see MailSessionProducer
  * @see MailConfiguration
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Qualifier
 @Target({ TYPE, METHOD, PARAMETER, FIELD })

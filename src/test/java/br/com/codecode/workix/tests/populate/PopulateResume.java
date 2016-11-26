@@ -34,7 +34,7 @@ public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 	
 	private void downloadCandidate(){
 
-		resp = HttpTest.sendGet(server + "candidates");	
+		resp = HttpTest.sendGet(server + "/candidates");	
 
 		candidates = getGson().fromJson(resp, 
 				new TypeToken<List<Candidate>>(){}.getType());
@@ -106,7 +106,7 @@ public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
 
 			System.out.println("[sendToServer] " + r.getContent());
 
-			resp = HttpTest.sendPost(server + "resumes",
+			resp = HttpTest.sendPost(server + "/resumes",
 					getGson().toJson(r));
 
 			assertNotNull(resp);

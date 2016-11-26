@@ -38,7 +38,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
  * </table>
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see BaseEntity
  * @see Traceable
  * @see Persistable
@@ -47,7 +47,7 @@ import br.com.codecode.workix.model.interfaces.Traceable;
 @MappedSuperclass
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-public abstract class MyEntity implements BaseEntity, Traceable, Persistable, Serializable {
+abstract class MyEntity implements BaseEntity, Traceable, Persistable, Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;
 

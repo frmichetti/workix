@@ -16,7 +16,8 @@ import br.com.codecode.workix.cdi.dao.implementation.persist.BaseDao;
 /**
  * Dao for JAASUser 
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Stateless
 public class SecurityDao extends BaseDao {

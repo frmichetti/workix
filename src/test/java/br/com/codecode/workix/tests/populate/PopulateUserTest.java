@@ -84,7 +84,7 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User>{
 			
 			System.out.println("[sendToServer] " + u.getEmail());
 		
-			resp = HttpTest.sendPost(server + "users",
+			resp = HttpTest.sendPost(server + "/users",
 					getGson().toJson(u));
 
 			assertNotNull(resp);	

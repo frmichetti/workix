@@ -5,7 +5,7 @@ import java.math.BigInteger;
 
 import br.com.codecode.workix.exception.NotImplementedYetException;
 import br.com.codecode.workix.model.interfaces.Persistable;
-import br.com.codecode.workix.model.jpa.MyEntity;
+
 
 /**
  * Concrete Crud Interface for CDI Implementation Uses
@@ -16,7 +16,7 @@ import br.com.codecode.workix.model.jpa.MyEntity;
 public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
 
 	/**
-	 * Save Or Update Currenty Entity Based on {@link MyEntity #getId()}  
+	 * Save Or Update Currenty Entity Based on {@link #getId()}  
 	 * @param entity Entity Passed to Persist or Update
 	 * @return Managed Entity
 	 * @throws IllegalArgumentException if Entity is Null

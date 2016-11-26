@@ -11,7 +11,8 @@ import javax.ejb.Timer;
 /**
  * This Class is a Enterprise Java Bean witch execute tasks in Some Periods
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Singleton
 @Startup

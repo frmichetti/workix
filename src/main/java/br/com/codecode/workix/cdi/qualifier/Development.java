@@ -17,7 +17,8 @@ import br.com.codecode.workix.cdi.producer.EntityManagerProducer;
  * CDI Qualifier for Persistence Unit
  * @see EntityManagerProducer
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Qualifier
 @Target({ METHOD, PARAMETER, FIELD })

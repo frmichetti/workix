@@ -19,7 +19,8 @@ import javax.servlet.http.HttpServletRequest;
 /**
  * This Class Verify for {@link JAASUser} is Signed In Session
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Named
 @SessionScoped
@@ -35,7 +36,10 @@ public class CurrentUserMB implements Serializable {
 
 	private JAASUser user;
 
-	public CurrentUserMB() {
+	public CurrentUserMB(){}
+	
+	@PostConstruct
+	private void init(){
 		System.out.println("----Security Bean------");
 		System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
 		System.out.println("--> " + this.hashCode() + " <--");

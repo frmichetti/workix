@@ -3,7 +3,8 @@ package br.com.codecode.workix.exception;
 /**
  * Exception for Not Implemented Functions
  * @author felipe
- * 
+ * @since 1.0
+ * @version 1.0
  */
 public class NotImplementedYetException extends Exception {
 

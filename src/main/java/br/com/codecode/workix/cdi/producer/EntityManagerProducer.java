@@ -20,7 +20,8 @@ import br.com.codecode.workix.cdi.qualifier.Production;
  * Entity Manager Producer
  * @see Produces
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @ApplicationScoped
 public class EntityManagerProducer implements Serializable {

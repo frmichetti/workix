@@ -8,7 +8,7 @@ package br.com.codecode.workix.model.root;
  * </ul>
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 public abstract class RootSkill {
 
@@ -22,7 +22,7 @@ public abstract class RootSkill {
 	/**
 	 * @return the Skill Name
 	 */
-	public String getSkillName() {
+	public final String getSkillName() {
 		return skillName;
 	}
 

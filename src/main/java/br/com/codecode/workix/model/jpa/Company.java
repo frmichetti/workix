@@ -8,9 +8,10 @@ import br.com.codecode.workix.model.base.BaseCompany;
 /**
  * Company JPA {@link Entity}
  * @see Person
- * @author felipe
- * @see Person
+ * @author felipe 
  * @see BaseCompany
+ * @since 1.0
+ * @version 1.0
  */
 @Entity
 public class Company extends Person implements BaseCompany {

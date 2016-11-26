@@ -24,7 +24,12 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Id;
-
+/**
+ * Entity Converter for JSF
+ * @author felipe
+ * @since 1.0
+ * @version 1.0
+ */
 @FacesConverter("EntityConverter")
 public class EntityConverter implements Converter {
 	

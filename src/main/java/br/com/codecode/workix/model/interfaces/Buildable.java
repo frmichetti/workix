@@ -11,6 +11,8 @@ package br.com.codecode.workix.model.interfaces;
  * </ul>
  * @author felipe
  * @param <T> The Class for Construct
+ * @since 1.0
+ * @version 1.0
  */
 public interface Buildable<T> {
 

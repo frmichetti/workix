@@ -10,9 +10,11 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.ConverterException;
 import javax.faces.convert.FacesConverter;
 /**
- * http://sidroniolima.com.br/blog/2015/12/15/localdate-e-localdatetime-em-jsf-2-2/
+ * Local Date Faces Converterfor JSF
+ * <a href="http://sidroniolima.com.br/blog/2015/12/15/localdate-e-localdatetime-em-jsf-2-2/">LocalDate e LocalDateTime JSF</a>
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @FacesConverter("localDateFacesConverter")
 public class LocalDateFacesConverter implements Converter {

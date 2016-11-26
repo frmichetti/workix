@@ -25,7 +25,8 @@ import br.com.codecode.workix.util.ReadFile;
  * This Class Construct Email Body from a Template
  * TODO FIXME
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public class MailBodyBuilder {
 	

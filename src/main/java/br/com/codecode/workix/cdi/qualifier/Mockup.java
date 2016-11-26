@@ -29,6 +29,8 @@ import br.com.codecode.workix.cdi.dao.implementation.mockup.UserDaoMockup;
  * @see ResumeDaoMockup
  * @see UserDaoMockup
  * @author felipe
+ * @since 1.0
+ * @version 1.0
  *
  */
 @Qualifier

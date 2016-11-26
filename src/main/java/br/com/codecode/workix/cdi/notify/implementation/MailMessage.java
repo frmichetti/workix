@@ -19,7 +19,8 @@ import br.com.codecode.workix.model.jpa.Candidate;
 /**
  * Email Message Implementation
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Email
 public class MailMessage implements Notification, Serializable {	

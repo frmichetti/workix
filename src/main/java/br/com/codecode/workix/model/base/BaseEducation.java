@@ -5,7 +5,8 @@ import java.util.Calendar;
 /**
  * Markup Interface for Education Implementation
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public interface BaseEducation {
 

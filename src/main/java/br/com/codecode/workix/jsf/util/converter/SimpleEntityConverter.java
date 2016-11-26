@@ -15,7 +15,12 @@ import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 
 import br.com.codecode.workix.model.interfaces.Persistable;
-
+/**
+ * Simple Entity Converter for JSF
+ * @author felipe
+ * @since 1.0
+ * @version 1.0
+ */
 @FacesConverter("SimpleEntityConverter")
 public class SimpleEntityConverter implements Converter {  
 	  

@@ -15,7 +15,12 @@ import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.DateTimeConverter;
 import javax.faces.convert.FacesConverter;
-
+/**
+ * Calendar Converter for JSF
+ * @author felipe 
+ * @since 1.0
+ * @version 1.0
+ */
 @FacesConverter("CalendarConverter")
 public class CalendarConverter implements Converter{
 

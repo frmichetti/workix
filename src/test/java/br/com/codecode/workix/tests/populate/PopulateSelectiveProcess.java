@@ -38,7 +38,7 @@ public class PopulateSelectiveProcess extends BaseTest implements CommonPopTest<
 
 		System.out.println("[downloadJobs]");
 
-		resp = HttpTest.sendGet(server + "jobs");						
+		resp = HttpTest.sendGet(server + "/jobs");						
 
 		jobs = getGson().fromJson(resp, new TypeToken<List<Job>>(){}.getType());
 
@@ -99,7 +99,7 @@ public class PopulateSelectiveProcess extends BaseTest implements CommonPopTest<
 
 			System.out.println("[sendToServer] " + p.getJob().getTitle());
 
-			resp = HttpTest.sendPost(server + "selectiveprocesses",
+			resp = HttpTest.sendPost(server + "/selectiveprocesses",
 					getGson().toJson(p));
 
 			assertNotNull(resp);

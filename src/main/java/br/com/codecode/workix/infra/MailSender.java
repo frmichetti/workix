@@ -21,7 +21,8 @@ import br.com.codecode.workix.cdi.qualifier.Gmail;
 /**
  * This Class Prepare and Send a Email
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @ApplicationScoped
 public class MailSender {

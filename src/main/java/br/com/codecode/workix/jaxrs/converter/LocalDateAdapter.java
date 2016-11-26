@@ -7,7 +7,8 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  * Converter for Java 8 Dates {@link LocalDate}
  * FIXME Not Working with JaxRs Jackson
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
    

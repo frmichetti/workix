@@ -21,7 +21,8 @@ import br.com.codecode.workix.infra.MailSender;
  * @see MailSender
  * @see MailSessionProducer
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Qualifier
 @Target({ TYPE, METHOD, PARAMETER, FIELD })

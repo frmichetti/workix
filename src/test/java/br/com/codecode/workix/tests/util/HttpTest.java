@@ -17,17 +17,40 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
+/**
+ * Http Request for Test
+ * @author felipe
+ * @since 1.0
+ * @version 1.1
+ */
 public final class HttpTest {
 
 	private static final String USER_AGENT = "Mozilla/5.0";
 
-	private static final Integer TIME_OUT = 40_000;
+	private static final int TIME_OUT = 40_000;
 
 	private static final String ACCEPT_LANGUAGE = "pt-BR";
 
 	private static final String CONTENT_TYPE = "application/json; charset=UTF-8";
+	
+	/**
+	 * Default Empty Constructor
+	 */
+	private HttpTest(){}		
 
-	public static String sendGet(String url) {
+	/**
+	 * Send Http GET Method to URL
+	 * @param url Destiny URL
+	 * @return a Response as String
+	 */
+	public static String sendGet(@NotBlank String url) throws RuntimeException {			
+		
+		if((url == null) || (url.isEmpty())){
+			throw new RuntimeException("Url Cannot be Empty");
+		}
 
 		URL obj = null;
 
@@ -53,6 +76,8 @@ public final class HttpTest {
 			System.err.println("Could not Open Connection");
 
 			ioe.printStackTrace();
+			
+			throw new RuntimeException(ioe);
 		}
 
 		//add request header
@@ -65,6 +90,8 @@ public final class HttpTest {
 			System.err.println("Could not Set Protocol of Request");
 
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 
 		con.setReadTimeout(TIME_OUT);
@@ -94,7 +121,7 @@ public final class HttpTest {
 
 		String resp;
 
-		if(responseCode == 200 || responseCode == 201){
+		if(responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED){
 
 
 			BufferedReader in = null;
@@ -109,6 +136,8 @@ public final class HttpTest {
 				System.err.println("Could not Receive Data");
 
 				e.printStackTrace();
+				
+				throw new RuntimeException(e);
 			}
 
 			StringBuffer response = new StringBuffer();
@@ -126,6 +155,8 @@ public final class HttpTest {
 				System.err.println("Could not Read Received Data");
 
 				e.printStackTrace();
+				
+				throw new RuntimeException(e);
 			}
 
 			System.out.println("Response of Server ");
@@ -145,7 +176,11 @@ public final class HttpTest {
 	}
 
 	// HTTP POST request
-	public static String sendPost(String url, String params) {
+	public static String sendPost(@NotBlank String url,@NotEmpty String params) throws RuntimeException {
+		
+		if((url == null) || (url.isEmpty())){
+			throw new RuntimeException("Url Cannot be Empty");
+		}
 		
 		params = new String(params.getBytes(), StandardCharsets.ISO_8859_1);
 
@@ -160,6 +195,8 @@ public final class HttpTest {
 			System.err.println("Could not Parse Url");
 
 			e.printStackTrace();
+			
+			throw new RuntimeException("Could not Parse Url");
 		}
 
 		HttpURLConnection con = null;
@@ -172,7 +209,11 @@ public final class HttpTest {
 			
 			// TODO Auto-generated catch block
 			
-			e.printStackTrace();
+			System.err.println("Verify your connection");
+			
+			e.printStackTrace();			
+			
+			throw new RuntimeException("Verify your connection");
 		}
 
 		//add request header
@@ -185,6 +226,8 @@ public final class HttpTest {
 			System.err.println("Could not Set Protocol of Request");
 			
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 
 		con.setRequestProperty("User-Agent", USER_AGENT);
@@ -205,6 +248,8 @@ public final class HttpTest {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 
 		try {
@@ -214,6 +259,8 @@ public final class HttpTest {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 
 		try {
@@ -223,6 +270,8 @@ public final class HttpTest {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 
 
@@ -237,6 +286,8 @@ public final class HttpTest {
 			System.err.println("Could not Get Response Code");
 			
 			e.printStackTrace();
+			
+			throw new RuntimeException(e);
 		}
 
 		System.out.println("Send Request "+ con.getRequestMethod() +" to URL : " + url);
@@ -247,7 +298,7 @@ public final class HttpTest {
 
 		String resp;
 
-		if(responseCode == 200 || responseCode == 201){
+		if(responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED){
 
 			System.out.println("Server Response Code : " + responseCode);
 
@@ -257,9 +308,11 @@ public final class HttpTest {
 
 				in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-			} catch (IOException e1) {
+			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e1.printStackTrace();
+				e.printStackTrace();
+				
+				throw new RuntimeException(e);
 			}
 
 			StringBuffer response = new StringBuffer();
@@ -275,6 +328,7 @@ public final class HttpTest {
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
+				throw new RuntimeException(e);
 			}
 
 			System.out.println("Response of Server");

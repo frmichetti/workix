@@ -46,7 +46,7 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 
 		users = new ArrayList<>();
 
-		resp = HttpTest.sendGet(server + "users");						
+		resp = HttpTest.sendGet(server + "/users");						
 
 		users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType());
 
@@ -121,7 +121,7 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 
 			System.out.println("[sendToServer] " + c.getName());
 
-			resp = HttpTest.sendPost(server + "companies",
+			resp = HttpTest.sendPost(server + "/companies",
 					getGson().toJson(c));
 
 			assertNotNull(resp);

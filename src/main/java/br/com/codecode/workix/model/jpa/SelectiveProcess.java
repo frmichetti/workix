@@ -102,6 +102,9 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	 */
 	public SelectiveProcess(){}
 
+	/**
+	 * Initialize Fields for CDI Injection
+	 */
 	@PostConstruct
 	private void init(){		
 		this.addObserver(this);

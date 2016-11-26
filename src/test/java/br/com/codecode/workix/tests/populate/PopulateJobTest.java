@@ -49,7 +49,7 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
 		System.out.println("[downloadCompanies]");
 
-		resp = HttpTest.sendGet(server + "companies");						
+		resp = HttpTest.sendGet(server + "/companies");						
 
 		companies = getGson().fromJson(resp, new TypeToken<List<Company>>(){}.getType());
 
@@ -133,7 +133,7 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
 			System.out.println("[sendToServer] " + j.getTitle());
 
-			resp = HttpTest.sendPost(server + "jobs",
+			resp = HttpTest.sendPost(server + "/jobs",
 					getGson().toJson(j));
 
 			assertNotNull(resp);

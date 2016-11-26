@@ -21,6 +21,8 @@ import br.com.codecode.workix.model.root.RootLocale;
  * @author felipe
  * @see BaseLocale
  * @see Serializable
+ * @since 1.0
+ * @version 1.0
  */
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)

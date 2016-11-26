@@ -15,7 +15,8 @@ import br.com.codecode.workix.config.JacksonContextResolver;
  * Calendar Deserializer for Jackson
  * @see JacksonContextResolver #init()
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public class CalendarDeserializer extends JsonDeserializer<Calendar>  {
 

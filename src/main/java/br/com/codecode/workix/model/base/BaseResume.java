@@ -5,7 +5,8 @@ import java.util.Set;
 /**
  * Markup Interface for Resume Implementation
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public interface BaseResume extends BaseEntity {
 

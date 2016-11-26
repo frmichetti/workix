@@ -9,7 +9,8 @@ import br.com.codecode.workix.model.enums.JobType;
 /**
  * Markup Interface for Job Implementation
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public interface BaseJob extends BaseEntity{
 

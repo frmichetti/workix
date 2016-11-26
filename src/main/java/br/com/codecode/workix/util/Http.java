@@ -19,7 +19,8 @@ import java.nio.charset.StandardCharsets;
 /**
  * HTTP Request for Firebase
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public class Http implements Serializable {
 

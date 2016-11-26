@@ -23,7 +23,8 @@ import br.com.codecode.workix.model.interfaces.Persistable;
  * Factory for Generic {@link Dao} Injection
  * @see Produces
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @SuppressWarnings({"unchecked","rawtypes"})
 @ApplicationScoped

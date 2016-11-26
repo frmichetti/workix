@@ -18,7 +18,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * CDI Qualifier for {@link JmsDestinationProducer}
  * @see Notification
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Qualifier
 @Target({ TYPE, METHOD, PARAMETER, FIELD })

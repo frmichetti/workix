@@ -4,7 +4,12 @@ import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.event.ValueChangeListener;
 
-
+/**
+ * Value Change Listener for JSF
+ * @author felipe
+ * @since 1.0
+ * @version 1.0
+ */
 public class MyValueChangeListener implements ValueChangeListener{
 
 	@Override

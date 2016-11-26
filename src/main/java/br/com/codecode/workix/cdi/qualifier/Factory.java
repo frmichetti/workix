@@ -17,7 +17,8 @@ import javax.inject.Qualifier;
  * CDI Qualifier for Factory Producers
  * @see Produces
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Qualifier
 @Target({ TYPE, METHOD, PARAMETER, FIELD })

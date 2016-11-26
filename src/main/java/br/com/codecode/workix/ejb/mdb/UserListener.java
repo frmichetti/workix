@@ -29,7 +29,8 @@ import br.com.codecode.workix.model.jpa.User;
  * This Class is a {@link MessageDrivenBean} for {@link User}
  * Execute Actions {@link #onMessage(Message)}
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @MessageDriven(activationConfig={
 		@ActivationConfigProperty(propertyName="destinationLookup",

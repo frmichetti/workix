@@ -3,7 +3,8 @@ package br.com.codecode.workix.model.base;
 /**
  * Markup Interface for User Implementation
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 public interface BaseUser extends BaseEntity {
 	

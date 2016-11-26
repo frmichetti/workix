@@ -20,7 +20,8 @@ import javax.servlet.annotation.WebFilter;
 /**
  * Always Force requests to UTF-8 Charset 
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @WebFilter(filterName = "CharacterEncodingFilter",urlPatterns = {"/services/*"},asyncSupported=true)
 public class CharacterEncodingFilter implements Filter{

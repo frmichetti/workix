@@ -16,7 +16,8 @@ import br.com.codecode.workix.cdi.qualifier.UserTopic;
  * @see Produces
  * @see Destination
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @ApplicationScoped
 public class JmsDestinationProducer {
