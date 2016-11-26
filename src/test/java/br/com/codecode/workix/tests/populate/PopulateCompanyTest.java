@@ -21,6 +21,7 @@ import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.jpa.Company;
 import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 

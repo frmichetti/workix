@@ -16,6 +16,7 @@ import br.com.codecode.workix.model.jpa.Education;
 import br.com.codecode.workix.model.jpa.Experience;
 import br.com.codecode.workix.model.jpa.Resume;
 import br.com.codecode.workix.model.jpa.Skill;
+import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * Populate DB with Resumes

@@ -8,7 +8,6 @@
 package br.com.codecode.workix.tests.funcional.login;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNotSame;
 
 import java.io.StringReader;
 
@@ -19,7 +18,7 @@ import javax.json.JsonReader;
 import org.junit.Test;
 
 import br.com.codecode.workix.rest.android.Token;
-import br.com.codecode.workix.tests.populate.BaseTest;
+import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
@@ -32,7 +31,7 @@ public class LoginFirebaseTestDefault extends BaseTest implements LoginTest{
 
 	private String url = server + "/login/firebaselogin";
 
-	private String json;
+	private String json;	
 
 	@Test
 	@Override
@@ -51,7 +50,7 @@ public class LoginFirebaseTestDefault extends BaseTest implements LoginTest{
 
 		json = HttpTest.sendPost(url,jsonObject.toString());		
 
-		assertNotSame("", json);
+		assertNotNull(json);
 
 	}
 
@@ -68,21 +67,7 @@ public class LoginFirebaseTestDefault extends BaseTest implements LoginTest{
 		JsonObject jo = jr.readObject();
 
 		assertNotNull(jo);
-/*
-		User u = new User();
-
-		u.setActive(jo.getBoolean("active"));		 
-
-		assertTrue(u.isActive());		   
-
-		u.setEmail(jo.getString("email"));
-
-		assertEquals("frmichetti@gmail.com",u.getEmail());
-			
-		u.setFirebaseUUID(jo.getString("firebaseUuid"));
 		
-		assertEquals("HkwSYQd4rHUk22YPX2chHmqzwtR2", u.getFirebaseUUID());
-*/
 		jr.close();
 	}
 

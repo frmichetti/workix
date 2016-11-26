@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.populate;
+package br.com.codecode.workix.tests.funcional;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -15,7 +15,8 @@ import br.com.codecode.workix.util.gson.deserializer.GsonDateDeserializer;
 /**
  * BaseTest Class Share Common Fields
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 public class BaseTest {
 

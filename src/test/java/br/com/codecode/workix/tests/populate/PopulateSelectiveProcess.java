@@ -14,6 +14,7 @@ import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.model.jpa.Job;
 import br.com.codecode.workix.model.jpa.SelectiveProcess;
+import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**

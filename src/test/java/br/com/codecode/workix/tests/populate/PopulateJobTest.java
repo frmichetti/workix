@@ -24,6 +24,7 @@ import com.google.gson.reflect.TypeToken;
 import br.com.codecode.workix.model.enums.JobType;
 import br.com.codecode.workix.model.jpa.Company;
 import br.com.codecode.workix.model.jpa.Job;
+import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 /**
  * 
