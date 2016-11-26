@@ -5,7 +5,7 @@ import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**
  * This ManagedBean controls Search on HeaderPage
@@ -16,8 +16,6 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
  */
 @Model
 public class SearchMB extends BaseMB {
-
-	private static final long serialVersionUID = -7685004015144213436L;
 
 	@Inject
 	private MessagesHelper messagesHelper;

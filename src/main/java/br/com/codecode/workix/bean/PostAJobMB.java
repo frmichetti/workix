@@ -26,9 +26,7 @@ import br.com.codecode.workix.model.jpa.Job;
  * @version 1.1
  */
 @Model
-public class PostAJobMB extends BaseMB {
-
-	private static final long serialVersionUID = -196732177799463607L;
+public class PostAJobMB extends BaseMB {	
 
 	@Inject @Generic
 	private Crud<Job> dao;

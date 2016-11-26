@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import br.com.codecode.workix.jsf.util.PaginationHelper;
+import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
 
 /**
  * 

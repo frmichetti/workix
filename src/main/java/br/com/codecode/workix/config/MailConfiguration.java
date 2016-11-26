@@ -16,7 +16,8 @@ import javax.mail.MailSessionDefinition;
  * not work on WildFly 9.0.2
  * JAVA EE 7
  * @author Felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @MailSessionDefinition(
 		name="java:jboss/mail/fake",

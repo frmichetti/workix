@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.jsf.util;
+package br.com.codecode.workix.jsf.util.helper;
 
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;

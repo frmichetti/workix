@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.rest.android;
+package br.com.codecode.workix.model;
 
 import java.util.Date;
 

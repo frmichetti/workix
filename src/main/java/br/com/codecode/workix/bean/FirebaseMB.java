@@ -1,5 +1,7 @@
 package br.com.codecode.workix.bean;
 
+import java.io.Serializable;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.enterprise.inject.Default;
@@ -17,10 +19,10 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
  */
 @Named
 @SessionScoped
-public class FirebaseMB extends BaseMB {
+public class FirebaseMB extends BaseMB implements Serializable {		
 
-	private static final long serialVersionUID = -6683482350467577281L;	
-	
+	private static final long serialVersionUID = -893904762220030419L;
+
 	private String name, email, uid, photo, idToken;
 	
 	@Inject @Factory @Default

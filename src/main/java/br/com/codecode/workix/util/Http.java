@@ -19,8 +19,9 @@ import java.nio.charset.StandardCharsets;
  * HTTP Request for Firebase
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
+@Deprecated
 public class Http {	
 
 	private final String USER_AGENT = "Mozilla/5.0";

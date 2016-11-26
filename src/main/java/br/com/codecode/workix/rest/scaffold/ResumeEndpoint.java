@@ -22,14 +22,17 @@ import javax.ws.rs.core.UriBuilder;
 
 import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.jpa.Resume;
+import br.com.codecode.workix.rest.BaseEndpoint;
 
 /**
  * JaxRs Endpoint for {@link Resume}
  * @see JaxRsConfiguration
+ * @since 1.0
+ * @version 1.1
  */
 @Stateless
 @Path("resumes")
-public class ResumeEndpoint extends BaseEndpoint {
+public final class ResumeEndpoint extends BaseEndpoint {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

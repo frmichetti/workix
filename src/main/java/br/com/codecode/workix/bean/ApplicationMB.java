@@ -23,8 +23,6 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 @ApplicationScoped
 public class ApplicationMB extends BaseMB {
 
-	private static final long serialVersionUID = -8121534895073326681L;
-
 	private String appName, slogan ;
 
 	private int year;	

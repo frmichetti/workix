@@ -19,7 +19,8 @@ import javax.jms.JMSDestinationDefinitions;
  * JMS Destinations JAVA EE 7</a>
  * 
  * @author Felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @JMSDestinationDefinitions(
         value = {

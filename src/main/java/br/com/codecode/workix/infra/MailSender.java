@@ -49,7 +49,7 @@ public class MailSender {
 			Transport.send(mimeMessage);
 			
 		} catch (MessagingException	e) {
-			throw new RuntimeException(e);
+			throw new RuntimeException(e.getMessage(), e);
 		}
 
 	}

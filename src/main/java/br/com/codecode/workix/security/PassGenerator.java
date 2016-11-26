@@ -8,6 +8,7 @@
 package br.com.codecode.workix.security;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 import javax.enterprise.inject.Default;
@@ -29,12 +30,12 @@ public class PassGenerator {
 	@Inject @Factory @Default
 	private MessageDigest messageDigest;
     
-	public String generate(String rawPassword){
+	public String generate(String rawPassword){		
 		
 		try {
 			
 			byte[] hash = messageDigest
-					.digest(rawPassword.getBytes("UTF-8"));
+					.digest(rawPassword.getBytes(StandardCharsets.UTF_8.displayName()));
 			
 			return Base64Encoder.encode(hash);
 			

@@ -22,9 +22,7 @@ import br.com.codecode.workix.model.jpa.User;
  * @version 1.1
  */
 @Model
-public class UserMB extends BaseMB {
-
-	private static final long serialVersionUID = -5397549790844672393L;	
+public class UserMB extends BaseMB {		
 	
 	@Inject @Generic
 	private Crud<User> userDao;

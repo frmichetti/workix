@@ -25,14 +25,17 @@ import javax.ws.rs.core.UriBuilder;
 import br.com.codecode.workix.cdi.event.UserObserver;
 import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.rest.BaseEndpoint;
 
 /**
  * JaxRs Endpoint for {@link User}
  * @see JaxRsConfiguration
+ * @since 1.0
+ * @version 1.1
  */
 @Stateless
 @Path("users")
-public class UserEndpoint extends BaseEndpoint {
+public final class UserEndpoint extends BaseEndpoint {
 
 	/**
 	 * Notify for New User {@link UserObserver}

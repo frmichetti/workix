@@ -23,11 +23,12 @@ import br.com.codecode.workix.model.jpa.User;
  * This Class is a Simple StandAlone Endpoint for Android Uses
  * @see JaxRsConfiguration
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 @Stateless
 @Path("save")
-public class SaveOrUpdateEndpoint {
+public final class SaveOrUpdateEndpoint {
 
 	@Inject
 	private Event<User> alertNewUser;

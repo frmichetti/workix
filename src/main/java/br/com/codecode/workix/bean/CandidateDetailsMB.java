@@ -16,7 +16,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 
 /**
@@ -27,8 +27,6 @@ import br.com.codecode.workix.model.jpa.Candidate;
  */
 @Model
 public class CandidateDetailsMB extends BaseMB {
-
-	private static final long serialVersionUID = 8847505514073013416L;
 
 	private String messageTitle, messageBody;
 

@@ -13,7 +13,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-public class ReadFile {	
+/**
+ * Read External File 
+ * @author felipe
+ * @since 1.0
+ * @version 1.0
+ */
+public final class ReadFile {	
 
 	public static String readFileFromURL(URL url){
 

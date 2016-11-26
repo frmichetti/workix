@@ -11,10 +11,8 @@ import javax.ejb.Stateless;
 
 import br.com.codecode.workix.cdi.dao.implementation.persist.BaseDao;
 
-
-
 /**
- * Dao for JAASUser 
+ * Stand Alone DAO for JAASUser 
  * @author felipe
  * @since 1.0
  * @version 1.0

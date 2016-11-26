@@ -19,7 +19,7 @@ import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 
 /**
@@ -30,9 +30,7 @@ import br.com.codecode.workix.model.jpa.Candidate;
  * @see BaseMB
  */
 @Model
-public class SendTokenMB extends BaseMB{
-
-	private static final long serialVersionUID = -1733875145783240249L;
+public class SendTokenMB extends BaseMB {
 
 	@Inject @Push
 	private Notification sendPush;

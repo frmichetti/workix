@@ -22,14 +22,17 @@ import javax.ws.rs.core.UriBuilder;
 
 import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.jpa.Company;
+import br.com.codecode.workix.rest.BaseEndpoint;
 
 /**
  * JaxRs Endpoint for {@link Company}
  * @see JaxRsConfiguration
+ * @since 1.0
+ * @version 1.1
  */
 @Stateless
 @Path("companies")
-public class CompanyEndpoint extends BaseEndpoint {
+public final class CompanyEndpoint extends BaseEndpoint {
 
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)

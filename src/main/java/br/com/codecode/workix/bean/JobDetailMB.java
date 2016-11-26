@@ -13,13 +13,11 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Job;
 
 @Model
-public class JobDetailMB extends BaseMB {
-
-	private static final long serialVersionUID = -7234146150037004518L;
+public class JobDetailMB extends BaseMB {	
 
 	@Inject @Generic
 	private Crud<Job> dao;

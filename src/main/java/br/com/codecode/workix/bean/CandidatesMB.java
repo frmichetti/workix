@@ -14,7 +14,7 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.jsf.util.PaginationHelper;
+import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 
 /**
@@ -25,8 +25,6 @@ import br.com.codecode.workix.model.jpa.Candidate;
  */
 @Model
 public class CandidatesMB extends BaseMB {
-
-	private static final long serialVersionUID = -8522233496923137700L;
 
 	@Inject @Factory @Default
 	private FacesContext facesContext;

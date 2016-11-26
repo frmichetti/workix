@@ -19,9 +19,7 @@ import br.com.codecode.workix.model.jpa.User;
  * @version 1.1
  */
 @Model
-public class RegisterMB extends BaseMB {
-
-	private static final long serialVersionUID = 2464412752323820654L;
+public class RegisterMB extends BaseMB {	
 
 	@Inject @Factory @Default
 	private FacesContext facescontext;

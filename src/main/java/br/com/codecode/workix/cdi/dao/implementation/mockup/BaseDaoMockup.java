@@ -12,7 +12,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Mockup;
 import br.com.codecode.workix.cdi.qualifier.OpenShift;
 import br.com.codecode.workix.cdi.qualifier.Production;
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**
  * BaseClass for Mockup Implementation

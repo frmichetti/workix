@@ -3,6 +3,7 @@ package br.com.codecode.workix.bean;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 
 /**
  * Security ManagedBean
@@ -12,7 +13,7 @@ import javax.inject.Named;
  */
 @Named
 @SessionScoped
-public class SecurityMB extends BaseMB{
+public class SecurityMB extends BaseMB implements Serializable {
 
 	private static final long serialVersionUID = 4062470003123871957L;
 

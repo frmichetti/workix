@@ -14,7 +14,8 @@ import javax.ws.rs.core.Application;
  * @see br.com.codecode.workix.rest.android
  * @see br.com.codecode.workix.rest.scaffold
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @ApplicationPath("services")
 public class JaxRsConfiguration extends Application{}

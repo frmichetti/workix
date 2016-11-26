@@ -20,7 +20,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.model.jpa.Education;
 import br.com.codecode.workix.model.jpa.Experience;
@@ -34,9 +34,7 @@ import br.com.codecode.workix.model.jpa.Skill;
  * @version 1.1
  */
 @Model
-public class ResumeMB extends BaseMB {
-
-	private static final long serialVersionUID = 3136618928143380363L;
+public class ResumeMB extends BaseMB {	
 
 	@Inject @Generic
 	private Crud<Candidate> dao;

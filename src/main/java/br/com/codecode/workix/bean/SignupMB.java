@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Subscriber;
 
 /**
@@ -19,9 +19,7 @@ import br.com.codecode.workix.model.jpa.Subscriber;
  * @version 1.1
  */
 @Model
-public class SignupMB extends BaseMB{
-
-	private static final long serialVersionUID = -2504261663617888396L;
+public class SignupMB extends BaseMB{	
 
 	@Inject
 	private MessagesHelper messagesHelper;

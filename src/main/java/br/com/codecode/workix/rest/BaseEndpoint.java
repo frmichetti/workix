@@ -1,4 +1,4 @@
-package br.com.codecode.workix.rest.scaffold;
+package br.com.codecode.workix.rest;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -9,7 +9,8 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 /**
  * Only for Share EntityManager
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.1
  */
 public abstract class BaseEndpoint {
 

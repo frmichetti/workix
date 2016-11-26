@@ -20,9 +20,7 @@ import br.com.codecode.workix.model.jpa.Resume;
  * @version 1.1
  */
 @Model
-public class StatsMB extends BaseMB {
-
-	private static final long serialVersionUID = 5375151290773516794L;
+public class StatsMB extends BaseMB {	
 
 	@Inject @Generic
 	private Crud<Job> jobDao;

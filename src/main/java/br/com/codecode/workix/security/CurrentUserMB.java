@@ -16,15 +16,19 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
+import br.com.codecode.workix.interfaces.Debugable;
+
 /**
  * This Class Verify for {@link JAASUser} is Signed In Session
  * @author felipe
  * @since 1.0
  * @version 1.1
+ * @see Serializable
+ * @see Debugable
  */
 @Named
 @SessionScoped
-public class CurrentUserMB implements Serializable {
+public class CurrentUserMB implements Serializable, Debugable {
 
 	private static final long serialVersionUID = 5093336500246912818L;
 
@@ -34,18 +38,14 @@ public class CurrentUserMB implements Serializable {
 	@Inject
 	private SecurityDao securityDao;
 
-	private JAASUser user;
-
-	public CurrentUserMB(){}
+	private JAASUser user;	
 	
 	@PostConstruct
 	private void init(){
 		
 		System.out.println("----Security Bean------");
 		
-		System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
-		
-		System.out.println("--> " + this.hashCode() + " <--");
+		Debugable.super.onStart();		
 		
 		loadSystemUser();
 	}

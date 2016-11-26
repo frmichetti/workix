@@ -25,14 +25,17 @@ import javax.ws.rs.core.UriBuilder;
 import br.com.codecode.workix.cdi.event.JobObserver;
 import br.com.codecode.workix.config.JaxRsConfiguration;
 import br.com.codecode.workix.model.jpa.Job;
+import br.com.codecode.workix.rest.BaseEndpoint;
 
 /**
  * JaxRs Endpoint for {@link Job}
  * @see JaxRsConfiguration
+ * @since 1.0
+ * @version 1.1
  */
 @Stateless
 @Path("jobs")
-public class JobEndpoint extends BaseEndpoint {
+public final class JobEndpoint extends BaseEndpoint {
 
 	/**
 	 * Notify for New Job {@link JobObserver}

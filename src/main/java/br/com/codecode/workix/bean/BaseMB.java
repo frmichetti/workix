@@ -1,20 +1,15 @@
 package br.com.codecode.workix.bean;
 
-import java.io.Serializable;
-
 import br.com.codecode.workix.interfaces.Debugable;
 
 /**
  * Base ManagedBean Only for share common Fields or Methods
  * @author felipe
  * @since 1.0
- * @version 1.1
- * @see Serializable
+ * @version 1.1 
  * @see Debugable
  */
-abstract class BaseMB implements Serializable, Debugable {
-
-	private static final long serialVersionUID = 6010952451064142216L;
+abstract class BaseMB implements Debugable {	
 
 	/**
 	 * For Debug Use Only

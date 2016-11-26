@@ -27,7 +27,7 @@ import javax.servlet.annotation.WebFilter;
  * @see Filter
  */
 @WebFilter(filterName = "CharacterEncodingFilter", urlPatterns = {"/services/*"}, asyncSupported=true)
-public class CharacterEncodingFilter implements Filter{
+public final class CharacterEncodingFilter implements Filter{
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException{}

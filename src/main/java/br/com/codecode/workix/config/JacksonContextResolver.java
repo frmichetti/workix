@@ -18,7 +18,8 @@ import br.com.codecode.workix.jaxrs.deserializer.CalendarDeserializer;
 /**
  * This Class define Startup Properties for Jackson
  * @author felipe
- *
+ * @since 1.0
+ * @version 1.0
  */
 @Provider
 @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})

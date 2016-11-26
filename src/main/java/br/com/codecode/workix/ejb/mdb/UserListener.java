@@ -35,7 +35,7 @@ import br.com.codecode.workix.model.jpa.User;
 @MessageDriven(activationConfig={
 		@ActivationConfigProperty(propertyName="destinationLookup",
 				propertyValue="java:/jms/topics/usersTopic")})
-public class UserListener implements MessageListener{		
+public final class UserListener implements MessageListener{		
 
 	@Inject @Factory
 	private ManagedExecutorService managedExecutorService;

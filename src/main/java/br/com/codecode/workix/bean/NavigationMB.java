@@ -18,9 +18,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
  */
 @Named
 @ApplicationScoped
-public class NavigationMB extends BaseMB {
-
-	private static final long serialVersionUID = -8996534359439775766L;
+public class NavigationMB extends BaseMB {	
 
 	@Inject @Factory @Default
 	private FacesContext facesContext;

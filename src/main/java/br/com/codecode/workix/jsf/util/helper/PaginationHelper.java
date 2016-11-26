@@ -1,4 +1,4 @@
-package br.com.codecode.workix.jsf.util;
+package br.com.codecode.workix.jsf.util.helper;
 
 /**
  * Pagination Helper

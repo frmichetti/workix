@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.infra.MailSender;
-import br.com.codecode.workix.jsf.util.MessagesHelper;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**
  * This ManagedBean controls Contact Fragment in fragments/contact.xhtml
@@ -19,8 +19,6 @@ import br.com.codecode.workix.jsf.util.MessagesHelper;
  */
 @Model
 public class ContactMB extends BaseMB{
-
-	private static final long serialVersionUID = -1640448932752381824L;
 
 	@Inject
 	private MessagesHelper messagesHelper;

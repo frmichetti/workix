@@ -30,12 +30,12 @@ import br.com.codecode.workix.model.jpa.Job;
  * Execute Actions {@link #onMessage(Message)}
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 @MessageDriven(activationConfig={
 		@ActivationConfigProperty(propertyName="destinationLookup",
 				propertyValue="java:/jms/topics/jobsTopic")})
-public class JobListener implements MessageListener{	
+public final class JobListener implements MessageListener{	
 
 	@Inject @Factory
 	private ManagedExecutorService managedExecutorService;
