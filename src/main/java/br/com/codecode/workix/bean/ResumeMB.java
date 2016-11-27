@@ -2,6 +2,7 @@ package br.com.codecode.workix.bean;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -20,6 +21,7 @@ import br.com.codecode.workix.cdi.qualifier.Factory;
 import br.com.codecode.workix.cdi.qualifier.Generic;
 import br.com.codecode.workix.cdi.qualifier.Push;
 import br.com.codecode.workix.exception.NotImplementedYetException;
+import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 import br.com.codecode.workix.model.jpa.Candidate;
 import br.com.codecode.workix.model.jpa.Education;
@@ -69,6 +71,7 @@ public class ResumeMB extends BaseMB {
 	/**
 	 * Must be Called by f:viewAction After f:viewParam {page} 
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void init(){
 
@@ -99,21 +102,21 @@ public class ResumeMB extends BaseMB {
 
 		ArrayList<Skill> skillList = new ArrayList<>();
 
-		skillList.addAll(resume.getSkills());
+		skillList.addAll((Collection<? extends Skill>) resume.getSkills());
 
 		skills = new ListDataModel<Skill>(skillList);
 
 
 		ArrayList<Education> educationList = new ArrayList<>();
 
-		educationList.addAll(resume.getEducations());
+		educationList.addAll((Collection<? extends Education>) resume.getEducations());
 
 		educations = new ListDataModel<>(educationList);
 
 
 		ArrayList<Experience> experienceList = new ArrayList<>();
 
-		experienceList.addAll(resume.getExperiences());
+		experienceList.addAll((Collection<? extends Experience>) resume.getExperiences());
 
 		experiences = new ListDataModel<>(experienceList);
 
@@ -145,12 +148,12 @@ public class ResumeMB extends BaseMB {
 
 	public void notifyByEmail(){
 		messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
-		mailNotification.doSendMessage(resume.getCandidate().getUser(), messageTitle, messageBody);
+		mailNotification.doSendMessage((Notificable) resume.getCandidate().getUser(), messageTitle, messageBody);
 	}
 
 	public void notifyByPush(){
 		messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-		notification.doSendMessage(resume.getCandidate().getUser(), messageTitle, messageBody);
+		notification.doSendMessage((Notificable) resume.getCandidate().getUser(), messageTitle, messageBody);
 	}
 
 	public String getMessageBody() {

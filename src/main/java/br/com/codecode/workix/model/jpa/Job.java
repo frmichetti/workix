@@ -5,7 +5,6 @@ import java.util.Calendar;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Lob;
@@ -17,18 +16,20 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.codecode.workix.model.base.BaseCompany;
+import br.com.codecode.workix.model.base.BaseJob;
 import br.com.codecode.workix.model.enums.JobCategory;
 import br.com.codecode.workix.model.enums.JobType;
 
 /**
- * Job JPA {@link Entity}
+ * Job JPA with Inherited Fields and Methods
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see MyEntity
+ * @see BaseJob
  */
-@Entity
-public class Job extends MyEntity {
+public class Job extends MyEntity implements BaseJob {
 
 	private static final long serialVersionUID = 2246753300384053586L;
 
@@ -84,7 +85,7 @@ public class Job extends MyEntity {
 	 */
 	@NotNull
 	@ManyToOne(optional=false)
-	private Company employeer;
+	private BaseCompany employeer;
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -190,41 +191,12 @@ public class Job extends MyEntity {
 		this.active = active;
 	}
 
-	public Company getEmployeer() {
+	public BaseCompany getEmployeer() {
 		return employeer;
 	}
 
-	public void setEmployeer(Company employeer) {
+	public void setEmployeer(BaseCompany employeer) {
 		this.employeer = employeer;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (getId() ^ (getId() >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Job other = (Job) obj;
-		if (getId() != other.getId())
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Job [title=" + title + ", description=" + description + ", employeer=" + employeer + "]";
-	}
-	
-	
+	}	
 
 }

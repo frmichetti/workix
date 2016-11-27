@@ -12,7 +12,6 @@ import java.util.UUID;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,34 +22,25 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.Table;
 import javax.persistence.Version;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
 
 /**
- * Selective Process JPA {@link Entity}
+ * Selective Process JPA with Inherited Fields and Methods 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see Observable
  * @see Observer
  * @see Traceable
  * @see Persistable
  * @see Serializable
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@SuppressWarnings({"unchecked"})
-@Table(name="Selective_Process")
-@Entity
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
 
 	private static final long serialVersionUID = -5336099006523168288L;
@@ -82,7 +72,8 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	private Job job;	
 
 	@NotNull
-	@JoinTable(name="Selective_Process_Candidates",joinColumns=@JoinColumn(name="sp_id"),
+	@JoinTable(name="Selective_Process_Candidates",
+	joinColumns=@JoinColumn(name="sp_id"),
 			inverseJoinColumns=@JoinColumn(name="candidate_id"))
 	@OneToMany(fetch = FetchType.EAGER)	
 	private Set<Candidate> candidates;
@@ -128,29 +119,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	protected void setVersion(final int version) {
 		this.version = version;
 	}	
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		SelectiveProcess other = (SelectiveProcess) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
-
+	
 	public Job getJob() {
 		return this.job;
 	}
@@ -245,11 +214,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 		setChanged();
 	}
 
-	@Override
-	public String toString() {
-		return "SelectiveProcess [active=" + active + ", maxCandidates=" + maxCandidates + "]";
-	}
-
+	@SuppressWarnings("unchecked")
 	@Override
 	public void update(Observable observable, Object object) {	
 

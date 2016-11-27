@@ -2,7 +2,6 @@ package br.com.codecode.workix.model.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Embedded;
-import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
@@ -16,16 +15,15 @@ import br.com.codecode.workix.model.base.BasePerson;
 import br.com.codecode.workix.model.base.BaseUser;
 
 /**
- * Person JPA {@link MappedSuperclass} 
+ * Person JPA with Inherited Fields and Methods 
  * <br>Abstract Class for share common Fields with {@link Company} and {@link Candidate}
  * @author felipe
  * @see MyEntity
  * @see BasePerson
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * <a href= "http://wiki.fasterxml.com/JacksonFAQ#Deserializing_Abstract_types">Deserializing Abstract Types</a>
  */
-@MappedSuperclass
 public abstract class Person extends MyEntity implements BasePerson {
 
 	private static final long serialVersionUID = 703693002246144451L;
@@ -95,11 +93,6 @@ public abstract class Person extends MyEntity implements BasePerson {
 	public void setLocale(BaseLocale locale) {
 		this.locale = (Locale) locale;
 		
-	}
-
-	@Override
-	public String toString() {
-		return "Person [name=" + name + "]";
 	}
 
 }

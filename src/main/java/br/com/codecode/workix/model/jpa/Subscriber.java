@@ -3,7 +3,6 @@ package br.com.codecode.workix.model.jpa;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,15 +16,14 @@ import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.model.root.RootSubscriber;
 
 /**
- * Subscriber JPA {@link Entity}
+ * Subscriber JPA with Inherited Fields and Methods 
  * @author felipe
  * @since 1.0
- * @version 1.0 
+ * @version 1.1 
  * @see RootSubscriber
  * @see Persistable
  * @see Serializable
  */
-@Entity
 public class Subscriber extends RootSubscriber implements Persistable, Serializable {
 
 	private static final long serialVersionUID = 6675137603968146834L;

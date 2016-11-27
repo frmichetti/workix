@@ -4,7 +4,6 @@ import java.util.Calendar;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Past;
@@ -12,15 +11,14 @@ import javax.validation.constraints.Past;
 import br.com.codecode.workix.model.base.BaseCandidate;
 
 /**
- * Candidate JPA {@link Entity}
+ * Candidate JPA with Inherited Fields and Methods
  * @see Person
  * @author felipe
  * @see Person
  * @see BaseCandidate
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-@Entity
 public class Candidate extends Person implements BaseCandidate {
 
 	private static final long serialVersionUID = 531807027259604477L;	
@@ -64,30 +62,6 @@ public class Candidate extends Person implements BaseCandidate {
 	@Override
 	public void setBirthDate(Calendar birthDate) {
 		this.birthDate = birthDate;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (getId() ^ (getId() >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Candidate other = (Candidate) obj;
-		if (getId() != other.getId())
-			return false;
-		return true;
 	}	
-
-	
 
 }

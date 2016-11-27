@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
@@ -16,15 +15,21 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.codecode.workix.model.base.BaseCandidate;
+import br.com.codecode.workix.model.base.BaseEducation;
+import br.com.codecode.workix.model.base.BaseExperience;
+import br.com.codecode.workix.model.base.BaseResume;
+import br.com.codecode.workix.model.base.BaseSkill;
+
 /**
- * Resume JPA {@link Entity}
- * @author felipe
- * @see MyEntity
+ * Resume JPA with Inherited Fields and Methods 
+ * @author felipe 
  * @since 1.0
- * @version 1.0
+ * @version 1.1
+ * @see MyEntity
+ * @see BaseResume
  */
-@Entity
-public class Resume extends MyEntity {
+public class Resume extends MyEntity implements BaseResume {
 
 	private static final long serialVersionUID = 7569771700044121495L;
 	
@@ -34,7 +39,7 @@ public class Resume extends MyEntity {
 	 */
 	@NotNull	
 	@OneToOne(fetch = FetchType.EAGER, optional = false)
-	private Candidate candidate;
+	private BaseCandidate candidate;
 
 	@NotEmpty	
 	@Column
@@ -50,7 +55,7 @@ public class Resume extends MyEntity {
 	@ElementCollection(fetch=FetchType.EAGER)	
 	@CollectionTable(name = "Resume_Experiences", 
 	joinColumns=@JoinColumn(name="id"))
-	private Set<Experience> experiences;
+	private Set<BaseExperience> experiences;
 
 	/**
 	 * One {@link Resume} To Many {@link Education} 
@@ -58,7 +63,7 @@ public class Resume extends MyEntity {
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name = "Resume_Educations", 
 	joinColumns=@JoinColumn(name="id"))
-	private Set<Education> educations;	
+	private Set<BaseEducation> educations;	
 
 	/**
 	 * One {@link Resume} To Many {@link Skill} 
@@ -66,7 +71,7 @@ public class Resume extends MyEntity {
 	@ElementCollection(fetch=FetchType.EAGER)
 	@CollectionTable(name = "Resume_Skills", 
 	joinColumns=@JoinColumn(name="id"))
-	private Set<Skill> skills;	
+	private Set<BaseSkill> skills;	
 
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
@@ -78,88 +83,105 @@ public class Resume extends MyEntity {
 	 */
 	@PostConstruct
 	private void init() {
-		educations = new HashSet<Education>();
-		experiences = new HashSet<Experience>();
-		skills = new HashSet<Skill>();		
+		educations = new HashSet<BaseEducation>();
+		experiences = new HashSet<BaseExperience>();
+		skills = new HashSet<BaseSkill>();		
 	}
 
-	public Candidate getCandidate() {
+	@Override
+	public BaseCandidate getCandidate() {
 		return candidate;
 	}
 
-	public void setCandidate(Candidate candidate) {
+	@Override
+	public void setCandidate(BaseCandidate candidate) {
 		this.candidate = candidate;
 	}
 
+	@Override
 	public String getObjective() {
 		return objective;
 	}
 
+	@Override
 	public void setObjective(String objective) {
 		this.objective = objective;
 	}
 
+	@Override
 	public String getContent() {
 		return content;
 	}
 
+	@Override
 	public void setContent(String content) {
 		this.content = content;
 	}
 
-	public Set<Experience> getExperiences() {
+	@Override
+	public Set<BaseExperience> getExperiences() {
 		return experiences;
 	}
 
-	public void setExperiences(Set<Experience> experiences) {
+	@Override
+	public void setExperiences(Set<BaseExperience> experiences) {
 		this.experiences = experiences;
 	}
 
-	public void addExperience(Experience experience){
+	@Override
+	public void addExperience(BaseExperience experience){
 		if(experiences == null)
 			experiences = new HashSet<>(); 
 		else
 			this.experiences.add(experience);
 	}
 
-	public void removeExperience(Experience experience){
+	@Override
+	public void removeExperience(BaseExperience experience){
 		if(experiences == null)
 			experiences = new HashSet<>(); 
 		else
 			this.experiences.remove(experience);
 	}
 
-	public Set<Education> getEducations() {
+	@Override
+	public Set<BaseEducation> getEducations() {
 		return educations;
 	}
 
-	public void setEducations(Set<Education> educations) {
+	@Override
+	public void setEducations(Set<BaseEducation> educations) {
 		if(educations == null)
 			educations = new HashSet<>(); 
 		else
 			this.educations = educations;
 	}
 
-	public void addEducation(Education education){
+	@Override
+	public void addEducation(BaseEducation education){
 		if(educations == null)
 			educations = new HashSet<>(); 
 		else
 			this.educations.add(education);
 	}
 
-	public void removeEducation(Education education){
+	@Override
+	public void removeEducation(BaseEducation education){
 		this.educations.remove(education);
 	}	
 
-	public Set<Skill> getSkills() {
+	@Override
+	public Set<BaseSkill> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(Set<Skill> skills) {
+	@Override
+	public void setSkills(Set<BaseSkill> skills) {
 		this.skills = skills;
 	}
 
-	public void addSkill(Skill skill){
+	@Override
+	public void addSkill(BaseSkill skill){
 		if(skills == null)
 			skills = new HashSet<>(); 
 		else
@@ -167,33 +189,12 @@ public class Resume extends MyEntity {
 
 	}
 
-	public void removeSkill(Skill skill){
+	@Override
+	public void removeSkill(BaseSkill skill){
 		if(skills == null)
 			skills = new HashSet<>(); 
 		else
 			this.skills.remove(skill);
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (getId() ^ (getId() >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Resume other = (Resume) obj;
-		if (getId() != other.getId())
-			return false;
-		return true;
-	}
+	}	
 
 }

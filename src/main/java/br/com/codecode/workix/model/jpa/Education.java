@@ -4,28 +4,24 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.interfaces.Buildable;
+import br.com.codecode.workix.model.base.BaseEducation;
 import br.com.codecode.workix.model.root.RootEducation;
 
 /**
- * Education JPA {@link Embeddable} 
+ * Education JPA with Inherited Fields and Methods
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
+ * @see BaseEducation
+ * @see Serializable
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@Embeddable
-public class Education implements Serializable {
+public class Education implements BaseEducation, Serializable {
 
 	private static final long serialVersionUID = -1514012744160609145L;
 
@@ -104,11 +100,6 @@ public class Education implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	@Override
-	public String toString() {
-		return "Education [schoolName=" + schoolName + ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
 
 	/**

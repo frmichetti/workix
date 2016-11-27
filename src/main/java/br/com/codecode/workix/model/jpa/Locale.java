@@ -3,13 +3,9 @@ package br.com.codecode.workix.model.jpa;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.model.base.BaseLocale;
@@ -17,16 +13,13 @@ import br.com.codecode.workix.model.enums.Estate;
 import br.com.codecode.workix.model.root.RootLocale;
 
 /**
- * Locale JPA {@link Embeddable}  
+ * Locale JPA with Inherited Fields and Methods  
  * @author felipe
  * @see BaseLocale
  * @see Serializable
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@Embeddable
 public class Locale implements BaseLocale, Serializable {
 
 	private static final long serialVersionUID = -607806075186010186L;
@@ -121,11 +114,6 @@ public class Locale implements BaseLocale, Serializable {
 
 	public void setEstate(Estate estate) {
 		this.estate = estate;
-	}
-
-	@Override
-	public String toString() {
-		return "Locale [zipCode=" + zipCode + ", street=" + street + ", number=" + number + "]";
 	}	
 
 	/**

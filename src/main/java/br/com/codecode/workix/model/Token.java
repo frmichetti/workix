@@ -14,15 +14,18 @@ import java.util.Date;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-public class Token {
+public final class Token {
 
-	private Date createdAt = new Date();
+	private Date createdAt;
 
 	private String key;
-
-	public Token(){		
+	
+	/**
+	 * 
+	 */
+	public Token() {
 		setCreatedAt(new Date());
 	}
 

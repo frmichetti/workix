@@ -3,25 +3,20 @@ package br.com.codecode.workix.model.jpa;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.interfaces.Buildable;
+import br.com.codecode.workix.model.base.BaseSkill;
 import br.com.codecode.workix.model.root.RootSkill;
 
 /**
- * Skill {@link Embeddable} JPA Class
+ * Skill JPA Class with Inherited Fields and Methods 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
+ * @see BaseSkill
  * @see Serializable
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@Embeddable
-public class Skill implements Serializable {
+public class Skill implements BaseSkill, Serializable {
 
 	private static final long serialVersionUID = -5975419980185059163L;
 	

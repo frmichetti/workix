@@ -1,7 +1,6 @@
 package br.com.codecode.workix.model.jpa;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Email;
@@ -13,7 +12,7 @@ import br.com.codecode.workix.model.base.BaseUser;
 import br.com.codecode.workix.model.root.RootUser;
 
 /**
- * User JPA {@link Entity}
+ * User JPA with Inherited Fields and Methods 
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -21,7 +20,6 @@ import br.com.codecode.workix.model.root.RootUser;
  * @see BaseUser
  * @see Notificable
  */
-@Entity
 public class User extends MyEntity implements BaseUser, Notificable {
 
 	private static final long serialVersionUID = -610648880358327958L;

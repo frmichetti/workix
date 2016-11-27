@@ -3,27 +3,20 @@ package br.com.codecode.workix.model.jpa;
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.model.base.BaseContact;
 import br.com.codecode.workix.model.root.RootContact;
 
 /**
- * Contact JPA {@link Embeddable}
+ * Contact JPA with Inherited Fields and Methods
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see BaseContact
  * @see Serializable
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@Embeddable
 public class Contact implements BaseContact, Serializable {
 
 	private static final long serialVersionUID = -2482737185460142872L;

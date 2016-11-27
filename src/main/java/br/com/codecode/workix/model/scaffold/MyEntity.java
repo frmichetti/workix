@@ -1,4 +1,4 @@
-package br.com.codecode.workix.model.jpa;
+package br.com.codecode.workix.model.scaffold;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
@@ -6,20 +6,20 @@ import java.time.Instant;
 import java.util.UUID;
 
 import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Version;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
-import br.com.codecode.workix.model.base.BaseEntity;
 
 /**
- * MyEntity JPA with Inherited Fields and Methods 
+ * MyEntity JPA {@link MappedSuperclass} 
  * <br>Base abstract Class for Share common Fields
  * <br>All inherited classes MUST contain<br>
  * <table> 	
@@ -33,21 +33,18 @@ import br.com.codecode.workix.model.base.BaseEntity;
  * </tr>
  * </table>
  * @author felipe
- * @since 1.0
+ * @since 1.1
  * @version 1.1
- * @see BaseEntity
  * @see Traceable
  * @see Persistable
  * @see Serializable
  */
-abstract class MyEntity implements BaseEntity, Traceable, Persistable, Serializable {
+@MappedSuperclass
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+abstract class MyEntity implements Traceable, Persistable, Serializable {
 
 	private static final long serialVersionUID = -5791260209364116790L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	private long id;
 
 	@XmlTransient
 	@Version	
@@ -69,21 +66,11 @@ abstract class MyEntity implements BaseEntity, Traceable, Persistable, Serializa
 	/**
 	 * Public Default Constructor for JPA Compatibility Only
 	 */	
-	public MyEntity(){}
-	
-	@Override
-	public final long getId() {
-		return this.id;
-	}
-	
-	@Override	
-	public final void setId(long id) {
-		this.id = id;
-	}
+	protected MyEntity(){}		
 	
 	@Override
 	@PrePersist
-	public final void prepareToPersist(){
+	public void prepareToPersist(){
 		Traceable.super.prepareToPersist();	
 	}
 	

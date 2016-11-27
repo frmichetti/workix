@@ -4,29 +4,24 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Lob;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.interfaces.Buildable;
+import br.com.codecode.workix.model.base.BaseExperience;
 import br.com.codecode.workix.model.root.RootExperience;
 
 /**
- * Experience JPA {@link Embeddable}
+ * Experience JPA with Inherited Fields and Methods
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
+ * @see BaseExperience
  * @see Serializable
  */
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.FIELD)
-@Embeddable
-public class Experience implements Serializable {
+public class Experience implements BaseExperience, Serializable {
 
 	private static final long serialVersionUID = -6311235469498858665L;
 	
@@ -108,11 +103,6 @@ public class Experience implements Serializable {
 	
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	@Override
-	public String toString() {
-		return "Experience [employerName=" + employerName + ", jobTitle=" + jobTitle + ", description=" + description + "]";
 	}
 	
 	/**
