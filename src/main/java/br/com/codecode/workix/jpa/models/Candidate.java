@@ -31,21 +31,31 @@ public class Candidate extends Person {
 
     private static final long serialVersionUID = 531807027259604477L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
-    private long id;
+    private long id, cpf;
 
-    @Column(nullable = false, unique = true)
-    private long cpf;
-    
-    @Column(nullable = false)
     private LocalDate birthDate;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Candidate() {
+    public Candidate(){}
+
+    @Column(nullable = false)
+    public LocalDate getBirthDate() {
+	return birthDate;
+    }
+
+    @Column(nullable = false, unique = true)
+    public long getCpf() {
+	return cpf;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+	return this.id;
     }
 
     /**
@@ -54,19 +64,6 @@ public class Candidate extends Person {
     @PostConstruct
     private void init() {
 	birthDate = LocalDate.now();
-    }
-
-    public LocalDate getBirthDate() {
-	return birthDate;
-    }
-
-    public long getCpf() {
-	return cpf;
-    }
-
-    @Override
-    public long getId() {
-	return this.id;
     }
 
     public void setBirthDate(LocalDate birthDate) {

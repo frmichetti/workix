@@ -54,7 +54,7 @@
 								<label for="job-location">Cidade</label> <input type="text"
 									class="form-control" id="job-location"
 									placeholder="e.g. New York"
-									pt:value="#{postAJobMB.job.employeer.locale.city}"
+									pt:value="#{postAJobMB.job.company.locale.city}"
 									pt:required="required" />
 							</div>
 
@@ -62,7 +62,7 @@
 								<label for="job-region">Estado</label>
 
 								<h:selectOneMenu
-									value="#{postAJobMB.job.employeer.locale.estate}"
+									value="#{postAJobMB.job.company.locale.estate}"
 									styleClass="form-control" id="job-region"
 									pt:required="required">
 									<f:selectItem itemValue="" itemLabel="Selecione um estado" />
@@ -74,7 +74,7 @@
 
 							<div class="form-group" id="job-type-group">
 								<label for="job-type">Tipo de Trabalho</label>
-								<h:selectOneMenu value="#{postAJobMB.job.type}"
+								<h:selectOneMenu value="#{postAJobMB.job.jobType}"
 									styleClass="form-control" id="job-type" pt:required="required">
 									<f:selectItem itemValue="" itemLabel="Selecione um Tipo" />
 									<f:selectItems value="#{postAJobMB.jobTypes}" var="jT"
@@ -86,7 +86,7 @@
 							<div class="form-group" id="job-category-group">
 								<label for="job-category">Categoria do Trabalho</label>
 
-								<h:selectOneMenu value="#{postAJobMB.job.category}"
+								<h:selectOneMenu value="#{postAJobMB.job.jobCategory}"
 									styleClass="form-control" id="job-category"
 									pt:required="required">
 									<f:selectItem itemValue="" itemLabel="Selecione uma Categoria" />
@@ -151,7 +151,7 @@
 								<label for="company-name">Nome Empregador</label>
 
 
-								<h:selectOneMenu value="#{postAJobMB.job.employeer}"
+								<h:selectOneMenu value="#{postAJobMB.job.company}"
 									styleClass="form-control" id="company-name"
 									converter="AnotherEntityConverter">
 									<f:selectItem itemValue="" itemLabel="Selecione uma Empresa" />

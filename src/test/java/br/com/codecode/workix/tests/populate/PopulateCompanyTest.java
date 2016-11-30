@@ -20,6 +20,8 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.jpa.models.Company;
+import br.com.codecode.workix.jpa.models.Contact;
+import br.com.codecode.workix.jpa.models.Locale;
 import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
@@ -77,6 +79,10 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 	    c.setName("Company Mockup N# " + String.valueOf(u.getId()));
 
 	    c.setCnpj(Long.MAX_VALUE - u.getId());
+	    
+	    c.setContact(new Contact.Builder(123456).build());
+	    
+	    c.setLocale(new Locale.Builder(45632145, "212").build());
 
 	    c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
 

@@ -12,13 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
-
-import br.com.codecode.workix.jpa.enums.JobCategory;
-import br.com.codecode.workix.jpa.enums.JobType;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import br.com.codecode.workix.jpa.enums.JobCategory;
+import br.com.codecode.workix.jpa.enums.JobType;
 
 /**
  * Job JPA with Inherited Fields and Methods
@@ -36,53 +35,86 @@ public class Job extends MyEntity {
 
     private static final long serialVersionUID = 2246753300384053586L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
     private long id;
 
-    @Column(nullable = false)
-    private String title;
-
-    @Column
-    private BigDecimal minPayment;
-
-    @Column
-    private BigDecimal maxPayment;
-
-    @Lob
-    @Column(nullable = false)
-    private String description;
-
-    @Lob
-    @Column(nullable = false)
-    private String requirement;
-
-    @Lob
-    @Column(nullable = false)
-    private String benefits;
-
-    @Enumerated(EnumType.STRING)
-    @Column
-    private JobType type;
-
-    @Enumerated(EnumType.STRING)
-    @Column
-    private JobCategory category;
-
-    @Column
     private boolean active;
+
+    private String title, description, requirement, benefits;
+
+    private BigDecimal minPayment, maxPayment;
+
+    private JobType jobType;
+
+    private JobCategory jobCategory;
 
     /**
      * Many {@link Job} To One {@link Company}
      */
-    @ManyToOne(optional = false)
-    private Company employeer;
+
+    private Company company;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Job() {
+    }
+
+    @Lob
+    @Column(nullable = false)
+    public String getBenefits() {
+	return benefits;
+    }
+
+    @ManyToOne(optional = false)
+    public Company getCompany() {
+	return company;
+    }
+
+    @Lob
+    @Column(nullable = false)
+    public String getDescription() {
+	return description;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+	return this.id;
+    }
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    public JobCategory getJobCategory() {
+	return jobCategory;
+    }
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    public JobType getJobType() {
+	return jobType;
+    }
+
+    @Column
+    public BigDecimal getMaxPayment() {
+	return maxPayment;
+    }
+
+    @Column
+    public BigDecimal getMinPayment() {
+	return minPayment;
+    }
+
+    @Lob
+    @Column(nullable = false)
+    public String getRequirement() {
+	return requirement;
+    }
+
+    @Column(nullable = false)
+    public String getTitle() {
+	return title;
     }
 
     /**
@@ -95,47 +127,7 @@ public class Job extends MyEntity {
 	active = true;
     }
 
-    public String getBenefits() {
-	return benefits;
-    }
-
-    public JobCategory getCategory() {
-	return category;
-    }
-
-    public String getDescription() {
-	return description;
-    }
-
-    public Company getEmployeer() {
-	return employeer;
-    }
-
-    @Override
-    public long getId() {
-	return this.id;
-    }
-
-    public BigDecimal getMaxPayment() {
-	return maxPayment;
-    }
-
-    public BigDecimal getMinPayment() {
-	return minPayment;
-    }
-
-    public String getRequirement() {
-	return requirement;
-    }
-
-    public String getTitle() {
-	return title;
-    }
-
-    public JobType getType() {
-	return type;
-    }
-
+    @Column
     public boolean isActive() {
 	return active;
     }
@@ -148,21 +140,25 @@ public class Job extends MyEntity {
 	this.benefits = benefits;
     }
 
-    public void setCategory(JobCategory category) {
-	this.category = category;
+    public void setCompany(Company employeer) {
+	this.company = employeer;
     }
 
     public void setDescription(String resume) {
 	this.description = resume;
     }
 
-    public void setEmployeer(Company employeer) {
-	this.employeer = employeer;
-    }
-
     @Override
     public void setId(long id) {
 	this.id = id;
+    }
+
+    public void setJobCategory(JobCategory category) {
+	this.jobCategory = category;
+    }
+
+    public void setJobType(JobType type) {
+	this.jobType = type;
     }
 
     public void setMaxPayment(BigDecimal maxPayment) {
@@ -179,10 +175,6 @@ public class Job extends MyEntity {
 
     public void setTitle(String title) {
 	this.title = title;
-    }
-
-    public void setType(JobType type) {
-	this.type = type;
     }
 
 }

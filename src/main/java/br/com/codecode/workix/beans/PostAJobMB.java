@@ -72,8 +72,8 @@ public class PostAJobMB extends BaseMB {
     private void debug() {
 	if (job != null) {
 	    job.setActive(true);
-	    job.setCategory(JobCategory.OPERATOR);
-	    job.setEmployeer(employeers.get(3));
+	    job.setJobCategory(JobCategory.OPERATOR);
+	    job.setCompany(employeers.get(3));
 	    job.setDescription("WHATEVER TEXT ");
 	}
 

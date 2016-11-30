@@ -46,7 +46,7 @@ public class UserObserver {
 
 	System.out.println("[-----------------------]");
 
-	jmsProducer.send(destination, user.getUniqueID());
+	jmsProducer.send(destination, user.getUuid());
 
     }
 

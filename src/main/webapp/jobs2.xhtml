@@ -44,15 +44,15 @@
 												<h:outputText value="#{job.title}" />
 											</h5>
 											<p>
-												<strong><h:outputText value="#{job.employeer.name}" /></strong>
-												<h:outputText value="#{job.employeer.segment}" />
+												<strong><h:outputText value="#{job.company.name}" /></strong>
+												<h:outputText value="#{job.company.segment}" />
 											</p>
 										</div>
 										<div class="col-lg-3 col-md-4 col-sm-4 col-xs-12 job-location">
 											<p>
 												<strong><h:outputText
-														value="#{job.employeer.locale.city}" />, <h:outputText
-														value="#{job.employeer.locale.estate}" /></strong>
+														value="#{job.company.locale.city}" />, <h:outputText
+														value="#{job.company.locale.estate}" /></strong>
 											</p>
 											<p class="hidden-xs">126.3 miles away</p>
 										</div>
@@ -62,7 +62,7 @@
 												<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
 											</p>
 											<p class="badge full-time">
-												<h:outputText value="#{job.type}" />
+												<h:outputText value="#{job.jobType}" />
 											</p>
 										</div>
 										<div class="col-lg-2 job-dates visible-lg-block">

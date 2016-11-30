@@ -23,6 +23,8 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Contact;
+import br.com.codecode.workix.jpa.models.Locale;
 import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
@@ -77,7 +79,11 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
 
 	    c.setName("Mockup Candidate N# " + String.valueOf(u.getId()));
 
-	    c.setCpf(new BigInteger(36, new Random()).longValue());
+	    c.setCpf(new BigInteger(36, new Random()).longValue());	   
+	    
+	    c.setContact(new Contact.Builder(123456).build());
+	    
+	    c.setLocale(new Locale.Builder(45632145, "212").build());
 
 	    c.setUser(u);
 

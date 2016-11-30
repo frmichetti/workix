@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -13,10 +16,6 @@ import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.model.actions.UserActions;
 import br.com.codecode.workix.model.base.BaseUser;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * User JPA with Inherited Fields and Methods
@@ -32,6 +31,96 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 public class User extends MyEntity implements Notificable {
+
+    private static final long serialVersionUID = -610648880358327958L;
+
+    private long id;
+    
+    private boolean active;
+  
+    private String email, firebaseUUID, firebaseMessageToken;
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public User(){}
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New User
+     */
+    public User(Builder builder) {
+
+	this.active = builder.isActive();
+
+	this.email = builder.getEmail();
+
+	this.firebaseUUID = builder.getFirebaseUUID();
+
+	this.firebaseMessageToken = builder.getFirebaseMessageToken();
+    }
+
+    @NotEmpty
+    @Email
+    @Column(nullable = false, unique = true)
+    @Override
+    public String getEmail() {
+	return email;
+    }
+
+    @NotEmpty
+    @Column
+    @Override
+    public String getFirebaseMessageToken() {
+	return firebaseMessageToken;
+    }
+
+    @NotEmpty
+    @Column
+    @Override
+    public String getFirebaseUUID() {
+	return firebaseUUID;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+	return this.id;
+    }
+
+    @Column
+    public boolean isActive() {
+	return active;
+    }
+
+    public void setActive(boolean active) {
+	this.active = active;
+    }
+
+    @Override
+    public void setEmail(String email) {
+	this.email = email;
+    }
+
+    @Override
+    public void setFirebaseMessageToken(String firebaseMessageToken) {
+	this.firebaseMessageToken = firebaseMessageToken;
+    }
+
+    @Override
+    public void setFirebaseUUID(String firebaseUUID) {
+	this.firebaseUUID = firebaseUUID;
+    }
+
+    @Override
+    public void setId(long id) {
+	this.id = id;
+    }
 
     /**
      * Builder NestedClass for {@link User}
@@ -128,99 +217,6 @@ public class User extends MyEntity implements Notificable {
 	    return this;
 	}
 
-    }
-
-    private static final long serialVersionUID = -610648880358327958L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
-    private long id;
-
-    @Column
-    private boolean active;
-
-    @NotEmpty
-    @Email
-    @Column(nullable = false, unique = true)
-    private String email;
-
-    @Column
-    private String firebaseUUID;
-
-    @Column
-    private String firebaseMessageToken;
-
-    /**
-     * Public Default Constructor for JPA Compatibility Only
-     */
-    public User() {
-    }
-
-    /**
-     * Public Constructor for {@link Builder} Compatibility
-     * 
-     * @see Buildable
-     * @param builder
-     *            Builder for Generate a New User
-     */
-    public User(Builder builder) {
-
-	this.active = builder.isActive();
-
-	this.email = builder.getEmail();
-
-	this.firebaseUUID = builder.getFirebaseUUID();
-
-	this.firebaseMessageToken = builder.getFirebaseMessageToken();
-    }
-
-    @Override
-    public String getEmail() {
-	return email;
-    }
-
-    @Override
-    public String getFirebaseMessageToken() {
-	return firebaseMessageToken;
-    }
-
-    public String getFirebaseUUID() {
-	return firebaseUUID;
-    }
-
-    @Override
-    public long getId() {
-	return this.id;
-    }
-
-    public String getUniqueID() {
-	return super.getUuid();
-    }
-
-    public boolean isActive() {
-	return active;
-    }
-
-    public void setActive(boolean active) {
-	this.active = active;
-    }
-
-    public void setEmail(String email) {
-	this.email = email;
-    }
-
-    public void setFirebaseMessageToken(String firebaseMessageToken) {
-	this.firebaseMessageToken = firebaseMessageToken;
-    }
-
-    public void setFirebaseUUID(String firebaseUUID) {
-	this.firebaseUUID = firebaseUUID;
-    }
-
-    @Override
-    public void setId(long id) {
-	this.id = id;
     }
 
 }

@@ -9,12 +9,6 @@ import javax.persistence.MappedSuperclass;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Version;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
@@ -25,8 +19,7 @@ import br.com.codecode.workix.interfaces.Traceable;
  * All inherited classes MUST contain<br>
  * <table>
  * <caption> Inherited Fields </caption>
- * <tr>
- * <th>{@link #id}</th>
+ * <tr> 
  * <th>{@link #version}</th>
  * <th>{@link #createdAt}</th>
  * <th>{@link #updatedAt}</th>
@@ -42,37 +35,56 @@ import br.com.codecode.workix.interfaces.Traceable;
  * @see Serializable
  */
 @MappedSuperclass
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 abstract class MyEntity implements Traceable, Persistable, Serializable {
 
     private final static long serialVersionUID = -5791260209364116790L;
-
-    @JsonIgnore
-    @XmlTransient
-    @Version
-    @Column
-    private int version;
-
-    @JsonIgnore
-    @XmlTransient
-    @Column(updatable = false, nullable = false)
-    private LocalDateTime createdAt;
-
-    @JsonIgnore
-    @XmlTransient
-    @Column
-    private LocalDateTime updatedAt;
-
-    @JsonIgnore
-    @XmlTransient
-    @Column(updatable = false, nullable = false)
+    
+    private int version;    
+    
+    private LocalDateTime createdAt, updatedAt;
+  
     private String uuid;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public MyEntity() {
+    public MyEntity(){}
+
+    @Override
+    public void generateUUID() {
+	this.setUuid(UUID.randomUUID().toString());
+    }
+
+    @Column(updatable = false, nullable = false)
+    public LocalDateTime getCreatedAt() {
+	return createdAt;
+    }
+
+    @Column
+    public LocalDateTime getUpdatedAt() {
+	return updatedAt;
+    }
+
+    @Column(updatable = false, nullable = false)
+    public String getUuid() {
+	return uuid;
+    }
+
+    @Version
+    @Column
+    protected int getVersion() {
+	return version;
+    }
+
+    @Override
+    public void insertTimeStamp() {
+	this.setCreatedAt(LocalDateTime.now());
+    }
+
+    @PrePersist
+    @Override
+    public void prepareToPersist() {
+	Traceable.super.prepareToPersist();
     }
 
     private void setCreatedAt(LocalDateTime createdAt) {
@@ -87,40 +99,9 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
 	this.uuid = uuid;
     }
 
-    protected int getVersion() {
-	return version;
-    }
-
-    protected void setVersion(int version) {
+    @SuppressWarnings("unused")
+    private void setVersion(int version) {
 	this.version = version;
-    }
-
-    @Override
-    public void generateUUID() {
-	this.setUuid(UUID.randomUUID().toString());
-    }
-
-    public LocalDateTime getCreatedAt() {
-	return createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-	return updatedAt;
-    }
-
-    public String getUuid() {
-	return uuid;
-    }
-
-    @Override
-    public void insertTimeStamp() {
-	this.setCreatedAt(LocalDateTime.now());
-    }
-
-    @PrePersist
-    @Override
-    public void prepareToPersist() {
-	Traceable.super.prepareToPersist();
     }
 
     @PreUpdate

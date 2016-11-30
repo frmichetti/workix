@@ -32,6 +32,62 @@ import br.com.codecode.workix.model.base.BaseSubscriber;
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 public class Subscriber extends MyEntity implements Persistable, Serializable {
 
+    private static final long serialVersionUID = 6675137603968146834L;
+
+    private long id;
+
+    private String email;
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Subscriber() {
+    }
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate New Subscriber
+     */
+    public Subscriber(Builder builder) {
+
+	this.setId(builder.getId());
+
+	this.setEmail(builder.getEmail());
+    }
+
+    /**
+     * @return the email
+     */
+    @NotEmpty
+    @Column
+    public String getEmail() {
+	return email;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+	return this.id;
+    }
+
+    /**
+     * @param email
+     *            the email to set
+     */
+    public void setEmail(String email) {
+	this.email = email;
+    }
+
+    @Override
+    public void setId(long id) {
+	this.id = id;
+    }
+
     /**
      * Builder NestedClass for Subscriber
      * 
@@ -103,62 +159,6 @@ public class Subscriber extends MyEntity implements Persistable, Serializable {
 	    return this;
 	}
 
-    }
-
-    private static final long serialVersionUID = 6675137603968146834L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
-    private long id;
-
-    @NotEmpty
-    @Column
-    private String email;
-
-    /**
-     * Public Default Constructor for JPA Compatibility Only
-     */
-    public Subscriber() {
-    }
-
-    /**
-     * Public Constructor for {@link Builder} Compatibility
-     * 
-     * @see Buildable
-     * @param builder
-     *            Builder for Generate New Subscriber
-     */
-    public Subscriber(Builder builder) {
-
-	this.setId(builder.getId());
-
-	this.setEmail(builder.getEmail());
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-	return email;
-    }
-
-    @Override
-    public long getId() {
-	return this.id;
-    }
-
-    /**
-     * @param email
-     *            the email to set
-     */
-    public void setEmail(String email) {
-	this.email = email;
-    }
-
-    @Override
-    public void setId(long id) {
-	this.id = id;
     }
 
 }

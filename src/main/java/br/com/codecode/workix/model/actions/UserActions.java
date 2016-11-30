@@ -5,24 +5,12 @@ package br.com.codecode.workix.model.actions;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 public interface UserActions extends EntityActions {
-
-    String getEmail();
-
-    String getFirebaseMessageToken();
-
-    String getFirebaseUUID();
 
     boolean isActive();
 
     void setActive(boolean active);
-
-    void setEmail(String email);
-
-    void setFirebaseMessageToken(String firebaseMessageToken);
-
-    void setFirebaseUUID(String firebaseUUID);
 
 }

@@ -27,16 +27,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Company extends Person {
 
     private static final long serialVersionUID = 47663377480544994L;
+    
+    private long id, cnpj;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
-    private long id;
-
-    @Column(nullable = false, unique = true)
-    private long cnpj;
-
-    @Column(nullable = false)
     private String segment;
 
     /**
@@ -45,15 +38,20 @@ public class Company extends Person {
     public Company() {
     }
 
+    @Column(nullable = false, unique = true)
     public long getCnpj() {
 	return cnpj;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
 	return this.id;
     }
 
+    @Column(nullable = false)
     public String getSegment() {
 	return segment;
     }

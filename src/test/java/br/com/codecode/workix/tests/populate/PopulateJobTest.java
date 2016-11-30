@@ -80,13 +80,13 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
 	    j.setBenefits("Benefits of Job " + String.valueOf(x + 1));
 
-	    j.setType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
+	    j.setJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
 
 	    j.setMinPayment(new BigDecimal(1_00 * x + 1 + 10));
 
 	    j.setMaxPayment(new BigDecimal(1_00 * x + 1 + 20));
 
-	    j.setEmployeer(companies.get(x));
+	    j.setCompany(companies.get(x));
 
 	    System.out.println("[create] " + j.getTitle());
 
