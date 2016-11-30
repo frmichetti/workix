@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * @since 1.0
  * @version 1.1 
  * @see <a href="http://wiki.fasterxml.com/JacksonFAQ#Deserializing_Abstract_types">
- * Deserializing Abstract Types</a>
+ * DeSerializing Abstract Types</a>
  */
 @MappedSuperclass
 abstract class Person extends MyEntity {

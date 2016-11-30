@@ -10,48 +10,12 @@ package br.com.codecode.workix.model.base;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 public abstract class BaseSubscriber {
 
-    private long id;
+    protected long id;
 
-    private String email;
-
-    /**
-     * Public Empty Default Constructor
-     */
-    public BaseSubscriber() {
-    }
-
-    /**
-     * @return the id
-     */
-    public long getId() {
-	return id;
-    }
-
-    /**
-     * @param id
-     *            the id to set
-     */
-    public void setId(long id) {
-	this.id = id;
-    }
-
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-	return email;
-    }
-
-    /**
-     * @param email
-     *            the email to set
-     */
-    public void setEmail(String email) {
-	this.email = email;
-    }
+    protected String email;   
 
 }

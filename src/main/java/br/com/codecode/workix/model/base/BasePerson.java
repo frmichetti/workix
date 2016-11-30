@@ -16,83 +16,18 @@ import br.com.codecode.workix.model.actions.UserActions;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see BaseEntity
  */
-public abstract class BasePerson extends BaseEntity {
+abstract class BasePerson extends BaseEntity {
 
-    private String name;
+    protected String name;
 
-    private UserActions user;
+    protected UserActions user;
 
-    private ContactActions contact;
+    protected ContactActions contact;
 
-    private LocaleActions locale;
+    protected LocaleActions locale;
 
-    /**
-     * Defaul Empty Constructor
-     */
-    public BasePerson() {
-    }
-
-    /**
-     * @return the name
-     */
-    public String getName() {
-	return name;
-    }
-
-    /**
-     * @param name
-     *            the name to set
-     */
-    public void setName(String name) {
-	this.name = name;
-    }
-
-    /**
-     * @return the user
-     */
-    public UserActions getUser() {
-	return user;
-    }
-
-    /**
-     * @param user
-     *            the user to set
-     */
-    public void setUser(UserActions user) {
-	this.user = user;
-    }
-
-    /**
-     * @return the contact
-     */
-    public ContactActions getContact() {
-	return contact;
-    }
-
-    /**
-     * @param contact
-     *            the contact to set
-     */
-    public void setContact(ContactActions contact) {
-	this.contact = contact;
-    }
-
-    /**
-     * @return the locale
-     */
-    public LocaleActions getLocale() {
-	return locale;
-    }
-
-    /**
-     * @param locale
-     *            the locale to set
-     */
-    public void setLocale(LocaleActions locale) {
-	this.locale = locale;
-    }
-
+   
 }

@@ -13,27 +13,6 @@ package br.com.codecode.workix.model.base;
  */
 public abstract class BaseSkill {
 
-    private String skillName;
-
-    /**
-     * Public Empty Default Constructor
-     */
-    public BaseSkill() {
-    }
-
-    /**
-     * @return the Skill Name
-     */
-    public String getSkillName() {
-	return skillName;
-    }
-
-    /**
-     * @param skillName
-     *            the Skill Name to set
-     */
-    public void setSkillName(String skillName) {
-	this.skillName = skillName;
-    }
+    protected String skillName;   
 
 }

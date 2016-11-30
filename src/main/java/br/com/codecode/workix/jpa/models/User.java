@@ -131,7 +131,9 @@ public class User extends MyEntity implements Notificable {
      * @see Buildable
      * @see BaseUser
      */
-    public final static class Builder extends BaseUser implements Buildable<User> {
+    public final static class Builder extends User implements Buildable<User> {
+
+	private static final long serialVersionUID = -7766145008890656904L;
 
 	/**
 	 * Disabled Empty Constructor

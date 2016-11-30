@@ -13,27 +13,6 @@ package br.com.codecode.workix.model.base;
  */
 public abstract class BaseContact {
 
-    private long mobilePhone;
-
-    /**
-     * Public Empty Default Constructor
-     */
-    public BaseContact() {
-    }
-
-    /**
-     * @return the Mobile Phone
-     */
-    public long getMobilePhone() {
-	return mobilePhone;
-    }
-
-    /**
-     * @param mobilePhone
-     *            the Mobile Phone to set
-     */
-    public void setMobilePhone(long mobilePhone) {
-	this.mobilePhone = mobilePhone;
-    }
-
+    protected long mobilePhone;
+    
 }

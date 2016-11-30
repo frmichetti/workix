@@ -1,6 +1,6 @@
 package br.com.codecode.workix.model.base;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.Observable;
 import java.util.Set;
 
@@ -25,7 +25,7 @@ import br.com.codecode.workix.model.actions.JobActions;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see Observable
  */
 public abstract class BaseSelectiveProccess extends Observable {
@@ -36,9 +36,9 @@ public abstract class BaseSelectiveProccess extends Observable {
 
     protected String uuid;
 
-    protected Timestamp createdAt;
+    protected LocalDateTime createdAt;
 
-    protected Timestamp updatedAt;
+    protected LocalDateTime updatedAt;
 
     protected JobActions job;
 
@@ -46,7 +46,7 @@ public abstract class BaseSelectiveProccess extends Observable {
 
     protected boolean active;
 
-    protected Timestamp disabledAt;
+    protected LocalDateTime disabledAt;
 
     protected int maxCandidates;
 

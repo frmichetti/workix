@@ -35,8 +35,7 @@ public class Company extends Person {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Company() {
-    }
+    public Company(){}
 
     @Column(nullable = false, unique = true)
     public long getCnpj() {

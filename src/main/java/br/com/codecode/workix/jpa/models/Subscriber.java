@@ -97,7 +97,9 @@ public class Subscriber extends MyEntity implements Persistable, Serializable {
      * @see Buildable
      * @see BaseSubscriber
      */
-    public final static class Builder extends BaseSubscriber implements Buildable<Subscriber> {
+    public final static class Builder extends Subscriber implements Buildable<Subscriber> {
+
+	private static final long serialVersionUID = -7750971468814207111L;
 
 	/**
 	 * Disabled Empty Constructor

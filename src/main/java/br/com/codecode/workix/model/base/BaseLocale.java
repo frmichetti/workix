@@ -16,116 +16,20 @@ import br.com.codecode.workix.jpa.enums.Estate;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 public abstract class BaseLocale {
 
-    private long zipCode;
+    protected long zipCode;
 
-    private String city;
+    protected String city;
 
-    private String neighborhood;
+    protected String neighborhood;
 
-    private String street;
+    protected String street;
 
-    private String number;
+    protected String number;
 
-    private Estate estate;
-
-    /**
-     * Public Default Constructor
-     */
-    public BaseLocale() {
-    }
-
-    /**
-     * @return the zipCode
-     */
-    public long getZipCode() {
-	return zipCode;
-    }
-
-    /**
-     * @param zipCode
-     *            the zipCode to set
-     */
-    public void setZipCode(long zipCode) {
-	this.zipCode = zipCode;
-    }
-
-    /**
-     * @return the city
-     */
-    public String getCity() {
-	return city;
-    }
-
-    /**
-     * @param city
-     *            the city to set
-     */
-    public void setCity(String city) {
-	this.city = city;
-    }
-
-    /**
-     * @return the neighborhood
-     */
-    public String getNeighborhood() {
-	return neighborhood;
-    }
-
-    /**
-     * @param neighborhood
-     *            the neighborhood to set
-     */
-    public void setNeighborhood(String neighborhood) {
-	this.neighborhood = neighborhood;
-    }
-
-    /**
-     * @return the street
-     */
-    public String getStreet() {
-	return street;
-    }
-
-    /**
-     * @param street
-     *            the street to set
-     */
-    public void setStreet(String street) {
-	this.street = street;
-    }
-
-    /**
-     * @return the number
-     */
-    public String getNumber() {
-	return number;
-    }
-
-    /**
-     * @param number
-     *            the number to set
-     */
-    public void setNumber(String number) {
-	this.number = number;
-    }
-
-    /**
-     * @return the estate
-     */
-    public Estate getEstate() {
-	return estate;
-    }
-
-    /**
-     * @param estate
-     *            the estate to set
-     */
-    public void setEstate(Estate estate) {
-	this.estate = estate;
-    }
-
+    protected Estate estate;
+   
 }

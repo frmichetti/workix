@@ -36,7 +36,9 @@ public class Contact implements Serializable {
      * @see Buildable
      * @see BaseContact
      */
-    public final static class Builder extends BaseContact implements Buildable<Contact> {
+    public final static class Builder extends Contact implements Buildable<Contact> {
+
+	private static final long serialVersionUID = -6671372786495157443L;
 
 	/**
 	 * Disabled Empty Constructor

@@ -12,7 +12,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.model.actions.EducationActions;
-import br.com.codecode.workix.model.base.BaseEducation;
 
 /**
  * Education JPA with Inherited Fields and Methods
@@ -35,7 +34,9 @@ public class Education implements Serializable {
      * @since 1.0
      * @version 1.0
      */
-    public static class Builder extends BaseEducation implements Buildable<Education> {
+    public static class Builder extends Education implements Buildable<Education> {
+
+	private static final long serialVersionUID = 3075237483868037001L;
 
 	/**
 	 * Disabled Empty Constructor

@@ -35,7 +35,9 @@ public class Skill implements Serializable {
      * @see Buildable
      * @see BaseSkill
      */
-    public final static class Builder extends BaseSkill implements Buildable<Skill> {
+    public final static class Builder extends Skill implements Buildable<Skill> {
+
+	private static final long serialVersionUID = -2784926262850261658L;
 
 	/**
 	 * Disabled Empty Constructor

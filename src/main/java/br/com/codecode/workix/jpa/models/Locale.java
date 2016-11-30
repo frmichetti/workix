@@ -36,7 +36,9 @@ public class Locale implements Serializable {
      * @see Buildable
      * @see BaseLocale
      */
-    public static class Builder extends BaseLocale implements Buildable<Locale> {
+    public static class Builder extends Locale implements Buildable<Locale> {
+
+	private static final long serialVersionUID = -9170730109070112523L;
 
 	/**
 	 * Disabled Empty Constructor
@@ -62,10 +64,10 @@ public class Locale implements Serializable {
 	 */
 	public Builder(long zipCode, Estate estate, String city, String neighborhood, String street, String number) {
 	    this(zipCode, number);
-	    this.setEstate(estate);
-	    this.setStreet(street);
-	    this.setNeighborhood(neighborhood);
-	    this.setCity(city);
+	    super.setEstate(estate);
+	    super.setStreet(street);
+	    super.setNeighborhood(neighborhood);
+	    super.setCity(city);
 	}
 
 	/**

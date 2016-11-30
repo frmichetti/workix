@@ -1,6 +1,6 @@
 package br.com.codecode.workix.model.base;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  * Root Abstract Class MyEntity<br>
@@ -12,12 +12,11 @@ import java.sql.Timestamp;
  * <li>{@link #updatedAt}</li>
  * <li>{@link #uuid}</li>
  * </ul>
- * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-public abstract class BaseEntity {
+abstract class BaseEntity {
 
     protected long id;
 
@@ -25,13 +24,8 @@ public abstract class BaseEntity {
 
     protected String uuid;
 
-    protected Timestamp createdAt;
+    protected LocalDateTime createdAt;
 
-    protected Timestamp updatedAt;
+    protected LocalDateTime updatedAt;
 
-    /**
-     * Public Empty Default Constructor
-     */
-    public BaseEntity() {
-    }
 }

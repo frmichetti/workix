@@ -39,7 +39,9 @@ public class Experience implements Serializable {
      * @see Buildable
      * @see BaseExperience
      */
-    public final static class Builder extends BaseExperience implements Buildable<Experience> {
+    public final static class Builder extends Experience implements Buildable<Experience> {
+
+	private static final long serialVersionUID = -1322208401535756846L;
 
 	/**
 	 * Disabled Empty Constructor

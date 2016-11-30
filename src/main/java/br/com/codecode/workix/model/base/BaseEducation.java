@@ -15,99 +15,18 @@ import java.time.LocalDate;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 public abstract class BaseEducation {
 
-    private String schoolName;
+    protected String schoolName;
 
-    private LocalDate startDate;
+    protected LocalDate startDate;
 
-    private LocalDate endDate;
+    protected LocalDate endDate;
 
-    private String qualification;
+    protected String qualification;
 
-    private String description;
-
-    /**
-     * Default Empty Constructor
-     */
-    public BaseEducation() {
-    }
-
-    /**
-     * @return the schoolName
-     */
-    public String getSchoolName() {
-	return schoolName;
-    }
-
-    /**
-     * @param schoolName
-     *            the schoolName to set
-     */
-    public void setSchoolName(String schoolName) {
-	this.schoolName = schoolName;
-    }
-
-    /**
-     * @return the startDate
-     */
-    public LocalDate getStartDate() {
-	return startDate;
-    }
-
-    /**
-     * @param startDate
-     *            the startDate to set
-     */
-    public void setStartDate(LocalDate startDate) {
-	this.startDate = startDate;
-    }
-
-    /**
-     * @return the endDate
-     */
-    public LocalDate getEndDate() {
-	return endDate;
-    }
-
-    /**
-     * @param endDate
-     *            the endDate to set
-     */
-    public void setEndDate(LocalDate endDate) {
-	this.endDate = endDate;
-    }
-
-    /**
-     * @return the qualification
-     */
-    public String getQualification() {
-	return qualification;
-    }
-
-    /**
-     * @param qualification
-     *            the qualification to set
-     */
-    public void setQualification(String qualification) {
-	this.qualification = qualification;
-    }
-
-    /**
-     * @return the description
-     */
-    public String getDescription() {
-	return description;
-    }
-
-    /**
-     * @param description
-     *            the description to set
-     */
-    public void setDescription(String description) {
-	this.description = description;
-    }
+    protected String description;
 
 }

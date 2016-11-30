@@ -26,7 +26,7 @@ import br.com.codecode.workix.model.actions.SkillActions;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  * @see BaseEntity
  */
 public abstract class BaseResume {
@@ -35,11 +35,11 @@ public abstract class BaseResume {
      * Owner of Resume<br>
      * One {@link Resume} To One {@link Candidate}
      */
-    private CandidateActions candidate;
+    protected CandidateActions candidate;
 
-    private String objective;
+    protected String objective;
 
-    private String content;
+    protected String content;
 
     /**
      * One {@link Resume} To Many {@link Experience}
@@ -54,88 +54,6 @@ public abstract class BaseResume {
     /**
      * One {@link Resume} To Many {@link Skill}
      */
-    protected Set<SkillActions> skills;
-
-    /**
-     * Default Empty Constructor
-     */
-    public BaseResume() {
-    }
-
-    /**
-     * @return the candidate
-     */
-    public CandidateActions getCandidate() {
-	return candidate;
-    }
-
-    /**
-     * @param candidate
-     *            the candidate to set
-     */
-    public void setCandidate(CandidateActions candidate) {
-	this.candidate = candidate;
-    }
-
-    /**
-     * @return the objective
-     */
-    public String getObjective() {
-	return objective;
-    }
-
-    /**
-     * @param objective
-     *            the objective to set
-     */
-    public void setObjective(String objective) {
-	this.objective = objective;
-    }
-
-    /**
-     * @return the content
-     */
-    public String getContent() {
-	return content;
-    }
-
-    /**
-     * @param content
-     *            the content to set
-     */
-    public abstract void setContent(String content);
-
-    /**
-     * @return the experiences
-     */
-    public abstract Set<ExperienceActions> getExperiences();
-
-    /**
-     * @param experiences
-     *            the experiences to set
-     */
-    public abstract void setExperiences(Set<ExperienceActions> experiences);
-
-    /**
-     * @return the educations
-     */
-    public abstract Set<EducationActions> getEducations();
-
-    /**
-     * @param educations
-     *            the educations to set
-     */
-    public abstract void setEducations(Set<EducationActions> educations);
-
-    /**
-     * @return the skills
-     */
-    public abstract Set<SkillActions> getSkills();
-
-    /**
-     * @param skills
-     *            the skills to set
-     */
-    public abstract void setSkills(Set<SkillActions> skills);
+    protected Set<SkillActions> skills;    
 
 }
