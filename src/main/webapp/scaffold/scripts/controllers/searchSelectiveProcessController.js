@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('SearchSelectiveProcessController', function($scope, $http, $filter, SelectiveProcessResource , JobResource, CandidateResource) {
+angular.module('workix').controller('SearchSelectiveProcessController', function($scope, $http, $filter, SelectiveProcessResource , CandidateResource, JobResource) {
 
     $scope.search={};
     $scope.currentPage = 0;

@@ -29,8 +29,12 @@
 100%
 {
 opacity
+
+
 :
+
  
+
 0;
 }
 }
@@ -42,8 +46,12 @@ keyframes fadeOut { 0% {
 100%
 {
 opacity
+
+
 :
+
  
+
 0;
 }
 }

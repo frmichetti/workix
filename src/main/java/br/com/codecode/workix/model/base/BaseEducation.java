@@ -1,33 +1,113 @@
 package br.com.codecode.workix.model.base;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 /**
- * Markup Interface for Education Implementation
+ * Root Abstract Class Education<br>
+ * Use for Field Mapping/Share Only
+ * <ul>
+ * <li>{@link #schoolName}</li>
+ * <li>{@link #startDate}</li>
+ * <li>{@link #endDate}</li>
+ * <li>{@link #qualification}</li>
+ * <li>{@link #description}</li>
+ * </ul>
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.0
  */
-public interface BaseEducation {
+public abstract class BaseEducation {
 
-	String getSchoolName();
+    private String schoolName;
 
-	void setSchoolName(String schoolName);
+    private LocalDate startDate;
 
-	Calendar getStartDate();
+    private LocalDate endDate;
 
-	void setStartDate(Calendar startDate);
+    private String qualification;
 
-	Calendar getEndDate();
+    private String description;
 
-	void setEndDate(Calendar endDate);
+    /**
+     * Default Empty Constructor
+     */
+    public BaseEducation() {
+    }
 
-	String getQualification();
+    /**
+     * @return the schoolName
+     */
+    public String getSchoolName() {
+	return schoolName;
+    }
 
-	void setQualification(String qualification);
+    /**
+     * @param schoolName
+     *            the schoolName to set
+     */
+    public void setSchoolName(String schoolName) {
+	this.schoolName = schoolName;
+    }
 
-	String getDescription();
+    /**
+     * @return the startDate
+     */
+    public LocalDate getStartDate() {
+	return startDate;
+    }
 
-	void setDescription(String description);
+    /**
+     * @param startDate
+     *            the startDate to set
+     */
+    public void setStartDate(LocalDate startDate) {
+	this.startDate = startDate;
+    }
+
+    /**
+     * @return the endDate
+     */
+    public LocalDate getEndDate() {
+	return endDate;
+    }
+
+    /**
+     * @param endDate
+     *            the endDate to set
+     */
+    public void setEndDate(LocalDate endDate) {
+	this.endDate = endDate;
+    }
+
+    /**
+     * @return the qualification
+     */
+    public String getQualification() {
+	return qualification;
+    }
+
+    /**
+     * @param qualification
+     *            the qualification to set
+     */
+    public void setQualification(String qualification) {
+	this.qualification = qualification;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+	return description;
+    }
+
+    /**
+     * @param description
+     *            the description to set
+     */
+    public void setDescription(String description) {
+	this.description = description;
+    }
 
 }

@@ -6,13 +6,14 @@
 
 	<persistence-unit name="MySQLDS" transaction-type="JTA">
 		<description>Persistence Unit for OpenShift</description>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
 		</properties>
 	</persistence-unit>
- 
+
 	<persistence-unit name="DevDS" transaction-type="JTA">
 		<description>Development Persistence Unit</description>
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -25,12 +26,12 @@
 
 	<persistence-unit name="ProdDS" transaction-type="JTA">
 		<description>Production Persistence Unit</description>
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<jta-data-source>java:/ProdDS</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
 		</properties>
 	</persistence-unit>
- 
+
 </persistence>

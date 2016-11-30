@@ -11,45 +11,45 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
-public class DownloadTestCandidate extends BaseTest implements DownloadTest{
-	
-	private String resp;
+public class DownloadTestCandidate extends BaseTest implements DownloadTest {
 
-	@Before
-	public void downloadItens() {
-		
-		System.out.println("downloadItens");
-		
-		resp = HttpTest.sendGet(server + "/candidates");
-		
-		assertFalse(resp.isEmpty());
-		
-	}
-	
-	@Test
-	@Override
-	public void parseItens() {		
-		
-		System.out.println("parseItens");		
-		
-		List<Candidate> companies = getGson().fromJson(resp, 
-				new TypeToken<List<Candidate>>(){}.getType()); 
-		
-		assertNotNull(companies);
-		
-		assertTrue(companies.size() > 0);
-		
-		System.out.println("----Stream----");
-		
-		companies.stream().forEach(System.out::println);
-		
-		System.out.println("----Stream----");
-		
-		
-	}
+    private String resp;
+
+    @Override
+    @Before
+    public void downloadItens() {
+
+	System.out.println("downloadItens");
+
+	resp = HttpTest.sendGet(server + "/candidates");
+
+	assertFalse(resp.isEmpty());
+
+    }
+
+    @Test
+    @Override
+    public void parseItens() {
+
+	System.out.println("parseItens");
+
+	List<Candidate> companies = getGson().fromJson(resp, new TypeToken<List<Candidate>>() {
+	}.getType());
+
+	assertNotNull(companies);
+
+	assertTrue(companies.size() > 0);
+
+	System.out.println("----Stream----");
+
+	companies.stream().forEach(System.out::println);
+
+	System.out.println("----Stream----");
+
+    }
 
 }

@@ -4,14 +4,6 @@ angular.module('workix').controller('NewJobController', function ($scope, $locat
     $scope.$location = $location;
     $scope.job = $scope.job || {};
     
-    $scope.typeList = [
-        "FULLTIME",
-        "PARTTIME",
-        "FREELANCE",
-        "TEMPORARY",
-        "INTERNSHIP"
-    ];
-    
     $scope.categoryList = [
         "MANAGEMENT",
         "OPERATOR"
@@ -21,7 +13,7 @@ angular.module('workix').controller('NewJobController', function ($scope, $locat
         $scope.employeerSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
-                text : item.id
+                text : item.cnpj
             });
         });
     });
@@ -31,6 +23,14 @@ angular.module('workix').controller('NewJobController', function ($scope, $locat
             $scope.job.employeer.id = selection.value;
         }
     });
+    
+    $scope.typeList = [
+        "FULLTIME",
+        "PARTTIME",
+        "FREELANCE",
+        "TEMPORARY",
+        "INTERNSHIP"
+    ];
     
     $scope.activeList = [
         "true",

@@ -16,6 +16,7 @@ import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
+
 /**
  * Simple Date Deserializer for Gson <br>
  * Register in GsonBuilder <br>
@@ -24,51 +25,45 @@ import com.google.gson.JsonParseException;
  *	.registerTypeAdapter(Date.class, new GsonDateDeserializer())						
  *	.create();
  *	</code>
+ * 
  * @author felipe
- *
  */
 public class GsonDateDeserializer implements JsonDeserializer<Date> {
 
-	@Override
-	public Date deserialize(JsonElement json, Type type,
-			JsonDeserializationContext context) throws JsonParseException {
+    @Override
+    public Date deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
 
-		if (json.isJsonPrimitive()){
+	if (json.isJsonPrimitive()) {
 
-			String dateRaw = json.getAsString();			
+	    String dateRaw = json.getAsString();
 
-			Date d = new Date();
+	    Date d = new Date();
 
-			try {
-				
-				/**
-				 * 
-				 * attempt for DateFormat , Pattern Must be Equals {@link JacksonContextResolver #init()}
-				 * @return
-				 */
-				d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
+	    try {
 
-				return d;
+		/**
+		 * attempt for DateFormat , Pattern Must be Equals
+		 * {@link JacksonContextResolver #init()}
+		 * 
+		 * @return
+		 */
+		d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
 
-			} catch (ParseException e) {
-				
-				System.err.println(e);
-				
-				System.out.println("Try get Date as Long ...");
+		return d;
 
-				long date = json.getAsLong();	
+	    } catch (ParseException e) {
 
-				return new Date(date);
-			}
-		}else
-			throw new JsonParseException("Error on Parse Date");
+		System.err.println(e);
 
+		System.out.println("Try get Date as Long ...");
 
+		long date = json.getAsLong();
 
+		return new Date(date);
+	    }
+	} else
+	    throw new JsonParseException("Error on Parse Date");
 
-
-
-
-	}
+    }
 
 }

@@ -26,25 +26,18 @@
 			</plugin>
 		</plugins>
 
-
-
-
-
 	</build>
 
 	<dependencies>
 
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<scope>provided</scope>
-		</dependency>
+
+
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
 			<scope>test</scope>
+			<version>4.12</version>
 		</dependency>
 
 		<dependency>
@@ -54,70 +47,86 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>5.3.0.Final</version>
-			<scope>provided</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.jboss.as</groupId>
 			<artifactId>jboss-as-security</artifactId>
+			<version>7.2.0.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider -->
+
+
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
+
+
+
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-			<version>2.8.4</version>
-			<scope>provided</scope>
+			<version>${jackson-version}</version>
 		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.datatype</groupId>
 			<artifactId>jackson-datatype-jsr310</artifactId>
-			<version>2.8.4</version>
+			<version>${jackson-version}</version>
 		</dependency>
-
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-annotations</artifactId>
-			<version>2.8.4</version>
-			<scope>provided</scope>
-		</dependency>
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
-			<version>2.8.4</version>
-			<scope>provided</scope>
+			<version>${jackson-version}</version>
 		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
 
 		<dependencies>
-			<dependency>
-				<groupId>javax</groupId>
-				<artifactId>javaee-api</artifactId>
-				<version>7.0</version>
-				<scope>provided</scope>
-			</dependency>
 
 			<dependency>
 				<groupId>org.jboss.as</groupId>
 				<artifactId>jboss-as-security</artifactId>
-				<version>7.2.0.Final</version>
 				<scope>provided</scope>
+			</dependency>
+
+
+
+			<dependency>
+				<groupId>org.wildfly.bom</groupId>
+				<artifactId>wildfly-javaee7</artifactId>
+				<scope>import</scope>
+				<type>pom</type>
+				<version>10.0.0.Final</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>7.0</version>
 			</dependency>
 		</dependencies>
 
 	</dependencyManagement>
+
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jackson-version>2.7.0</jackson-version>
 	</properties>
 
 	<name>Workix</name>
@@ -128,9 +137,6 @@
 	</organization>
 
 	<url>http://www.workix.com.br</url>
-
-
-
 
 
 	<description>Plataforma de Empregos Totalmente Grátis</description>

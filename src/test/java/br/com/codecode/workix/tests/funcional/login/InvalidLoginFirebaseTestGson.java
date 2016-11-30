@@ -18,42 +18,41 @@ import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
  * Do Login With Firebase Server with Gson
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.1
  */
-public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest{
+public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest {
 
-	private String url = server + "/login/firebaselogin";
+    private String url = server + "/login/firebaselogin";
 
-	private String json;
+    private String json;
 
-	@Test
-	@Override
-	public void doLoginWithFirebase() {
+    @Test
+    @Override
+    public void doLoginWithFirebase() {
 
-		System.out.println("[doLoginWithFirebase]");
+	System.out.println("[doLoginWithFirebase]");
 
-		Token t = new Token();
+	Token t = Token.builder().withKey("XXXXXXXXXXX").build();
 
-		t.setKey("XXXXXXXXXXX");	
-			
-		json = HttpTest.sendPost(url, getGson().toJson(t));					
+	json = HttpTest.sendPost(url, getGson().toJson(t));
 
-		assertFalse(json.isEmpty());		
+	assertFalse(json.isEmpty());
 
-	}
+    }
 
-	@Test
-	@Override
-	public void parseJson(){
+    @Test
+    @Override
+    public void parseJson() {
 
-		doLoginWithFirebase();
+	doLoginWithFirebase();
 
-		System.out.println("[parseJson]");		
-		
-		assertTrue(json.startsWith("{\"action\":\"rebuild\"}"));				
+	System.out.println("[parseJson]");
 
-	}
+	assertTrue(json.startsWith("{\"action\":\"rebuild\"}"));
+
+    }
 
 }

@@ -12,24 +12,14 @@
 <div>
 	<h3>Search for Resumes</h3>
 	<form id="ResumeSearch" class="form-horizontal">
-
 		<div class="form-group">
 			<label for="candidate" class="col-sm-2 control-label">Candidate</label>
 			<div class="col-sm-10">
 				<select id="candidate" name="candidate" class="form-control"
 					ng-model="search.candidate"
-					ng-options="c as c.id for c in candidateList">
+					ng-options="c as c.birthDate for c in candidateList">
 					<option value="">Choose a Candidate</option>
 				</select>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="objective" class="col-sm-2 control-label">Objective</label>
-			<div class="col-sm-10">
-				<input id="objective" name="objective" class="form-control"
-					type="text" ng-model="search.objective"
-					placeholder="Enter the Resume Objective"></input>
 			</div>
 		</div>
 
@@ -38,15 +28,6 @@
 			<div class="col-sm-10">
 				<input id="content" name="content" class="form-control" type="text"
 					ng-model="search.content" placeholder="Enter the Resume Content"></input>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="experiences" class="col-sm-2 control-label">Experiences</label>
-			<div class="col-sm-10">
-				<input id="experiences" name="experiences" class="form-control"
-					type="text" ng-model="search.experiences"
-					placeholder="Enter the Resume Experiences"></input>
 			</div>
 		</div>
 
@@ -60,10 +41,57 @@
 		</div>
 
 		<div class="form-group">
+			<label for="experiences" class="col-sm-2 control-label">Experiences</label>
+			<div class="col-sm-10">
+				<input id="experiences" name="experiences" class="form-control"
+					type="text" ng-model="search.experiences"
+					placeholder="Enter the Resume Experiences"></input>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label for="objective" class="col-sm-2 control-label">Objective</label>
+			<div class="col-sm-10">
+				<input id="objective" name="objective" class="form-control"
+					type="text" ng-model="search.objective"
+					placeholder="Enter the Resume Objective"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<label for="skills" class="col-sm-2 control-label">Skills</label>
 			<div class="col-sm-10">
 				<input id="skills" name="skills" class="form-control" type="text"
 					ng-model="search.skills" placeholder="Enter the Resume Skills"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="createdAt" class="col-sm-2 control-label">Created
+				At</label>
+			<div class="col-sm-10">
+				<input id="createdAt" name="createdAt" class="form-control"
+					type="text" ng-model="search.createdAt"
+					placeholder="Enter the Resume Created At"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="updatedAt" class="col-sm-2 control-label">Updated
+				At</label>
+			<div class="col-sm-10">
+				<input id="updatedAt" name="updatedAt" class="form-control"
+					type="text" ng-model="search.updatedAt"
+					placeholder="Enter the Resume Updated At"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="uuid" class="col-sm-2 control-label">Uuid</label>
+			<div class="col-sm-10">
+				<input id="uuid" name="uuid" class="form-control" type="text"
+					ng-model="search.uuid" placeholder="Enter the Resume Uuid"></input>
 			</div>
 		</div>
 
@@ -84,22 +112,28 @@
 			<thead>
 				<tr>
 					<th>Candidate</th>
-					<th>Objective</th>
 					<th>Content</th>
-					<th>Experiences</th>
 					<th>Educations</th>
+					<th>Experiences</th>
+					<th>Objective</th>
 					<th>Skills</th>
+					<th>Created At</th>
+					<th>Updated At</th>
+					<th>Uuid</th>
 				</tr>
 			</thead>
 			<tbody id="search-results-body">
 				<tr
 					ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
-					<td><a href="#/Resumes/edit/{{result.id}}">{{result.candidate.id}}</a></td>
-					<td><a href="#/Resumes/edit/{{result.id}}">{{result.objective}}</a></td>
+					<td><a href="#/Resumes/edit/{{result.id}}">{{result.candidate.birthDate}}</a></td>
 					<td><a href="#/Resumes/edit/{{result.id}}">{{result.content}}</a></td>
-					<td><a href="#/Resumes/edit/{{result.id}}">{{result.experiences}}</a></td>
 					<td><a href="#/Resumes/edit/{{result.id}}">{{result.educations}}</a></td>
+					<td><a href="#/Resumes/edit/{{result.id}}">{{result.experiences}}</a></td>
+					<td><a href="#/Resumes/edit/{{result.id}}">{{result.objective}}</a></td>
 					<td><a href="#/Resumes/edit/{{result.id}}">{{result.skills}}</a></td>
+					<td><a href="#/Resumes/edit/{{result.id}}">{{result.createdAt}}</a></td>
+					<td><a href="#/Resumes/edit/{{result.id}}">{{result.updatedAt}}</a></td>
+					<td><a href="#/Resumes/edit/{{result.id}}">{{result.uuid}}</a></td>
 				</tr>
 			</tbody>
 		</table>

@@ -9,109 +9,102 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import br.com.codecode.workix.config.JaxRsConfiguration;
+import br.com.codecode.workix.config.JAXRSConfiguration;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.model.Token;
-import br.com.codecode.workix.model.jpa.Candidate;
-import br.com.codecode.workix.model.jpa.User;
 import br.com.codecode.workix.rest.BaseEndpoint;
 
 /**
  * Login JaxRs Endpoint
- * @see JaxRsConfiguration
+ * 
+ * @see JAXRSConfiguration
  * @author felipe
  * @since 1.0
- * @version 1.1 
+ * @version 1.1
  */
 @Path("login")
 public final class LoginEndpoint extends BaseEndpoint {
 
-	@POST
-	@Path("firebaselogin")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response doLogin(Token token) {
+    @POST
+    @Path("firebaselogin")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response doLogin(Token token) {
 
-		System.out.println("[doLogin]");
+	System.out.println("[doLogin]");
 
-		System.out.println("[IN <--]");
+	System.out.println("[IN <--]");
 
-		if (token == null) {
+	if (token == null) {
 
-			return Response.status(Status.BAD_REQUEST).build();
+	    return Response.status(Status.BAD_REQUEST).build();
 
-		}else if((token.getKey().equals("")) || (token.getKey().isEmpty())){
+	} else if ((token.getKey().equals("")) || (token.getKey().isEmpty())) {
 
-			System.err.println("!!! Unauthorized !!!");
+	    System.err.println("!!! Unauthorized !!!");
 
-			return Response.status(Status.UNAUTHORIZED).build();
+	    return Response.status(Status.UNAUTHORIZED).build();
 
-		}
+	}
 
-		System.out.println(token);		
+	System.out.println(token);
 
-		User user;	
+	User user;
 
-		try {
+	try {
 
-			user = em.createQuery(
-					"select u from User u where u.firebaseUUID=:firebaseUUID",
-					User.class)
-					.setParameter("firebaseUUID", token.getKey())
-					.getSingleResult();				
+	    user = em.createQuery("select u from User u where u.firebaseUUID=:firebaseUUID", User.class)
+		    .setParameter("firebaseUUID", token.getKey()).getSingleResult();
 
-		} catch (NoResultException nre) {
+	} catch (NoResultException nre) {
 
-			user = null;
+	    user = null;
 
-			System.err.println(nre);
+	    System.err.println(nre);
 
-		}
+	}
 
-		if (user == null) {
+	if (user == null) {
 
-			//return Response.status(Status.NOT_FOUND).build();
-			return Response.ok("{\"action\":\"rebuild\"}").build();
+	    // return Response.status(Status.NOT_FOUND).build();
+	    return Response.ok("{\"action\":\"rebuild\"}").build();
 
-		}
+	}
 
+	// TODO Verify for user Owner //
 
-		//TODO Verify for user Owner //
+	Candidate candidate;
 
-		Candidate candidate;			
+	try {
 
-		try {
+	    candidate = em.createQuery("select c from Candidate c where c.user=:user", Candidate.class)
+		    .setParameter("user", user).getSingleResult();
 
-			candidate = em
-					.createQuery(
-							"select c from Candidate c where c.user=:user",
-							Candidate.class)
-					.setParameter("user", user)
-					.getSingleResult();
+	} catch (NoResultException nre) {
 
-		} catch (NoResultException nre) {
+	    candidate = null;
 
-			candidate = null;
+	    System.err.println(nre);
 
-			System.err.println(nre);
+	}
 
-		}
+	System.out.println("[OUT -->]");
 
-		System.out.println("[OUT -->]");
+	if (candidate == null) {
 
-		if (candidate == null) {			
+	    candidate = new Candidate();
 
-			candidate = new Candidate();
+	    candidate.setUser(user);
 
-			candidate.setUser(user);
+	    return Response.ok(candidate).build();
 
-			return Response.ok(candidate).build();	
+	}
 
-		}
+	System.out.println(candidate.toString());
 
-		System.out.println(candidate.toString());
+	return Response.ok(candidate).build();
 
-		return Response.ok(candidate).build();	
-
-	}	
+    }
 
 }

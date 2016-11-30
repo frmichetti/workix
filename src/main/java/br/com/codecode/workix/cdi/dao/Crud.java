@@ -3,49 +3,59 @@ package br.com.codecode.workix.cdi.dao;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-import br.com.codecode.workix.exception.NotImplementedYetException;
+import br.com.codecode.workix.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.interfaces.Persistable;
-
 
 /**
  * Concrete Crud Interface for CDI Implementation Uses
+ * 
  * @author felipe
- * @since 1.0 
- * @param <T> Any Entity witch implements Persistable and Serializable
+ * @since 1.0
+ * @param <T>
+ *            Any Entity witch implements Persistable and Serializable
  */
-public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T>{
+public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> {
 
-	/**
-	 * Save Or Update Currenty Entity Based on {@link #getId()}  
-	 * @param entity Entity Passed to Persist or Update
-	 * @return Managed Entity
-	 * @throws IllegalArgumentException if Entity is Null
-	 * @throws NotImplementedYetException if Methods is Not Implemented Yet
-	 */
-	default public T saveOrUpdate(T entity) throws IllegalArgumentException, NotImplementedYetException{
-		
-		if (entity == null)	throw new IllegalArgumentException("Entity Passed to Persist is Null");		
+    /**
+     * Save Or Update Currenty Entity Based on {@link #getId()}
+     * 
+     * @param entity
+     *            Entity Passed to Persist or Update
+     * @return Managed Entity
+     * @throws IllegalArgumentException
+     *             if Entity is Null
+     * @throws NotImplementedYetException
+     *             if Methods is Not Implemented Yet
+     */
+    default public T saveOrUpdate(T entity) throws IllegalArgumentException, NotImplementedYetException {
 
-		if(entity.getId() == 0)
-			save(entity);			
-		else			
-			update(entity);		
+	if (entity == null) throw new IllegalArgumentException("Entity Passed to Persist is Null");
 
-		return entity;
-	}	
+	if (entity.getId() == 0)
+	    save(entity);
+	else
+	    update(entity);
 
-	/**
-	 * Fetch for {@link Persistable} Entities with {@link MyEntity #getUuid()}
-	 * @param uuid Fetch for Entity by UUID Field
-	 * @return Fetched Entity 
-	 * @throws NotImplementedYetException if Method is Not Implemented Yet
-	 */
-	public T findByUuid(String uuid) throws NotImplementedYetException;	
+	return entity;
+    }
 
-	/**
-	 * Count Registers on Database
-	 * @return Total Rows of Entity  
-	 * @throws NotImplementedYetException if Method is Not Implemented Yet
-	 */
-	public BigInteger countRegisters() throws NotImplementedYetException;
+    /**
+     * Fetch for {@link Persistable} Entities with {@link MyEntity #getUuid()}
+     * 
+     * @param uuid
+     *            Fetch for Entity by UUID Field
+     * @return Fetched Entity
+     * @throws NotImplementedYetException
+     *             if Method is Not Implemented Yet
+     */
+    public T findByUuid(String uuid) throws NotImplementedYetException;
+
+    /**
+     * Count Registers on Database
+     * 
+     * @return Total Rows of Entity
+     * @throws NotImplementedYetException
+     *             if Method is Not Implemented Yet
+     */
+    public BigInteger countRegisters() throws NotImplementedYetException;
 }

@@ -18,7 +18,7 @@ import java.util.UUID;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -29,70 +29,68 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version 1.0
  */
-public class PopulateUserTest extends BaseTest implements CommonPopTest<User>{
+public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
 
-	private List<User> users;
+    private List<User> users;
 
-	private String resp;
-	
-	private int howManyUsers = 100;
+    private String resp;
 
-	@Before	
-	@Override
-	public void create() {		
-		
-		users = new ArrayList<>();
-			
-		for(int x=0 ; x < howManyUsers;x++){
-			
-			User u = new User();			
-			
-			u.setEmail("mockupusernumber" + String.valueOf(x+1)+"@test.com");
-			
-			assertNotNull(u.getEmail());
-			
-			assertNotEquals("",u.getEmail());		
-			
-			u.setFirebaseUUID(UUID.randomUUID().toString());
-			
-			u.setFirebaseMessageToken(UUID.randomUUID().toString());		
-			
-			System.out.println("[create] " + u.getEmail());
-			
-			addToList(u);
-		}
-		
-		assertEquals(howManyUsers,users.size());
+    private int howManyUsers = 100;
 
+    @Before
+    @Override
+    public void create() {
+
+	users = new ArrayList<>();
+
+	for (int x = 0; x < howManyUsers; x++) {
+
+	    User u = new User();
+
+	    u.setEmail("mockupusernumber" + String.valueOf(x + 1) + "@test.com");
+
+	    assertNotNull(u.getEmail());
+
+	    assertNotEquals("", u.getEmail());
+
+	    u.setFirebaseUUID(UUID.randomUUID().toString());
+
+	    u.setFirebaseMessageToken(UUID.randomUUID().toString());
+
+	    System.out.println("[create] " + u.getEmail());
+
+	    addToList(u);
 	}
 
-	@Override
-	public void addToList(User u) {
-		
-		assertNotNull(u);
+	assertEquals(howManyUsers, users.size());
 
-		System.out.println("[addToList] " + u.getEmail());		
+    }
 
-		users.add(u);		
+    @Override
+    public void addToList(User u) {
 
-	}
-	
-	@Test	
-	@Override
-	public void sendToServer() {		
+	assertNotNull(u);
 
-		users.stream().forEach(u -> {
-			
-			System.out.println("[sendToServer] " + u.getEmail());
-		
-			resp = HttpTest.sendPost(server + "/users",
-					getGson().toJson(u));
+	System.out.println("[addToList] " + u.getEmail());
 
-			assertNotNull(resp);	
-			
-		});
+	users.add(u);
 
+    }
 
-	}
+    @Test
+    @Override
+    public void sendToServer() {
+
+	users.stream().forEach(u -> {
+
+	    System.out.println("[sendToServer] " + u.getEmail());
+
+	    resp = HttpTest.sendPost(server + "/users", getGson().toJson(u));
+
+	    assertNotNull(resp);
+
+	});
+
+    }
 
 }

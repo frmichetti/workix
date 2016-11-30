@@ -1,14 +1,39 @@
 package br.com.codecode.workix.model.base;
 
 /**
- * Markup Interface for Skill Implementation
+ * Root Abstract Class Skill<br>
+ * Use for Field Mapping/Share Only
+ * <ul>
+ * <li>{@link #skillName}</li>
+ * </ul>
+ * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-public interface BaseSkill {
+public abstract class BaseSkill {
 
-	String getSkillName();
+    private String skillName;
 
-	void setSkillName(String skillName);
+    /**
+     * Public Empty Default Constructor
+     */
+    public BaseSkill() {
+    }
+
+    /**
+     * @return the Skill Name
+     */
+    public String getSkillName() {
+	return skillName;
+    }
+
+    /**
+     * @param skillName
+     *            the Skill Name to set
+     */
+    public void setSkillName(String skillName) {
+	this.skillName = skillName;
+    }
+
 }

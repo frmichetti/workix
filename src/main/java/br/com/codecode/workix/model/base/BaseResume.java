@@ -2,48 +2,140 @@ package br.com.codecode.workix.model.base;
 
 import java.util.Set;
 
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Education;
+import br.com.codecode.workix.jpa.models.Experience;
+import br.com.codecode.workix.jpa.models.Resume;
+import br.com.codecode.workix.jpa.models.Skill;
+import br.com.codecode.workix.model.actions.CandidateActions;
+import br.com.codecode.workix.model.actions.EducationActions;
+import br.com.codecode.workix.model.actions.ExperienceActions;
+import br.com.codecode.workix.model.actions.SkillActions;
+
 /**
- * Markup Interface for Resume Implementation
+ * Root Abstract Class Resume<br>
+ * Use for Field Mapping/Share Only
+ * <ul>
+ * <li>{@link #candidate}</li>
+ * <li>{@link #objective}</li>
+ * <li>{@link #content}</li>
+ * <li>{@link #experiences}</li>
+ * <li>{@link #educations}</li>
+ * <li>{@link #skills}</li>
+ * </ul>
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see BaseEntity
  */
-public interface BaseResume extends BaseEntity {
+public abstract class BaseResume {
 
-	BaseCandidate getCandidate();
+    /**
+     * Owner of Resume<br>
+     * One {@link Resume} To One {@link Candidate}
+     */
+    private CandidateActions candidate;
 
-	void setCandidate(BaseCandidate candidate);
+    private String objective;
 
-	String getObjective();
+    private String content;
 
-	void setObjective(String objective);
+    /**
+     * One {@link Resume} To Many {@link Experience}
+     */
+    protected Set<ExperienceActions> experiences;
 
-	String getContent();
+    /**
+     * One {@link Resume} To Many {@link Education}
+     */
+    protected Set<EducationActions> educations;
 
-	void setContent(String content);
+    /**
+     * One {@link Resume} To Many {@link Skill}
+     */
+    protected Set<SkillActions> skills;
 
-	Set<BaseExperience> getExperiences();
+    /**
+     * Default Empty Constructor
+     */
+    public BaseResume() {
+    }
 
-	void setExperiences(Set<BaseExperience> experiences);
+    /**
+     * @return the candidate
+     */
+    public CandidateActions getCandidate() {
+	return candidate;
+    }
 
-	void addExperience(BaseExperience experience);
+    /**
+     * @param candidate
+     *            the candidate to set
+     */
+    public void setCandidate(CandidateActions candidate) {
+	this.candidate = candidate;
+    }
 
-	void removeExperience(BaseExperience experience);
+    /**
+     * @return the objective
+     */
+    public String getObjective() {
+	return objective;
+    }
 
-	Set<BaseEducation> getEducations();
+    /**
+     * @param objective
+     *            the objective to set
+     */
+    public void setObjective(String objective) {
+	this.objective = objective;
+    }
 
-	void setEducations(Set<BaseEducation> educations);
+    /**
+     * @return the content
+     */
+    public String getContent() {
+	return content;
+    }
 
-	void addEducation(BaseEducation education);
+    /**
+     * @param content
+     *            the content to set
+     */
+    public abstract void setContent(String content);
 
-	void removeEducation(BaseEducation education);
+    /**
+     * @return the experiences
+     */
+    public abstract Set<ExperienceActions> getExperiences();
 
-	Set<BaseSkill> getSkills();
+    /**
+     * @param experiences
+     *            the experiences to set
+     */
+    public abstract void setExperiences(Set<ExperienceActions> experiences);
 
-	void setSkills(Set<BaseSkill> skills);
+    /**
+     * @return the educations
+     */
+    public abstract Set<EducationActions> getEducations();
 
-	void addSkill(BaseSkill skill);
+    /**
+     * @param educations
+     *            the educations to set
+     */
+    public abstract void setEducations(Set<EducationActions> educations);
 
-	void removeSkill(BaseSkill skill);
+    /**
+     * @return the skills
+     */
+    public abstract Set<SkillActions> getSkills();
+
+    /**
+     * @param skills
+     *            the skills to set
+     */
+    public abstract void setSkills(Set<SkillActions> skills);
 
 }

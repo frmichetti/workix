@@ -12,16 +12,17 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifier.Generic;
-import br.com.codecode.workix.config.JaxRsConfiguration;
-import br.com.codecode.workix.exception.NotImplementedYetException;
-import br.com.codecode.workix.model.jpa.Candidate;
-import br.com.codecode.workix.model.jpa.Resume;
-import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.config.JAXRSConfiguration;
+import br.com.codecode.workix.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Resume;
+import br.com.codecode.workix.jpa.models.User;
 
 /**
  * This Class is a Simple StandAlone Endpoint for Android Uses
- * @see JaxRsConfiguration
+ * 
+ * @see JAXRSConfiguration
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -30,99 +31,98 @@ import br.com.codecode.workix.model.jpa.User;
 @Path("save")
 public final class SaveOrUpdateEndpoint {
 
-	@Inject
-	private Event<User> alertNewUser;
+    @Inject
+    private Event<User> alertNewUser;
 
-	@Inject	@Generic
-	private Crud<User> daoUser;
+    @Inject
+    @Generic
+    private Crud<User> daoUser;
 
-	@Inject @Generic
-	private Crud<Candidate> daoCandidate;
+    @Inject
+    @Generic
+    private Crud<Candidate> daoCandidate;
 
-	@Inject @Generic
-	private Crud<Resume> daoResume;
+    @Inject
+    @Generic
+    private Crud<Resume> daoResume;
 
-	@Path("user")
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)	
-	public Response save(User user) {
+    @Path("user")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response save(User user) {
 
-		try {
+	try {
 
-			user = daoUser.saveOrUpdate(user);
+	    user = daoUser.saveOrUpdate(user);
 
-			alertNewUser.fire(user);
+	    alertNewUser.fire(user);
 
-		} catch (IllegalArgumentException e) {
+	} catch (IllegalArgumentException e) {
 
-			e.printStackTrace();
+	    e.printStackTrace();
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	    return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 
-		}	catch (NotImplementedYetException e) {
+	} catch (NotImplementedYetException e) {
 
-			e.printStackTrace();
+	    e.printStackTrace();
 
-			return Response.status(Status.NOT_IMPLEMENTED).build();
-		}			
-
-		return Response.ok(user).build();
+	    return Response.status(Status.NOT_IMPLEMENTED).build();
 	}
 
-	@Path("candidate")
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)	
-	public Response save(Candidate candidate) {
+	return Response.ok(user).build();
+    }
 
-		try {
+    @Path("candidate")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response save(Candidate candidate) {
 
-			candidate = daoCandidate.saveOrUpdate(candidate);
+	try {
 
-		} catch (IllegalArgumentException e) {
+	    candidate = daoCandidate.saveOrUpdate(candidate);
 
-			e.printStackTrace();
+	} catch (IllegalArgumentException e) {
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	    e.printStackTrace();
 
-		} catch (NotImplementedYetException e) {
+	    return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 
-			e.printStackTrace();
+	} catch (NotImplementedYetException e) {
 
-			return Response.status(Status.NOT_IMPLEMENTED).build();
-		}				
+	    e.printStackTrace();
 
-		return Response.ok(candidate).build();
+	    return Response.status(Status.NOT_IMPLEMENTED).build();
 	}
 
-	@Path("resume")
-	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)	
-	public Response save(Resume resume) {
+	return Response.ok(candidate).build();
+    }
 
-		try {
+    @Path("resume")
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response save(Resume resume) {
 
-			resume = daoResume.saveOrUpdate(resume);
+	try {
 
-		} catch (IllegalArgumentException e) {
+	    resume = daoResume.saveOrUpdate(resume);
 
-			e.printStackTrace();
+	} catch (IllegalArgumentException e) {
 
-			return Response.status(Status.INTERNAL_SERVER_ERROR).build();
-		} catch (NotImplementedYetException e) {
+	    e.printStackTrace();
 
-			e.printStackTrace();
+	    return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+	} catch (NotImplementedYetException e) {
 
-			return Response.status(Status.NOT_IMPLEMENTED).build();
-		}				
+	    e.printStackTrace();
 
-		return Response.ok(resume).build();
+	    return Response.status(Status.NOT_IMPLEMENTED).build();
 	}
 
-
-
-
+	return Response.ok(resume).build();
+    }
 
 }

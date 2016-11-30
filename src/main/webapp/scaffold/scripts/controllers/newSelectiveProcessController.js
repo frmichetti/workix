@@ -1,29 +1,14 @@
 
-angular.module('workix').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , JobResource, CandidateResource) {
+angular.module('workix').controller('NewSelectiveProcessController', function ($scope, $location, locationParser, flash, SelectiveProcessResource , CandidateResource, JobResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.selectiveProcess = $scope.selectiveProcess || {};
-    
-    $scope.jobList = JobResource.queryAll(function(items){
-        $scope.jobSelectionList = $.map(items, function(item) {
-            return ( {
-                value : item.id,
-                text : item.id
-            });
-        });
-    });
-    $scope.$watch("jobSelection", function(selection) {
-        if ( typeof selection != 'undefined') {
-            $scope.selectiveProcess.job = {};
-            $scope.selectiveProcess.job.id = selection.value;
-        }
-    });
     
     $scope.candidatesList = CandidateResource.queryAll(function(items){
         $scope.candidatesSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
-                text : item.id
+                text : item.birthDate
             });
         });
     });
@@ -38,6 +23,21 @@ angular.module('workix').controller('NewSelectiveProcessController', function ($
         }
     });
 
+    $scope.jobList = JobResource.queryAll(function(items){
+        $scope.jobSelectionList = $.map(items, function(item) {
+            return ( {
+                value : item.id,
+                text : item.benefits
+            });
+        });
+    });
+    $scope.$watch("jobSelection", function(selection) {
+        if ( typeof selection != 'undefined') {
+            $scope.selectiveProcess.job = {};
+            $scope.selectiveProcess.job.id = selection.value;
+        }
+    });
+    
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){

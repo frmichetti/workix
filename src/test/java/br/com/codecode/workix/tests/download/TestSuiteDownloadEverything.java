@@ -5,9 +5,6 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({	
-	DownloadTestCompany.class,	
-	DownloadTestUser.class,
-	DownloadTestCandidate.class,
-	})
-public class TestSuiteDownloadEverything{}
+@SuiteClasses({ DownloadTestCompany.class, DownloadTestUser.class, DownloadTestCandidate.class, })
+public class TestSuiteDownloadEverything {
+}

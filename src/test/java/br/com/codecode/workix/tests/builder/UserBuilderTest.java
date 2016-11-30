@@ -7,49 +7,44 @@ import org.junit.Test;
 
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Persistable;
-import br.com.codecode.workix.model.base.BaseUser;
-import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.model.actions.UserActions;
 
 public class UserBuilderTest {
-	
-	private User user;
-	
-	private User.Builder u;
-	
-	@Test
-	public void testInstance(){			
-		
-		u = new User.Builder("");
-		
-		assertTrue(u instanceof Buildable<?>); 
-	}
 
-	@Test
-	public void constructorTest() {
-		
-		u = new User.Builder("frmichetti@gmail.com");
-		
-		assertNotNull(u);		
-		
-	}
-	
-	@Test
-	public void constructorWithFiels(){
-		
-		user = new User.Builder("frmichetti@gmail.com")
-		.withActive(true)
-		.withFirebaseMessageToken("xxxxxxxxxxxxxxx")
-		.withFirebaseUUID("2345678974532")
-		.build();
-		
-		assertNotNull(user);
-		
-		assertTrue(user instanceof Persistable);
-		
-		assertTrue(user instanceof BaseUser);
-		
-	}
-	
+    private User user;
 
+    private User.Builder u;
+
+    @Test
+    public void testInstance() {
+
+	u = new User.Builder("");
+
+	assertTrue(u instanceof Buildable<?>);
+    }
+
+    @Test
+    public void constructorTest() {
+
+	u = new User.Builder("frmichetti@gmail.com");
+
+	assertNotNull(u);
+
+    }
+
+    @Test
+    public void constructorWithFiels() {
+
+	user = new User.Builder("frmichetti@gmail.com").withActive(true).withFirebaseMessageToken("xxxxxxxxxxxxxxx")
+		.withFirebaseUUID("2345678974532").build();
+
+	assertNotNull(user);
+
+	assertTrue(user instanceof Persistable);
+
+	assertTrue(user instanceof UserActions);
+
+    }
 
 }

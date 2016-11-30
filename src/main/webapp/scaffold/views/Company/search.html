@@ -12,7 +12,6 @@
 <div>
 	<h3>Search for Companies</h3>
 	<form id="CompanySearch" class="form-horizontal">
-
 		<div class="form-group">
 			<label for="cnpj" class="col-sm-2 control-label">Cnpj</label>
 			<div class="col-sm-10">
@@ -20,6 +19,7 @@
 					ng-model="search.cnpj" placeholder="Enter the Company Cnpj"></input>
 			</div>
 		</div>
+
 
 		<div class="form-group">
 			<label for="segment" class="col-sm-2 control-label">Segment</label>
@@ -41,9 +41,37 @@
 			<label for="user" class="col-sm-2 control-label">User</label>
 			<div class="col-sm-10">
 				<select id="user" name="user" class="form-control"
-					ng-model="search.user" ng-options="u as u.id for u in userList">
+					ng-model="search.user" ng-options="u as u.email for u in userList">
 					<option value="">Choose a User</option>
 				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="createdAt" class="col-sm-2 control-label">Created
+				At</label>
+			<div class="col-sm-10">
+				<input id="createdAt" name="createdAt" class="form-control"
+					type="text" ng-model="search.createdAt"
+					placeholder="Enter the Company Created At"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="updatedAt" class="col-sm-2 control-label">Updated
+				At</label>
+			<div class="col-sm-10">
+				<input id="updatedAt" name="updatedAt" class="form-control"
+					type="text" ng-model="search.updatedAt"
+					placeholder="Enter the Company Updated At"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="uuid" class="col-sm-2 control-label">Uuid</label>
+			<div class="col-sm-10">
+				<input id="uuid" name="uuid" class="form-control" type="text"
+					ng-model="search.uuid" placeholder="Enter the Company Uuid"></input>
 			</div>
 		</div>
 
@@ -59,21 +87,22 @@
 		</div>
 
 		<div class="form-group">
-			<label for="locale.zipCode" class="col-sm-2 control-label">Zip
-				Code</label>
-			<div class="col-sm-10">
-				<input id="locale.zipCode" name="locale.zipCode"
-					class="form-control" type="text" ng-model="search.locale.zipCode"
-					placeholder="Enter the Company Zip Code"></input>
-			</div>
-		</div>
-
-		<div class="form-group">
 			<label for="locale.city" class="col-sm-2 control-label">City</label>
 			<div class="col-sm-10">
 				<input id="locale.city" name="locale.city" class="form-control"
 					type="text" ng-model="search.locale.city"
 					placeholder="Enter the Company City"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="locale.estate" class="col-sm-2 control-label">Estate</label>
+			<div class="col-sm-10">
+				<select id="locale.estate" name="locale.estate" class="form-control"
+					ng-model="search.locale.estate"
+					ng-options="l as l for l in localeestateList">
+					<option value="">Choose a Estate</option>
+				</select>
 			</div>
 		</div>
 
@@ -88,15 +117,6 @@
 		</div>
 
 		<div class="form-group">
-			<label for="locale.street" class="col-sm-2 control-label">Street</label>
-			<div class="col-sm-10">
-				<input id="locale.street" name="locale.street" class="form-control"
-					type="text" ng-model="search.locale.street"
-					placeholder="Enter the Company Street"></input>
-			</div>
-		</div>
-
-		<div class="form-group">
 			<label for="locale.number" class="col-sm-2 control-label">Number</label>
 			<div class="col-sm-10">
 				<input id="locale.number" name="locale.number" class="form-control"
@@ -106,13 +126,21 @@
 		</div>
 
 		<div class="form-group">
-			<label for="locale.estate" class="col-sm-2 control-label">Estate</label>
+			<label for="locale.street" class="col-sm-2 control-label">Street</label>
 			<div class="col-sm-10">
-				<select id="locale.estate" name="locale.estate" class="form-control"
-					ng-model="search.locale.estate"
-					ng-options="l as l for l in localeestateList">
-					<option value="">Choose a Estate</option>
-				</select>
+				<input id="locale.street" name="locale.street" class="form-control"
+					type="text" ng-model="search.locale.street"
+					placeholder="Enter the Company Street"></input>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="locale.zipCode" class="col-sm-2 control-label">Zip
+				Code</label>
+			<div class="col-sm-10">
+				<input id="locale.zipCode" name="locale.zipCode"
+					class="form-control" type="text" ng-model="search.locale.zipCode"
+					placeholder="Enter the Company Zip Code"></input>
 			</div>
 		</div>
 
@@ -136,13 +164,16 @@
 					<th>Segment</th>
 					<th>Name</th>
 					<th>User</th>
+					<th>Created At</th>
+					<th>Updated At</th>
+					<th>Uuid</th>
 					<th>Mobile Phone</th>
-					<th>Zip Code</th>
 					<th>City</th>
-					<th>Neighborhood</th>
-					<th>Street</th>
-					<th>Number</th>
 					<th>Estate</th>
+					<th>Neighborhood</th>
+					<th>Number</th>
+					<th>Street</th>
+					<th>Zip Code</th>
 				</tr>
 			</thead>
 			<tbody id="search-results-body">
@@ -151,14 +182,17 @@
 					<td><a href="#/Companies/edit/{{result.id}}">{{result.cnpj}}</a></td>
 					<td><a href="#/Companies/edit/{{result.id}}">{{result.segment}}</a></td>
 					<td><a href="#/Companies/edit/{{result.id}}">{{result.name}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.user.id}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.user.email}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.createdAt}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.updatedAt}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.uuid}}</a></td>
 					<td><a href="#/Companies/edit/{{result.id}}">{{result.contact.mobilePhone}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.zipCode}}</a></td>
 					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.city}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.street}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.number}}</a></td>
 					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.estate}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.number}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.street}}</a></td>
+					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.zipCode}}</a></td>
 				</tr>
 			</tbody>
 		</table>

@@ -1,32 +1,113 @@
 package br.com.codecode.workix.model.base;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 /**
- * Markup Interface for Experience Implementation
+ * Root Abstract Class Experience<br>
+ * Use for Field Mapping/Share Only
+ * <ul>
+ * <li>{@link #employerName}</li>
+ * <li>{@link #jobTitle}</li>
+ * <li>{@link #startDate}</li>
+ * <li>{@link #endDate}</li>
+ * <li>{@link #description}</li>
+ * </ul>
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.0
  */
-public interface BaseExperience {
+public abstract class BaseExperience {
 
-	String getEmployerName();
+    private String employerName;
 
-	void setEmployerName(String employerName);
+    private String jobTitle;
 
-	String getJobTitle();
+    private LocalDate startDate;
 
-	void setJobTitle(String jobTitle);
+    private LocalDate endDate;
 
-	Calendar getStartDate();
+    private String description;
 
-	void setStartDate(Calendar startDate);
+    /**
+     * Empty Default Constructor
+     */
+    public BaseExperience() {
+    }
 
-	Calendar getEndDate();
+    /**
+     * @return the employerName
+     */
+    public String getEmployerName() {
+	return employerName;
+    }
 
-	void setEndDate(Calendar endDate);
+    /**
+     * @param employerName
+     *            the employerName to set
+     */
+    public void setEmployerName(String employerName) {
+	this.employerName = employerName;
+    }
 
-	String getDescription();
+    /**
+     * @return the jobTitle
+     */
+    public String getJobTitle() {
+	return jobTitle;
+    }
 
-	void setDescription(String description);
+    /**
+     * @param jobTitle
+     *            the jobTitle to set
+     */
+    public void setJobTitle(String jobTitle) {
+	this.jobTitle = jobTitle;
+    }
+
+    /**
+     * @return the startDate
+     */
+    public LocalDate getStartDate() {
+	return startDate;
+    }
+
+    /**
+     * @param startDate
+     *            the startDate to set
+     */
+    public void setStartDate(LocalDate startDate) {
+	this.startDate = startDate;
+    }
+
+    /**
+     * @return the endDate
+     */
+    public LocalDate getEndDate() {
+	return endDate;
+    }
+
+    /**
+     * @param endDate
+     *            the endDate to set
+     */
+    public void setEndDate(LocalDate endDate) {
+	this.endDate = endDate;
+    }
+
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+	return description;
+    }
+
+    /**
+     * @param description
+     *            the description to set
+     */
+    public void setDescription(String description) {
+	this.description = description;
+    }
+
 }

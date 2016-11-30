@@ -6,15 +6,16 @@
  * @see mailto:frmichetti@gmail.com
  * */
 package br.com.codecode.workix.tests.funcional.login;
+
 /**
  * Markup Interface for Login Test
+ * 
  * @author felipe
- *
  */
 interface LoginTest {
-		
-	void doLoginWithFirebase();
-	
-	void parseJson();
+
+    void doLoginWithFirebase();
+
+    void parseJson();
 
 }

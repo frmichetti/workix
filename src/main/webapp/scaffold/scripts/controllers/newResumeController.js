@@ -8,7 +8,7 @@ angular.module('workix').controller('NewResumeController', function ($scope, $lo
         $scope.candidateSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
-                text : item.id
+                text : item.birthDate
             });
         });
     });

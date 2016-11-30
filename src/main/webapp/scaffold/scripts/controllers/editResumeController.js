@@ -16,7 +16,7 @@ angular.module('workix').controller('EditResumeController', function($scope, $ro
                     };
                     var labelObject = {
                         value : item.id,
-                        text : item.id
+                        text : item.birthDate
                     };
                     if($scope.resume.candidate && item.id == $scope.resume.candidate.id) {
                         $scope.candidateSelection = labelObject;

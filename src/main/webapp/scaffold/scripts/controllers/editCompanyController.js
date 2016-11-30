@@ -16,7 +16,7 @@ angular.module('workix').controller('EditCompanyController', function($scope, $r
                     };
                     var labelObject = {
                         value : item.id,
-                        text : item.id
+                        text : item.email
                     };
                     if($scope.company.user && item.id == $scope.company.user.id) {
                         $scope.userSelection = labelObject;

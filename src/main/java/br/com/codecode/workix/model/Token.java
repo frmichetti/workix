@@ -7,7 +7,10 @@
  * */
 package br.com.codecode.workix.model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
+
+import javax.annotation.Generated;
+import javax.validation.constraints.NotNull;
 
 /**
  * Token Model
@@ -18,36 +21,76 @@ import java.util.Date;
  */
 public final class Token {
 
-	private Date createdAt;
+    /**
+     * Builder to build {@link Token}.
+     */
+    @Generated("SparkTools")
+    public static final class Builder {
+
+	private LocalDateTime createdAt;
 
 	private String key;
-	
-	/**
-	 * 
-	 */
-	public Token() {
-		setCreatedAt(new Date());
+
+	private Builder() {
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
+	public Token build() {
+	    return new Token(this);
 	}
 
-	private void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
+	public Builder withKey(String key) {
+	    this.key = key;
+	    this.createdAt = LocalDateTime.now();
+	    return this;
 	}
+    }
 
-	public String getKey() {
-		return key;
-	}
+    private LocalDateTime createdAt;
 
-	public void setKey(String key) {
-		this.key = key;
-	}
+    private String key;
 
-	@Override
-	public String toString() {
-		return "Token [createdAt=" + createdAt + ", key=" + key + "]";
-	}	
+    /**
+     * Public Default Constructor
+     */
+    private Token() {
+    }
+
+    @Generated("SparkTools")
+    private Token(@NotNull Builder builder) {
+	setCreatedAt(builder.createdAt);
+	this.key = builder.key;
+    }
+
+    /**
+     * Creates builder to build {@link Token}.
+     * 
+     * @return created builder
+     */
+    @Generated("SparkTools")
+    public static Builder builder() {
+	return new Builder();
+    }
+
+    private void setCreatedAt(LocalDateTime createdAt) {
+	this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getCreatedAt() {
+	return createdAt;
+    }
+
+    public String getKey() {
+	return key;
+    }
+
+    public void setKey(String key) {
+	this.key = key;
+    }
+
+    @Override
+    public String toString() {
+	return new StringBuilder().append("Token [createdAt=").append(createdAt).append(", key=").append(key)
+		.append("]").toString();
+    }
 
 }

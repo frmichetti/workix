@@ -17,9 +17,11 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.codecode.workix.interfaces.Debugable;
+import br.com.codecode.workix.security.model.JAASUser;
 
 /**
  * This Class Verify for {@link JAASUser} is Signed In Session
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -30,47 +32,47 @@ import br.com.codecode.workix.interfaces.Debugable;
 @SessionScoped
 public class CurrentUserMB implements Serializable, Debugable {
 
-	private static final long serialVersionUID = 5093336500246912818L;
+    private static final long serialVersionUID = 5093336500246912818L;
 
-	@Inject
-	private HttpServletRequest request;
+    @Inject
+    private HttpServletRequest request;
 
-	@Inject
-	private SecurityDao securityDao;
+    @Inject
+    private SecurityDao securityDao;
 
-	private JAASUser user;	
-	
-	@PostConstruct
-	private void init(){
-		
-		System.out.println("----Security Bean------");
-		
-		Debugable.super.onStart();		
-		
-		loadSystemUser();
+    private JAASUser user;
+
+    @PostConstruct
+    private void init() {
+
+	System.out.println("----Security Bean------");
+
+	Debugable.super.onStart();
+
+	loadSystemUser();
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+	System.out.println("----Security Bean------");
+	super.finalize();
+    }
+
+    public JAASUser get() {
+	return this.user;
+    }
+
+    public boolean hasRole(String name) {
+	return request.isUserInRole(name);
+    }
+
+    private void loadSystemUser() {
+
+	Principal principal = request.getUserPrincipal();
+
+	if (principal != null) {
+	    this.user = securityDao.loadUserByUsername(principal.getName());
 	}
-	
-	@Override
-	protected void finalize() throws Throwable {
-		System.out.println("----Security Bean------");
-		super.finalize();
-	}
-
-	public JAASUser get(){
-		return this.user;
-	}
-
-	public boolean hasRole(String name){
-		return request.isUserInRole(name);
-	}
-	
-	private void loadSystemUser(){
-
-		Principal principal = request.getUserPrincipal();
-
-		if(principal!=null){		
-			this.user = securityDao.loadUserByUsername(principal.getName());			
-		}
-	}
+    }
 
 }

@@ -5,20 +5,22 @@ import java.time.LocalDateTime;
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
 /**
- * Converter for Java 8 Dates {@link LocalDateTime}
- * FIXME Not Working with JaxRs Jackson
+ * Converter for Java 8 Dates {@link LocalDateTime} FIXME Not Working with JaxRs
+ * Jackson
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.0
  */
 public class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
-   
-	@Override
+
+    @Override
     public LocalDateTime unmarshal(String s) throws Exception {
-        return LocalDateTime.parse(s);
+	return LocalDateTime.parse(s);
     }
+
     @Override
     public String marshal(LocalDateTime dateTime) throws Exception {
-        return dateTime.toString();
-    }   
+	return dateTime.toString();
+    }
 }

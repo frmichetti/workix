@@ -10,123 +10,113 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.model.jpa.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
 
 public class TestSelectiveProcess {
 
-	private SelectiveProcess selectiveProcess;
+    private SelectiveProcess selectiveProcess;
 
-	private ArrayList<Candidate> candidates;
+    private ArrayList<Candidate> candidates;
 
-	private Candidate c1,c2,c3;
+    private Candidate c1, c2, c3;
 
-	@Before
-	public void init(){
+    @Before
+    public void init() {
 
-		System.out.println();
+	System.out.println();
 
-		System.out.println("[Before]");
+	System.out.println("[Before]");
 
-		System.out.println();
+	System.out.println();
 
-		selectiveProcess = new SelectiveProcess();
+	selectiveProcess = new SelectiveProcess();
 
-		selectiveProcess.setActive(true);		
+	selectiveProcess.setActive(true);
 
-		selectiveProcess.setMaxCandidates(1);
+	selectiveProcess.setMaxCandidates(1);
 
-		c1 = new Candidate();
-		c2 = new Candidate();
-		c3 = new Candidate();
+	c1 = new Candidate();
+	c2 = new Candidate();
+	c3 = new Candidate();
 
-		candidates = new ArrayList<>();
+	candidates = new ArrayList<>();
 
-		candidates.add(c1);
-		candidates.add(c2);
-		candidates.add(c3);
+	candidates.add(c1);
+	candidates.add(c2);
+	candidates.add(c3);
 
-
-		for(int x=0 ; x < candidates.size() ;x++){
-			candidates.get(x).setId(x+1L);
-			candidates.get(x).setName("Candidate " + (x+1L));
-		}
-
-
+	for (int x = 0; x < candidates.size(); x++) {
+	    candidates.get(x).setId(x + 1L);
+	    candidates.get(x).setName("Candidate " + (x + 1L));
 	}
 
-	private void testInstance() {
+    }
 
-		System.out.println("[Test - Instance]");
+    private void testInstance() {
 
-		System.out.println();
+	System.out.println("[Test - Instance]");
 
-		assertNotNull(selectiveProcess);
+	System.out.println();
 
-		assertNotNull(candidates);
+	assertNotNull(selectiveProcess);
 
-		assertEquals(1, selectiveProcess.getMaxCandidates());
+	assertNotNull(candidates);
 
-		assertTrue(selectiveProcess.isActive());
+	assertEquals(1, selectiveProcess.getMaxCandidates());
 
-		assertEquals(3, candidates.size());
+	assertTrue(selectiveProcess.isActive());
 
+	assertEquals(3, candidates.size());
 
-	}
+    }
 
+    @Test
+    public void testRegisterSameCandidate() {
 
-	@Test
-	public void testRegisterSameCandidate(){	
+	testInstance();
 
-		testInstance();
+	System.out.println("[Test - Register Same Candidate]");
 
-		System.out.println("[Test - Register Same Candidate]");
+	System.out.println();
 
-		System.out.println();
+	selectiveProcess.setMaxCandidates(2);
 
+	assertTrue(selectiveProcess.isActive());
 
+	assertTrue(selectiveProcess.registerCandidate(c1));
 
-		selectiveProcess.setMaxCandidates(2);
+	assertTrue(selectiveProcess.isActive());
 
-		assertTrue(selectiveProcess.isActive());
+	assertFalse(selectiveProcess.registerCandidate(c1));
 
-		assertTrue(selectiveProcess.registerCandidate(c1));
+	assertTrue(selectiveProcess.isActive());
 
-		assertTrue(selectiveProcess.isActive());
+    }
 
-		assertFalse(selectiveProcess.registerCandidate(c1));
+    @Test
+    public void testRegisterTwoCandidates() {
 
-		assertTrue(selectiveProcess.isActive());
+	testInstance();
 
+	System.out.println("[Test - Register Two Candidates]");
 
-	}
+	System.out.println();
 
-	@Test
-	public void testRegisterTwoCandidates(){
+	selectiveProcess.setMaxCandidates(2);
 
-		testInstance();
+	assertTrue(selectiveProcess.isActive());
 
-		System.out.println("[Test - Register Two Candidates]");
+	assertTrue(selectiveProcess.registerCandidate(c1));
 
-		System.out.println();
+	assertTrue(selectiveProcess.isActive());
 
-		selectiveProcess.setMaxCandidates(2);
+	assertTrue(selectiveProcess.registerCandidate(c2));
 
-		assertTrue(selectiveProcess.isActive());
+	assertFalse(selectiveProcess.isActive());
 
-		assertTrue(selectiveProcess.registerCandidate(c1));
+	assertFalse(selectiveProcess.registerCandidate(c3));
 
-		assertTrue(selectiveProcess.isActive());
-
-		assertTrue(selectiveProcess.registerCandidate(c2));		
-
-		assertFalse(selectiveProcess.isActive());
-
-		assertFalse(selectiveProcess.registerCandidate(c3));
-
-		assertFalse(selectiveProcess.isActive());
-	}
-
-
-
+	assertFalse(selectiveProcess.isActive());
+    }
 
 }

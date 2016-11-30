@@ -1,38 +1,131 @@
 package br.com.codecode.workix.model.base;
 
-import br.com.codecode.workix.model.enums.Estate;
+import br.com.codecode.workix.jpa.enums.Estate;
 
 /**
- * Markup Interface for Locale Implementation
+ * Root Abstract Class Locale<br>
+ * Use for Field Mapping/Share Only
+ * <ul>
+ * <li>{@link #zipCode}</li>
+ * <li>{@link #city}</li>
+ * <li>{@link #neighborhood}</li>
+ * <li>{@link #street}</li>
+ * <li>{@link #number}</li>
+ * <li>{@link #estate}</li>
+ * </ul>
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.0
  */
-public interface BaseLocale {
+public abstract class BaseLocale {
 
-	long getZipCode();
+    private long zipCode;
 
-	void setZipCode(long zipCode);
+    private String city;
 
-	String getCity();
+    private String neighborhood;
 
-	void setCity(String city);
+    private String street;
 
-	String getNeighborhood();
+    private String number;
 
-	void setNeighborhood(String neighborhood);
+    private Estate estate;
 
-	String getStreet();
+    /**
+     * Public Default Constructor
+     */
+    public BaseLocale() {
+    }
 
-	void setStreet(String street);
+    /**
+     * @return the zipCode
+     */
+    public long getZipCode() {
+	return zipCode;
+    }
 
-	String getNumber();
+    /**
+     * @param zipCode
+     *            the zipCode to set
+     */
+    public void setZipCode(long zipCode) {
+	this.zipCode = zipCode;
+    }
 
-	void setNumber(String number);
+    /**
+     * @return the city
+     */
+    public String getCity() {
+	return city;
+    }
 
-	Estate getEstate();
+    /**
+     * @param city
+     *            the city to set
+     */
+    public void setCity(String city) {
+	this.city = city;
+    }
 
-	void setEstate(Estate estate);
+    /**
+     * @return the neighborhood
+     */
+    public String getNeighborhood() {
+	return neighborhood;
+    }
 
+    /**
+     * @param neighborhood
+     *            the neighborhood to set
+     */
+    public void setNeighborhood(String neighborhood) {
+	this.neighborhood = neighborhood;
+    }
+
+    /**
+     * @return the street
+     */
+    public String getStreet() {
+	return street;
+    }
+
+    /**
+     * @param street
+     *            the street to set
+     */
+    public void setStreet(String street) {
+	this.street = street;
+    }
+
+    /**
+     * @return the number
+     */
+    public String getNumber() {
+	return number;
+    }
+
+    /**
+     * @param number
+     *            the number to set
+     */
+    public void setNumber(String number) {
+	this.number = number;
+    }
+
+    /**
+     * @return the estate
+     */
+    public Estate getEstate() {
+	return estate;
+    }
+
+    /**
+     * @param estate
+     *            the estate to set
+     */
+    public void setEstate(Estate estate) {
+	this.estate = estate;
+    }
 
 }

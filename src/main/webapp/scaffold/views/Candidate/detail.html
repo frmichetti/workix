@@ -4,33 +4,32 @@
 </header>
 <form id="CandidateForm" name="CandidateForm" class="form-horizontal"
 	role="form">
-
-	<div class="form-group"
-		ng-class="{'has-error': CandidateForm.cpf.$invalid}">
-		<label for="cpf" class="col-sm-2 control-label">Cpf</label>
-		<div id="cpfControls" class="col-sm-10">
-			<input id="cpf" name="cpf" type="text" required class="form-control"
-				ng-model="candidate.cpf" placeholder="Enter the Candidate Cpf"></input>
-			<span class="help-block error"
-				ng-show="CandidateForm.cpf.$error.required">required</span>
-		</div>
-	</div>
-
 	<div class="form-group"
 		ng-class="{'has-error': CandidateForm.birthDate.$invalid}">
 		<label for="birthDate" class="col-sm-2 control-label">Birth
 			Date</label>
 		<div id="birthDateControls" class="col-sm-10">
-			<datetime id="birthDate" name="birthDate" required
-				ng-model="candidate.birthDate"
-				placeholder="Enter the Candidate Birth Date"></datetime>
-			<span class="help-block error"
-				ng-show="CandidateForm.birthDate.$error.required">required</span> <span
+			<input id="birthDate" name="birthDate" type="text" required
+				class="form-control" ng-model="candidate.birthDate"
+				placeholder="Enter the Candidate Birth Date"></input> <span
 				class="help-block error"
-				ng-show="CandidateForm.birthDate.$error.datetimeFormat">does
-				not match format "yyyy-MM-dd hh:mm:ss" (e.g. 2013-12-01 22:00:00)</span>
+				ng-show="CandidateForm.birthDate.$error.required">required</span>
 		</div>
 	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': CandidateForm.cpf.$invalid}">
+		<label for="cpf" class="col-sm-2 control-label">Cpf</label>
+		<div id="cpfControls" class="col-sm-10">
+			<input id="cpf" name="cpf" type="number" required
+				class="form-control" ng-model="candidate.cpf"
+				placeholder="Enter the Candidate Cpf"></input> <span
+				class="help-block error" ng-show="CandidateForm.cpf.$error.required">required</span>
+			<span class="help-block error"
+				ng-show="CandidateForm.cpf.$error.number">not a number</span>
+		</div>
+	</div>
+
 
 	<div class="form-group"
 		ng-class="{'has-error': CandidateForm.name.$invalid}">
@@ -58,25 +57,53 @@
 	</div>
 
 	<div class="form-group"
+		ng-class="{'has-error': CandidateForm.createdAt.$invalid}">
+		<label for="createdAt" class="col-sm-2 control-label">Created
+			At</label>
+		<div id="createdAtControls" class="col-sm-10">
+			<input id="createdAt" name="createdAt" type="text" required
+				class="form-control" ng-model="candidate.createdAt"
+				placeholder="Enter the Candidate Created At"></input> <span
+				class="help-block error"
+				ng-show="CandidateForm.createdAt.$error.required">required</span>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': CandidateForm.updatedAt.$invalid}">
+		<label for="updatedAt" class="col-sm-2 control-label">Updated
+			At</label>
+		<div id="updatedAtControls" class="col-sm-10">
+			<input id="updatedAt" name="updatedAt" type="text"
+				class="form-control" ng-model="candidate.updatedAt"
+				placeholder="Enter the Candidate Updated At"></input>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': CandidateForm.uuid.$invalid}">
+		<label for="uuid" class="col-sm-2 control-label">Uuid</label>
+		<div id="uuidControls" class="col-sm-10">
+			<input id="uuid" name="uuid" type="text" required
+				class="form-control" ng-model="candidate.uuid"
+				placeholder="Enter the Candidate Uuid"></input> <span
+				class="help-block error"
+				ng-show="CandidateForm.uuid.$error.required">required</span>
+		</div>
+	</div>
+
+	<div class="form-group"
 		ng-class="{'has-error': CandidateForm.contact.mobilePhone.$invalid}">
 		<label for="contact.mobilePhone" class="col-sm-2 control-label">Mobile
 			Phone</label>
 		<div id="contact.mobilePhoneControls" class="col-sm-10">
 			<input id="contact.mobilePhone" name="contact.mobilePhone"
-				type="text" class="form-control"
+				type="number" class="form-control"
 				ng-model="candidate.contact.mobilePhone"
-				placeholder="Enter the Candidate Mobile Phone"></input>
-		</div>
-	</div>
-
-	<div class="form-group"
-		ng-class="{'has-error': CandidateForm.locale.zipCode.$invalid}">
-		<label for="locale.zipCode" class="col-sm-2 control-label">Zip
-			Code</label>
-		<div id="locale.zipCodeControls" class="col-sm-10">
-			<input id="locale.zipCode" name="locale.zipCode" type="text"
-				class="form-control" ng-model="candidate.locale.zipCode"
-				placeholder="Enter the Candidate Zip Code"></input>
+				placeholder="Enter the Candidate Mobile Phone"></input> <span
+				class="help-block error"
+				ng-show="CandidateForm.contact.mobilePhone.$error.number">not
+				a number</span>
 		</div>
 	</div>
 
@@ -87,6 +114,18 @@
 			<input id="locale.city" name="locale.city" type="text"
 				class="form-control" ng-model="candidate.locale.city"
 				placeholder="Enter the Candidate City"></input>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': CandidateForm.locale.estate.$invalid}">
+		<label for="locale.estate" class="col-sm-2 control-label">Estate</label>
+		<div id="locale.estateControls" class="col-sm-10">
+			<select id="locale.estate" name="locale.estate" class="form-control"
+				ng-model="candidate.locale.estate"
+				ng-options="l for l in localeestateList">
+				<option value="">Choose a Estate</option>
+			</select>
 		</div>
 	</div>
 
@@ -102,16 +141,6 @@
 	</div>
 
 	<div class="form-group"
-		ng-class="{'has-error': CandidateForm.locale.street.$invalid}">
-		<label for="locale.street" class="col-sm-2 control-label">Street</label>
-		<div id="locale.streetControls" class="col-sm-10">
-			<input id="locale.street" name="locale.street" type="text"
-				class="form-control" ng-model="candidate.locale.street"
-				placeholder="Enter the Candidate Street"></input>
-		</div>
-	</div>
-
-	<div class="form-group"
 		ng-class="{'has-error': CandidateForm.locale.number.$invalid}">
 		<label for="locale.number" class="col-sm-2 control-label">Number</label>
 		<div id="locale.numberControls" class="col-sm-10">
@@ -122,14 +151,26 @@
 	</div>
 
 	<div class="form-group"
-		ng-class="{'has-error': CandidateForm.locale.estate.$invalid}">
-		<label for="locale.estate" class="col-sm-2 control-label">Estate</label>
-		<div id="locale.estateControls" class="col-sm-10">
-			<select id="locale.estate" name="locale.estate" class="form-control"
-				ng-model="candidate.locale.estate"
-				ng-options="l for l in localeestateList">
-				<option value="">Choose a Estate</option>
-			</select>
+		ng-class="{'has-error': CandidateForm.locale.street.$invalid}">
+		<label for="locale.street" class="col-sm-2 control-label">Street</label>
+		<div id="locale.streetControls" class="col-sm-10">
+			<input id="locale.street" name="locale.street" type="text"
+				class="form-control" ng-model="candidate.locale.street"
+				placeholder="Enter the Candidate Street"></input>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': CandidateForm.locale.zipCode.$invalid}">
+		<label for="locale.zipCode" class="col-sm-2 control-label">Zip
+			Code</label>
+		<div id="locale.zipCodeControls" class="col-sm-10">
+			<input id="locale.zipCode" name="locale.zipCode" type="number"
+				class="form-control" ng-model="candidate.locale.zipCode"
+				placeholder="Enter the Candidate Zip Code"></input> <span
+				class="help-block error"
+				ng-show="CandidateForm.locale.zipCode.$error.number">not a
+				number</span>
 		</div>
 	</div>
 

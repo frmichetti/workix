@@ -13,76 +13,77 @@ import com.google.gson.JsonParseException;
 
 /**
  * Simple Calendar Deserializer for Gson <br>
- * Register in GsonBuilder
- * <br>Example:<br>
+ * Register in GsonBuilder <br>
+ * Example:<br>
  * <code>new GsonBuilder()			
  *	.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			
  *	.create();
  *	</code>
+ * 
  * @author felipe
- *
  */
 public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 
-	@Override
-	public Calendar deserialize(JsonElement json, Type type,
-			JsonDeserializationContext context)	throws JsonParseException {	
+    @Override
+    public Calendar deserialize(JsonElement json, Type type, JsonDeserializationContext context)
+	    throws JsonParseException {
 
-		if(json.isJsonObject()){
+	if (json.isJsonObject()) {
 
-			int year = 	getInt("year", json);
+	    int year = getInt("year", json);
 
-			int month = getInt("month", json);
+	    int month = getInt("month", json);
 
-			int dayOfMonth = getInt("dayOfMonth", json);
+	    int dayOfMonth = getInt("dayOfMonth", json);
 
-			int hourOfDay = getInt("hourOfDay", json);
+	    int hourOfDay = getInt("hourOfDay", json);
 
-			int minute = getInt("minute", json);
+	    int minute = getInt("minute", json);
 
-			int second = getInt("second", json);
+	    int second = getInt("second", json);
 
-			Calendar c = Calendar.getInstance();
+	    Calendar c = Calendar.getInstance();
 
-			c.set(year, month, dayOfMonth, hourOfDay, minute, second);
+	    c.set(year, month, dayOfMonth, hourOfDay, minute, second);
 
-			return c;
+	    return c;
 
-		}else if (json.isJsonPrimitive()){
+	} else if (json.isJsonPrimitive()) {
 
-			String dateRaw = json.getAsString();
+	    String dateRaw = json.getAsString();
 
-			Calendar c = Calendar.getInstance();
+	    Calendar c = Calendar.getInstance();
 
-			Date d = new Date();
+	    Date d = new Date();
 
-			try {			
-				
-				/**
-				 * 
-				 * attempt for DateFormat , Pattern Must be Equals {@link JacksonContextResolver #init()}
-				 * @return
-				 */
-				d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
-				
-			} catch (ParseException e) {
+	    try {
 
-				e.printStackTrace();
-			}
+		/**
+		 * attempt for DateFormat , Pattern Must be Equals
+		 * {@link JacksonContextResolver #init()}
+		 * 
+		 * @return
+		 */
+		d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
 
-			c.setTime(d);
+	    } catch (ParseException e) {
 
-			return c;
+		e.printStackTrace();
+	    }
 
-		}else
-			throw new JsonParseException("Cannot Parse Json Object");
+	    c.setTime(d);
 
-	}
+	    return c;
 
-	private int getInt(String name, JsonElement element) {
+	} else
+	    throw new JsonParseException("Cannot Parse Json Object");
 
-		return element.getAsJsonObject().get(name).getAsInt();
+    }
 
-	} 
+    private int getInt(String name, JsonElement element) {
+
+	return element.getAsJsonObject().get(name).getAsInt();
+
+    }
 
 }

@@ -11,23 +11,25 @@ import javax.inject.Named;
 @SessionScoped
 public class GeradorNumeros implements Serializable {
 
-	private static final long serialVersionUID = -7715175787426844091L;
+    private static final long serialVersionUID = -7715175787426844091L;
 
-	private double number = Math.random();
+    private double number = Math.random();
 
-	private double range = 1.0;
+    private double range = 1.0;
 
-	public double getRange() {
-		return (range);
-	}
-	public void setRange(double range) {
-		this.range = range;
-	}
+    public double getRange() {
+	return (range);
+    }
 
-	public double getNumber() {
-		return (number);
-	}
-	public void randomize() {
-		number = range * Math.random();
-	}
+    public void setRange(double range) {
+	this.range = range;
+    }
+
+    public double getNumber() {
+	return (number);
+    }
+
+    public void randomize() {
+	number = range * Math.random();
+    }
 }

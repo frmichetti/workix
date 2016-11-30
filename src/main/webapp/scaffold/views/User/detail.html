@@ -3,7 +3,6 @@
 	<h3 ng-switch-when="false">View or edit User</h3>
 </header>
 <form id="UserForm" name="UserForm" class="form-horizontal" role="form">
-
 	<div class="form-group"
 		ng-class="{'has-error': UserForm.email.$invalid}">
 		<label for="email" class="col-sm-2 control-label">Email</label>
@@ -12,17 +11,6 @@
 				class="form-control" ng-model="user.email"
 				placeholder="Enter the User Email"></input> <span
 				class="help-block error" ng-show="UserForm.email.$error.required">required</span>
-		</div>
-	</div>
-
-	<div class="form-group"
-		ng-class="{'has-error': UserForm.firebaseUUID.$invalid}">
-		<label for="firebaseUUID" class="col-sm-2 control-label">Firebase
-			UUID</label>
-		<div id="firebaseUUIDControls" class="col-sm-10">
-			<input id="firebaseUUID" name="firebaseUUID" type="text"
-				class="form-control" ng-model="user.firebaseUUID"
-				placeholder="Enter the User Firebase UUID"></input>
 		</div>
 	</div>
 
@@ -39,6 +27,18 @@
 	</div>
 
 	<div class="form-group"
+		ng-class="{'has-error': UserForm.firebaseUUID.$invalid}">
+		<label for="firebaseUUID" class="col-sm-2 control-label">Firebase
+			UUID</label>
+		<div id="firebaseUUIDControls" class="col-sm-10">
+			<input id="firebaseUUID" name="firebaseUUID" type="text"
+				class="form-control" ng-model="user.firebaseUUID"
+				placeholder="Enter the User Firebase UUID"></input>
+		</div>
+	</div>
+
+
+	<div class="form-group"
 		ng-class="{'has-error': UserForm.uniqueID.$invalid}">
 		<label for="uniqueID" class="col-sm-2 control-label">Unique ID</label>
 		<div id="uniqueIDControls" class="col-sm-10">
@@ -53,6 +53,41 @@
 		<div id="activeControls" class="col-sm-10">
 			<input id="active" name="active" type="checkbox" class="checkbox"
 				ng-model="user.active" placeholder="Enter the User Active"></input>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': UserForm.createdAt.$invalid}">
+		<label for="createdAt" class="col-sm-2 control-label">Created
+			At</label>
+		<div id="createdAtControls" class="col-sm-10">
+			<input id="createdAt" name="createdAt" type="text" required
+				class="form-control" ng-model="user.createdAt"
+				placeholder="Enter the User Created At"></input> <span
+				class="help-block error"
+				ng-show="UserForm.createdAt.$error.required">required</span>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': UserForm.updatedAt.$invalid}">
+		<label for="updatedAt" class="col-sm-2 control-label">Updated
+			At</label>
+		<div id="updatedAtControls" class="col-sm-10">
+			<input id="updatedAt" name="updatedAt" type="text"
+				class="form-control" ng-model="user.updatedAt"
+				placeholder="Enter the User Updated At"></input>
+		</div>
+	</div>
+
+	<div class="form-group"
+		ng-class="{'has-error': UserForm.uuid.$invalid}">
+		<label for="uuid" class="col-sm-2 control-label">Uuid</label>
+		<div id="uuidControls" class="col-sm-10">
+			<input id="uuid" name="uuid" type="text" required
+				class="form-control" ng-model="user.uuid"
+				placeholder="Enter the User Uuid"></input> <span
+				class="help-block error" ng-show="UserForm.uuid.$error.required">required</span>
 		</div>
 	</div>
 

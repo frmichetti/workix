@@ -19,119 +19,109 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.model.jpa.Company;
-import br.com.codecode.workix.model.jpa.User;
+import br.com.codecode.workix.jpa.models.Company;
+import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
-
 /**
  * Populate DB with Companies
- *  
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.0
  */
-public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Company> {	
+public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Company> {
 
-	private List<Company> companies ;
+    private List<Company> companies;
 
-	private String resp;
+    private String resp;
 
-	private List<User> users;
+    private List<User> users;
 
-	@Before
-	public void downloadUsers(){		
+    @Before
+    public void downloadUsers() {
 
-		System.out.println("[downloadUsers]");
+	System.out.println("[downloadUsers]");
 
-		users = new ArrayList<>();
+	users = new ArrayList<>();
 
-		resp = HttpTest.sendGet(server + "/users");						
+	resp = HttpTest.sendGet(server + "/users");
 
-		users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType());
+	users = getGson().fromJson(resp, new TypeToken<List<User>>() {
+	}.getType());
 
-		assertTrue(users.size() > 0);
+	assertTrue(users.size() > 0);
 
-	}
+    }
 
+    @Override
+    public void create() {
 
-	@Override
-	public void create() {	
+	assertNotNull(users);
 
-		assertNotNull(users);
+	assertTrue(users.size() > 0);
 
-		assertTrue(users.size() > 0);
+	users = users.subList((users.size() / 2), users.size());
 
-		users = users.subList((users.size()/2), users.size());
+	assertEquals(51L, users.get(0).getId());
 
-		assertEquals(51L,users.get(0).getId());
+	companies = new ArrayList<>();
 
-		companies = new ArrayList<>();
+	for (User u : users) {
 
-		for (User u : users) {						
+	    Company c = new Company();
 
-			Company c = new Company();		
+	    c.setUser(u);
 
-			c.setUser(u);
+	    c.setName("Company Mockup N# " + String.valueOf(u.getId()));
 
-			c.setName("Company Mockup N# " + String.valueOf(u.getId()));			
+	    c.setCnpj(Long.MAX_VALUE - u.getId());
 
-			c.setCnpj(Long.MAX_VALUE - u.getId());
+	    c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
 
-			c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
+	    System.out.println("[create] " + c.getName());
 
-			System.out.println("[create] " + c.getName());
-
-			addToList(c);
-
-
-		}
-
-
-
-		assertEquals(50,companies.size());
-
+	    addToList(c);
 
 	}
 
-	@Override
-	public void addToList(Company company){		
+	assertEquals(50, companies.size());
 
-		assertNotNull(company);
+    }
 
-		assertNotNull(companies);
+    @Override
+    public void addToList(Company company) {
 
-		System.out.println("[addToList] " + company.getName());
+	assertNotNull(company);
 
-		companies.add(company);		
+	assertNotNull(companies);
 
-	}
+	System.out.println("[addToList] " + company.getName());
 
-	@Test
-	@Override
-	public void sendToServer(){	
+	companies.add(company);
 
-		assertNotNull(users);				
+    }
 
-		create();
+    @Test
+    @Override
+    public void sendToServer() {
 
-		assertNotNull(companies);
+	assertNotNull(users);
 
-		companies.stream().forEach(c ->{			
+	create();
 
-			System.out.println("[sendToServer] " + c.getName());
+	assertNotNull(companies);
 
-			resp = HttpTest.sendPost(server + "/companies",
-					getGson().toJson(c));
+	companies.stream().forEach(c -> {
 
-			assertNotNull(resp);
-		});
+	    System.out.println("[sendToServer] " + c.getName());
 
+	    resp = HttpTest.sendPost(server + "/companies", getGson().toJson(c));
 
-	}
+	    assertNotNull(resp);
+	});
 
-
-
+    }
 
 }

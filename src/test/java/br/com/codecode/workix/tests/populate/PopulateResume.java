@@ -3,21 +3,22 @@ package br.com.codecode.workix.tests.populate;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.model.jpa.Candidate;
-import br.com.codecode.workix.model.jpa.Education;
-import br.com.codecode.workix.model.jpa.Experience;
-import br.com.codecode.workix.model.jpa.Resume;
-import br.com.codecode.workix.model.jpa.Skill;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Education;
+import br.com.codecode.workix.jpa.models.Experience;
+import br.com.codecode.workix.jpa.models.Resume;
+import br.com.codecode.workix.jpa.models.Skill;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
+
 /**
  * Populate DB with Resumes
  * 
@@ -25,97 +26,95 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version 1.0
  */
-public class PopulateResume extends BaseTest implements CommonPopTest<Resume>{
+public class PopulateResume extends BaseTest implements CommonPopTest<Resume> {
 
-	private String resp;
+    private String resp;
 
-	private List<Candidate> candidates;
+    private List<Candidate> candidates;
 
-	private List<Resume> res; 
-	
-	private void downloadCandidate(){
+    private List<Resume> res;
 
-		resp = HttpTest.sendGet(server + "/candidates");	
+    private void downloadCandidate() {
 
-		candidates = getGson().fromJson(resp, 
-				new TypeToken<List<Candidate>>(){}.getType());
+	resp = HttpTest.sendGet(server + "/candidates");
 
-		assertTrue(candidates.size() > 0);
+	candidates = getGson().fromJson(resp, new TypeToken<List<Candidate>>() {
+	}.getType());
 
-	}
+	assertTrue(candidates.size() > 0);
 
-	@Override
-	public void create(){
-		
-		downloadCandidate();
+    }
 
-		assertNotNull(candidates);
+    @Override
+    public void create() {
 
-		res = new ArrayList<>();
+	downloadCandidate();
 
-		for (Candidate c : candidates) {
+	assertNotNull(candidates);
 
-			Resume r = new Resume();
+	res = new ArrayList<>();
 
-			r.setContent("Content of " + c.getName());
+	for (Candidate c : candidates) {
 
-			r.setObjective("Objective of " + c.getName());
+	    Resume r = new Resume();
 
-			r.setCandidate(c);
+	    r.setContent("Content of " + c.getName());
 
-			r.addExperience(new Experience.Builder("Employer 1","Title 1",Calendar.getInstance(),Calendar.getInstance()).build());
+	    r.setObjective("Objective of " + c.getName());
 
-			r.addExperience(new Experience.Builder("Employeer 2", "Title 2", Calendar.getInstance(), Calendar.getInstance()).build());
-			
-			r.addEducation(new Education.Builder("School 1", Calendar.getInstance(), Calendar.getInstance(), "Qualification","Description").build());
+	    r.setCandidate(c);
 
-			r.addEducation(new Education.Builder("School 2", Calendar.getInstance(), Calendar.getInstance(), "Qualification 2","Description").build());
-			
-			r.addSkill(new Skill.Builder("Skill 1").build());
+	    r.addExperience(new Experience.Builder("Employer 1", "Title 1", LocalDate.now(), LocalDate.now()).build());
 
-			r.addSkill(new Skill.Builder("Skill 2").build());
+	    r.addExperience(new Experience.Builder("Employeer 2", "Title 2", LocalDate.now(), LocalDate.now()).build());
 
-			addToList(r);
+	    r.addEducation(
+		    new Education.Builder("School 1", LocalDate.now(), LocalDate.now(), "Qualification", "Description")
+			    .build());
 
-		}	
+	    r.addEducation(new Education.Builder("School 2", LocalDate.now(), LocalDate.now(), "Qualification 2",
+		    "Description").build());
 
+	    r.addSkill(new Skill.Builder("Skill 1").build());
 
-	}
+	    r.addSkill(new Skill.Builder("Skill 2").build());
 
-	@Override
-	public void addToList(Resume resume) {
-
-		assertNotNull(candidates);
-
-		assertNotNull(resume);
-
-		System.out.println("[addToList]" + resume.getContent());
-
-		res.add(resume);
+	    addToList(r);
 
 	}
 
-	@Test	
-	@Override
-	public void sendToServer() {	
-		
-		create();
+    }
 
-		assertNotNull(res);		
+    @Override
+    public void addToList(Resume resume) {
 
-		res.forEach(r -> {
+	assertNotNull(candidates);
 
-			System.out.println("[sendToServer] " + r.getContent());
+	assertNotNull(resume);
 
-			resp = HttpTest.sendPost(server + "/resumes",
-					getGson().toJson(r));
+	System.out.println("[addToList]" + resume.getContent());
 
-			assertNotNull(resp);
-		});
+	res.add(resume);
 
+    }
 
+    @Test
+    @Override
+    public void sendToServer() {
 
+	create();
 
-	}
+	assertNotNull(res);
+
+	res.forEach(r -> {
+
+	    System.out.println("[sendToServer] " + r.getContent());
+
+	    resp = HttpTest.sendPost(server + "/resumes", getGson().toJson(r));
+
+	    assertNotNull(resp);
+	});
+
+    }
 
 }

@@ -13,65 +13,63 @@ import javax.inject.Named;
 @RequestScoped
 public class Login {
 
-	@Inject
-	private FacesContext facesContext;
+    @Inject
+    private FacesContext facesContext;
 
-	private String usuario, senha, mensagem;
+    private String usuario, senha, mensagem;
 
-	public String getSenha() {
-		return senha;
-	}
+    public String getSenha() {
+	return senha;
+    }
 
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
+    public void setSenha(String senha) {
+	this.senha = senha;
+    }
 
-	public String getUsuario() {
-		return usuario;
-	}
+    public String getUsuario() {
+	return usuario;
+    }
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
+    public void setUsuario(String usuario) {
+	this.usuario = usuario;
+    }
 
-	public String getMensagem() {
-		return mensagem;
-	}
+    public String getMensagem() {
+	return mensagem;
+    }
 
-	public void setMensagem(String mensagem) {
-		this.mensagem = mensagem;
-	}
+    public void setMensagem(String mensagem) {
+	this.mensagem = mensagem;
+    }
 
-	//faça o login da forma que achar melhor!
-	public void logar(){
-		String page;
-		if(usuario != null && senha != null){
-			if(usuario.equals("lala") && senha.equals("lolo"))
-			{
-				mensagem = "Bem Vindo ao Sistema "+usuario+" você está logado!";
+    // faça o login da forma que achar melhor!
+    public void logar() {
+	String page;
+	if (usuario != null && senha != null) {
+	    if (usuario.equals("lala") && senha.equals("lolo")) {
+		mensagem = "Bem Vindo ao Sistema " + usuario + " você está logado!";
 
-				page = "/workix/index.xhtml?faces-redirect=true";
+		page = "/workix/index.xhtml?faces-redirect=true";
 
-				try {
-					facesContext.getExternalContext().redirect(page);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-			}
-		}
-		else{
-			mensagem = "Usuário ou senha Inválidos!";
-			page = "/error/";
-			try {
-				facesContext.getExternalContext().redirect(page);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+		    facesContext.getExternalContext().redirect(page);
+		} catch (IOException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
 		}
 
+	    }
+	} else {
+	    mensagem = "Usuário ou senha Inválidos!";
+	    page = "/error/";
+	    try {
+		facesContext.getExternalContext().redirect(page);
+	    } catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	    }
 	}
+
+    }
 
 }

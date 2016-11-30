@@ -16,7 +16,7 @@ angular.module('workix').controller('EditJobController', function($scope, $route
                     };
                     var labelObject = {
                         value : item.id,
-                        text : item.id
+                        text : item.cnpj
                     };
                     if($scope.job.employeer && item.id == $scope.job.employeer.id) {
                         $scope.employeerSelection = labelObject;
@@ -72,13 +72,6 @@ angular.module('workix').controller('EditJobController', function($scope, $route
         $scope.job.$remove(successCallback, errorCallback);
     };
     
-    $scope.typeList = [
-        "FULLTIME",  
-        "PARTTIME",  
-        "FREELANCE",  
-        "TEMPORARY",  
-        "INTERNSHIP"  
-    ];
     $scope.categoryList = [
         "MANAGEMENT",  
         "OPERATOR"  
@@ -89,6 +82,13 @@ angular.module('workix').controller('EditJobController', function($scope, $route
             $scope.job.employeer.id = selection.value;
         }
     });
+    $scope.typeList = [
+        "FULLTIME",  
+        "PARTTIME",  
+        "FREELANCE",  
+        "TEMPORARY",  
+        "INTERNSHIP"  
+    ];
     $scope.activeList = [
         "true",
         "false"

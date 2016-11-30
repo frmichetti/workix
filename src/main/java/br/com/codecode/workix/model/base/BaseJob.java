@@ -3,63 +3,243 @@ package br.com.codecode.workix.model.base;
 import java.math.BigDecimal;
 import java.util.Calendar;
 
-import br.com.codecode.workix.model.enums.JobCategory;
-import br.com.codecode.workix.model.enums.JobType;
+import br.com.codecode.workix.jpa.enums.JobCategory;
+import br.com.codecode.workix.jpa.enums.JobType;
+import br.com.codecode.workix.model.actions.CompanyActions;
 
 /**
- * Markup Interface for Job Implementation
+ * Root Abstract Class Job<br>
+ * Use for Field Mapping/Share Only
+ * <ul>
+ * <li>{@link #title}</li>
+ * <li>{@link #minPayment}</li>
+ * <li>{@link #maxPayment}</li>
+ * <li>{@link #description}</li>
+ * <li>{@link #requirement}</li>
+ * <li>{@link #benefits}</li>
+ * <li>{@link #start}</li>
+ * <li>{@link #expire}</li>
+ * <li>{@link #type}</li>
+ * <li>{@link #category}</li>
+ * <li>{@link #active}</li>
+ * <li>{@link #employeer}</li>
+ * </ul>
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see BaseEntity
  */
-public interface BaseJob extends BaseEntity{
+public abstract class BaseJob extends BaseEntity {
 
-	String getTitle();
+    private String title;
 
-	void setTitle(String title);
+    private BigDecimal minPayment;
 
-	BigDecimal getMinPayment();
+    private BigDecimal maxPayment;
 
-	void setMinPayment(BigDecimal minPayment);
+    private String description;
 
-	BigDecimal getMaxPayment();
+    private String requirement;
 
-	void setMaxPayment(BigDecimal maxPayment);
+    private String benefits;
 
-	String getDescription();
+    private Calendar start;
 
-	void setDescription(String resume);
+    private Calendar expire;
 
-	String getRequirement();
+    private JobType type;
 
-	void setRequirement(String requirement);
+    private JobCategory category;
 
-	String getBenefits();
+    private boolean active;
 
-	void setBenefits(String benefits);
+    private CompanyActions employeer;
 
-	Calendar getStart();
+    /**
+     * Public Empty Default Constructor
+     */
+    public BaseJob() {
+    }
 
-	void setStart(Calendar start);
+    /**
+     * @return the title
+     */
+    public String getTitle() {
+	return title;
+    }
 
-	Calendar getExpire();
+    /**
+     * @param title
+     *            the title to set
+     */
+    public void setTitle(String title) {
+	this.title = title;
+    }
 
-	void setExpire(Calendar expire);
+    /**
+     * @return the minPayment
+     */
+    public BigDecimal getMinPayment() {
+	return minPayment;
+    }
 
-	JobType getType();
+    /**
+     * @param minPayment
+     *            the minPayment to set
+     */
+    public void setMinPayment(BigDecimal minPayment) {
+	this.minPayment = minPayment;
+    }
 
-	void setType(JobType type);
+    /**
+     * @return the maxPayment
+     */
+    public BigDecimal getMaxPayment() {
+	return maxPayment;
+    }
 
-	JobCategory getCategory();
+    /**
+     * @param maxPayment
+     *            the maxPayment to set
+     */
+    public void setMaxPayment(BigDecimal maxPayment) {
+	this.maxPayment = maxPayment;
+    }
 
-	void setCategory(JobCategory category);
+    /**
+     * @return the description
+     */
+    public String getDescription() {
+	return description;
+    }
 
-	boolean isActive();
+    /**
+     * @param description
+     *            the description to set
+     */
+    public void setDescription(String description) {
+	this.description = description;
+    }
 
-	void setActive(boolean active);
+    /**
+     * @return the requirement
+     */
+    public String getRequirement() {
+	return requirement;
+    }
 
-	BaseCompany getEmployeer();
+    /**
+     * @param requirement
+     *            the requirement to set
+     */
+    public void setRequirement(String requirement) {
+	this.requirement = requirement;
+    }
 
-	void setEmployeer(BaseCompany employeer);
+    /**
+     * @return the benefits
+     */
+    public String getBenefits() {
+	return benefits;
+    }
+
+    /**
+     * @param benefits
+     *            the benefits to set
+     */
+    public void setBenefits(String benefits) {
+	this.benefits = benefits;
+    }
+
+    /**
+     * @return the start
+     */
+    public Calendar getStart() {
+	return start;
+    }
+
+    /**
+     * @param start
+     *            the start to set
+     */
+    public void setStart(Calendar start) {
+	this.start = start;
+    }
+
+    /**
+     * @return the expire
+     */
+    public Calendar getExpire() {
+	return expire;
+    }
+
+    /**
+     * @param expire
+     *            the expire to set
+     */
+    public void setExpire(Calendar expire) {
+	this.expire = expire;
+    }
+
+    /**
+     * @return the type
+     */
+    public JobType getType() {
+	return type;
+    }
+
+    /**
+     * @param type
+     *            the type to set
+     */
+    public void setType(JobType type) {
+	this.type = type;
+    }
+
+    /**
+     * @return the category
+     */
+    public JobCategory getCategory() {
+	return category;
+    }
+
+    /**
+     * @param category
+     *            the category to set
+     */
+    public void setCategory(JobCategory category) {
+	this.category = category;
+    }
+
+    /**
+     * @return the active
+     */
+    public boolean isActive() {
+	return active;
+    }
+
+    /**
+     * @param active
+     *            the active to set
+     */
+    public void setActive(boolean active) {
+	this.active = active;
+    }
+
+    /**
+     * @return the employeer
+     */
+    public CompanyActions getEmployeer() {
+	return employeer;
+    }
+
+    /**
+     * @param employeer
+     *            the employeer to set
+     */
+    public void setEmployeer(CompanyActions employeer) {
+	this.employeer = employeer;
+    }
 
 }

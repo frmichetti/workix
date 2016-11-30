@@ -48,6 +48,9 @@
 								ng-class="{active: matchesRoute('SelectiveProcesses')}"
 								href="#/SelectiveProcesses" data-toggle="offcanvas">SelectiveProcesses</a>
 							<a class="list-group-item"
+								ng-class="{active: matchesRoute('Subscribers')}"
+								href="#/Subscribers" data-toggle="offcanvas">Subscribers</a> <a
+								class="list-group-item"
 								ng-class="{active: matchesRoute('Users')}" href="#/Users"
 								data-toggle="offcanvas">Users</a>
 						</div>
@@ -119,6 +122,10 @@
 	<script src="scripts/controllers/newSelectiveProcessController.js"></script>
 	<script src="scripts/controllers/searchSelectiveProcessController.js"></script>
 	<script src="scripts/controllers/editSelectiveProcessController.js"></script>
+	<script src="scripts/services/SubscriberFactory.js"></script>
+	<script src="scripts/controllers/newSubscriberController.js"></script>
+	<script src="scripts/controllers/searchSubscriberController.js"></script>
+	<script src="scripts/controllers/editSubscriberController.js"></script>
 	<script src="scripts/services/UserFactory.js"></script>
 	<script src="scripts/controllers/newUserController.js"></script>
 	<script src="scripts/controllers/searchUserController.js"></script>

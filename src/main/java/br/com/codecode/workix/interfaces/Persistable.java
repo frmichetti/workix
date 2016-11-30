@@ -11,17 +11,17 @@ import br.com.codecode.workix.jsf.util.converter.SimpleEntityConverter;
 
 /**
  * Markup Interface for Persistable Entities <br>
- * Implements this for works with <br> {@link SimpleEntityConverter}
- * and {@link AnotherEntityConverter} in JSF
+ * Implements this for works with <br>
+ * {@link SimpleEntityConverter} and {@link AnotherEntityConverter} in JSF
  * 
  * @author Felipe Rodrigues Michetti
  * @since 1.0
  * @version 1.0
  */
-public interface Persistable {  
+public interface Persistable {
 
-	long getId();	
-	
-	void setId(long id);
+    long getId();
 
-}  
+    void setId(long id);
+
+}

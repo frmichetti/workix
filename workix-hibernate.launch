@@ -8,11 +8,10 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="workix"/>
 <stringAttribute key="org.hibernate.eclipse.launch.CFG_XML_FILE" value="/workix/src/main/resources/META-INF/hibernate.cfg.xml"/>
-<stringAttribute key="org.hibernate.eclipse.launch.CONFIGURATION_FACTORY" value="CORE"/>
-<stringAttribute key="org.hibernate.eclipse.launch.CONNECTION_PROFILE_NAME" value="Development"/>
+<stringAttribute key="org.hibernate.eclipse.launch.CONFIGURATION_FACTORY" value="JPA"/>
+<stringAttribute key="org.hibernate.eclipse.launch.CONNECTION_PROFILE_NAME" value="DefaultDS"/>
 <listAttribute key="org.hibernate.eclipse.launch.FILE_MAPPINGS"/>
 <stringAttribute key="org.hibernate.eclipse.launch.HIBERNATE_VERSION" value="5.2"/>
-<stringAttribute key="org.hibernate.eclipse.launch.PERSISTENCE_UNIT_NAME" value="DevDS"/>
-<stringAttribute key="org.hibernate.eclipse.launch.PROPERTY_FILE" value="/workix/src/main/resources/META-INF/hibernate.properties"/>
+<stringAttribute key="org.hibernate.eclipse.launch.PERSISTENCE_UNIT_NAME" value="MySQLDS"/>
 <stringAttribute key="org.hibernate.eclipse.launchDIALECT" value="org.hibernate.dialect.MySQL5Dialect"/>
 </launchConfiguration>

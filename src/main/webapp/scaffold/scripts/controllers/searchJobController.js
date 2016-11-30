@@ -17,6 +17,11 @@ angular.module('workix').controller('SearchJobController', function($scope, $htt
         }
         return max;
     };
+    $scope.categoryList = [
+        "MANAGEMENT",
+        "OPERATOR"
+    ];
+    $scope.employeerList = CompanyResource.queryAll();
     $scope.typeList = [
         "FULLTIME",
         "PARTTIME",
@@ -24,11 +29,6 @@ angular.module('workix').controller('SearchJobController', function($scope, $htt
         "TEMPORARY",
         "INTERNSHIP"
     ];
-    $scope.categoryList = [
-        "MANAGEMENT",
-        "OPERATOR"
-    ];
-    $scope.employeerList = CompanyResource.queryAll();
     $scope.activeList = [
         "true",
         "false"

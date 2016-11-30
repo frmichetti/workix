@@ -11,38 +11,37 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.notify.Notification;
-import br.com.codecode.workix.cdi.qualifier.Email;
-import br.com.codecode.workix.infra.MailSender;
+import br.com.codecode.workix.cdi.qualifiers.Email;
 import br.com.codecode.workix.interfaces.Debugable;
 import br.com.codecode.workix.interfaces.Notificable;
+import br.com.codecode.workix.mail.MailSender;
 
 /**
  * Email Message Implementation
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.1
  * @see Debugable
  */
 @Email
-public class MailMessage implements Notification, Debugable {	
+public class MailMessage implements Notification, Debugable {
 
-	private final String FROM = "frmichetti@gmail.com";
-	
-	@Inject
-	private MailSender mailSender;
+    private final String FROM = "frmichetti@gmail.com";
 
-	@PostConstruct
-	private void init(){
-		Debugable.super.onStart();
-	}		
-	
-	@Override
-	public void doSendMessage(Notificable to, String title, String body) {
+    @Inject
+    private MailSender mailSender;
 
-		mailSender.send(FROM,to.getEmail(), title, body);
+    @PostConstruct
+    private void init() {
+	Debugable.super.onStart();
+    }
 
-	}
+    @Override
+    public void doSendMessage(Notificable to, String title, String body) {
 
+	mailSender.send(FROM, to.getEmail(), title, body);
 
+    }
 
 }

@@ -8,7 +8,7 @@ angular.module('workix').controller('NewCompanyController', function ($scope, $l
         $scope.userSelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
-                text : item.id
+                text : item.email
             });
         });
     });

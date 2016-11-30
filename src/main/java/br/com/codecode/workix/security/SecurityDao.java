@@ -9,27 +9,30 @@ package br.com.codecode.workix.security;
 
 import javax.ejb.Stateless;
 
-import br.com.codecode.workix.cdi.dao.implementation.persist.BaseDao;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import br.com.codecode.workix.cdi.dao.implementations.persist.BaseDao;
+import br.com.codecode.workix.security.model.JAASUser;
 
 /**
- * Stand Alone DAO for JAASUser 
+ * Stand Alone DAO for JAASUser
+ * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 @Stateless
 public class SecurityDao extends BaseDao {
 
-	private static final long serialVersionUID = -3575890815048830157L;
-	
-	public JAASUser loadUserByUsername(String userName) {
-		
-		String jpql = "select u from JAASUser u where u.login = :login";
-		
-		JAASUser user = em.createQuery(jpql,JAASUser.class).
-				setParameter("login",userName).getSingleResult() ;
-		
-		return user;
-	}
+    private static final long serialVersionUID = -3575890815048830157L;
+
+    public JAASUser loadUserByUsername(@NotEmpty String userName) {
+
+	String jpql = "select u from JAASUser u where u.login = :login";
+
+	JAASUser user = em.createQuery(jpql, JAASUser.class).setParameter("login", userName).getSingleResult();
+
+	return user;
+    }
 
 }

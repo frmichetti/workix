@@ -20,63 +20,66 @@ import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
 import br.com.codecode.workix.cdi.notify.Notification;
-import br.com.codecode.workix.cdi.qualifier.Email;
-import br.com.codecode.workix.cdi.qualifier.Factory;
-import br.com.codecode.workix.cdi.qualifier.Push;
-import br.com.codecode.workix.model.jpa.Job;
+import br.com.codecode.workix.cdi.qualifiers.Email;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Push;
+import br.com.codecode.workix.jpa.models.Job;
 
 /**
- * This Class is a {@link MessageDrivenBean} for {@link Job}
- * Execute Actions {@link #onMessage(Message)}
+ * This Class is a {@link MessageDrivenBean} for {@link Job} Execute Actions
+ * {@link #onMessage(Message)}
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.1
  */
-@MessageDriven(activationConfig={
-		@ActivationConfigProperty(propertyName="destinationLookup",
-				propertyValue="java:/jms/topics/jobsTopic")})
-public final class JobListener implements MessageListener{	
+@MessageDriven(activationConfig = {
+	@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:/jms/topics/jobsTopic") })
+public final class JobListener implements MessageListener {
 
-	@Inject @Factory
-	private ManagedExecutorService managedExecutorService;
+    @Inject
+    @Factory
+    private ManagedExecutorService managedExecutorService;
 
-	@Inject @Email
-	private Notification sendMail;
+    @Inject
+    @Email
+    private Notification sendMail;
 
-	@Inject @Push
-	private Notification sendPush;
+    @Inject
+    @Push
+    private Notification sendPush;
 
-	public JobListener(){}
+    public JobListener() {
+    }
 
-	@Override	
-	public void onMessage(Message message) {
+    @Override
+    public void onMessage(Message message) {
 
-		System.out.println("[MDB - onMessage]");
+	System.out.println("[MDB - onMessage]");
 
-		TextMessage text = (TextMessage) message;		
+	TextMessage text = (TextMessage) message;
 
-		System.out.println("Received Message -> " + text);
-		
+	System.out.println("Received Message -> " + text);
 
-		try {
+	try {
 
-			String uuid = text.getText();
+	    String uuid = text.getText();
 
-			managedExecutorService.submit(() ->{
+	    managedExecutorService.submit(() -> {
 
-				System.out.println("TODO SEND A MAIL TO USER " + Instant.now());
-				
-				System.out.println("UUID " + uuid);
+		System.out.println("TODO SEND A MAIL TO USER " + Instant.now());
 
-			});
+		System.out.println("UUID " + uuid);
 
-		} catch (JMSException e) {
+	    });
 
-			System.err.println("---Error on Read Message---");
+	} catch (JMSException e) {
 
-			e.printStackTrace();
+	    System.err.println("---Error on Read Message---");
 
-		}
+	    e.printStackTrace();
+
 	}
+    }
 
 }

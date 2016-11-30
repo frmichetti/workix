@@ -23,52 +23,49 @@ import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
  * Do Login With Firebase Server with JsonP
+ * 
  * @author felipe
- * @since 1.0 
+ * @since 1.0
  * @version 1.1
  */
-public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTest{
+public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTest {
 
-	private String url = server + "/login/firebaselogin";
+    private String url = server + "/login/firebaselogin";
 
-	private String json;	
+    private String json;
 
-	@Test
-	@Override
-	public void doLoginWithFirebase() {
+    @Test
+    @Override
+    public void doLoginWithFirebase() {
 
-		System.out.println("[doLoginWithFirebase]");
+	System.out.println("[doLoginWithFirebase]");
 
-		Token t = new Token();
+	Token t = Token.builder().withKey("XXXXXXXXX").build();
 
-		t.setKey("XXXXXXXXX");
+	JsonObject jsonObject = Json.createObjectBuilder().add("createdAt", t.getCreatedAt().getSecond())
+		.add("key", t.getKey()).build();
 
-		JsonObject jsonObject = Json.createObjectBuilder()
-				.add("createdAt", t.getCreatedAt().getTime())
-				.add("key",t.getKey())
-				.build();
+	json = HttpTest.sendPost(url, jsonObject.toString());
 
-		json = HttpTest.sendPost(url,jsonObject.toString());		
+	assertNotNull(json);
 
-		assertNotNull(json);
+    }
 
-	}
+    @Test
+    @Override
+    public void parseJson() {
 
-	@Test
-	@Override
-	public void parseJson() {
+	doLoginWithFirebase();
 
-		doLoginWithFirebase();
+	System.out.println("[parseJson]");
 
-		System.out.println("[parseJson]");
+	JsonReader jr = Json.createReader(new StringReader(json));
 
-		JsonReader jr = Json.createReader(new StringReader(json));		 
+	JsonObject jo = jr.readObject();
 
-		JsonObject jo = jr.readObject();
+	assertNotNull(jo);
 
-		assertNotNull(jo);
-		
-		jr.close();
-	}
+	jr.close();
+    }
 
 }

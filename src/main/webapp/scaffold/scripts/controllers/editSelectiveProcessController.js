@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('EditSelectiveProcessController', function($scope, $routeParams, $location, flash, SelectiveProcessResource , JobResource, CandidateResource) {
+angular.module('workix').controller('EditSelectiveProcessController', function($scope, $routeParams, $location, flash, SelectiveProcessResource , CandidateResource, JobResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -9,23 +9,6 @@ angular.module('workix').controller('EditSelectiveProcessController', function($
         var successCallback = function(data){
             self.original = data;
             $scope.selectiveProcess = new SelectiveProcessResource(self.original);
-            JobResource.queryAll(function(items) {
-                $scope.jobSelectionList = $.map(items, function(item) {
-                    var wrappedObject = {
-                        id : item.id
-                    };
-                    var labelObject = {
-                        value : item.id,
-                        text : item.id
-                    };
-                    if($scope.selectiveProcess.job && item.id == $scope.selectiveProcess.job.id) {
-                        $scope.jobSelection = labelObject;
-                        $scope.selectiveProcess.job = wrappedObject;
-                        self.original.job = $scope.selectiveProcess.job;
-                    }
-                    return labelObject;
-                });
-            });
             CandidateResource.queryAll(function(items) {
                 $scope.candidatesSelectionList = $.map(items, function(item) {
                     var wrappedObject = {
@@ -33,7 +16,7 @@ angular.module('workix').controller('EditSelectiveProcessController', function($
                     };
                     var labelObject = {
                         value : item.id,
-                        text : item.id
+                        text : item.birthDate
                     };
                     if($scope.selectiveProcess.candidates){
                         $.each($scope.selectiveProcess.candidates, function(idx, element) {
@@ -43,6 +26,23 @@ angular.module('workix').controller('EditSelectiveProcessController', function($
                             }
                         });
                         self.original.candidates = $scope.selectiveProcess.candidates;
+                    }
+                    return labelObject;
+                });
+            });
+            JobResource.queryAll(function(items) {
+                $scope.jobSelectionList = $.map(items, function(item) {
+                    var wrappedObject = {
+                        id : item.id
+                    };
+                    var labelObject = {
+                        value : item.id,
+                        text : item.benefits
+                    };
+                    if($scope.selectiveProcess.job && item.id == $scope.selectiveProcess.job.id) {
+                        $scope.jobSelection = labelObject;
+                        $scope.selectiveProcess.job = wrappedObject;
+                        self.original.job = $scope.selectiveProcess.job;
                     }
                     return labelObject;
                 });
@@ -93,12 +93,6 @@ angular.module('workix').controller('EditSelectiveProcessController', function($
         $scope.selectiveProcess.$remove(successCallback, errorCallback);
     };
     
-    $scope.$watch("jobSelection", function(selection) {
-        if (typeof selection != 'undefined') {
-            $scope.selectiveProcess.job = {};
-            $scope.selectiveProcess.job.id = selection.value;
-        }
-    });
     $scope.candidatesSelection = $scope.candidatesSelection || [];
     $scope.$watch("candidatesSelection", function(selection) {
         if (typeof selection != 'undefined' && $scope.selectiveProcess) {
@@ -108,6 +102,12 @@ angular.module('workix').controller('EditSelectiveProcessController', function($
                 collectionItem.id = selectedItem.value;
                 $scope.selectiveProcess.candidates.push(collectionItem);
             });
+        }
+    });
+    $scope.$watch("jobSelection", function(selection) {
+        if (typeof selection != 'undefined') {
+            $scope.selectiveProcess.job = {};
+            $scope.selectiveProcess.job.id = selection.value;
         }
     });
     
