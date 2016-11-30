@@ -5,7 +5,6 @@ package br.com.codecode.workix.model.actions;
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
-public abstract interface EntityActions {
-}
+abstract interface EntityActions{}

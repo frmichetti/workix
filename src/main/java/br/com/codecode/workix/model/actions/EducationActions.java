@@ -1,34 +1,34 @@
 package br.com.codecode.workix.model.actions;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 /**
  * Markup Interface for Education Implementation
  * 
  * @author felipe
  * @since 1.0
- * @version 1.0
+ * @version 1.1
  */
 public interface EducationActions {
 
-    String getSchoolName();
+    String getDescription();
 
-    void setSchoolName(String schoolName);
-
-    Calendar getStartDate();
-
-    void setStartDate(Calendar startDate);
-
-    Calendar getEndDate();
-
-    void setEndDate(Calendar endDate);
+    LocalDate getEndDate();
 
     String getQualification();
 
-    void setQualification(String qualification);
+    String getSchoolName();
 
-    String getDescription();
+    LocalDate getStartDate();
 
     void setDescription(String description);
+
+    void setEndDate(LocalDate endDate);
+
+    void setQualification(String qualification);
+
+    void setSchoolName(String schoolName);
+
+    void setStartDate(LocalDate startDate);
 
 }

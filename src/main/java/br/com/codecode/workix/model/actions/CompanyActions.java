@@ -11,9 +11,9 @@ public interface CompanyActions extends PersonActions {
 
     long getCnpj();
 
-    void setCnpj(long cnpj);
-
     String getSegment();
+
+    void setCnpj(long cnpj);
 
     void setSegment(String companySegment);
 }

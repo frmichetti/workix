@@ -9,20 +9,20 @@ package br.com.codecode.workix.model.actions;
  */
 public abstract interface PersonActions extends EntityActions {
 
-    String getName();
-
-    void setName(String name);
-
     ContactActions getContact();
-
-    void setContact(ContactActions contact);
-
-    UserActions getUser();
-
-    void setUser(UserActions user);
 
     LocaleActions getLocale();
 
+    String getName();
+
+    UserActions getUser();
+
+    void setContact(ContactActions contact);
+
     void setLocale(LocaleActions locale);
+
+    void setName(String name);
+
+    void setUser(UserActions user);
 
 }

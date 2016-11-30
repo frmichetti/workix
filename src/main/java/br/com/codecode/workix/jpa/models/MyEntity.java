@@ -18,7 +18,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
-import br.com.codecode.workix.model.actions.EntityActions;
 
 /**
  * MyEntity JPA with Inherited Fields and Methods <br>
@@ -38,7 +37,6 @@ import br.com.codecode.workix.model.actions.EntityActions;
  * @author felipe
  * @since 1.0
  * @version 1.1
- * @see EntityActions
  * @see Traceable
  * @see Persistable
  * @see Serializable
@@ -46,7 +44,7 @@ import br.com.codecode.workix.model.actions.EntityActions;
 @MappedSuperclass
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-abstract class MyEntity implements EntityActions, Traceable, Persistable, Serializable {
+abstract class MyEntity implements Traceable, Persistable, Serializable {
 
     private final static long serialVersionUID = -5791260209364116790L;
 

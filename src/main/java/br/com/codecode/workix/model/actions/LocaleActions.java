@@ -11,28 +11,28 @@ import br.com.codecode.workix.jpa.enums.Estate;
  */
 public interface LocaleActions {
 
-    long getZipCode();
-
-    void setZipCode(long zipCode);
-
     String getCity();
-
-    void setCity(String city);
-
-    String getNeighborhood();
-
-    void setNeighborhood(String neighborhood);
-
-    String getStreet();
-
-    void setStreet(String street);
-
-    String getNumber();
-
-    void setNumber(String number);
 
     Estate getEstate();
 
+    String getNeighborhood();
+
+    String getNumber();
+
+    String getStreet();
+
+    long getZipCode();
+
+    void setCity(String city);
+
     void setEstate(Estate estate);
+
+    void setNeighborhood(String neighborhood);
+
+    void setNumber(String number);
+
+    void setStreet(String street);
+
+    void setZipCode(long zipCode);
 
 }

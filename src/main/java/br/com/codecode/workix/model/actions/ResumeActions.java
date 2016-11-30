@@ -11,40 +11,40 @@ import java.util.Set;
  */
 public interface ResumeActions extends EntityActions {
 
-    CandidateActions getCandidate();
-
-    void setCandidate(CandidateActions candidate);
-
-    String getObjective();
-
-    void setObjective(String objective);
-
-    String getContent();
-
-    void setContent(String content);
-
-    Set<ExperienceActions> getExperiences();
-
-    void setExperiences(Set<ExperienceActions> experiences);
+    void addEducation(EducationActions education);
 
     void addExperience(ExperienceActions experience);
 
-    void removeExperience(ExperienceActions experience);
+    void addSkill(SkillActions skill);
+
+    CandidateActions getCandidate();
+
+    String getContent();
 
     Set<EducationActions> getEducations();
 
-    void setEducations(Set<EducationActions> educations);
+    Set<ExperienceActions> getExperiences();
 
-    void addEducation(EducationActions education);
-
-    void removeEducation(EducationActions education);
+    String getObjective();
 
     Set<SkillActions> getSkills();
 
-    void setSkills(Set<SkillActions> skills);
+    void removeEducation(EducationActions education);
 
-    void addSkill(SkillActions skill);
+    void removeExperience(ExperienceActions experience);
 
     void removeSkill(SkillActions skill);
+
+    void setCandidate(CandidateActions candidate);
+
+    void setContent(String content);
+
+    void setEducations(Set<EducationActions> educations);
+
+    void setExperiences(Set<ExperienceActions> experiences);
+
+    void setObjective(String objective);
+
+    void setSkills(Set<SkillActions> skills);
 
 }
