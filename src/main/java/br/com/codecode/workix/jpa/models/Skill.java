@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.model.actions.SkillActions;
 import br.com.codecode.workix.model.base.BaseSkill;
@@ -24,6 +25,7 @@ import br.com.codecode.workix.model.base.BaseSkill;
 @Embeddable
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Skill implements Serializable {
 
     /**

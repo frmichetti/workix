@@ -11,6 +11,7 @@ import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.enums.Estate;
 import br.com.codecode.workix.jpa.enums.JobCategory;
@@ -36,7 +37,7 @@ public class PostAJobMB extends BaseMB {
     @Generic
     private Crud<Company> companyDao;
 
-    @Inject
+    @Inject @Persist
     private Job job;
 
     private DataModel<Estate> estates;

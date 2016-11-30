@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.jpa.enums.Estate;
 import br.com.codecode.workix.model.actions.LocaleActions;
@@ -27,6 +28,7 @@ import br.com.codecode.workix.model.base.BaseLocale;
 @Embeddable
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Locale implements Serializable {
 
     /**

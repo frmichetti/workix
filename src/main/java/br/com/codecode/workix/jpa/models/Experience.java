@@ -11,6 +11,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.jaxrs.converter.LocalDateAdapter;
 import br.com.codecode.workix.model.actions.ExperienceActions;
@@ -28,6 +29,7 @@ import br.com.codecode.workix.model.base.BaseExperience;
 @Embeddable
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Experience implements Serializable {
 
     /**

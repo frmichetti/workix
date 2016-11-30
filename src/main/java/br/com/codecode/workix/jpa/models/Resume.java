@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
+
 /**
  * Resume JPA with Inherited Fields and Methods
  * 
@@ -31,6 +33,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Resume extends MyEntity {
 
     private static final long serialVersionUID = 7569771700044121495L;

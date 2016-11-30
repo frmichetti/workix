@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.model.actions.CompanyActions;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -24,6 +25,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Company extends Person {
 
     private static final long serialVersionUID = 47663377480544994L;

@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.model.actions.UserActions;
@@ -30,20 +31,22 @@ import br.com.codecode.workix.model.base.BaseUser;
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class User extends MyEntity implements Notificable {
 
     private static final long serialVersionUID = -610648880358327958L;
 
     private long id;
-    
+
     private boolean active;
-  
+
     private String email, firebaseUUID, firebaseMessageToken;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public User(){}
+    public User() {
+    }
 
     /**
      * Public Constructor for {@link Builder} Compatibility

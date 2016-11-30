@@ -13,6 +13,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.model.base.BaseSubscriber;
@@ -30,6 +31,7 @@ import br.com.codecode.workix.model.base.BaseSubscriber;
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Subscriber extends MyEntity implements Persistable, Serializable {
 
     private static final long serialVersionUID = 6675137603968146834L;

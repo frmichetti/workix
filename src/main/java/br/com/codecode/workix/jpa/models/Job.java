@@ -16,6 +16,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.jpa.enums.JobCategory;
 import br.com.codecode.workix.jpa.enums.JobType;
 
@@ -31,6 +32,7 @@ import br.com.codecode.workix.jpa.enums.JobType;
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Job extends MyEntity {
 
     private static final long serialVersionUID = 2246753300384053586L;
@@ -50,7 +52,6 @@ public class Job extends MyEntity {
     /**
      * Many {@link Job} To One {@link Company}
      */
-
     private Company company;
 
     /**

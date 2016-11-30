@@ -30,6 +30,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
 import br.com.codecode.workix.jaxrs.converter.LocalDateTimeAdapter;
@@ -50,6 +51,7 @@ import br.com.codecode.workix.jaxrs.converter.LocalDateTimeAdapter;
 @Table(name="Selective_Process")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
 
     private static final long serialVersionUID = -5336099006523168288L;

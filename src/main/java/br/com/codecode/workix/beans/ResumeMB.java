@@ -2,7 +2,6 @@ package br.com.codecode.workix.beans;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -21,7 +20,6 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.cdi.qualifiers.Push;
 import br.com.codecode.workix.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jpa.models.Education;
 import br.com.codecode.workix.jpa.models.Experience;
@@ -76,8 +74,7 @@ public class ResumeMB extends BaseMB {
 
     /**
      * Must be Called by f:viewAction After f:viewParam {page}
-     */
-    @SuppressWarnings("unchecked")
+     */    
     @Override
     public void init() {
 

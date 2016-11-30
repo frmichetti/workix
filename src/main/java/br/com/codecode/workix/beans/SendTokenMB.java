@@ -17,6 +17,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.cdi.qualifiers.Push;
 import br.com.codecode.workix.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
@@ -44,7 +45,7 @@ public class SendTokenMB extends BaseMB {
     @Generic
     private Crud<Candidate> dao;
 
-    @Inject
+    @Inject @Persist
     private Candidate candidate;
 
     private String title, message;

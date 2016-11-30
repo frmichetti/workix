@@ -12,6 +12,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.model.actions.CandidateActions;
 
 /**
@@ -27,6 +28,7 @@ import br.com.codecode.workix.model.actions.CandidateActions;
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Candidate extends Person {
 
     private static final long serialVersionUID = 531807027259604477L;
