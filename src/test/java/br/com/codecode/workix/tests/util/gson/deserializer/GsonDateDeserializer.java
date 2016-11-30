@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.util.gson.deserializer;
+package br.com.codecode.workix.tests.util.gson.deserializer;
 
 import java.lang.reflect.Type;
 import java.text.ParseException;
@@ -47,7 +47,7 @@ public class GsonDateDeserializer implements JsonDeserializer<Date> {
 		 * 
 		 * @return
 		 */
-		d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
+		d = new SimpleDateFormat().parse(dateRaw);
 
 		return d;
 

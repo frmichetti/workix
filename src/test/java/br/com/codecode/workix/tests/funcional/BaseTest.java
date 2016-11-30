@@ -10,10 +10,12 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import br.com.codecode.workix.tests.util.HttpConfig;
-import br.com.codecode.workix.util.gson.deserializer.GsonCalendarDeserializer;
-import br.com.codecode.workix.util.gson.deserializer.GsonDateDeserializer;
-import br.com.codecode.workix.util.gson.deserializer.GsonLocalDateDeserializer;
-import br.com.codecode.workix.util.gson.deserializer.GsonLocalDateTimeDeserializer;
+import br.com.codecode.workix.tests.util.gson.deserializer.GsonCalendarDeserializer;
+import br.com.codecode.workix.tests.util.gson.deserializer.GsonDateDeserializer;
+import br.com.codecode.workix.tests.util.gson.deserializer.GsonLocalDateDeserializer;
+import br.com.codecode.workix.tests.util.gson.deserializer.GsonLocalDateTimeDeserializer;
+import br.com.codecode.workix.tests.util.gson.serializer.GsonLocalDateSerializer;
+import br.com.codecode.workix.tests.util.gson.serializer.GsonLocalDateTimeSerializer;
 
 /**
  * BaseTest Class Share Common Fields
@@ -46,17 +48,29 @@ public class BaseTest {
      * Generate a Custom Gson attempt for DateFormat , Pattern Must be Equals
      * {@link JacksonContextResolver #init()}
      * 
-     * @return
+     * @return a New Gson
      */
     private Gson buildGson() {
 	return new GsonBuilder()
+		
 		.setPrettyPrinting()
-		.setDateFormat(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").toPattern())
-		.enableComplexMapKeySerialization()		
+		
+		.setDateFormat(new SimpleDateFormat().toPattern())
+		
+		.enableComplexMapKeySerialization()	
+		
+		.registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
+		
+		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeSerializer())
+		
 		.registerTypeAdapter(Date.class, new GsonDateDeserializer())
+		
 		.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())
+		
 		.registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
+		
 		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
+		
 		.create();
     }
 

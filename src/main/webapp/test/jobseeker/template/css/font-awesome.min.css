@@ -117,14 +117,22 @@
 -webkit-transform
 
 
+
+
 :rotate(359deg)
+
+
 
 
 ;
 transform
 
 
+
+
 :rotate(359deg)
+
+
 
 
 }
@@ -139,14 +147,22 @@ keyframes fa-spin { 0%{
 -webkit-transform
 
 
+
+
 :rotate(359deg)
+
+
 
 
 ;
 transform
 
 
+
+
 :rotate(359deg)
+
+
 
 
 }

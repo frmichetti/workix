@@ -12,7 +12,10 @@ import com.fasterxml.jackson.databind.node.IntNode;
 
 /**
  * Calendar Deserializer for Jackson
- * 
+ * To use:
+ * <code>
+ * .registerModule(new SimpleModule()
+			.addDeserializer(Calendar.class, new CalendarDeserializer()))</code>
  * @see JacksonContextResolver #init()
  * @author felipe
  * @since 1.0

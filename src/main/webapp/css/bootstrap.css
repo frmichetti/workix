@@ -30,25 +30,39 @@ audio, canvas, progress, video {
 }
 
 audio
+
+
 :not
+
  
+
 (
 [
 controls
 ]
+
  
+
 )
 {
 display
-:
- 
-none
-;
 
-	
-height
+
 :
+
  
+
+none
+
+
+;
+height
+
+
+:
+
+ 
+
 0;
 }
 [hidden], template {
@@ -109,20 +123,30 @@ img {
 }
 
 svg
+
+
 :not
+
  
+
 (
 :root
+
  
+
 )
 {
 overflow
+
+
 :
+
  
+
 hidden
+
+
 ;
-
-
 }
 figure {
 	margin: 1em 40px;
@@ -3872,29 +3896,47 @@ tbody.collapse.in {
 .btn-group
 >
 .btn
+
+
 :not
+
  
+
 (
 :first-child
+
  
+
 )
 :not
+
  
+
 (
 :last-child
+
  
+
 )
 :not
+
  
+
 (
 .dropdown-toggle
 
+
 	
+
 )
 {
 border-radius
+
+
 :
+
  
+
 0;
 }
 .btn-group>.btn:first-child {
@@ -3904,57 +3946,99 @@ border-radius
 .btn-group
 >
 .btn
+
+
 :first-child
+
+
 :not
+
  
+
 (
 :last-child
+
  
+
 )
 :not
+
  
+
 (
 .dropdown-toggle
+
  
+
 )
 {
 border-bottom-right-radius
+
+
 :
+
  
+
 0;
 border-top-right-radius
+
+
 :
+
  
+
 0;
 }
 .btn-group
 >
 .btn
+
+
 :last-child
+
+
 :not
+
  
+
 (
 :first-child
+
  
+
 ),
 .btn-group
 >
 .dropdown-toggle
+
+
 :not
 
+
 	
+
 (
 :first-child
+
  
+
 )
 {
 border-bottom-left-radius
+
+
 :
+
  
+
 0;
 border-top-left-radius
+
+
 :
+
  
+
 0;
 }
 .btn-group>.btn-group {
@@ -4036,78 +4120,132 @@ border-top-left-radius
 .btn-group-vertical
 >
 .btn
+
+
 :not
+
  
+
 (
 :first-child
+
  
+
 )
 :not
+
  
+
 (
 :last-child
+
  
+
 )
 {
 border-radius
+
+
 :
+
  
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
 :first-child
+
+
 :not
+
  
+
 (
 :last-child
+
  
+
 )
 {
 border-top-right-radius
+
+
 :
+
  
+
 3
 px
-;
 
-	
+
+;
 border-bottom-right-radius
+
+
 :
+
  
+
 0;
 border-bottom-left-radius
+
+
 :
+
  
+
 0;
 }
 .btn-group-vertical
 >
 .btn
+
+
 :last-child
+
+
 :not
+
  
+
 (
 :first-child
+
  
+
 )
 {
 border-bottom-left-radius
+
+
 :
+
  
+
 3
 px
-;
 
-	
+
+;
 border-top-right-radius
+
+
 :
+
  
+
 0;
 border-top-left-radius
+
+
 :
+
  
+
 0;
 }
 .btn-group-vertical>.btn-group:not (:first-child ):not (:last-child ) >.btn
@@ -4226,51 +4364,87 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 }
 
 .input-group-addon
-:not
- 
-(
-:first-child
- 
-)
-:not
- 
-(
-:last-child
- 
-),
-.input-group-btn
-:not
- 
-(
-:first-child
- 
-)
-:not
- 
-(
-:last-child
- 
-),
-.input-group
- 
-.form-control
+
+
 :not
 
-	
+ 
+
 (
 :first-child
+
  
+
 )
 :not
+
  
+
 (
 :last-child
+
  
+
+),
+.input-group-btn
+
+
+:not
+
+ 
+
+(
+:first-child
+
+ 
+
+)
+:not
+
+ 
+
+(
+:last-child
+
+ 
+
+),
+.input-group
+
+ 
+
+.form-control
+
+
+:not
+
+
+	
+
+(
+:first-child
+
+ 
+
+)
+:not
+
+ 
+
+(
+:last-child
+
+ 
+
 )
 {
 border-radius
+
+
 :
+
  
+
 0;
 }
 .input-group-addon, .input-group-btn {

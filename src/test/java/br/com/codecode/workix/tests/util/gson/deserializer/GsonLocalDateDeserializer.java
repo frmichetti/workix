@@ -1,4 +1,4 @@
-package br.com.codecode.workix.util.gson.deserializer;
+package br.com.codecode.workix.tests.util.gson.deserializer;
 
 import java.lang.reflect.Type;
 import java.time.LocalDate;

@@ -30,9 +30,8 @@
 		<extension>ico</extension>
 		<mime-type>image/x-icon</mime-type>
 	</mime-mapping>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.xhtml</welcome-file>
+	<welcome-file-list>		
+		<welcome-file>/index.xhtml</welcome-file>
 	</welcome-file-list>
 	<error-page>
 		<error-code>404</error-code>
