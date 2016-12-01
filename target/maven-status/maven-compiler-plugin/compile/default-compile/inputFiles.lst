@@ -24,7 +24,6 @@
 /git/java/workix/src/main/java/br/com/codecode/workix/jpa/converters/LocalDateAttributeConverter.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/qualifiers/Fake.java
 /git/java/workix/src/main/java/br/com/codecode/workix/config/MailConfiguration.java
-/git/java/workix/src/main/java/br/com/codecode/workix/util/gson/deserializer/GsonLocalDateTimeDeserializer.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/qualifiers/Persist.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/dao/implementations/persist/CandidateDao.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/dao/implementations/standalone/package-info.java
@@ -48,7 +47,6 @@
 /git/java/workix/src/main/java/br/com/codecode/workix/jpa/converters/LocalDateTimeAttributeConverter.java
 /git/java/workix/src/main/java/br/com/codecode/workix/model/actions/CompanyActions.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/producers/FacesContextProducer.java
-/git/java/workix/src/main/java/br/com/codecode/workix/util/gson/deserializer/GsonLocalDateDeserializer.java
 /git/java/workix/src/main/java/br/com/codecode/workix/model/annotations/UseLess.java
 /git/java/workix/src/main/java/br/com/codecode/workix/beans/FirebaseMB.java
 /git/java/workix/src/main/java/br/com/codecode/workix/rest/scaffold/SubscriberEndpoint.java
@@ -118,15 +116,14 @@
 /git/java/workix/src/main/java/br/com/codecode/workix/exceptions/NotImplementedYetException.java
 /git/java/workix/src/main/java/br/com/codecode/workix/beans/CandidateDetailsMB.java
 /git/java/workix/src/main/java/br/com/codecode/workix/beans/StatsMB.java
+/git/java/workix/src/main/java/br/com/codecode/workix/model/actions/SubscriberActions.java
 /git/java/workix/src/main/java/br/com/codecode/workix/jpa/models/User.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/dao/implementations/standalone/ResumeCompleteDao.java
-/git/java/workix/src/main/java/br/com/codecode/workix/util/gson/deserializer/GsonDateDeserializer.java
 /git/java/workix/src/main/java/br/com/codecode/workix/jpa/models/Person.java
 /git/java/workix/src/main/java/br/com/codecode/workix/security/model/JAASBase.java
 /git/java/workix/src/main/java/br/com/codecode/workix/beans/PostAResumeMB.java
 /git/java/workix/src/main/java/br/com/codecode/workix/jpa/models/MyEntity.java
 /git/java/workix/src/main/java/br/com/codecode/workix/mail/MailBodyBuilder.java
-/git/java/workix/src/main/java/br/com/codecode/workix/util/gson/deserializer/GsonCalendarDeserializer.java
 /git/java/workix/src/main/java/br/com/codecode/workix/ejb/mdb/UserListener.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/producers/JmsDestinationProducer.java
 /git/java/workix/src/main/java/br/com/codecode/workix/cdi/dao/implementations/persist/ResumeDao.java

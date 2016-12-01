@@ -57,7 +57,7 @@ public class JobEndpoint {
 	public Response findById(@PathParam("id") long id) {
 		TypedQuery<Job> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT j FROM Job j LEFT JOIN FETCH j.employeer WHERE j.id = :entityId ORDER BY j.id",
+						"SELECT DISTINCT j FROM Job j LEFT JOIN FETCH j.company WHERE j.id = :entityId ORDER BY j.id",
 						Job.class);
 		findByIdQuery.setParameter("entityId", id);
 		Job entity;
@@ -78,7 +78,7 @@ public class JobEndpoint {
 			@QueryParam("max") Integer maxResult) {
 		TypedQuery<Job> findAllQuery = em
 				.createQuery(
-						"SELECT DISTINCT j FROM Job j LEFT JOIN FETCH j.employeer ORDER BY j.id",
+						"SELECT DISTINCT j FROM Job j LEFT JOIN FETCH j.company ORDER BY j.id",
 						Job.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);

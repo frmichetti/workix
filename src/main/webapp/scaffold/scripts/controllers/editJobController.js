@@ -10,7 +10,7 @@ angular.module('workix').controller('EditJobController', function($scope, $route
             self.original = data;
             $scope.job = new JobResource(self.original);
             CompanyResource.queryAll(function(items) {
-                $scope.employeerSelectionList = $.map(items, function(item) {
+                $scope.companySelectionList = $.map(items, function(item) {
                     var wrappedObject = {
                         id : item.id
                     };
@@ -18,10 +18,10 @@ angular.module('workix').controller('EditJobController', function($scope, $route
                         value : item.id,
                         text : item.cnpj
                     };
-                    if($scope.job.employeer && item.id == $scope.job.employeer.id) {
-                        $scope.employeerSelection = labelObject;
-                        $scope.job.employeer = wrappedObject;
-                        self.original.employeer = $scope.job.employeer;
+                    if($scope.job.company && item.id == $scope.job.company.id) {
+                        $scope.companySelection = labelObject;
+                        $scope.job.company = wrappedObject;
+                        self.original.company = $scope.job.company;
                     }
                     return labelObject;
                 });
@@ -72,17 +72,17 @@ angular.module('workix').controller('EditJobController', function($scope, $route
         $scope.job.$remove(successCallback, errorCallback);
     };
     
-    $scope.categoryList = [
+    $scope.$watch("companySelection", function(selection) {
+        if (typeof selection != 'undefined') {
+            $scope.job.company = {};
+            $scope.job.company.id = selection.value;
+        }
+    });
+    $scope.jobCategoryList = [
         "MANAGEMENT",  
         "OPERATOR"  
     ];
-    $scope.$watch("employeerSelection", function(selection) {
-        if (typeof selection != 'undefined') {
-            $scope.job.employeer = {};
-            $scope.job.employeer.id = selection.value;
-        }
-    });
-    $scope.typeList = [
+    $scope.jobTypeList = [
         "FULLTIME",  
         "PARTTIME",  
         "FREELANCE",  

@@ -1,211 +1,178 @@
 <div class="form-horizontal">
-	<h3>Create a new Company</h3>
-	<div class="form-group">
-		<div class="col-md-offset-2 col-sm-2">
-			<a id="Create" name="Create" class="btn btn-primary"
-				href="#/Companies/new"><span
-				class="glyphicon glyphicon-plus-sign"></span> Create</a>
-		</div>
-	</div>
+    <h3>Create a new Company</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Companies/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
 </div>
-<hr />
+<hr/>
 <div>
-	<h3>Search for Companies</h3>
-	<form id="CompanySearch" class="form-horizontal">
-		<div class="form-group">
-			<label for="cnpj" class="col-sm-2 control-label">Cnpj</label>
-			<div class="col-sm-10">
-				<input id="cnpj" name="cnpj" class="form-control" type="text"
-					ng-model="search.cnpj" placeholder="Enter the Company Cnpj"></input>
-			</div>
-		</div>
+    <h3>Search for Companies</h3>
+    <form id="CompanySearch" class="form-horizontal">
+            <div class="form-group">
+        <label for="cnpj" class="col-sm-2 control-label">Cnpj</label>
+        <div class="col-sm-10">
+            <input id="cnpj" name="cnpj" class="form-control" type="text" ng-model="search.cnpj" placeholder="Enter the Company Cnpj"></input>
+        </div>
+    </div>
 
 
-		<div class="form-group">
-			<label for="segment" class="col-sm-2 control-label">Segment</label>
-			<div class="col-sm-10">
-				<input id="segment" name="segment" class="form-control" type="text"
-					ng-model="search.segment" placeholder="Enter the Company Segment"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="segment" class="col-sm-2 control-label">Segment</label>
+        <div class="col-sm-10">
+            <input id="segment" name="segment" class="form-control" type="text" ng-model="search.segment" placeholder="Enter the Company Segment"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="name" class="col-sm-2 control-label">Name</label>
-			<div class="col-sm-10">
-				<input id="name" name="name" class="form-control" type="text"
-					ng-model="search.name" placeholder="Enter the Company Name"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Company Name"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="user" class="col-sm-2 control-label">User</label>
-			<div class="col-sm-10">
-				<select id="user" name="user" class="form-control"
-					ng-model="search.user" ng-options="u as u.email for u in userList">
-					<option value="">Choose a User</option>
-				</select>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="user" class="col-sm-2 control-label">User</label>
+        <div class="col-sm-10">
+            <select id="user" name="user" class="form-control" ng-model="search.user" ng-options="u as u.email for u in userList">
+                <option value="">Choose a User</option>
+            </select>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="createdAt" class="col-sm-2 control-label">Created
-				At</label>
-			<div class="col-sm-10">
-				<input id="createdAt" name="createdAt" class="form-control"
-					type="text" ng-model="search.createdAt"
-					placeholder="Enter the Company Created At"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="createdAt" class="col-sm-2 control-label">Created At</label>
+        <div class="col-sm-10">
+            <input id="createdAt" name="createdAt" class="form-control" type="text" ng-model="search.createdAt" placeholder="Enter the Company Created At"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="updatedAt" class="col-sm-2 control-label">Updated
-				At</label>
-			<div class="col-sm-10">
-				<input id="updatedAt" name="updatedAt" class="form-control"
-					type="text" ng-model="search.updatedAt"
-					placeholder="Enter the Company Updated At"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="updatedAt" class="col-sm-2 control-label">Updated At</label>
+        <div class="col-sm-10">
+            <input id="updatedAt" name="updatedAt" class="form-control" type="text" ng-model="search.updatedAt" placeholder="Enter the Company Updated At"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="uuid" class="col-sm-2 control-label">Uuid</label>
-			<div class="col-sm-10">
-				<input id="uuid" name="uuid" class="form-control" type="text"
-					ng-model="search.uuid" placeholder="Enter the Company Uuid"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div class="col-sm-10">
+            <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the Company Uuid"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="contact.mobilePhone" class="col-sm-2 control-label">Mobile
-				Phone</label>
-			<div class="col-sm-10">
-				<input id="contact.mobilePhone" name="contact.mobilePhone"
-					class="form-control" type="text"
-					ng-model="search.contact.mobilePhone"
-					placeholder="Enter the Company Mobile Phone"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="contact.mobilePhone" class="col-sm-2 control-label">Mobile Phone</label>
+        <div class="col-sm-10">
+            <input id="contact.mobilePhone" name="contact.mobilePhone" class="form-control" type="text" ng-model="search.contact.mobilePhone" placeholder="Enter the Company Mobile Phone"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="locale.city" class="col-sm-2 control-label">City</label>
-			<div class="col-sm-10">
-				<input id="locale.city" name="locale.city" class="form-control"
-					type="text" ng-model="search.locale.city"
-					placeholder="Enter the Company City"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="locale.city" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+            <input id="locale.city" name="locale.city" class="form-control" type="text" ng-model="search.locale.city" placeholder="Enter the Company City"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="locale.estate" class="col-sm-2 control-label">Estate</label>
-			<div class="col-sm-10">
-				<select id="locale.estate" name="locale.estate" class="form-control"
-					ng-model="search.locale.estate"
-					ng-options="l as l for l in localeestateList">
-					<option value="">Choose a Estate</option>
-				</select>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="locale.estate" class="col-sm-2 control-label">Estate</label>
+        <div class="col-sm-10">
+            <select id="locale.estate" name="locale.estate" class="form-control" ng-model="search.locale.estate" ng-options="l as l for l in localeestateList">
+                <option value="">Choose a Estate</option>
+            </select>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="locale.neighborhood" class="col-sm-2 control-label">Neighborhood</label>
-			<div class="col-sm-10">
-				<input id="locale.neighborhood" name="locale.neighborhood"
-					class="form-control" type="text"
-					ng-model="search.locale.neighborhood"
-					placeholder="Enter the Company Neighborhood"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="locale.neighborhood" class="col-sm-2 control-label">Neighborhood</label>
+        <div class="col-sm-10">
+            <input id="locale.neighborhood" name="locale.neighborhood" class="form-control" type="text" ng-model="search.locale.neighborhood" placeholder="Enter the Company Neighborhood"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="locale.number" class="col-sm-2 control-label">Number</label>
-			<div class="col-sm-10">
-				<input id="locale.number" name="locale.number" class="form-control"
-					type="text" ng-model="search.locale.number"
-					placeholder="Enter the Company Number"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="locale.number" class="col-sm-2 control-label">Number</label>
+        <div class="col-sm-10">
+            <input id="locale.number" name="locale.number" class="form-control" type="text" ng-model="search.locale.number" placeholder="Enter the Company Number"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="locale.street" class="col-sm-2 control-label">Street</label>
-			<div class="col-sm-10">
-				<input id="locale.street" name="locale.street" class="form-control"
-					type="text" ng-model="search.locale.street"
-					placeholder="Enter the Company Street"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="locale.street" class="col-sm-2 control-label">Street</label>
+        <div class="col-sm-10">
+            <input id="locale.street" name="locale.street" class="form-control" type="text" ng-model="search.locale.street" placeholder="Enter the Company Street"></input>
+        </div>
+    </div>
 
-		<div class="form-group">
-			<label for="locale.zipCode" class="col-sm-2 control-label">Zip
-				Code</label>
-			<div class="col-sm-10">
-				<input id="locale.zipCode" name="locale.zipCode"
-					class="form-control" type="text" ng-model="search.locale.zipCode"
-					placeholder="Enter the Company Zip Code"></input>
-			</div>
-		</div>
+    <div class="form-group">
+        <label for="locale.zipCode" class="col-sm-2 control-label">Zip Code</label>
+        <div class="col-sm-10">
+            <input id="locale.zipCode" name="locale.zipCode" class="form-control" type="text" ng-model="search.locale.zipCode" placeholder="Enter the Company Zip Code"></input>
+        </div>
+    </div>
 
 
-		<div class="form-group">
-			<div class="col-md-offset-2 col-sm-10">
-				<a id="Search" name="Search" class="btn btn-primary"
-					ng-click="performSearch()"><span
-					class="glyphicon glyphicon-search"></span> Search</a>
-			</div>
-		</div>
-	</form>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
 </div>
 <div id="search-results">
-	<div class="table-responsive">
-		<table
-			class="table table-responsive table-bordered table-striped clearfix">
-			<thead>
-				<tr>
-					<th>Cnpj</th>
-					<th>Segment</th>
-					<th>Name</th>
-					<th>User</th>
-					<th>Created At</th>
-					<th>Updated At</th>
-					<th>Uuid</th>
-					<th>Mobile Phone</th>
-					<th>City</th>
-					<th>Estate</th>
-					<th>Neighborhood</th>
-					<th>Number</th>
-					<th>Street</th>
-					<th>Zip Code</th>
-				</tr>
-			</thead>
-			<tbody id="search-results-body">
-				<tr
-					ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.cnpj}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.segment}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.name}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.user.email}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.createdAt}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.updatedAt}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.uuid}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.contact.mobilePhone}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.city}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.estate}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.number}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.street}}</a></td>
-					<td><a href="#/Companies/edit/{{result.id}}">{{result.locale.zipCode}}</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>Cnpj</th>
+                    <th>Segment</th>
+                    <th>Name</th>
+                    <th>User</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Uuid</th>
+                    <th>Mobile Phone</th>
+                    <th>City</th>
+                    <th>Estate</th>
+                    <th>Neighborhood</th>
+                    <th>Number</th>
+                    <th>Street</th>
+                    <th>Zip Code</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.cnpj}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.segment}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.name}}</a></td>
+                        <td><a href="#/Companies/edit/{{result.id}}">{{result.user.email}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.createdAt}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.updatedAt}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.uuid}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.contact.mobilePhone}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.city}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.estate}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.neighborhood}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.number}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.street}}</a></td>
+                    <td><a href="#/Companies/edit/{{result.id}}">{{result.locale.zipCode}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-	<ul class="pagination pagination-centered">
-		<li ng-class="{disabled:currentPage == 0}"><a id="prev" href
-			ng-click="previous()">«</a></li>
-		<li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}"
-			ng-click="setPage(n)"><a href ng-bind="n + 1">1</a></li>
-		<li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
-			<a id="next" href ng-click="next()">»</a>
-		</li>
-	</ul>
+        <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
 
 </div>

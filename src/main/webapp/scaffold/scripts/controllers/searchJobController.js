@@ -17,12 +17,12 @@ angular.module('workix').controller('SearchJobController', function($scope, $htt
         }
         return max;
     };
-    $scope.categoryList = [
+    $scope.companyList = CompanyResource.queryAll();
+    $scope.jobCategoryList = [
         "MANAGEMENT",
         "OPERATOR"
     ];
-    $scope.employeerList = CompanyResource.queryAll();
-    $scope.typeList = [
+    $scope.jobTypeList = [
         "FULLTIME",
         "PARTTIME",
         "FREELANCE",

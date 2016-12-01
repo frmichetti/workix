@@ -4,27 +4,27 @@ angular.module('workix').controller('NewJobController', function ($scope, $locat
     $scope.$location = $location;
     $scope.job = $scope.job || {};
     
-    $scope.categoryList = [
-        "MANAGEMENT",
-        "OPERATOR"
-    ];
-    
-    $scope.employeerList = CompanyResource.queryAll(function(items){
-        $scope.employeerSelectionList = $.map(items, function(item) {
+    $scope.companyList = CompanyResource.queryAll(function(items){
+        $scope.companySelectionList = $.map(items, function(item) {
             return ( {
                 value : item.id,
                 text : item.cnpj
             });
         });
     });
-    $scope.$watch("employeerSelection", function(selection) {
+    $scope.$watch("companySelection", function(selection) {
         if ( typeof selection != 'undefined') {
-            $scope.job.employeer = {};
-            $scope.job.employeer.id = selection.value;
+            $scope.job.company = {};
+            $scope.job.company.id = selection.value;
         }
     });
     
-    $scope.typeList = [
+    $scope.jobCategoryList = [
+        "MANAGEMENT",
+        "OPERATOR"
+    ];
+    
+    $scope.jobTypeList = [
         "FULLTIME",
         "PARTTIME",
         "FREELANCE",

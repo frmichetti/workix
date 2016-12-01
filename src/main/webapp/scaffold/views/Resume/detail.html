@@ -1,121 +1,83 @@
 <header ng-switch on="$location.path().indexOf('/Resumes/new') > -1">
-	<h3 ng-switch-when="true">Create a new Resume</h3>
-	<h3 ng-switch-when="false">View or edit Resume</h3>
+    <h3 ng-switch-when="true">Create a new Resume</h3>
+    <h3 ng-switch-when="false">View or edit Resume</h3>
 </header>
-<form id="ResumeForm" name="ResumeForm" class="form-horizontal"
-	role="form">
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.candidate.$invalid}">
-		<label for="candidate" class="col-sm-2 control-label">Candidate</label>
-		<div id="candidateControls" class="col-sm-10">
-			<select id="candidate" name="candidate" class="form-control"
-				ng-model="candidateSelection"
-				ng-options="c.text for c in candidateSelectionList" required>
-				<option value="">Choose a Candidate</option>
-			</select> <span class="help-block error"
-				ng-show="ResumeForm.candidate.$error.required">required</span>
-		</div>
-	</div>
+<form id="ResumeForm" name="ResumeForm" class="form-horizontal" role="form">
+        <div class="form-group" ng-class="{'has-error': ResumeForm.candidate.$invalid}">
+        <label for="candidate" class="col-sm-2 control-label">Candidate</label>
+        <div id="candidateControls" class="col-sm-10">
+        <select id="candidate" name="candidate" class="form-control" ng-model="candidateSelection" ng-options="c.text for c in candidateSelectionList" required >
+            <option value="">Choose a Candidate</option>
+        </select>
+        <span class="help-block error" ng-show="ResumeForm.candidate.$error.required">required</span> 
+        </div>
+    </div>
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.content.$invalid}">
-		<label for="content" class="col-sm-2 control-label">Content</label>
-		<div id="contentControls" class="col-sm-10">
-			<input id="content" name="content" type="text" class="form-control"
-				ng-model="resume.content" placeholder="Enter the Resume Content"></input>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.content.$invalid}">
+        <label for="content" class="col-sm-2 control-label">Content</label>
+        <div id="contentControls" class="col-sm-10">
+            <input id="content" name="content" type="text" class="form-control" ng-model="resume.content" placeholder="Enter the Resume Content"></input>
+        </div>
+    </div>
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.educations.$invalid}">
-		<label for="educations" class="col-sm-2 control-label">Educations</label>
-		<div id="educationsControls" class="col-sm-10">
-			<input id="educations" name="educations" type="text"
-				class="form-control" ng-model="resume.educations"
-				placeholder="Enter the Resume Educations"></input>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.educations.$invalid}">
+        <label for="educations" class="col-sm-2 control-label">Educations</label>
+        <div id="educationsControls" class="col-sm-10">
+            <input id="educations" name="educations" type="text" class="form-control" ng-model="resume.educations" placeholder="Enter the Resume Educations"></input>
+        </div>
+    </div>
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.experiences.$invalid}">
-		<label for="experiences" class="col-sm-2 control-label">Experiences</label>
-		<div id="experiencesControls" class="col-sm-10">
-			<input id="experiences" name="experiences" type="text"
-				class="form-control" ng-model="resume.experiences"
-				placeholder="Enter the Resume Experiences"></input>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.experiences.$invalid}">
+        <label for="experiences" class="col-sm-2 control-label">Experiences</label>
+        <div id="experiencesControls" class="col-sm-10">
+            <input id="experiences" name="experiences" type="text" class="form-control" ng-model="resume.experiences" placeholder="Enter the Resume Experiences"></input>
+        </div>
+    </div>
 
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.objective.$invalid}">
-		<label for="objective" class="col-sm-2 control-label">Objective</label>
-		<div id="objectiveControls" class="col-sm-10">
-			<input id="objective" name="objective" type="text"
-				class="form-control" ng-model="resume.objective"
-				placeholder="Enter the Resume Objective"></input>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.objective.$invalid}">
+        <label for="objective" class="col-sm-2 control-label">Objective</label>
+        <div id="objectiveControls" class="col-sm-10">
+            <input id="objective" name="objective" type="text" class="form-control" ng-model="resume.objective" placeholder="Enter the Resume Objective"></input>
+        </div>
+    </div>
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.skills.$invalid}">
-		<label for="skills" class="col-sm-2 control-label">Skills</label>
-		<div id="skillsControls" class="col-sm-10">
-			<input id="skills" name="skills" type="text" class="form-control"
-				ng-model="resume.skills" placeholder="Enter the Resume Skills"></input>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.skills.$invalid}">
+        <label for="skills" class="col-sm-2 control-label">Skills</label>
+        <div id="skillsControls" class="col-sm-10">
+            <input id="skills" name="skills" type="text" class="form-control" ng-model="resume.skills" placeholder="Enter the Resume Skills"></input>
+        </div>
+    </div>
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.createdAt.$invalid}">
-		<label for="createdAt" class="col-sm-2 control-label">Created
-			At</label>
-		<div id="createdAtControls" class="col-sm-10">
-			<input id="createdAt" name="createdAt" type="text" required
-				class="form-control" ng-model="resume.createdAt"
-				placeholder="Enter the Resume Created At"></input> <span
-				class="help-block error"
-				ng-show="ResumeForm.createdAt.$error.required">required</span>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.createdAt.$invalid}">
+        <label for="createdAt" class="col-sm-2 control-label">Created At</label>
+        <div id="createdAtControls" class="col-sm-10">
+            <input id="createdAt" name="createdAt" type="text" required class="form-control" ng-model="resume.createdAt" placeholder="Enter the Resume Created At"></input>
+            <span class="help-block error" ng-show="ResumeForm.createdAt.$error.required">required</span> 
+        </div>
+    </div>
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.updatedAt.$invalid}">
-		<label for="updatedAt" class="col-sm-2 control-label">Updated
-			At</label>
-		<div id="updatedAtControls" class="col-sm-10">
-			<input id="updatedAt" name="updatedAt" type="text"
-				class="form-control" ng-model="resume.updatedAt"
-				placeholder="Enter the Resume Updated At"></input>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.updatedAt.$invalid}">
+        <label for="updatedAt" class="col-sm-2 control-label">Updated At</label>
+        <div id="updatedAtControls" class="col-sm-10">
+            <input id="updatedAt" name="updatedAt" type="text" class="form-control" ng-model="resume.updatedAt" placeholder="Enter the Resume Updated At"></input>
+        </div>
+    </div>
 
-	<div class="form-group"
-		ng-class="{'has-error': ResumeForm.uuid.$invalid}">
-		<label for="uuid" class="col-sm-2 control-label">Uuid</label>
-		<div id="uuidControls" class="col-sm-10">
-			<input id="uuid" name="uuid" type="text" required
-				class="form-control" ng-model="resume.uuid"
-				placeholder="Enter the Resume Uuid"></input> <span
-				class="help-block error" ng-show="ResumeForm.uuid.$error.required">required</span>
-		</div>
-	</div>
+    <div class="form-group" ng-class="{'has-error': ResumeForm.uuid.$invalid}">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div id="uuidControls" class="col-sm-10">
+            <input id="uuid" name="uuid" type="text" required class="form-control" ng-model="resume.uuid" placeholder="Enter the Resume Uuid"></input>
+            <span class="help-block error" ng-show="ResumeForm.uuid.$error.required">required</span> 
+        </div>
+    </div>
 
 
-	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
-			<button id="saveResume" name="saveResume" class="btn btn-primary"
-				ng-disabled="isClean() || ResumeForm.$invalid" ng-click="save()">
-				<span class="glyphicon glyphicon-ok-sign"></span> Save
-			</button>
-			<button id="cancel" name="cancel" class="btn btn-default"
-				ng-click="cancel()">
-				<span class="glyphicon glyphicon-remove-sign"></span> Cancel
-			</button>
-			<button id="deleteResume" name="deleteResume" class="btn btn-danger"
-				ng-show="resume.id" ng-click="remove()">
-				<span class="glyphicon glyphicon-trash"></span> Delete
-			</button>
-		</div>
-	</div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveResume" name="saveResume" class="btn btn-primary" ng-disabled="isClean() || ResumeForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteResume" name="deleteResume" class="btn btn-danger" ng-show="resume.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
 </form>
