@@ -17,11 +17,12 @@ package br.com.codecode.workix.interfaces;
  * @version 1.0
  */
 public interface Buildable<T> {
+      
 
     /**
      * Return a Finished Object
      * 
-     * @return A new Entity ready for Use
+     * @return a new Entity ready for Use
      */
     T build();
 }

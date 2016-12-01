@@ -14,22 +14,22 @@ public class UserBuilderTest {
 
     private User user;
 
-    private User.Builder u;
+    private User.Builder builder;
 
     @Test
     public void testInstance() {
 
-	u = new User.Builder("");
+	builder = new User.Builder("");
 
-	assertTrue(u instanceof Buildable<?>);
+	assertTrue(builder instanceof Buildable<?>);
     }
 
     @Test
     public void constructorTest() {
 
-	u = new User.Builder("frmichetti@gmail.com");
+	builder = new User.Builder("frmichetti@gmail.com");
 
-	assertNotNull(u);
+	assertNotNull(builder);
 
     }
 

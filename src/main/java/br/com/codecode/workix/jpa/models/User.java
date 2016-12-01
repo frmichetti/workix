@@ -153,26 +153,7 @@ public class User extends MyEntity implements Notificable {
 	public Builder(String email) {
 	    this();
 	    this.setEmail(email);
-	}
-
-	/**
-	 * Constructor with All Fields
-	 * 
-	 * @param active
-	 *            Active
-	 * @param email
-	 *            Email
-	 * @param firebaseUUID
-	 *            Firebase UUID
-	 * @param firebaseMessageToken
-	 *            Firebase Message Token
-	 */
-	public Builder(String email, boolean active, String firebaseUUID, String firebaseMessageToken) {
-	    this(email);
-	    this.setActive(active);
-	    this.setFirebaseUUID(firebaseUUID);
-	    this.setFirebaseMessageToken(firebaseMessageToken);
-	}
+	}	
 
 	/**
 	 * Return a New User
