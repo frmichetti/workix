@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.13" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
-  realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+<class-diagram version="1.1.13" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <interface id="1" language="java" name="br.com.codecode.workix.model.actions.SkillActions" project="workix" 
     file="/workix/src/main/java/br/com/codecode/workix/model/actions/SkillActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
@@ -11,8 +11,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="2" language="java" name="br.com.codecode.workix.model.actions.LocaleActions" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/model/actions/LocaleActions.java" binary="false" 
+  <interface id="2" language="java" name="br.com.codecode.workix.core.models.actions.LocaleActions" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/core/models/actions/LocaleActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="275" width="173" x="1068" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -31,8 +31,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="4" language="java" name="br.com.codecode.workix.model.actions.UserActions" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/model/actions/UserActions.java" binary="false" 
+  <interface id="4" language="java" name="br.com.codecode.workix.core.models.actions.UserActions" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/core/models/actions/UserActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="95" width="173" x="1494" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -51,8 +51,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="6" language="java" name="br.com.codecode.workix.model.actions.CompanyActions" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/model/actions/CompanyActions.java" binary="false" 
+  <interface id="6" language="java" name="br.com.codecode.workix.core.models.actions.CompanyActions" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/core/models/actions/CompanyActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="131" width="173" x="855" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -71,8 +71,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="8" language="java" name="br.com.codecode.workix.model.actions.CandidateActions" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/model/actions/CandidateActions.java" binary="false" 
+  <interface id="8" language="java" name="br.com.codecode.workix.core.models.actions.CandidateActions" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/core/models/actions/CandidateActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="131" width="173" x="642" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -81,8 +81,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="9" language="java" name="br.com.codecode.workix.model.actions.ExperienceActions" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/model/actions/ExperienceActions.java" binary="false" 
+  <interface id="9" language="java" name="br.com.codecode.workix.core.models.actions.ExperienceActions" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/core/models/actions/ExperienceActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="239" width="175" x="214" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -91,8 +91,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="10" language="java" name="br.com.codecode.workix.model.actions.EntityActions" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/model/actions/EntityActions.java" binary="false" 
+  <interface id="10" language="java" name="br.com.codecode.workix.core.models.actions.EntityActions" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/core/models/actions/EntityActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="59" width="173" x="880" y="-96"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -111,8 +111,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="12" language="java" name="br.com.codecode.workix.model.actions.EducationActions" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/model/actions/EducationActions.java" binary="false" 
+  <interface id="12" language="java" name="br.com.codecode.workix.core.models.actions.EducationActions" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/core/models/actions/EducationActions.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="239" width="173" x="429" y="462"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -133,65 +133,65 @@
   </interface>  
   <dependency id="14">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="8"/>  
+    <end type="TARGET" refId="12"/>  
   </dependency>  
-  <dependency id="15">    
+  <generalization id="15">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
   <generalization id="16">    
-    <end type="SOURCE" refId="13"/>    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
   <generalization id="17">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="18">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="19">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <generalization id="20">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <dependency id="21">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <generalization id="22">    
     <bendpoint x="1282" y="3"/>    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <dependency id="23">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="4"/>  
-  </dependency>  
-  <dependency id="24">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="25">    
+  <dependency id="18">    
     <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="12"/>  
+    <end type="TARGET" refId="9"/>  
   </dependency>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="10"/>  
+  <dependency id="19">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="20">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="13"/>  
   </generalization>  
-  <dependency id="27">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="28">    
+  <dependency id="22">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
+  <dependency id="23">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="26">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="27">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jpa.models.Resume;
 

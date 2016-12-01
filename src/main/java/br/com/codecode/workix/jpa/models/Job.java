@@ -17,8 +17,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.jpa.enums.JobCategory;
-import br.com.codecode.workix.jpa.enums.JobType;
+import br.com.codecode.workix.core.models.enums.JobCategory;
+import br.com.codecode.workix.core.models.enums.JobType;
 
 /**
  * Job JPA with Inherited Fields and Methods

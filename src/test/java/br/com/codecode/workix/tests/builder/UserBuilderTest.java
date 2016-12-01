@@ -5,10 +5,10 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import br.com.codecode.workix.core.models.actions.UserActions;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.jpa.models.User;
-import br.com.codecode.workix.model.actions.UserActions;
 
 public class UserBuilderTest {
 

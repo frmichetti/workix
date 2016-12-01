@@ -13,10 +13,10 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.core.models.actions.UserActions;
+import br.com.codecode.workix.core.models.root.BaseUser;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Notificable;
-import br.com.codecode.workix.model.actions.UserActions;
-import br.com.codecode.workix.model.base.BaseUser;
 
 /**
  * User JPA with Inherited Fields and Methods

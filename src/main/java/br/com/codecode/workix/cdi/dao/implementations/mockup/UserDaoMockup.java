@@ -10,7 +10,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Mockup;
-import br.com.codecode.workix.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.User;
 
 /**

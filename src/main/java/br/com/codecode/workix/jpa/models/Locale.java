@@ -11,10 +11,10 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.core.models.actions.LocaleActions;
+import br.com.codecode.workix.core.models.enums.Estate;
+import br.com.codecode.workix.core.models.root.BaseLocale;
 import br.com.codecode.workix.interfaces.Buildable;
-import br.com.codecode.workix.jpa.enums.Estate;
-import br.com.codecode.workix.model.actions.LocaleActions;
-import br.com.codecode.workix.model.base.BaseLocale;
 
 /**
  * Locale JPA with Inherited Fields and Methods

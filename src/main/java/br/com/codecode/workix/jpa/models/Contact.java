@@ -10,9 +10,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.core.models.actions.ContactActions;
+import br.com.codecode.workix.core.models.root.BaseContact;
 import br.com.codecode.workix.interfaces.Buildable;
-import br.com.codecode.workix.model.actions.ContactActions;
-import br.com.codecode.workix.model.base.BaseContact;
 
 /**
  * Contact JPA with Inherited Fields and Methods

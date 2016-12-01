@@ -14,9 +14,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.core.models.root.BaseSubscriber;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Persistable;
-import br.com.codecode.workix.model.base.BaseSubscriber;
 
 /**
  * Subscriber JPA with Inherited Fields and Methods

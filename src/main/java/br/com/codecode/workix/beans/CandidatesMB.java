@@ -13,7 +13,7 @@ import javax.validation.constraints.Min;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
 

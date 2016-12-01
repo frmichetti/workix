@@ -20,7 +20,7 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.enums.JobType;
+import br.com.codecode.workix.core.models.enums.JobType;
 import br.com.codecode.workix.jpa.models.Company;
 import br.com.codecode.workix.jpa.models.Job;
 import br.com.codecode.workix.tests.funcional.BaseTest;
