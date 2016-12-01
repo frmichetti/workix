@@ -10,7 +10,9 @@ package br.com.codecode.workix.interfaces;
 public interface Debugable {
 
     default void onStart() {
+	
 	System.out.println("[" + this.getClass().getSimpleName() + "]");
+	
 	System.out.println("Hash code --> " + this.getClass().hashCode() + " <-- Hash code");
     }
 

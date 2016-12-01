@@ -6,7 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
 import br.com.codecode.workix.interfaces.Persistable;
 
@@ -17,7 +16,7 @@ import br.com.codecode.workix.interfaces.Persistable;
  * @see Persistable
  * @see Serializable
  */
-@MappedSuperclass
+//@MappedSuperclass
 abstract class JAASBase implements Persistable, Serializable {
 
     private static final long serialVersionUID = 8234434925475474481L;

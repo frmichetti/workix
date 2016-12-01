@@ -11,9 +11,7 @@ import java.io.Serializable;
 
 import javax.annotation.Generated;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -23,8 +21,8 @@ import javax.xml.bind.annotation.XmlTransient;
  * @version 1.1
  * @see Serializable
  */
-@Entity
-@Table(name = "JAAS_Role")
+/*@Entity
+@Table(name = "JAAS_Role")*/
 public class JAASRole implements Serializable {
 
     /**

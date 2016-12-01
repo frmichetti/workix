@@ -14,6 +14,8 @@ import br.com.codecode.workix.jpa.models.Job;
  * 
  * @since 1.0
  * @version 1.0
+ * @see BaseDao
+ * @see Crud
  */
 @Persist
 public class JobDao extends BaseDao implements Crud<Job> {

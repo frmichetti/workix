@@ -13,6 +13,7 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
  * @author felipe
  * @since 1.0
  * @version 1.1
+ * @see BaseMB
  */
 @Model
 public class SearchMB extends BaseMB {

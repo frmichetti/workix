@@ -16,6 +16,11 @@ import br.com.codecode.workix.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Job;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
+/**
+ * Job Detail ManagedBean
+ * @author felipe
+ * @see BaseMB
+ */
 @Model
 public class JobDetailMB extends BaseMB {
 

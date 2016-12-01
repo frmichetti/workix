@@ -20,8 +20,14 @@ import br.com.codecode.workix.jsf.util.converter.SimpleEntityConverter;
  */
 public interface Persistable {
 
+    /**
+     * @return the Id
+     */
     long getId();
 
+    /**
+     * @param id define the Id
+     */
     void setId(long id);
 
 }

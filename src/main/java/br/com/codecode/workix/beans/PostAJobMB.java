@@ -25,6 +25,7 @@ import br.com.codecode.workix.jpa.models.Job;
  * @author felipe
  * @since 1.0
  * @version 1.1
+ * @see BaseMB
  */
 @Model
 public class PostAJobMB extends BaseMB {

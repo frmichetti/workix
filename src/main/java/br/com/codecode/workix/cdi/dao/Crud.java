@@ -11,8 +11,10 @@ import br.com.codecode.workix.interfaces.Persistable;
  * 
  * @author felipe
  * @since 1.0
- * @param <T>
- *            Any Entity witch implements Persistable and Serializable
+ * @param <T> Any Entity witch implements Persistable and Serializable
+ * @see BaseCrud
+ * @see Persistable 
+ * @see Serializable 
  */
 public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> {
 

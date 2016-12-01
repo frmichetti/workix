@@ -14,6 +14,8 @@ import br.com.codecode.workix.jpa.models.Candidate;
  * 
  * @since 1.0
  * @version 1.0
+ * @see BaseDao
+ * @see Crud
  */
 @Persist
 public class CandidateDao extends BaseDao implements Crud<Candidate> {

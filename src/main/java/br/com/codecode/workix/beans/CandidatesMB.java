@@ -23,6 +23,7 @@ import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
  * @author felipe
  * @since 1.0
  * @version 1.1
+ * @see BaseMB
  */
 @Model
 public class CandidatesMB extends BaseMB {

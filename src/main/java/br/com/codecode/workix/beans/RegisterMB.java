@@ -19,6 +19,7 @@ import br.com.codecode.workix.jpa.models.User;
  * @author felipe
  * @since 1.0
  * @version 1.1
+ * @see BaseMB
  */
 @Model
 public class RegisterMB extends BaseMB {

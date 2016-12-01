@@ -16,6 +16,7 @@ import br.com.codecode.workix.mail.MailSender;
  * @author felipe
  * @since 1.0
  * @version 1.1
+ * @see BaseMB
  */
 @Model
 public class ContactMB extends BaseMB {

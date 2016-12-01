@@ -3,22 +3,19 @@ package br.com.codecode.workix.security.model;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.annotation.Generated;
 import javax.inject.Inject;
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
-import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.security.PassGenerator;
-
-import javax.annotation.Generated;
 
 /**
  * Only for JAAS security
@@ -28,8 +25,8 @@ import javax.annotation.Generated;
  * @see Persistable
  * @see Serializable
  */
-@Entity
-@Table(name = "JAAS_User")
+/*@Entity
+@Table(name = "JAAS_User")*/
 public class JAASUser extends JAASBase {
 
     /**

@@ -16,6 +16,8 @@ import br.com.codecode.workix.jpa.models.Resume;
  * 
  * @since 1.0
  * @version 1.0
+ * @see BaseDao
+ * @see Crud
  */
 @Persist
 public class ResumeDao extends BaseDao implements Crud<Resume> {

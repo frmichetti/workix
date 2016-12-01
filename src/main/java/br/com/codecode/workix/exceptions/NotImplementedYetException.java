@@ -11,10 +11,16 @@ public final class NotImplementedYetException extends Exception {
 
     private static final long serialVersionUID = 3725069176156035494L;
 
+    /**
+     * Default Constructor
+     */
     public NotImplementedYetException() {
 	super();
     }
 
+    /**
+     * @param message Message to Forward throught Exception
+     */
     public NotImplementedYetException(String message) {
 	super(message);
     }

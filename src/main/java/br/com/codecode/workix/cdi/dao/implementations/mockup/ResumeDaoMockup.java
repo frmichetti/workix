@@ -19,6 +19,8 @@ import br.com.codecode.workix.jpa.models.Resume;
  * @author felipe
  * @since 1.0
  * @version 1.0
+ * @see BaseDaoMockup
+ * @see Crud
  */
 @Mockup
 public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {

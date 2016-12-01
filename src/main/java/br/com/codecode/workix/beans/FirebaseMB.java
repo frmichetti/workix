@@ -17,6 +17,8 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
  * @author felipe
  * @since 1.0
  * @version 1.1
+ * @see BaseMB
+ * @see Serializable
  */
 @Named
 @SessionScoped

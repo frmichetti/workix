@@ -148,6 +148,11 @@
 			<version>${jackson-version}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.faces</groupId>
+			<artifactId>jboss-jsf-api_2.2_spec</artifactId>
+			<version>2.2.11</version>
+		</dependency>
 	</dependencies>
 
 	<dependencyManagement>
@@ -174,6 +179,10 @@
 				<groupId>javax</groupId>
 				<artifactId>javaee-api</artifactId>
 				<version>7.0</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.faces</groupId>
+				<artifactId>jsf-api</artifactId>
 			</dependency>
 		</dependencies>
 
