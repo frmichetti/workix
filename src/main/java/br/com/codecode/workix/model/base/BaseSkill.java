@@ -13,6 +13,9 @@ package br.com.codecode.workix.model.base;
  */
 public abstract class BaseSkill {
 
+    /**
+     * Name of Skill Field
+     */
     protected String skillName;   
 
 }

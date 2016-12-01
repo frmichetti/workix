@@ -13,6 +13,9 @@ package br.com.codecode.workix.model.base;
  */
 public abstract class BaseContact {
 
+    /**
+     * Mobile Phone Field
+     */
     protected long mobilePhone;
     
 }

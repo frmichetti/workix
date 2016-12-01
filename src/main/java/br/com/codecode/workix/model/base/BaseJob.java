@@ -1,11 +1,9 @@
 package br.com.codecode.workix.model.base;
 
 import java.math.BigDecimal;
-import java.util.Calendar;
 
 import br.com.codecode.workix.jpa.enums.JobCategory;
 import br.com.codecode.workix.jpa.enums.JobType;
-import br.com.codecode.workix.model.actions.CompanyActions;
 
 /**
  * Root Abstract Class Job<br>
@@ -22,7 +20,7 @@ import br.com.codecode.workix.model.actions.CompanyActions;
  * <li>{@link #type}</li>
  * <li>{@link #category}</li>
  * <li>{@link #active}</li>
- * <li>{@link #employeer}</li>
+ * <li>{@link #company}</li>
  * </ul>
  * 
  * @author felipe
@@ -32,28 +30,54 @@ import br.com.codecode.workix.model.actions.CompanyActions;
  */
 public abstract class BaseJob extends BaseEntity {
 
+    /**
+     * Title of Job Field
+     */
     protected String title;
 
+    /**
+     * Minimal Payment Field
+     */
     protected BigDecimal minPayment;
 
+    /**
+     * Maximum Payment Field
+     */
     protected BigDecimal maxPayment;
 
+    /**
+     * Description Field
+     */
     protected String description;
 
+    /**
+     * Requirement Field
+     */
     protected String requirement;
 
+    /**
+     * Benefits Field
+     */
     protected String benefits;
 
-    protected Calendar start;
-
-    protected Calendar expire;
-
+    /**
+     * Job Type Field
+     */
     protected JobType type;
 
+    /**
+     * Job Category Field
+     */
     protected JobCategory category;
 
+    /**
+     * Active Field
+     */
     protected boolean active;
 
-    protected CompanyActions employeer;   
+    /**
+     * Company or Employer Field
+     */
+    protected BaseCompany company;   
 
 }

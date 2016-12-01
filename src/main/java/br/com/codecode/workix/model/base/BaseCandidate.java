@@ -17,8 +17,14 @@ import java.time.LocalDate;
  */
 public abstract class BaseCandidate extends BasePerson {
 
+    /**
+     * CPF Field
+     */
     protected long cpf;
 
+    /**
+     * Birth Date Field
+     */
     protected LocalDate birthDate;
 
 }

@@ -13,5 +13,5 @@
 <listAttribute key="org.hibernate.eclipse.launch.FILE_MAPPINGS"/>
 <stringAttribute key="org.hibernate.eclipse.launch.HIBERNATE_VERSION" value="5.2"/>
 <stringAttribute key="org.hibernate.eclipse.launch.PERSISTENCE_UNIT_NAME" value="MySQLDS"/>
-<stringAttribute key="org.hibernate.eclipse.launchDIALECT" value="org.hibernate.dialect.MySQL5Dialect"/>
+<stringAttribute key="org.hibernate.eclipse.launchDIALECT" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
 </launchConfiguration>

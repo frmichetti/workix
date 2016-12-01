@@ -20,16 +20,34 @@ import br.com.codecode.workix.jpa.enums.Estate;
  */
 public abstract class BaseLocale {
 
+    /**
+     * Zip Code Field
+     */
     protected long zipCode;
 
+    /**
+     * City Field
+     */
     protected String city;
 
+    /**
+     * NeighBorhood Field
+     */
     protected String neighborhood;
 
+    /**
+     * Street Field
+     */
     protected String street;
 
+    /**
+     * Number of House Field
+     */
     protected String number;
 
+    /**
+     * Estate Field
+     */
     protected Estate estate;
    
 }

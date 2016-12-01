@@ -18,14 +18,29 @@ import java.time.LocalDateTime;
  */
 abstract class BaseEntity {
 
+    /**
+     * Id Field
+     */
     protected long id;
 
+    /**
+     * Version Field
+     */
     protected int version;
 
+    /**
+     * UUID Field
+     */
     protected String uuid;
 
+    /**
+     * Created at Field
+     */
     protected LocalDateTime createdAt;
 
+    /**
+     * Updated at Field
+     */
     protected LocalDateTime updatedAt;
 
 }

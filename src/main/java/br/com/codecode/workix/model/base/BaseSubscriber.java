@@ -12,10 +12,11 @@ package br.com.codecode.workix.model.base;
  * @since 1.0
  * @version 1.1
  */
-public abstract class BaseSubscriber {
-
-    protected long id;
-
+public abstract class BaseSubscriber extends BaseEntity{
+    
+    /**
+     * Email Field
+     */
     protected String email;   
 
 }

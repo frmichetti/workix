@@ -19,14 +19,29 @@ import java.time.LocalDate;
  */
 public abstract class BaseEducation {
 
+    /**
+     * School Name Field
+     */
     protected String schoolName;
 
+    /**
+     * Start Date Field
+     */
     protected LocalDate startDate;
 
+    /**
+     * End Date Field
+     */
     protected LocalDate endDate;
 
+    /**
+     * Qualification Field
+     */
     protected String qualification;
 
+    /**
+     * Description Field
+     */
     protected String description;
 
 }

@@ -22,11 +22,12 @@ abstract class JAASBase implements Persistable, Serializable {
 
     private static final long serialVersionUID = 8234434925475474481L;
 
+    private long id;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
-    private long id;
-
     @Override
     public long getId() {
 	return id;

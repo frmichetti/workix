@@ -19,13 +19,25 @@ package br.com.codecode.workix.model.base;
  * @see BaseEntity
  */
 public abstract class BaseUser extends BaseEntity {
-
+   
+    /**
+     * Active Field
+     */
     protected boolean active;
 
+    /**
+     * Email Field
+     */
     protected String email;
 
+    /**
+     * Firebase UUID Field
+     */
     protected String firebaseUUID;
 
+    /**
+     * Firebase Message Token Field
+     */
     protected String firebaseMessageToken;
 
 }

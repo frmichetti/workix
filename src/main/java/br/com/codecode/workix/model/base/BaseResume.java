@@ -2,16 +2,6 @@ package br.com.codecode.workix.model.base;
 
 import java.util.Set;
 
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jpa.models.Education;
-import br.com.codecode.workix.jpa.models.Experience;
-import br.com.codecode.workix.jpa.models.Resume;
-import br.com.codecode.workix.jpa.models.Skill;
-import br.com.codecode.workix.model.actions.CandidateActions;
-import br.com.codecode.workix.model.actions.EducationActions;
-import br.com.codecode.workix.model.actions.ExperienceActions;
-import br.com.codecode.workix.model.actions.SkillActions;
-
 /**
  * Root Abstract Class Resume<br>
  * Use for Field Mapping/Share Only
@@ -32,28 +22,37 @@ import br.com.codecode.workix.model.actions.SkillActions;
 public abstract class BaseResume {
 
     /**
-     * Owner of Resume<br>
-     * One {@link Resume} To One {@link Candidate}
+     * Owner of Resume Field<br>
+     * One Resume To One Candidate
      */
-    protected CandidateActions candidate;
+    protected BaseCandidate candidate;
 
+    /**
+     * Objective Field
+     */
     protected String objective;
 
+    /**
+     * Content Field
+     */
     protected String content;
 
     /**
-     * One {@link Resume} To Many {@link Experience}
+     * Experience Field<br>
+     * One Resume To Many Experience
      */
-    protected Set<ExperienceActions> experiences;
+    protected Set<BaseExperience> experiences;
 
     /**
-     * One {@link Resume} To Many {@link Education}
+     * Educations Field<br>
+     * One Resume To Many Education
      */
-    protected Set<EducationActions> educations;
+    protected Set<BaseEducation> educations;
 
     /**
-     * One {@link Resume} To Many {@link Skill}
+     * Skills Field<br>
+     * One Resume To Many Skill
      */
-    protected Set<SkillActions> skills;    
+    protected Set<BaseSkill> skills;    
 
 }

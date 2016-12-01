@@ -19,14 +19,29 @@ import java.time.LocalDate;
  */
 public abstract class BaseExperience {
 
+    /**
+     * Employer Name Field
+     */
     protected String employerName;
 
+    /**
+     * Job Title Field
+     */
     protected String jobTitle;
 
+    /**
+     * Start Date Field
+     */
     protected LocalDate startDate;
 
+    /**
+     * End Date Field
+     */
     protected LocalDate endDate;
 
+    /**
+     * Description Field
+     */
     protected String description;
 
 }

@@ -15,7 +15,13 @@ package br.com.codecode.workix.model.base;
  */
 public abstract class BaseCompany extends BasePerson {
 
+    /**
+     * CNPJ Field
+     */
     protected long cnpj;
 
+    /**
+     * Segment Field
+     */
     protected String segment;
 }

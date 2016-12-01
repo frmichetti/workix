@@ -21,12 +21,24 @@ import br.com.codecode.workix.model.actions.UserActions;
  */
 abstract class BasePerson extends BaseEntity {
 
+    /**
+     * Name Field
+     */
     protected String name;
 
+    /**
+     * User Field
+     */
     protected UserActions user;
 
+    /**
+     * Contact Field
+     */
     protected ContactActions contact;
 
+    /**
+     * Locale Field
+     */
     protected LocaleActions locale;
 
    
