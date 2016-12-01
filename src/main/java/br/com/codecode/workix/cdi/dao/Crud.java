@@ -17,7 +17,7 @@ import br.com.codecode.workix.interfaces.Persistable;
 public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> {
 
     /**
-     * Save Or Update Currenty Entity Based on {@link #getId()}
+     * Save Or Update Currenty Entity Based on Id
      * 
      * @param entity
      *            Entity Passed to Persist or Update
@@ -40,7 +40,7 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> 
     }
 
     /**
-     * Fetch for {@link Persistable} Entities with {@link MyEntity #getUuid()}
+     * Fetch for {@link Persistable} Entities with Id
      * 
      * @param uuid
      *            Fetch for Entity by UUID Field

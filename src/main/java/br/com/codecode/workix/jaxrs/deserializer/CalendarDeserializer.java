@@ -10,13 +10,17 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.IntNode;
 
+import br.com.codecode.workix.config.JAXRSConfiguration;
+import br.com.codecode.workix.config.JAXRSContextResolver;
+
 /**
  * Calendar Deserializer for Jackson
  * To use:
  * <code>
  * .registerModule(new SimpleModule()
 			.addDeserializer(Calendar.class, new CalendarDeserializer()))</code>
- * @see JacksonContextResolver #init()
+ * @see JAXRSConfiguration
+ * @see JAXRSContextResolver
  * @author felipe
  * @since 1.0
  * @version 1.0
