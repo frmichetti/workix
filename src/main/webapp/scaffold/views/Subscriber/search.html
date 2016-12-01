@@ -19,20 +19,6 @@
 
 
     <div class="form-group">
-        <label for="createdAt" class="col-sm-2 control-label">Created At</label>
-        <div class="col-sm-10">
-            <input id="createdAt" name="createdAt" class="form-control" type="text" ng-model="search.createdAt" placeholder="Enter the Subscriber Created At"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="updatedAt" class="col-sm-2 control-label">Updated At</label>
-        <div class="col-sm-10">
-            <input id="updatedAt" name="updatedAt" class="form-control" type="text" ng-model="search.updatedAt" placeholder="Enter the Subscriber Updated At"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
         <label for="uuid" class="col-sm-2 control-label">Uuid</label>
         <div class="col-sm-10">
             <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the Subscriber Uuid"></input>
@@ -53,16 +39,12 @@
             <thead>
                 <tr>
                     <th>Email</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
                     <th>Uuid</th>
                 </tr>
             </thead>
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td><a href="#/Subscribers/edit/{{result.id}}">{{result.email}}</a></td>
-                    <td><a href="#/Subscribers/edit/{{result.id}}">{{result.createdAt}}</a></td>
-                    <td><a href="#/Subscribers/edit/{{result.id}}">{{result.updatedAt}}</a></td>
                     <td><a href="#/Subscribers/edit/{{result.id}}">{{result.uuid}}</a></td>
                 </tr>
             </tbody>

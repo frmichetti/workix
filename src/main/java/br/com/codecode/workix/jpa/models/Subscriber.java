@@ -32,7 +32,7 @@ import br.com.codecode.workix.interfaces.Persistable;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
-public class Subscriber extends MyEntity implements Persistable, Serializable {
+public class Subscriber extends MyEntity {
 
     private static final long serialVersionUID = 6675137603968146834L;
 

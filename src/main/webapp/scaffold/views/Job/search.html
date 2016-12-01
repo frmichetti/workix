@@ -90,20 +90,6 @@
     </div>
 
     <div class="form-group">
-        <label for="createdAt" class="col-sm-2 control-label">Created At</label>
-        <div class="col-sm-10">
-            <input id="createdAt" name="createdAt" class="form-control" type="text" ng-model="search.createdAt" placeholder="Enter the Job Created At"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="updatedAt" class="col-sm-2 control-label">Updated At</label>
-        <div class="col-sm-10">
-            <input id="updatedAt" name="updatedAt" class="form-control" type="text" ng-model="search.updatedAt" placeholder="Enter the Job Updated At"></input>
-        </div>
-    </div>
-
-    <div class="form-group">
         <label for="uuid" class="col-sm-2 control-label">Uuid</label>
         <div class="col-sm-10">
             <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the Job Uuid"></input>
@@ -133,8 +119,6 @@
                     <th>Requirement</th>
                     <th>Title</th>
                     <th>Active</th>
-                    <th>Created At</th>
-                    <th>Updated At</th>
                     <th>Uuid</th>
                 </tr>
             </thead>
@@ -150,8 +134,6 @@
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.requirement}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.title}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.active}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.createdAt}}</a></td>
-                    <td><a href="#/Jobs/edit/{{result.id}}">{{result.updatedAt}}</a></td>
                     <td><a href="#/Jobs/edit/{{result.id}}">{{result.uuid}}</a></td>
                 </tr>
             </tbody>

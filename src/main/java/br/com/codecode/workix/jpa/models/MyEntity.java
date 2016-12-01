@@ -56,12 +56,12 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
     }
 
     @Column(updatable = false, nullable = false)
-    public LocalDateTime getCreatedAt() {
+    private LocalDateTime getCreatedAt() {
 	return createdAt;
     }
 
     @Column
-    public LocalDateTime getUpdatedAt() {
+    private LocalDateTime getUpdatedAt() {
 	return updatedAt;
     }
 
@@ -72,7 +72,7 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
 
     @Version
     @Column
-    protected int getVersion() {
+    private int getVersion() {
 	return version;
     }
 

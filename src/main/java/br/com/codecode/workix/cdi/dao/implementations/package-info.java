@@ -1,5 +1,5 @@
 /**
- * Implementations of DAO
+ * Container for Implementations of DAO
  * 
  * @author felipe
  * @since 1.0

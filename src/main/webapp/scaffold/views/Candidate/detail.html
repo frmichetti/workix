@@ -39,21 +39,6 @@
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': CandidateForm.createdAt.$invalid}">
-        <label for="createdAt" class="col-sm-2 control-label">Created At</label>
-        <div id="createdAtControls" class="col-sm-10">
-            <input id="createdAt" name="createdAt" type="text" required class="form-control" ng-model="candidate.createdAt" placeholder="Enter the Candidate Created At"></input>
-            <span class="help-block error" ng-show="CandidateForm.createdAt.$error.required">required</span> 
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': CandidateForm.updatedAt.$invalid}">
-        <label for="updatedAt" class="col-sm-2 control-label">Updated At</label>
-        <div id="updatedAtControls" class="col-sm-10">
-            <input id="updatedAt" name="updatedAt" type="text" class="form-control" ng-model="candidate.updatedAt" placeholder="Enter the Candidate Updated At"></input>
-        </div>
-    </div>
-
     <div class="form-group" ng-class="{'has-error': CandidateForm.uuid.$invalid}">
         <label for="uuid" class="col-sm-2 control-label">Uuid</label>
         <div id="uuidControls" class="col-sm-10">
