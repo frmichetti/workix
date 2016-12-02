@@ -17,7 +17,7 @@ import javax.json.JsonReader;
 
 import org.junit.Test;
 
-import br.com.codecode.workix.core.models.Token;
+import br.com.codecode.workix.core.models.jdk8.Token;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 

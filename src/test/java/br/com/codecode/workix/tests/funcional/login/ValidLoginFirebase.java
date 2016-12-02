@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.core.models.Token;
-import br.com.codecode.workix.core.models.actions.UserActions;
+import br.com.codecode.workix.core.models.jdk8.Token;
+import br.com.codecode.workix.core.models.jdk8.actions.UserActions;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
