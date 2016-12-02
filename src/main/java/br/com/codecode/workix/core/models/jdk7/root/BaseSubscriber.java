@@ -1,6 +1,6 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
-import br.com.codecode.workix.core.models.jdk8.actions.SubscriberActions;
+import br.com.codecode.workix.core.models.jdk7.actions.SubscriberActions;
 
 /**
  * Root Abstract Class Subscriber<br>
@@ -11,9 +11,8 @@ import br.com.codecode.workix.core.models.jdk8.actions.SubscriberActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
- * @see BaseEntity
+ * @since 1.1
+ * @version 1.0
  * @see SubscriberActions
  */
 public abstract class BaseSubscriber extends BaseEntity implements SubscriberActions{

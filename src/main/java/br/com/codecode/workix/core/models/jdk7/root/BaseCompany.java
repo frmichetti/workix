@@ -1,6 +1,6 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
-import br.com.codecode.workix.core.models.jdk8.actions.CompanyActions;
+import br.com.codecode.workix.core.models.jdk7.actions.CompanyActions;
 
 /**
  * Root Abstract Class Company<br>
@@ -11,8 +11,8 @@ import br.com.codecode.workix.core.models.jdk8.actions.CompanyActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see BasePerson
  * @see CompanyActions
  */

@@ -1,6 +1,6 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
-import br.com.codecode.workix.core.models.jdk8.actions.ContactActions;
+import br.com.codecode.workix.core.models.jdk7.actions.ContactActions;
 
 /**
  * Root Abstract Class Contact<br>
@@ -10,8 +10,8 @@ import br.com.codecode.workix.core.models.jdk8.actions.ContactActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see ContactActions
  */
 public abstract class BaseContact implements ContactActions {

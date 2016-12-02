@@ -1,8 +1,8 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 
-import br.com.codecode.workix.core.models.jdk8.actions.ExperienceActions;
+import br.com.codecode.workix.core.models.jdk7.actions.ExperienceActions;
 
 /**
  * Root Abstract Class Experience<br>
@@ -16,8 +16,8 @@ import br.com.codecode.workix.core.models.jdk8.actions.ExperienceActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see ExperienceActions
  */
 public abstract class BaseExperience implements ExperienceActions {
@@ -35,12 +35,12 @@ public abstract class BaseExperience implements ExperienceActions {
     /**
      * Start Date Field
      */
-    protected LocalDate startDate;
+    protected Calendar startDate;
 
     /**
      * End Date Field
      */
-    protected LocalDate endDate;
+    protected Calendar endDate;
 
     /**
      * Description Field

@@ -1,6 +1,6 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
-import br.com.codecode.workix.core.models.jdk8.actions.SkillActions;
+import br.com.codecode.workix.core.models.jdk7.actions.SkillActions;
 
 /**
  * Root Abstract Class Skill<br>
@@ -10,11 +10,11 @@ import br.com.codecode.workix.core.models.jdk8.actions.SkillActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see SkillActions
  */
-public abstract class BaseSkill implements SkillActions {
+public abstract class BaseSkill implements SkillActions{
 
     /**
      * Name of Skill Field

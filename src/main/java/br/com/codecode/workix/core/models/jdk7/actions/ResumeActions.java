@@ -1,4 +1,4 @@
-package br.com.codecode.workix.core.models.jdk8.actions;
+package br.com.codecode.workix.core.models.jdk7.actions;
 
 import java.util.Set;
 
@@ -6,7 +6,7 @@ import java.util.Set;
  * Markup Interface for Resume Implementation
  * 
  * @author felipe
- * @since 1.0
+ * @since 1.1
  * @version 1.0
  * @see EntityActions
  */

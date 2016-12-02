@@ -1,9 +1,9 @@
 /**
  * 
  */
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
-import br.com.codecode.workix.core.models.jdk8.actions.UserActions;
+import br.com.codecode.workix.core.models.jdk7.actions.UserActions;
 
 /**
  * Root Abstract Class User<br>
@@ -16,8 +16,8 @@ import br.com.codecode.workix.core.models.jdk8.actions.UserActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see BaseEntity
  * @see UserActions
  */

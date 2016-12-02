@@ -1,8 +1,8 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 
-import br.com.codecode.workix.core.models.jdk8.actions.CandidateActions;
+import br.com.codecode.workix.core.models.jdk7.actions.CandidateActions;
 
 /**
  * Root Abstract Class Candidate<br>
@@ -13,12 +13,12 @@ import br.com.codecode.workix.core.models.jdk8.actions.CandidateActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see BasePerson
  * @see CandidateActions
  */
-public abstract class BaseCandidate extends BasePerson implements CandidateActions{
+public abstract class BaseCandidate extends BasePerson implements CandidateActions {
 
     /**
      * CPF Field
@@ -28,6 +28,6 @@ public abstract class BaseCandidate extends BasePerson implements CandidateActio
     /**
      * Birth Date Field
      */
-    protected LocalDate birthDate;
+    protected Calendar birthDate;
 
 }

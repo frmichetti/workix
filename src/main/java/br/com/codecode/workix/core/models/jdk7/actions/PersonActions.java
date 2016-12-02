@@ -1,10 +1,10 @@
-package br.com.codecode.workix.core.models.jdk8.actions;
+package br.com.codecode.workix.core.models.jdk7.actions;
 
 /**
  * Markup Interface for Person Implementation
  * 
  * @author felipe
- * @since 1.0
+ * @since 1.1
  * @version 1.0
  * @see EntityActions
  */

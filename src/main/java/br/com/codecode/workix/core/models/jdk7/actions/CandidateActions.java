@@ -1,22 +1,22 @@
-package br.com.codecode.workix.core.models.jdk8.actions;
+package br.com.codecode.workix.core.models.jdk7.actions;
 
-import java.time.LocalDate;
+import java.util.Calendar;
 
 /**
  * Markup Interface for Candidate Implementation
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see PersonActions
  */
 public interface CandidateActions extends PersonActions {
 
-    LocalDate getBirthDate();
+    Calendar getBirthDate();
 
     long getCpf();
 
-    void setBirthDate(LocalDate birthDate);
+    void setBirthDate(Calendar birthDate);
 
     void setCpf(long cpf);
 

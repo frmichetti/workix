@@ -1,8 +1,8 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
 import java.util.Set;
 
-import br.com.codecode.workix.core.models.jdk8.actions.ResumeActions;
+import br.com.codecode.workix.core.models.jdk7.actions.ResumeActions;
 
 /**
  * Root Abstract Class Resume<br>
@@ -17,12 +17,12 @@ import br.com.codecode.workix.core.models.jdk8.actions.ResumeActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see BaseEntity
  * @see ResumeActions
  */
-public abstract class BaseResume extends BaseEntity implements ResumeActions{
+public abstract class BaseResume extends BaseEntity implements ResumeActions {
 
     /**
      * Owner of Resume Field<br>

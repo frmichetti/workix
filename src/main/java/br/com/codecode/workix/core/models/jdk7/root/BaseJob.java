@@ -1,10 +1,10 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
 import java.math.BigDecimal;
 
 import br.com.codecode.workix.core.models.enums.JobCategory;
 import br.com.codecode.workix.core.models.enums.JobType;
-import br.com.codecode.workix.core.models.jdk8.actions.JobActions;
+import br.com.codecode.workix.core.models.jdk7.actions.JobActions;
 
 /**
  * Root Abstract Class Job<br>
@@ -23,8 +23,8 @@ import br.com.codecode.workix.core.models.jdk8.actions.JobActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see BaseEntity
  * @see JobActions
  */

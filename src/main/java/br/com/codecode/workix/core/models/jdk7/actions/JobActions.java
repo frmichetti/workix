@@ -1,4 +1,4 @@
-package br.com.codecode.workix.core.models.jdk8.actions;
+package br.com.codecode.workix.core.models.jdk7.actions;
 
 import java.math.BigDecimal;
 
@@ -9,8 +9,8 @@ import br.com.codecode.workix.core.models.enums.JobType;
  * Markup Interface for Job Implementation
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see EntityActions
  */
 public interface JobActions extends EntityActions {
@@ -21,7 +21,7 @@ public interface JobActions extends EntityActions {
 
     String getDescription();
 
-    CompanyActions getEmployeer();
+    CompanyActions getCompany();
 
     BigDecimal getMaxPayment();
 
@@ -43,7 +43,7 @@ public interface JobActions extends EntityActions {
 
     void setDescription(String resume);
 
-    void setEmployeer(CompanyActions employeer);
+    void setCompany(CompanyActions employeer);
 
     void setMaxPayment(BigDecimal maxPayment);
 

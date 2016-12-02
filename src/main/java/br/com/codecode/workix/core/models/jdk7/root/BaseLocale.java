@@ -1,7 +1,7 @@
-package br.com.codecode.workix.core.models.jdk8.root;
+package br.com.codecode.workix.core.models.jdk7.root;
 
 import br.com.codecode.workix.core.models.enums.Estate;
-import br.com.codecode.workix.core.models.jdk8.actions.LocaleActions;
+import br.com.codecode.workix.core.models.jdk7.actions.LocaleActions;
 
 /**
  * Root Abstract Class Locale<br>
@@ -16,11 +16,11 @@ import br.com.codecode.workix.core.models.jdk8.actions.LocaleActions;
  * </ul>
  * 
  * @author felipe
- * @since 1.0
- * @version 1.1
+ * @since 1.1
+ * @version 1.0
  * @see LocaleActions
  */
-public abstract class BaseLocale implements LocaleActions{
+public abstract class BaseLocale implements LocaleActions {
 
     /**
      * Zip Code Field
