@@ -525,19 +525,19 @@ header a, header a:hover, header a:focus {
 }
 
 .bg-img-1 {
-	background-image: url(../image/placeholder/1400x900.jpg);
+	background-image: url(../images/1400x900.jpg);
 }
 
 .bg-img-2 {
-	background-image: url(../image/placeholder/1400x900.jpg);
+	background-image: url(../images/1400x900.jpg);
 }
 
 .bg-img-3 {
-	background-image: url(../image/placeholder/1400x900.jpg);
+	background-image: url(../images/1400x900.jpg);
 }
 
 .bg-img-4 {
-	background-image: url(../image/placeholder/1400x900.jpg);
+	background-image: url(../images/1400x900.jpg);
 }
 
 .sl-slider-wrapper .tint {
@@ -1145,11 +1145,11 @@ label {
 }
 
 #stats {
-	background-image: url(../image/placeholder/1400x900.jpg);
+	background-image: url(../images/placeholder/1400x900.jpg);
 }
 
 #testimonials {
-	background-image: url(../image/placeholder/1400x900.jpg);
+	background-image: url(../images/placeholder/1400x900.jpg);
 }
 
 /* 8. JOBSEEK APP & CONTACT

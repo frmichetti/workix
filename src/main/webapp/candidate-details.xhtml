@@ -15,7 +15,7 @@
 	</f:metadata>
 
 	<ui:define name="title">
-		<img src="image/placeholder/332x120.gif" class="img-responsive" alt="" />
+		<h:graphicImage name="332x120.gif" library="placeholder" styleClass="img-responsive" alt="" />		
 	</ui:define>
 
 	<ui:define name="content">
@@ -28,7 +28,7 @@
 
 						<article>
 							<h2>Sobre este Candidato</h2>
-							<p>#{candidateDetailsMB.candidate.name}</p>
+							<p><h:outputText value="#{candidateDetailsMB.candidate.name}" /></p>
 							<p>Some more information about it</p>
 							<hr />
 

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<ui:composition template="/template.xhtml">
+
+	<ui:define name="headerTitle">Workix - Erro interno do Servidor</ui:define>
+
+	<ui:define name="title">		
+		
+		<h1>Erro 500 - Erro interno do Servidor</h1>
+		<h3>Tente novamente mais tarde</h3>
+		<h4>Talvez você se interesse por ...</h4>
+		
+		<br/>
+		<br/>
+		
+		<h:graphicImage name="error.jpg" library="images" />
+
+	</ui:define>
+
+	<ui:define name="content">
+
+		<ui:insert name="blog">
+			<ui:include src="fragments/blog.xhtml" />
+		</ui:insert>
+
+	</ui:define>
+</ui:composition>
+
+</html>
