@@ -19,6 +19,7 @@ import br.com.codecode.workix.tests.util.gson.serializer.GsonLocalDateTimeSerial
 
 /**
  * Gson Singleton Provider
+ * 
  * @since 1.1
  * @version 1.0
  * @author felipe
@@ -31,7 +32,7 @@ public final class GsonProvider {
 
     public static GsonProvider getInstance() {
 
-	if(instance == null){
+	if (instance == null) {
 	    instance = new GsonProvider();
 	}
 
@@ -40,6 +41,7 @@ public final class GsonProvider {
 
     /**
      * Generate a Custom Gson attempt for DateFormat
+     * 
      * @return a New Gson
      */
     public Gson buildGson() {
@@ -49,7 +51,7 @@ public final class GsonProvider {
 
 		.setDateFormat(new SimpleDateFormat().toPattern())
 
-		.enableComplexMapKeySerialization()	
+		.enableComplexMapKeySerialization()
 
 		.registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
 
@@ -65,7 +67,5 @@ public final class GsonProvider {
 
 		.create();
     }
-
-
 
 }

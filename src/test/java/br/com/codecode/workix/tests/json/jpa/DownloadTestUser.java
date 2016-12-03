@@ -9,6 +9,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.gson.reflect.TypeToken;
+
 import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.json.DownloadTest;
@@ -20,7 +22,7 @@ public class DownloadTestUser extends BaseTest implements DownloadTest<User> {
     @Before    
     public void downloadItens() {	
 
-	resp = downloadItens(server + "/users");
+	resp = downloadItens(server + "/users");	
 
     }
 
@@ -28,20 +30,18 @@ public class DownloadTestUser extends BaseTest implements DownloadTest<User> {
     public void parseItens() {
 	
 	assertFalse(resp.isEmpty());
-
-	System.out.println("parseItens");
-
-	List<User> users = parseItens(resp);
+	
+	List<User> users = parseItens(resp, new TypeToken<List<User>>(){});
 
 	assertNotNull(users);
 
-	assertTrue(users.size() > 0);
+	assertTrue(users.size() > 0);		
 
 	System.out.println("----Stream----");
+	
+	System.out.println(users.size());
 
-	users.stream().forEach((u) -> {
-	    System.out.println(u.getEmail());
-	});
+	users.stream().forEach(u -> System.out.println(u.getEmail()));
 
 	System.out.println("----Stream----");
 

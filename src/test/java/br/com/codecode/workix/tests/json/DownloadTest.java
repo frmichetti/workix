@@ -17,7 +17,7 @@ import br.com.codecode.workix.tests.util.gson.GsonProvider;
  * @see Serializable
  * @see GsonProvider
  */
-public interface DownloadTest<T extends Serializable> {
+public interface DownloadTest<T extends Serializable> {    
 
     /**
      * Download Items to a String
@@ -31,12 +31,13 @@ public interface DownloadTest<T extends Serializable> {
     /**
      * Parse Items to Entity
      * @param rawJson Raw Json String
+     * @param type Expected Type
      * @return List of Parsed Object
      */
-    default List<T> parseItens(String rawJson) {	
+    default List<T> parseItens(String rawJson,TypeToken<?> type) {	
 	
 	return GsonProvider.getInstance().buildGson()
-		.fromJson(rawJson, new TypeToken<List<T>>(){}.getType());	
+		.fromJson(rawJson, type.getType());	
 	
     }
 

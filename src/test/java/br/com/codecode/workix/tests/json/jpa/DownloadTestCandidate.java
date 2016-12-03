@@ -9,6 +9,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.gson.reflect.TypeToken;
+
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.json.DownloadTest;
@@ -29,7 +31,7 @@ public class DownloadTestCandidate extends BaseTest implements DownloadTest<Cand
     @Test    
     public void parseItens() {	
 
-	List<Candidate> companies = parseItens(resp);
+	List<Candidate> companies = parseItens(resp, new TypeToken<List<Candidate>>(){});
 
 	assertNotNull(companies);
 
