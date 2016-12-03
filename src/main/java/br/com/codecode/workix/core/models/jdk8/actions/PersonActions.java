@@ -1,5 +1,9 @@
 package br.com.codecode.workix.core.models.jdk8.actions;
 
+import br.com.codecode.workix.core.models.jdk8.root.BaseContact;
+import br.com.codecode.workix.core.models.jdk8.root.BaseLocale;
+import br.com.codecode.workix.core.models.jdk8.root.BaseUser;
+
 /**
  * Markup Interface for Person Implementation
  * 
@@ -18,12 +22,12 @@ abstract interface PersonActions extends EntityActions {
 
     UserActions getUser();
 
-    void setContact(ContactActions contact);
+    void setContact(BaseContact contact);
 
-    void setLocale(LocaleActions locale);
+    void setLocale(BaseLocale locale);
 
     void setName(String name);
 
-    void setUser(UserActions user);
+    void setUser(BaseUser user);
 
 }

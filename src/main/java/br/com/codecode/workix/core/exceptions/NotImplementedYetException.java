@@ -19,7 +19,7 @@ public final class NotImplementedYetException extends Exception {
     }
 
     /**
-     * @param message Message to Forward throught Exception
+     * @param message Message to Forward through Exception
      */
     public NotImplementedYetException(String message) {
 	super(message);

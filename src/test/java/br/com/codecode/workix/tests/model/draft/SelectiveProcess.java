@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.model;
+package br.com.codecode.workix.tests.model.draft;
 
 import java.io.Serializable;
 import java.time.Instant;

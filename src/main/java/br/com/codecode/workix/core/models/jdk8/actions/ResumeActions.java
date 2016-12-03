@@ -2,6 +2,11 @@ package br.com.codecode.workix.core.models.jdk8.actions;
 
 import java.util.Set;
 
+import br.com.codecode.workix.core.models.jdk8.root.BaseCandidate;
+import br.com.codecode.workix.core.models.jdk8.root.BaseEducation;
+import br.com.codecode.workix.core.models.jdk8.root.BaseExperience;
+import br.com.codecode.workix.core.models.jdk8.root.BaseSkill;
+
 /**
  * Markup Interface for Resume Implementation
  * 
@@ -12,40 +17,40 @@ import java.util.Set;
  */
 public interface ResumeActions extends EntityActions {
 
-    void addEducation(EducationActions education);
+    void addEducation(BaseEducation education);
 
-    void addExperience(ExperienceActions experience);
+    void addExperience(BaseExperience experience);
 
-    void addSkill(SkillActions skill);
+    void addSkill(BaseSkill skill);
 
-    CandidateActions getCandidate();
+    BaseCandidate getCandidate();
 
     String getContent();
 
-    Set<EducationActions> getEducations();
+    Set<BaseEducation> getEducations();
 
-    Set<ExperienceActions> getExperiences();
+    Set<BaseExperience> getExperiences();
 
     String getObjective();
 
-    Set<SkillActions> getSkills();
+    Set<BaseSkill> getSkills();
 
-    void removeEducation(EducationActions education);
+    void removeEducation(BaseEducation education);
 
-    void removeExperience(ExperienceActions experience);
+    void removeExperience(BaseExperience experience);
 
-    void removeSkill(SkillActions skill);
+    void removeSkill(BaseSkill skill);
 
-    void setCandidate(CandidateActions candidate);
+    void setCandidate(BaseCandidate candidate);
 
     void setContent(String content);
 
-    void setEducations(Set<EducationActions> educations);
+    void setEducations(Set<BaseEducation> educations);
 
-    void setExperiences(Set<ExperienceActions> experiences);
+    void setExperiences(Set<BaseExperience> experiences);
 
     void setObjective(String objective);
 
-    void setSkills(Set<SkillActions> skills);
+    void setSkills(Set<BaseSkill> skills);
 
 }

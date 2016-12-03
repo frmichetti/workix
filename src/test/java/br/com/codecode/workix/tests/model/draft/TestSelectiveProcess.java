@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.model;
+package br.com.codecode.workix.tests.model.draft;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
