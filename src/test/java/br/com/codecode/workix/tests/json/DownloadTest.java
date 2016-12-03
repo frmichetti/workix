@@ -36,7 +36,7 @@ public interface DownloadTest<T extends Serializable> {
      */
     default List<T> parseItens(String rawJson,TypeToken<?> type) {	
 	
-	return GsonProvider.getInstance().buildGson()
+	return GsonProvider.buildGson()
 		.fromJson(rawJson, type.getType());	
 	
     }

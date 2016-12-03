@@ -2,8 +2,6 @@ package br.com.codecode.workix.tests.util.gson.deserializer;
 
 import java.lang.reflect.Type;
 import java.util.Calendar;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
@@ -13,6 +11,7 @@ import com.google.gson.JsonParseException;
 
 import br.com.codecode.workix.core.models.jdk7.root.BaseUser;
 import br.com.codecode.workix.tests.model.jdk7.User;
+import br.com.codecode.workix.tests.util.gson.GsonProvider;
 
 public class GsonUserDeserializer implements JsonDeserializer<BaseUser> {
 
@@ -20,111 +19,56 @@ public class GsonUserDeserializer implements JsonDeserializer<BaseUser> {
     public BaseUser deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
 	    throws JsonParseException {
 
-	JsonObject obj = json.getAsJsonObject();
-
-	Set<Entry<String, JsonElement>> en = obj.entrySet();
-
-	en.forEach(System.out::println);
-
-	System.out.println(en.stream().filter(e -> e.getKey().equals("active")).count());
+	JsonObject obj = json.getAsJsonObject();	
 
 	/**
 	 * Active Field
 	 */
-	boolean active = false;
-	try {
-	    active = obj.get("active").getAsBoolean();
-	} catch (Exception e2) {
-	    // TODO: handle exception
-	}
+	boolean active = (obj.has("active")) && (!obj.get("active").isJsonNull()) ? obj.get("active").getAsBoolean() : false;
+	
 
 	/**
 	 * Email Field
 	 */
-	String email = null;
-	try {
-	    email = obj.get("email").getAsString();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	String email = (obj.has("email")) && (!obj.get("email").isJsonNull()) ? obj.get("email").getAsString() : "";
+	
 
 	/**
 	 * Firebase UUID Field
 	 */
-	String firebaseUUID = null;
-	try {
-	    firebaseUUID = obj.get("firebaseUUID").getAsString();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	String firebaseUUID = (obj.has("firebaseUUID")) && (!obj.get("firebaseUUID").isJsonNull()) ? obj.get("firebaseUUID").getAsString() : "";
+	
 
 	/**
 	 * Firebase Message Token Field
 	 */
-	String firebaseMessageToken = null;
-	try {
-	    firebaseMessageToken = obj.get("firebaseMessageToken").getAsString();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	String firebaseMessageToken = (obj.has("firebaseMessageToken")) && (!obj.get("firebaseMessageToken").isJsonNull()) ? obj.get("firebaseMessageToken").getAsString() : "";
+	
 
 	/**
 	 * Id Field
 	 */
-	long id = 0;
-	try {
-	    id = obj.get("id").getAsLong();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	long id = (obj.has("id")) && (!obj.get("id").isJsonNull()) ? obj.get("id").getAsLong() : 0;
 
 	/**
 	 * Version Field
 	 */
-	int version = 0;
-	try {
-	    version = obj.get("version").getAsInt();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	int version = (obj.has("version")) && (!obj.get("version").isJsonNull()) ? obj.get("version").getAsInt() : 0;
 
 	/**
 	 * UUID Field
 	 */
-	String uuid = null;
-	try {
-	    uuid = obj.get("uuid").getAsString();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	String uuid = (obj.has("uuid")) && (!obj.get("uuid").isJsonNull()) ? obj.get("uuid").getAsString() : "";
 
 	/**
 	 * Created at Field
 	 */
-	Calendar createdAt = null;
-	try {
-	    createdAt = Calendar.getInstance();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	Calendar createdAt = GsonProvider.buildGson().fromJson(obj.get("createdAt"), Calendar.class);
 
 	/**
 	 * Updated at Field
 	 */
-	Calendar updatedAt = null;
-	try {
-	    updatedAt = Calendar.getInstance();
-	} catch (Exception e1) {
-	    // TODO Auto-generated catch block
-	    e1.printStackTrace();
-	}
+	Calendar updatedAt = GsonProvider.buildGson().fromJson(obj.get("updatedAt"), Calendar.class);
 
 	User u = new User();
 

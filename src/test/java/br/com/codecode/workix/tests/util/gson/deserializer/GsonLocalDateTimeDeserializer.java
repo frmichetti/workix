@@ -14,12 +14,6 @@ public class GsonLocalDateTimeDeserializer implements JsonDeserializer<LocalDate
     public LocalDateTime deserialize(JsonElement json, Type type, JsonDeserializationContext context)
 	    throws JsonParseException {
 
-	System.out.println("----------------");
-
-	System.out.println("Deserialize");
-
-	System.out.println(json.getAsJsonPrimitive().getAsString());
-
 	return LocalDateTime.parse(json.getAsJsonPrimitive().getAsString());
 
     }

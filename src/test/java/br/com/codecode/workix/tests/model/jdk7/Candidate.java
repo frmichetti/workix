@@ -39,6 +39,16 @@ public final class Candidate extends BaseCandidate implements Serializable {
     }
 
     @Override
+    public Calendar getCreatedAt() {	
+	return super.getCreatedAt();
+    }
+
+    @Override
+    public long getId() {	
+	return super.getId();
+    }
+
+    @Override
     public BaseLocale getLocale() {	
 	return super.locale;
     }
@@ -49,8 +59,23 @@ public final class Candidate extends BaseCandidate implements Serializable {
     }
 
     @Override
+    public Calendar getUpdatedAt() {	
+	return super.getUpdatedAt();
+    }
+
+    @Override
     public UserActions getUser() {	
 	return super.user;
+    }
+
+    @Override
+    public String getUuid() {	
+	return super.getUuid();
+    }
+
+    @Override
+    public int getVersion() {	
+	return super.getVersion();
     }
 
     @Override
@@ -69,6 +94,16 @@ public final class Candidate extends BaseCandidate implements Serializable {
     }
 
     @Override
+    public void setCreatedAt(Calendar createdAt) {	
+	super.setCreatedAt(createdAt);
+    }
+
+    @Override
+    public void setId(long id) {	
+	super.setId(id);
+    }
+
+    @Override
     public void setLocale(BaseLocale locale) {
 	super.locale = locale;
 
@@ -80,8 +115,25 @@ public final class Candidate extends BaseCandidate implements Serializable {
     }
 
     @Override
+    public void setUpdatedAt(Calendar updatedAt) {	
+	super.setUpdatedAt(updatedAt);
+    }
+
+    @Override
     public void setUser(BaseUser user) {
 	super.user =  user;
     }
+
+    @Override
+    public void setUuid(String uuid) {	
+	super.setUuid(uuid);
+    }
+
+    @Override
+    public void setVersion(int version) {	
+	super.setVersion(version);
+    }
+    
+    
 
 }

@@ -59,8 +59,8 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 	    try {
 
 		/**
-		 * attempt for DateFormat , Pattern Must be Equals
-		 * {@link JacksonContextResolver #init()}
+		 * attempt for DateFormat
+		 * 
 		 * 
 		 * @return
 		 */
