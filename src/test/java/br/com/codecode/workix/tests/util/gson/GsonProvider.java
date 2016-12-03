@@ -28,7 +28,8 @@ public final class GsonProvider {
 
     private static GsonProvider instance;
 
-    private GsonProvider(){}
+    private GsonProvider() {
+    }
 
     public static GsonProvider getInstance() {
 
@@ -63,8 +64,9 @@ public final class GsonProvider {
 
 		.registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
 
-		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
+		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())		
 
+		
 		.create();
     }
 

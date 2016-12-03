@@ -41,6 +41,8 @@ public abstract class BaseUser extends BaseEntity implements UserActions {
     /**
      * Firebase Message Token Field
      */
-    protected String firebaseMessageToken;        
+    protected String firebaseMessageToken;  
+    
+    
 
 }

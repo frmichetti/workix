@@ -43,4 +43,56 @@ abstract class BaseEntity {
      */
     protected Calendar updatedAt;
 
+    
+    protected long getId() {
+        return id;
+    }
+
+    
+    protected int getVersion() {
+        return version;
+    }
+
+    
+    protected String getUuid() {
+        return uuid;
+    }
+
+    
+    protected Calendar getCreatedAt() {
+        return createdAt;
+    }
+
+    
+    protected Calendar getUpdatedAt() {
+        return updatedAt;
+    }
+
+    
+    protected void setId(long id) {
+        this.id = id;
+    }
+
+    
+    protected void setVersion(int version) {
+        this.version = version;
+    }
+
+    
+    protected void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    
+    protected void setCreatedAt(Calendar createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    
+    protected void setUpdatedAt(Calendar updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+    
+    
+
 }
