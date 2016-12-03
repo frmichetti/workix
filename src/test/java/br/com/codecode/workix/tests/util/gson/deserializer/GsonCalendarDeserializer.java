@@ -64,7 +64,7 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 		 * 
 		 * @return
 		 */
-		d = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ").parse(dateRaw);
+		d = new SimpleDateFormat().parse(dateRaw);
 
 	    } catch (ParseException e) {
 

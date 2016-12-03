@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.codecode.workix.interfaces.Buildable;
@@ -17,6 +18,7 @@ public class BuilderScan {
 
     private Class<?> clazz;
 
+    @Before
     public void setUp() {
 
 	builder = new User.Builder("teste");
@@ -25,9 +27,7 @@ public class BuilderScan {
     }
 
     @Test
-    public void test() {
-
-	setUp();
+    public void test() {	
 
 	List<Class<?>> classes = new ArrayList<>();
 

@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.download;
+package br.com.codecode.workix.tests.json.jpa;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
