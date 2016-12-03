@@ -1,4 +1,4 @@
-package br.com.codecode.workix.core.models.enums;
+package br.com.codecode.workix.core.enums;
 
 /**
  * Possible Job Categories

@@ -12,10 +12,10 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.core.enums.Estate;
+import br.com.codecode.workix.core.enums.JobCategory;
+import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.core.models.enums.Estate;
-import br.com.codecode.workix.core.models.enums.JobCategory;
-import br.com.codecode.workix.core.models.enums.JobType;
 import br.com.codecode.workix.jpa.models.Company;
 import br.com.codecode.workix.jpa.models.Job;
 

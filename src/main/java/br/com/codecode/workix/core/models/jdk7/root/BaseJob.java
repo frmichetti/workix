@@ -2,8 +2,8 @@ package br.com.codecode.workix.core.models.jdk7.root;
 
 import java.math.BigDecimal;
 
-import br.com.codecode.workix.core.models.enums.JobCategory;
-import br.com.codecode.workix.core.models.enums.JobType;
+import br.com.codecode.workix.core.enums.JobCategory;
+import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.core.models.jdk7.actions.JobActions;
 
 /**

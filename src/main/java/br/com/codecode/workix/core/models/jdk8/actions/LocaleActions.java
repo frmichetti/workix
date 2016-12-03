@@ -1,6 +1,6 @@
 package br.com.codecode.workix.core.models.jdk8.actions;
 
-import br.com.codecode.workix.core.models.enums.Estate;
+import br.com.codecode.workix.core.enums.Estate;
 
 /**
  * Markup Interface for Locale Implementation

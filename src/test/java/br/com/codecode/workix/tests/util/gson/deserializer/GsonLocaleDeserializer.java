@@ -8,7 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 
-import br.com.codecode.workix.core.models.enums.Estate;
+import br.com.codecode.workix.core.enums.Estate;
 import br.com.codecode.workix.core.models.jdk7.root.BaseLocale;
 import br.com.codecode.workix.tests.model.jdk7.Locale;
 

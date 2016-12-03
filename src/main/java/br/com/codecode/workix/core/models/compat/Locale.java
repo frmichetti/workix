@@ -1,34 +1,18 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.core.models.compat;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.Estate;
-import br.com.codecode.workix.core.models.jdk8.actions.LocaleActions;
-import br.com.codecode.workix.core.models.jdk8.root.BaseLocale;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Locale JPA with Inherited Fields and Methods
- * 
+ * <br>Without Annotations
  * @author felipe
- * @see LocaleActions
  * @see Serializable
- * @since 1.0
+ * @since 1.1
  * @version 1.1
  */
-@Embeddable
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Locale implements Serializable {
 
     /**
@@ -36,7 +20,6 @@ public class Locale implements Serializable {
      * 
      * @author felipe
      * @see Buildable
-     * @see BaseLocale
      */
     public static class Builder extends Locale implements Buildable<Locale> {
 
@@ -128,23 +111,16 @@ public class Locale implements Serializable {
 
     private static final long serialVersionUID = -607806075186010186L;
 
-    @Column
     private long zipCode;
 
-    @Column
     private String city;
 
-    @Column
     private String neighborhood;
 
-    @Column
     private String street;
 
-    @Column
     private String number;
 
-    @Enumerated(EnumType.STRING)
-    @Column
     private Estate estate;
 
     /**

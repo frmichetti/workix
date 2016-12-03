@@ -9,8 +9,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import br.com.codecode.workix.core.models.compat.User;
 import br.com.codecode.workix.interfaces.Buildable;
-import br.com.codecode.workix.jpa.models.User;
 
 public class BuilderScan {
 

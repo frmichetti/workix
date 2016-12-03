@@ -1,6 +1,6 @@
 package br.com.codecode.workix.tests.model.jdk7;
 
-import br.com.codecode.workix.core.models.enums.Estate;
+import br.com.codecode.workix.core.enums.Estate;
 import br.com.codecode.workix.core.models.jdk7.root.BaseLocale;
 
 
