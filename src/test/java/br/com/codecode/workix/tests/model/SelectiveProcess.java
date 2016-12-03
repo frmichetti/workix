@@ -14,7 +14,6 @@ import br.com.codecode.workix.jpa.models.Candidate;
  * 
  * @author felipe
  */
-@SuppressWarnings("unchecked")
 public class SelectiveProcess extends Observable implements Observer, Serializable {
 
     private static final long serialVersionUID = -8009482242264135346L;
@@ -95,6 +94,7 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void update(Observable observable, Object object) {
 

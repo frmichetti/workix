@@ -16,7 +16,6 @@ import br.com.codecode.workix.jpa.models.Candidate;
  */
 @Named
 @ApplicationScoped
-@SuppressWarnings("unchecked")
 public class Recruiter extends Observable implements Observer {
 
     private Collection<SelectiveProcess> processes = new ArrayList<>();
@@ -118,6 +117,7 @@ public class Recruiter extends Observable implements Observer {
 	notifyObservers(selectiveProcesses);
     }
 
+    @SuppressWarnings("unchecked")
     @Override
     public void update(Observable o, Object arg) {
 

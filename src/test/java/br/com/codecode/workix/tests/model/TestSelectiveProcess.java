@@ -5,7 +5,8 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,7 +17,7 @@ public class TestSelectiveProcess {
 
     private SelectiveProcess selectiveProcess;
 
-    private ArrayList<Candidate> candidates;
+    private List<Candidate> candidates;
 
     private Candidate c1, c2, c3;
 
@@ -39,11 +40,7 @@ public class TestSelectiveProcess {
 	c2 = new Candidate();
 	c3 = new Candidate();
 
-	candidates = new ArrayList<>();
-
-	candidates.add(c1);
-	candidates.add(c2);
-	candidates.add(c3);
+	candidates = Arrays.asList(c1,c2,c3);	
 
 	for (int x = 0; x < candidates.size(); x++) {
 	    candidates.get(x).setId(x + 1L);
