@@ -1,6 +1,7 @@
 package br.com.codecode.workix.config;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -10,7 +11,10 @@ import javax.ws.rs.ext.Provider;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+
+import br.com.codecode.workix.jaxrs.deserializer.CalendarDeserializer;
 
 /**
  * This Class define Startup Properties for JAXRS
@@ -37,10 +41,15 @@ public class JAXRSContextResolver implements ContextResolver<ObjectMapper> {
 		.registerModule(new JavaTimeModule())		
 
 		.setDateFormat(new SimpleDateFormat())
+		
+		.registerModule(new SimpleModule()
+			.addDeserializer(Calendar.class, new CalendarDeserializer()))		
 
 		.enable(SerializationFeature.INDENT_OUTPUT)
 
-		.disable(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES);
+		.disable(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES)
+		
+		.disable(SerializationFeature.WRITE_DATE_KEYS_AS_TIMESTAMPS);
 
     }
 }
