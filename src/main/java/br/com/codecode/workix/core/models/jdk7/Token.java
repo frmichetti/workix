@@ -9,7 +9,6 @@ package br.com.codecode.workix.core.models.jdk7;
 
 import java.util.Calendar;
 
-import javax.annotation.Generated;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -23,16 +22,14 @@ public final class Token {
 
     /**
      * Builder to build {@link Token}.
-     */
-    @Generated("SparkTools")
+     */    
     public static final class Builder {
 
 	private Calendar createdAt;
 
 	private String key;
 
-	private Builder() {
-	}
+	private Builder(){}
 
 	public Token build() {
 	    return new Token(this);
@@ -52,10 +49,8 @@ public final class Token {
     /**
      * Public Default Constructor
      */
-    private Token() {
-    }
-
-    @Generated("SparkTools")
+    private Token(){}
+    
     private Token(@NotNull Builder builder) {
 	setCreatedAt(builder.createdAt);
 	this.key = builder.key;
@@ -65,8 +60,7 @@ public final class Token {
      * Creates builder to build {@link Token}.
      * 
      * @return created builder
-     */
-    @Generated("SparkTools")
+     */    
     public static Builder builder() {
 	return new Builder();
     }

@@ -29,7 +29,7 @@ import br.com.codecode.workix.jpa.models.User;
  */
 @Stateless
 @Path("save")
-public final class SaveOrUpdateEndpoint {
+public class SaveOrUpdateEndpoint {
 
     @Inject
     private Event<User> alertNewUser;

@@ -10,7 +10,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import br.com.codecode.workix.config.JAXRSConfiguration;
-import br.com.codecode.workix.core.models.jdk8.Token;
+import br.com.codecode.workix.core.models.jdk7.Token;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.rest.BaseEndpoint;
@@ -24,7 +24,7 @@ import br.com.codecode.workix.rest.BaseEndpoint;
  * @version 1.1
  */
 @Path("login")
-public final class LoginEndpoint extends BaseEndpoint {
+public class LoginEndpoint extends BaseEndpoint {
 
     @POST
     @Path("firebaselogin")

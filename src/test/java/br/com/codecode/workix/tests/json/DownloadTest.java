@@ -5,8 +5,8 @@ import java.util.List;
 
 import com.google.gson.reflect.TypeToken;
 
+import br.com.codecode.workix.gson.util.GsonProvider;
 import br.com.codecode.workix.tests.util.HttpTest;
-import br.com.codecode.workix.tests.util.gson.GsonProvider;
 
 /**
  * Markup Interface for Download Test Unit

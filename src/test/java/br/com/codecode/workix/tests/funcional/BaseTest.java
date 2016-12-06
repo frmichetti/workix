@@ -9,13 +9,14 @@ import java.util.Date;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
+import br.com.codecode.workix.gson.util.deserializer.GsonDateDeserializer;
+import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
+import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateTimeDeserializer;
+import br.com.codecode.workix.gson.util.serializer.GsonLocalDateSerializer;
+import br.com.codecode.workix.gson.util.serializer.GsonLocalDateTimeSerializer;
 import br.com.codecode.workix.tests.util.HttpConfig;
-import br.com.codecode.workix.tests.util.gson.deserializer.GsonCalendarDeserializer;
-import br.com.codecode.workix.tests.util.gson.deserializer.GsonDateDeserializer;
-import br.com.codecode.workix.tests.util.gson.deserializer.GsonLocalDateDeserializer;
-import br.com.codecode.workix.tests.util.gson.deserializer.GsonLocalDateTimeDeserializer;
-import br.com.codecode.workix.tests.util.gson.serializer.GsonLocalDateSerializer;
-import br.com.codecode.workix.tests.util.gson.serializer.GsonLocalDateTimeSerializer;
+
 
 /**
  * BaseTest Class Share Common Fields
