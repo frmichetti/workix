@@ -48,7 +48,7 @@ import br.com.codecode.workix.jaxrs.converter.LocalDateTimeAdapter;
  * @see Serializable
  */
 @Entity
-@Table(name="Selective_Process")
+@Table(name = "Selective_Process")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -56,43 +56,48 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     private static final long serialVersionUID = -5336099006523168288L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
-    private long id;
-
-    @XmlTransient
-    @Version
     @Column
-    private int version;
+    private boolean active;
 
-    @XmlTransient
-    @Column(nullable = false)
-    private String uuid;
-
-    @Column
-    private LocalDateTime createdAt;
-  
-    @Column
-    private LocalDateTime updatedAt;
-
-    @ManyToOne(optional = false)
-    private Job job;
-
-    @JoinTable(name = "Selective_Process_Candidates", joinColumns = @JoinColumn(name = "sp_id"),
-	inverseJoinColumns = @JoinColumn(name = "candidate_id"))
+    @JoinTable(name = "Selective_Process_Candidates", joinColumns = @JoinColumn(name = "sp_id"), inverseJoinColumns = @JoinColumn(name = "candidate_id"))
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Candidate> candidates;
 
     @Column
-    private boolean active;
+    private LocalDateTime createdAt;
 
     @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column
     private LocalDateTime disabledAt;
 
+    @Column
+    private LocalDateTime expire;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    private long id;
+
+    @ManyToOne(optional = false)
+    private Job job;
+
     @Column(nullable = false)
     private int maxCandidates;
+
+    @Column
+    private LocalDateTime start;
+
+    @Column
+    private LocalDateTime updatedAt;
+
+    @XmlTransient
+    @Column(nullable = false)
+    private String uuid;
+
+    @XmlTransient
+    @Version
+    @Column
+    private int version;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
@@ -100,57 +105,12 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     public SelectiveProcess() {
     }
 
-    private void countCandidates(Set<Candidate> collection) {
-	maxCandidates = collection.size();
-    }
-
-    /**
-     * Initialize Fields for CDI Injection
-     */    
-    @PostConstruct
-    private void init() {
-	this.addObserver(this);
-	active = true;
-	candidates = new HashSet<>();
-    }
-
-    private boolean isElegible() {
-	System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
-	System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
-	return (candidates.size() < maxCandidates);
-    }
-
-    private void notifyChanges() {
-	notifyObservers();
-	setChanged();
-    }
-
-    private void notifyChanges(Object object) {
-	notifyObservers(object);
-	setChanged();
-    }
-
-    protected int getVersion() {
-	return this.version;
-    }
-
-    protected void setActive(boolean active) {
-
-	if (!active) {
-	    disabledAt = LocalDateTime.now();
-	}
-
-	this.active = active;
-
-	notifyChanges();
-    }
-
-    protected void setVersion(final int version) {
-	this.version = version;
-    }
-
     public int countCandidates() {
 	return maxCandidates - candidates.size();
+    }
+
+    private void countCandidates(Set<Candidate> collection) {
+	maxCandidates = collection.size();
     }
 
     @Override
@@ -180,6 +140,13 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	return this.candidates;
     }
 
+    /**
+     * @return the expire
+     */
+    public LocalDateTime getExpire() {
+	return expire;
+    }
+
     @Override
     public long getId() {
 	return this.id;
@@ -193,12 +160,33 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	return maxCandidates;
     }
 
+    /**
+     * @return the start
+     */
+    public LocalDateTime getStart() {
+	return start;
+    }
+
+    protected int getVersion() {
+	return this.version;
+    }
+
     @Override
     public int hashCode() {
 	final int prime = 31;
 	int result = super.hashCode();
 	result = prime * result + (int) (id ^ (id >>> 32));
 	return result;
+    }
+
+    /**
+     * Initialize Fields for CDI Injection
+     */
+    @PostConstruct
+    private void init() {
+	this.addObserver(this);
+	active = true;
+	candidates = new HashSet<>();
     }
 
     @Override
@@ -210,9 +198,25 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 	return active;
     }
 
+    private boolean isElegible() {
+	System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
+	System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
+	return (candidates.size() < maxCandidates);
+    }
+
     public boolean isInProcess(Candidate candidate) {
 	System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)));
 	return (candidates.contains(candidate));
+    }
+
+    private void notifyChanges() {
+	notifyObservers();
+	setChanged();
+    }
+
+    private void notifyChanges(Object object) {
+	notifyObservers(object);
+	setChanged();
     }
 
     @PrePersist
@@ -246,9 +250,28 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     }
 
+    public void setActive(boolean active) {
+
+	if (!active) {
+	    disabledAt = LocalDateTime.now();
+	}
+
+	this.active = active;
+
+	notifyChanges();
+    }
+
     public void setCandidates(Set<Candidate> candidates) {
 	this.candidates = candidates;
 	notifyChanges();
+    }
+
+    /**
+     * @param expire
+     *            the expire to set
+     */
+    public void setExpire(LocalDateTime expire) {
+	this.expire = expire;
     }
 
     @Override
@@ -262,6 +285,18 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     public void setMaxCandidates(int maxCandidates) {
 	this.maxCandidates = maxCandidates;
+    }
+
+    /**
+     * @param start
+     *            the start to set
+     */
+    public void setStart(LocalDateTime start) {
+	this.start = start;
+    }
+
+    protected void setVersion(final int version) {
+	this.version = version;
     }
 
     @SuppressWarnings("unchecked")

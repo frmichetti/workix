@@ -26,83 +26,43 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 
     private static final long serialVersionUID = -5336099006523168288L;
 
-    private long id;
+    private boolean active;
 
-    private int version;
-
-    private String uuid;
-
-    private LocalDateTime createdAt;
+    private Set<Candidate> candidates;    
   
-    private LocalDateTime updatedAt;
+    private long id;
 
     private Job job;
 
-    private Set<Candidate> candidates;
-
-    private boolean active;
-
-    private LocalDateTime disabledAt;
-
     private int maxCandidates;
 
+    private LocalDateTime start;
+    
+    private LocalDateTime expire;
+    
+    private LocalDateTime createdAt;
+    
+    private LocalDateTime updatedAt;
+    
+    private LocalDateTime disabledAt;
+    
+    private String uuid;
+    
+    private int version;
+
+    
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public SelectiveProcess() {
+    public SelectiveProcess(){}
+
+    
+    public int countCandidates() {
+	return maxCandidates - candidates.size();
     }
 
     private void countCandidates(Set<Candidate> collection) {
 	maxCandidates = collection.size();
-    }
-
-    /**
-     * Initialize Fields for CDI Injection
-     */    
-    @PostConstruct
-    private void init() {
-	this.addObserver(this);
-	active = true;
-	candidates = new HashSet<>();
-    }
-
-    private boolean isElegible() {
-	System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
-	System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
-	return (candidates.size() < maxCandidates);
-    }
-
-    private void notifyChanges() {
-	notifyObservers();
-	setChanged();
-    }
-
-    private void notifyChanges(Object object) {
-	notifyObservers(object);
-	setChanged();
-    }
-
-    protected int getVersion() {
-	return this.version;
-    }
-
-    protected void setActive(boolean active) {
-
-	if (!active) {
-	    disabledAt = LocalDateTime.now();
-	}
-
-	this.active = active;
-
-	notifyChanges();
-    }
-
-    protected void setVersion(final int version) {
-	this.version = version;
-    }
-
-    public int countCandidates() {
-	return maxCandidates - candidates.size();
     }
 
     @Override
@@ -122,13 +82,20 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 	}
 	return true;
     }
-    
+
     public void generateUUID() {
 	uuid = UUID.randomUUID().toString();
     }
 
     public Set<Candidate> getCandidates() {
 	return this.candidates;
+    }
+
+    /**
+     * @return the expire
+     */
+    public LocalDateTime getExpire() {
+        return expire;
     }
 
     public long getId() {
@@ -143,6 +110,17 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 	return maxCandidates;
     }
 
+    /**
+     * @return the start
+     */
+    public LocalDateTime getStart() {
+        return start;
+    }
+
+    protected int getVersion() {
+	return this.version;
+    }
+
     @Override
     public int hashCode() {
 	final int prime = 31;
@@ -151,12 +129,28 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 	return result;
     }
 
+    /**
+     * Initialize Fields for CDI Injection
+     */    
+    @PostConstruct
+    private void init() {
+	this.addObserver(this);
+	active = true;
+	candidates = new HashSet<>();
+    }
+
     public void insertTimeStamp() {
 	createdAt = LocalDateTime.now();
     }
-
+    
     public boolean isActive() {
 	return active;
+    }
+
+    private boolean isElegible() {
+	System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
+	System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
+	return (candidates.size() < maxCandidates);
     }
 
     public boolean isInProcess(Candidate candidate) {
@@ -164,6 +158,15 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 	return (candidates.contains(candidate));
     }
 
+    private void notifyChanges() {
+	notifyObservers();
+	setChanged();
+    }
+
+    private void notifyChanges(Object object) {
+	notifyObservers(object);
+	setChanged();
+    }
 
     public boolean registerCandidate(Candidate candidate) {
 
@@ -190,10 +193,29 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 
     }
 
+    protected void setActive(boolean active) {
+
+	if (!active) {
+	    disabledAt = LocalDateTime.now();
+	}
+
+	this.active = active;
+
+	notifyChanges();
+    }
+
     public void setCandidates(Set<Candidate> candidates) {
 	this.candidates = candidates;
 	notifyChanges();
     }
+
+    /**
+     * @param expire the expire to set
+     */
+    public void setExpire(LocalDateTime expire) {
+        this.expire = expire;
+    }
+
 
     public void setId(long id) {
 	this.id = id;
@@ -205,6 +227,17 @@ public class SelectiveProcess extends Observable implements Observer, Serializab
 
     public void setMaxCandidates(int maxCandidates) {
 	this.maxCandidates = maxCandidates;
+    }
+
+    /**
+     * @param start the start to set
+     */
+    public void setStart(LocalDateTime start) {
+        this.start = start;
+    }
+
+    protected void setVersion(final int version) {
+	this.version = version;
     }
 
     @SuppressWarnings("unchecked")

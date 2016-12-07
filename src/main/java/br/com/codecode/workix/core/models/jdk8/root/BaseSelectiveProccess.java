@@ -53,11 +53,26 @@ public abstract class BaseSelectiveProccess extends Observable implements Observ
      * Updated at Field
      */
     protected LocalDateTime updatedAt;
+    
+    /**
+     * Disabled at Field
+     */
+    protected LocalDateTime disabledAt;
 
     /**
      * Job Field
      */
     protected BaseJob job;
+    
+    /**
+     * Start Field
+     */
+    protected LocalDateTime start;
+    
+    /**
+     * Expire Field
+     */
+    protected LocalDateTime expire;
 
     /**
      * Candidates of Selective Processes Field
@@ -68,10 +83,7 @@ public abstract class BaseSelectiveProccess extends Observable implements Observ
      */
     protected boolean active;
 
-    /**
-     * Disabled at Field
-     */
-    protected LocalDateTime disabledAt;
+
 
     /**
      * Max number of Candidates Field

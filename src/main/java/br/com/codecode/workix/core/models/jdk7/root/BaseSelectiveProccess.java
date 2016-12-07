@@ -14,10 +14,13 @@ import java.util.Set;
  * <li>{@link #uuid}</li>
  * <li>{@link #createdAt}</li>
  * <li>{@link #updatedAt}</li>
+ * <li>{@link #disabledAt}</li>
  * <li>{@link #job}</li>
+ * <li>{@link #start}</li>
+ * <li>{@link #expire}</li>
  * <li>{@link #candidates}</li>
  * <li>{@link #active}</li>
- * <li>{@link #disabledAt}</li>
+ * 
  * <li>{@link #maxCandidates}</li>
  * </ul>
  * 
@@ -42,17 +45,7 @@ public abstract class BaseSelectiveProccess extends Observable implements Observ
     /**
      * UUID Field
      */
-    protected String uuid;
-
-    /**
-     * Created at Field
-     */
-    protected Calendar createdAt;
-
-    /**
-     * Updated at Field
-     */
-    protected Calendar updatedAt;
+    protected String uuid;    
 
     /**
      * Job Field
@@ -63,10 +56,31 @@ public abstract class BaseSelectiveProccess extends Observable implements Observ
      * Candidates of Selective Processes Field
      */
     protected Set<BaseCandidate> candidates;
+    
+    /**
+     * Start Field
+     */
+    protected Calendar start;
+    
+    /**
+     * Expire Field
+     */
+    protected Calendar expire;
+    
     /**
      * Active Field
      */
     protected boolean active;
+    
+    /**
+     * Created at Field
+     */
+    protected Calendar createdAt;
+
+    /**
+     * Updated at Field
+     */
+    protected Calendar updatedAt;
 
     /**
      * Disabled at Field
