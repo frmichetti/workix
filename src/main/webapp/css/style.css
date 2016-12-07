@@ -12,9 +12,7 @@
 
 @import url(font-awesome.min.css);
 
-@import
-	url(http://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:700)
-	;
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:700);
 
 /*------------------------------------------------------------------
 
@@ -1145,11 +1143,11 @@ label {
 }
 
 #stats {
-	background-image: url(../images/placeholder/1400x900.jpg);
+	background-image: url(../images/1400x900.jpg);
 }
 
 #testimonials {
-	background-image: url(../images/placeholder/1400x900.jpg);
+	background-image: url(../images/1400x900.jpg);
 }
 
 /* 8. JOBSEEK APP & CONTACT
