@@ -15,7 +15,7 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
+import br.com.codecode.workix.jsf.util.helper.Paginator;
 
 /**
  * This ManagedBean controls candidates.xhtml and candidates2.xhtml
@@ -28,13 +28,10 @@ import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
 @Model
 public class CandidatesMB extends BaseMB {
 
-    @Inject
-    @Factory
-    @Default
+    @Inject @Factory @Default
     private FacesContext facesContext;
-
-    @Inject
-    private PaginationHelper pagination;
+    
+    private Paginator paginator;
 
     @Inject
     @Generic
@@ -77,11 +74,13 @@ public class CandidatesMB extends BaseMB {
 	    goToErrorPage();
 	}
 
-	totalPages = pagination.discoverTotalPages(limitRows, totalRows);
+	paginator = new Paginator(limitRows, page, totalRows);
 
-	start = pagination.discoverStartRange(limitRows, page, totalPages);
+	totalPages = paginator.getTotalPages();
 
-	end = pagination.discoverEndRange(limitRows, page, totalPages);
+	start = paginator.getStart();
+
+	end = paginator.getEnd();
 
 	try {
 

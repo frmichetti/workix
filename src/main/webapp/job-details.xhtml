@@ -17,11 +17,11 @@
 
 
 	<ui:define name="title">
-		<h1>#{jobDetailMB.currentJob.title}</h1>
+		<h1><h:outputText value="#{jobDetailMB.currentJob.title}" /></h1>
 		<h4>
-			<span><i class="fa fa-map-marker"></i>#{jobDetailMB.currentJob.company.locale.city}</span>
-			<span><i class="fa fa-clock-o"></i>#{jobDetailMB.currentJob.jobType.name()}</span>
-			<span><i class="fa fa-dollar"></i>#{jobDetailMB.currentJob.maxPayment}</span>
+			<span><i class="fa fa-map-marker"></i><h:outputText value="#{jobDetailMB.currentJob.company.locale.city}" /></span>
+			<span><i class="fa fa-clock-o"></i><h:outputText value="#{jobDetailMB.currentJob.jobType.name()}" /></span>
+			<span><i class="fa fa-dollar"></i><h:outputText value="#{jobDetailMB.currentJob.maxPayment}" /></span>
 		</h4>
 	</ui:define>
 
@@ -82,7 +82,7 @@
 							</ui:remove>
 
 							<h3>Benefícios</h3>
-							<p><h:outputText value=#{jobDetailMB.currentJob.benefits} /></p>
+							<p><h:outputText value="#{jobDetailMB.currentJob.benefits}" /></p>
 							
 							<ui:remove>
 								<ul>

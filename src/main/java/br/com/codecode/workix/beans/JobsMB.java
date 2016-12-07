@@ -15,7 +15,7 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Job;
-import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
+import br.com.codecode.workix.jsf.util.helper.Paginator;
 
 /**
  * This ManagedBean controls jobs.xhtml and jobs2.xhtml Execute with
@@ -28,16 +28,12 @@ import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
 @Model
 public class JobsMB extends BaseMB {
 
-    @Inject
-    @Factory
-    @Default
+    @Inject @Factory @Default
     private FacesContext facesContext;
+    
+    private Paginator paginator;
 
-    @Inject
-    private PaginationHelper pagination;
-
-    @Inject
-    @Generic
+    @Inject @Generic
     private Crud<Job> dao;
 
     private DataModel<Job> list;
@@ -68,12 +64,14 @@ public class JobsMB extends BaseMB {
 
 	    e.printStackTrace();
 	}
+	
+	paginator = new Paginator(limitRows, page, totalRows);
 
-	totalPages = pagination.discoverTotalPages(limitRows, totalRows);
+	totalPages = paginator.getTotalPages();
 
-	start = pagination.discoverStartRange(limitRows, page, totalPages);
+	start = paginator.getStart();
 
-	end = pagination.discoverEndRange(limitRows, page, totalPages);
+	end = paginator.getEnd();
 
 	try {
 

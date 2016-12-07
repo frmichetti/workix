@@ -66,13 +66,14 @@ public class LoginEndpoint extends BaseEndpoint {
 	}
 
 	if (user == null) {
-
-	    // return Response.status(Status.NOT_FOUND).build();
-	    return Response.ok("{\"action\":\"rebuild\"}").build();
+	    
+	    final String response = "{\"action\":\"rebuild\"}";
+	    
+	    System.err.println(response);
+	
+	    return Response.ok(response).build();
 
 	}
-
-	// TODO Verify for user Owner //
 
 	Candidate candidate;
 
@@ -92,10 +93,12 @@ public class LoginEndpoint extends BaseEndpoint {
 	System.out.println("[OUT -->]");
 
 	if (candidate == null) {
-
+	    
 	    candidate = new Candidate();
 
-	    candidate.setUser(user);
+	    candidate.setUser(user);	    
+	    
+	    System.out.println(candidate.toString());
 
 	    return Response.ok(candidate).build();
 

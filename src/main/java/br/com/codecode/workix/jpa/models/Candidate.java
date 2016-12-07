@@ -81,4 +81,22 @@ public class Candidate extends Person {
 	this.id = id;
     }
 
+    @Override
+    public String toString() {
+	return new StringBuilder()
+	.append("Candidate [id=")
+	.append(id)
+	.append(", cpf=")
+	.append(cpf)
+	.append(", birthDate=")
+	.append(birthDate)
+	.append("]")
+	.append(" User [")
+	.append(super.getUser().getEmail())
+	.append("]")
+	 .toString();
+    }
+    
+    
+
 }

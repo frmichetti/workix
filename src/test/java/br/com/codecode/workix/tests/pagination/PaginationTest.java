@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
+import br.com.codecode.workix.jsf.util.helper.Pagination;
 
 /**
  * TDD Pagination Test
@@ -13,13 +13,13 @@ import br.com.codecode.workix.jsf.util.helper.PaginationHelper;
  */
 public class PaginationTest {
 
-    private PaginationHelper pagination;
+    private Pagination pagination;
 
     private int totalRows, limitRows, currentPage;
 
     private void input() {
 
-	pagination = new PaginationHelper();
+	pagination = new Pagination();
 
 	totalRows = 50;
 

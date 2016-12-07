@@ -1,13 +1,13 @@
 package br.com.codecode.workix.jsf.util.helper;
 
 /**
- * Pagination Helper
+ * Pagination
  * 
  * @author felipe
  * @version 1.0
  * @since 1.0
  */
-public class PaginationHelper {
+public class Pagination {
 
     /**
      * Discover Total Pages
