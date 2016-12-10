@@ -15,4 +15,19 @@
 
 #...Imagine uma plataforma de Empregos... que irá fazer tudo isso de graça para você.
 
+ScreenShots
+--
+- Web
+![Workix Web ScreenShot](https://github.com/frmichetti/workix/blob/master/web.png)
+
+-Celular
+![Workix Web ScreenShot](https://github.com/frmichetti/workix/blob/master/android.png)
+
+Video Demonstração
+--
+
+[![See on Youtube](https://github.com/frmichetti/workix/blob/master/workix.gif)](https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F)
+
+
+
 **Visite http://www.workix.com.br**
