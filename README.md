@@ -28,6 +28,9 @@ Video Demonstração
 
 [![See on Youtube](https://github.com/frmichetti/workix/blob/master/workix.gif)](https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F)
 
+License
+--
+Not Implemented Yet!
 
 
 **Visite http://www.workix.com.br**

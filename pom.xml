@@ -122,7 +122,6 @@
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
-			<version>7.0</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.jboss.resteasy/resteasy-jaxrs -->
@@ -155,6 +154,10 @@
 			<artifactId>gson-util</artifactId>
 			<version>0.0</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -197,6 +200,11 @@
 				<groupId>workix</groupId>
 				<artifactId>gson-util</artifactId>
 				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>7.0</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
