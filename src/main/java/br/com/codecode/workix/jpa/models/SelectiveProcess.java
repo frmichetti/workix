@@ -59,7 +59,8 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @Column
     private boolean active;
 
-    @JoinTable(name = "Selective_Process_Candidates", joinColumns = @JoinColumn(name = "sp_id"), inverseJoinColumns = @JoinColumn(name = "candidate_id"))
+    @JoinTable(name = "Selective_Process_Candidates", 
+	    joinColumns = @JoinColumn(name = "sp_id"), inverseJoinColumns = @JoinColumn(name = "candidate_id"))
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Candidate> candidates;
 
@@ -70,6 +71,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @Column
     private LocalDateTime disabledAt;
 
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column
     private LocalDateTime expire;
 
@@ -84,9 +86,11 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @Column(nullable = false)
     private int maxCandidates;
 
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column
     private LocalDateTime start;
 
+    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
     @Column
     private LocalDateTime updatedAt;
 

@@ -36,8 +36,7 @@ abstract class Person extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Person() {
-    }
+    public Person(){}
 
     @JsonDeserialize(as = Contact.class)
     @Embedded
