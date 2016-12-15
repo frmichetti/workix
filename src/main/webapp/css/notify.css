@@ -7,18 +7,18 @@
 	z-index: -1;
 }
 
-.alert-minimalist>[data-notify="icon"] {
+.alert-minimalist > [data-notify="icon"] {
 	height: 50px;
 	margin-right: 12px;
 }
 
-.alert-minimalist>[data-notify="title"] {
+.alert-minimalist > [data-notify="title"] {
 	color: rgb(51, 51, 51);
 	display: block;
 	font-weight: bold;
 	margin-bottom: 5px;
 }
 
-.alert-minimalist>[data-notify="message"] {
+.alert-minimalist > [data-notify="message"] {
 	font-size: 80%;
 }
