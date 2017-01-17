@@ -13,8 +13,6 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.core.models.jdk8.actions.UserActions;
-import br.com.codecode.workix.core.models.jdk8.root.BaseUser;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Notificable;
 

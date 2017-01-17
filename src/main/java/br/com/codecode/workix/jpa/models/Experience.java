@@ -12,8 +12,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.core.models.jdk8.actions.ExperienceActions;
-import br.com.codecode.workix.core.models.jdk8.root.BaseExperience;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.jaxrs.converter.LocalDateAdapter;
 

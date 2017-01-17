@@ -7,8 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.core.models.jdk8.actions.CompanyActions;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;

@@ -11,7 +11,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.core.models.jdk8.actions.EducationActions;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**

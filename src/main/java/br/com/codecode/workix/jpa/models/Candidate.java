@@ -13,7 +13,6 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.core.models.jdk8.actions.CandidateActions;
 
 /**
  * Candidate JPA with Inherited Fields and Methods

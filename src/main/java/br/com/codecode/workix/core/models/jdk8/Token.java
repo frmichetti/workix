@@ -10,7 +10,6 @@ package br.com.codecode.workix.core.models.jdk8;
 import java.time.LocalDateTime;
 
 import javax.annotation.Generated;
-import javax.validation.constraints.NotNull;
 
 /**
  * Token Model
@@ -20,6 +19,54 @@ import javax.validation.constraints.NotNull;
  * @version 1.1
  */
 public final class Token {
+
+    private LocalDateTime createdAt;
+
+    private String key;
+
+    /**
+     * Public Default Constructor
+     */
+    private Token() {
+    }
+
+    @Generated("SparkTools")
+    private Token(Builder builder) {
+	setCreatedAt(builder.createdAt);
+	this.key = builder.key;
+    }
+
+    /**
+     * Creates builder to build {@link Token}.
+     * 
+     * @return created builder
+     */
+    @Generated("SparkTools")
+    public static Builder builder() {
+	return new Builder();
+    }
+
+    public LocalDateTime getCreatedAt() {
+	return createdAt;
+    }
+
+    public String getKey() {
+	return key;
+    }
+
+    private void setCreatedAt(LocalDateTime createdAt) {
+	this.createdAt = createdAt;
+    }
+
+    public void setKey(String key) {
+	this.key = key;
+    }
+
+    @Override
+    public String toString() {
+	return new StringBuilder().append("Token [createdAt=").append(createdAt).append(", key=").append(key)
+		.append("]").toString();
+    }
 
     /**
      * Builder to build {@link Token}.
@@ -43,54 +90,6 @@ public final class Token {
 	    this.createdAt = LocalDateTime.now();
 	    return this;
 	}
-    }
-
-    private LocalDateTime createdAt;
-
-    private String key;
-
-    /**
-     * Public Default Constructor
-     */
-    private Token() {
-    }
-
-    @Generated("SparkTools")
-    private Token(@NotNull Builder builder) {
-	setCreatedAt(builder.createdAt);
-	this.key = builder.key;
-    }
-
-    /**
-     * Creates builder to build {@link Token}.
-     * 
-     * @return created builder
-     */
-    @Generated("SparkTools")
-    public static Builder builder() {
-	return new Builder();
-    }
-
-    private void setCreatedAt(LocalDateTime createdAt) {
-	this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getCreatedAt() {
-	return createdAt;
-    }
-
-    public String getKey() {
-	return key;
-    }
-
-    public void setKey(String key) {
-	this.key = key;
-    }
-
-    @Override
-    public String toString() {
-	return new StringBuilder().append("Token [createdAt=").append(createdAt).append(", key=").append(key)
-		.append("]").toString();
     }
 
 }

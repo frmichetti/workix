@@ -12,8 +12,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.Estate;
-import br.com.codecode.workix.core.models.jdk8.actions.LocaleActions;
-import br.com.codecode.workix.core.models.jdk8.root.BaseLocale;
+
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
