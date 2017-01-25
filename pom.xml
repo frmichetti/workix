@@ -15,19 +15,21 @@
 				<configuration>
 					<failOnMissingWebXml>true</failOnMissingWebXml>
 				</configuration>
-			</plugin>		
+			</plugin>
+
 			
+
 
 		</plugins>
 
 	</build>
 
-	<dependencies>		
+	<dependencies>
 
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<scope>provided</scope>
+			<scope>test</scope>
 			<version>4.11</version>
 		</dependency>
 
@@ -51,14 +53,14 @@
 			<artifactId>hibernate-validator</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 			<version>7.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -81,6 +83,16 @@
 		</dependency>
 
 
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.spec.javax.faces</groupId>
+			<artifactId>jboss-jsf-api_2.2_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 
@@ -118,10 +130,12 @@
 			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
+				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>javax</groupId>
 				<artifactId>javaee-api</artifactId>
+				<scope>provided</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.wildfly.bom</groupId>
@@ -134,6 +148,13 @@
 				<groupId>javax.enterprise</groupId>
 				<artifactId>cdi-api</artifactId>
 				<version>1.2</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.faces</groupId>
+				<artifactId>jsf-api</artifactId>
+				<version>2.1</version>
+				<scope>provided</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
