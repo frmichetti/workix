@@ -29,10 +29,10 @@ public class EntityManagerProducer implements Serializable {
 
     private static final long serialVersionUID = -1826763804778726145L;
 
-    //@PersistenceUnit(unitName = "ProdDS")
+    @PersistenceUnit(unitName = "ProdDS")
     private EntityManagerFactory emfProd;
 
-    //@PersistenceUnit(unitName = "DevDS")
+    @PersistenceUnit(unitName = "DevDS")
     private EntityManagerFactory emfDev;
 
     @PersistenceUnit(unitName = "MySQLDS")

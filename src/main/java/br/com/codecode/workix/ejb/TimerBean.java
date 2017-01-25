@@ -59,7 +59,7 @@ public class TimerBean {
     public void execute() {
 	
 	System.out.println("[TimerBean] Execute Schedule ... " 
-		+ DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss").format(Instant.now()));
+		+Instant.now());
 	
 	try{
 	   
