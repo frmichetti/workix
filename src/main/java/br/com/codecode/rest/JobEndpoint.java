@@ -1,4 +1,4 @@
-package br.com.codecode.workix.rest.scaffold;
+package br.com.codecode.rest;
 
 import java.util.List;
 

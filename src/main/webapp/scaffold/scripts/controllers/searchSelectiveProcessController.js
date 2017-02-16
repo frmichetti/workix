@@ -18,6 +18,10 @@ angular.module('workix').controller('SearchSelectiveProcessController', function
         return max;
     };
     $scope.jobList = JobResource.queryAll();
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
 
     $scope.performSearch = function() {
         $scope.searchResults = SelectiveProcessResource.queryAll(function(){

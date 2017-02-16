@@ -12,6 +12,13 @@
         </div>
     </div>
 
+    <div class="form-group" ng-class="{'has-error': SelectiveProcessForm.expire.$invalid}">
+        <label for="expire" class="col-sm-2 control-label">Expire</label>
+        <div id="expireControls" class="col-sm-10">
+            <input id="expire" name="expire" type="text" class="form-control" ng-model="selectiveProcess.expire" placeholder="Enter the SelectiveProcess Expire"></input>
+        </div>
+    </div>
+
 
     <div class="form-group" ng-class="{'has-error': SelectiveProcessForm.job.$invalid}">
         <label for="job" class="col-sm-2 control-label">Job</label>
@@ -29,6 +36,20 @@
             <input id="maxCandidates" name="maxCandidates" type="number" required class="form-control" ng-model="selectiveProcess.maxCandidates" placeholder="Enter the SelectiveProcess Max Candidates"></input>
             <span class="help-block error" ng-show="SelectiveProcessForm.maxCandidates.$error.required">required</span> 
             <span class="help-block error" ng-show="SelectiveProcessForm.maxCandidates.$error.number">not a number</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SelectiveProcessForm.start.$invalid}">
+        <label for="start" class="col-sm-2 control-label">Start</label>
+        <div id="startControls" class="col-sm-10">
+            <input id="start" name="start" type="text" class="form-control" ng-model="selectiveProcess.start" placeholder="Enter the SelectiveProcess Start"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': SelectiveProcessForm.active.$invalid}">
+        <label for="active" class="col-sm-2 control-label">Active</label>
+        <div id="activeControls" class="col-sm-10">
+            <input id="active" name="active" type="checkbox" class="checkbox" ng-model="selectiveProcess.active" placeholder="Enter the SelectiveProcess Active"></input>
         </div>
     </div>
 

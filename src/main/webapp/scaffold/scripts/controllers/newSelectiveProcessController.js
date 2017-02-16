@@ -38,6 +38,11 @@ angular.module('workix').controller('NewSelectiveProcessController', function ($
         }
     });
     
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
+
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){

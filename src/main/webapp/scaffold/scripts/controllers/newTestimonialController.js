@@ -1,15 +1,15 @@
 
-angular.module('workix').controller('NewSubscriberController', function ($scope, $location, locationParser, flash, SubscriberResource ) {
+angular.module('workix').controller('NewTestimonialController', function ($scope, $location, locationParser, flash, TestimonialResource ) {
     $scope.disabled = false;
     $scope.$location = $location;
-    $scope.subscriber = $scope.subscriber || {};
+    $scope.testimonial = $scope.testimonial || {};
     
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){
             var id = locationParser(responseHeaders);
-            flash.setMessage({'type':'success','text':'The subscriber was created successfully.'});
-            $location.path('/Subscribers');
+            flash.setMessage({'type':'success','text':'The testimonial was created successfully.'});
+            $location.path('/Testimonials');
         };
         var errorCallback = function(response) {
             if(response && response.data) {
@@ -18,10 +18,10 @@ angular.module('workix').controller('NewSubscriberController', function ($scope,
                 flash.setMessage({'type': 'error', 'text': 'Something broke. Retry, or cancel and start afresh.'}, true);
             }
         };
-        SubscriberResource.save($scope.subscriber, successCallback, errorCallback);
+        TestimonialResource.save($scope.testimonial, successCallback, errorCallback);
     };
     
     $scope.cancel = function() {
-        $location.path("/Subscribers");
+        $location.path("/Testimonials");
     };
 });

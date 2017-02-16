@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('SearchUserController', function($scope, $http, $filter, UserResource ) {
+angular.module('workix').controller('SearchTestimonialController', function($scope, $http, $filter, TestimonialResource ) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -17,13 +17,9 @@ angular.module('workix').controller('SearchUserController', function($scope, $ht
         }
         return max;
     };
-    $scope.activeList = [
-        "true",
-        "false"
-    ];
 
     $scope.performSearch = function() {
-        $scope.searchResults = UserResource.queryAll(function(){
+        $scope.searchResults = TestimonialResource.queryAll(function(){
             $scope.filteredResults = $filter('searchFilter')($scope.searchResults, $scope);
             $scope.currentPage = 0;
         });

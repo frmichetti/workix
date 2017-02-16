@@ -25,11 +25,11 @@ angular.module('workix').controller('NewJobController', function ($scope, $locat
     ];
     
     $scope.jobTypeList = [
-        "FULLTIME",
-        "PARTTIME",
         "FREELANCE",
-        "TEMPORARY",
-        "INTERNSHIP"
+        "FULLTIME",
+        "INTERNSHIP",
+        "PARTTIME",
+        "TEMPORARY"
     ];
     
     $scope.activeList = [

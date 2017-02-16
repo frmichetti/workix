@@ -110,6 +110,10 @@ angular.module('workix').controller('EditSelectiveProcessController', function($
             $scope.selectiveProcess.job.id = selection.value;
         }
     });
+    $scope.activeList = [
+        "true",
+        "false"
+    ];
     
     $scope.get();
 });

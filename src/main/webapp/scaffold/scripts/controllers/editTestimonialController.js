@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('EditUserController', function($scope, $routeParams, $location, flash, UserResource ) {
+angular.module('workix').controller('EditTestimonialController', function($scope, $routeParams, $location, flash, TestimonialResource ) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -8,22 +8,22 @@ angular.module('workix').controller('EditUserController', function($scope, $rout
     $scope.get = function() {
         var successCallback = function(data){
             self.original = data;
-            $scope.user = new UserResource(self.original);
+            $scope.testimonial = new TestimonialResource(self.original);
         };
         var errorCallback = function() {
-            flash.setMessage({'type': 'error', 'text': 'The user could not be found.'});
-            $location.path("/Users");
+            flash.setMessage({'type': 'error', 'text': 'The testimonial could not be found.'});
+            $location.path("/Testimonials");
         };
-        UserResource.get({UserId:$routeParams.UserId}, successCallback, errorCallback);
+        TestimonialResource.get({TestimonialId:$routeParams.TestimonialId}, successCallback, errorCallback);
     };
 
     $scope.isClean = function() {
-        return angular.equals(self.original, $scope.user);
+        return angular.equals(self.original, $scope.testimonial);
     };
 
     $scope.save = function() {
         var successCallback = function(){
-            flash.setMessage({'type':'success','text':'The user was updated successfully.'}, true);
+            flash.setMessage({'type':'success','text':'The testimonial was updated successfully.'}, true);
             $scope.get();
         };
         var errorCallback = function(response) {
@@ -33,17 +33,17 @@ angular.module('workix').controller('EditUserController', function($scope, $rout
                 flash.setMessage({'type': 'error', 'text': 'Something broke. Retry, or cancel and start afresh.'}, true);
             }
         };
-        $scope.user.$update(successCallback, errorCallback);
+        $scope.testimonial.$update(successCallback, errorCallback);
     };
 
     $scope.cancel = function() {
-        $location.path("/Users");
+        $location.path("/Testimonials");
     };
 
     $scope.remove = function() {
         var successCallback = function() {
-            flash.setMessage({'type': 'error', 'text': 'The user was deleted.'});
-            $location.path("/Users");
+            flash.setMessage({'type': 'error', 'text': 'The testimonial was deleted.'});
+            $location.path("/Testimonials");
         };
         var errorCallback = function(response) {
             if(response && response.data && response.data.message) {
@@ -52,13 +52,9 @@ angular.module('workix').controller('EditUserController', function($scope, $rout
                 flash.setMessage({'type': 'error', 'text': 'Something broke. Retry, or cancel and start afresh.'}, true);
             }
         }; 
-        $scope.user.$remove(successCallback, errorCallback);
+        $scope.testimonial.$remove(successCallback, errorCallback);
     };
     
-    $scope.activeList = [
-        "true",
-        "false"
-    ];
     
     $scope.get();
 });

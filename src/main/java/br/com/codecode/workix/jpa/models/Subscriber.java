@@ -34,7 +34,7 @@ import br.com.codecode.workix.interfaces.Persistable;
 public class Subscriber extends MyEntity {
 
     private static final long serialVersionUID = 6675137603968146834L;
-
+    
     private long id;
 
     private String email;

@@ -1,4 +1,4 @@
-package br.com.codecode.workix.rest.scaffold;
+package br.com.codecode.rest;
 
 import java.util.List;
 
@@ -20,30 +20,30 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-import br.com.codecode.workix.jpa.models.Company;
+import br.com.codecode.workix.jpa.models.SelectiveProcess;
 
 /**
  * 
  */
 @Stateless
-@Path("/companies")
-public class CompanyEndpoint {
+@Path("/selectiveprocesses")
+public class SelectiveProcessEndpoint {
 	@PersistenceContext(unitName = "MySQLDS")
 	private EntityManager em;
 
 	@POST
 	@Consumes("application/json")
-	public Response create(Company entity) {
+	public Response create(SelectiveProcess entity) {
 		em.persist(entity);
 		return Response.created(
-				UriBuilder.fromResource(CompanyEndpoint.class)
+				UriBuilder.fromResource(SelectiveProcessEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
 	}
 
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") long id) {
-		Company entity = em.find(Company.class, id);
+		SelectiveProcess entity = em.find(SelectiveProcess.class, id);
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -55,12 +55,12 @@ public class CompanyEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") long id) {
-		TypedQuery<Company> findByIdQuery = em
+		TypedQuery<SelectiveProcess> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT c FROM Company c WHERE c.id = :entityId ORDER BY c.id",
-						Company.class);
+						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.candidates LEFT JOIN FETCH s.job WHERE s.id = :entityId ORDER BY s.id",
+						SelectiveProcess.class);
 		findByIdQuery.setParameter("entityId", id);
-		Company entity;
+		SelectiveProcess entity;
 		try {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
@@ -74,32 +74,34 @@ public class CompanyEndpoint {
 
 	@GET
 	@Produces("application/json")
-	public List<Company> listAll(@QueryParam("start") Integer startPosition,
+	public List<SelectiveProcess> listAll(
+			@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
-		TypedQuery<Company> findAllQuery = em
-				.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
-						Company.class);
+		TypedQuery<SelectiveProcess> findAllQuery = em
+				.createQuery(
+						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.candidates LEFT JOIN FETCH s.job ORDER BY s.id",
+						SelectiveProcess.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
-		final List<Company> results = findAllQuery.getResultList();
+		final List<SelectiveProcess> results = findAllQuery.getResultList();
 		return results;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
-	public Response update(@PathParam("id") long id, Company entity) {
+	public Response update(@PathParam("id") long id, SelectiveProcess entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
 		if (id != entity.getId()) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
-		if (em.find(Company.class, id) == null) {
+		if (em.find(SelectiveProcess.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {
