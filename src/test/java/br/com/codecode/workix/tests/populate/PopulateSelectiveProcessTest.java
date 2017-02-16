@@ -24,7 +24,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @version 1.0
  * @author felipe
  */
-public class PopulateSelectiveProcess extends BaseTest implements CommonPopTest<SelectiveProcess> {
+public class PopulateSelectiveProcessTest extends BaseTest implements CommonPopTest<SelectiveProcess> {
 
     private String resp;
 

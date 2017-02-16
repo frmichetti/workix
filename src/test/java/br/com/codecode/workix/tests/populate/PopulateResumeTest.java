@@ -26,7 +26,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @since 1.0
  * @version 1.0
  */
-public class PopulateResume extends BaseTest implements CommonPopTest<Resume> {
+public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume> {
 
     private String resp;
 
