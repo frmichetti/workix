@@ -7,18 +7,20 @@
 <h:head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport"
-		content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<meta name="description"
-		content="#{applicationMB.appName} - Plataforma de Empregos Totalmente Grátis" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="#{applicationMB.appName} - Plataforma de Empregos Totalmente Grátis" />
 	<meta name="author" content="Code Code, frmichetti@gmail.com" />
 	<title>#{applicationMB.appName} - #{applicationMB.slogan}</title>
 	<link rel="shortcut icon" href="images/favicon.png" />
+
 
 	<!-- Main Stylesheet -->
 	<link href="css/style.css" rel="stylesheet" />
 
 	<link href="css/notify.css" rel="stylesheet" />
+	
+	
+	<link rel="stylesheet" href="fonts/font-awesome-4.7.0/css/font-awesome.css" />
 
 
 	<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -36,12 +38,8 @@
 		  ga('create', 'UA-86285208-1', 'auto');
 		  ga('send', 'pageview');
 		
-		</script>
-
-		<script type="text/javascript">
-			console.info("Current Base Path Var = #{basePath}");
-		</script>
-
+	</script>
+	
 	<ui:param name="basePath" value=" #{request.getContextPath()}/layout" />
 
 
@@ -519,9 +517,9 @@
 	</ui:insert>
 
 	<script type="text/javascript">
-	//	$('#myModal').modal('show');    
+		$('#myModal').modal('show');    
 	</script>
-	
+
 	<script type="application/ld+json">
 {
   "@context": "http://schema.org",
