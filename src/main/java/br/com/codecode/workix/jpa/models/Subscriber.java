@@ -1,7 +1,5 @@
 package br.com.codecode.workix.jpa.models;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,7 +13,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
-import br.com.codecode.workix.interfaces.Persistable;
 
 /**
  * Subscriber JPA with Inherited Fields and Methods
@@ -23,9 +20,7 @@ import br.com.codecode.workix.interfaces.Persistable;
  * @author felipe
  * @since 1.0
  * @version 1.1
- * @see BaseSubscriber
- * @see Persistable
- * @see Serializable
+ * @see MyEntity
  */
 @Entity
 @XmlRootElement
@@ -33,6 +28,9 @@ import br.com.codecode.workix.interfaces.Persistable;
 @Persist
 public class Subscriber extends MyEntity {
 
+    /**
+     * @serialField
+     */
     private static final long serialVersionUID = 6675137603968146834L;
     
     private long id;
@@ -90,16 +88,19 @@ public class Subscriber extends MyEntity {
     }
 
     /**
-     * Builder NestedClass for Subscriber
+     * Builder NestedClass for {@link Subscriber}
      * 
      * @author felipe
      * @since 1.0
      * @version 1.0
      * @see Buildable
-     * @see BaseSubscriber
+     * @see Subscriber
      */
     public final static class Builder extends Subscriber implements Buildable<Subscriber> {
 
+	/**
+	 * @serialField
+	 */
 	private static final long serialVersionUID = -7750971468814207111L;
 
 	/**

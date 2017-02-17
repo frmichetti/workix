@@ -27,7 +27,6 @@ import br.com.codecode.workix.core.enums.JobType;
  * @since 1.0
  * @version 1.1
  * @see MyEntity
- * @see Job
  */
 @Entity
 @XmlRootElement
@@ -35,6 +34,9 @@ import br.com.codecode.workix.core.enums.JobType;
 @Persist
 public class Job extends MyEntity {
 
+    /**
+     * @serialField
+     */
     private static final long serialVersionUID = 2246753300384053586L;
 
     private long id;

@@ -12,11 +12,11 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.Estate;
-
+import br.com.codecode.workix.core.models.jdk8.actions.LocaleActions;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
- * Locale JPA with Inherited Fields and Methods
+ * Locale JPA Embeddable
  * 
  * @author felipe
  * @see LocaleActions
@@ -35,7 +35,7 @@ public class Locale implements Serializable {
      * 
      * @author felipe
      * @see Buildable
-     * @see BaseLocale
+     * @see Locale
      */
     public static class Builder extends Locale implements Buildable<Locale> {
 

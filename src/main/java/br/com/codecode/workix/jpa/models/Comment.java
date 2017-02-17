@@ -20,7 +20,6 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
  * 
  * @see MyEntity
  * @author felipe
- * 
  * @since 1.0
  * @version 1.0
  */
@@ -31,7 +30,7 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 public class Comment extends MyEntity {
     
     /**
-     * 
+     * @serialField
      */
     private static final long serialVersionUID = 7358996279677908814L;
     

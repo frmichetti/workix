@@ -20,7 +20,6 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
  * @see Person
  * @author felipe
  * @see Person
- * @see CandidateActions
  * @since 1.0
  * @version 1.1
  */
@@ -29,7 +28,10 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
 public class Candidate extends Person {
-
+    
+    /**
+     * @serialField
+     */
     private static final long serialVersionUID = 531807027259604477L;
 
     private long id, cpf;

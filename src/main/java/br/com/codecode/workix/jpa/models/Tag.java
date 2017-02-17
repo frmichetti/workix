@@ -11,7 +11,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
 
+/**
+ * Tag JPA Embeddable
+ * 
+ * @author felipe
+ * @since 1.0
+ * @version 1.1
+ * @see Serializable
+ */
 @Embeddable
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
@@ -19,12 +28,15 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 public class Tag implements Serializable{
 
     /**
-     * 
+     * @serialField
      */
     private static final long serialVersionUID = 323076947054044016L;
 
     private String name;
 
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
     public Tag(){}    
     
     private Tag(Builder builder) {
@@ -60,20 +72,34 @@ public class Tag implements Serializable{
 
 
     /**
-     * Builder to build {@link Tag}.
-     */    
-    public static final class Builder {
+     * Builder NestedClass for {@link Tag}
+     * 
+     * @author felipe
+     * @since 1.0
+     * @version 1.0
+     * @see Tag
+     * @see Buildable
+     */   
+    public static final class Builder extends Tag implements Buildable<Tag> {
 
+	/**
+	 * @serialField
+	 */
+	private static final long serialVersionUID = -5775038446937981944L;
+	
 	private String name;
 
-	private Builder() {
-	}
+	/**
+	 * Disabled Empty Constructor
+	 */
+	private Builder(){}
 
 	public Builder withName(String name) {
 	    this.name = name;
 	    return this;
 	}
 
+	@Override
 	public Tag build() {
 	    return new Tag(this);
 	}

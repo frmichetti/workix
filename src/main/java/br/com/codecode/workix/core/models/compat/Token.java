@@ -11,7 +11,6 @@ import java.util.Calendar;
 
 import javax.annotation.Generated;
 
-// TODO: Auto-generated Javadoc
 /**
  * Token Model.
  *

@@ -29,7 +29,6 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
  * 
  * @see MyEntity
  * @author felipe
- * 
  * @since 1.0
  * @version 1.0
  */
@@ -40,7 +39,7 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 public class Blog extends MyEntity {
 
     /**
-     * 
+     * @serialField
      */
     private static final long serialVersionUID = -5273926504177459295L;
     
@@ -58,6 +57,9 @@ public class Blog extends MyEntity {
     
     private String title;    
     
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
     public Blog(){}
     
     public void addAuthor(Author author){

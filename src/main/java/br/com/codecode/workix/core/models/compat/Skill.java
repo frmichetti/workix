@@ -3,7 +3,6 @@ package br.com.codecode.workix.core.models.compat;
 import java.io.Serializable;
 import javax.annotation.Generated;
 
-// TODO: Auto-generated Javadoc
 /**
  * Skill Class for Compatibility
  * <br>Without Annotations.

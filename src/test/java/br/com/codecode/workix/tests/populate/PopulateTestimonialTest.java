@@ -28,7 +28,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * Populate DB with Testimonials
  * 
  * @author felipe
- * @since 1.0
+ * @since 1.1
  * @version 1.0
  */
 public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<Testimonial> {

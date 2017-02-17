@@ -23,7 +23,6 @@ import br.com.codecode.workix.interfaces.Notificable;
  * @since 1.0
  * @version 1.1
  * @see MyEntity
- * @see UserActions
  * @see Notificable
  */
 @Entity
@@ -43,8 +42,7 @@ public class User extends MyEntity implements Notificable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public User() {
-    }
+    public User(){}
 
     /**
      * Public Constructor for {@link Builder} Compatibility
@@ -64,6 +62,7 @@ public class User extends MyEntity implements Notificable {
 	this.firebaseMessageToken = builder.getFirebaseMessageToken();
     }
 
+    
     @NotEmpty
     @Email
     @Column(nullable = false, unique = true)
@@ -129,8 +128,8 @@ public class User extends MyEntity implements Notificable {
      * @author felipe
      * @since 1.0
      * @version 1.0
+     * @see User
      * @see Buildable
-     * @see BaseUser
      */
     public final static class Builder extends User implements Buildable<User> {
 
@@ -139,14 +138,12 @@ public class User extends MyEntity implements Notificable {
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder() {
-	}
+	private Builder(){}	
 
 	/**
 	 * Constructor with Required Fields
 	 * 
-	 * @param email
-	 *            Email
+	 * @param email Email
 	 */
 	public Builder(String email) {
 	    this();

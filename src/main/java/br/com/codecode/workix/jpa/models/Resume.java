@@ -28,7 +28,6 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
  * @since 1.0
  * @version 1.1
  * @see MyEntity
- * @see Resume
  */
 @Entity
 @XmlRootElement

@@ -14,12 +14,11 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
- * Education JPA with Inherited Fields and Methods
+ * Education JPA Embeddable
  * 
  * @author felipe
  * @since 1.0
  * @version 1.1
- * @see EducationActions
  * @see Serializable
  */
 @Embeddable
@@ -30,13 +29,17 @@ public class Education implements Serializable {
 
     /**
      * Builder NestedClass for {@link Education}
-     * 
+     * @see Education
+     * @see Buildable
      * @author felipe
      * @since 1.0
      * @version 1.0
      */
     public static class Builder extends Education implements Buildable<Education> {
 
+	/**
+	 * @serialField
+	 */
 	private static final long serialVersionUID = 3075237483868037001L;
 
 	/**

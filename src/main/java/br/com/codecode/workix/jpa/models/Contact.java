@@ -13,12 +13,11 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
- * Contact JPA with Inherited Fields and Methods
+ * Contact JPA Embeddable
  * 
  * @author felipe
  * @since 1.0
  * @version 1.1
- * @see ContactActions
  * @see Serializable
  */
 @Embeddable
@@ -33,11 +32,14 @@ public class Contact implements Serializable {
      * @author felipe
      * @since 1.0
      * @version 1.0
-     * @see Buildable
-     * @see BaseContact
+     * @see Contact
+     * @see Buildable 
      */
     public final static class Builder extends Contact implements Buildable<Contact> {
 
+	/**
+	 * @serialField
+	 */
 	private static final long serialVersionUID = -6671372786495157443L;
 
 	/**

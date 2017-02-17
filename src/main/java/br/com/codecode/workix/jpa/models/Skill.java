@@ -12,12 +12,11 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
- * Skill JPA Class with Inherited Fields and Methods
+ * Skill JPA Embeddable
  * 
  * @author felipe
  * @since 1.0
  * @version 1.1
- * @see SkillActions
  * @see Serializable
  */
 @Embeddable
@@ -33,7 +32,7 @@ public class Skill implements Serializable {
      * @since 1.0
      * @version 1.0
      * @see Buildable
-     * @see BaseSkill
+     * @see Skill
      */
     public final static class Builder extends Skill implements Buildable<Skill> {
 
@@ -42,8 +41,7 @@ public class Skill implements Serializable {
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder() {
-	}
+	private Builder(){}
 
 	/**
 	 * Constructor with Required Fields

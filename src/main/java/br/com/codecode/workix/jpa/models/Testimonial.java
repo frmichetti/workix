@@ -16,6 +16,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 
+/**
+ * Testimonial JPA with Inherited Fields and Methods
+ * 
+ * @author felipe
+ * @since 1.0
+ * @version 1.1
+ * @see MyEntity
+ */
 @Entity
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
@@ -23,7 +31,7 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 public class Testimonial extends MyEntity {
     
     /**
-     * 
+     * @serialField
      */
     private static final long serialVersionUID = 9143527358797800527L;
     
@@ -32,6 +40,11 @@ public class Testimonial extends MyEntity {
     private String text;
     
     private Author author;
+    
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Testimonial(){}
     
     
     /**

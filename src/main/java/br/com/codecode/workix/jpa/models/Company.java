@@ -12,11 +12,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Company JPA with Inherited Fields and Methods
- * 
+ * Company JPA with Inherited Fields and Methods 
  * @see Person
  * @author felipe
- * @see CompanyActions
  * @since 1.0
  * @version 1.1
  */

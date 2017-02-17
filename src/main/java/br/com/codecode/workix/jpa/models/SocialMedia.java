@@ -12,6 +12,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 
+/**
+ * SocialMedia JPA Embeddable
+ * 
+ * @author felipe
+ * @since 1.0
+ * @version 1.1
+ * @see Serializable
+ */
 @Embeddable
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
@@ -19,14 +27,17 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 public class SocialMedia implements Serializable {
 
     /**
-     * 
+     * @serialField
      */
     private static final long serialVersionUID = -3082998497652120101L;        
 
     private String media;
-    
+
     private String url;    
-    
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
     public SocialMedia(){}
 
     private SocialMedia(Builder builder) {

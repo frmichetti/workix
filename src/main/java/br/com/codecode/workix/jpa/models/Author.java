@@ -12,15 +12,26 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 
+/**
+ * Author JPA with Inherited Fields and Methods
+ * 
+ * @author felipe
+ * @see MyEntity
+ * @since 1.0
+ * @version 1.1
+ */
 @Entity
-@Persist
 @XmlRootElement
+@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@Persist
 public class Author extends MyEntity {
 
     /**
@@ -39,6 +50,11 @@ public class Author extends MyEntity {
     private String picture;
 
     /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Author(){}
+
+    /**
      * @return the aboutText
      */
     @NotEmpty
@@ -47,6 +63,9 @@ public class Author extends MyEntity {
 	return aboutText;
     }
 
+    /**
+     * @return the id
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
@@ -64,19 +83,27 @@ public class Author extends MyEntity {
 	return medias;
     }
 
+    /**
+     * Add Social Media
+     * @param socialMedia
+     */
     public void addSocialMedia(SocialMedia socialMedia){
 	if(medias == null){
 	    medias = new ArrayList<>();
 	}
-	
+
 	medias.add(socialMedia);
     }
 
+    /**
+     * Remove Social Media
+     * @param socialMedia
+     */
     public void removeSocialMedia(SocialMedia socialMedia){
 	if(medias == null){
 	    medias = new ArrayList<>();
 	}
-	
+
 	medias.remove(socialMedia);
     }
 

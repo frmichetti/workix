@@ -16,12 +16,11 @@ import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.jaxrs.converter.LocalDateAdapter;
 
 /**
- * Experience JPA with Inherited Fields and Methods
+ * Experience JPA Embeddable
  * 
  * @author felipe
  * @since 1.0
  * @version 1.1
- * @see ExperienceActions
  * @see Serializable
  */
 @Embeddable
@@ -37,10 +36,13 @@ public class Experience implements Serializable {
      * @since 1.0
      * @version 1.0
      * @see Buildable
-     * @see BaseExperience
+     * @see Experience
      */
     public final static class Builder extends Experience implements Buildable<Experience> {
 
+	/**
+	 * @serialField
+	 */
 	private static final long serialVersionUID = -1322208401535756846L;
 
 	/**

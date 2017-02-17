@@ -14,7 +14,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
  * 
  * @author felipe
  * @see MyEntity
- * @see Person
  * @since 1.0
  * @version 1.1 
  * @see <a href="http://wiki.fasterxml.com/JacksonFAQ#Deserializing_Abstract_types">

@@ -2,7 +2,6 @@ package br.com.codecode.workix.core.models.compat;
 
 import javax.annotation.Generated;
 
-// TODO: Auto-generated Javadoc
 /**
  * User Class for Compatibility
  * <br>Without Annotations .

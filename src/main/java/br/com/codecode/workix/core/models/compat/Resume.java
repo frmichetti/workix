@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.Generated;
 
-// TODO: Auto-generated Javadoc
 /**
  * Resume Class for Compatibility
  * <br>Without Annotations.
