@@ -1,4 +1,4 @@
-package br.com.codecode.rest;
+package br.com.codecode.workix.rest.scaffold;
 
 import java.util.List;
 
@@ -20,30 +20,30 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-import br.com.codecode.workix.jpa.models.Resume;
+import br.com.codecode.workix.jpa.models.Company;
 
 /**
  * 
  */
 @Stateless
-@Path("/resumes")
-public class ResumeEndpoint {
+@Path("/companies")
+public class CompanyEndpoint {
 	@PersistenceContext(unitName = "MySQLDS")
 	private EntityManager em;
 
 	@POST
 	@Consumes("application/json")
-	public Response create(Resume entity) {
+	public Response create(Company entity) {
 		em.persist(entity);
 		return Response.created(
-				UriBuilder.fromResource(ResumeEndpoint.class)
+				UriBuilder.fromResource(CompanyEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
 	}
 
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") long id) {
-		Resume entity = em.find(Resume.class, id);
+		Company entity = em.find(Company.class, id);
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -55,12 +55,12 @@ public class ResumeEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") long id) {
-		TypedQuery<Resume> findByIdQuery = em
+		TypedQuery<Company> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT r FROM Resume r LEFT JOIN FETCH r.candidate WHERE r.id = :entityId ORDER BY r.id",
-						Resume.class);
+						"SELECT DISTINCT c FROM Company c WHERE c.id = :entityId ORDER BY c.id",
+						Company.class);
 		findByIdQuery.setParameter("entityId", id);
-		Resume entity;
+		Company entity;
 		try {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
@@ -74,33 +74,32 @@ public class ResumeEndpoint {
 
 	@GET
 	@Produces("application/json")
-	public List<Resume> listAll(@QueryParam("start") Integer startPosition,
+	public List<Company> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
-		TypedQuery<Resume> findAllQuery = em
-				.createQuery(
-						"SELECT DISTINCT r FROM Resume r LEFT JOIN FETCH r.candidate ORDER BY r.id",
-						Resume.class);
+		TypedQuery<Company> findAllQuery = em
+				.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
+						Company.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
-		final List<Resume> results = findAllQuery.getResultList();
+		final List<Company> results = findAllQuery.getResultList();
 		return results;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
-	public Response update(@PathParam("id") long id, Resume entity) {
+	public Response update(@PathParam("id") long id, Company entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
 		if (id != entity.getId()) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
-		if (em.find(Resume.class, id) == null) {
+		if (em.find(Company.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {

@@ -1,4 +1,4 @@
-package br.com.codecode.rest;
+package br.com.codecode.workix.rest.scaffold;
 
 import java.util.List;
 
@@ -20,30 +20,30 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-import br.com.codecode.workix.jpa.models.Company;
+import br.com.codecode.workix.jpa.models.Blog;
 
 /**
  * 
  */
 @Stateless
-@Path("/companies")
-public class CompanyEndpoint {
+@Path("/blogs")
+public class BlogEndpoint {
 	@PersistenceContext(unitName = "MySQLDS")
 	private EntityManager em;
 
 	@POST
 	@Consumes("application/json")
-	public Response create(Company entity) {
+	public Response create(Blog entity) {
 		em.persist(entity);
 		return Response.created(
-				UriBuilder.fromResource(CompanyEndpoint.class)
+				UriBuilder.fromResource(BlogEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
 	}
 
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") long id) {
-		Company entity = em.find(Company.class, id);
+		Blog entity = em.find(Blog.class, id);
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -55,12 +55,12 @@ public class CompanyEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") long id) {
-		TypedQuery<Company> findByIdQuery = em
+		TypedQuery<Blog> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT c FROM Company c WHERE c.id = :entityId ORDER BY c.id",
-						Company.class);
+						"SELECT DISTINCT b FROM Blog b LEFT JOIN FETCH b.authors LEFT JOIN FETCH b.comments WHERE b.id = :entityId ORDER BY b.id",
+						Blog.class);
 		findByIdQuery.setParameter("entityId", id);
-		Company entity;
+		Blog entity;
 		try {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
@@ -74,32 +74,33 @@ public class CompanyEndpoint {
 
 	@GET
 	@Produces("application/json")
-	public List<Company> listAll(@QueryParam("start") Integer startPosition,
+	public List<Blog> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
-		TypedQuery<Company> findAllQuery = em
-				.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
-						Company.class);
+		TypedQuery<Blog> findAllQuery = em
+				.createQuery(
+						"SELECT DISTINCT b FROM Blog b LEFT JOIN FETCH b.authors LEFT JOIN FETCH b.comments ORDER BY b.id",
+						Blog.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
-		final List<Company> results = findAllQuery.getResultList();
+		final List<Blog> results = findAllQuery.getResultList();
 		return results;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
-	public Response update(@PathParam("id") long id, Company entity) {
+	public Response update(@PathParam("id") long id, Blog entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
 		if (id != entity.getId()) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
-		if (em.find(Company.class, id) == null) {
+		if (em.find(Blog.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {

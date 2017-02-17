@@ -1,0 +1,106 @@
+<div class="form-horizontal">
+    <h3>Create a new Blog</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Blogs/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for Blogs</h3>
+    <form id="BlogSearch" class="form-horizontal">
+        
+    <div class="form-group">
+        <label for="blogCategory" class="col-sm-2 control-label">Blog Category</label>
+        <div class="col-sm-10">
+            <select id="blogCategory" name="blogCategory" class="form-control" ng-model="search.blogCategory" ng-options="b as b for b in blogCategoryList">
+                <option value="">Choose a Blog Category</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="date" class="col-sm-2 control-label">Date</label>
+        <div class="col-sm-10">
+            <input id="date" name="date" class="form-control" type="text" ng-model="search.date" placeholder="Enter the Blog Date"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="pictures" class="col-sm-2 control-label">Pictures</label>
+        <div class="col-sm-10">
+            <input id="pictures" name="pictures" class="form-control" type="text" ng-model="search.pictures" placeholder="Enter the Blog Pictures"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="tags" class="col-sm-2 control-label">Tags</label>
+        <div class="col-sm-10">
+            <input id="tags" name="tags" class="form-control" type="text" ng-model="search.tags" placeholder="Enter the Blog Tags"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+            <input id="title" name="title" class="form-control" type="text" ng-model="search.title" placeholder="Enter the Blog Title"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div class="col-sm-10">
+            <input id="uuid" name="uuid" class="form-control" type="text" ng-model="search.uuid" placeholder="Enter the Blog Uuid"></input>
+        </div>
+    </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>Blog Category</th>
+                    <th>Date</th>
+                    <th>Pictures</th>
+                    <th>Tags</th>
+                    <th>Title</th>
+                    <th>Uuid</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Blogs/edit/{{result.id}}">{{result.blogCategory}}</a></td>
+                    <td><a href="#/Blogs/edit/{{result.id}}">{{result.date}}</a></td>
+                    <td><a href="#/Blogs/edit/{{result.id}}">{{result.pictures}}</a></td>
+                    <td><a href="#/Blogs/edit/{{result.id}}">{{result.tags}}</a></td>
+                    <td><a href="#/Blogs/edit/{{result.id}}">{{result.title}}</a></td>
+                    <td><a href="#/Blogs/edit/{{result.id}}">{{result.uuid}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+
+</div>

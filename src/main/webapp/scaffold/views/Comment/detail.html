@@ -1,0 +1,37 @@
+<header ng-switch on="$location.path().indexOf('/Comments/new') > -1">
+    <h3 ng-switch-when="true">Create a new Comment</h3>
+    <h3 ng-switch-when="false">View or edit Comment</h3>
+</header>
+<form id="CommentForm" name="CommentForm" class="form-horizontal" role="form">
+        <div class="form-group" ng-class="{'has-error': CommentForm.email.$invalid}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div id="emailControls" class="col-sm-10">
+            <input id="email" name="email" type="text" class="form-control" ng-model="comment.email" placeholder="Enter the Comment Email"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group" ng-class="{'has-error': CommentForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" class="form-control" ng-model="comment.name" placeholder="Enter the Comment Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CommentForm.uuid.$invalid}">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div id="uuidControls" class="col-sm-10">
+            <input id="uuid" name="uuid" type="text" required class="form-control" ng-model="comment.uuid" placeholder="Enter the Comment Uuid"></input>
+            <span class="help-block error" ng-show="CommentForm.uuid.$error.required">required</span> 
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveComment" name="saveComment" class="btn btn-primary" ng-disabled="isClean() || CommentForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteComment" name="deleteComment" class="btn btn-danger" ng-show="comment.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

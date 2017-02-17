@@ -1,4 +1,4 @@
-package br.com.codecode.rest;
+package br.com.codecode.workix.rest.scaffold;
 
 import java.util.List;
 
@@ -20,30 +20,30 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-import br.com.codecode.workix.jpa.models.SelectiveProcess;
+import br.com.codecode.workix.jpa.models.Comment;
 
 /**
  * 
  */
 @Stateless
-@Path("/selectiveprocesses")
-public class SelectiveProcessEndpoint {
+@Path("/comments")
+public class CommentEndpoint {
 	@PersistenceContext(unitName = "MySQLDS")
 	private EntityManager em;
 
 	@POST
 	@Consumes("application/json")
-	public Response create(SelectiveProcess entity) {
+	public Response create(Comment entity) {
 		em.persist(entity);
 		return Response.created(
-				UriBuilder.fromResource(SelectiveProcessEndpoint.class)
+				UriBuilder.fromResource(CommentEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
 	}
 
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") long id) {
-		SelectiveProcess entity = em.find(SelectiveProcess.class, id);
+		Comment entity = em.find(Comment.class, id);
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -55,12 +55,12 @@ public class SelectiveProcessEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") long id) {
-		TypedQuery<SelectiveProcess> findByIdQuery = em
+		TypedQuery<Comment> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.candidates LEFT JOIN FETCH s.job WHERE s.id = :entityId ORDER BY s.id",
-						SelectiveProcess.class);
+						"SELECT DISTINCT c FROM Comment c WHERE c.id = :entityId ORDER BY c.id",
+						Comment.class);
 		findByIdQuery.setParameter("entityId", id);
-		SelectiveProcess entity;
+		Comment entity;
 		try {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
@@ -74,34 +74,32 @@ public class SelectiveProcessEndpoint {
 
 	@GET
 	@Produces("application/json")
-	public List<SelectiveProcess> listAll(
-			@QueryParam("start") Integer startPosition,
+	public List<Comment> listAll(@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
-		TypedQuery<SelectiveProcess> findAllQuery = em
-				.createQuery(
-						"SELECT DISTINCT s FROM SelectiveProcess s LEFT JOIN FETCH s.candidates LEFT JOIN FETCH s.job ORDER BY s.id",
-						SelectiveProcess.class);
+		TypedQuery<Comment> findAllQuery = em
+				.createQuery("SELECT DISTINCT c FROM Comment c ORDER BY c.id",
+						Comment.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
-		final List<SelectiveProcess> results = findAllQuery.getResultList();
+		final List<Comment> results = findAllQuery.getResultList();
 		return results;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
-	public Response update(@PathParam("id") long id, SelectiveProcess entity) {
+	public Response update(@PathParam("id") long id, Comment entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
 		if (id != entity.getId()) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
-		if (em.find(SelectiveProcess.class, id) == null) {
+		if (em.find(Comment.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {

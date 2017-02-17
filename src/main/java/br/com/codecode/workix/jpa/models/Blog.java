@@ -15,7 +15,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -82,15 +83,14 @@ public class Blog extends MyEntity {
      */
     @NotNull
     @Min(1)
-    @ManyToOne(fetch=FetchType.EAGER,targetEntity=Author.class)
+    @ManyToMany(fetch=FetchType.EAGER,targetEntity=Author.class)
     public List<Author> getAuthors() {
 	return authors;
     }
 
     /**
      * @return the blogCategory
-     */
-    @Column
+     */    
     @Enumerated(EnumType.STRING)
     public BlogCategory getBlogCategory() {
 	return blogCategory;
@@ -99,7 +99,7 @@ public class Blog extends MyEntity {
     /**
      * @return the comments
      */
-    @ManyToOne(fetch=FetchType.EAGER,targetEntity=Comment.class)
+    @OneToMany(fetch=FetchType.EAGER,targetEntity=Comment.class)
     public List<Comment> getComments() {
 	return comments;
     }

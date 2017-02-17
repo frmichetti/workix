@@ -1,4 +1,4 @@
-package br.com.codecode.rest;
+package br.com.codecode.workix.rest.scaffold;
 
 import java.util.List;
 
@@ -20,30 +20,30 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
-import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.jpa.models.Testimonial;
 
 /**
  * 
  */
 @Stateless
-@Path("/users")
-public class UserEndpoint {
+@Path("/testimonials")
+public class TestimonialEndpoint {
 	@PersistenceContext(unitName = "MySQLDS")
 	private EntityManager em;
 
 	@POST
 	@Consumes("application/json")
-	public Response create(User entity) {
+	public Response create(Testimonial entity) {
 		em.persist(entity);
 		return Response.created(
-				UriBuilder.fromResource(UserEndpoint.class)
+				UriBuilder.fromResource(TestimonialEndpoint.class)
 						.path(String.valueOf(entity.getId())).build()).build();
 	}
 
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") long id) {
-		User entity = em.find(User.class, id);
+		Testimonial entity = em.find(Testimonial.class, id);
 		if (entity == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
@@ -55,12 +55,12 @@ public class UserEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Produces("application/json")
 	public Response findById(@PathParam("id") long id) {
-		TypedQuery<User> findByIdQuery = em
+		TypedQuery<Testimonial> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT u FROM User u WHERE u.id = :entityId ORDER BY u.id",
-						User.class);
+						"SELECT DISTINCT t FROM Testimonial t LEFT JOIN FETCH t.author WHERE t.id = :entityId ORDER BY t.id",
+						Testimonial.class);
 		findByIdQuery.setParameter("entityId", id);
-		User entity;
+		Testimonial entity;
 		try {
 			entity = findByIdQuery.getSingleResult();
 		} catch (NoResultException nre) {
@@ -74,31 +74,34 @@ public class UserEndpoint {
 
 	@GET
 	@Produces("application/json")
-	public List<User> listAll(@QueryParam("start") Integer startPosition,
+	public List<Testimonial> listAll(
+			@QueryParam("start") Integer startPosition,
 			@QueryParam("max") Integer maxResult) {
-		TypedQuery<User> findAllQuery = em.createQuery(
-				"SELECT DISTINCT u FROM User u ORDER BY u.id", User.class);
+		TypedQuery<Testimonial> findAllQuery = em
+				.createQuery(
+						"SELECT DISTINCT t FROM Testimonial t LEFT JOIN FETCH t.author ORDER BY t.id",
+						Testimonial.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);
 		}
 		if (maxResult != null) {
 			findAllQuery.setMaxResults(maxResult);
 		}
-		final List<User> results = findAllQuery.getResultList();
+		final List<Testimonial> results = findAllQuery.getResultList();
 		return results;
 	}
 
 	@PUT
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
-	public Response update(@PathParam("id") long id, User entity) {
+	public Response update(@PathParam("id") long id, Testimonial entity) {
 		if (entity == null) {
 			return Response.status(Status.BAD_REQUEST).build();
 		}
 		if (id != entity.getId()) {
 			return Response.status(Status.CONFLICT).entity(entity).build();
 		}
-		if (em.find(User.class, id) == null) {
+		if (em.find(Testimonial.class, id) == null) {
 			return Response.status(Status.NOT_FOUND).build();
 		}
 		try {

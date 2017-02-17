@@ -35,7 +35,9 @@
                     <nav class="sidebar-nav" ng-controller="NavController" role="navigation">
                         <div id="sidebar-entries" class="list-group">
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Authors')}" href="#/Authors" data-toggle="offcanvas">Authors</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Blogs')}" href="#/Blogs" data-toggle="offcanvas">Blogs</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Candidates')}" href="#/Candidates" data-toggle="offcanvas">Candidates</a>
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Comments')}" href="#/Comments" data-toggle="offcanvas">Comments</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Companies')}" href="#/Companies" data-toggle="offcanvas">Companies</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Jobs')}" href="#/Jobs" data-toggle="offcanvas">Jobs</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Resumes')}" href="#/Resumes" data-toggle="offcanvas">Resumes</a>
@@ -86,10 +88,18 @@
     <script src="scripts/controllers/newAuthorController.js"></script>
     <script src="scripts/controllers/searchAuthorController.js"></script>
     <script src="scripts/controllers/editAuthorController.js"></script>
+    <script src="scripts/services/BlogFactory.js"></script>
+    <script src="scripts/controllers/newBlogController.js"></script>
+    <script src="scripts/controllers/searchBlogController.js"></script>
+    <script src="scripts/controllers/editBlogController.js"></script>
     <script src="scripts/services/CandidateFactory.js"></script>
     <script src="scripts/controllers/newCandidateController.js"></script>
     <script src="scripts/controllers/searchCandidateController.js"></script>
     <script src="scripts/controllers/editCandidateController.js"></script>
+    <script src="scripts/services/CommentFactory.js"></script>
+    <script src="scripts/controllers/newCommentController.js"></script>
+    <script src="scripts/controllers/searchCommentController.js"></script>
+    <script src="scripts/controllers/editCommentController.js"></script>
     <script src="scripts/services/CompanyFactory.js"></script>
     <script src="scripts/controllers/newCompanyController.js"></script>
     <script src="scripts/controllers/searchCompanyController.js"></script>
