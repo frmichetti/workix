@@ -2,9 +2,7 @@ package br.com.codecode.workix.jpa.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
@@ -18,6 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -57,7 +56,7 @@ public class Blog extends MyEntity {
 
     private List<String> pictures;    
 
-    private Set<Tag> tags;
+    private List<Tag> tags;
     
     private String title;    
     
@@ -73,7 +72,7 @@ public class Blog extends MyEntity {
     
     public void addTag(Tag tag){
 	if(tags == null){
-	    tags = new HashSet<>();
+	    tags = new ArrayList<>();
 	}
 	tags.add(tag);
     }
@@ -82,7 +81,8 @@ public class Blog extends MyEntity {
      * @return the author
      */
     @NotNull
-    @ManyToOne
+    @Min(1)
+    @ManyToOne(fetch=FetchType.EAGER,targetEntity=Author.class)
     public List<Author> getAuthors() {
 	return authors;
     }
@@ -99,7 +99,7 @@ public class Blog extends MyEntity {
     /**
      * @return the comments
      */
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER,targetEntity=Comment.class)
     public List<Comment> getComments() {
 	return comments;
     }
@@ -135,8 +135,9 @@ public class Blog extends MyEntity {
     /**
      * @return the tags
      */
-    @Column
-    public Set<Tag> getTags() {
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "Blog_Tags", joinColumns = @JoinColumn(name = "id"))
+    public List<Tag> getTags() {
 	return tags;
     }
 
@@ -155,7 +156,7 @@ public class Blog extends MyEntity {
 
     public void removeTag(Tag tag){
 	if(tags == null){
-	    tags = new HashSet<>();
+	    tags = new ArrayList<>();
 	}
 	tags.remove(tag);
     }
@@ -205,7 +206,7 @@ public class Blog extends MyEntity {
     /**
      * @param tags the tags to set
      */
-    public void setTags(Set<Tag> tags) {
+    public void setTags(List<Tag> tags) {
 	this.tags = tags;
     }
 
