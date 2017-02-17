@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -39,8 +40,25 @@ public class Comment extends MyEntity {
     private long id; 
     
     private String name;
+    
+    private Blog blog;    
+    
+    /**
+     * @return the blog
+     */
+    @ManyToOne
+    public Blog getBlog() {
+        return blog;
+    }
 
     
+    /**
+     * @param blog the blog to set
+     */
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
+
     /**
      * @return the email
      */

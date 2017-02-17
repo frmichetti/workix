@@ -21,15 +21,6 @@
         </div>
     </div>
 
-    <div class="form-group" ng-class="{'has-error': BlogForm.comments.$invalid}">
-        <label for="comments" class="col-sm-2 control-label">Comments</label>
-        <div id="commentsControls" class="col-sm-10">
-            <select id="comments" name="comments" multiple class="form-control" ng-model="commentsSelection" ng-options="c.text for c in commentsSelectionList">
-                <option value="">Choose a Comments</option>
-            </select>
-        </div>
-    </div>
-
     <div class="form-group" ng-class="{'has-error': BlogForm.date.$invalid}">
         <label for="date" class="col-sm-2 control-label">Date</label>
         <div id="dateControls" class="col-sm-10">

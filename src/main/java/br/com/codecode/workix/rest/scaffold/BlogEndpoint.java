@@ -57,7 +57,7 @@ public class BlogEndpoint {
 	public Response findById(@PathParam("id") long id) {
 		TypedQuery<Blog> findByIdQuery = em
 				.createQuery(
-						"SELECT DISTINCT b FROM Blog b LEFT JOIN FETCH b.authors LEFT JOIN FETCH b.comments WHERE b.id = :entityId ORDER BY b.id",
+						"SELECT DISTINCT b FROM Blog b LEFT JOIN FETCH b.authors WHERE b.id = :entityId ORDER BY b.id",
 						Blog.class);
 		findByIdQuery.setParameter("entityId", id);
 		Blog entity;
@@ -78,7 +78,7 @@ public class BlogEndpoint {
 			@QueryParam("max") Integer maxResult) {
 		TypedQuery<Blog> findAllQuery = em
 				.createQuery(
-						"SELECT DISTINCT b FROM Blog b LEFT JOIN FETCH b.authors LEFT JOIN FETCH b.comments ORDER BY b.id",
+						"SELECT DISTINCT b FROM Blog b LEFT JOIN FETCH b.authors ORDER BY b.id",
 						Blog.class);
 		if (startPosition != null) {
 			findAllQuery.setFirstResult(startPosition);

@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('SearchCommentController', function($scope, $http, $filter, CommentResource ) {
+angular.module('workix').controller('SearchCommentController', function($scope, $http, $filter, CommentResource , BlogResource) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -17,6 +17,7 @@ angular.module('workix').controller('SearchCommentController', function($scope, 
         }
         return max;
     };
+    $scope.blogList = BlogResource.queryAll();
 
     $scope.performSearch = function() {
         $scope.searchResults = CommentResource.queryAll(function(){

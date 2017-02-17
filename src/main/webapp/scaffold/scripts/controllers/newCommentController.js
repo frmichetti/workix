@@ -1,8 +1,23 @@
 
-angular.module('workix').controller('NewCommentController', function ($scope, $location, locationParser, flash, CommentResource ) {
+angular.module('workix').controller('NewCommentController', function ($scope, $location, locationParser, flash, CommentResource , BlogResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.comment = $scope.comment || {};
+    
+    $scope.blogList = BlogResource.queryAll(function(items){
+        $scope.blogSelectionList = $.map(items, function(item) {
+            return ( {
+                value : item.id,
+                text : item.blogCategory
+            });
+        });
+    });
+    $scope.$watch("blogSelection", function(selection) {
+        if ( typeof selection != 'undefined') {
+            $scope.comment.blog = {};
+            $scope.comment.blog.id = selection.value;
+        }
+    });
     
 
     $scope.save = function() {

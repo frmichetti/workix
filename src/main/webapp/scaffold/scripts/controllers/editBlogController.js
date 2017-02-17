@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('EditBlogController', function($scope, $routeParams, $location, flash, BlogResource , AuthorResource, CommentResource) {
+angular.module('workix').controller('EditBlogController', function($scope, $routeParams, $location, flash, BlogResource , AuthorResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -26,27 +26,6 @@ angular.module('workix').controller('EditBlogController', function($scope, $rout
                             }
                         });
                         self.original.authors = $scope.blog.authors;
-                    }
-                    return labelObject;
-                });
-            });
-            CommentResource.queryAll(function(items) {
-                $scope.commentsSelectionList = $.map(items, function(item) {
-                    var wrappedObject = {
-                        id : item.id
-                    };
-                    var labelObject = {
-                        value : item.id,
-                        text : item.email
-                    };
-                    if($scope.blog.comments){
-                        $.each($scope.blog.comments, function(idx, element) {
-                            if(item.id == element.id) {
-                                $scope.commentsSelection.push(labelObject);
-                                $scope.blog.comments.push(wrappedObject);
-                            }
-                        });
-                        self.original.comments = $scope.blog.comments;
                     }
                     return labelObject;
                 });
@@ -114,17 +93,6 @@ angular.module('workix').controller('EditBlogController', function($scope, $rout
         "RESUMES",  
         "MARKET"  
     ];
-    $scope.commentsSelection = $scope.commentsSelection || [];
-    $scope.$watch("commentsSelection", function(selection) {
-        if (typeof selection != 'undefined' && $scope.blog) {
-            $scope.blog.comments = [];
-            $.each(selection, function(idx,selectedItem) {
-                var collectionItem = {};
-                collectionItem.id = selectedItem.value;
-                $scope.blog.comments.push(collectionItem);
-            });
-        }
-    });
     
     $scope.get();
 });

@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('SearchBlogController', function($scope, $http, $filter, BlogResource , AuthorResource, CommentResource) {
+angular.module('workix').controller('SearchBlogController', function($scope, $http, $filter, BlogResource , AuthorResource) {
 
     $scope.search={};
     $scope.currentPage = 0;

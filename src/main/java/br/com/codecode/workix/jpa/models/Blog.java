@@ -16,7 +16,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -47,9 +46,7 @@ public class Blog extends MyEntity {
     
     private List<Author> authors;
 
-    private BlogCategory blogCategory;
-
-    private List<Comment> comments;
+    private BlogCategory blogCategory;    
 
     private LocalDate date;
 
@@ -96,14 +93,7 @@ public class Blog extends MyEntity {
 	return blogCategory;
     }
 
-    /**
-     * @return the comments
-     */
-    @OneToMany(fetch=FetchType.EAGER,targetEntity=Comment.class)
-    public List<Comment> getComments() {
-	return comments;
-    }
-
+  
     /**
      * @return the date
      */
@@ -176,14 +166,7 @@ public class Blog extends MyEntity {
     public void setBlogCategory(BlogCategory blogCategory) {
 	this.blogCategory = blogCategory;
     }
-
-    /**
-     * @param comments the comments to set
-     */
-    public void setComments(List<Comment> comments) {
-	this.comments = comments;
-    }
-
+  
     /**
      * @param date the date to set
      */

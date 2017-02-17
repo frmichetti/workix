@@ -1,5 +1,5 @@
 
-angular.module('workix').controller('NewBlogController', function ($scope, $location, locationParser, flash, BlogResource , AuthorResource, CommentResource) {
+angular.module('workix').controller('NewBlogController', function ($scope, $location, locationParser, flash, BlogResource , AuthorResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.blog = $scope.blog || {};
@@ -30,25 +30,6 @@ angular.module('workix').controller('NewBlogController', function ($scope, $loca
         "MARKET"
     ];
     
-    $scope.commentsList = CommentResource.queryAll(function(items){
-        $scope.commentsSelectionList = $.map(items, function(item) {
-            return ( {
-                value : item.id,
-                text : item.email
-            });
-        });
-    });
-    $scope.$watch("commentsSelection", function(selection) {
-        if (typeof selection != 'undefined') {
-            $scope.blog.comments = [];
-            $.each(selection, function(idx,selectedItem) {
-                var collectionItem = {};
-                collectionItem.id = selectedItem.value;
-                $scope.blog.comments.push(collectionItem);
-            });
-        }
-    });
-
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){
