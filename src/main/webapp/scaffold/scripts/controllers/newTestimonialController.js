@@ -1,8 +1,23 @@
 
-angular.module('workix').controller('NewTestimonialController', function ($scope, $location, locationParser, flash, TestimonialResource ) {
+angular.module('workix').controller('NewTestimonialController', function ($scope, $location, locationParser, flash, TestimonialResource , AuthorResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.testimonial = $scope.testimonial || {};
+    
+    $scope.authorList = AuthorResource.queryAll(function(items){
+        $scope.authorSelectionList = $.map(items, function(item) {
+            return ( {
+                value : item.id,
+                text : item.aboutText
+            });
+        });
+    });
+    $scope.$watch("authorSelection", function(selection) {
+        if ( typeof selection != 'undefined') {
+            $scope.testimonial.author = {};
+            $scope.testimonial.author.id = selection.value;
+        }
+    });
     
 
     $scope.save = function() {

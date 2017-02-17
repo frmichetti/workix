@@ -34,6 +34,7 @@
                     </a>
                     <nav class="sidebar-nav" ng-controller="NavController" role="navigation">
                         <div id="sidebar-entries" class="list-group">
+                        	<a class="list-group-item" ng-class="{active: matchesRoute('Authors')}" href="#/Authors" data-toggle="offcanvas">Authors</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Candidates')}" href="#/Candidates" data-toggle="offcanvas">Candidates</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Companies')}" href="#/Companies" data-toggle="offcanvas">Companies</a>
                         	<a class="list-group-item" ng-class="{active: matchesRoute('Jobs')}" href="#/Jobs" data-toggle="offcanvas">Jobs</a>
@@ -81,6 +82,10 @@
     <script src="scripts/services/flash.js"></script>
     <script src="scripts/services/locationParser.js"></script>
     <script src="scripts/controllers/flashController.js"></script>
+    <script src="scripts/services/AuthorFactory.js"></script>
+    <script src="scripts/controllers/newAuthorController.js"></script>
+    <script src="scripts/controllers/searchAuthorController.js"></script>
+    <script src="scripts/controllers/editAuthorController.js"></script>
     <script src="scripts/services/CandidateFactory.js"></script>
     <script src="scripts/controllers/newCandidateController.js"></script>
     <script src="scripts/controllers/searchCandidateController.js"></script>

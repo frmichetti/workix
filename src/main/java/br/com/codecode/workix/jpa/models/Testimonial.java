@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,25 +31,25 @@ public class Testimonial extends MyEntity {
     
     private String text;
     
-    private String name;
-        
+    private Author author;
+    
     
     /**
-     * @return the name
+     * @return the author
      */
-    @NotEmpty
-    @Column
-    public String getName() {
-        return name;
+    @NotNull
+    @OneToOne
+    public Author getAuthor() {
+        return author;
     }
 
 
     
     /**
-     * @param name the name to set
+     * @param author the author to set
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
 

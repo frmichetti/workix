@@ -3,10 +3,13 @@
     <h3 ng-switch-when="false">View or edit Testimonial</h3>
 </header>
 <form id="TestimonialForm" name="TestimonialForm" class="form-horizontal" role="form">
-        <div class="form-group" ng-class="{'has-error': TestimonialForm.name.$invalid}">
-        <label for="name" class="col-sm-2 control-label">Name</label>
-        <div id="nameControls" class="col-sm-10">
-            <input id="name" name="name" type="text" class="form-control" ng-model="testimonial.name" placeholder="Enter the Testimonial Name"></input>
+        <div class="form-group" ng-class="{'has-error': TestimonialForm.author.$invalid}">
+        <label for="author" class="col-sm-2 control-label">Author</label>
+        <div id="authorControls" class="col-sm-10">
+        <select id="author" name="author" class="form-control" ng-model="authorSelection" ng-options="a.text for a in authorSelectionList" required >
+            <option value="">Choose a Author</option>
+        </select>
+        <span class="help-block error" ng-show="TestimonialForm.author.$error.required">required</span> 
         </div>
     </div>
 

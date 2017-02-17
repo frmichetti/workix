@@ -1,6 +1,6 @@
 
 
-angular.module('workix').controller('EditTestimonialController', function($scope, $routeParams, $location, flash, TestimonialResource ) {
+angular.module('workix').controller('EditTestimonialController', function($scope, $routeParams, $location, flash, TestimonialResource , AuthorResource) {
     var self = this;
     $scope.disabled = false;
     $scope.$location = $location;
@@ -9,6 +9,23 @@ angular.module('workix').controller('EditTestimonialController', function($scope
         var successCallback = function(data){
             self.original = data;
             $scope.testimonial = new TestimonialResource(self.original);
+            AuthorResource.queryAll(function(items) {
+                $scope.authorSelectionList = $.map(items, function(item) {
+                    var wrappedObject = {
+                        id : item.id
+                    };
+                    var labelObject = {
+                        value : item.id,
+                        text : item.aboutText
+                    };
+                    if($scope.testimonial.author && item.id == $scope.testimonial.author.id) {
+                        $scope.authorSelection = labelObject;
+                        $scope.testimonial.author = wrappedObject;
+                        self.original.author = $scope.testimonial.author;
+                    }
+                    return labelObject;
+                });
+            });
         };
         var errorCallback = function() {
             flash.setMessage({'type': 'error', 'text': 'The testimonial could not be found.'});
@@ -55,6 +72,12 @@ angular.module('workix').controller('EditTestimonialController', function($scope
         $scope.testimonial.$remove(successCallback, errorCallback);
     };
     
+    $scope.$watch("authorSelection", function(selection) {
+        if (typeof selection != 'undefined') {
+            $scope.testimonial.author = {};
+            $scope.testimonial.author.id = selection.value;
+        }
+    });
     
     $scope.get();
 });

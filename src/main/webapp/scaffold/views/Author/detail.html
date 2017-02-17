@@ -1,0 +1,51 @@
+<header ng-switch on="$location.path().indexOf('/Authors/new') > -1">
+    <h3 ng-switch-when="true">Create a new Author</h3>
+    <h3 ng-switch-when="false">View or edit Author</h3>
+</header>
+<form id="AuthorForm" name="AuthorForm" class="form-horizontal" role="form">
+        <div class="form-group" ng-class="{'has-error': AuthorForm.aboutText.$invalid}">
+        <label for="aboutText" class="col-sm-2 control-label">About Text</label>
+        <div id="aboutTextControls" class="col-sm-10">
+            <input id="aboutText" name="aboutText" type="text" class="form-control" ng-model="author.aboutText" placeholder="Enter the Author About Text"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group" ng-class="{'has-error': AuthorForm.medias.$invalid}">
+        <label for="medias" class="col-sm-2 control-label">Medias</label>
+        <div id="mediasControls" class="col-sm-10">
+            <input id="medias" name="medias" type="text" class="form-control" ng-model="author.medias" placeholder="Enter the Author Medias"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': AuthorForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text" class="form-control" ng-model="author.name" placeholder="Enter the Author Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': AuthorForm.picture.$invalid}">
+        <label for="picture" class="col-sm-2 control-label">Picture</label>
+        <div id="pictureControls" class="col-sm-10">
+            <input id="picture" name="picture" type="text" class="form-control" ng-model="author.picture" placeholder="Enter the Author Picture"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': AuthorForm.uuid.$invalid}">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div id="uuidControls" class="col-sm-10">
+            <input id="uuid" name="uuid" type="text" required class="form-control" ng-model="author.uuid" placeholder="Enter the Author Uuid"></input>
+            <span class="help-block error" ng-show="AuthorForm.uuid.$error.required">required</span> 
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveAuthor" name="saveAuthor" class="btn btn-primary" ng-disabled="isClean() || AuthorForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteAuthor" name="deleteAuthor" class="btn btn-danger" ng-show="author.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

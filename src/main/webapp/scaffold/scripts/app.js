@@ -4,6 +4,9 @@ angular.module('workix',['ngRoute','ngResource'])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/',{templateUrl:'views/landing.html',controller:'LandingPageController'})
+      .when('/Authors',{templateUrl:'views/Author/search.html',controller:'SearchAuthorController'})
+      .when('/Authors/new',{templateUrl:'views/Author/detail.html',controller:'NewAuthorController'})
+      .when('/Authors/edit/:AuthorId',{templateUrl:'views/Author/detail.html',controller:'EditAuthorController'})
       .when('/Candidates',{templateUrl:'views/Candidate/search.html',controller:'SearchCandidateController'})
       .when('/Candidates/new',{templateUrl:'views/Candidate/detail.html',controller:'NewCandidateController'})
       .when('/Candidates/edit/:CandidateId',{templateUrl:'views/Candidate/detail.html',controller:'EditCandidateController'})
