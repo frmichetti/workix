@@ -9,6 +9,7 @@ package br.com.codecode.workix.tests.populate;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +17,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.gson.reflect.TypeToken;
+
+import br.com.codecode.workix.jpa.models.Author;
 import br.com.codecode.workix.jpa.models.Testimonial;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
@@ -33,9 +37,27 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
     private String resp;    
 
-    private int repeat = 4;
+    private int repeat = 30;
 
+    private List<Author> authors;
+    
     @Before
+    public void downloadAuthors() {
+
+	System.out.println("[downloadAuthors]");
+
+	resp = HttpTest.sendGet(server + "/authors");
+
+	authors = getGson().fromJson(resp, new TypeToken<List<Author>>() {
+	}.getType());
+
+	assertNotNull(authors);
+
+	assertTrue(authors.size() > 0);
+
+    }
+
+    
     @Override
     public void create() {
 
@@ -45,15 +67,15 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
 	    Testimonial t = new Testimonial();
 
-	    t.setName("Name Here");
+	    t.setAuthor(authors.get(x));
 
-	    t.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");
+	    t.setPicture(authors.get(x).getPicture());
 
 	    t.setSignature("Signature Here");
 
 	    t.setText("Content Here");
 
-	    System.out.println("[create] " + t.getName());
+	    System.out.println("[create] " + t.getAuthor().getName());
 
 	    addToList(t);
 	}
@@ -67,7 +89,7 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
 	assertNotNull(t);
 
-	System.out.println("[addToList] " + t.getName());
+	System.out.println("[addToList] " + t.getAuthor().getName());
 
 	testimonials.add(t);
 
@@ -76,10 +98,12 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
     @Test
     @Override
     public void sendToServer() {
+	
+	create();
 
 	testimonials.stream().forEach(t -> {
 
-	    System.out.println("[sendToServer] " + t.getName());
+	    System.out.println("[sendToServer] " + t.getAuthor().getName());
 
 	    resp = HttpTest.sendPost(server + "/testimonials", getGson().toJson(t));
 

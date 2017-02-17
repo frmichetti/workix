@@ -1,5 +1,6 @@
 package br.com.codecode.workix.jpa.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CollectionTable;
@@ -22,99 +23,115 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 @XmlRootElement
 public class Author extends MyEntity {
 
-	/**
+    /**
      * 
      */
-	private static final long serialVersionUID = 4441917823240375511L;
+    private static final long serialVersionUID = 4441917823240375511L;
 
-	private long id;
+    private long id;
 
-	private String aboutText;
+    private String aboutText;
 
-	private List<SocialMedia> medias;
+    private List<SocialMedia> medias;
 
-	private String name;
+    private String name;
 
-	private String picture;
+    private String picture;
 
-	/**
-	 * @return the aboutText
-	 */
-	@NotEmpty
-	@Column
-	public String getAboutText() {
-		return aboutText;
+    /**
+     * @return the aboutText
+     */
+    @NotEmpty
+    @Column
+    public String getAboutText() {
+	return aboutText;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+	return id;
+    }
+
+    /**
+     * @return the medias
+     */
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "Author_Medias", joinColumns = @JoinColumn(name = "id"))
+    public List<SocialMedia> getMedias() {
+	return medias;
+    }
+
+    public void addSocialMedia(SocialMedia socialMedia){
+	if(medias == null){
+	    medias = new ArrayList<>();
 	}
+	
+	medias.add(socialMedia);
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(updatable = false, nullable = false)
-	@Override
-	public long getId() {
-		return id;
+    public void removeSocialMedia(SocialMedia socialMedia){
+	if(medias == null){
+	    medias = new ArrayList<>();
 	}
+	
+	medias.remove(socialMedia);
+    }
 
-	/**
-	 * @return the medias
-	 */
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Author_Medias", joinColumns = @JoinColumn(name = "id"))
-	public List<SocialMedia> getMedias() {
-		return medias;
-	}
+    /**
+     * @return the name
+     */
+    @NotEmpty
+    @Column
+    public String getName() {
+	return name;
+    }
 
-	/**
-	 * @return the name
-	 */
-	@NotEmpty
-	@Column
-	public String getName() {
-		return name;
-	}
+    /**
+     * @return the picture
+     */
+    @Column
+    public String getPicture() {
+	return picture;
+    }
 
-	/**
-	 * @return the picture
-	 */
-	@Column
-	public String getPicture() {
-		return picture;
-	}
+    /**
+     * @param aboutText
+     *            the aboutText to set
+     */
+    public void setAboutText(String aboutText) {
+	this.aboutText = aboutText;
+    }
 
-	/**
-	 * @param aboutText
-	 *            the aboutText to set
-	 */
-	public void setAboutText(String aboutText) {
-		this.aboutText = aboutText;
-	}
+    @Override
+    public void setId(long id) {
+	this.id = id;
+    }
 
-	@Override
-	public void setId(long id) {
-		this.id = id;
-	}
+    /**
+     * @param medias
+     *            the medias to set
+     */
+    public void setMedias(List<SocialMedia> medias) {
+	this.medias = medias;
+    }
 
-	/**
-	 * @param medias
-	 *            the medias to set
-	 */
-	public void setMedias(List<SocialMedia> medias) {
-		this.medias = medias;
-	}
+    /**
+     * @param name
+     *            the name to set
+     */
+    public void setName(String name) {
+	this.name = name;
+    }
 
-	/**
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * @param picture
-	 *            the picture to set
-	 */
-	public void setPicture(String picture) {
-		this.picture = picture;
-	}
+    /**
+     * @param picture
+     *            the picture to set
+     */
+    public void setPicture(String picture) {
+	this.picture = picture;
+    }
 
 }

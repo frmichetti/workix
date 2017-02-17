@@ -25,7 +25,14 @@ public class SocialMedia implements Serializable {
 
     private String media;
     
-    private String url;
+    private String url;    
+    
+    public SocialMedia(){}
+
+    private SocialMedia(Builder builder) {
+	this.media = builder.media;
+	this.url = builder.url;
+    }
 
 
     /**
@@ -60,6 +67,43 @@ public class SocialMedia implements Serializable {
      */
     public void setUrl(String url) {
 	this.url = url;
+    }
+
+
+    /**
+     * Creates builder to build {@link SocialMedia}.
+     * @return created builder
+     */    
+    public static Builder builder() {
+	return new Builder();
+    }
+
+
+    /**
+     * Builder to build {@link SocialMedia}.
+     */    
+    public static final class Builder {
+
+	private String media;
+
+	private String url;
+
+	private Builder() {
+	}
+
+	public Builder withMedia(String media) {
+	    this.media = media;
+	    return this;
+	}
+
+	public Builder withUrl(String url) {
+	    this.url = url;
+	    return this;
+	}
+
+	public SocialMedia build() {
+	    return new SocialMedia(this);
+	}
     }
 
 
