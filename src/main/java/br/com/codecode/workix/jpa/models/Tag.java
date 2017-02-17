@@ -2,10 +2,13 @@ package br.com.codecode.workix.jpa.models;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 
@@ -32,6 +35,8 @@ public class Tag implements Serializable{
     /**
      * @return the name
      */
+    @NotEmpty
+    @Column    
     public String getName() {
 	return name;
     }

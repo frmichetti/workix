@@ -55,7 +55,7 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
 	this.setUuid(UUID.randomUUID().toString());
     }
 
-    @Column(updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false)    
     private LocalDateTime getCreatedAt() {
 	return createdAt;
     }

@@ -2,9 +2,23 @@ package br.com.codecode.workix.jpa.models;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CollectionTable;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -43,10 +57,11 @@ public class Blog extends MyEntity {
 
     private List<String> pictures;    
 
-    private List<Tag> tags;
+    private Set<Tag> tags;
     
     private String title;    
-
+    
+    public Blog(){}
     
     public void addAuthor(Author author){
 	if(author == null){
@@ -55,11 +70,10 @@ public class Blog extends MyEntity {
 
 	authors.add(author);
     }
-
     
     public void addTag(Tag tag){
 	if(tags == null){
-	    tags = new ArrayList<>();
+	    tags = new HashSet<>();
 	}
 	tags.add(tag);
     }
@@ -67,6 +81,8 @@ public class Blog extends MyEntity {
     /**
      * @return the author
      */
+    @NotNull
+    @ManyToOne
     public List<Author> getAuthors() {
 	return authors;
     }
@@ -74,29 +90,32 @@ public class Blog extends MyEntity {
     /**
      * @return the blogCategory
      */
+    @Column
+    @Enumerated(EnumType.STRING)
     public BlogCategory getBlogCategory() {
 	return blogCategory;
     }
 
-
-
     /**
      * @return the comments
      */
+    @ManyToOne
     public List<Comment> getComments() {
 	return comments;
     }
 
-
-
     /**
      * @return the date
      */
+    @Column
     public LocalDate getDate() {
 	return date;
     }
 
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
 	return id;
@@ -106,6 +125,8 @@ public class Blog extends MyEntity {
     /**
      * @return the pictures
      */
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "Blog_Images", joinColumns = @JoinColumn(name = "id"))
     public List<String> getPictures() {
         return pictures;
     }
@@ -114,11 +135,12 @@ public class Blog extends MyEntity {
     /**
      * @return the tags
      */
-    public List<Tag> getTags() {
+    @Column
+    public Set<Tag> getTags() {
 	return tags;
     }
 
-
+    @Column
     public String getTitle() {
 	return title;
     }
@@ -133,7 +155,7 @@ public class Blog extends MyEntity {
 
     public void removeTag(Tag tag){
 	if(tags == null){
-	    tags = new ArrayList<>();
+	    tags = new HashSet<>();
 	}
 	tags.remove(tag);
     }
@@ -183,7 +205,7 @@ public class Blog extends MyEntity {
     /**
      * @param tags the tags to set
      */
-    public void setTags(List<Tag> tags) {
+    public void setTags(Set<Tag> tags) {
 	this.tags = tags;
     }
 
