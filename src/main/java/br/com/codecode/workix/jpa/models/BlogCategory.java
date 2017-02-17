@@ -1,6 +1,6 @@
 package br.com.codecode.workix.jpa.models;
 
 
-public enum CategoryBlog {
+public enum BlogCategory {
     COMPANIES,JOBS,RESUMES,MARKET
 }
