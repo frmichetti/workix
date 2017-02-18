@@ -9,10 +9,11 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Testimonial;
+import br.com.codecode.workix.jpa.models.Member;
+import br.com.codecode.workix.jsf.util.helper.SocialLinkHelper;
 
 /**
- * This ManagedBean controls Testimonials Fragment on HomePage and AboutPage
+ * This ManagedBean controls Members Fragment on AboutPage
  * 
  * @author felipe
  * @since 1.0
@@ -20,35 +21,45 @@ import br.com.codecode.workix.jpa.models.Testimonial;
  * @see BaseMB
  */
 @Model
-public class TestimonialsMB extends BaseMB {
-    
+public class MembersMB extends BaseMB {
+
     @Inject
     @Generic
-    private Crud<Testimonial> testDao;
-    
-    private DataModel<Testimonial> list;
+    private Crud<Member> memberDao;
+
+    @Inject
+    private SocialLinkHelper linkHelper;
+
+    private DataModel<Member> list;
 
     @PostConstruct
     @Override
     protected void init() {
 	try {
-	    
-	    list = new ListDataModel<Testimonial>(testDao.listAll(0, Integer.MAX_VALUE));
-	    
+
+	    list = new ListDataModel<Member>(memberDao.listAll(0, Integer.MAX_VALUE));
+
 	} catch (NotImplementedYetException e) {	    
 	    e.printStackTrace();
 	}	
 
     }
 
-    
+
     /**
      * @return the list
      */
-    public DataModel<Testimonial> getList() {
-        return list;
+    public DataModel<Member> getList() {
+	return list;
     }
-    
-    
+
+    /**
+     * @return discover Social Media Link
+     */
+    public String whatSocialLink(String url){
+	return linkHelper.returnMedia(url);
+    }
+
+
 
 }

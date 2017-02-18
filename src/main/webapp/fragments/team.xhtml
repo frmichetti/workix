@@ -19,118 +19,27 @@
 				<div class="col-sm-12">
 					<h2>Nossa Equipe</h2>
 					<div class="owl-carousel">
-
+					<ui:repeat var="member" value="#{membersMB.list}">
+						
 						<div class="team-member text-center img-rounded">
-							<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
+							<h:graphicImage url="#{member.picture}" styleClass="img-responsive img-circle" alt="" />
 							
-							<h5>Felipe Rodrigues Michetti</h5>
-							<h6>Fundador e Desenvolvedor</h6>
-							<p>Porque pagar por um conteúdo que você não tem certeza de
-								sua verdade?</p>
+							<h5><h:outputText value="#{member.name}"/></h5>
+							<h6><h:outputText value="#{member.occupation}"/></h6>
+							<p><h:outputText value="#{member.shortText}"/></p>
 							<p>
-								<a href="https://github.com/frmichetti/"><i class="fa fa-github-square fa-2x"></i></a>
-								<a href="https://twitter.com/frmichetti"><i class="fa fa-twitter-square fa-2x"></i></a>
-								<a href="https://br.linkedin.com/pub/felipe-rodrigues-michetti/105/61/511"><i class="fa fa-linkedin-square fa-2x"></i></a>								
+							<ui:repeat var="sm" value="#{member.medias}">
+								<a href="#{sm.url}"><i class="#{membersMB.whatSocialLink(sm.url)}"></i></a>
+							</ui:repeat>
+								<ui:remove>
+									<a href="https://github.com/frmichetti/"><i class="fa fa-github-square fa-2x"></i></a>
+									<a href="https://twitter.com/frmichetti"><i class="fa fa-twitter-square fa-2x"></i></a>
+									<a href="https://br.linkedin.com/pub/felipe-rodrigues-michetti/105/61/511"><i class="fa fa-linkedin-square fa-2x"></i></a>
+								</ui:remove>									
 							</p>
 						</div>
-
-						<ui:remove>
-							<!-- Team Member 1 -->
-							<div class="team-member text-center img-rounded">
-								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
-								<h5>John Doe</h5>
-								<h6>Managing Director</h6>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in
-									libero sagittis, consequat est quis, commodo odio. Aliquam eu
-									vulputate neque.</p>
-								<p>
-									<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-twitter-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-instagram fa-2x"></i></a>
-								</p>
-							</div>
-
-							<!-- Team Member 2 -->
-							<div class="team-member text-center img-rounded">
-								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
-								<h5>Jane Smith</h5>
-								<h6>Sales Director</h6>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in
-									libero sagittis, consequat est quis, commodo odio. Aliquam eu
-									vulputate neque.</p>
-								<p>
-									<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-twitter-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-instagram fa-2x"></i></a>
-								</p>
-							</div>
-
-							<!-- Team Member 3 -->
-							<div class="team-member text-center img-rounded">
-								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
-								<h5>Ryan Hampton</h5>
-								<h6>Key Account Manager</h6>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in
-									libero sagittis, consequat est quis, commodo odio. Aliquam eu
-									vulputate neque.</p>
-								<p>
-									<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-twitter-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-instagram fa-2x"></i></a>
-								</p>
-							</div>
-
-							<!-- Team Member 4 -->
-							<div class="team-member text-center img-rounded">
-								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
-								<h5>Marilyn Strickland</h5>
-								<h6>Account Manager</h6>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in
-									libero sagittis, consequat est quis, commodo odio. Aliquam eu
-									vulputate neque.</p>
-								<p>
-									<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-twitter-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-instagram fa-2x"></i></a>
-								</p>
-							</div>
-
-							<!-- Team Member 5 -->
-							<div class="team-member text-center img-rounded">
-								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
-								<h5>Harold Chandler</h5>
-								<h6>Support Agent</h6>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in
-									libero sagittis, consequat est quis, commodo odio. Aliquam eu
-									vulputate neque.</p>
-								<p>
-									<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-twitter-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-instagram fa-2x"></i></a>
-								</p>
-							</div>
-
-							<!-- Team Member 5 -->
-							<div class="team-member text-center img-rounded">
-								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
-								<h5>Mandy Fisher</h5>
-								<h6>Sales Representative</h6>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in
-									libero sagittis, consequat est quis, commodo odio. Aliquam eu
-									vulputate neque.</p>
-								<p>
-									<a href="#"><i class="fa fa-facebook-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-twitter-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-linkedin-square fa-2x"></i></a> <a
-										href="#"><i class="fa fa-instagram fa-2x"></i></a>
-								</p>
-							</div>
-						</ui:remove>
+					
+					</ui:repeat>					
 					</div>
 				</div>
 			</div>
