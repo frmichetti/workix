@@ -21,7 +21,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 
 /**
- * Author JPA with Inherited Fields and Methods
+ * Member JPA with Inherited Fields and Methods
  * 
  * @author felipe
  * @see MyEntity
@@ -32,57 +32,29 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
-public class Author extends MyEntity {
-
+public class Member extends MyEntity {
+    
     /**
      * @serialField
      */
-    private static final long serialVersionUID = 4441917823240375511L;
+    private static final long serialVersionUID = -9177132485712227287L;
 
     private long id;
 
-    private String aboutText;
-
     private List<SocialMedia> medias;
-
-    private String name;
-
+    
+    private String occupation;
+    
     private String picture;
 
+    private String shortText;
+    
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Author(){}
+    public Member(){}
 
-    /**
-     * @return the aboutText
-     */
-    @NotEmpty
-    @Column
-    public String getAboutText() {
-	return aboutText;
-    }
-
-    /**
-     * @return the id
-     */
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(updatable = false, nullable = false)
-    @Override
-    public long getId() {
-	return id;
-    }
-
-    /**
-     * @return the medias
-     */
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Author_Medias", joinColumns = @JoinColumn(name = "id"))
-    public List<SocialMedia> getMedias() {
-	return medias;
-    }
-
+    
     /**
      * Add Social Media
      * @param socialMedia
@@ -93,6 +65,56 @@ public class Author extends MyEntity {
 	}
 
 	medias.add(socialMedia);
+    }
+
+    
+    /**
+     * @return the id
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+        return id;
+    }
+
+    
+    /**
+     * @return the medias
+     */
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "Member_Medias", joinColumns = @JoinColumn(name = "id"))
+    public List<SocialMedia> getMedias() {
+        return medias;
+    }
+
+    
+    /**
+     * @return the occupation
+     */
+    @NotEmpty
+    @Column
+    public String getOccupation() {
+        return occupation;
+    }
+
+    
+    /**
+     * @return the picture
+     */    
+    @Column
+    public String getPicture() {
+        return picture;
+    }
+    
+    /**
+     * @return the shortText
+     */
+    @NotEmpty
+    @Column
+    public String getShortText() {
+        return shortText;
     }
 
     /**
@@ -107,58 +129,46 @@ public class Author extends MyEntity {
 	medias.remove(socialMedia);
     }
 
+    
     /**
-     * @return the name
+     * @param id the id to set
      */
-    @NotEmpty
-    @Column
-    public String getName() {
-	return name;
-    }
-
-    /**
-     * @return the picture
-     */
-    @Column
-    public String getPicture() {
-	return picture;
-    }
-
-    /**
-     * @param aboutText
-     *            the aboutText to set
-     */
-    public void setAboutText(String aboutText) {
-	this.aboutText = aboutText;
-    }
-
-    @Override
     public void setId(long id) {
-	this.id = id;
+        this.id = id;
     }
 
+    
     /**
-     * @param medias
-     *            the medias to set
+     * @param medias the medias to set
      */
     public void setMedias(List<SocialMedia> medias) {
-	this.medias = medias;
+        this.medias = medias;
     }
 
+    
     /**
-     * @param name
-     *            the name to set
+     * @param occupation the occupation to set
      */
-    public void setName(String name) {
-	this.name = name;
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
     }
 
+    
     /**
-     * @param picture
-     *            the picture to set
+     * @param picture the picture to set
      */
     public void setPicture(String picture) {
-	this.picture = picture;
+        this.picture = picture;
     }
+
+    
+    /**
+     * @param shortText the shortText to set
+     */
+    public void setShortText(String shortText) {
+        this.shortText = shortText;
+    }
+    
+    
 
 }

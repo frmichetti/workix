@@ -1,0 +1,51 @@
+<header ng-switch on="$location.path().indexOf('/Members/new') > -1">
+    <h3 ng-switch-when="true">Create a new Member</h3>
+    <h3 ng-switch-when="false">View or edit Member</h3>
+</header>
+<form id="MemberForm" name="MemberForm" class="form-horizontal" role="form">
+    
+    <div class="form-group" ng-class="{'has-error': MemberForm.medias.$invalid}">
+        <label for="medias" class="col-sm-2 control-label">Medias</label>
+        <div id="mediasControls" class="col-sm-10">
+            <input id="medias" name="medias" type="text" class="form-control" ng-model="member.medias" placeholder="Enter the Member Medias"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': MemberForm.occupation.$invalid}">
+        <label for="occupation" class="col-sm-2 control-label">Occupation</label>
+        <div id="occupationControls" class="col-sm-10">
+            <input id="occupation" name="occupation" type="text" class="form-control" ng-model="member.occupation" placeholder="Enter the Member Occupation"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': MemberForm.picture.$invalid}">
+        <label for="picture" class="col-sm-2 control-label">Picture</label>
+        <div id="pictureControls" class="col-sm-10">
+            <input id="picture" name="picture" type="text" class="form-control" ng-model="member.picture" placeholder="Enter the Member Picture"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': MemberForm.shortText.$invalid}">
+        <label for="shortText" class="col-sm-2 control-label">Short Text</label>
+        <div id="shortTextControls" class="col-sm-10">
+            <input id="shortText" name="shortText" type="text" class="form-control" ng-model="member.shortText" placeholder="Enter the Member Short Text"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': MemberForm.uuid.$invalid}">
+        <label for="uuid" class="col-sm-2 control-label">Uuid</label>
+        <div id="uuidControls" class="col-sm-10">
+            <input id="uuid" name="uuid" type="text" required class="form-control" ng-model="member.uuid" placeholder="Enter the Member Uuid"></input>
+            <span class="help-block error" ng-show="MemberForm.uuid.$error.required">required</span> 
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveMember" name="saveMember" class="btn btn-primary" ng-disabled="isClean() || MemberForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteMember" name="deleteMember" class="btn btn-danger" ng-show="member.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>
