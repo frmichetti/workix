@@ -43,6 +43,8 @@ public class Member extends MyEntity {
 
     private List<SocialMedia> medias;
     
+    private String name;    
+    
     private String occupation;
     
     private String picture;
@@ -54,7 +56,6 @@ public class Member extends MyEntity {
      */
     public Member(){}
 
-    
     /**
      * Add Social Media
      * @param socialMedia
@@ -66,7 +67,6 @@ public class Member extends MyEntity {
 
 	medias.add(socialMedia);
     }
-
     
     /**
      * @return the id
@@ -91,6 +91,16 @@ public class Member extends MyEntity {
 
     
     /**
+     * @return the name
+     */
+    @NotEmpty
+    @Column
+    public String getName() {
+        return name;
+    }
+
+    
+    /**
      * @return the occupation
      */
     @NotEmpty
@@ -107,6 +117,7 @@ public class Member extends MyEntity {
     public String getPicture() {
         return picture;
     }
+
     
     /**
      * @return the shortText
@@ -116,7 +127,7 @@ public class Member extends MyEntity {
     public String getShortText() {
         return shortText;
     }
-
+    
     /**
      * Remove Social Media
      * @param socialMedia
@@ -129,7 +140,6 @@ public class Member extends MyEntity {
 	medias.remove(socialMedia);
     }
 
-    
     /**
      * @param id the id to set
      */
@@ -143,6 +153,14 @@ public class Member extends MyEntity {
      */
     public void setMedias(List<SocialMedia> medias) {
         this.medias = medias;
+    }
+
+    
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     

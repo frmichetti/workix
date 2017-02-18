@@ -19,6 +19,13 @@
     </div>
 
     <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Member Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="occupation" class="col-sm-2 control-label">Occupation</label>
         <div class="col-sm-10">
             <input id="occupation" name="occupation" class="form-control" type="text" ng-model="search.occupation" placeholder="Enter the Member Occupation"></input>
@@ -60,6 +67,7 @@
             <thead>
                 <tr>
                     <th>Medias</th>
+                    <th>Name</th>
                     <th>Occupation</th>
                     <th>Picture</th>
                     <th>Short Text</th>
@@ -69,6 +77,7 @@
             <tbody id="search-results-body">
                 <tr ng-repeat="result in filteredResults | startFrom:currentPage*pageSize | limitTo:pageSize">
                     <td><a href="#/Members/edit/{{result.id}}">{{result.medias}}</a></td>
+                    <td><a href="#/Members/edit/{{result.id}}">{{result.name}}</a></td>
                     <td><a href="#/Members/edit/{{result.id}}">{{result.occupation}}</a></td>
                     <td><a href="#/Members/edit/{{result.id}}">{{result.picture}}</a></td>
                     <td><a href="#/Members/edit/{{result.id}}">{{result.shortText}}</a></td>
