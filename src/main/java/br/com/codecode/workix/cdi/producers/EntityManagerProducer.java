@@ -29,11 +29,11 @@ public class EntityManagerProducer implements Serializable {
 
     private static final long serialVersionUID = -1826763804778726145L;
 
-    @PersistenceUnit(unitName = "ProdDS")
+   /* @PersistenceUnit(unitName = "ProdDS")
     private EntityManagerFactory emfProd;
 
     @PersistenceUnit(unitName = "DevDS")
-    private EntityManagerFactory emfDev;
+    private EntityManagerFactory emfDev;*/
 
     @PersistenceUnit(unitName = "MySQLDS")
     private EntityManagerFactory emfOpenShift;
@@ -43,27 +43,27 @@ public class EntityManagerProducer implements Serializable {
      * 
      * @return EntityManager Production Implementation
      */
-    @Produces
+/*  @Produces
     @RequestScoped
     @Factory
     @Production
     public EntityManager getProdEntityManager() {
 	return emfProd.createEntityManager();
     }
-
+*/
     /**
      * Produce EntityManager for CDI Injection Points
      * 
      * @return EntityManager Development Implementation
      */
-    @Produces
+/*    @Produces
     @RequestScoped
     @Factory
     @Development
     public EntityManager getDevEntityManager() {
 	return emfDev.createEntityManager();
     }
-
+*/
     /**
      * Produce EntityManager for CDI Injection Points
      * 
@@ -93,7 +93,7 @@ public class EntityManagerProducer implements Serializable {
 
 	EntityManagerFactory emf = null;
 
-	if (getContextParam().equals("Production")) {
+/*	if (getContextParam().equals("Production")) {
 
 	    emf = emfProd;
 
@@ -101,7 +101,7 @@ public class EntityManagerProducer implements Serializable {
 
 	    emf = emfDev;
 
-	} else if (getContextParam().equals("OpenShift")) {
+	} else */ if (getContextParam().equals("OpenShift")) {
 
 	    emf = emfOpenShift;
 
