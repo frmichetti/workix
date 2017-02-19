@@ -29,15 +29,11 @@
 							<h4><h:outputText value="#{blog.title}"/></h4>
 							<h5>
 								<span><i class="fa fa-calendar"></i><h:outputText value="#{blog.date}" converter="localDateFacesConverter"/></span> <span><i
-									class="fa fa-comment"></i>8 Comentários</span>
+									class="fa fa-comment"></i><h:outputText value="#{blogsMB.comments.rowCount}" /> Comentários</span>
 							</h5>
 							
-							<p>Consectetur adipiscing elit. Duis lobortis tincidunt
-								pretium. Suspendisse ullamcorper quis neque quis viverra. Cras
-								ut leo in lectus gravida fringilla. In hac habitasse platea
-								dictumst. Fusce facilisis sapien dolor, non fermentum magna
-								tempus ac. Fusce quis eros sit amet magna aliquam euismod ac
-								eget libero. Fusce accumsan in eros vitae posuere.</p>
+							<p><h:outputText value="#{blog.resume}" />							
+							</p>
 							<p>
 								<a href="post.xhtml" class="btn btn-primary">Leia Mais</a>
 							</p>

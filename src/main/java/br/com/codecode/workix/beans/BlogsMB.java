@@ -10,6 +10,7 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Blog;
+import br.com.codecode.workix.jpa.models.Comment;
 
 /**
  * This ManagedBean controls Blogs Fragment on HomePage and 404 page
@@ -26,14 +27,25 @@ public class BlogsMB extends BaseMB {
     @Generic
     private Crud<Blog> dao;
     
+    @Inject
+    @Generic
+    private Crud<Comment> daoComment;
+    
     private DataModel<Blog> list;
+    
+    private DataModel<Comment> comments;
 
     @PostConstruct
     @Override
     protected void init() {
+	
 	try {
 	    
 	    list = new ListDataModel<Blog>(dao.listAll(0, Integer.MAX_VALUE));
+	    
+	    comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));
+	    
+	    
 	    
 	} catch (NotImplementedYetException e) {	    
 	    e.printStackTrace();
@@ -42,6 +54,15 @@ public class BlogsMB extends BaseMB {
     }
 
     
+    
+    /**
+     * @return the comments
+     */
+    public DataModel<Comment> getComments() {
+        return comments;
+    }
+
+
     /**
      * @return the list
      */

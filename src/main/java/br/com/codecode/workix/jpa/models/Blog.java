@@ -17,7 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -43,7 +42,7 @@ public class Blog extends MyEntity {
      * @serialField
      */
     private static final long serialVersionUID = -5273926504177459295L;
-    
+
     private List<Author> authors;
 
     private BlogCategory blogCategory;    
@@ -55,29 +54,38 @@ public class Blog extends MyEntity {
     private long id;    
 
     private List<String> pictures;
-    
+
     private String resume;    
-    
+
     private List<Tag> tags;
-    
+
     private String title;
-    
-    
+
+
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Blog(){}
 
-    
+
     public void addAuthor(Author author){
-	if(author == null){
+	if(authors == null){
 	    authors = new ArrayList<>();
 	}
 
 	authors.add(author);
     }
 
-    
+
+    public void addPicture(String picture){
+	if(pictures == null){
+	    pictures = new ArrayList<>();
+	}
+
+	pictures.add(picture);
+    }
+
+
     public void addTag(Tag tag){
 	if(tags == null){
 	    tags = new ArrayList<>();
@@ -85,12 +93,11 @@ public class Blog extends MyEntity {
 	tags.add(tag);
     }
 
-    
+
     /**
      * @return the author
      */
-    @NotNull
-    @Min(1)
+    @NotNull    
     @ManyToMany(fetch=FetchType.EAGER,targetEntity=Author.class)
     public List<Author> getAuthors() {
 	return authors;
@@ -103,16 +110,16 @@ public class Blog extends MyEntity {
     public BlogCategory getBlogCategory() {
 	return blogCategory;
     }
-    
+
     /**
      * @return the content
      */
     @Column
     @Lob
     public String getContent() {
-        return content;
+	return content;
     }
-    
+
     /**
      * @return the date
      */
@@ -135,17 +142,17 @@ public class Blog extends MyEntity {
     @ElementCollection(fetch = FetchType.EAGER)
     @CollectionTable(name = "Blog_Images", joinColumns = @JoinColumn(name = "id"))
     public List<String> getPictures() {
-        return pictures;
+	return pictures;
     }
 
-  
+
     /**
      * @return the resume
      */
     @Column
     @Lob
     public String getResume() {
-        return resume;
+	return resume;
     }
 
 
@@ -166,11 +173,19 @@ public class Blog extends MyEntity {
 
 
     public void removeAuthor(Author author){
-	if(author == null){
+	if(authors == null){
 	    authors = new ArrayList<>();
 	}
 
 	authors.remove(author);
+    }
+
+    public void removePicture(String picture){
+	if(pictures == null){
+	    pictures = new ArrayList<>();
+	}
+
+	pictures.remove(picture);
     }
 
     public void removeTag(Tag tag){
@@ -199,7 +214,7 @@ public class Blog extends MyEntity {
      * @param content the content to set
      */
     public void setContent(String content) {
-        this.content = content;
+	this.content = content;
     }
 
 
@@ -209,7 +224,7 @@ public class Blog extends MyEntity {
     public void setDate(LocalDate date) {
 	this.date = date;
     }
-  
+
     @Override
     public void setId(long id) {
 	this.id = id;	
@@ -219,14 +234,14 @@ public class Blog extends MyEntity {
      * @param pictures the pictures to set
      */
     public void setPictures(List<String> pictures) {
-        this.pictures = pictures;
+	this.pictures = pictures;
     }
 
     /**
      * @param resume the resume to set
      */
     public void setResume(String resume) {
-        this.resume = resume;
+	this.resume = resume;
     }
 
     /**
