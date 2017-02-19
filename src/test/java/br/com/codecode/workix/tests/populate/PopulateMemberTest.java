@@ -48,7 +48,7 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 	    
 	    felipe.setShortText("Porque pagar por um conteúdo que você não tem certeza de sua verdade?");
 	    
-	    felipe.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");	    	    
+	    felipe.setPicture("http://localhost:8080/workix/resources/images/members/felipe_140_140.jpg");	    	    
 	    
 	    felipe.addSocialMedia(SocialMedia.builder().withMedia("GitHub").withUrl("https://github.com/frmichetti").build());
 	    
@@ -66,7 +66,7 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 	    
 	    jefferson.setOccupation("Co-Founder e CMO");
 	    
-	    jefferson.setShortText("Muitas idéias boas parecem loucura ou impossível em primeiro lugar");
+	    jefferson.setShortText("Muitas idéias boas parecem loucura ou impossível em primeiro lugar.");
 	    
 	    jefferson.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");
 
