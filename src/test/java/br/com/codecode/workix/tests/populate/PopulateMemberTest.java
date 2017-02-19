@@ -40,28 +40,44 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 
 	members = new ArrayList<>();	
 
-	    Member m = new Member();
+	    Member felipe = new Member();
 
-	    m.setName("FELIPE RODRIGUES MICHETTI");
+	    felipe.setName("FELIPE RODRIGUES MICHETTI");
 	    
-	    m.setOccupation("Fundador e Desenvolvedor");
+	    felipe.setOccupation("Fundador e Desenvolvedor");
 	    
-	    m.setShortText("Porque pagar por um conteúdo que você não tem certeza de sua verdade?");
+	    felipe.setShortText("Porque pagar por um conteúdo que você não tem certeza de sua verdade?");
 	    
-	    m.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");	    	    
+	    felipe.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");	    	    
 	    
-	    m.addSocialMedia(SocialMedia.builder().withMedia("GitHub").withUrl("https://github.com/frmichetti").build());
+	    felipe.addSocialMedia(SocialMedia.builder().withMedia("GitHub").withUrl("https://github.com/frmichetti").build());
 	    
-	    m.addSocialMedia(SocialMedia.builder().withMedia("Twitter").withUrl("https://twitter.com/frmichetti").build());
+	    felipe.addSocialMedia(SocialMedia.builder().withMedia("Twitter").withUrl("https://twitter.com/frmichetti").build());
 	    
-	    m.addSocialMedia(SocialMedia.builder().withMedia("Linkedin").withUrl("https://br.linkedin.com/pub/felipe-rodrigues-michetti/105/61/511").build());
+	    felipe.addSocialMedia(SocialMedia.builder().withMedia("Linkedin").withUrl("https://br.linkedin.com/pub/felipe-rodrigues-michetti/105/61/511").build());
 
-	    System.out.println("[create] " + m.getName());
+	    System.out.println("[create] " + felipe.getName());
 
-	    addToList(m);
+	    addToList(felipe);
+	    
+	    Member jefferson = new Member();
+	    
+	    jefferson.setName("JEFFERSON PEDROSO");
+	    
+	    jefferson.setOccupation("Co-Founder e CMO");
+	    
+	    jefferson.setShortText("Muitas idéias boas parecem loucura ou impossível em primeiro lugar");
+	    
+	    jefferson.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");
+
+	    System.out.println("[create] " + jefferson.getName());
+
+	    addToList(jefferson);
+	    
+	    
 	
 
-	assertEquals(1 , members.size());
+	assertEquals(2 , members.size());
 
     }
 
