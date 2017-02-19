@@ -155,7 +155,7 @@ public class Blog extends MyEntity {
 
 
     /**
-     * @param author the author to set
+     * @param authors the author to set
      */
     public void setAuthors(List<Author> authors) {
 	this.authors = authors;

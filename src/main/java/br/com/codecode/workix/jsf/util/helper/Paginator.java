@@ -21,6 +21,7 @@ public class Paginator {
      * 
      * @param limitRows Limit Rows
      * @param currentPage Current Page
+     * @param maxRows Max Rows Limitator
      */
     public Paginator(int limitRows, int currentPage,int maxRows){
 	this();

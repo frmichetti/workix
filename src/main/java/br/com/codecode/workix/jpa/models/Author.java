@@ -85,7 +85,7 @@ public class Author extends MyEntity {
 
     /**
      * Add Social Media
-     * @param socialMedia
+     * @param socialMedia Url for Social Media
      */
     public void addSocialMedia(SocialMedia socialMedia){
 	if(medias == null){
@@ -97,7 +97,7 @@ public class Author extends MyEntity {
 
     /**
      * Remove Social Media
-     * @param socialMedia
+     * @param socialMedia Url for Social Media
      */
     public void removeSocialMedia(SocialMedia socialMedia){
 	if(medias == null){
