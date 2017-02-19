@@ -3,6 +3,6 @@
 .project
 .tern-project
 .settings
-
-/nb-configuration.xml
-/javadoc.xml
+nb-configuration.xml
+javadoc.xml
+scaffold
