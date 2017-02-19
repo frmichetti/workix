@@ -78,7 +78,7 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
 	    j.setRequirement("Requirement of Job " + String.valueOf(x + 1));
 
-	    j.setBenefits("Benefits of Job " + String.valueOf(x + 1));
+	    j.setBenefits("Benefits of Job " + String.valueOf(x + 1));	    
 
 	    j.setJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
 

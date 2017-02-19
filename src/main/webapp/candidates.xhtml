@@ -36,25 +36,29 @@
 								<a href="#{basePath}/resume.xhtml?id=#{candidate.id}"
 									class="featured">
 									<div class="row">
+										
 										<div class="col-xs-3 col-sm-2 col-lg-1">
 											<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-circle img-responsive" />											
 										</div>
-										<div
-											class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-											<h5>
-												<h:outputText value="#{candidate.name}" />
-											</h5>
+										
+										<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
+											
+											<h5><h:outputText value="#{candidate.name}" /></h5>
+											
 											<p>
 												<strong><h:outputText value="#{candidate.cpf}" /></strong>
 											</p>
 										</div>
-										<div
-											class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+										
+										<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
 											<p>
 												<strong>New York City, NY, USA</strong>
 											</p>
+											
 											<p>743.6 mi away</p>
+											
 										</div>
+										
 										<div class="hidden-xs hidden-sm hidden-md col-lg-3">
 											<p class="candidate-date">Updated 3 weeks ago}</p>
 											<p class="candidate-tags">
@@ -87,7 +91,7 @@
 
 						<!-- Featured Jobs Start -->
 						<div class="sidebar-widget">
-							<h2>Featured Candidate</h2>
+							<h2>Candidato Destaque</h2>
 							<a href="#">
 								<h:graphicImage name="400x260.jpg"  library="placeholder" styleClass="img-responsive" alt="Featured Job" />
 							 
@@ -115,7 +119,7 @@
 
 						<!-- Find a Job Start -->
 						<div class="sidebar-widget" id="jobsearch">
-							<h2>Find a Candidate</h2>
+							<h2>Localizar Candidato</h2>
 							<form>
 								<div class="row">
 									<div class="col-xs-12">

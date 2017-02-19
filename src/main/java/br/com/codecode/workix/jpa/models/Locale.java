@@ -222,4 +222,20 @@ public class Locale implements Serializable {
 	this.zipCode = zipCode;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	StringBuilder builder2 = new StringBuilder();
+	builder2.append("[city=");
+	builder2.append(city);
+	builder2.append(", estate=");
+	builder2.append(estate);
+	builder2.append("]");
+	return builder2.toString();
+    }
+    
+    
+
 }
