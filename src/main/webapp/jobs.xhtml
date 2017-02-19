@@ -14,7 +14,6 @@
 
 	<ui:define name="headerTitle">#{applicationMB.appName} - Vagas</ui:define>
 
-
 	<ui:define name="title">
 		<h1>Encontre um emprego</h1>
 		<h4>Não há lugar melhor para começar</h4>
@@ -34,8 +33,7 @@
 							<h:form>
 								<ui:repeat var="job" value="#{jobsMB.list}">
 
-									<a href="#{basePath}/job-details.xhtml?id=#{job.id}"
-										class="featured applied">
+									<a href="#{basePath}/job-details.xhtml?id=#{job.id}" class="featured applied">
 
 										<div class="row">
 
@@ -47,9 +45,12 @@
 												<h5>
 													<h:outputText value="#{job.title}" />
 												</h5>
+												
 												<p>
-													<strong><h:outputText
-															value="#{job.company.name}" /></strong>
+													<strong><h:outputText value="#{job.company.name}" /></strong>
+													
+													<br/>
+													
 													<h:outputText value="#{job.company.segment}" />
 												</p>
 											</div>
@@ -57,9 +58,13 @@
 											<div
 												class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
 												<p>
-													<strong><h:outputText
-															value="#{job.company.locale.city}" />, <h:outputText
-															value="#{job.company.locale.estate}" /></strong>
+													<strong>
+													
+													<h:outputText value="#{job.company.locale.city}" />, 
+													
+													<h:outputText value="#{job.company.locale.estate}" />
+													
+													</strong>
 												</p>
 												<p class="hidden-xs">126.3 miles away</p>
 											</div>
@@ -69,6 +74,7 @@
 												<p class="job-salary">
 													<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
 												</p>
+												
 												<p class="badge full-time">
 													<h:outputText value="#{job.jobType.name()}" />
 												</p>
@@ -105,11 +111,10 @@
 						<!-- Featured Jobs Start -->
 						<div class="sidebar-widget">
 							<h2>Featured Jobs</h2>
-							<a href="#"> <img src="http://placehold.it/400x265.jpg"
-								alt="Featured Job" class="img-responsive" />
+							<a href="#"> 
+							<h:graphicImage name="400x265.jpg" library="placeholder" styleClass="img-responsive" alt="Featured Job"/>							
 								<div class="featured-job">
-									<img src="http://placehold.it/60x60.jpg" alt=""
-										class="img-circle pull-left" />
+								<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-circle pull-left"/>									
 									<div class="title">
 										<h5>Web Designer</h5>
 										<p>Amazon</p>

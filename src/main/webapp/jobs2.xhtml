@@ -42,8 +42,13 @@
 											<h5>
 												<h:outputText value="#{job.title}" />
 											</h5>
+											
 											<p>
-												<strong><h:outputText value="#{job.company.name}" /></strong>
+												<strong>
+												<h:outputText value="#{job.company.name}" />
+												</strong>
+												
+												<br/>
 												<h:outputText value="#{job.company.segment}" />
 											</p>
 										</div>
@@ -67,11 +72,11 @@
 										<div class="col-lg-2 job-dates visible-lg-block">
 											<p class="job-posted">
 												<strong>Postada em <h:outputText
-														value="#{job.uuid}" /></strong>
+														value="#{jobsMB.localdate.year}" /></strong>
 											</p>
 											<p class="job-closes">
 												Encerra em
-												<h:outputText value="#{job.uuid}" />													
+												<h:outputText value="#{jobsMB.localdate.year}" />													
 											</p>
 										</div>
 									</div>

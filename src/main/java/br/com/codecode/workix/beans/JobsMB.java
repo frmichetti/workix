@@ -1,6 +1,7 @@
 package br.com.codecode.workix.beans;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -39,6 +40,16 @@ public class JobsMB extends BaseMB {
     private DataModel<Job> list;
 
     private String prefix, sufix;
+    
+    private LocalDate localdate = LocalDate.now();
+
+    
+    /**
+     * @return the localdate
+     */
+    public LocalDate getLocaldate() {
+        return localdate;
+    }
 
     /**
      * Max Results By Page
