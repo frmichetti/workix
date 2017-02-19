@@ -15,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -47,20 +48,26 @@ public class Blog extends MyEntity {
 
     private BlogCategory blogCategory;    
 
+    private String content;
+
     private LocalDate date;
 
-    private long id;
+    private long id;    
 
-    private List<String> pictures;    
-
+    private List<String> pictures;
+    
+    private String resume;    
+    
     private List<Tag> tags;
     
-    private String title;    
+    private String title;
+    
     
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Blog(){}
+
     
     public void addAuthor(Author author){
 	if(author == null){
@@ -69,6 +76,7 @@ public class Blog extends MyEntity {
 
 	authors.add(author);
     }
+
     
     public void addTag(Tag tag){
 	if(tags == null){
@@ -77,6 +85,7 @@ public class Blog extends MyEntity {
 	tags.add(tag);
     }
 
+    
     /**
      * @return the author
      */
@@ -94,8 +103,16 @@ public class Blog extends MyEntity {
     public BlogCategory getBlogCategory() {
 	return blogCategory;
     }
-
-  
+    
+    /**
+     * @return the content
+     */
+    @Column
+    @Lob
+    public String getContent() {
+        return content;
+    }
+    
     /**
      * @return the date
      */
@@ -103,7 +120,6 @@ public class Blog extends MyEntity {
     public LocalDate getDate() {
 	return date;
     }
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -113,7 +129,6 @@ public class Blog extends MyEntity {
 	return id;
     }
 
-
     /**
      * @return the pictures
      */
@@ -121,6 +136,16 @@ public class Blog extends MyEntity {
     @CollectionTable(name = "Blog_Images", joinColumns = @JoinColumn(name = "id"))
     public List<String> getPictures() {
         return pictures;
+    }
+
+  
+    /**
+     * @return the resume
+     */
+    @Column
+    @Lob
+    public String getResume() {
+        return resume;
     }
 
 
@@ -133,10 +158,12 @@ public class Blog extends MyEntity {
 	return tags;
     }
 
+
     @Column
     public String getTitle() {
 	return title;
     }
+
 
     public void removeAuthor(Author author){
 	if(author == null){
@@ -153,7 +180,6 @@ public class Blog extends MyEntity {
 	tags.remove(tag);
     }
 
-
     /**
      * @param authors the author to set
      */
@@ -161,21 +187,29 @@ public class Blog extends MyEntity {
 	this.authors = authors;
     }
 
-
     /**
      * @param blogCategory the blogCategory to set
      */
     public void setBlogCategory(BlogCategory blogCategory) {
 	this.blogCategory = blogCategory;
     }
-  
+
+
+    /**
+     * @param content the content to set
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+
     /**
      * @param date the date to set
      */
     public void setDate(LocalDate date) {
 	this.date = date;
     }
-
+  
     @Override
     public void setId(long id) {
 	this.id = id;	
@@ -186,6 +220,13 @@ public class Blog extends MyEntity {
      */
     public void setPictures(List<String> pictures) {
         this.pictures = pictures;
+    }
+
+    /**
+     * @param resume the resume to set
+     */
+    public void setResume(String resume) {
+        this.resume = resume;
     }
 
     /**
