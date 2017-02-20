@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -33,11 +34,11 @@ public class User extends MyEntity implements Notificable {
 
     private static final long serialVersionUID = -610648880358327958L;
 
-    private long id;
-
     private boolean active;
 
     private String email, firebaseUUID, firebaseMessageToken;
+
+    private long id;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
@@ -63,6 +64,16 @@ public class User extends MyEntity implements Notificable {
     }
 
     
+    /**
+     * Creates builder to build {@link User}.
+     * 
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
+    }
+
     @NotEmpty
     @Email
     @Column(nullable = false, unique = true)
@@ -121,6 +132,7 @@ public class User extends MyEntity implements Notificable {
     public void setId(long id) {
 	this.id = id;
     }
+    
 
     /**
      * Builder NestedClass for {@link User}

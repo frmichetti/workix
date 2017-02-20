@@ -15,7 +15,6 @@ import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
-import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.jaas.PassGenerator;
 
 /**
@@ -23,77 +22,33 @@ import br.com.codecode.workix.jaas.PassGenerator;
  * 
  * @since 1.0
  * @version 1.1
- * @see Persistable
  * @see Serializable
  */
 @Entity
 @Table(name = "JAAS_User")
 public class JAASUser extends JAASBase {
-
-    /**
-     * Builder to build {@link JAASUser}.
-     */    
-    public static final class Builder {
-
-	private String login;
-
-	private String password;
-
-	private Set<JAASRole> roles;
-
-	private PassGenerator passGenerator;
-
-	private Builder() {
-	}
-
-	public JAASUser build() {
-	    return new JAASUser(this);
-	}
-
-	public Builder withLogin(String login) {
-	    this.login = login;
-	    return this;
-	}
-
-	public Builder withPassGenerator(PassGenerator passGenerator) {
-	    this.passGenerator = passGenerator;
-	    return this;
-	}
-
-	public Builder withPassword(String password) {
-	    this.password = password;
-	    return this;
-	}
-
-	public Builder withRoles(Set<JAASRole> roles) {
-	    this.roles = roles;
-	    return this;
-	}
-    }
-
+    
     private static final long serialVersionUID = -1917498851904653016L;
 
-    
     private String login;
     
     private String password;    
     
+    @Inject
+    private transient PassGenerator passGenerator;    
+    
     private Set<JAASRole> roles;
 
-    @Inject
-    private transient PassGenerator passGenerator;
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public JAASUser(){}
     
     private JAASUser(Builder builder) {
 	this.login = builder.login;
 	this.password = builder.password;
 	this.roles = builder.roles;
 	this.passGenerator = builder.passGenerator;
-    }
-
-    /**
-     * Public Default Constructor for JPA Compatibility Only
-     */
-    public JAASUser() {
     }
 
     /**
@@ -111,12 +66,12 @@ public class JAASUser extends JAASBase {
     private void encode() {
 	this.password = passGenerator.generate(this.password);
     }
-    
+
     @Column
     public String getLogin() {
 	return login;
     }
-
+    
     @Column
     public String getPassword() {
 	return password;
@@ -145,6 +100,47 @@ public class JAASUser extends JAASBase {
     public String toString() {
 	return new StringBuilder().append("JAASUser [login=").append(login).append(", roles=").append(roles).append("]")
 		.toString();
+    }
+
+    /**
+     * Builder to build {@link JAASUser}.
+     */    
+    public static final class Builder {
+
+	private String login;
+
+	private PassGenerator passGenerator;
+
+	private String password;
+
+	private Set<JAASRole> roles;
+
+	private Builder() {
+	}
+
+	public JAASUser build() {
+	    return new JAASUser(this);
+	}
+
+	public Builder withLogin(String login) {
+	    this.login = login;
+	    return this;
+	}
+
+	public Builder withPassGenerator(PassGenerator passGenerator) {
+	    this.passGenerator = passGenerator;
+	    return this;
+	}
+
+	public Builder withPassword(String password) {
+	    this.password = password;
+	    return this;
+	}
+
+	public Builder withRoles(Set<JAASRole> roles) {
+	    this.roles = roles;
+	    return this;
+	}
     }
 
 }

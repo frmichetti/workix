@@ -19,6 +19,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
+
+import javax.annotation.Generated;
 
 /**
  * Author JPA with Inherited Fields and Methods
@@ -35,24 +38,53 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 public class Author extends MyEntity {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = 4441917823240375511L;
 
-    private long id;
-
     private String aboutText;
+
+    private long id;
 
     private List<SocialMedia> medias;
 
     private String name;
 
     private String picture;
-
+    
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Author(){}
+
+    private Author(Builder builder) {
+	this.id = builder.getId();
+	this.aboutText = builder.getAboutText();
+	this.medias = builder.getMedias();
+	this.name = builder.getName();
+	this.picture = builder.getPicture();
+    }
+
+    /**
+     * Creates builder to build {@link Author}.
+     * @return created builder
+     */
+    @Generated("SparkTools")
+    public static Builder builder() {
+	return new Builder();
+    }
+
+    /**
+     * Add Social Media
+     * @param socialMedia Url for Social Media
+     */
+    public void addSocialMedia(SocialMedia socialMedia){
+	if(medias == null){
+	    medias = new ArrayList<>();
+	}
+
+	medias.add(socialMedia);
+    }
 
     /**
      * @return the aboutText
@@ -84,30 +116,6 @@ public class Author extends MyEntity {
     }
 
     /**
-     * Add Social Media
-     * @param socialMedia Url for Social Media
-     */
-    public void addSocialMedia(SocialMedia socialMedia){
-	if(medias == null){
-	    medias = new ArrayList<>();
-	}
-
-	medias.add(socialMedia);
-    }
-
-    /**
-     * Remove Social Media
-     * @param socialMedia Url for Social Media
-     */
-    public void removeSocialMedia(SocialMedia socialMedia){
-	if(medias == null){
-	    medias = new ArrayList<>();
-	}
-
-	medias.remove(socialMedia);
-    }
-
-    /**
      * @return the name
      */
     @NotEmpty
@@ -122,6 +130,18 @@ public class Author extends MyEntity {
     @Column
     public String getPicture() {
 	return picture;
+    }
+
+    /**
+     * Remove Social Media
+     * @param socialMedia Url for Social Media
+     */
+    public void removeSocialMedia(SocialMedia socialMedia){
+	if(medias == null){
+	    medias = new ArrayList<>();
+	}
+
+	medias.remove(socialMedia);
     }
 
     /**
@@ -159,6 +179,48 @@ public class Author extends MyEntity {
      */
     public void setPicture(String picture) {
 	this.picture = picture;
+    }
+
+    /**
+     * Builder to build {@link Author}.
+     */
+    public static final class Builder  extends Author implements Buildable<Author>{
+
+	/**
+	 * @serialField
+	 */
+	private static final long serialVersionUID = -8399508111893300657L;
+
+	private Builder() {}
+
+	public Author build() {
+	    return new Author(this);
+	}
+
+	public Builder withAboutText(String aboutText) {
+	    super.aboutText = aboutText;
+	    return this;
+	}
+
+	public Builder withId(long id) {
+	    super.id = id;
+	    return this;
+	}
+
+	public Builder withMedias(List<SocialMedia> medias) {
+	    super.medias = medias;
+	    return this;
+	}
+
+	public Builder withName(String name) {
+	    super.name = name;
+	    return this;
+	}
+
+	public Builder withPicture(String picture) {
+	    super.picture = picture;
+	    return this;
+	}
     }
 
 }

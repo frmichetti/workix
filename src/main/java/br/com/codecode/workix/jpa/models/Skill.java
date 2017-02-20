@@ -7,6 +7,7 @@ import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
@@ -25,6 +26,52 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Skill implements Serializable {
 
+    private static final long serialVersionUID = -5975419980185059163L;
+
+    private String skillName;
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Skill(){}
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Skill
+     */
+    public Skill(Builder builder) {
+	this.setSkillName(builder.getSkillName());
+    }
+
+    /**
+     * Creates builder to build {@link Skill}.
+     * @return created builder
+     */    
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
+    }
+
+    /**
+     * @return the Skill Name
+     */
+    @Column
+    public String getSkillName() {
+	return this.skillName;
+    }
+
+    /**
+     * @param skillName
+     *            the Skill Name to set
+     */
+    public void setSkillName(String skillName) {
+	this.skillName = skillName;
+    }
+
+
     /**
      * Builder NestedClass for {@link Skill}
      * 
@@ -36,6 +83,9 @@ public class Skill implements Serializable {
      */
     public final static class Builder extends Skill implements Buildable<Skill> {
 
+	/**
+	 * @serialField
+	 */
 	private static final long serialVersionUID = -2784926262850261658L;
 
 	/**
@@ -72,43 +122,6 @@ public class Skill implements Serializable {
 	    return this;
 	}
 
-    }
-
-    private static final long serialVersionUID = -5975419980185059163L;
-
-    @Column
-    private String skillName;
-
-    /**
-     * Public Default Constructor for JPA Compatibility Only
-     */
-    public Skill() {
-    }
-
-    /**
-     * Public Constructor for {@link Builder} Compatibility
-     * 
-     * @see Buildable
-     * @param builder
-     *            Builder for Generate a New Skill
-     */
-    public Skill(Builder builder) {
-	this.setSkillName(builder.getSkillName());
-    }
-
-    /**
-     * @return the Skill Name
-     */
-    public final String getSkillName() {
-	return this.skillName;
-    }
-
-    /**
-     * @param skillName
-     *            the Skill Name to set
-     */
-    public final void setSkillName(String skillName) {
-	this.skillName = skillName;
     }
 
 }

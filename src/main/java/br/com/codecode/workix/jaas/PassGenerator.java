@@ -21,7 +21,7 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.jaas.model.JAASUser;
 
 /**
- * This Class Encodes Strings Use with {@link JAASUser #setPassword(String)}
+ * This Class Encodes Strings. Use with {@link JAASUser #setPassword(String)}
  * 
  * @author felipe
  * @since 1.0

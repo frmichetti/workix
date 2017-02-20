@@ -9,6 +9,7 @@ import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
@@ -29,6 +30,99 @@ import br.com.codecode.workix.jaxrs.converter.LocalDateAdapter;
 @Persist
 public class Experience implements Serializable {
 
+    private static final long serialVersionUID = -6311235469498858665L;
+
+    private String description;
+
+    private String employerName;
+
+    private LocalDate endDate;
+
+    private String jobTitle;
+
+    private LocalDate startDate;
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Experience(){}
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Experience
+     */
+    public Experience(Builder builder) {
+
+	this.employerName = builder.getEmployerName();
+
+	this.jobTitle = builder.getJobTitle();
+
+	this.startDate = builder.getStartDate();
+
+	this.endDate = builder.getEndDate();
+
+    }
+
+    /**
+     * Creates builder to build {@link Experience}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
+    }
+
+    @Lob
+    @Column
+    public String getDescription() {
+	return description;
+    }
+
+    @Column
+    public String getEmployerName() {
+	return employerName;
+    }
+
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    @Column    
+    public LocalDate getEndDate() {
+	return endDate;
+    }
+
+    @Column
+    public String getJobTitle() {
+	return jobTitle;
+    }
+
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    @Column
+    public LocalDate getStartDate() {
+	return startDate;
+    }
+
+    public void setDescription(String description) {
+	this.description = description;
+    }
+
+    public void setEmployerName(String employerName) {
+	this.employerName = employerName;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+	this.endDate = endDate;
+    }
+
+    public void setJobTitle(String jobTitle) {
+	this.jobTitle = jobTitle;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+	this.startDate = startDate;
+    }
+
     /**
      * Builder NestedClass for {@link Experience}
      * 
@@ -41,15 +135,14 @@ public class Experience implements Serializable {
     public final static class Builder extends Experience implements Buildable<Experience> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -1322208401535756846L;
 
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder() {
-	}
+	private Builder(){}
 
 	/**
 	 * Constructor with Required Fields
@@ -142,91 +235,6 @@ public class Experience implements Serializable {
 	    return this;
 	}
 
-    }
-
-    private static final long serialVersionUID = -6311235469498858665L;
-
-    @Column
-    private String employerName;
-
-    @Column
-    private String jobTitle;
-
-    @XmlJavaTypeAdapter(LocalDateAdapter.class)
-    @Column
-    private LocalDate startDate;
-
-    @XmlJavaTypeAdapter(LocalDateAdapter.class)
-    @Column
-    private LocalDate endDate;
-
-    @Lob
-    @Column
-    private String description;
-
-    /**
-     * Public Default Constructor for JPA Compatibility Only
-     */
-    public Experience() {
-    }
-
-    /**
-     * Public Constructor for {@link Builder} Compatibility
-     * 
-     * @see Buildable
-     * @param builder
-     *            Builder for Generate a New Experience
-     */
-    public Experience(Builder builder) {
-
-	this.employerName = builder.getEmployerName();
-
-	this.jobTitle = builder.getJobTitle();
-
-	this.startDate = builder.getStartDate();
-
-	this.endDate = builder.getEndDate();
-
-    }
-
-    public String getDescription() {
-	return description;
-    }
-
-    public String getEmployerName() {
-	return employerName;
-    }
-
-    public LocalDate getEndDate() {
-	return endDate;
-    }
-
-    public String getJobTitle() {
-	return jobTitle;
-    }
-
-    public LocalDate getStartDate() {
-	return startDate;
-    }
-
-    public void setDescription(String description) {
-	this.description = description;
-    }
-
-    public void setEmployerName(String employerName) {
-	this.employerName = employerName;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-	this.endDate = endDate;
-    }
-
-    public void setJobTitle(String jobTitle) {
-	this.jobTitle = jobTitle;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-	this.startDate = startDate;
     }
 
 }

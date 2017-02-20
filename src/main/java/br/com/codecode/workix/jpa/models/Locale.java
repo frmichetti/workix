@@ -44,8 +44,7 @@ public class Locale implements Serializable {
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder() {
-	}
+	private Builder(){}
 
 	/**
 	 * Constructor with All Fields

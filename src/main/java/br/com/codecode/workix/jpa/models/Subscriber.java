@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -33,15 +34,14 @@ public class Subscriber extends MyEntity {
      */
     private static final long serialVersionUID = 6675137603968146834L;
     
-    private long id;
-
     private String email;
+
+    private long id;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Subscriber() {
-    }
+    public Subscriber(){}
 
     /**
      * Public Constructor for {@link Builder} Compatibility
@@ -55,6 +55,15 @@ public class Subscriber extends MyEntity {
 	this.setId(builder.getId());
 
 	this.setEmail(builder.getEmail());
+    }
+
+    /**
+     * Creates builder to build {@link Subscriber}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
     }
 
     /**
@@ -86,6 +95,7 @@ public class Subscriber extends MyEntity {
     public void setId(long id) {
 	this.id = id;
     }
+    
 
     /**
      * Builder NestedClass for {@link Subscriber}

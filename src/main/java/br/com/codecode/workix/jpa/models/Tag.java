@@ -7,6 +7,7 @@ import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -40,9 +41,8 @@ public class Tag implements Serializable{
     public Tag(){}    
     
     private Tag(Builder builder) {
-	this.name = builder.name;
+	this.name = builder.getName();
     }
-
 
     /**
      * @return the name
@@ -66,6 +66,7 @@ public class Tag implements Serializable{
      * Creates builder to build {@link Tag}.
      * @return created builder
      */    
+    @XmlTransient
     public static Builder builder() {
 	return new Builder();
     }
@@ -87,7 +88,6 @@ public class Tag implements Serializable{
 	 */
 	private static final long serialVersionUID = -5775038446937981944L;
 	
-	private String name;
 
 	/**
 	 * Disabled Empty Constructor
@@ -95,7 +95,7 @@ public class Tag implements Serializable{
 	private Builder(){}
 
 	public Builder withName(String name) {
-	    this.name = name;
+	    super.name = name;
 	    return this;
 	}
 

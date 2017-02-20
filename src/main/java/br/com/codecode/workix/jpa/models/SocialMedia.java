@@ -7,10 +7,12 @@ import javax.persistence.Embeddable;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * SocialMedia JPA Embeddable
@@ -41,8 +43,18 @@ public class SocialMedia implements Serializable {
     public SocialMedia(){}
 
     private SocialMedia(Builder builder) {
-	this.media = builder.media;
-	this.url = builder.url;
+	this.media = builder.getMedia();
+	this.url = builder.getUrl();
+    }
+
+
+    /**
+     * Creates builder to build {@link SocialMedia}.
+     * @return created builder
+     */    
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
     }
 
 
@@ -55,7 +67,6 @@ public class SocialMedia implements Serializable {
 	return media;
     }
 
-
     /**
      * @return the url
      */
@@ -64,6 +75,7 @@ public class SocialMedia implements Serializable {
     public String getUrl() {
 	return url;
     }
+
 
     /**
      * @param media the media to set
@@ -82,38 +94,33 @@ public class SocialMedia implements Serializable {
 
 
     /**
-     * Creates builder to build {@link SocialMedia}.
-     * @return created builder
-     */    
-    public static Builder builder() {
-	return new Builder();
-    }
-
-
-    /**
      * Builder to build {@link SocialMedia}.
      */    
-    public static final class Builder {
+    public static final class Builder extends SocialMedia implements Buildable<SocialMedia> {
 
-	private String media;
+	/**
+	 * @serialField
+	 */
+	private static final long serialVersionUID = -4455052272130426281L;
 
-	private String url;
+	/**
+	 * Disabled Empty Constructor
+	 */
+	private Builder(){}
 
-	private Builder() {
+	@Override
+	public SocialMedia build() {
+	    return new SocialMedia(this);
 	}
 
 	public Builder withMedia(String media) {
-	    this.media = media;
+	    super.media = media;
 	    return this;
 	}
 
 	public Builder withUrl(String url) {
-	    this.url = url;
+	    super.url = url;
 	    return this;
-	}
-
-	public SocialMedia build() {
-	    return new SocialMedia(this);
 	}
     }
 

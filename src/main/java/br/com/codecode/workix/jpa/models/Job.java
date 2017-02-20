@@ -15,10 +15,12 @@ import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.JobCategory;
 import br.com.codecode.workix.core.enums.JobType;
+import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Job JPA with Inherited Fields and Methods
@@ -39,27 +41,49 @@ public class Job extends MyEntity {
      */
     private static final long serialVersionUID = 2246753300384053586L;
 
-    private long id;
-
     private boolean active;
-
-    private String title, description, requirement, benefits;
-
-    private BigDecimal minPayment, maxPayment;
-
-    private JobType jobType;
-
-    private JobCategory jobCategory;
 
     /**
      * Many {@link Job} To One {@link Company}
      */
     private Company company;
 
+    private long id;
+
+    private JobCategory jobCategory;
+
+    private JobType jobType;
+
+    private BigDecimal minPayment, maxPayment;
+
+    private String title, description, requirement, benefits;
+
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Job() {
+    public Job(){}
+
+    private Job(Builder builder) {
+	this.id = builder.getId();
+	this.active = builder.isActive();
+	this.title = builder.getTitle();
+	this.description = builder.getDescription();
+	this.requirement = builder.getRequirement();
+	this.benefits = builder.getBenefits();
+	this.minPayment = builder.getMinPayment();
+	this.maxPayment = builder.getMaxPayment();
+	this.jobType = builder.getJobType();
+	this.jobCategory = builder.getJobCategory();
+	this.company = builder.getCompany();
+    }
+
+    /**
+     * Creates builder to build {@link Job}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
     }
 
     @Lob
@@ -178,6 +202,78 @@ public class Job extends MyEntity {
 
     public void setTitle(String title) {
 	this.title = title;
+    }
+
+    /**
+     * Builder to build {@link Job}.
+     */    
+    public static final class Builder extends Job implements Buildable<Job> {
+
+	/**
+	 * @serialField 
+	 */
+	private static final long serialVersionUID = -2178589087775440695L;	
+
+	private Builder(){}
+
+	public Job build() {
+	    return new Job(this);
+	}
+
+	public Builder withActive(boolean active) {
+	    super.active = active;
+	    return this;
+	}
+
+	public Builder withBenefits(String benefits) {
+	    super.benefits = benefits;
+	    return this;
+	}
+
+	public Builder withCompany(Company company) {
+	    super.company = company;
+	    return this;
+	}
+
+	public Builder withDescription(String description) {
+	    super.description = description;
+	    return this;
+	}
+
+	public Builder withId(long id) {
+	    super.id = id;
+	    return this;
+	}
+
+	public Builder withJobCategory(JobCategory jobCategory) {
+	    super.jobCategory = jobCategory;
+	    return this;
+	}
+
+	public Builder withJobType(JobType jobType) {
+	    super.jobType = jobType;
+	    return this;
+	}
+
+	public Builder withMaxPayment(BigDecimal maxPayment) {
+	    super.maxPayment = maxPayment;
+	    return this;
+	}
+
+	public Builder withMinPayment(BigDecimal minPayment) {
+	    super.minPayment = minPayment;
+	    return this;
+	}
+
+	public Builder withRequirement(String requirement) {
+	    super.requirement = requirement;
+	    return this;
+	}
+
+	public Builder withTitle(String title) {
+	    super.title = title;
+	    return this;
+	}
     }
 
 }

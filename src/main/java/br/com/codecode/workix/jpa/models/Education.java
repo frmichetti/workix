@@ -28,6 +28,88 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Education implements Serializable {
 
     /**
+     * @serialField
+     */
+    private static final long serialVersionUID = -1514012744160609145L;
+    
+    private String description;
+
+    private LocalDate endDate;
+    
+    private String qualification;
+    
+    private String schoolName;
+    
+    private LocalDate startDate;
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Education(){}
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a new Education
+     */
+    public Education(Builder builder) {
+	this.schoolName = builder.getSchoolName();
+	this.startDate = builder.getStartDate();
+	this.endDate = builder.getEndDate();
+	this.qualification = builder.getQualification();
+	this.description = builder.getDescription();
+    }
+
+    @Lob
+    @Column
+    public String getDescription() {
+	return description;
+    }
+
+    @Column
+    public LocalDate getEndDate() {
+	return endDate;
+    }
+
+    @Lob
+    @Column
+    public String getQualification() {
+	return qualification;
+    }
+
+    @Column
+    public String getSchoolName() {
+	return schoolName;
+    }
+
+    @Column
+    public LocalDate getStartDate() {
+	return startDate;
+    }
+
+    public void setDescription(String description) {
+	this.description = description;
+    }
+
+    public void setEndDate(LocalDate endDate) {
+	this.endDate = endDate;
+    }
+
+    public void setQualification(String qualification) {
+	this.qualification = qualification;
+    }
+
+    public void setSchoolName(String schoolName) {
+	this.schoolName = schoolName;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+	this.startDate = startDate;
+    }
+
+    /**
      * Builder NestedClass for {@link Education}
      * @see Education
      * @see Buildable
@@ -45,8 +127,7 @@ public class Education implements Serializable {
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder() {
-	}
+	private Builder(){}
 
 	/**
 	 * Minimal Constructor with Required Fields
@@ -142,86 +223,6 @@ public class Education implements Serializable {
 	    return this;
 	}
 
-    }
-
-    private static final long serialVersionUID = -1514012744160609145L;
-
-    @Column
-    private String schoolName;
-
-    @Column
-    private LocalDate startDate;
-
-    @Column
-    private LocalDate endDate;
-
-    @Lob
-    @Column
-    private String qualification;
-
-    @Lob
-    @Column
-    private String description;
-
-    /**
-     * Public Default Constructor for JPA Compatibility Only
-     */
-    public Education() {
-    }
-
-    /**
-     * Public Constructor for {@link Builder} Compatibility
-     * 
-     * @see Buildable
-     * @param builder
-     *            Builder for Generate a new Education
-     */
-    public Education(Builder builder) {
-	this.schoolName = builder.getSchoolName();
-	this.startDate = builder.getStartDate();
-	this.endDate = builder.getEndDate();
-	this.qualification = builder.getQualification();
-	this.description = builder.getDescription();
-    }
-
-    public String getDescription() {
-	return description;
-    }
-
-    public LocalDate getEndDate() {
-	return endDate;
-    }
-
-    public String getQualification() {
-	return qualification;
-    }
-
-    public String getSchoolName() {
-	return schoolName;
-    }
-
-    public LocalDate getStartDate() {
-	return startDate;
-    }
-
-    public void setDescription(String description) {
-	this.description = description;
-    }
-
-    public void setEndDate(LocalDate endDate) {
-	this.endDate = endDate;
-    }
-
-    public void setQualification(String qualification) {
-	this.qualification = qualification;
-    }
-
-    public void setSchoolName(String schoolName) {
-	this.schoolName = schoolName;
-    }
-
-    public void setStartDate(LocalDate startDate) {
-	this.startDate = startDate;
     }
 
 }

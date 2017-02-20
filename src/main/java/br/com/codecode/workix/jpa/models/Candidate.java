@@ -34,9 +34,9 @@ public class Candidate extends Person {
      */
     private static final long serialVersionUID = 531807027259604477L;
 
-    private long id, cpf;
-
     private LocalDate birthDate;
+
+    private long id, cpf;
 
     /**
      * Public Default Constructor for JPA Compatibility Only

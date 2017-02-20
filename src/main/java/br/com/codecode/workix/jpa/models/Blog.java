@@ -67,7 +67,6 @@ public class Blog extends MyEntity {
      */
     public Blog(){}
 
-
     public void addAuthor(Author author){
 	if(authors == null){
 	    authors = new ArrayList<>();
@@ -76,7 +75,6 @@ public class Blog extends MyEntity {
 	authors.add(author);
     }
 
-
     public void addPicture(String picture){
 	if(pictures == null){
 	    pictures = new ArrayList<>();
@@ -84,7 +82,6 @@ public class Blog extends MyEntity {
 
 	pictures.add(picture);
     }
-
 
     public void addTag(Tag tag){
 	if(tags == null){

@@ -15,6 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
+import br.com.codecode.workix.interfaces.Buildable;
+
 /**
  * Only for JAAS security
  * 
@@ -27,14 +29,16 @@ import javax.xml.bind.annotation.XmlTransient;
 public class JAASRole implements Serializable {
 
     private static final long serialVersionUID = -3259219990958750371L;
-    
-    private String name;
 
-    public JAASRole() {
-    }
+    private String name;
     
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public JAASRole(){}
+
     private JAASRole(Builder builder) {
-	this.name = builder.name;
+	this.name = builder.getName();
     }
 
     /**
@@ -59,26 +63,30 @@ public class JAASRole implements Serializable {
 
     /**
      * Builder to build {@link JAASRole}.
+     * @see Buildable
+     * @see JAASRole
      */    
-    public static final class Builder {
+    public static final class Builder extends JAASRole implements Buildable<JAASRole> {
 
-	private String name;
+	/**
+	 * @serialField Default Auto Generated Serial
+	 */
+	private static final long serialVersionUID = -6819879310880521871L;	
 
-	private Builder() {
-	}
+	/**
+	 * Disabled Empty Constructor
+	 */
+	private Builder(){}
 
+	@Override
 	public JAASRole build() {
 	    return new JAASRole(this);
 	}
 
 	public Builder withName(String name) {
-	    this.name = name;
+	    super.name = name;
 	    return this;
-	}
-
-	public Builder withSerialVersionUID(long serialVersionUID) {
-	    return this;
-	}
+	}	
     }
 
 }
