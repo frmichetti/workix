@@ -7,6 +7,11 @@
 
 <ui:composition template="/template.xhtml">
 
+	<f:metadata>
+		<f:viewParam id="id" name="id" value="#{blogDetailMB.id}" />
+		<f:viewAction action="#{blogDetailMB.init()}" />
+	</f:metadata>
+
 	<ui:define name="headerTitle">Workix - Blog Post</ui:define>
 
 	<ui:define name="title">
@@ -21,15 +26,17 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
+						
 						<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
 						
 					</div>
+					
 					<div class="col-sm-10">
-						<h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit</h1>
+						<h1><h:outputText value="#{blogDetailMB.currentBlog.title}" /></h1>
 						<div class="meta">
-							<span><i class="fa fa-user"></i>John Doe</span> <span><i
-								class="fa fa-calendar"></i>28/09/2015</span> <span><i
-								class="fa fa-comment"></i>24</span>
+							<span><i class="fa fa-user"></i><h:outputText value="#{blogDetailMB.currentBlog.authors}" /></span>
+							<span><i class="fa fa-calendar"></i><h:outputText value="#{blogDetailMB.currentBlog.date}" converter="localDateFacesConverter" /></span>
+							<span><i class="fa fa-comment"></i>24</span>
 						</div>
 					</div>
 				</div>
@@ -50,105 +57,36 @@
 
 						<article>
 							<p>
-							<h:graphicImage name="800x530.jpg" library="placeholder" styleClass="img-responsive" alt="" />								
+								<h:graphicImage url="#{blogDetailMB.currentBlog.pictures.get(0)}" styleClass="img-responsive" alt="" />								
 							</p>
-							<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla
-								dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet
-								ex laoreet finibus. Etiam commodo purus tortor, sed interdum
-								justo faucibus vitae. Praesent ac elit a felis luctus facilisis.
-								Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel,
-								blandit enim. Pellentesque sit amet metus luctus, congue.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis,
-								ornare in urna commodo, volutpat gravida sem. Integer vitae
-								lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui
-								dictum fermentum. Nulla at fringilla dolor. Proin magna nibh,
-								dignissim vitae enim quis, bibendum euismod ipsum. In mattis
-								nulla nulla. Cras suscipit aliquet augue in vulputate. Donec in
-								enim non elit ornare sodales id nec arcu.</p>
-							<h2>Gallery</h2>
+							
+							<p><h:outputText value="#{blogDetailMB.currentBlog.resume}" /></p>
+								
+							<p><h:outputText value="#{blogDetailMB.currentBlog.content}" /></p>
+							
+							<h2>Galeria de Imagens</h2>		
+														
 							<ul class="gallery row">
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
+							
+								<ui:repeat var="picture" value="#{blogDetailMB.currentBlog.pictures}">
+									
+									<li class="col-xs-4 col-sm-3 col-lg-2">
+									<a href="picture" class="fancybox"
 									data-fancybox-group="gallery" title="Sample title">
 									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
 									 
 								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-								<li class="col-xs-4 col-sm-3 col-lg-2"><a
-									href="http://placehold.it/800x530.jpg" class="fancybox"
-									data-fancybox-group="gallery" title="Sample title">
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-								</a></li>
-							</ul>
-							<p>Proin eu erat tincidunt, scelerisque ipsum non, fringilla
-								dolor. Quisque interdum congue tellus. Aliquam vel odio sit amet
-								ex laoreet finibus. Etiam commodo purus tortor, sed interdum
-								justo faucibus vitae. Praesent ac elit a felis luctus facilisis.
-								Aenean et magna elit. Morbi eget nulla volutpat, egestas ex vel,
-								blandit enim. Pellentesque sit amet metus luctus, congue.</p>
-							<blockquote>Maecenas mollis dictum lectus quis
-								scelerisque. Nulla at rutrum ipsum. Praesent augue quam,
-								facilisis vitae felis vel, convallis convallis nisi. Donec
-								maximus accumsan purus vel tempus. Aenean pretium luctus velit
-								id fermentum.</blockquote>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Morbi vel sapien nibh. Mauris et neque tellus. In tellus felis,
-								ornare in urna commodo, volutpat gravida sem. Integer vitae
-								lorem sit amet nibh ornare varius. Sed sollicitudin leo quis dui
-								dictum fermentum. Nulla at fringilla dolor. Proin magna nibh,
-								dignissim vitae enim quis, bibendum euismod ipsum. In mattis
-								nulla nulla. Cras suscipit aliquet augue in vulputate. Donec in
-								enim non elit ornare sodales id nec arcu.</p>
+								
+								</ui:repeat>
+							
+							
+																
+							</ul>						
+							
+							
+							<blockquote><h:outputText value="#{blogDetailMB.currentBlog.citation}" /></blockquote>								
+							
+								
 						</article>
 
 						<!-- POSTS END -->
@@ -156,18 +94,18 @@
 						<!-- SHARING START -->
 
 						<ul class="share">
-							<li><h5>Share it</h5></li>
+							<li><h5>Compartilhe</h5></li>
 							<li><a
-								href="https://www.facebook.com/sharer/sharer.php?u=http://www.coffeecreamthemes.com/themes/#{applicationMB.appName}/site/job-details.xhtml"><i
+								href="https://www.facebook.com/sharer/sharer.php?u=#{applicationMB.appName}/job-details.xhtml"><i
 									class="fa fa-2x fa-facebook-square"></i></a></li>
 							<li><a
-								href="https://twitter.com/home?status=http://www.coffeecreamthemes.com/themes/#{applicationMB.appName}/site/job-details.xhtml"><i
+								href="https://twitter.com/home?status=http://#{applicationMB.appName}/job-details.xhtml"><i
 									class="fa fa-2x fa-twitter-square"></i></a></li>
 							<li><a
-								href="https://plus.google.com/share?url=http://www.coffeecreamthemes.com/themes/#{applicationMB.appName}/site/job-details.xhtml"><i
+								href="https://plus.google.com/share?url=http://#{applicationMB.appName}/job-details.xhtml"><i
 									class="fa fa-2x fa-google-plus-square"></i></a></li>
 							<li><a
-								href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://www.coffeecreamthemes.com/themes/#{applicationMB.appName}/site/job-details.xhtml&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
+								href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://#{applicationMB.appName}/job-details.xhtml&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
 									class="fa fa-2x fa-linkedin-square"></i></a></li>
 						</ul>
 
@@ -175,14 +113,14 @@
 
 						<!-- TAGS START -->
 
-						<ul class="tags">
+						<ul class="tags">							
+							
 							<li><i class="fa fa-tag"></i></li>
-							<li><a href="#">job</a></li>
-							<li><a href="#">work</a></li>
-							<li><a href="#">company</a></li>
-							<li><a href="#">resume</a></li>
-							<li><a href="#">market</a></li>
-							<li><a href="#">business</a></li>
+							
+							<ui:repeat value="#{blogDetailMB.currentBlog.tags}" var="tag">
+								<li><a href="#"><h:outputText value="#{tag.name}" />></a></li>
+							</ui:repeat>
+							
 						</ul>
 
 						<!-- TAGS END -->
@@ -191,24 +129,29 @@
 
 						<div id="author" class="row">
 							<div class="col-sm-2">
-							<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />								
+								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />								
 							</div>
+							
 							<div class="col-sm-10">
-								<h5>About The Author</h5>
-								<p>Aenean non velit non nulla interdum venenatis. Integer in
-									libero sagittis, consequat est quis, commodo odio. Aliquam eu
-									vulputate neque. Nunc et massa leo. Vestibulum a pretium dolor.
-									Proin et fermentum sapien.</p>
+								
+								<h5>Sobre o(s) Autor(es)</h5>
+								
+								<ui:repeat var="author" value="#{blogDetailMB.currentBlog.authors}">
+								
+								<p><h:outputText value="#{author.name}" /></p>
+								
 								<ul class="social">
-									<li><a href="https://www.facebook.com/"><i
-											class="fa fa-2x fa-facebook-square"></i></a></li>
-									<li><a href="https://twitter.com/"><i
-											class="fa fa-2x fa-twitter-square"></i></a></li>
-									<li><a href="https://instagram.com/"><i
-											class="fa fa-2x fa-instagram"></i></a></li>
-									<li><a href="https://www.linkedin.com/"><i
-											class="fa fa-2x fa-linkedin-square"></i></a></li>
+								
+									<ui:repeat var="social" value="#{author.medias}">
+										<li><a href="#{social.url}">
+										<i class="#{membersMB.whatSocialLink(social.url)}"></i></a></li>
+									</ui:repeat>
+								
 								</ul>
+								
+								</ui:repeat>
+								
+								
 							</div>
 						</div>
 

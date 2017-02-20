@@ -47,20 +47,21 @@ public class Blog extends MyEntity {
 
     private BlogCategory blogCategory;    
 
-    private String content;
-
+    private String citation;
+    
+    private String content;        
+    
     private LocalDate date;
-
-    private long id;    
+    
+    private long id;
 
     private List<String> pictures;
 
-    private String resume;    
+    private String resume;
 
-    private List<Tag> tags;
+    private List<Tag> tags;    
 
-    private String title;
-
+    private String title;    
 
     /**
      * Public Default Constructor for JPA Compatibility Only
@@ -74,6 +75,7 @@ public class Blog extends MyEntity {
 
 	authors.add(author);
     }
+
 
     public void addPicture(String picture){
 	if(pictures == null){
@@ -90,7 +92,6 @@ public class Blog extends MyEntity {
 	tags.add(tag);
     }
 
-
     /**
      * @return the author
      */
@@ -106,6 +107,16 @@ public class Blog extends MyEntity {
     @Enumerated(EnumType.STRING)
     public BlogCategory getBlogCategory() {
 	return blogCategory;
+    }
+
+
+    /**
+     * @return the citation
+     */
+    @Column
+    @Lob
+    public String getCitation() {
+        return citation;
     }
 
     /**
@@ -142,7 +153,6 @@ public class Blog extends MyEntity {
 	return pictures;
     }
 
-
     /**
      * @return the resume
      */
@@ -177,6 +187,7 @@ public class Blog extends MyEntity {
 	authors.remove(author);
     }
 
+
     public void removePicture(String picture){
 	if(pictures == null){
 	    pictures = new ArrayList<>();
@@ -204,6 +215,13 @@ public class Blog extends MyEntity {
      */
     public void setBlogCategory(BlogCategory blogCategory) {
 	this.blogCategory = blogCategory;
+    }
+
+    /**
+     * @param citation the citation to set
+     */
+    public void setCitation(String citation) {
+        this.citation = citation;
     }
 
 

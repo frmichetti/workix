@@ -29,6 +29,9 @@ public class SocialLinkHelper {
 	}else if(url.trim().toLowerCase().contains("linkedin")){
 	    resp  = "fa fa-linkedin-square fa-2x";
 	    
+	}else if(url.trim().toLowerCase().contains("google")){
+	    resp = "fa fa-google-plus-square fa-2x";
+	    
 	}else {
 	    resp  = "fa fa-link fa-2x";	    
 	    
