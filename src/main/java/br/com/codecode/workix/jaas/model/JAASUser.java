@@ -3,15 +3,16 @@ package br.com.codecode.workix.jaas.model;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.annotation.Generated;
 import javax.inject.Inject;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.interfaces.Persistable;
@@ -25,14 +26,13 @@ import br.com.codecode.workix.jaas.PassGenerator;
  * @see Persistable
  * @see Serializable
  */
-/*@Entity
-@Table(name = "JAAS_User")*/
+@Entity
+@Table(name = "JAAS_User")
 public class JAASUser extends JAASBase {
 
     /**
      * Builder to build {@link JAASUser}.
-     */
-    @Generated("SparkTools")
+     */    
     public static final class Builder {
 
 	private String login;
@@ -73,21 +73,16 @@ public class JAASUser extends JAASBase {
 
     private static final long serialVersionUID = -1917498851904653016L;
 
-    @Column
+    
     private String login;
-
-    @Column
-    private String password;
-
-    @JoinTable(name = "JAAS_Roles", joinColumns = @JoinColumn(name = "id"),
-	inverseJoinColumns = @JoinColumn(name = "role_name"))
-    @ManyToMany(fetch = FetchType.EAGER)
+    
+    private String password;    
+    
     private Set<JAASRole> roles;
 
     @Inject
     private transient PassGenerator passGenerator;
-
-    @Generated("SparkTools")
+    
     private JAASUser(Builder builder) {
 	this.login = builder.login;
 	this.password = builder.password;
@@ -105,8 +100,7 @@ public class JAASUser extends JAASBase {
      * Creates builder to build {@link JAASUser}.
      * 
      * @return created builder
-     */
-    @Generated("SparkTools")
+     */    
     @XmlTransient
     public static Builder builder() {
 	return new Builder();
@@ -117,15 +111,20 @@ public class JAASUser extends JAASBase {
     private void encode() {
 	this.password = passGenerator.generate(this.password);
     }
-
+    
+    @Column
     public String getLogin() {
 	return login;
     }
 
+    @Column
     public String getPassword() {
 	return password;
     }
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "JAAS_Roles", joinColumns = @JoinColumn(name = "id"),
+	inverseJoinColumns = @JoinColumn(name = "role_name"))
     public Set<JAASRole> getRoles() {
 	return roles;
     }
