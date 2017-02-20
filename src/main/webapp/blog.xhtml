@@ -7,6 +7,11 @@
 
 <ui:composition template="/template.xhtml">
 
+<f:metadata>
+		<f:viewParam id="page" name="page" value="#{blogListMB.page}" />
+		<f:viewAction action="#{blogListMB.init()}" />
+</f:metadata>
+
 	<ui:define name="headerTitle">Workix - Blog</ui:define>
 
 	<ui:define name="title">
@@ -25,122 +30,35 @@
 
 					<div class="col-sm-8">
 						<article>
-
-							<div class="post row">
+						
+						<ui:repeat var="blog" value="#{blogListMB.list}">
+						
+						<div class="post row">
 								<div class="col-sm-2">
 									<h:graphicImage name="140x140.jpg" library="placeholder" alt="" styleClass="img-responsive img-circle" />									
 								</div>
 								<div class="col-sm-10">
-									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing
-										elit</h2>
+									<h2><h:outputText value="#{blog.title}" /></h2>
 									<div class="meta">
-										<span><i class="fa fa-user"></i>John Doe</span> <span><i
-											class="fa fa-calendar"></i>28/09/2015</span> <span><i
-											class="fa fa-comment"></i>24</span>
+										<span><i class="fa fa-user"></i><h:outputText value="#{blog.authors}"/></span>
+										<span><i class="fa fa-calendar"></i><h:outputText value="#{blog.date}" converter="localDateFacesConverter"/></span>
+										<span><i class="fa fa-comment"></i>24</span>
 									</div>
 									<p>
-										<img src="http://placehold.it/800x530.jpg" alt=""
-											class="img-responsive" />
+										<h:graphicImage url="#{blog.pictures.get(0)}" alt="" styleClass="img-responsive" />										
 									</p>
-									<p>Proin eu erat tincidunt, scelerisque ipsum non,
-										fringilla dolor. Quisque interdum congue tellus. Aliquam vel
-										odio sit amet ex laoreet finibus. Etiam commodo purus tortor,
-										sed interdum justo faucibus vitae. Praesent ac elit a felis
-										luctus facilisis. Aenean et magna elit. Morbi eget nulla
-										volutpat, egestas ex vel, blandit enim.</p>
-									<a href="post.xhtml" class="btn btn-primary">Read more <i
-										class="fa fa-arrow-right"></i></a>
+									<p><h:outputText value="#{blog.resume}" /></p>
+									<a href="post.xhtml" class="btn btn-primary">Leia Mais <i class="fa fa-arrow-right"></i></a>
 								</div>
 							</div>
 
 							<hr />
+											
+						
+						</ui:repeat>
 
-							<div class="post row">
-								<div class="col-sm-2">
-									<h:graphicImage name="140x140.jpg" library="placeholder" alt="" styleClass="img-responsive img-circle" />
-								</div>
-								<div class="col-sm-10">
-									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing
-										elit</h2>
-									<div class="meta">
-										<span><i class="fa fa-user"></i>John Doe</span> <span><i
-											class="fa fa-calendar"></i>24/09/2015</span> <span><i
-											class="fa fa-comment"></i>18</span>
-									</div>
-									<p>
-									
-									<h:graphicImage name="800x530.jpg" library="placeholder" alt="" styleClass="img-responsive" />
-								
-									</p>
-									<p>Proin eu erat tincidunt, scelerisque ipsum non,
-										fringilla dolor. Quisque interdum congue tellus. Aliquam vel
-										odio sit amet ex laoreet finibus. Etiam commodo purus tortor,
-										sed interdum justo faucibus vitae. Praesent ac elit a felis
-										luctus facilisis. Aenean et magna elit. Morbi eget nulla
-										volutpat, egestas ex vel, blandit enim.</p>
-									<a href="post.xhtml" class="btn btn-primary">Read more <i
-										class="fa fa-arrow-right"></i></a>
-								</div>
-							</div>
-
-							<hr />
-
-							<div class="post row">
-								<div class="col-sm-2">
-									<h:graphicImage name="140x140.jpg" library="placeholder" alt="" styleClass="img-responsive img-circle" />
-								</div>
-								<div class="col-sm-10">
-									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing
-										elit</h2>
-									<div class="meta">
-										<span><i class="fa fa-user"></i>John Doe</span> <span><i
-											class="fa fa-calendar"></i>21/09/2015</span> <span><i
-											class="fa fa-comment"></i>8</span>
-									</div>
-									<p>
-										<h:graphicImage name="800x530.jpg" library="placeholder" alt="" styleClass="img-responsive" />
-									</p>
-									<p>Proin eu erat tincidunt, scelerisque ipsum non,
-										fringilla dolor. Quisque interdum congue tellus. Aliquam vel
-										odio sit amet ex laoreet finibus. Etiam commodo purus tortor,
-										sed interdum justo faucibus vitae. Praesent ac elit a felis
-										luctus facilisis. Aenean et magna elit. Morbi eget nulla
-										volutpat, egestas ex vel, blandit enim.</p>
-									<a href="post.xhtml" class="btn btn-primary">Read more <i
-										class="fa fa-arrow-right"></i></a>
-								</div>
-							</div>
-
-							<hr />
-
-							<div class="post row">
-								<div class="col-sm-2">
-									<h:graphicImage name="140x140.jpg" library="placeholder" alt="" styleClass="img-responsive img-circle" />
-								</div>
-								<div class="col-sm-10">
-									<h2>Lorem ipsum dolor sit amet, consectetur adipiscing
-										elit</h2>
-									<div class="meta">
-										<span><i class="fa fa-user"></i>John Doe</span> <span><i
-											class="fa fa-calendar"></i>17/09/2015</span> <span><i
-											class="fa fa-comment"></i>9</span>
-									</div>
-									<p>
-										<h:graphicImage name="800x530.jpg" library="placeholder" alt="" styleClass="img-responsive" />
-									</p>
-									<p>Proin eu erat tincidunt, scelerisque ipsum non,
-										fringilla dolor. Quisque interdum congue tellus. Aliquam vel
-										odio sit amet ex laoreet finibus. Etiam commodo purus tortor,
-										sed interdum justo faucibus vitae. Praesent ac elit a felis
-										luctus facilisis. Aenean et magna elit. Morbi eget nulla
-										volutpat, egestas ex vel, blandit enim.</p>
-									<a href="post.xhtml" class="btn btn-primary">Read more <i
-										class="fa fa-arrow-right"></i></a>
-								</div>
-							</div>
-
-							<hr />
-
+							
+						
 							<!-- PAGINATION START -->
 							<ul class="pagination" data-scroll-reveal="">
 								<li class="active"><a href="#">1</a></li>

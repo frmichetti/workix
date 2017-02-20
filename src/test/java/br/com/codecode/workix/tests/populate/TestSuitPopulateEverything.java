@@ -13,7 +13,15 @@ import org.junit.runners.Suite.SuiteClasses;
  * @version 1.0
  */
 @RunWith(Suite.class)
-@SuiteClasses({ PopulateUserTest.class, PopulateCandidateTest.class, PopulateCompanyTest.class, PopulateJobTest.class,
-    PopulateResumeTest.class, PopulateAuthorTest.class, PopulateTestimonialTest.class, PopulateMemberTest.class, PopulateBlogTest.class, PopulateJAASRole.class })
-public class TestSuitPopulateEverything {
-}
+@SuiteClasses({ 
+    PopulateUserTest.class,    
+    PopulateCandidateTest.class, 
+    PopulateCompanyTest.class, 
+    PopulateJobTest.class,
+    PopulateResumeTest.class, 
+    PopulateAuthorTest.class, 
+    PopulateTestimonialTest.class, 
+    PopulateMemberTest.class, 
+    PopulateBlogTest.class, 
+    PopulateJAASRole.class })
+public class TestSuitPopulateEverything{}

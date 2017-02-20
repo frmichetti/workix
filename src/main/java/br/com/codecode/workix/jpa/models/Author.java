@@ -223,4 +223,16 @@ public class Author extends MyEntity {
 	}
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	StringBuilder builder2 = new StringBuilder();
+	
+	builder2.append(name);
+	
+	return builder2.toString();
+    }
+
 }
