@@ -12,7 +12,7 @@ import javax.ejb.Stateless;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.dao.implementations.persist.BaseDao;
-import br.com.codecode.workix.jaas.model.JAASUser;
+import br.com.codecode.workix.jaas.models.JAASUser;
 
 /**
  * Stand Alone DAO for JAASUser

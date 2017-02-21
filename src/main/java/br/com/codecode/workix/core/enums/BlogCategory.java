@@ -1,4 +1,4 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.core.enums;
 
 /**
  * Blog Categories Enumeration

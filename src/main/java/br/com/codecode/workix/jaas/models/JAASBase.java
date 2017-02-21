@@ -1,4 +1,4 @@
-package br.com.codecode.workix.jaas.model;
+package br.com.codecode.workix.jaas.models;
 
 import java.io.Serializable;
 

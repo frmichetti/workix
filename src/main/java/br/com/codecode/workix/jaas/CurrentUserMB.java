@@ -17,7 +17,7 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 
 import br.com.codecode.workix.interfaces.Debugable;
-import br.com.codecode.workix.jaas.model.JAASUser;
+import br.com.codecode.workix.jaas.models.JAASUser;
 
 /**
  * This Class Verify for {@link JAASUser} is Signed In Session

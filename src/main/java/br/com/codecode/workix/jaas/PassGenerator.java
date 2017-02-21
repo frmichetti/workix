@@ -18,7 +18,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.jboss.security.Base64Encoder;
 
 import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.jaas.model.JAASUser;
+import br.com.codecode.workix.jaas.models.JAASUser;
 
 /**
  * This Class Encodes Strings. Use with {@link JAASUser #setPassword(String)}

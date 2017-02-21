@@ -16,7 +16,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.jaas.model.JAASRole;
+import br.com.codecode.workix.jaas.models.JAASRole;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
