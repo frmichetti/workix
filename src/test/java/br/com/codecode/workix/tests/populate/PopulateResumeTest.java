@@ -57,23 +57,41 @@ public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume
 
 	    Resume r = Resume.builder()
 
-	    .withContent("Conteúdo de " + c.getName())
+		    .withContent("Conteúdo de " + c.getName())
 
-	    .withObjective("Objetivo do " + c.getName())
+		    .withObjective("Objetivo do " + c.getName())
 
-	    .withCandidate(c);
+		    .withCandidate(c);
 
-	    r.addExperience(new Experience.Builder("Empregador 1", "Cargo 1", LocalDate.now(), LocalDate.now()).build());
+	    r.addExperience(Experience.builder().withEmployerName("Empregador 1")
+		    .withDescription("Cargo 1")
+		    .withStartDate(LocalDate.now())
+		    .withEndDate(LocalDate.now())
+		    .build());
 
-	    r.addExperience(new Experience.Builder("Empregador 2", "Cargo 2", LocalDate.now(), LocalDate.now()).build());
+	    r.addExperience(Experience.builder().withEmployerName("Empregador 2")
+		    .withDescription("Cargo 2")
+		    .withStartDate(LocalDate.now())
+		    .withEndDate(LocalDate.now())
+		    .build());
 
-	    r.addEducation(new Education.Builder("Escola 1", LocalDate.now().minusYears(4), LocalDate.now().minusYears(3), "Qualificações", "Descrição").build());
+	    r.addEducation(Education.builder().withSchoolName("Escola 1")
+		    .withStartDate(LocalDate.now().minusYears(4))
+		    .withEndDate(LocalDate.now().minusYears(3))
+		    .withQualification("Qualificações")
+		    .withDescription("Descrição")
+		    .build());
 
-	    r.addEducation(new Education.Builder("Escola 2", LocalDate.now().minusYears(2), LocalDate.now().minusYears(1), "Qualificações 2","Descrição 2").build());
+	    r.addEducation(Education.builder().withSchoolName("Escola 2")
+		    .withStartDate(LocalDate.now().minusYears(2))
+		    .withEndDate(LocalDate.now().minusYears(1))
+		    .withQualification("Qualificações 2")
+		    .withDescription("Descrição 2")		    
+		    .build());
 
-	    r.addSkill(new Skill.Builder("Habilidade 1").build());
+	    r.addSkill(Skill.builder().withSkillName("Habilidade 1").build());
 
-	    r.addSkill(new Skill.Builder("Habilidade 2").build());
+	    r.addSkill(Skill.builder().withSkillName("Habilidade 2").build());
 
 	    addToList(r);
 

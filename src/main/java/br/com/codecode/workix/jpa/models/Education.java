@@ -9,6 +9,7 @@ import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
@@ -62,6 +63,15 @@ public class Education implements Serializable {
 	this.description = builder.getDescription();
     }
 
+    /**
+     * Creates builder to build {@link Experience}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
+    }
+
     @Lob
     @Column
     public String getDescription() {
@@ -104,7 +114,7 @@ public class Education implements Serializable {
     public void setSchoolName(String schoolName) {
 	this.schoolName = schoolName;
     }
-
+    
     public void setStartDate(LocalDate startDate) {
 	this.startDate = startDate;
     }
