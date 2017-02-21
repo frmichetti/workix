@@ -42,15 +42,15 @@
 										</div>
 										<div
 											class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-											<h5>#{candidate.name}</h5>
+											<h5><h:outputText value="#{candidate.name}" /></h5>
 											<p>
-												<strong>#{candidate.cpf}</strong>
+												<strong><h:outputText value="#{candidate.cpf}" /></strong>
 											</p>
 										</div>
 										<div
 											class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
 											<p>
-												<strong>New York City, NY, USA</strong>
+												<strong><h:outputText value="#{candidate.locale}" /></strong>
 											</p>
 											<p>743.6 mi away</p>
 										</div>

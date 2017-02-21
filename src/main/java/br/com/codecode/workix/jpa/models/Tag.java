@@ -29,7 +29,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Tag implements Serializable{
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = 323076947054044016L;
 
@@ -39,7 +39,14 @@ public class Tag implements Serializable{
      * Public Default Constructor for JPA Compatibility Only
      */
     public Tag(){}    
-    
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Tag
+     */
     private Tag(Builder builder) {
 	this.name = builder.getName();
     }
@@ -84,10 +91,9 @@ public class Tag implements Serializable{
     public static final class Builder extends Tag implements Buildable<Tag> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
-	private static final long serialVersionUID = -5775038446937981944L;
-	
+	private static final long serialVersionUID = -5775038446937981944L;	
 
 	/**
 	 * Disabled Empty Constructor
@@ -99,6 +105,9 @@ public class Tag implements Serializable{
 	    return this;
 	}
 
+	/**
+	 * Return a New Tag
+	 */
 	@Override
 	public Tag build() {
 	    return new Tag(this);

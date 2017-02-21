@@ -37,7 +37,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Job extends MyEntity {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = 2246753300384053586L;
 
@@ -63,8 +63,14 @@ public class Job extends MyEntity {
      */
     public Job(){}
 
-    private Job(Builder builder) {
-	this.id = builder.getId();
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Job
+     */
+    private Job(Builder builder) {	
 	this.active = builder.isActive();
 	this.title = builder.getTitle();
 	this.description = builder.getDescription();
@@ -210,12 +216,18 @@ public class Job extends MyEntity {
     public static final class Builder extends Job implements Buildable<Job> {
 
 	/**
-	 * @serialField 
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -2178589087775440695L;	
 
+	/**
+	 * Disabled Empty Constructor
+	 */
 	private Builder(){}
 
+	/**
+	 * @return Return a new Job
+	 */
 	public Job build() {
 	    return new Job(this);
 	}
@@ -238,12 +250,7 @@ public class Job extends MyEntity {
 	public Builder withDescription(String description) {
 	    super.description = description;
 	    return this;
-	}
-
-	public Builder withId(long id) {
-	    super.id = id;
-	    return this;
-	}
+	}	
 
 	public Builder withJobCategory(JobCategory jobCategory) {
 	    super.jobCategory = jobCategory;

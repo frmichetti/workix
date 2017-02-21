@@ -26,19 +26,28 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Company extends Person {
 
+    /**
+     * @serialField Default Auto Generated Serial
+     */
     private static final long serialVersionUID = 47663377480544994L;
-    
+
     private long id, cnpj;
 
     private String segment;
-    
+
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Company(){}
 
-    private Company(Builder builder) {
-	this.id = builder.getId();
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Company
+     */
+    private Company(Builder builder) {	
 	this.cnpj = builder.getCnpj();
 	this.segment = builder.getSegment();
 	this.setName(builder.getName());	
@@ -91,34 +100,40 @@ public class Company extends Person {
      * Builder to build {@link Company}.
      */    
     public static final class Builder extends Company implements Buildable<Company> {
-	
+
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -2850736800336558944L;
 
+	/**
+	 * Disabled Empty Constructor
+	 */
 	private Builder() {}
 
+	/**
+	 * @return a new Company
+	 */
 	@Override
 	public Company build() {
 	    return new Company(this);
 	}
-	
+
 	public Builder withCnpj(long cnpj) {
 	    super.cnpj = cnpj;
 	    return this;
 	}
-	
+
 	public Builder withContact(Contact contact) {
 	    super.setContact(contact);
 	    return this;
 	}
-	
+
 	public Builder withId(long id) {
 	    super.id = id;
 	    return this;
 	}
-	
+
 	public Builder withLocale(Locale locale) {
 	    super.setLocale(locale);
 	    return this;

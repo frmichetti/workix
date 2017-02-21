@@ -142,39 +142,7 @@ public class Experience implements Serializable {
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder(){}
-
-	/**
-	 * Constructor with Required Fields
-	 * 
-	 * @param employerName
-	 *            Employer Name
-	 * @param jobTitle
-	 *            Job Title
-	 */
-	public Builder(String employerName, String jobTitle) {
-	    this();
-	    this.setEmployerName(employerName);
-	    this.setJobTitle(jobTitle);
-	}
-
-	/**
-	 * Constructor with All Fields
-	 * 
-	 * @param employerName
-	 *            Employer Name
-	 * @param jobTitle
-	 *            Job Title
-	 * @param startDate
-	 *            Start Date
-	 * @param endDate
-	 *            End Date
-	 */
-	public Builder(String employerName, String jobTitle, LocalDate startDate, LocalDate endDate) {
-	    this(employerName, jobTitle);
-	    this.setStartDate(startDate);
-	    this.setEndDate(endDate);
-	}
+	private Builder(){}	
 
 	/**
 	 * @return Return a new Experience

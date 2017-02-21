@@ -31,25 +31,28 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Locale implements Serializable {
 
+    /**
+     * @serialField Default Auto Generated Serial
+     */
     private static final long serialVersionUID = -607806075186010186L;
-    
+
     private String city;
-    
+
     private Estate estate;
-    
+
     private String neighborhood;
-    
+
     private String number;
-    
+
     private String street;
-    
+
     private long zipCode;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Locale() {}
-    
+
     /**
      * Creates builder to build {@link Locale}.
      * @return created builder
@@ -136,18 +139,13 @@ public class Locale implements Serializable {
 	this.zipCode = zipCode;
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
-    public String toString() {
-	StringBuilder builder2 = new StringBuilder();
-	builder2.append("[city=");
-	builder2.append(city);
-	builder2.append(", estate=");
-	builder2.append(estate);
-	builder2.append("]");
-	return builder2.toString();
+    public String toString() {	
+	return new StringBuilder()
+		.append(city)
+		.append(", ")
+		.append(estate)
+		.toString();
     }
 
     /**
@@ -159,6 +157,9 @@ public class Locale implements Serializable {
      */
     public static class Builder extends Locale implements Buildable<Locale> {
 
+	/**
+	 * @serialField Default Auto Generated Serial
+	 */
 	private static final long serialVersionUID = -9170730109070112523L;
 
 	/**
@@ -167,45 +168,7 @@ public class Locale implements Serializable {
 	private Builder(){}
 
 	/**
-	 * Constructor with All Fields
-	 * 
-	 * @param zipCode
-	 *            Zip Code
-	 * @param estate
-	 *            estate
-	 * @param city
-	 *            City
-	 * @param neighborhood
-	 *            Neighborhood
-	 * @param street
-	 *            Street
-	 * @param number
-	 *            Number of House
-	 */
-	public Builder(long zipCode, Estate estate, String city, String neighborhood, String street, String number) {
-	    this(zipCode, number);
-	    super.setEstate(estate);
-	    super.setStreet(street);
-	    super.setNeighborhood(neighborhood);
-	    super.setCity(city);
-	}
-
-	/**
-	 * Constructor with Required Fields
-	 * 
-	 * @param zipCode
-	 *            Zip Code
-	 * @param number
-	 *            Number of House
-	 */
-	public Builder(long zipCode, String number) {
-	    this();
-	    this.setZipCode(zipCode);
-	    this.setNumber(number);
-	}
-
-	/**
-	 * @return Return a New Locale
+	 * @return Return a new Locale
 	 */
 	@Override
 	public Locale build() {
@@ -243,7 +206,8 @@ public class Locale implements Serializable {
 	}
 
     }
-    
-    
+
+
+
 
 }

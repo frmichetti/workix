@@ -29,7 +29,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class SocialMedia implements Serializable {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = -3082998497652120101L;        
 
@@ -42,6 +42,13 @@ public class SocialMedia implements Serializable {
      */
     public SocialMedia(){}
 
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New SocialMedia
+     */
     private SocialMedia(Builder builder) {
 	this.media = builder.getMedia();
 	this.url = builder.getUrl();
@@ -99,7 +106,7 @@ public class SocialMedia implements Serializable {
     public static final class Builder extends SocialMedia implements Buildable<SocialMedia> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -4455052272130426281L;
 
@@ -108,6 +115,9 @@ public class SocialMedia implements Serializable {
 	 */
 	private Builder(){}
 
+	/**
+	 * @return a new SocialMedia
+	 */
 	@Override
 	public SocialMedia build() {
 	    return new SocialMedia(this);

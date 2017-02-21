@@ -16,9 +16,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -44,7 +42,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Blog extends MyEntity {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = -5273926504177459295L;
 
@@ -73,13 +71,19 @@ public class Blog extends MyEntity {
      */
     public Blog(){}
 
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Blog
+     */
     private Blog(Builder builder) {
 	this.author = builder.getAuthor();
 	this.category = builder.getCategory();
 	this.citation = builder.getCitation();
 	this.content = builder.getContent();
-	this.date = builder.getDate();
-	this.id = builder.getId();
+	this.date = builder.getDate();	
 	this.pictures = builder.getPictures();
 	this.resume = builder.getResume();
 	this.tags = builder.getTags();
@@ -285,12 +289,18 @@ public class Blog extends MyEntity {
     public static final class Builder extends Blog implements Buildable<Blog> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -6727265310553560126L;	
 
+	/**
+	 * Disabled Empty Constructor
+	 */
 	private Builder() {}
 
+	/**
+	 * @return a new Blog
+	 */
 	@Override
 	public Blog build() {
 	    return new Blog(this);
@@ -318,11 +328,6 @@ public class Blog extends MyEntity {
 
 	public Builder withDate(LocalDate date) {
 	    super.date = date;
-	    return this;
-	}
-
-	public Builder withId(long id) {
-	    super.id = id;
 	    return this;
 	}
 

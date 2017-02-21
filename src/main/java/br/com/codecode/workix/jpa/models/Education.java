@@ -28,18 +28,18 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Education implements Serializable {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = -1514012744160609145L;
-    
+
     private String description;
 
     private LocalDate endDate;
-    
+
     private String qualification;
-    
+
     private String schoolName;
-    
+
     private LocalDate startDate;
 
     /**
@@ -120,7 +120,7 @@ public class Education implements Serializable {
     public static class Builder extends Education implements Buildable<Education> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = 3075237483868037001L;
 
@@ -128,43 +128,7 @@ public class Education implements Serializable {
 	 * Disabled Empty Constructor
 	 */
 	private Builder(){}
-
-	/**
-	 * Minimal Constructor with Required Fields
-	 * 
-	 * @param schoolName
-	 *            School Name
-	 * @param startDate
-	 *            Start Date
-	 */
-	public Builder(String schoolName, LocalDate startDate) {
-	    this();
-	    this.setSchoolName(schoolName);
-	    this.setStartDate(startDate);
-	}
-
-	/**
-	 * Constructor with All Fields
-	 * 
-	 * @param schoolName
-	 *            School Name
-	 * @param startDate
-	 *            Start Date
-	 * @param endDate
-	 *            End Date
-	 * @param qualification
-	 *            Qualification
-	 * @param description
-	 *            Description
-	 */
-	public Builder(String schoolName, LocalDate startDate, LocalDate endDate, String qualification,
-		String description) {
-	    this(schoolName, startDate);
-	    this.setEndDate(endDate);
-	    this.setQualification(qualification);
-	    this.setDescription(description);
-	}
-
+	
 	/**
 	 * @return Return a new Education
 	 */

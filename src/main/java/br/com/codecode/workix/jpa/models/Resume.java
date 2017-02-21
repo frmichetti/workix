@@ -37,6 +37,9 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Resume extends MyEntity {
 
+    /**
+     * @serialField Default Auto Generated Serial
+     */
     private static final long serialVersionUID = 7569771700044121495L;
 
     /**
@@ -70,8 +73,14 @@ public class Resume extends MyEntity {
      */
     public Resume() {}
 
-    private Resume(Builder builder) {
-	this.id = builder.getId();
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Resume
+     */
+    private Resume(Builder builder) {	
 	this.candidate = builder.getCandidate();
 	this.objective = builder.getObjective();
 	this.content = builder.getContent();
@@ -219,12 +228,18 @@ public class Resume extends MyEntity {
     public static final class Builder extends Resume implements Buildable<Resume>{
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -5218494421810694002L;
 
-	private Builder() {}
+	/**
+	 * Disabled Empty Constructor
+	 */
+	private Builder(){}
 
+	/**
+	 * @return a new Resume
+	 */
 	@Override
 	public Resume build() {
 	    return new Resume(this);
@@ -248,12 +263,7 @@ public class Resume extends MyEntity {
 	public Builder withExperiences(Set<Experience> experiences) {
 	    super.experiences = experiences;
 	    return this;
-	}
-
-	public Builder withId(long id) {
-	    super.id = id;
-	    return this;
-	}
+	}	
 
 	public Builder withObjective(String objective) {
 	    super.objective = objective;

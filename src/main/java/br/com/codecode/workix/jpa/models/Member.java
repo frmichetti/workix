@@ -37,7 +37,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Member extends MyEntity {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = -9177132485712227287L;
 
@@ -58,8 +58,15 @@ public class Member extends MyEntity {
      */
     public Member(){}
 
-    private Member(Builder builder) {
-	this.id = builder.getId();
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Member
+     */
+    private Member(Builder builder) {	
 	this.medias = builder.getMedias();
 	this.name = builder.getName();
 	this.occupation = builder.getOccupation();
@@ -213,7 +220,7 @@ public class Member extends MyEntity {
     public static final class Builder extends Member implements Buildable<Member> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -7634080325625899123L;
 
@@ -222,14 +229,12 @@ public class Member extends MyEntity {
 	 */
 	private Builder(){}
 
+	/**
+	 * @return a new Member
+	 */
 	public Member build() {
 	    return new Member(this);
-	}
-
-	public Builder withId(long id) {
-	    super.id = id;
-	    return this;
-	}
+	}	
 
 	public Builder withMedias(List<SocialMedia> medias) {
 	    super.medias = medias;

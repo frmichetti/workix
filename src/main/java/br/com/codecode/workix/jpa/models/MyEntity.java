@@ -37,6 +37,9 @@ import br.com.codecode.workix.interfaces.Traceable;
 @MappedSuperclass
 abstract class MyEntity implements Traceable, Persistable, Serializable {
 
+    /**
+     * @serialField Default Auto Generated Serial
+     */
     private final static long serialVersionUID = -5791260209364116790L;
     
     private int version;    

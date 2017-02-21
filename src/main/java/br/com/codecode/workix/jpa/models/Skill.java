@@ -26,6 +26,9 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Skill implements Serializable {
 
+    /**
+     * @serialField Default Auto Generated Serial
+     */
     private static final long serialVersionUID = -5975419980185059163L;
 
     private String skillName;
@@ -84,7 +87,7 @@ public class Skill implements Serializable {
     public final static class Builder extends Skill implements Buildable<Skill> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -2784926262850261658L;
 
@@ -94,18 +97,7 @@ public class Skill implements Serializable {
 	private Builder(){}
 
 	/**
-	 * Constructor with Required Fields
-	 * 
-	 * @param skillName
-	 *            Skill Name
-	 */
-	public Builder(String skillName) {
-	    this();
-	    this.setSkillName(skillName);
-	}
-
-	/**
-	 * Return a New Skill
+	 * Return a new Skill
 	 */
 	@Override
 	public Skill build() {

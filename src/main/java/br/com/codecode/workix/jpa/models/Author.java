@@ -56,6 +56,13 @@ public class Author extends MyEntity {
      */
     public Author(){}
 
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Author
+     */
     private Author(Builder builder) {
 	this.id = builder.getId();
 	this.aboutText = builder.getAboutText();

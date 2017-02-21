@@ -30,10 +30,10 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Subscriber extends MyEntity {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = 6675137603968146834L;
-    
+
     private String email;
 
     private long id;
@@ -50,10 +50,7 @@ public class Subscriber extends MyEntity {
      * @param builder
      *            Builder for Generate New Subscriber
      */
-    public Subscriber(Builder builder) {
-
-	this.setId(builder.getId());
-
+    public Subscriber(Builder builder) {	
 	this.setEmail(builder.getEmail());
     }
 
@@ -95,7 +92,7 @@ public class Subscriber extends MyEntity {
     public void setId(long id) {
 	this.id = id;
     }
-    
+
 
     /**
      * Builder NestedClass for {@link Subscriber}
@@ -109,7 +106,7 @@ public class Subscriber extends MyEntity {
     public final static class Builder extends Subscriber implements Buildable<Subscriber> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -7750971468814207111L;
 
@@ -117,31 +114,6 @@ public class Subscriber extends MyEntity {
 	 * Disabled Empty Constructor
 	 */
 	private Builder(){}
-
-	/**
-	 * Constructor with All Fields
-	 * 
-	 * @param id
-	 *            Id
-	 * @param email
-	 *            Email
-	 */
-	public Builder(long id, String email) {
-	    super();
-	    this.setId(id);
-	    this.setEmail(email);
-	}
-
-	/**
-	 * Constructor with Required Fields
-	 * 
-	 * @param email
-	 *            Email
-	 */
-	public Builder(String email) {
-	    this();
-	    this.setEmail(email);
-	}
 
 	/**
 	 * @return a new Subscriber
@@ -160,17 +132,7 @@ public class Subscriber extends MyEntity {
 	public Builder withEmail(String email) {
 	    this.setEmail(email);
 	    return this;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 * @return Builder
-	 */
-	public Builder withId(long id) {
-	    this.setId(id);
-	    return this;
-	}
+	}	
 
     }
 

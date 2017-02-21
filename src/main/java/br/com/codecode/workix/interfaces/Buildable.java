@@ -6,8 +6,7 @@ package br.com.codecode.workix.interfaces;
  * <ul>
  * <li>Empty Default Constructor with Private Accessor</li>
  * <li>Contains Same Fields of Implementation Class</li>
- * <li>Constructor with Required Fields</li>
- * <li>All Setter or With Fields Must Return {this} or Current Builder</li>
+ * <li>All With Fields Must Return {this} or Current Builder</li>
  * </ul>
  * 
  * @author felipe

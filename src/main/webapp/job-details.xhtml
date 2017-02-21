@@ -21,7 +21,7 @@
 		<h4>
 			<span><i class="fa fa-map-marker"></i><h:outputText value="#{jobDetailMB.currentJob.company.locale.city}" /></span>
 			<span><i class="fa fa-clock-o"></i><h:outputText value="#{jobDetailMB.currentJob.jobType.name()}" /></span>
-			<span><i class="fa fa-dollar"></i><h:outputText value="#{jobDetailMB.currentJob.maxPayment}" /></span>
+			<span>R<i class="fa fa-dollar"></i><h:outputText value="#{jobDetailMB.currentJob.maxPayment}" /></span>
 		</h4>
 	</ui:define>
 
@@ -35,30 +35,9 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Detalhes da Vaga</h2>
+							
 							<p><h:outputText value="#{jobDetailMB.currentJob.description}" /></p>
 							
-							<ui:remove>
-								<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
-									rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
-									convallis convallis nisi. Donec maximus accumsan purus vel
-									tempus. Aenean pretium luctus velit id fermentum. Aenean non
-									velit non nulla interdum venenatis. Integer in libero sagittis,
-									consequat est quis, commodo odio. Aliquam eu vulputate neque.
-									Nunc et massa leo. Vestibulum a pretium dolor. Proin et
-									fermentum sapien. Cras malesuada neque ac purus fermentum, a
-									placerat quam malesuada. Quisque sollicitudin tellus a ex
-									eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-								<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
-									rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
-									convallis convallis nisi. Donec maximus accumsan purus vel
-									tempus. Aenean pretium luctus velit id fermentum. Aenean non
-									velit non nulla interdum venenatis. Integer in libero sagittis,
-									consequat est quis, commodo odio. Aliquam eu vulputate neque.
-									Nunc et massa leo. Vestibulum a pretium dolor. Proin et
-									fermentum sapien. Cras malesuada neque ac purus fermentum, a
-									placerat quam malesuada. Quisque sollicitudin tellus a ex
-									eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
-							</ui:remove>
 							
 							<h3>Requerimentos</h3>
 							
@@ -82,6 +61,7 @@
 							</ui:remove>
 
 							<h3>Benefícios</h3>
+							
 							<p><h:outputText value="#{jobDetailMB.currentJob.benefits}" /></p>
 							
 							<ui:remove>
@@ -132,8 +112,11 @@
 						</article>
 					</div>
 					<div class="col-sm-4" id="sidebar">
+						
 						<div class="sidebar-widget" id="share">
+							
 							<h2>Compartilhe essa Vaga</h2>
+							
 							<ul>
 								<li><a
 									href="https://www.facebook.com/sharer/sharer.php?u=http://#/job-details.html"><i
@@ -149,13 +132,18 @@
 										class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
+						
 						<hr />
+						
 						<div class="sidebar-widget" id="company">
+						
 							<h2>Sobre a Empresa</h2>
+						
 							<p>
 								<img src="http://placehold.it/300x109.gif" alt=""
 									class="img-responsive" />
 							</p>
+						
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Pellentesque tristique euismod lorem, a consequat orci consequat
 								a. Donec ullamcorper tincidunt nunc, ut aliquam est pellentesque

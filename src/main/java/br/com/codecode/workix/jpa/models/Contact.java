@@ -27,6 +27,9 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Contact implements Serializable {
 
+    /**
+     * @serialField Default Auto Generated Serial
+     */
     private static final long serialVersionUID = -2482737185460142872L;
 
     private long mobilePhone;
@@ -35,7 +38,7 @@ public class Contact implements Serializable {
      * Public Default Constructor for JPA Compatibility Only
      */
     public Contact(){}
-    
+
     /**
      * Public Constructor for {@link Builder} Compatibility
      * 
@@ -84,25 +87,14 @@ public class Contact implements Serializable {
     public final static class Builder extends Contact implements Buildable<Contact> {
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -6671372786495157443L;
 
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder(){}
-
-	/**
-	 * Constructor with Required Fields
-	 * 
-	 * @param mobilePhone
-	 *            Mobile Phone
-	 */
-	public Builder(long mobilePhone) {
-	    this();
-	    this.setMobilePhone(mobilePhone);
-	}
+	private Builder(){}	
 
 	/**
 	 * @return a new Contact

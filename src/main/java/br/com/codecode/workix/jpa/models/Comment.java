@@ -31,26 +31,35 @@ import br.com.codecode.workix.interfaces.Buildable;
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
 public class Comment extends MyEntity {
-    
+
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = 7358996279677908814L;
-    
+
     private Blog blog; 
-    
+
     private String email;    
-    
+
     private long id;
-    
+
     private String name;
-    
+
     private String text;
-   
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
     public Comment(){}
 
-    private Comment(Builder builder) {
-	this.id = builder.getId();
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Comment
+     */
+    private Comment(Builder builder) {	
 	this.email = builder.getEmail();
 	this.name = builder.getName();
 	this.text = builder.getText();
@@ -72,9 +81,9 @@ public class Comment extends MyEntity {
      */
     @ManyToOne
     public Blog getBlog() {
-        return blog;
+	return blog;
     }    
-    
+
     /**
      * @return the email
      */
@@ -82,10 +91,10 @@ public class Comment extends MyEntity {
     @Email
     @Column
     public String getEmail() {
-        return email;
+	return email;
     }
 
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
@@ -100,9 +109,9 @@ public class Comment extends MyEntity {
     @NotEmpty
     @Column
     public String getName() {
-        return name;
+	return name;
     }
-    
+
     /**
      * @return the text
      */
@@ -110,21 +119,21 @@ public class Comment extends MyEntity {
     @Column
     @Lob
     public String getText() {
-        return text;
+	return text;
     }
-    
+
     /**
      * @param blog the blog to set
      */
     public void setBlog(Blog blog) {
-        this.blog = blog;
+	this.blog = blog;
     }
 
     /**
      * @param email the email to set
      */
     public void setEmail(String email) {
-        this.email = email;
+	this.email = email;
     }
 
     @Override
@@ -136,29 +145,35 @@ public class Comment extends MyEntity {
      * @param name the name to set
      */
     public void setName(String name) {
-        this.name = name;
+	this.name = name;
     }
 
     /**
      * @param text the text to set
      */
     public void setText(String text) {
-        this.text = text;
+	this.text = text;
     }
 
     /**
      * Builder to build {@link Comment}.
      */
-    
+
     public static final class Builder extends Comment implements Buildable<Comment> {
-	
+
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = 5724281033461828110L;
 
+	/**
+	 * Disabled Empty Constructor
+	 */
 	private Builder(){}
 
+	/**
+	 * @return a new Comment
+	 */
 	@Override
 	public Comment build() {
 	    return new Comment(this);
@@ -172,12 +187,7 @@ public class Comment extends MyEntity {
 	public Builder withEmail(String email) {
 	    super.email = email;
 	    return this;
-	}
-
-	public Builder withId(long id) {
-	    super.id = id;
-	    return this;
-	}
+	}	
 
 	public Builder withName(String name) {
 	    super.name = name;

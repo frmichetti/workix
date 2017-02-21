@@ -32,6 +32,9 @@ import br.com.codecode.workix.interfaces.Notificable;
 @Persist
 public class User extends MyEntity implements Notificable {
 
+    /**
+     * @serialField Default Auto Generated Serial
+     */
     private static final long serialVersionUID = -610648880358327958L;
 
     private boolean active;
@@ -63,7 +66,7 @@ public class User extends MyEntity implements Notificable {
 	this.firebaseMessageToken = builder.getFirebaseMessageToken();
     }
 
-    
+
     /**
      * Creates builder to build {@link User}.
      * 
@@ -132,7 +135,7 @@ public class User extends MyEntity implements Notificable {
     public void setId(long id) {
 	this.id = id;
     }
-    
+
 
     /**
      * Builder NestedClass for {@link User}
@@ -145,22 +148,15 @@ public class User extends MyEntity implements Notificable {
      */
     public final static class Builder extends User implements Buildable<User> {
 
+	/**
+	 * @serialField Default Auto Generated Serial
+	 */
 	private static final long serialVersionUID = -7766145008890656904L;
 
 	/**
 	 * Disabled Empty Constructor
 	 */
 	private Builder(){}	
-
-	/**
-	 * Constructor with Required Fields
-	 * 
-	 * @param email Email
-	 */
-	public Builder(String email) {
-	    this();
-	    this.setEmail(email);
-	}	
 
 	/**
 	 * Return a New User

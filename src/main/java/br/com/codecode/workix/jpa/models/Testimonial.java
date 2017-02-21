@@ -33,7 +33,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 public class Testimonial extends MyEntity {
 
     /**
-     * @serialField
+     * @serialField Default Auto Generated Serial
      */
     private static final long serialVersionUID = 9143527358797800527L;
 
@@ -53,9 +53,15 @@ public class Testimonial extends MyEntity {
      */
     public Testimonial(){}   
 
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Testimonial
+     */
     private Testimonial(Builder builder) {
-	this.author = builder.getAuthor();
-	this.id = builder.getId();
+	this.author = builder.getAuthor();	
 	this.picture = builder.getPicture();
 	this.signature = builder.getSignature();
 	this.text = builder.getText();
@@ -132,6 +138,7 @@ public class Testimonial extends MyEntity {
     /**
      * @param id the id to set
      */
+    @Override
     public void setId(long id) {
 	this.id = id;
     }
@@ -162,12 +169,19 @@ public class Testimonial extends MyEntity {
     public static final class Builder extends Testimonial implements Buildable<Testimonial>  {
 
 	/**
-	 * 
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = 136923846936951445L;
 
+	/**
+	 * Disabled Empty Constructor
+	 */
 	private Builder(){}
 
+	/**
+	 * Return a New Testimonial
+	 */
+	@Override
 	public Testimonial build() {
 	    return new Testimonial(this);
 	}

@@ -106,8 +106,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public SelectiveProcess() {
-    }
+    public SelectiveProcess(){}
 
     public int countCandidates() {
 	return maxCandidates - candidates.size();
