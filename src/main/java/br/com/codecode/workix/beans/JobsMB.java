@@ -14,8 +14,10 @@ import javax.validation.constraints.Min;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Job;
+import br.com.codecode.workix.jsf.util.helper.JobTypeLinkHelper;
 import br.com.codecode.workix.jsf.util.helper.Paginator;
 
 /**
@@ -36,12 +38,19 @@ public class JobsMB extends BaseMB {
 
     @Inject @Generic
     private Crud<Job> dao;
+    
+    @Inject
+    private JobTypeLinkHelper jobTypeLinkHelper;
 
     private DataModel<Job> list;
 
     private String prefix, sufix;
     
     private LocalDate localdate = LocalDate.now();
+    
+    public String discoverBadge(JobType jobType){
+  	return jobTypeLinkHelper.returnType(jobType);
+      }
 
     
     /**

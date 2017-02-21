@@ -51,7 +51,7 @@
 											<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
 										</p>
 										
-										<p class="badge full-time"><h:outputText value="#{job.jobType}" /></p>
+										<p class="#{jobsFragment.discoverBadge(job.jobType)}"><h:outputText value="#{job.jobType}" /></p>
 									</div>
 									
 								</div>
@@ -84,7 +84,7 @@
 									<p class="job-salary">
 										<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
 									</p>
-									<p class="badge full-time"><h:outputText value="#{job.jobType}" /></p>
+									<p class="#{jobsFragment.discoverBadge(job.jobType)}"><h:outputText value="#{job.jobType}" /></p>
 								</div>
 							</div>
 						</a>

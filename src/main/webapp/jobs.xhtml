@@ -75,7 +75,7 @@
 													<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
 												</p>
 												
-												<p class="badge full-time">
+												<p class="#{jobsMB.discoverBadge(job.jobType)}">
 													<h:outputText value="#{job.jobType.name()}" />
 												</p>
 											</div>

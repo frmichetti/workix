@@ -13,6 +13,7 @@ import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Job;
+import br.com.codecode.workix.jsf.util.helper.JobTypeLinkHelper;
 
 /**
  * This ManagedBean controls Jobs Fragment on HomePage
@@ -28,10 +29,17 @@ public class JobsFragment extends BaseMB {
     @Inject
     @Generic
     private Crud<Job> dao;
+    
+    @Inject
+    private JobTypeLinkHelper jobTypeLinkHelper;
 
     private DataModel<Job> visible,hidden;
     
-    private Job featuredJob;
+    private Job featuredJob;    
+    
+    public String discoverBadge(JobType jobType){
+	return jobTypeLinkHelper.returnType(jobType);
+    }
 
     
     /**
