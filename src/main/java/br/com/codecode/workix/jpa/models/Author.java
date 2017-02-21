@@ -15,13 +15,12 @@ import javax.persistence.JoinColumn;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
-
-import javax.annotation.Generated;
 
 /**
  * Author JPA with Inherited Fields and Methods
@@ -51,7 +50,7 @@ public class Author extends MyEntity {
     private String name;
 
     private String picture;
-    
+
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
@@ -69,7 +68,7 @@ public class Author extends MyEntity {
      * Creates builder to build {@link Author}.
      * @return created builder
      */
-    @Generated("SparkTools")
+    @XmlTransient
     public static Builder builder() {
 	return new Builder();
     }
@@ -223,16 +222,9 @@ public class Author extends MyEntity {
 	}
     }
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
     @Override
-    public String toString() {
-	StringBuilder builder2 = new StringBuilder();
-	
-	builder2.append(name);
-	
-	return builder2.toString();
+    public String toString() {	
+	return new StringBuilder().append(name).toString();
     }
 
 }

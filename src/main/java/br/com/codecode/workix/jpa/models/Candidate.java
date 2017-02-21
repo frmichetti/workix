@@ -95,7 +95,7 @@ public class Candidate extends Person {
 	.append(" User [")
 	.append(super.getUser().getEmail())
 	.append("]")
-	 .toString();
+	.toString();
     }
     
     

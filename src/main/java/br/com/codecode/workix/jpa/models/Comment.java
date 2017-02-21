@@ -18,8 +18,6 @@ import org.hibernate.validator.constraints.NotEmpty;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.annotation.Generated;
-
 /**
  * Comment JPA with Inherited Fields and Methods
  * 

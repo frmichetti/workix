@@ -72,27 +72,27 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 
 	for (User u : users) {
 
-	    Company c = new Company();
-		    
-	    c.setName("Empresa 'Mockup' N# " + String.valueOf(u.getId()));
-	    
-	    c.setSegment("Segmento N# " + String.valueOf(u.getId()));
+	    Company c = Company.builder()
 
-	    c.setCnpj(Long.MAX_VALUE - u.getId());
-	    
-	    c.setContact(Contact.builder().withMobilePhone(123456).build());	    
-	    
-	    c.setLocale(Locale.builder()
-		    .withCity("São José dos Campos")
-		    .withEstate(Estate.SP)
-		    .withNeighborhood("Bairro")
-		    .withNumber("212")
-		    .withStreet("Rua")
-		    .withZipCode(45632145)
-		    .build());
-	    
-	    c.setUser(u);    
-	    
+		    .withName("Empresa 'Mockup' N# " + String.valueOf(u.getId()))
+
+		    .withSegment("Segmento N# " + String.valueOf(u.getId()))
+
+		    .withCnpj(Long.MAX_VALUE - u.getId())
+
+		    .withContact(Contact.builder().withMobilePhone(123456).build())	    
+
+		    .withLocale(Locale.builder()
+			    .withCity("São José dos Campos")
+			    .withEstate(Estate.SP)
+			    .withNeighborhood("Bairro")
+			    .withNumber("212")
+			    .withStreet("Rua")
+			    .withZipCode(45632145)
+			    .build())
+
+		    .withUser(u);    
+
 	    assertNotNull(c);
 
 	    System.out.println("[create] " + c.getName());

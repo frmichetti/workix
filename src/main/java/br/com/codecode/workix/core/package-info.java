@@ -1,5 +1,5 @@
 /**
- * Container for Core Functions 
+ * Container for Core Functions (for Future Uses)
  * @author felipe
  * @since 1.1
  * @version 1.0

@@ -41,6 +41,10 @@ public class Company extends Person {
 	this.id = builder.getId();
 	this.cnpj = builder.getCnpj();
 	this.segment = builder.getSegment();
+	this.setName(builder.getName());	
+	this.setContact(builder.getContact());
+	this.setLocale(builder.getLocale());
+	this.setUser(builder.getUser());	
     }
 
     /**
@@ -106,7 +110,7 @@ public class Company extends Person {
 	}
 	
 	public Builder withContact(Contact contact) {
-	    this.setContact(contact);
+	    super.setContact(contact);
 	    return this;
 	}
 	
@@ -116,12 +120,12 @@ public class Company extends Person {
 	}
 	
 	public Builder withLocale(Locale locale) {
-	    this.setLocale(locale);
+	    super.setLocale(locale);
 	    return this;
 	}
 
 	public Builder withName(String name) {
-	    this.setName(name);
+	    super.setName(name);
 	    return this;
 	}
 
@@ -131,7 +135,7 @@ public class Company extends Person {
 	}
 
 	public Builder withUser(User user) {
-	    this.setUser(user);
+	    super.setUser(user);
 	    return this;
 	}
     }
