@@ -8,7 +8,6 @@
 	<build>
 		<finalName>workix</finalName>
 		<plugins>
-
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.6</version>
@@ -16,12 +15,7 @@
 					<failOnMissingWebXml>true</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-
-
-
-
 		</plugins>
-
 	</build>
 
 	<dependencies>
@@ -86,6 +80,10 @@
 			<artifactId>jboss-jsf-api_2.2_spec</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
 	</dependencies>
 
 
@@ -95,6 +93,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<jackson-version>2.6.0</jackson-version>
 		<version.jboss.bom>9.0.2.Final</version.jboss.bom>
+		<version.api>7.0</version.api>
 	</properties>
 
 	<name>Workix</name>
@@ -130,6 +129,11 @@
 				<version>${version.jboss.bom}</version>
 				<type>pom</type>
 				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>${version.api}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
