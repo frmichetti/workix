@@ -116,8 +116,7 @@ public class Subscriber extends MyEntity {
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder() {
-	}
+	private Builder(){}
 
 	/**
 	 * Constructor with All Fields

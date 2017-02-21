@@ -34,13 +34,12 @@ public class SignupMB extends BaseMB {
 
     @PostConstruct
     @Override
-    protected void init() {
-    }
+    protected void init(){}
 
     @Transactional
     public void addToList() {
 
-	Subscriber subscriber = new Subscriber.Builder(email).build();
+	Subscriber subscriber = Subscriber.builder().withEmail(email).build();
 
 	try {
 

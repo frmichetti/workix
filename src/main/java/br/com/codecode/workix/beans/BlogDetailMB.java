@@ -11,6 +11,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.NoResultException;
+import javax.transaction.Transactional;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
@@ -29,43 +30,31 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 @Model
 public class BlogDetailMB extends BaseMB {
 
-    private List<BlogCategory> blogCategories;
+    private List<BlogCategory> blogCategories;    
 
-    private List<Comment> comments;
+    private List<Comment> comments;    
 
-    private Blog currentBlog;    
-
-    private Comment comment;  
-
-
-    /**
-     * @return the comment
-     */
-    public Comment getComment() {
-	return comment;
-    }
-
-
-    /**
-     * @param comment the comment to set
-     */
-    public void setComment(Comment comment) {
-	this.comment = comment;
-    }
-
+    private Blog currentBlog; 
+    
     @Inject
     @Generic
-    private Crud<Blog> dao;
+    private Crud<Blog> daoBlog;
 
+    
     @Inject
     @Generic
     private Crud<Comment> daoComment;
 
+    
+    private String email, name, text;
+
+    
     @Inject
     @Factory
     @Default
     private FacesContext facesContext;
 
+    
     private long id;
 
     @Inject
@@ -87,13 +76,32 @@ public class BlogDetailMB extends BaseMB {
 	return comments;
     }
 
-
     public Blog getCurrentBlog() {
 	return currentBlog;
     }
 
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    
     public long getId() {
 	return id;
+    }
+    
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+
+    public String getText() {
+	return text;
     }
 
     private String goToErrorPage() {
@@ -115,11 +123,7 @@ public class BlogDetailMB extends BaseMB {
     @Override
     public void init() {
 
-	blogCategories = Arrays.asList(BlogCategory.values());
-
-	comment = new Comment();
-	
-	comment.setBlog(currentBlog);
+	blogCategories = Arrays.asList(BlogCategory.values());	
 
 	prefix = facesContext.getExternalContext().getRequestContextPath();
 
@@ -133,7 +137,7 @@ public class BlogDetailMB extends BaseMB {
 
 	    try {
 
-		currentBlog = dao.findById(id);
+		currentBlog = daoBlog.findById(id);
 
 		comments = daoComment.listAll(0, Integer.MAX_VALUE);
 
@@ -159,15 +163,11 @@ public class BlogDetailMB extends BaseMB {
 
     }
 
-    public void setId(long id) {
-	this.id = id;
-    }
-
-    public void signup() {
-	messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
-    }
-
-    public void saveComment(){
+    @Transactional
+    public String saveComment(){
+	
+	Comment comment = Comment.builder().withBlog(currentBlog)
+		    .withEmail(email).withName(name).withText(text).build();
 
 	try {
 
@@ -179,20 +179,34 @@ public class BlogDetailMB extends BaseMB {
 
 	    e.printStackTrace();
 	}
+	
+	return prefix + "/post.xhtml?id=" + currentBlog.getId() + sufix;
     }
 
-    public void deleteComment(){
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }   
 
-	try {
-
-	    daoComment.deleteById(comment.getId());
-	    
-	    messagesHelper.addFlash(new FacesMessage("Comentário Removido !"));
-
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	}
+    public void setId(long id) {
+	this.id = id;
     }
+
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
+    public void setText(String text) {
+	this.text = text;
+    }
+
+    
 
 }

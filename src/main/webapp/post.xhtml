@@ -71,8 +71,10 @@
 								<ui:repeat var="picture" value="#{blogDetailMB.currentBlog.pictures}">
 									
 									<li class="col-xs-4 col-sm-3 col-lg-2">
+									
 									<a href="#{picture}" class="fancybox"
 									data-fancybox-group="gallery" title="#{picture}">
+									
 									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
 									 
 								</a></li>
@@ -217,28 +219,34 @@
 						<!-- COMMENT FORM START -->
 
 						<h2>Deixe um Comentário</h2>
-						<form role="form">
+						
+						<h:form role="form">
+							
 							<div class="row" data-scroll-reveal="">
+								
 								<div class="form-group col-sm-6">
-									<input type="text" class="form-control" id="input-comment-name"
-										placeholder="Nome" required="required" pt:value="#{blogDetailMB.comment.name}"/>
+									<h:inputText value="#{blogDetailMB.name}" styleClass="form-control" id="input-comment-name" required="true" pt:placeholder="Nome" />									
 								</div>
+								
 								<div class="form-group col-sm-6">
-									<input type="email" class="form-control"
-										id="input-comment-email" placeholder="Email" required="required" pt:value="#{blogDetailMB.comment.email}"/>
+									<h:inputText value="#{blogDetailMB.email}" styleClass="form-control" pt:type="email" pt:placeholder="Email" required="true" id="input-comment-email" />									
 								</div>
+								
 							</div>
+							
 							<div class="row" data-scroll-reveal="">
 								<div class="form-group col-sm-12">
-									<textarea class="form-control" rows="5" placeholder="Comentário" required="required" pt:value="#{blogDetailMB.comment.text}"></textarea>
+									<h:inputTextarea value="#{blogDetailMB.text}" styleClass="form-control" rows="5" pt:placeholder="Comentário" required="required" />									
 								</div>
 							</div>
+							
 							<div class="row" data-scroll-reveal="">
 								<div class="form-group col-sm-12">
 									<h:commandButton action="#{blogDetailMB.saveComment()}" value="Enviar" styleClass="btn btn-primary" />									
 								</div>
 							</div>
-						</form>
+							
+						</h:form>
 
 						<!-- COMMENTS FORM END -->
 
