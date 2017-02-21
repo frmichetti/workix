@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -34,12 +35,32 @@ public class Comment extends MyEntity {
      */
     private static final long serialVersionUID = 7358996279677908814L;
     
-    private String email;
-    
     private long id; 
+    
+    private String email;    
     
     private String name;
     
+    private String text;  
+    
+    
+    /**
+     * @return the text
+     */
+    @NotEmpty
+    @Column
+    @Lob
+    public String getText() {
+        return text;
+    }
+    
+    /**
+     * @param text the text to set
+     */
+    public void setText(String text) {
+        this.text = text;
+    }
+
     private Blog blog;    
     
     /**

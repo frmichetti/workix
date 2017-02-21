@@ -1,6 +1,9 @@
 package br.com.codecode.workix.beans;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -14,6 +17,8 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Blog;
+import br.com.codecode.workix.jpa.models.BlogCategory;
+import br.com.codecode.workix.jpa.models.Comment;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**
@@ -24,29 +29,75 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 @Model
 public class BlogDetailMB extends BaseMB {
 
-    @Inject
-    @Generic
-    private Crud<Blog> dao;
-
-    private long id;
+    private List<BlogCategory> blogCategories;
+    
+    private List<Comment> comments;
 
     private Blog currentBlog;
 
+    @Inject
+    @Generic
+    private Crud<Blog> dao;
+    
+    @Inject
+    @Generic
+    private Crud<Comment> daoComment;
+    
     @Inject
     @Factory
     @Default
     private FacesContext facesContext;
 
-    private String prefix, sufix;
+    private long id;
 
     @Inject
     private MessagesHelper messagesHelper;
+
+    private String prefix, sufix;
+
+    /**
+     * @return the blogCategories
+     */
+    public List<BlogCategory> getBlogCategories() {
+        return blogCategories;
+    }
+    
+    /**
+     * @return the comments
+     */
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+
+    public Blog getCurrentBlog() {
+	return currentBlog;
+    }
+
+    public long getId() {
+	return id;
+    }
+
+    private String goToErrorPage() {
+
+	try {
+
+	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+
+	} catch (IOException e) {
+
+	    e.printStackTrace();
+	}
+	return prefix + "/404.xhtml" + sufix;
+    }
 
     /**
      * Must be Called by f:viewAction After f:viewParam {page}
      */
     @Override
     public void init() {
+	
+	blogCategories = Arrays.asList(BlogCategory.values());
 
 	prefix = facesContext.getExternalContext().getRequestContextPath();
 
@@ -61,6 +112,10 @@ public class BlogDetailMB extends BaseMB {
 	    try {
 
 		currentBlog = dao.findById(id);
+		
+		comments = daoComment.listAll(0, Integer.MAX_VALUE);
+		
+		comments = comments.stream().filter(c -> c.getBlog().getId() == id).collect(Collectors.toList());
 
 	    } catch (NotImplementedYetException e) {
 
@@ -81,34 +136,13 @@ public class BlogDetailMB extends BaseMB {
 
     }
 
-    public long getId() {
-	return id;
-    }
-
     public void setId(long id) {
 	this.id = id;
-    }
-
-    public Blog getCurrentBlog() {
-	return currentBlog;
     }
 
     public void signup() {
 	messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
 
-    }
-
-    private String goToErrorPage() {
-
-	try {
-
-	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
-
-	} catch (IOException e) {
-
-	    e.printStackTrace();
-	}
-	return prefix + "/404.xhtml" + sufix;
     }
 
 }
