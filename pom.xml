@@ -15,6 +15,11 @@
 					<failOnMissingWebXml>true</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>${version.wildfly.maven.plugin}</version>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -24,6 +29,7 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
+			<version>4.11</version>
 		</dependency>
 
 		<dependency>
@@ -33,7 +39,6 @@
 			<scope>provided</scope>
 			<optional>true</optional>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.jboss.as</groupId>
@@ -45,8 +50,8 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
 			<scope>provided</scope>
+			<version>5.1.3.Final</version>
 		</dependency>
-
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -69,20 +74,26 @@
 			<scope>provided</scope>
 		</dependency>
 
-
 		<dependency>
 			<groupId>javax.enterprise</groupId>
 			<artifactId>cdi-api</artifactId>
 			<scope>provided</scope>
+			<version>1.2</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.jboss.spec.javax.faces</groupId>
 			<artifactId>jboss-jsf-api_2.2_spec</artifactId>
 			<scope>provided</scope>
+			<version>2.2.11</version>
 		</dependency>
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
+			<version>${version.api}</version>
+			<scope>provided</scope>
+
 		</dependency>
 	</dependencies>
 
@@ -94,6 +105,7 @@
 		<jackson-version>2.6.0</jackson-version>
 		<version.jboss.bom>9.0.2.Final</version.jboss.bom>
 		<version.api>7.0</version.api>
+		<version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
 	</properties>
 
 	<name>Workix</name>
@@ -104,7 +116,6 @@
 	</organization>
 
 	<url>http://www.workix.com.br</url>
-
 
 	<description>Plataforma de Empregos Totalmente Grátis</description>
 	<scm>
@@ -119,8 +130,10 @@
 		<artifactId>master</artifactId>
 		<version>0.0</version>
 	</parent>
+
 	<dependencyManagement>
 		<dependencies>
+
 			<dependency>
 				<groupId>org.wildfly.bom</groupId>
 				<artifactId>
@@ -129,12 +142,17 @@
 				<version>${version.jboss.bom}</version>
 				<type>pom</type>
 				<scope>import</scope>
+				<optional>true</optional>
 			</dependency>
+
 			<dependency>
 				<groupId>javax</groupId>
 				<artifactId>javaee-api</artifactId>
 				<version>${version.api}</version>
+				<scope>provided</scope>
 			</dependency>
+
 		</dependencies>
 	</dependencyManagement>
+
 </project>
