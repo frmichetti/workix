@@ -22,6 +22,8 @@ import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.jpa.models.Author;
 import br.com.codecode.workix.jpa.models.Blog;
+import br.com.codecode.workix.jpa.models.BlogCategory;
+import br.com.codecode.workix.jpa.models.Tag;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -68,7 +70,14 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 	    
 	    .withTitle("Postagem de Blog 'Mockup' " + x+1)	    
 	    .withDate(LocalDate.now())	    
-	    .withContent("Conteúdo Aqui ");
+	    .withContent("Conteúdo Aqui ")
+	    .withCitation("Citação Aqui ")
+	    .withBlogCategory(BlogCategory.JOBS)	    
+	    .build();
+	    
+	    b.addTag(Tag.builder().withName("Etiqueta 1").build());
+	    
+	    b.addTag(Tag.builder().withName("Etiqueta 2").build());
 	    
 	    b.addPicture("http://localhost:8080/workix/resources/placeholder/800x530.jpg");
 	    

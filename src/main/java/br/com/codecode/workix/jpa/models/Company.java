@@ -106,7 +106,7 @@ public class Company extends Person {
 	}
 	
 	public Builder withContact(Contact contact) {
-	    super.setContact(contact);
+	    this.setContact(contact);
 	    return this;
 	}
 	
@@ -116,12 +116,12 @@ public class Company extends Person {
 	}
 	
 	public Builder withLocale(Locale locale) {
-	    super.setLocale(locale);
+	    this.setLocale(locale);
 	    return this;
 	}
 
 	public Builder withName(String name) {
-	    super.setName(name);
+	    this.setName(name);
 	    return this;
 	}
 
@@ -131,7 +131,7 @@ public class Company extends Person {
 	}
 
 	public Builder withUser(User user) {
-	    super.setUser(user);
+	    this.setUser(user);
 	    return this;
 	}
     }

@@ -70,9 +70,9 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
 	    .withPicture(authors.get(x).getPicture())
 
-	    .withSignature("Signature Here")
+	    .withSignature("Assinatura Aqui")
 
-	    .withText("Content Here");
+	    .withText("Conteúdo Aqui");
 
 	    System.out.println("[create] " + t.getAuthor().getName());
 
