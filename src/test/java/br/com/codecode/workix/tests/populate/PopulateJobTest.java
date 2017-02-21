@@ -20,6 +20,7 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
+import br.com.codecode.workix.core.enums.JobCategory;
 import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.jpa.models.Company;
 import br.com.codecode.workix.jpa.models.Job;
@@ -80,6 +81,8 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 	    .withBenefits("Benefícios da Vaga " + String.valueOf(x + 1))	    
 
 	    .withJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY)
+	    
+	    .withJobCategory(JobCategory.OPERATOR)
 
 	    .withMinPayment(new BigDecimal(1_00 * x + 1 + 10))
 
