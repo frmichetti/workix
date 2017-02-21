@@ -40,15 +40,15 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 
 	members = new ArrayList<>();	
 
-	    Member felipe = new Member();
+	    Member felipe = Member.builder()
 
-	    felipe.setName("FELIPE RODRIGUES MICHETTI");
+	    .withName("FELIPE RODRIGUES MICHETTI")
 	    
-	    felipe.setOccupation("Fundador e Desenvolvedor");
+	    .withOccupation("Fundador e Desenvolvedor")
 	    
-	    felipe.setShortText("Porque pagar por um conteúdo que você não tem certeza de sua verdade?");
+	    .withShortText("Porque pagar por um conteúdo que você não tem certeza de sua verdade?")
 	    
-	    felipe.setPicture("http://localhost:8080/workix/resources/images/members/felipe_140_140.jpg");	    	    
+	    .withPicture("http://localhost:8080/workix/resources/images/members/felipe_140_140.jpg");	    	    
 	    
 	    felipe.addSocialMedia(SocialMedia.builder().withMedia("GitHub").withUrl("https://github.com/frmichetti").build());
 	    
@@ -60,21 +60,19 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 
 	    addToList(felipe);
 	    
-	    Member jefferson = new Member();
+	    Member jefferson = Member.builder()
 	    
-	    jefferson.setName("JEFFERSON PEDROSO");
+	    .withName("JEFFERSON PEDROSO")
 	    
-	    jefferson.setOccupation("Co-Founder e CMO");
+	    .withOccupation("Co-Founder e CMO")
 	    
-	    jefferson.setShortText("Muitas idéias boas parecem loucura ou impossível em primeiro lugar.");
+	    .withShortText("Muitas idéias boas parecem loucura ou impossível em primeiro lugar.");
 	    
 	    jefferson.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");
 
 	    System.out.println("[create] " + jefferson.getName());
 
-	    addToList(jefferson);
-	    
-	    
+	    addToList(jefferson); 
 	
 
 	assertEquals(2 , members.size());

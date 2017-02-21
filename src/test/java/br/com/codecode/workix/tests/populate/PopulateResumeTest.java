@@ -38,8 +38,7 @@ public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume
 
 	resp = HttpTest.sendGet(server + "/candidates");
 
-	candidates = getGson().fromJson(resp, new TypeToken<List<Candidate>>() {
-	}.getType());
+	candidates = getGson().fromJson(resp, new TypeToken<List<Candidate>>(){}.getType());
 
 	assertTrue(candidates.size() > 0);
 
@@ -56,28 +55,25 @@ public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume
 
 	for (Candidate c : candidates) {
 
-	    Resume r = new Resume();
+	    Resume r = Resume.builder()
 
-	    r.setContent("Content of " + c.getName());
+	    .withContent("Conteúdo de " + c.getName())
 
-	    r.setObjective("Objective of " + c.getName());
+	    .withObjective("Objetivo do " + c.getName())
 
-	    r.setCandidate(c);
+	    .withCandidate(c);
 
-	    r.addExperience(new Experience.Builder("Employer 1", "Title 1", LocalDate.now(), LocalDate.now()).build());
+	    r.addExperience(new Experience.Builder("Empregador 1", "Cargo 1", LocalDate.now(), LocalDate.now()).build());
 
-	    r.addExperience(new Experience.Builder("Employeer 2", "Title 2", LocalDate.now(), LocalDate.now()).build());
+	    r.addExperience(new Experience.Builder("Empregador 2", "Cargo 2", LocalDate.now(), LocalDate.now()).build());
 
-	    r.addEducation(
-		    new Education.Builder("School 1", LocalDate.now(), LocalDate.now(), "Qualification", "Description")
-			    .build());
+	    r.addEducation(new Education.Builder("Escola 1", LocalDate.now().minusYears(4), LocalDate.now().minusYears(3), "Qualificações", "Descrição").build());
 
-	    r.addEducation(new Education.Builder("School 2", LocalDate.now(), LocalDate.now(), "Qualification 2",
-		    "Description").build());
+	    r.addEducation(new Education.Builder("Escola 2", LocalDate.now().minusYears(2), LocalDate.now().minusYears(1), "Qualificações 2","Descrição 2").build());
 
-	    r.addSkill(new Skill.Builder("Skill 1").build());
+	    r.addSkill(new Skill.Builder("Habilidade 1").build());
 
-	    r.addSkill(new Skill.Builder("Skill 2").build());
+	    r.addSkill(new Skill.Builder("Habilidade 2").build());
 
 	    addToList(r);
 

@@ -44,13 +44,10 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
 
 	for (int x = 0; x < howManyAuthors; x++) {
 
-	    Author a = new Author();
-
-	    a.setName("Mockup Author " + String.valueOf(x + 1));
-	    
-	    a.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");
-	    
-	    a.setAboutText("About the Author " + x);	    
+	    Author a = Author.builder()
+		    .withName("Autor 'Mockup' " + String.valueOf(x + 1))	    
+		    .withPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg")
+	    	    .withAboutText("Sobre o Autor " + x);	    
 	    
 	    a.addSocialMedia(SocialMedia.builder().withMedia("Facebook").withUrl("http://www.facebook.com.br").build());
 	    

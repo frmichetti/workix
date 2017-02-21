@@ -19,6 +19,7 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
+import br.com.codecode.workix.core.enums.Estate;
 import br.com.codecode.workix.jpa.models.Company;
 import br.com.codecode.workix.jpa.models.Contact;
 import br.com.codecode.workix.jpa.models.Locale;
@@ -50,8 +51,7 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 
 	resp = HttpTest.sendGet(server + "/users");
 
-	users = getGson().fromJson(resp, new TypeToken<List<User>>() {
-	}.getType());
+	users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType());
 
 	assertTrue(users.size() > 0);
 
@@ -72,19 +72,26 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 
 	for (User u : users) {
 
-	    Company c = new Company();
+	    Company c = Company.builder()
+		    
+	    .withName("Empresa 'Mockup' N# " + String.valueOf(u.getId()))
 
-	    c.setUser(u);
-
-	    c.setName("Company Mockup N# " + String.valueOf(u.getId()));
-
-	    c.setCnpj(Long.MAX_VALUE - u.getId());
+	    .withCnpj(Long.MAX_VALUE - u.getId())
 	    
-	    c.setContact(new Contact.Builder(123456).build());
+	    .withContact(Contact.builder().withMobilePhone(123456).build())
 	    
-	    c.setLocale(new Locale.Builder(45632145, "212").build());
-
-	    c.setSegment("Segment " + String.valueOf(c.getName().replace("Mockup", "Segment")));
+	    .withLocale(Locale.builder()
+		    .withCity("São José dos Campos")
+		    .withEstate(Estate.SP)
+		    .withNeighborhood("Bairro")
+		    .withNumber("212")
+		    .withStreet("Rua")
+		    .withZipCode(45632145)
+		    .build())	    
+	    
+	    .withUser(u)	    
+	    
+	    .withSegment("Segmento N# "+ String.valueOf(u.getId())).build();
 
 	    System.out.println("[create] " + c.getName());
 

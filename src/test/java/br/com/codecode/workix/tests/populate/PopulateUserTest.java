@@ -45,17 +45,17 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
 
 	for (int x = 0; x < howManyUsers; x++) {
 
-	    User u = new User();
+	    User u = User.builder()
 
-	    u.setEmail("mockupusernumber" + String.valueOf(x + 1) + "@test.com");
+	    .withEmail("mockupusernumber" + String.valueOf(x + 1) + "@test.com")
+	    
+	    .withFirebaseUUID(UUID.randomUUID().toString())
+	    
+	    .withFirebaseMessageToken(UUID.randomUUID().toString());
 
 	    assertNotNull(u.getEmail());
 
-	    assertNotEquals("", u.getEmail());
-
-	    u.setFirebaseUUID(UUID.randomUUID().toString());
-
-	    u.setFirebaseMessageToken(UUID.randomUUID().toString());
+	    assertNotEquals("", u.getEmail());	    
 
 	    System.out.println("[create] " + u.getEmail());
 

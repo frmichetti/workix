@@ -21,8 +21,10 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Blog JPA with Inherited Fields and Methods
@@ -61,12 +63,35 @@ public class Blog extends MyEntity {
 
     private List<Tag> tags;    
 
-    private String title;    
+    private String title;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Blog(){}
+    
+    private Blog(Builder builder) {
+	this.authors = builder.getAuthors();
+	this.blogCategory = builder.getBlogCategory();
+	this.citation = builder.getCitation();
+	this.content = builder.getContent();
+	this.date = builder.getDate();
+	this.id = builder.getId();
+	this.pictures = builder.getPictures();
+	this.resume = builder.getResume();
+	this.tags = builder.getTags();
+	this.title = builder.getTitle();
+    }
+
+    /**
+     * Creates builder to build {@link Blog}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
+    }
+
 
     public void addAuthor(Author author){
 	if(authors == null){
@@ -75,7 +100,6 @@ public class Blog extends MyEntity {
 
 	authors.add(author);
     }
-
 
     public void addPicture(String picture){
 	if(pictures == null){
@@ -101,6 +125,7 @@ public class Blog extends MyEntity {
 	return authors;
     }
 
+
     /**
      * @return the blogCategory
      */    
@@ -108,7 +133,6 @@ public class Blog extends MyEntity {
     public BlogCategory getBlogCategory() {
 	return blogCategory;
     }
-
 
     /**
      * @return the citation
@@ -153,6 +177,7 @@ public class Blog extends MyEntity {
 	return pictures;
     }
 
+
     /**
      * @return the resume
      */
@@ -187,7 +212,6 @@ public class Blog extends MyEntity {
 	authors.remove(author);
     }
 
-
     public void removePicture(String picture){
 	if(pictures == null){
 	    pictures = new ArrayList<>();
@@ -217,6 +241,7 @@ public class Blog extends MyEntity {
 	this.blogCategory = blogCategory;
     }
 
+
     /**
      * @param citation the citation to set
      */
@@ -231,7 +256,6 @@ public class Blog extends MyEntity {
     public void setContent(String content) {
 	this.content = content;
     }
-
 
     /**
      * @param date the date to set
@@ -268,6 +292,74 @@ public class Blog extends MyEntity {
 
     public void setTitle(String title) {
 	this.title = title;
+    }
+
+    /**
+     * Builder to build {@link Blog}.
+     */    
+    public static final class Builder extends Blog implements Buildable<Blog> {
+
+	/**
+	 * @serialField
+	 */
+	private static final long serialVersionUID = -6727265310553560126L;	
+
+	private Builder() {}
+
+	@Override
+	public Blog build() {
+	    return new Blog(this);
+	}
+
+	public Builder withAuthors(List<Author> authors) {
+	    super.authors = authors;
+	    return this;
+	}
+
+	public Builder withBlogCategory(BlogCategory blogCategory) {
+	    super.blogCategory = blogCategory;
+	    return this;
+	}
+
+	public Builder withCitation(String citation) {
+	    super.citation = citation;
+	    return this;
+	}
+
+	public Builder withContent(String content) {
+	    super.content = content;
+	    return this;
+	}
+
+	public Builder withDate(LocalDate date) {
+	    super.date = date;
+	    return this;
+	}
+
+	public Builder withId(long id) {
+	    super.id = id;
+	    return this;
+	}
+
+	public Builder withPictures(List<String> pictures) {
+	    super.pictures = pictures;
+	    return this;
+	}
+
+	public Builder withResume(String resume) {
+	    super.resume = resume;
+	    return this;
+	}
+
+	public Builder withTags(List<Tag> tags) {
+	    super.tags = tags;
+	    return this;
+	}
+
+	public Builder withTitle(String title) {
+	    super.title = title;
+	    return this;
+	}
     }
 
 }

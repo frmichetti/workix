@@ -48,8 +48,7 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
 	resp = HttpTest.sendGet(server + "/authors");
 
-	authors = getGson().fromJson(resp, new TypeToken<List<Author>>() {
-	}.getType());
+	authors = getGson().fromJson(resp, new TypeToken<List<Author>>(){}.getType());
 
 	assertNotNull(authors);
 
@@ -65,15 +64,15 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
 	for (int x = 0; x < repeat; x++) {
 
-	    Testimonial t = new Testimonial();
+	    Testimonial t = Testimonial.builder()
 
-	    t.setAuthor(authors.get(x));
+	    .withAuthor(authors.get(x))
 
-	    t.setPicture(authors.get(x).getPicture());
+	    .withPicture(authors.get(x).getPicture())
 
-	    t.setSignature("Signature Here");
+	    .withSignature("Signature Here")
 
-	    t.setText("Content Here");
+	    .withText("Content Here");
 
 	    System.out.println("[create] " + t.getAuthor().getName());
 

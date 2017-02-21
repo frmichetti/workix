@@ -18,8 +18,10 @@ import javax.persistence.OneToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Resume JPA with Inherited Fields and Methods
@@ -37,26 +39,26 @@ public class Resume extends MyEntity {
 
     private static final long serialVersionUID = 7569771700044121495L;
 
-    private long id;
-
     /**
      * Owner of Resume<br>
      * One {@link Resume} To One {@link Candidate}
      */
     private Candidate candidate;
 
-    private String objective, content;
+    /**
+     * One {@link Resume} To Many {@link Education}
+     */
+
+    private Set<Education> educations;
 
     /**
      * One {@link Resume} To Many {@link Experience}
      */
     private Set<Experience> experiences;
 
-    /**
-     * One {@link Resume} To Many {@link Education}
-     */
+    private long id;
 
-    private Set<Education> educations;
+    private String objective, content;
 
     /**
      * One {@link Resume} To Many {@link Skill}
@@ -66,7 +68,25 @@ public class Resume extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Resume() {
+    public Resume() {}
+
+    private Resume(Builder builder) {
+	this.id = builder.getId();
+	this.candidate = builder.getCandidate();
+	this.objective = builder.getObjective();
+	this.content = builder.getContent();
+	this.experiences = builder.getExperiences();
+	this.educations = builder.getEducations();
+	this.skills = builder.getSkills();
+    }
+
+    /**
+     * Creates builder to build {@link Resume}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
     }
 
     public void addEducation(Education education) {
@@ -191,6 +211,59 @@ public class Resume extends MyEntity {
 
     public void setSkills(Set<Skill> skills) {
 	this.skills = skills;
+    }
+
+    /**
+     * Builder to build {@link Resume}.
+     */    
+    public static final class Builder extends Resume implements Buildable<Resume>{
+
+	/**
+	 * @serialField
+	 */
+	private static final long serialVersionUID = -5218494421810694002L;
+
+	private Builder() {}
+
+	@Override
+	public Resume build() {
+	    return new Resume(this);
+	}
+
+	public Builder withCandidate(Candidate candidate) {
+	    super.candidate = candidate;
+	    return this;
+	}
+
+	public Builder withContent(String content) {
+	    super.content = content;
+	    return this;
+	}
+
+	public Builder withEducations(Set<Education> educations) {
+	    super.educations = educations;
+	    return this;
+	}
+
+	public Builder withExperiences(Set<Experience> experiences) {
+	    super.experiences = experiences;
+	    return this;
+	}
+
+	public Builder withId(long id) {
+	    super.id = id;
+	    return this;
+	}
+
+	public Builder withObjective(String objective) {
+	    super.objective = objective;
+	    return this;
+	}
+
+	public Builder withSkills(Set<Skill> skills) {
+	    super.skills = skills;
+	    return this;
+	}
     }
 
 }

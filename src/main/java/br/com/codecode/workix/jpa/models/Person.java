@@ -5,6 +5,8 @@ import javax.persistence.Embedded;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 /**
@@ -49,6 +51,7 @@ abstract class Person extends MyEntity {
 	return locale;
     }
 
+    @NotEmpty
     @Column(nullable = false)
     public String getName() {
 	return name;

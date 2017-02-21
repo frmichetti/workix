@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
@@ -34,7 +35,7 @@ public class Contact implements Serializable {
      * Public Default Constructor for JPA Compatibility Only
      */
     public Contact(){}
-
+    
     /**
      * Public Constructor for {@link Builder} Compatibility
      * 
@@ -44,6 +45,15 @@ public class Contact implements Serializable {
      */
     public Contact(@NotNull Builder builder) {
 	this.mobilePhone = builder.getMobilePhone();
+    }
+
+    /**
+     * Creates builder to build {@link Contact}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
     }
 
     /**
@@ -81,8 +91,7 @@ public class Contact implements Serializable {
 	/**
 	 * Disabled Empty Constructor
 	 */
-	private Builder() {
-	}
+	private Builder(){}
 
 	/**
 	 * Constructor with Required Fields

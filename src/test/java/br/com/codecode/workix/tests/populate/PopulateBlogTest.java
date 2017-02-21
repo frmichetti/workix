@@ -49,8 +49,7 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 
 	resp = HttpTest.sendGet(server + "/authors");
 
-	authors = getGson().fromJson(resp, new TypeToken<List<Author>>() {
-	}.getType());
+	authors = getGson().fromJson(resp, new TypeToken<List<Author>>(){}.getType());
 
 	assertNotNull(authors);
 
@@ -65,23 +64,21 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 	
 	for (int x = 0; x < howManyPosts; x++) {
 	    
-	    Blog b = new Blog();
+	    Blog b = Blog.builder()	    
 	    
-	    b.addAuthor(authors.get(x));
-	    
-	    b.setTitle("Mockup Blog " + x+1);
-	    
-	    b.setDate(LocalDate.now());
-	    
-	    b.setContent("Content Here");
+	    .withTitle("Postagem de Blog 'Mockup' " + x+1)	    
+	    .withDate(LocalDate.now())	    
+	    .withContent("Conteúdo Aqui ");
 	    
 	    b.addPicture("http://localhost:8080/workix/resources/placeholder/800x530.jpg");
 	    
-	    for (int i = 0; i < 15; i++) {
+	    b.addAuthor(authors.get(x));
+	    
+	    for (int i = 0; i < 7; i++) {
 		b.setContent(b.getContent().concat(b.getContent()));
 	    }
 	    
-	    b.setResume("Resume Here");
+	    b.setResume("Resumo Aqui ");
 	    
 	    for (int i = 0; i < 5; i++) {
 		b.setResume(b.getResume().concat(b.getResume()));

@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.Estate;
@@ -29,6 +30,125 @@ import br.com.codecode.workix.interfaces.Buildable;
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
 public class Locale implements Serializable {
+
+    private static final long serialVersionUID = -607806075186010186L;
+    
+    private String city;
+    
+    private Estate estate;
+    
+    private String neighborhood;
+    
+    private String number;
+    
+    private String street;
+    
+    private long zipCode;
+
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Locale() {}
+    
+    /**
+     * Creates builder to build {@link Locale}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
+    }
+
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     * 
+     * @see Buildable
+     * @param builder
+     *            Builder for Generate a New Locale
+     */
+    public Locale(Builder builder) {
+
+	this.zipCode = builder.getZipCode();
+
+	this.city = builder.getCity();
+
+	this.neighborhood = builder.getNeighborhood();
+
+	this.street = builder.getStreet();
+
+	this.number = builder.getNumber();
+
+	this.estate = builder.getEstate();
+    }
+
+    @Column
+    public String getCity() {
+	return city;
+    }
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    public Estate getEstate() {
+	return estate;
+    }
+
+    @Column
+    public String getNeighborhood() {
+	return neighborhood;
+    }
+
+    @Column
+    public String getNumber() {
+	return number;
+    }
+
+    @Column
+    public String getStreet() {
+	return street;
+    }
+
+    @Column
+    public long getZipCode() {
+	return zipCode;
+    }
+
+    public void setCity(String city) {
+	this.city = city;
+    }
+
+    public void setEstate(Estate estate) {
+	this.estate = estate;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+	this.neighborhood = neighborhood;
+    }
+
+    public void setNumber(String number) {
+	this.number = number;
+    }
+
+    public void setStreet(String street) {
+	this.street = street;
+    }
+
+    public void setZipCode(long zipCode) {
+	this.zipCode = zipCode;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	StringBuilder builder2 = new StringBuilder();
+	builder2.append("[city=");
+	builder2.append(city);
+	builder2.append(", estate=");
+	builder2.append(estate);
+	builder2.append("]");
+	return builder2.toString();
+    }
 
     /**
      * Builder NestedClass for {@link Locale}
@@ -122,117 +242,6 @@ public class Locale implements Serializable {
 	    return this;
 	}
 
-    }
-
-    private static final long serialVersionUID = -607806075186010186L;
-
-    @Column
-    private long zipCode;
-
-    @Column
-    private String city;
-
-    @Column
-    private String neighborhood;
-
-    @Column
-    private String street;
-
-    @Column
-    private String number;
-
-    @Enumerated(EnumType.STRING)
-    @Column
-    private Estate estate;
-
-    /**
-     * Public Default Constructor for JPA Compatibility Only
-     */
-    public Locale() {
-    }
-
-    /**
-     * Public Constructor for {@link Builder} Compatibility
-     * 
-     * @see Buildable
-     * @param builder
-     *            Builder for Generate a New Locale
-     */
-    public Locale(Builder builder) {
-
-	this.zipCode = builder.getZipCode();
-
-	this.city = builder.getCity();
-
-	this.neighborhood = builder.getNeighborhood();
-
-	this.street = builder.getStreet();
-
-	this.number = builder.getNumber();
-
-	this.estate = builder.getEstate();
-    }
-
-    public String getCity() {
-	return city;
-    }
-
-    public Estate getEstate() {
-	return estate;
-    }
-
-    public String getNeighborhood() {
-	return neighborhood;
-    }
-
-    public String getNumber() {
-	return number;
-    }
-
-    public String getStreet() {
-	return street;
-    }
-
-    public long getZipCode() {
-	return zipCode;
-    }
-
-    public void setCity(String city) {
-	this.city = city;
-    }
-
-    public void setEstate(Estate estate) {
-	this.estate = estate;
-    }
-
-    public void setNeighborhood(String neighborhood) {
-	this.neighborhood = neighborhood;
-    }
-
-    public void setNumber(String number) {
-	this.number = number;
-    }
-
-    public void setStreet(String street) {
-	this.street = street;
-    }
-
-    public void setZipCode(long zipCode) {
-	this.zipCode = zipCode;
-    }
-
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-	StringBuilder builder2 = new StringBuilder();
-	builder2.append("[city=");
-	builder2.append(city);
-	builder2.append(", estate=");
-	builder2.append(estate);
-	builder2.append("]");
-	return builder2.toString();
     }
     
     

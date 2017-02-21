@@ -50,8 +50,7 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
 	resp = HttpTest.sendGet(server + "/companies");
 
-	companies = getGson().fromJson(resp, new TypeToken<List<Company>>() {
-	}.getType());
+	companies = getGson().fromJson(resp, new TypeToken<List<Company>>(){}.getType());
 
 	assertNotNull(companies);
 
@@ -70,23 +69,23 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
 	for (int x = 0; x < howManyJobs; x++) {
 
-	    Job j = new Job();
+	    Job j = Job.builder()
 
-	    j.setTitle("Mockup Job N# " + String.valueOf(x + 1));
+	    .withTitle("Vaga 'Mockup' N# " + String.valueOf(x + 1))
 
-	    j.setDescription("Description of Job " + String.valueOf(x + 1));
+	    .withDescription("Descrição da Vaga " + String.valueOf(x + 1))
 
-	    j.setRequirement("Requirement of Job " + String.valueOf(x + 1));
+	    .withRequirement("Requerimentos da Vaga " + String.valueOf(x + 1))
 
-	    j.setBenefits("Benefits of Job " + String.valueOf(x + 1));	    
+	    .withBenefits("Benefícios da Vaga " + String.valueOf(x + 1))	    
 
-	    j.setJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY);
+	    .withJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY)
 
-	    j.setMinPayment(new BigDecimal(1_00 * x + 1 + 10));
+	    .withMinPayment(new BigDecimal(1_00 * x + 1 + 10))
 
-	    j.setMaxPayment(new BigDecimal(1_00 * x + 1 + 20));
+	    .withMaxPayment(new BigDecimal(1_00 * x + 1 + 20))
 
-	    j.setCompany(companies.get(x));
+	    .withCompany(companies.get(x));
 
 	    System.out.println("[create] " + j.getTitle());
 

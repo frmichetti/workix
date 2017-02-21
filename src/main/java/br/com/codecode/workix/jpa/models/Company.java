@@ -5,11 +5,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Company JPA with Inherited Fields and Methods 
@@ -29,11 +31,26 @@ public class Company extends Person {
     private long id, cnpj;
 
     private String segment;
-
+    
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Company(){}
+
+    private Company(Builder builder) {
+	this.id = builder.getId();
+	this.cnpj = builder.getCnpj();
+	this.segment = builder.getSegment();
+    }
+
+    /**
+     * Creates builder to build {@link Company}.
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+	return new Builder();
+    }
 
     @Column(nullable = false, unique = true)
     public long getCnpj() {
@@ -64,6 +81,59 @@ public class Company extends Person {
 
     public void setSegment(String companySegment) {
 	this.segment = companySegment;
+    }
+
+    /**
+     * Builder to build {@link Company}.
+     */    
+    public static final class Builder extends Company implements Buildable<Company> {
+	
+	/**
+	 * @serialField
+	 */
+	private static final long serialVersionUID = -2850736800336558944L;
+
+	private Builder() {}
+
+	@Override
+	public Company build() {
+	    return new Company(this);
+	}
+	
+	public Builder withCnpj(long cnpj) {
+	    super.cnpj = cnpj;
+	    return this;
+	}
+	
+	public Builder withContact(Contact contact) {
+	    super.setContact(contact);
+	    return this;
+	}
+	
+	public Builder withId(long id) {
+	    super.id = id;
+	    return this;
+	}
+	
+	public Builder withLocale(Locale locale) {
+	    super.setLocale(locale);
+	    return this;
+	}
+
+	public Builder withName(String name) {
+	    super.setName(name);
+	    return this;
+	}
+
+	public Builder withSegment(String segment) {
+	    super.segment = segment;
+	    return this;
+	}
+
+	public Builder withUser(User user) {
+	    super.setUser(user);
+	    return this;
+	}
     }
 
 }
