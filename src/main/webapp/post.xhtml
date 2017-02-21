@@ -120,7 +120,7 @@
 							<li><i class="fa fa-tag"></i></li>
 							
 							<ui:repeat value="#{blogDetailMB.currentBlog.tags}" var="tag">
-								<li><a href="#"><h:outputText value="#{tag.name}" />></a></li>
+								<li><a href="#"><h:outputText value="#{tag.name}" /></a></li>
 							</ui:repeat>
 							
 						</ul>
@@ -145,8 +145,11 @@
 								<ul class="social">
 								
 									<ui:repeat var="social" value="#{author.medias}">
+								
 										<li><a href="#{social.url}">
+								
 										<i class="#{membersMB.whatSocialLink(social.url)}"></i></a></li>
+								
 									</ui:repeat>
 								
 								</ul>
@@ -218,21 +221,21 @@
 							<div class="row" data-scroll-reveal="">
 								<div class="form-group col-sm-6">
 									<input type="text" class="form-control" id="input-comment-name"
-										placeholder="Nome" />
+										placeholder="Nome" required="required" pt:value="#{blogDetailMB.comment.name}"/>
 								</div>
 								<div class="form-group col-sm-6">
 									<input type="email" class="form-control"
-										id="input-comment-email" placeholder="Email" />
+										id="input-comment-email" placeholder="Email" required="required" pt:value="#{blogDetailMB.comment.email}"/>
 								</div>
 							</div>
 							<div class="row" data-scroll-reveal="">
 								<div class="form-group col-sm-12">
-									<textarea class="form-control" rows="5"></textarea>
+									<textarea class="form-control" rows="5" placeholder="Comentário" required="required" pt:value="#{blogDetailMB.comment.text}"></textarea>
 								</div>
 							</div>
 							<div class="row" data-scroll-reveal="">
 								<div class="form-group col-sm-12">
-									<button type="submit" class="btn btn-primary">Enviar</button>
+									<h:commandButton action="#{blogDetailMB.saveComment()}" value="Enviar" styleClass="btn btn-primary" />									
 								</div>
 							</div>
 						</form>

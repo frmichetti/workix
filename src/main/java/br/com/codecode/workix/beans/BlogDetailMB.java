@@ -30,19 +30,37 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 public class BlogDetailMB extends BaseMB {
 
     private List<BlogCategory> blogCategories;
-    
+
     private List<Comment> comments;
 
-    private Blog currentBlog;
+    private Blog currentBlog;    
+
+    private Comment comment;  
+
+
+    /**
+     * @return the comment
+     */
+    public Comment getComment() {
+	return comment;
+    }
+
+
+    /**
+     * @param comment the comment to set
+     */
+    public void setComment(Comment comment) {
+	this.comment = comment;
+    }
 
     @Inject
     @Generic
     private Crud<Blog> dao;
-    
+
     @Inject
     @Generic
     private Crud<Comment> daoComment;
-    
+
     @Inject
     @Factory
     @Default
@@ -59,14 +77,14 @@ public class BlogDetailMB extends BaseMB {
      * @return the blogCategories
      */
     public List<BlogCategory> getBlogCategories() {
-        return blogCategories;
+	return blogCategories;
     }
-    
+
     /**
      * @return the comments
      */
     public List<Comment> getComments() {
-        return comments;
+	return comments;
     }
 
 
@@ -96,8 +114,12 @@ public class BlogDetailMB extends BaseMB {
      */
     @Override
     public void init() {
-	
+
 	blogCategories = Arrays.asList(BlogCategory.values());
+
+	comment = new Comment();
+	
+	comment.setBlog(currentBlog);
 
 	prefix = facesContext.getExternalContext().getRequestContextPath();
 
@@ -112,10 +134,11 @@ public class BlogDetailMB extends BaseMB {
 	    try {
 
 		currentBlog = dao.findById(id);
-		
+
 		comments = daoComment.listAll(0, Integer.MAX_VALUE);
-		
-		comments = comments.stream().filter(c -> c.getBlog().getId() == id).collect(Collectors.toList());
+
+		comments = comments.stream().filter(c -> c.getBlog().getId() == id)
+			.collect(Collectors.toList());
 
 	    } catch (NotImplementedYetException e) {
 
@@ -142,7 +165,34 @@ public class BlogDetailMB extends BaseMB {
 
     public void signup() {
 	messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
+    }
 
+    public void saveComment(){
+
+	try {
+
+	    daoComment.save(comment);
+	    
+	    messagesHelper.addFlash(new FacesMessage("Comentário Enviado !"));
+
+	} catch (NotImplementedYetException e) {
+
+	    e.printStackTrace();
+	}
+    }
+
+    public void deleteComment(){
+
+	try {
+
+	    daoComment.deleteById(comment.getId());
+	    
+	    messagesHelper.addFlash(new FacesMessage("Comentário Removido !"));
+
+	} catch (NotImplementedYetException e) {
+
+	    e.printStackTrace();
+	}
     }
 
 }
