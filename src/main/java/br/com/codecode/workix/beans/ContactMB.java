@@ -35,8 +35,7 @@ public class ContactMB extends BaseMB {
 
     @PostConstruct
     @Override
-    protected void init() {
-    }
+    protected void init(){}
 
     public String getName() {
 	return name;

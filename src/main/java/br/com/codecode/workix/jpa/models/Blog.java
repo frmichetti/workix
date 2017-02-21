@@ -17,6 +17,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -46,16 +48,16 @@ public class Blog extends MyEntity {
      */
     private static final long serialVersionUID = -5273926504177459295L;
 
-    private List<Author> authors;
+    private Author author;
 
-    private BlogCategory blogCategory;    
+    private BlogCategory category;    
 
     private String citation;
-    
+
     private String content;        
-    
+
     private LocalDate date;
-    
+
     private long id;
 
     private List<String> pictures;
@@ -70,10 +72,10 @@ public class Blog extends MyEntity {
      * Public Default Constructor for JPA Compatibility Only
      */
     public Blog(){}
-    
+
     private Blog(Builder builder) {
-	this.authors = builder.getAuthors();
-	this.blogCategory = builder.getBlogCategory();
+	this.author = builder.getAuthor();
+	this.category = builder.getCategory();
 	this.citation = builder.getCitation();
 	this.content = builder.getContent();
 	this.date = builder.getDate();
@@ -91,16 +93,7 @@ public class Blog extends MyEntity {
     @XmlTransient
     public static Builder builder() {
 	return new Builder();
-    }
-
-
-    public void addAuthor(Author author){
-	if(authors == null){
-	    authors = new ArrayList<>();
-	}
-
-	authors.add(author);
-    }
+    }   
 
     public void addPicture(String picture){
 	if(pictures == null){
@@ -121,9 +114,9 @@ public class Blog extends MyEntity {
      * @return the author
      */
     @NotNull    
-    @ManyToMany(fetch=FetchType.EAGER,targetEntity=Author.class)
-    public List<Author> getAuthors() {
-	return authors;
+    @ManyToOne(fetch=FetchType.EAGER)
+    public Author getAuthor() {
+	return author;
     }
 
 
@@ -131,8 +124,8 @@ public class Blog extends MyEntity {
      * @return the blogCategory
      */    
     @Enumerated(EnumType.STRING)
-    public BlogCategory getBlogCategory() {
-	return blogCategory;
+    public BlogCategory getCategory() {
+	return category;
     }
 
     /**
@@ -141,7 +134,7 @@ public class Blog extends MyEntity {
     @Column
     @Lob
     public String getCitation() {
-        return citation;
+	return citation;
     }
 
     /**
@@ -173,7 +166,7 @@ public class Blog extends MyEntity {
      * @return the pictures
      */
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Blog_Images", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
     public List<String> getPictures() {
 	return pictures;
     }
@@ -202,16 +195,7 @@ public class Blog extends MyEntity {
     @Column
     public String getTitle() {
 	return title;
-    }
-
-
-    public void removeAuthor(Author author){
-	if(authors == null){
-	    authors = new ArrayList<>();
-	}
-
-	authors.remove(author);
-    }
+    }   
 
     public void removePicture(String picture){
 	if(pictures == null){
@@ -229,17 +213,17 @@ public class Blog extends MyEntity {
     }
 
     /**
-     * @param authors the author to set
+     * @param author the author to set
      */
-    public void setAuthors(List<Author> authors) {
-	this.authors = authors;
+    public void setAuthor(Author author) {
+	this.author = author;
     }
 
     /**
      * @param blogCategory the blogCategory to set
      */
-    public void setBlogCategory(BlogCategory blogCategory) {
-	this.blogCategory = blogCategory;
+    public void setCategory(BlogCategory blogCategory) {
+	this.category = blogCategory;
     }
 
 
@@ -247,7 +231,7 @@ public class Blog extends MyEntity {
      * @param citation the citation to set
      */
     public void setCitation(String citation) {
-        this.citation = citation;
+	this.citation = citation;
     }
 
 
@@ -312,13 +296,13 @@ public class Blog extends MyEntity {
 	    return new Blog(this);
 	}
 
-	public Builder withAuthors(List<Author> authors) {
-	    super.authors = authors;
+	public Builder withAuthor(Author author) {
+	    super.author = author;
 	    return this;
 	}
 
-	public Builder withBlogCategory(BlogCategory blogCategory) {
-	    super.blogCategory = blogCategory;
+	public Builder withBlogCategory(BlogCategory category) {
+	    super.category = category;
 	    return this;
 	}
 

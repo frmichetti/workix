@@ -34,7 +34,7 @@
 					<div class="col-sm-10">
 						<h1><h:outputText value="#{blogDetailMB.currentBlog.title}" /></h1>
 						<div class="meta">
-							<span><i class="fa fa-user"></i><h:outputText value="#{blogDetailMB.currentBlog.authors}" /></span>
+							<span><i class="fa fa-user"></i><h:outputText value="#{blogDetailMB.currentBlog.author}" /></span>
 							<span><i class="fa fa-calendar"></i><h:outputText value="#{blogDetailMB.currentBlog.date}" converter="localDateFacesConverter" /></span>
 							<span><i class="fa fa-comment"></i><h:outputText value="#{blogDetailMB.comments.size()}" /></span>
 						</div>
@@ -138,9 +138,9 @@
 							
 							<div class="col-sm-10">
 								
-								<h5>Sobre o(s) Autor(es)</h5>
+								<h5>Sobre o Autor</h5>
 								
-								<ui:repeat var="author" value="#{blogDetailMB.currentBlog.authors}">
+								<ui:repeat var="author" value="#{blogDetailMB.currentBlog.author}">
 								
 								<p><h:outputText value="#{author.name}" /></p>
 								

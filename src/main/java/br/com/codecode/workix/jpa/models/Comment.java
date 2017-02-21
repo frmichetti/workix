@@ -23,7 +23,7 @@ import br.com.codecode.workix.interfaces.Buildable;
  * 
  * @see MyEntity
  * @author felipe
- * @since 1.0
+ * @since 1.1
  * @version 1.0
  */
 @Entity

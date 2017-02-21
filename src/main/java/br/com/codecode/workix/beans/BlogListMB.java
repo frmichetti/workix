@@ -1,6 +1,5 @@
 package br.com.codecode.workix.beans;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;

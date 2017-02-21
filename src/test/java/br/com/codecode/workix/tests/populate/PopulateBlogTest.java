@@ -72,16 +72,16 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 	    .withDate(LocalDate.now())	    
 	    .withContent("Conteúdo Aqui ")
 	    .withCitation("Citação Aqui ")
-	    .withBlogCategory(BlogCategory.JOBS)	    
+	    .withBlogCategory(BlogCategory.JOBS)
+	    .withAuthor(authors.get(x))
 	    .build();
 	    
 	    b.addTag(Tag.builder().withName("Etiqueta 1").build());
 	    
 	    b.addTag(Tag.builder().withName("Etiqueta 2").build());
 	    
-	    b.addPicture("http://localhost:8080/workix/resources/placeholder/800x530.jpg");
+	    b.addPicture("http://localhost:8080/workix/resources/placeholder/800x530.jpg");   
 	    
-	    b.addAuthor(authors.get(x));
 	    
 	    for (int i = 0; i < 7; i++) {
 		b.setContent(b.getContent().concat(b.getContent()));
