@@ -1,6 +1,8 @@
 package br.com.codecode.workix.beans;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -30,16 +32,26 @@ public class CandidatesMB extends BaseMB {
 
     @Inject @Factory @Default
     private FacesContext facesContext;
-    
+
     private Paginator paginator;
 
     @Inject
     @Generic
     private Crud<Candidate> dao;
 
+    
+    /**
+     * @return the pager
+     */
+    public List<Integer> getPager() {
+        return pager;
+    }
+
     private DataModel<Candidate> list;
 
     private String prefix, sufix;
+    
+    private List<Integer> pager = new ArrayList<>();
 
     /**
      * Max Results By Page
@@ -61,29 +73,14 @@ public class CandidatesMB extends BaseMB {
 
 	    totalRows = dao.countRegisters().intValue();
 
-	} catch (NotImplementedYetException e) {
+	    paginator = new Paginator(limitRows, page, totalRows);
 
-	    e.printStackTrace();
+	    totalPages = paginator.getTotalPages();
 
-	    goToErrorPage();
+	    start = paginator.getStart();
 
-	} catch (Exception e) {
-
-	    e.printStackTrace();
-
-	    goToErrorPage();
-	}
-
-	paginator = new Paginator(limitRows, page, totalRows);
-
-	totalPages = paginator.getTotalPages();
-
-	start = paginator.getStart();
-
-	end = paginator.getEnd();
-
-	try {
-
+	    end = paginator.getEnd();
+	    
 	    list = new ListDataModel<Candidate>(dao.listAll(start - 1, end));
 
 	} catch (NotImplementedYetException e) {
@@ -97,9 +94,8 @@ public class CandidatesMB extends BaseMB {
 	    e.printStackTrace();
 
 	    goToErrorPage();
-
 	}
-
+	
 	prefix = "/" + facesContext.getExternalContext().getContextName();
 
 	sufix = "&faces-redirect=true";
@@ -114,6 +110,11 @@ public class CandidatesMB extends BaseMB {
 	    System.out.println("Start " + start);
 
 	    System.out.println("End " + end);
+	}
+	
+	for(int x = 0 ; x <= totalPages; x++){
+	    if (x == 0) continue;
+	    	pager.add(x);
 	}
     }
 
@@ -148,5 +149,13 @@ public class CandidatesMB extends BaseMB {
 	}
 	return prefix + "/404.xhtml" + sufix;
     }
+    
+    public String goToLastPage() {
+  	return prefix + "/candidates2.xhtml?page=" + String.valueOf(totalPages) + sufix;
+      }
+
+      public String goToFirstPage() {
+  	return prefix + "/candidates2.xhtml?page=" + String.valueOf(1) + sufix;
+      }
 
 }

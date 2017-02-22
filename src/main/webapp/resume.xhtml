@@ -33,7 +33,7 @@
 					<div class="col-sm-8">
 						<article>
 							<h2>Resumo</h2>
-							<h:graphicImage name="220x273.jpg" library="placeholder" alt="testimonial" styleClass="pull-left" />							
+								<h:graphicImage name="220x273.jpg" library="placeholder" alt="testimonial" styleClass="pull-left" />							
 							<p style="min-height: 25px">
 								<h:outputText value="#{resumeMB.resume.content}" />
 							</p>
@@ -57,23 +57,26 @@
 											<i class="fa fa-briefcase"></i>
 										</div>
 									</div>
+									
 									<div class="col-sm-10">
+										
 										<h4>
 											<h:outputText value="#{exp.startDate}" converter="localDateFacesConverter" />									
-											
 											-
-											<h:outputText value="#{exp.endDate}" converter="localDateFacesConverter" />												
-											
+											<h:outputText value="#{exp.endDate}" converter="localDateFacesConverter" />											
 										</h4>
+										
 										<h5>
 											<h:outputText value="#{exp.employerName}" />
 											-
 											<h:outputText value="#{exp.jobTitle}" />
 										</h5>
+										
 										<p>
 											<h:outputText value="#{exp.description}" />
 										</p>
 									</div>
+									
 								</div>
 							</ui:repeat>
 
@@ -88,19 +91,23 @@
 									</div>
 
 									<div class="col-sm-10">
+										
 										<h4>
 											<h:outputText value="#{educ.startDate}" converter="localDateFacesConverter" />											
 											-
 											<h:outputText value="#{educ.endDate}" converter="localDateFacesConverter" />
 										</h4>
+										
 										<h5>
 											<h:outputText value="#{educ.schoolName}" />
 											-
 											<h:outputText value="#{educ.qualification}" />
 										</h5>
+										
 										<p>
 											<h:outputText value="#{educ.description}" />
 										</p>
+										
 									</div>
 								</div>
 							</ui:repeat>
