@@ -35,7 +35,6 @@ import br.com.codecode.workix.interfaces.Buildable;
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
 public class Job extends MyEntity {
-
    
     private static final long serialVersionUID = 2246753300384053586L;
 
@@ -88,6 +87,23 @@ public class Job extends MyEntity {
     @XmlTransient
     public static Builder builder() {
 	return new Builder();
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (!(obj instanceof Job))
+	    return false;
+	Job other = (Job) obj;
+	if (id != other.id)
+	    return false;
+	return true;
     }
 
     @Lob
@@ -146,6 +162,17 @@ public class Job extends MyEntity {
     @Column(nullable = false)
     public String getTitle() {
 	return title;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + (int) (id ^ (id >>> 32));
+	return result;
     }
 
     /**

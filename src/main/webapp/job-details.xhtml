@@ -156,9 +156,10 @@
 							<h2>Mais Vagas desta Empresa</h2>
 							
 							<ul>
-								<li><a href="#">Senior Web Designer</a></li>
-								<li><a href="#">Junior System Administrator</a></li>
-								<li><a href="#">Key Account Manager</a></li>
+								<ui:repeat var="job" value="#{jobDetailMB.jobs}">
+									<li><a href="./job-details.xhtml?id=#{job.id}"><h:outputText value="#{job.title}" /></a></li>
+								</ui:repeat>
+								
 							</ul>
 							
 						</div>

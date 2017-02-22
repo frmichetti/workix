@@ -1,6 +1,8 @@
 package br.com.codecode.workix.beans;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -24,23 +26,54 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 @Model
 public class JobDetailMB extends BaseMB {
 
+    private Job currentJob;
+
     @Inject
     @Generic
     private Crud<Job> dao;
-
-    private long id;
-
-    private Job currentJob;
 
     @Inject
     @Factory
     @Default
     private FacesContext facesContext;
+    
+    private long id;
 
-    private String prefix, sufix;
+    
+    private List<Job> jobs;
 
     @Inject
     private MessagesHelper messagesHelper;
+
+    private String prefix, sufix;
+
+    public Job getCurrentJob() {
+	return currentJob;
+    }
+
+    public long getId() {
+	return id;
+    }
+
+    /**
+     * @return the jobs
+     */
+    public List<Job> getJobs() {
+        return jobs;
+    }
+
+    private String goToErrorPage() {
+
+	try {
+
+	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+
+	} catch (IOException e) {
+
+	    e.printStackTrace();
+	}
+	return prefix + "/404.xhtml" + sufix;
+    }
 
     /**
      * Must be Called by f:viewAction After f:viewParam {page}
@@ -61,6 +94,12 @@ public class JobDetailMB extends BaseMB {
 	    try {
 
 		currentJob = dao.findById(id);
+		
+		jobs = dao.listAll(0, Integer.MAX_VALUE)
+			.stream()
+			.filter(j -> j.getCompany() == currentJob.getCompany())
+			.filter(j -> j.getId() != currentJob.getId())			
+			.collect(Collectors.toList());
 
 	    } catch (NotImplementedYetException e) {
 
@@ -81,34 +120,13 @@ public class JobDetailMB extends BaseMB {
 
     }
 
-    public long getId() {
-	return id;
-    }
-
     public void setId(long id) {
 	this.id = id;
-    }
-
-    public Job getCurrentJob() {
-	return currentJob;
     }
 
     public void signup() {
 	messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
 
-    }
-
-    private String goToErrorPage() {
-
-	try {
-
-	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
-
-	} catch (IOException e) {
-
-	    e.printStackTrace();
-	}
-	return prefix + "/404.xhtml" + sufix;
     }
 
 }
