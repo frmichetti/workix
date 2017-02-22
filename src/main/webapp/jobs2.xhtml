@@ -33,6 +33,7 @@
 							<ui:repeat var="job" value="#{jobsMB.list}">
 
 								<a href="#{basePath}/job-details.xhtml?id=#{job.id}" class="featured applied">
+									
 									<div class="row">
 										<div class="col-lg-1 col-md-1 hidden-sm hidden-xs">
 											<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-responsive" alt="" />											
@@ -67,29 +68,30 @@
 										</div>
 										
 										<div class="col-lg-2 col-md-2 col-sm-2 hidden-xs job-type text-center">
+											
 											<p class="job-salary">
 												<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
 											</p>
+											
 											<p class="#{jobsMB.discoverBadge(job.jobType)}">
 												<h:outputText value="#{job.jobType}" />
 											</p>
+											
 										</div>
 										
 										<div class="col-lg-2 job-dates visible-lg-block">
+											
 											<p class="job-posted">
-												<strong>Postada em <h:outputText
-														value="#{jobsMB.localdate.year}" /></strong>
+												<strong>Postada em <h:outputText value="#{jobsMB.localdate.year}" /></strong>
 											</p>
+											
 											<p class="job-closes">
-												Encerra em
-												<h:outputText value="#{jobsMB.localdate.year}" />													
+												Encerra em <h:outputText value="#{jobsMB.localdate.year}" />													
 											</p>
+											
 										</div>
 									</div>
 								</a>
-
-
-
 
 							</ui:repeat>
 
@@ -99,12 +101,17 @@
 
 						<nav>
 							<ul class="pagination">
+								
 								<li><a href="#{jobsMB.goToFirstPage()}" aria-label="Primeira">
+								
 								<span aria-hidden="true">Primeira</span></a></li>
+								
 								<ui:repeat var="pag" value="#{jobsMB.pager}">
 									<li><a href="./jobs2.xhtml?page=#{pag.intValue()}"><h:outputText value="#{pag.intValue()}" /></a></li>
 								</ui:repeat>								
+								
 								<li><a href="#{jobsMB.goToLastPage()}" aria-label="Última">
+								
 								<span aria-hidden="true">Última</span></a></li>
 							</ul>
 						</nav>

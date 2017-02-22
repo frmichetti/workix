@@ -91,7 +91,14 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 			    .withZipCode(45632145)
 			    .build())
 
-		    .withUser(u);    
+		    .withUser(u);
+	    
+	    c.setDescription("Descrição Aqui ");
+	    
+	    for (int i = 0; i < 5; i++) {
+		c.setDescription(c.getDescription().concat(c.getDescription()));
+	    }  
+	    
 
 	    assertNotNull(c);
 

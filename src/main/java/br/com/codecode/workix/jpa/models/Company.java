@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,15 +30,17 @@ public class Company extends Person {
    
     private static final long serialVersionUID = 47663377480544994L;
 
+    private String description;
+    
     private long id, cnpj;
-
+    
     private String segment;
 
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
     public Company(){}
-
+    
     /**
      * Public Constructor for {@link Builder} Compatibility
      * 
@@ -68,6 +71,15 @@ public class Company extends Person {
 	return cnpj;
     }
 
+    /**
+     * @return the description
+     */
+    @Column
+    @Lob    
+    public String getDescription() {
+        return description;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
@@ -83,6 +95,13 @@ public class Company extends Person {
 
     public void setCnpj(long cnpj) {
 	this.cnpj = cnpj;
+    }
+
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -127,8 +146,8 @@ public class Company extends Person {
 	    return this;
 	}
 
-	public Builder withId(long id) {
-	    super.id = id;
+	public Builder withDescription(String description) {
+	    super.description = description;
 	    return this;
 	}
 

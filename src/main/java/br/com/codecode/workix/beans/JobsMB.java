@@ -100,7 +100,9 @@ public class JobsMB extends BaseMB {
 
 	    end = paginator.getEnd();
 	    
-	    list = new ListDataModel<Job>(dao.listAll(start - 1, end));
+	    List<Job> jobs = dao.listAll(start - 1, end);
+	    
+	    list = new ListDataModel<Job>(jobs);
 
 	} catch (NotImplementedYetException e) {
 
