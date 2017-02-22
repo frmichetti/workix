@@ -55,6 +55,7 @@ public class MembersMB extends BaseMB {
 
     /**
      * @return discover Social Media Link
+     * @param url Enter the Url for Discover Social Media
      */
     public String whatSocialLink(String url){
 	return linkHelper.returnMedia(url);

@@ -85,7 +85,7 @@ public class Member extends MyEntity {
 
     /**
      * Add Social Media
-     * @param socialMedia
+     * @param socialMedia Social Media to Add in the List
      */
     public void addSocialMedia(SocialMedia socialMedia){
 	if(medias == null){
@@ -157,7 +157,7 @@ public class Member extends MyEntity {
 
     /**
      * Remove Social Media
-     * @param socialMedia
+     * @param socialMedia Remove the Social Media from the List
      */
     public void removeSocialMedia(SocialMedia socialMedia){
 	if(medias == null){
@@ -177,7 +177,7 @@ public class Member extends MyEntity {
 
 
     /**
-     * @param medias the medias to set
+     * @param medias the medias to set 
      */
     public void setMedias(List<SocialMedia> medias) {
 	this.medias = medias;
