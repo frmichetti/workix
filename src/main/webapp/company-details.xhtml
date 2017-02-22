@@ -8,6 +8,11 @@
 <ui:composition template="/template.xhtml">
 
 	<ui:define name="headerTitle">#{applicationMB.appName} - Detalhes da Empresa</ui:define>
+	
+	<f:metadata>
+		<f:viewParam id="id" name="id" value="#{companyDetailsMB.id}" />
+		<f:viewAction action="#{companyDetailsMB.init()}" />
+	</f:metadata>
 
 	<ui:define name="title">
 		<h:graphicImage name="332x120.gif" library="placeholder" styleClass="img-responsive" alt="" />		
@@ -26,29 +31,13 @@
 							
 							<h2>Sobre esta Empresa</h2>
 							
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
-								rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
-								convallis convallis nisi. Donec maximus accumsan purus vel
-								tempus. Aenean pretium luctus velit id fermentum. Aenean non
-								velit non nulla interdum venenatis. Integer in libero sagittis,
-								consequat est quis, commodo odio. Aliquam eu vulputate neque.
-								Nunc et massa leo. Vestibulum a pretium dolor. Proin et
-								fermentum sapien. Cras malesuada neque ac purus fermentum, a
-								placerat quam malesuada. Quisque sollicitudin tellus a ex
-								eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
+							<p><h:outputText value="#{companyDetailsMB.company.description}" /></p>							
 							
-							<p>Maecenas mollis dictum lectus quis scelerisque. Nulla at
-								rutrum ipsum. Praesent augue quam, facilisis vitae felis vel,
-								convallis convallis nisi. Donec maximus accumsan purus vel
-								tempus. Aenean pretium luctus velit id fermentum. Aenean non
-								velit non nulla interdum venenatis. Integer in libero sagittis,
-								consequat est quis, commodo odio. Aliquam eu vulputate neque.
-								Nunc et massa leo. Vestibulum a pretium dolor. Proin et
-								fermentum sapien. Cras malesuada neque ac purus fermentum, a
-								placerat quam malesuada. Quisque sollicitudin tellus a ex
-								eleifend mattis. In vitae ipsum in mauris vestibulum imperdiet.</p>
+							<hr/>
 							
-							<hr />
+							<h2>Segmento da Empresa</h2>
+							
+							<p><h:outputText value="#{companyDetailsMB.company.segment}" /></p>
 
 							<h2>Localização</h2>
 
@@ -61,14 +50,37 @@
 
 							<hr />
 
-							<h2>Vagas</h2>
+							<h2>Vagas desta Empresa</h2>
 
 							<div class="jobs">
+							
+							<ui:repeat var="job" value="#{companyDetailsMB.jobs}">
+							
+								<!-- Job offer -->
+								<a href="./job-details.xhtml?id=#{job.id}">
+									<div class="featured"></div>									
+										<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
+									<div class="title">
+										<h5><h:outputText value="#{job.title}" /></h5>
+										<p><h:outputText value="#{job.company.segment}" /></p>
+									</div>
+									<div class="data">
+										<span class="city"><i class="fa fa-map-marker"></i><h:outputText value="#{job.company.locale.city}" /></span>
+										<span class="type full-time"><i class="fa fa-clock-o"></i><h:outputText value="#{job.jobType}" /></span>
+										<span class="sallary"><i class="fa fa-dollar"></i><h:outputText value="#{job.maxPayment}" /></span>
+									</div>
+								</a>
+							
+							
+							
+							</ui:repeat>
+							
+							<ui:remove>
 								
 								<!-- Job offer 1 -->
 								<a href="#">
-									<div class="featured"></div>
-									<img src="images/job1.jpg" alt="" class="img-circle" />
+									<div class="featured"></div>									
+										<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
 									<div class="title">
 										<h5>Web Designer</h5>
 										<p>Amazon Inc.</p>
@@ -83,7 +95,7 @@
 								<!-- Job offer 2 -->
 								<a href="#">
 									<div class="featured"></div>
-									<img src="images/job2.jpg" alt="" class="img-circle" />
+									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
 									<div class="title">
 										<h5>Senior Web Developer</h5>
 										<p>Dropbox Inc.</p>
@@ -97,7 +109,7 @@
 								
 								<!-- Job offer 3 -->
 								<a href="#">
-									<img src="images/job3.jpg" alt="" class="img-circle" />
+									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
 									<div class="title">
 										<h5>Project Manager</h5>
 										<p>Apple Inc.</p>
@@ -111,7 +123,7 @@
 								
 								<!-- Job offer 4 -->
 								<a href="#">
-									<img src="images/job4.jpg" alt="" class="img-circle" />
+									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
 									<div class="title">
 										<h5>Key Account Manager</h5>
 										<p>Dell Inc.</p>
@@ -125,7 +137,7 @@
 								
 								<!-- Job offer 5 -->
 								<a href="#">
-									<img src="images/job5.jpg" alt="" class="img-circle" />
+									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
 									<div class="title">
 										<h5>Front End Developer</h5>
 										<p>Ebay Inc.</p>
@@ -139,7 +151,7 @@
 								
 								<!-- Job offer 6 -->
 								<a href="#">
-									<img src="images/job1.jpg" alt="" class="img-circle" />
+									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
 									<div class="title">
 										<h5>Web Designer</h5>
 										<p>Amazon Inc.</p>
@@ -150,6 +162,8 @@
 										<span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
 									</div>
 								</a>
+								
+							</ui:remove>	
 
 							</div>
 
@@ -163,13 +177,13 @@
 							<h2>Compartilhe</h2>
 						
 							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=#/themes/#{applicationMB.appName}/site/job-details.html"><i
+								<li><a href="https://www.facebook.com/sharer/sharer.php?u=#{applicationMB.appName}"><i
 										class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=#/themes/#{applicationMB.appName}/site/job-details.html"><i
+								<li><a href="https://twitter.com/home?status=#{applicationMB.appName}"><i
 										class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=#/themes/#{applicationMB.appName}/site/job-details.html"><i
+								<li><a href="https://plus.google.com/share?url=#{applicationMB.appName}"><i
 										class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#/themes/#{applicationMB.appName}/site/job-details.html&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
+								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#{applicationMB.appName}"><i
 										class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
@@ -181,11 +195,11 @@
 							<h2>Contato</h2>
 							
 							<ul>
-								<li><i class="fa fa-building"></i>Netvibes</li>
-								<li><i class="fa fa-map-marker"></i>2 Madison Avenue</li>
-								<li><i class="fa"></i>New York City, 29478 USA</li>
-								<li><i class="fa fa-phone"></i>01.22.987.8392</li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:company@yourdomain.com">Send an email</a></li>
+								<li><i class="fa fa-building"></i><h:outputText value="#{companyDetailsMB.company.name}" /></li>
+								<li><i class="fa fa-map-marker"></i><h:outputText value="#{companyDetailsMB.company.locale.street}" /></li>
+								<li><i class="fa"></i><h:outputText value="#{companyDetailsMB.company.locale.city}" />, <h:outputText value="#{companyDetailsMB.company.locale.estate}" /></li>
+								<li><i class="fa fa-phone"></i><h:outputText value="#{companyDetailsMB.company.contact.mobilePhone}" /></li>
+								<li><i class="fa fa-envelope"></i><a href="mailto:#{companyDetailsMB.company.user.email}">Envie um Email</a></li>
 							</ul>
 						</div>
 					</div>

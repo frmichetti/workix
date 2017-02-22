@@ -26,7 +26,6 @@ import br.com.codecode.workix.interfaces.Buildable;
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
 public class Company extends Person {
-
    
     private static final long serialVersionUID = 47663377480544994L;
 
@@ -95,6 +94,34 @@ public class Company extends Person {
 
     public void setCnpj(long cnpj) {
 	this.cnpj = cnpj;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + (int) (id ^ (id >>> 32));
+	return result;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (!(obj instanceof Company))
+	    return false;
+	Company other = (Company) obj;
+	if (id != other.id)
+	    return false;
+	return true;
     }
 
     /**
