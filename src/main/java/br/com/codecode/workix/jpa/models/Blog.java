@@ -41,9 +41,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Blog extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -5273926504177459295L;
 
     private Author author;

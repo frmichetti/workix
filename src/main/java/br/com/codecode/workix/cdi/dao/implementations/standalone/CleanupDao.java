@@ -15,9 +15,7 @@ import br.com.codecode.workix.jpa.models.SelectiveProcess;
  */
 public class CleanupDao extends BaseDao {
 
-    /**
-     * @serialField
-     */
+   
     private static final long serialVersionUID = 8313089022686190122L;
     
     public List<SelectiveProcess> findExpiredProcesses(LocalDateTime expire) {

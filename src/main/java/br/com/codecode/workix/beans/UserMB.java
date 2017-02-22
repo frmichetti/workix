@@ -36,8 +36,7 @@ public class UserMB extends BaseMB {
 
     @PostConstruct
     @Override
-    protected void init() {
-    }
+    protected void init(){}
 
     public User getUser() {
 	return user;

@@ -20,6 +20,7 @@ import br.com.codecode.workix.jpa.models.Job;
 @Persist
 public class JobDao extends BaseDao implements Crud<Job> {
 
+   
     private static final long serialVersionUID = 4029639665489024760L;
 
     @Override

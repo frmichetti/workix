@@ -22,6 +22,7 @@ import br.com.codecode.workix.jpa.models.Resume;
 @Persist
 public class ResumeDao extends BaseDao implements Crud<Resume> {
 
+   
     private static final long serialVersionUID = 4029639665489024760L;
 
     @Inject

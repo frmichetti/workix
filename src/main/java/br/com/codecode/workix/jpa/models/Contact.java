@@ -27,9 +27,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Contact implements Serializable {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -2482737185460142872L;
 
     private long mobilePhone;

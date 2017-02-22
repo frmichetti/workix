@@ -31,9 +31,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Locale implements Serializable {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -607806075186010186L;
 
     private String city;

@@ -28,6 +28,7 @@ import java.io.Serializable;
 @ApplicationScoped
 public class ApplicationMB extends BaseMB implements Serializable {
 
+   
     private static final long serialVersionUID = -4759086144184129975L;
 
     private String appName, slogan;

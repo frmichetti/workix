@@ -26,9 +26,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Skill implements Serializable {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -5975419980185059163L;
 
     private String skillName;

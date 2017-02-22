@@ -28,9 +28,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Tag implements Serializable{
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 323076947054044016L;
 
     private String name;

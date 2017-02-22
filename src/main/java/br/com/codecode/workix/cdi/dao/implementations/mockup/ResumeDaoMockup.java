@@ -25,6 +25,7 @@ import br.com.codecode.workix.jpa.models.Resume;
 @Mockup
 public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {
 
+   
     private static final long serialVersionUID = -7123666749649316280L;
 
     @Inject

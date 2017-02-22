@@ -30,6 +30,7 @@ import br.com.codecode.workix.jaxrs.converter.LocalDateAdapter;
 @Persist
 public class Experience implements Serializable {
 
+   
     private static final long serialVersionUID = -6311235469498858665L;
 
     private String description;

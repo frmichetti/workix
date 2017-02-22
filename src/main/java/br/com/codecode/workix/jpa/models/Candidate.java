@@ -29,9 +29,7 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 @Persist
 public class Candidate extends Person {
     
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 531807027259604477L;
 
     private LocalDate birthDate;

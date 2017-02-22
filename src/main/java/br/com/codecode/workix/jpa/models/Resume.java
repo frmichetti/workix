@@ -37,9 +37,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Resume extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 7569771700044121495L;
 
     /**

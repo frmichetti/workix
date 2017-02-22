@@ -36,9 +36,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Job extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 2246753300384053586L;
 
     private boolean active;

@@ -32,9 +32,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Comment extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 7358996279677908814L;
 
     private Blog blog; 

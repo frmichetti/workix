@@ -22,6 +22,7 @@ import br.com.codecode.workix.jpa.models.User;
 @Persist
 public class UserDao extends BaseDao implements Crud<User> {
 
+   
     private static final long serialVersionUID = 4029639665489024760L;
 
     @Inject

@@ -29,9 +29,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Subscriber extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 6675137603968146834L;
 
     private String email;

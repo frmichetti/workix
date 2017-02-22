@@ -128,8 +128,7 @@ public class JAASUser extends JAASBase {
 
 		private Set<JAASRole> roles;
 
-		private Builder() {
-		}
+		private Builder(){}
 
 		public JAASUser build() {
 			return new JAASUser(this);

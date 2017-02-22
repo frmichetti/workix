@@ -54,6 +54,7 @@ import br.com.codecode.workix.jaxrs.converter.LocalDateTimeAdapter;
 @Persist
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
 
+   
     private static final long serialVersionUID = -5336099006523168288L;
 
     @Column

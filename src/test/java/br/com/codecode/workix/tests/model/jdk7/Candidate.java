@@ -18,9 +18,7 @@ import br.com.codecode.workix.core.models.jdk7.root.BaseUser;
  */
 public final class Candidate extends BaseCandidate implements Serializable {
     
-    /**
-     * @serialField 
-     */
+  
     private static final long serialVersionUID = 1L;
 
     @Override

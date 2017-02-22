@@ -24,6 +24,7 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 @SessionScoped
 public class FirebaseMB extends BaseMB implements Serializable {
 
+   
     private static final long serialVersionUID = -893904762220030419L;
 
     private String name, email, uid, photo, idToken;

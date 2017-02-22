@@ -9,6 +9,7 @@ package br.com.codecode.workix.core.exceptions;
  */
 public final class NotImplementedYetException extends Exception {
 
+   
     private static final long serialVersionUID = 3725069176156035494L;
 
     /**

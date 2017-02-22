@@ -6,19 +6,8 @@ import java.util.Calendar;
 import br.com.codecode.workix.core.models.jdk7.root.BaseUser;
 import br.com.codecode.workix.interfaces.Notificable;
 
-/**
- * @author felipe
- *
- */
-/**
- * @author felipe
- *
- */
 public final class User extends BaseUser implements Notificable , Serializable {
-    
-    /**
-     * @serialField
-     */
+
     private static final long serialVersionUID = 1L;
 
     @Override
@@ -120,11 +109,7 @@ public final class User extends BaseUser implements Notificable , Serializable {
     public void finalize() throws Throwable {
 	super.finalize();
     }
-    
-    
-    
-    
-    
+
     
 
 }

@@ -25,6 +25,7 @@ import br.com.codecode.workix.jpa.models.Candidate;
 @Mockup
 public class CandidateDaoMockup extends BaseDaoMockup implements Crud<Candidate> {
 
+   
     private static final long serialVersionUID = -405041688690426708L;
 
     @Inject

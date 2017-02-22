@@ -23,6 +23,7 @@ import br.com.codecode.workix.jpa.models.Job;
 @Mockup
 public class JobDaoMockup extends BaseDaoMockup implements Crud<Job> {
 
+   
     private static final long serialVersionUID = -7524434066008227524L;
 
     @Override

@@ -26,9 +26,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Company extends Person {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 47663377480544994L;
 
     private long id, cnpj;

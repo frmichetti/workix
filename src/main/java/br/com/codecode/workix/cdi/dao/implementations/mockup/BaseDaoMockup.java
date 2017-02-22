@@ -25,6 +25,7 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 @Mockup
 public class BaseDaoMockup implements Serializable {
 
+   
     private static final long serialVersionUID = -4533114503790241039L;
 
     protected static final String TITLE = "MOCKUP";

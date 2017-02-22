@@ -24,9 +24,7 @@ import br.com.codecode.workix.cdi.qualifiers.Production;
 @Persist
 public abstract class BaseDao implements Serializable {
 
-    /**
-     * @serialField
-     */
+   
     private static final long serialVersionUID = 3943660229318614845L;
 
     /**

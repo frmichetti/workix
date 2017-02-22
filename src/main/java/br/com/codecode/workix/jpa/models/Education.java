@@ -28,9 +28,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Education implements Serializable {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -1514012744160609145L;
 
     private String description;

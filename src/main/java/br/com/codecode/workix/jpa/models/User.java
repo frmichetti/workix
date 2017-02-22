@@ -32,9 +32,7 @@ import br.com.codecode.workix.interfaces.Notificable;
 @Persist
 public class User extends MyEntity implements Notificable {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -610648880358327958L;
 
     private boolean active;

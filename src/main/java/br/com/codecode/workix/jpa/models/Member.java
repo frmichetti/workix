@@ -36,9 +36,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Member extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -9177132485712227287L;
 
     private long id;

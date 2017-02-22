@@ -28,9 +28,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class SocialMedia implements Serializable {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = -3082998497652120101L;        
 
     private String media;

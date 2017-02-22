@@ -36,9 +36,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Author extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 4441917823240375511L;
 
     private String aboutText;
@@ -193,7 +191,7 @@ public class Author extends MyEntity {
     public static final class Builder  extends Author implements Buildable<Author>{
 
 	/**
-	 * @serialField
+	 * @serialField Default Auto Generated Serial
 	 */
 	private static final long serialVersionUID = -8399508111893300657L;
 

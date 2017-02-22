@@ -18,6 +18,7 @@ import java.io.Serializable;
 @SessionScoped
 public class SecurityMB extends BaseMB implements Serializable {
 
+   
     private static final long serialVersionUID = 4062470003123871957L;
 
     @PostConstruct

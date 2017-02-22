@@ -24,9 +24,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 @MappedSuperclass
 abstract class Person extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 703693002246144451L;
     
     private String name;

@@ -20,6 +20,7 @@ import br.com.codecode.workix.jpa.models.Candidate;
 @Persist
 public class CandidateDao extends BaseDao implements Crud<Candidate> {
 
+   
     private static final long serialVersionUID = -4430675125218575581L;
 
     @Override

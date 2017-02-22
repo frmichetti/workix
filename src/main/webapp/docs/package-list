@@ -33,7 +33,7 @@ br.com.codecode.workix.gson.util.deserializer
 br.com.codecode.workix.gson.util.serializer
 br.com.codecode.workix.interfaces
 br.com.codecode.workix.jaas
-br.com.codecode.workix.jaas.model
+br.com.codecode.workix.jaas.models
 br.com.codecode.workix.jaxrs
 br.com.codecode.workix.jaxrs.converter
 br.com.codecode.workix.jaxrs.deserializer

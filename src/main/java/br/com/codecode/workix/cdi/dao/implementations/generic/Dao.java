@@ -29,6 +29,7 @@ import br.com.codecode.workix.interfaces.Persistable;
  */
 public class Dao<T extends Persistable & Serializable> implements Crud<T>, Serializable {
 
+   
     private static final long serialVersionUID = 8476110516365062871L;
 
     private Class<T> clazz;

@@ -32,9 +32,7 @@ import br.com.codecode.workix.interfaces.Buildable;
 @Persist
 public class Testimonial extends MyEntity {
 
-    /**
-     * @serialField Default Auto Generated Serial
-     */
+   
     private static final long serialVersionUID = 9143527358797800527L;
 
     private Author author;

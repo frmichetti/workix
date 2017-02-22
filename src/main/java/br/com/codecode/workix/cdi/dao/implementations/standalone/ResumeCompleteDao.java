@@ -14,6 +14,7 @@ import br.com.codecode.workix.jpa.models.Resume;
  */
 public class ResumeCompleteDao extends BaseDao {
 
+   
     private static final long serialVersionUID = -5431107883362073057L;
 
     public Resume findResumebyOwner(Candidate candidate) {
