@@ -33,7 +33,7 @@ public class JobsMB extends BaseMB {
 
     @Inject @Factory @Default
     private FacesContext facesContext;
-    
+        
     private Paginator paginator;
 
     @Inject @Generic

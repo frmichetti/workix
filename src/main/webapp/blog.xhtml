@@ -61,10 +61,11 @@
 						
 							<!-- PAGINATION START -->
 							<ul class="pagination" data-scroll-reveal="">
-								<li class="active"><a href="#">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">Next <i class="fa fa-angle-right"></i></a></li>
+								<li><a href="#{blogListMB.goToFirstPage()}">Primeira <i class="fa fa-angle-left"></i></a></li>
+								<ui:repeat var="pag" value="#{blogListMB.pager}">
+									<li><a href="./blog.xhtml?page=#{pag.intValue()}"><h:outputText value="#{pag.intValue()}" /></a></li>
+								</ui:repeat>
+								<li><a href="#{blogListMB.goToLastPage()}">Última <i class="fa fa-angle-right"></i></a></li>
 							</ul>
 							<!-- PAGINATION END -->
 

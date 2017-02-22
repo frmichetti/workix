@@ -67,5 +67,9 @@ public class NavigationMB extends BaseMB {
     public String goToYoutube() {
 	return "https://www.youtube.com/embed/VqHbQ-WwMfk";
     }
+    
+    public String goToBlog() {
+	return  prefix + "/blog.xhtml?page=1" + sufix.replace("?", "&");
+    }
 
 }
