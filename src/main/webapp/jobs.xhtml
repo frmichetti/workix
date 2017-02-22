@@ -92,16 +92,13 @@
 
 						<nav>
 							<ul class="pagination">
-								<li class="disabled"><a href="#" aria-label="Previous">
-										<span aria-hidden="true">Voltar</span>
-								</a></li>
-								<li class="active"><a href="#">1<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#" aria-label="Next"><span
-										aria-hidden="true">Avançar</span></a></li>
+								<li><a href="#{jobsMB.goToFirstPage()}" aria-label="Primeira">
+								<span aria-hidden="true">Primeira</span></a></li>
+								<ui:repeat var="pag" value="#{jobsMB.pager}">
+									<li><a href="./jobs.xhtml?page=#{pag.intValue()}"><h:outputText value="#{pag.intValue()}" /></a></li>
+								</ui:repeat>								
+								<li><a href="#{jobsMB.goToLastPage()}" aria-label="Última">
+								<span aria-hidden="true">Última</span></a></li>
 							</ul>
 						</nav>
 

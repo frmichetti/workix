@@ -1,7 +1,8 @@
 package br.com.codecode.workix.beans;
 
-import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -33,31 +34,42 @@ public class JobsMB extends BaseMB {
 
     @Inject @Factory @Default
     private FacesContext facesContext;
-        
+
     private Paginator paginator;
 
     @Inject @Generic
     private Crud<Job> dao;
-    
+
     @Inject
     private JobTypeLinkHelper jobTypeLinkHelper;
 
     private DataModel<Job> list;
 
     private String prefix, sufix;
-    
+
     private LocalDate localdate = LocalDate.now();
     
-    public String discoverBadge(JobType jobType){
-  	return jobTypeLinkHelper.returnType(jobType);
-      }
+    private List<Integer> pager = new ArrayList<>();
 
     
+    /**
+     * @return the pager
+     */
+    public List<Integer> getPager() {
+        return pager;
+    }
+
+
+    public String discoverBadge(JobType jobType){
+	return jobTypeLinkHelper.returnType(jobType);
+    }
+
+
     /**
      * @return the localdate
      */
     public LocalDate getLocaldate() {
-        return localdate;
+	return localdate;
     }
 
     /**
@@ -80,21 +92,14 @@ public class JobsMB extends BaseMB {
 
 	    totalRows = dao.countRegisters().intValue();
 
-	} catch (NotImplementedYetException e) {
+	    paginator = new Paginator(limitRows, page, totalRows);
 
-	    e.printStackTrace();
-	}
-	
-	paginator = new Paginator(limitRows, page, totalRows);
+	    totalPages = paginator.getTotalPages();
 
-	totalPages = paginator.getTotalPages();
+	    start = paginator.getStart();
 
-	start = paginator.getStart();
-
-	end = paginator.getEnd();
-
-	try {
-
+	    end = paginator.getEnd();
+	    
 	    list = new ListDataModel<Job>(dao.listAll(start - 1, end));
 
 	} catch (NotImplementedYetException e) {
@@ -117,6 +122,11 @@ public class JobsMB extends BaseMB {
 
 	    System.out.println("End " + end);
 	}
+	
+	for(int x = 0 ; x <= totalPages; x++){
+	    if (x == 0) continue;
+	    	pager.add(x);
+	}
 
     }
 
@@ -138,44 +148,7 @@ public class JobsMB extends BaseMB {
     public String goToFirstPage() {
 	return prefix + "/jobs2.xhtml?page=" + String.valueOf(1) + sufix;
     }
-
-    public void goToNextPage() {
-
-	if (page < totalPages)
-
-	    page++;
-
-	try {
-
-	    facesContext.getExternalContext().redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
-
-	} catch (IOException e) {
-
-	    e.printStackTrace();
-	}
-
-    }
-
-    public void goToPreviousPage() {
-
-	if (page > 1)
-
-	    page--;
-
-	try {
-
-	    facesContext.getExternalContext().redirect(prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix);
-
-	} catch (IOException e) {
-
-	    e.printStackTrace();
-	}
-
-    }
-
-    public String goToPage(int page) {
-	return prefix + "/jobs2.xhtml?page=" + String.valueOf(page) + sufix;
-    }
+  
 
     public int getPage() {
 	return page;
