@@ -146,9 +146,6 @@ public class User extends MyEntity implements Notificable {
      */
     public final static class Builder extends User implements Buildable<User> {
 
-	/**
-	 * @serialField Default Auto Generated Serial
-	 */
 	private static final long serialVersionUID = -7766145008890656904L;
 
 	/**

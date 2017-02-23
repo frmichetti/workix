@@ -88,9 +88,6 @@ public class Tag implements Serializable{
      */   
     public static final class Builder extends Tag implements Buildable<Tag> {
 
-	/**
-	 * @serialField Default Auto Generated Serial
-	 */
 	private static final long serialVersionUID = -5775038446937981944L;	
 
 	/**

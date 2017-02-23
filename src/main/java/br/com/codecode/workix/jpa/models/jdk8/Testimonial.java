@@ -166,9 +166,6 @@ public class Testimonial extends MyEntity {
      */    
     public static final class Builder extends Testimonial implements Buildable<Testimonial>  {
 
-	/**
-	 * @serialField Default Auto Generated Serial
-	 */
 	private static final long serialVersionUID = 136923846936951445L;
 
 	/**

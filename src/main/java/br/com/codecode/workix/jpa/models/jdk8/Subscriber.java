@@ -103,9 +103,6 @@ public class Subscriber extends MyEntity {
      */
     public final static class Builder extends Subscriber implements Buildable<Subscriber> {
 
-	/**
-	 * @serialField Default Auto Generated Serial
-	 */
 	private static final long serialVersionUID = -7750971468814207111L;
 
 	/**
