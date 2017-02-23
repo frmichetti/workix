@@ -9,7 +9,9 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-import br.com.codecode.workix.core.models.compat.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
+
+
 
 /**
  * @author felipe

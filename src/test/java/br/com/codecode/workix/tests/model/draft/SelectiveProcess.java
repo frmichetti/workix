@@ -7,7 +7,9 @@ import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
-import br.com.codecode.workix.core.models.compat.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
+
+
 
 /**
  * TDD for Class {@link SelectiveProcess}

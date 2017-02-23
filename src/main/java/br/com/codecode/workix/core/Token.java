@@ -5,11 +5,9 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.core.models.jdk8;
+package br.com.codecode.workix.core;
 
 import java.time.LocalDateTime;
-
-import javax.annotation.Generated;
 
 /**
  * Token Model
@@ -27,10 +25,8 @@ public final class Token {
     /**
      * Public Default Constructor
      */
-    private Token() {
-    }
-
-    @Generated("SparkTools")
+    private Token(){}
+    
     private Token(Builder builder) {
 	setCreatedAt(builder.createdAt);
 	this.key = builder.key;
@@ -41,7 +37,6 @@ public final class Token {
      * 
      * @return created builder
      */
-    @Generated("SparkTools")
     public static Builder builder() {
 	return new Builder();
     }
@@ -64,22 +59,24 @@ public final class Token {
 
     @Override
     public String toString() {
-	return new StringBuilder().append("Token [createdAt=").append(createdAt).append(", key=").append(key)
+	return new StringBuilder()
+		.append("Token [createdAt=")
+		.append(createdAt)
+		.append(", key=")
+		.append(key)
 		.append("]").toString();
     }
 
     /**
      * Builder to build {@link Token}.
      */
-    @Generated("SparkTools")
     public static final class Builder {
 
 	private LocalDateTime createdAt;
 
 	private String key;
 
-	private Builder() {
-	}
+	private Builder(){}
 
 	public Token build() {
 	    return new Token(this);

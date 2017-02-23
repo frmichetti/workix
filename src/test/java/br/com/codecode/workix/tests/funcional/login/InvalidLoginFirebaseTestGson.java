@@ -12,7 +12,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import br.com.codecode.workix.core.models.jdk8.Token;
+import br.com.codecode.workix.core.Token;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 

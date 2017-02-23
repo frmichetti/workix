@@ -7,8 +7,8 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.core.models.jdk8.Token;
-import br.com.codecode.workix.core.models.jdk8.actions.UserActions;
+import br.com.codecode.workix.core.Token;
+import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -19,9 +19,9 @@ import br.com.codecode.workix.tests.util.HttpTest;
  */
 public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
-    private String url = server + "/login/firebaselogin";
-
     private String json;
+
+    private String url = server + "/login/firebaselogin";
 
     @Test
     @Override
@@ -41,8 +41,7 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
     @Override
     public void parseJson() {
 
-	UserActions u = getGson().fromJson(json, new TypeToken<UserActions>() {
-	}.getType());
+	User u = getGson().fromJson(json, new TypeToken<User>(){}.getType());
 
 	assertNotNull(u);
 

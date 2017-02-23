@@ -13,14 +13,12 @@ import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.Estate;
-import br.com.codecode.workix.core.models.jdk8.actions.LocaleActions;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Locale JPA Embeddable
  * 
  * @author felipe
- * @see LocaleActions
  * @see Serializable
  * @since 1.0
  * @version 1.1

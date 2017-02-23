@@ -11,7 +11,9 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.core.models.compat.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
+
+
 
 public class TestSelectiveProcess {
 

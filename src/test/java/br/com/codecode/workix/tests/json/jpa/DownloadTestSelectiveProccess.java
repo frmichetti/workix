@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.core.models.compat.SelectiveProcess;
+import br.com.codecode.workix.jpa.models.SelectiveProcess;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.json.DownloadTest;
 
@@ -35,7 +35,7 @@ public class DownloadTestSelectiveProccess extends BaseTest implements DownloadT
 
 	assertNotNull(sps);
 
-	assertTrue(sps.size() > 0);		
+	assertTrue(sps.size() >= 0);		
 
 	System.out.println("----Stream----");
 	

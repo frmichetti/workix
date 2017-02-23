@@ -17,7 +17,7 @@ import javax.json.JsonReader;
 
 import org.junit.Test;
 
-import br.com.codecode.workix.core.models.jdk8.Token;
+import br.com.codecode.workix.core.Token;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -42,7 +42,8 @@ public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTe
 
 	Token t = Token.builder().withKey("XXXXXXXXX").build();
 
-	JsonObject jsonObject = Json.createObjectBuilder().add("createdAt", t.getCreatedAt().getSecond())
+	JsonObject jsonObject = Json.createObjectBuilder()
+		.add("createdAt", t.getCreatedAt().toString())
 		.add("key", t.getKey()).build();
 
 	json = HttpTest.sendPost(url, jsonObject.toString());
