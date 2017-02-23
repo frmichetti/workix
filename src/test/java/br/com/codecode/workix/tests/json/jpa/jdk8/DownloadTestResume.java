@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.jpa;
+package br.com.codecode.workix.tests.json.jpa.jdk8;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;

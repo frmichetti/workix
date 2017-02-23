@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.jpa;
+package br.com.codecode.workix.tests.json.jpa.jdk8;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

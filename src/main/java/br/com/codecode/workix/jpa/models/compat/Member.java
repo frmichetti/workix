@@ -3,8 +3,6 @@ package br.com.codecode.workix.jpa.models.compat;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.xml.bind.annotation.XmlTransient;
-
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
@@ -55,8 +53,7 @@ public class Member extends MyEntity {
     /**
      * Creates builder to build {@link Member}.
      * @return created builder
-     */
-    @XmlTransient
+     */    
     public static Builder builder() {
 	return new Builder();
     }

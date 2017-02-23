@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.jpa;
+package br.com.codecode.workix.tests.json.jpa.jdk8;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -11,37 +11,35 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.jdk8.User;
+import br.com.codecode.workix.jpa.models.jdk8.Company;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.json.DownloadTest;
 
-public class DownloadTestUser extends BaseTest implements DownloadTest<User> {
+public class DownloadTestCompany extends BaseTest implements DownloadTest<Company> {
 
     private String resp;
 
-    @Before    
+    @Before        
     public void downloadItens() {	
 
-	resp = downloadItens(server + "/users");	
+	resp = downloadItens(server + "/companies");
+
+	assertFalse(resp.isEmpty());
 
     }
 
     @Test    
     public void parseItens() {
-	
-	assertFalse(resp.isEmpty());
-	
-	List<User> users = parseItens(resp, new TypeToken<List<User>>(){});
 
-	assertNotNull(users);
+	List<Company> companies = parseItens(resp, new TypeToken<List<Company>>(){});
 
-	assertTrue(users.size() > 0);		
+	assertNotNull(companies);
+
+	assertTrue(companies.size() > 0);
 
 	System.out.println("----Stream----");
-	
-	System.out.println(users.size());
 
-	users.stream().forEach(u -> System.out.println(u.getEmail()));
+	companies.stream().forEach(System.out::println);
 
 	System.out.println("----Stream----");
 

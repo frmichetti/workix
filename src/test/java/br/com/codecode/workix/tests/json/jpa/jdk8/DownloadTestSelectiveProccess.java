@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.jpa;
+package br.com.codecode.workix.tests.json.jpa.jdk8;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -11,35 +11,37 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.jdk8.Company;
+import br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.json.DownloadTest;
 
-public class DownloadTestCompany extends BaseTest implements DownloadTest<Company> {
+public class DownloadTestSelectiveProccess extends BaseTest implements DownloadTest<SelectiveProcess> {
 
     private String resp;
 
-    @Before        
+    @Before    
     public void downloadItens() {	
 
-	resp = downloadItens(server + "/companies");
-
-	assertFalse(resp.isEmpty());
+	resp = downloadItens(server + "/selectiveprocesses");	
 
     }
 
     @Test    
     public void parseItens() {
+	
+	assertFalse(resp.isEmpty());
+	
+	List<SelectiveProcess> sps = parseItens(resp, new TypeToken<List<SelectiveProcess>>(){});
 
-	List<Company> companies = parseItens(resp, new TypeToken<List<Company>>(){});
+	assertNotNull(sps);
 
-	assertNotNull(companies);
-
-	assertTrue(companies.size() > 0);
+	assertTrue(sps.size() >= 0);		
 
 	System.out.println("----Stream----");
+	
+	System.out.println(sps.size());
 
-	companies.stream().forEach(System.out::println);
+	sps.stream().forEach(System.out::println);
 
 	System.out.println("----Stream----");
 

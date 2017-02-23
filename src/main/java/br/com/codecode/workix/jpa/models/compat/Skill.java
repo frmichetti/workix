@@ -2,9 +2,6 @@ package br.com.codecode.workix.jpa.models.compat;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.xml.bind.annotation.XmlTransient;
-
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
@@ -41,15 +38,13 @@ public class Skill implements Serializable {
      * Creates builder to build {@link Skill}.
      * @return created builder
      */    
-    @XmlTransient
     public static Builder builder() {
 	return new Builder();
     }
 
     /**
      * @return the Skill Name
-     */
-    @Column
+     */    
     public String getSkillName() {
 	return this.skillName;
     }

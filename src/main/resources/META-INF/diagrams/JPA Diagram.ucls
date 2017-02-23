@@ -224,199 +224,191 @@
   </generalization>  
   <dependency id="28">    
     <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="29">    
-    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="21"/>  
   </dependency>  
-  <nesting id="30">    
+  <nesting id="29">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="11"/>  
   </nesting>  
-  <association id="31">    
+  <association id="30">    
     <bendpoint x="2381" y="-126"/>    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="32" name="candidates">        
+      <attribute id="31" name="candidates">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="33" minimum="0" maximum="2147483647">        
+      <multiplicity id="32" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="34">    
+  <nesting id="33">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="14"/>  
   </nesting>  
-  <dependency id="35">    
+  <dependency id="34">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="21"/>  
   </dependency>  
-  <generalization id="36">    
+  <generalization id="35">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="6"/>  
   </generalization>  
-  <association id="37">    
+  <association id="36">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="38" name="skills">        
+      <attribute id="37" name="skills">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="39" minimum="0" maximum="2147483647">        
+      <multiplicity id="38" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="40">    
+  <nesting id="39">    
     <end type="SOURCE" refId="21"/>    
     <end type="TARGET" refId="19"/>  
   </nesting>  
-  <association id="41">    
+  <association id="40">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="42" name="candidate">        
+      <attribute id="41" name="candidate">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="43" minimum="0" maximum="1">        
+      <multiplicity id="42" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="44">    
+  <nesting id="43">    
     <end type="SOURCE" refId="17"/>    
     <end type="TARGET" refId="5"/>  
   </nesting>  
-  <association id="45">    
+  <association id="44">    
     <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="46" name="contact">        
+      <attribute id="45" name="contact">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="47" minimum="0" maximum="1">        
+      <multiplicity id="46" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="48">    
+  <association id="47">    
     <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="49" name="user">        
+      <attribute id="48" name="user">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="50" minimum="0" maximum="1">        
+      <multiplicity id="49" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="51">    
+  <generalization id="50">    
     <end type="SOURCE" refId="3"/>    
     <end type="TARGET" refId="16"/>  
   </generalization>  
-  <association id="52">    
+  <association id="51">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="53" name="experiences">        
+      <attribute id="52" name="experiences">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="54" minimum="0" maximum="2147483647">        
+      <multiplicity id="53" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="55">    
+  <nesting id="54">    
     <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="9"/>  
   </nesting>  
-  <association id="56">    
+  <association id="55">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="57" name="job">        
+      <attribute id="56" name="job">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="58" minimum="0" maximum="1">        
+      <multiplicity id="57" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="59">    
+  <generalization id="58">    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <generalization id="60">    
+  <generalization id="59">    
     <end type="SOURCE" refId="11"/>    
     <end type="TARGET" refId="10"/>  
   </generalization>  
-  <association id="61">    
+  <association id="60">    
     <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="62" name="company">        
+      <attribute id="61" name="company">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="63" minimum="0" maximum="1">        
+      <multiplicity id="62" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="64">    
+  <generalization id="63">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="17"/>  
   </generalization>  
-  <generalization id="65">    
+  <generalization id="64">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="13"/>  
   </generalization>  
-  <generalization id="66">    
+  <generalization id="65">    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="16"/>  
   </generalization>  
-  <nesting id="67">    
+  <nesting id="66">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="8"/>  
   </nesting>  
-  <association id="68">    
+  <association id="67">    
     <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="69" name="locale">        
+      <attribute id="68" name="locale">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="70" minimum="0" maximum="1">        
+      <multiplicity id="69" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="71">    
+  <generalization id="70">    
     <end type="SOURCE" refId="20"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <dependency id="72">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <generalization id="73">    
+  <generalization id="71">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="74">    
+  <generalization id="72">    
     <bendpoint x="1119" y="-126"/>    
     <end type="SOURCE" refId="21"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="75">    
+  <generalization id="73">    
     <end type="SOURCE" refId="18"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <nesting id="76">    
+  <nesting id="74">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="15"/>  
   </nesting>  
