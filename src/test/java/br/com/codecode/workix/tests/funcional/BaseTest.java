@@ -15,7 +15,7 @@ import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateTimeDeserializer;
 import br.com.codecode.workix.gson.util.serializer.GsonLocalDateSerializer;
 import br.com.codecode.workix.gson.util.serializer.GsonLocalDateTimeSerializer;
-import br.com.codecode.workix.tests.util.HttpConfig;
+import br.com.codecode.workix.tests.config.HttpConfig;
 
 
 /**

@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.populate;
+package br.com.codecode.workix.tests.populate.jdk8;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;

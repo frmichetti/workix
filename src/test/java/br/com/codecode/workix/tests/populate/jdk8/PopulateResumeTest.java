@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.populate;
+package br.com.codecode.workix.tests.populate.jdk8;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -17,6 +17,7 @@ import br.com.codecode.workix.jpa.models.jdk8.Experience;
 import br.com.codecode.workix.jpa.models.jdk8.Resume;
 import br.com.codecode.workix.jpa.models.jdk8.Skill;
 import br.com.codecode.workix.tests.funcional.BaseTest;
+import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**

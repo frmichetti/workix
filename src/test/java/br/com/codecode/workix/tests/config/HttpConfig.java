@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.util;
+package br.com.codecode.workix.tests.config;
 
 /**
  * Startup Config for Unit Tests

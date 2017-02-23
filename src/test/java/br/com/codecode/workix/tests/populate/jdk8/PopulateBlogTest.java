@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.populate;
+package br.com.codecode.workix.tests.populate.jdk8;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -25,6 +25,7 @@ import br.com.codecode.workix.jpa.models.jdk8.Author;
 import br.com.codecode.workix.jpa.models.jdk8.Blog;
 import br.com.codecode.workix.jpa.models.jdk8.Tag;
 import br.com.codecode.workix.tests.funcional.BaseTest;
+import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**

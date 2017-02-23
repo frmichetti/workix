@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.populate;
+package br.com.codecode.workix.tests.populate.jdk8;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
