@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
 import br.com.codecode.workix.config.JAXRSConfiguration;
-import br.com.codecode.workix.core.Token;
+import br.com.codecode.workix.core.common.jdk8.Token;
 import br.com.codecode.workix.jpa.models.jdk8.Contact;
 import br.com.codecode.workix.jpa.models.jdk8.Candidate;
 import br.com.codecode.workix.jpa.models.jdk8.Locale;

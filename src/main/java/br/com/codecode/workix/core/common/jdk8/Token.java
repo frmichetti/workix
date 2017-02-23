@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.core;
+package br.com.codecode.workix.core.common.jdk8;
 
 import java.time.LocalDateTime;
 
