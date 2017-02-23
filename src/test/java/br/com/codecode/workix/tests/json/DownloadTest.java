@@ -3,6 +3,7 @@ package br.com.codecode.workix.tests.json;
 import java.io.Serializable;
 import java.util.List;
 
+import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.gson.util.GsonProvider;
@@ -29,7 +30,7 @@ public interface DownloadTest<T extends Serializable> {
     }
 
     /**
-     * Parse Items to Entity
+     * Parse Items to Entity with Default Gson
      * @param rawJson Raw Json String
      * @param type Expected Type
      * @return List of Parsed Object
@@ -39,6 +40,17 @@ public interface DownloadTest<T extends Serializable> {
 	return GsonProvider.buildGson()
 		.fromJson(rawJson, type.getType());	
 	
+    }
+    
+    /**
+     * Parse Items to Entity with Another Gson Implementation
+     * @param Gson Gson instance for Parse Item
+     * @param rawJson Raw Json String
+     * @param type Expected Type
+     * @return List of Parsed Object
+     */
+    default List<T> parseItens(Gson gson,String rawJson,TypeToken<?> type){
+	return gson.fromJson(rawJson, type.getType());	
     }
 
 }

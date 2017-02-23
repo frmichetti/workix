@@ -149,8 +149,14 @@
 				<artifactId>javaee-api</artifactId>
 				<version>${version.api}</version>
 				<scope>provided</scope>
+				<optional>true</optional>
 			</dependency>
 
+			<dependency>
+				<groupId>org.wildfly</groupId>
+				<artifactId>wildfly-dist</artifactId>
+				<version>${version.jboss.bom}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 

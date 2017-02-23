@@ -54,7 +54,7 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 
 	    Calendar c = Calendar.getInstance();
 
-	    Date d = new Date();
+	    Date d = null;
 
 	    try {
 
@@ -64,7 +64,7 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 		 * 
 		 * @return
 		 */
-		d = new SimpleDateFormat().parse(dateRaw);
+		d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
 
 	    } catch (ParseException e) {
 
