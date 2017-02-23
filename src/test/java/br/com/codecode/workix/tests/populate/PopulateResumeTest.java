@@ -11,11 +11,11 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jpa.models.Education;
-import br.com.codecode.workix.jpa.models.Experience;
-import br.com.codecode.workix.jpa.models.Resume;
-import br.com.codecode.workix.jpa.models.Skill;
+import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import br.com.codecode.workix.jpa.models.jdk8.Education;
+import br.com.codecode.workix.jpa.models.jdk8.Experience;
+import br.com.codecode.workix.jpa.models.jdk8.Resume;
+import br.com.codecode.workix.jpa.models.jdk8.Skill;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -56,11 +56,8 @@ public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume
 	for (Candidate c : candidates) {
 
 	    Resume r = Resume.builder()
-
 		    .withContent("Conteúdo de " + c.getName())
-
 		    .withObjective("Objetivo do " + c.getName())
-
 		    .withCandidate(c);
 
 	    r.addExperience(Experience.builder().withEmployerName("Empregador 1")

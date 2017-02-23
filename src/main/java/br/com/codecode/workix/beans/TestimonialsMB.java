@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Testimonial;
+import br.com.codecode.workix.jpa.models.jdk8.Testimonial;
 
 /**
  * This ManagedBean controls Testimonials Fragment on HomePage and AboutPage

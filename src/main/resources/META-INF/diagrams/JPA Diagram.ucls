@@ -10,8 +10,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="br.com.codecode.workix.jpa.models.SelectiveProcess" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/SelectiveProcess.java" binary="false" 
+  <class id="2" language="java" name="br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/SelectiveProcess.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="725" width="269" x="2367" y="-891"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -20,8 +20,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="br.com.codecode.workix.jpa.models.Candidate" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Candidate.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="3" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Candidate" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Candidate.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="275" width="259" x="2377" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -29,8 +30,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="br.com.codecode.workix.jpa.models.Company" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Company.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="4" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Company" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Company.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="257" width="253" x="1157" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -38,8 +40,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="br.com.codecode.workix.jpa.models.Skill.Builder" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="5" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Skill.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="149" width="269" x="2068" y="1080"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -56,8 +58,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="br.com.codecode.workix.jpa.models.Subscriber" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Subscriber.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="7" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Subscriber" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Subscriber.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="221" width="269" x="-73" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -65,8 +68,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="br.com.codecode.workix.jpa.models.Subscriber.Builder" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Subscriber.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="8" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Subscriber.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Subscriber.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="185" width="269" x="-73" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -74,8 +78,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="br.com.codecode.workix.jpa.models.Contact.Builder" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Contact.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="br.com.codecode.workix.jpa.models.compat.Contact.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/compat/Contact.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="149" width="269" x="539" y="1080"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -101,8 +106,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="br.com.codecode.workix.jpa.models.MyEntity" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/MyEntity.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="br.com.codecode.workix.jpa.models.jdk8.MyEntity" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/MyEntity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="383" width="269" x="1110" y="-891"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -110,8 +116,9 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="br.com.codecode.workix.jpa.models.Contact" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Contact.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="br.com.codecode.workix.jpa.models.compat.Contact" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/compat/Contact.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
     <position height="167" width="269" x="539" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -137,8 +144,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="br.com.codecode.workix.jpa.models.Person" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Person.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="16" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Person" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Person.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="257" width="259" x="830" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -146,8 +153,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="br.com.codecode.workix.jpa.models.Skill" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="17" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Skill" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="167" width="269" x="2068" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -155,8 +162,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="br.com.codecode.workix.jpa.models.Resume" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Resume.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="18" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Resume" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Resume.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="527" width="265" x="1759" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -164,8 +171,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="br.com.codecode.workix.jpa.models.User.Builder" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/User.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="19" language="java" name="br.com.codecode.workix.jpa.models.jdk8.User.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/User.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="203" width="269" x="848" y="1080"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -173,8 +180,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="br.com.codecode.workix.jpa.models.Job" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/Job.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="20" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Job" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Job.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="689" width="265" x="1157" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -182,8 +189,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="br.com.codecode.workix.jpa.models.User" project="workix" 
-    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/User.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="21" language="java" name="br.com.codecode.workix.jpa.models.jdk8.User" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/User.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="383" width="269" x="848" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -191,216 +198,228 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="22">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="23" name="locale">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="24" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="25">    
+  <generalization id="22">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="23">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="26" name="educations">        
+      <attribute id="24" name="educations">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="27" minimum="0" maximum="2147483647">        
+      <multiplicity id="25" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="29" name="candidate">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="30" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="31">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="17"/>  
-  </generalization>  
-  <generalization id="32">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="21"/>  
-  </generalization>  
-  <generalization id="33">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="13"/>  
-  </generalization>  
-  <association id="34">    
-    <bendpoint x="2381" y="-126"/>    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="35" name="candidates">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="36" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="37">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="15"/>  
-  </nesting>  
-  <generalization id="38">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="39">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="40" name="job">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="41" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="20" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="42">    
+  <generalization id="26">    
     <end type="SOURCE" refId="16"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
-  <generalization id="43">    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="6"/>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="21"/>  
   </generalization>  
-  <nesting id="44">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="9"/>  
-  </nesting>  
-  <dependency id="45">    
-    <end type="SOURCE" refId="3"/>    
+  <dependency id="28">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="29">    
+    <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="21"/>  
   </dependency>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <nesting id="47">    
+  <nesting id="30">    
     <end type="SOURCE" refId="10"/>    
     <end type="TARGET" refId="11"/>  
   </nesting>  
-  <association id="48">    
-    <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="49" name="contact">        
+  <association id="31">    
+    <bendpoint x="2381" y="-126"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="32" name="candidates">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="50" minimum="0" maximum="1">        
+      <multiplicity id="33" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="51">    
-    <end type="SOURCE" refId="20" navigable="false">      
-      <attribute id="52" name="company">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="54">    
+  <nesting id="34">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="14"/>  
   </nesting>  
-  <association id="55">    
+  <dependency id="35">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="37">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="56" name="skills">        
+      <attribute id="38" name="skills">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="57" minimum="0" maximum="2147483647">        
+      <multiplicity id="39" minimum="0" maximum="2147483647">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="17" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="58">    
-    <bendpoint x="1119" y="-126"/>    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <nesting id="59">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="5"/>  
-  </nesting>  
-  <generalization id="60">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="7"/>  
-  </generalization>  
-  <generalization id="61">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="10"/>  
-  </generalization>  
-  <generalization id="62">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="16"/>  
-  </generalization>  
-  <generalization id="63">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <nesting id="64">    
+  <nesting id="40">    
     <end type="SOURCE" refId="21"/>    
     <end type="TARGET" refId="19"/>  
   </nesting>  
-  <generalization id="65">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="1"/>  
-  </generalization>  
-  <association id="66">    
+  <association id="41">    
     <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="67" name="experiences">        
+      <attribute id="42" name="candidate">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="68" minimum="0" maximum="2147483647">        
+      <multiplicity id="43" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="1" navigable="true"/>    
+    <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="69">    
+  <nesting id="44">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="5"/>  
+  </nesting>  
+  <association id="45">    
     <end type="SOURCE" refId="16" navigable="false">      
-      <attribute id="70" name="user">        
+      <attribute id="46" name="contact">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="71" minimum="0" maximum="1">        
+      <multiplicity id="47" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="48">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="49" name="user">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="50" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="21" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="72">    
+  <generalization id="51">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="52">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="53" name="experiences">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="54" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="55">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <association id="56">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="57" name="job">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="58" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="59">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="60">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <association id="61">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="62" name="company">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="63" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="64">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="65">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <generalization id="66">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <nesting id="67">    
     <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="8"/>  
   </nesting>  
-  <generalization id="73">    
+  <association id="68">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="69" name="locale">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="70" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="71">    
     <end type="SOURCE" refId="20"/>    
     <end type="TARGET" refId="12"/>  
   </generalization>  
+  <dependency id="72">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <generalization id="73">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="74">    
+    <bendpoint x="1119" y="-126"/>    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <nesting id="76">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="15"/>  
+  </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

@@ -15,7 +15,7 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Job;
+import br.com.codecode.workix.jpa.models.jdk8.Job;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**

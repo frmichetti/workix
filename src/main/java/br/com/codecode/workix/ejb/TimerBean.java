@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.implementations.standalone.CleanupDao;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.jpa.models.SelectiveProcess;
+import br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess;
 
 /**
  * This Class is a Enterprise Java Bean witch execute tasks in Some Periods

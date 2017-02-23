@@ -16,8 +16,8 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.jpa.models.Author;
-import br.com.codecode.workix.jpa.models.SocialMedia;
+import br.com.codecode.workix.jpa.models.jdk8.Author;
+import br.com.codecode.workix.jpa.models.jdk8.SocialMedia;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 

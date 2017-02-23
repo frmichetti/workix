@@ -15,9 +15,9 @@ import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.config.JAXRSConfiguration;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jpa.models.Resume;
-import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import br.com.codecode.workix.jpa.models.jdk8.Resume;
+import br.com.codecode.workix.jpa.models.jdk8.User;
 
 /**
  * This Class is a Simple StandAlone Endpoint for Android Uses

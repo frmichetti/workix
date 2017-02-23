@@ -7,7 +7,7 @@ import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
 
-import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.jdk8.Candidate;
 
 
 

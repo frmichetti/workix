@@ -21,9 +21,9 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.core.enums.BlogCategory;
-import br.com.codecode.workix.jpa.models.Author;
-import br.com.codecode.workix.jpa.models.Blog;
-import br.com.codecode.workix.jpa.models.Tag;
+import br.com.codecode.workix.jpa.models.jdk8.Author;
+import br.com.codecode.workix.jpa.models.jdk8.Blog;
+import br.com.codecode.workix.jpa.models.jdk8.Tag;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 

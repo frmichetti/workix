@@ -16,7 +16,7 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.cdi.qualifiers.Push;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.jdk8.Candidate;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**

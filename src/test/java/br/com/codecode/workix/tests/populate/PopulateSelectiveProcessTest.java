@@ -12,8 +12,8 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.Job;
-import br.com.codecode.workix.jpa.models.SelectiveProcess;
+import br.com.codecode.workix.jpa.models.jdk8.Job;
+import br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 

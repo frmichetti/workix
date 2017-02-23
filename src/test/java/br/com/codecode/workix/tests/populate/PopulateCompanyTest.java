@@ -20,10 +20,10 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.core.enums.Estate;
-import br.com.codecode.workix.jpa.models.Company;
-import br.com.codecode.workix.jpa.models.Contact;
-import br.com.codecode.workix.jpa.models.Locale;
-import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.jpa.models.jdk8.Contact;
+import br.com.codecode.workix.jpa.models.jdk8.Company;
+import br.com.codecode.workix.jpa.models.jdk8.Locale;
+import br.com.codecode.workix.jpa.models.jdk8.User;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
