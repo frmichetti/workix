@@ -16,7 +16,7 @@ import br.com.codecode.workix.jpa.models.Candidate;
  * 
  * @author felipe
  */
-public class SelectiveProcess extends Observable implements Observer, Serializable {
+class SelectiveProcess extends Observable implements Observer, Serializable {
 
     private static final long serialVersionUID = -8009482242264135346L;
 

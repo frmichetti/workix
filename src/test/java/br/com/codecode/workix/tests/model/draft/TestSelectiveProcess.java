@@ -13,8 +13,6 @@ import org.junit.Test;
 
 import br.com.codecode.workix.jpa.models.Candidate;
 
-
-
 public class TestSelectiveProcess {
 
     private SelectiveProcess selectiveProcess;
