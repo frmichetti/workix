@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json;
+package br.com.codecode.workix.tests.json.parse;
 
 import java.io.Serializable;
 import java.util.List;

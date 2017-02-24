@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.pagination;
+package br.com.codecode.workix.tests.jsf.pagination;
 
 import static org.junit.Assert.assertEquals;
 

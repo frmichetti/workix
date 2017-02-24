@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.funcional.login;
+package br.com.codecode.workix.tests.android.login;
 
 /**
  * Markup Interface for Login Test

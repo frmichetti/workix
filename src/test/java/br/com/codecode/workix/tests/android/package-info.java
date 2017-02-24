@@ -3,4 +3,4 @@
  * 
  * @author Felipe Rodrigues Michetti
  */
-package br.com.codecode.workix.tests.funcional;
+package br.com.codecode.workix.tests.android;

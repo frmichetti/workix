@@ -12,8 +12,8 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.jpa.models.compat.User;
-import br.com.codecode.workix.tests.funcional.BaseTest;
-import br.com.codecode.workix.tests.json.DownloadTest;
+import br.com.codecode.workix.tests.android.BaseTest;
+import br.com.codecode.workix.tests.json.parse.DownloadTest;
 
 public class DownloadTestUser extends BaseTest implements DownloadTest<User> {
 

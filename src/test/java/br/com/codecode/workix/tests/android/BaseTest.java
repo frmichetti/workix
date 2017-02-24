@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.funcional;
+package br.com.codecode.workix.tests.android;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;

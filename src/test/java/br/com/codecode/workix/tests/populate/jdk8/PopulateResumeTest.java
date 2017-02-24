@@ -16,7 +16,7 @@ import br.com.codecode.workix.jpa.models.jdk8.Education;
 import br.com.codecode.workix.jpa.models.jdk8.Experience;
 import br.com.codecode.workix.jpa.models.jdk8.Resume;
 import br.com.codecode.workix.jpa.models.jdk8.Skill;
-import br.com.codecode.workix.tests.funcional.BaseTest;
+import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 

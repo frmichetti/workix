@@ -24,7 +24,7 @@ import br.com.codecode.workix.core.enums.JobCategory;
 import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.jpa.models.jdk8.Company;
 import br.com.codecode.workix.jpa.models.jdk8.Job;
-import br.com.codecode.workix.tests.funcional.BaseTest;
+import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 

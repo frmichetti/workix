@@ -9,19 +9,16 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.jpa.models.compat.Candidate;
-import br.com.codecode.workix.tests.funcional.BaseTest;
-import br.com.codecode.workix.tests.json.DownloadTest;
+import br.com.codecode.workix.tests.android.BaseTest;
+import br.com.codecode.workix.tests.json.parse.DownloadTest;
 
 public class DownloadTestCandidate extends BaseTest implements DownloadTest<Candidate> {
 
     private String resp;
-    
-    private Gson g;
 
     @Before    
     public void downloadItens() {
@@ -29,11 +26,11 @@ public class DownloadTestCandidate extends BaseTest implements DownloadTest<Cand
 	resp = downloadItens(server + "/candidates");
 
 	assertFalse(resp.isEmpty());
-	
-	g = new GsonBuilder()		
-		.setPrettyPrinting()
-		.create();
-	
+
+	new GsonBuilder()		
+	.setPrettyPrinting()
+	.create();
+
     }
 
     @Test    

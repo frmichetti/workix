@@ -27,7 +27,7 @@ import br.com.codecode.workix.jpa.models.jdk8.Contact;
 import br.com.codecode.workix.jpa.models.jdk8.Candidate;
 import br.com.codecode.workix.jpa.models.jdk8.Locale;
 import br.com.codecode.workix.jpa.models.jdk8.User;
-import br.com.codecode.workix.tests.funcional.BaseTest;
+import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
