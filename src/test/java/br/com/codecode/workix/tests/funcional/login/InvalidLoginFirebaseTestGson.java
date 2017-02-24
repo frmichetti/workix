@@ -10,6 +10,7 @@ package br.com.codecode.workix.tests.funcional.login;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.codecode.workix.core.common.jdk8.Token;
@@ -29,7 +30,7 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
 
     private String json;
 
-    @Test
+    @Before
     @Override
     public void doLoginWithFirebase() {
 
@@ -46,8 +47,6 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
     @Test
     @Override
     public void parseJson() {
-
-	doLoginWithFirebase();
 
 	System.out.println("[parseJson]");
 

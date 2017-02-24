@@ -2,7 +2,6 @@ package br.com.codecode.workix.jpa.models.compat;
 
 import java.io.Serializable;
 
-import javax.xml.bind.annotation.XmlTransient;
 
 import br.com.codecode.workix.core.enums.Estate;
 import br.com.codecode.workix.interfaces.Buildable;
@@ -39,8 +38,7 @@ public class Locale implements Serializable {
     /**
      * Creates builder to build {@link Locale}.
      * @return created builder
-     */
-    @XmlTransient
+     */    
     public static Builder builder() {
 	return new Builder();
     }

@@ -6,6 +6,8 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.apache.log4j.pattern.DatePatternConverter;
+
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
@@ -64,8 +66,10 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 		 * 
 		 * @return
 		 */
-		d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
-
+		if(dateRaw.length() == 10)
+		    d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
+		else
+		    d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS").parse(dateRaw);
 	    } catch (ParseException e) {
 
 		e.printStackTrace();

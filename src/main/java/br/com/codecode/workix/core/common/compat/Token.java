@@ -7,7 +7,10 @@
  * */
 package br.com.codecode.workix.core.common.compat;
 
-import java.util.Calendar;
+import java.sql.Timestamp;
+import java.time.Instant;
+
+import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Token Model for Compatibily with Older Versions
@@ -16,9 +19,9 @@ import java.util.Calendar;
  * @since 1.0
  * @version 1.1
  */
-public final class Token {
+public class Token {
 
-    private Calendar createdAt;
+    private Timestamp createdAt;
 
     private String key;
 
@@ -28,8 +31,8 @@ public final class Token {
     private Token(){}
     
     private Token(Builder builder) {
-	setCreatedAt(builder.createdAt);
-	this.key = builder.key;
+	setCreatedAt(builder.getCreatedAt());
+	this.key = builder.getKey();
     }
 
     /**
@@ -41,7 +44,7 @@ public final class Token {
 	return new Builder();
     }
 
-    public Calendar getCreatedAt() {
+    public Timestamp getCreatedAt() {
 	return createdAt;
     }
 
@@ -49,7 +52,7 @@ public final class Token {
 	return key;
     }
 
-    private void setCreatedAt(Calendar createdAt) {
+    private void setCreatedAt(Timestamp createdAt) {
 	this.createdAt = createdAt;
     }
 
@@ -70,21 +73,18 @@ public final class Token {
     /**
      * Builder to build {@link Token}.
      */
-    public static final class Builder {
-
-	private Calendar createdAt;
-
-	private String key;
+    public static final class Builder extends Token implements Buildable<Token> {
 
 	private Builder(){}
 
+	@Override
 	public Token build() {
 	    return new Token(this);
 	}
 
 	public Builder withKey(String key) {
-	    this.key = key;
-	    this.createdAt = Calendar.getInstance();
+	    super.key = key;
+	    super.createdAt = Timestamp.from(Instant.now());
 	    return this;
 	}
     }

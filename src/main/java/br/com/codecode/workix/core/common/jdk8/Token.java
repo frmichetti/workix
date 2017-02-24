@@ -9,6 +9,8 @@ package br.com.codecode.workix.core.common.jdk8;
 
 import java.time.LocalDateTime;
 
+import br.com.codecode.workix.interfaces.Buildable;
+
 /**
  * Token Model
  * 
@@ -16,7 +18,7 @@ import java.time.LocalDateTime;
  * @since 1.0
  * @version 1.1
  */
-public final class Token {
+public class Token {
 
     private LocalDateTime createdAt;
 
@@ -28,8 +30,8 @@ public final class Token {
     private Token(){}
     
     private Token(Builder builder) {
-	setCreatedAt(builder.createdAt);
-	this.key = builder.key;
+	setCreatedAt(builder.getCreatedAt());
+	this.key = builder.getKey();
     }
 
     /**
@@ -70,21 +72,18 @@ public final class Token {
     /**
      * Builder to build {@link Token}.
      */
-    public static final class Builder {
-
-	private LocalDateTime createdAt;
-
-	private String key;
+    public static final class Builder extends Token implements Buildable<Token> {
 
 	private Builder(){}
 
+	@Override
 	public Token build() {
 	    return new Token(this);
 	}
 
 	public Builder withKey(String key) {
-	    this.key = key;
-	    this.createdAt = LocalDateTime.now();
+	    super.key = key;
+	    super.createdAt = LocalDateTime.now();
 	    return this;
 	}
     }

@@ -1,7 +1,5 @@
 package br.com.codecode.workix.jpa.models.compat;
 
-import javax.persistence.Column;
-
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
@@ -80,8 +78,7 @@ public class Company extends Person {
     public long getId() {
 	return this.id;
     }
-
-    @Column(nullable = false)
+    
     public String getSegment() {
 	return segment;
     }

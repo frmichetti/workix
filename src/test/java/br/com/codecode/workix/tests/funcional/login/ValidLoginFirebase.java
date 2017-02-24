@@ -3,12 +3,13 @@ package br.com.codecode.workix.tests.funcional.login;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.core.common.jdk8.Token;
-import br.com.codecode.workix.jpa.models.jdk8.User;
+import br.com.codecode.workix.core.common.compat.Token;
+import br.com.codecode.workix.jpa.models.compat.Candidate;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
@@ -23,13 +24,13 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
     private String url = server + "/login/firebaselogin";
 
-    @Test
+    @Before
     @Override
     public void doLoginWithFirebase() {
 
 	System.out.println("[doLoginWithFirebase]");
 
-	Token t = Token.builder().withKey("dfTHTEWyYRhsi6TCLSbYdYroKbJ3").build();
+	Token t = Token.builder().withKey("x5rXx6LCyCddLErHSWRctK74SUR2").build();
 
 	json = HttpTest.sendPost(url, getGson().toJson(t));
 
@@ -41,9 +42,9 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
     @Override
     public void parseJson() {
 
-	User u = getGson().fromJson(json, new TypeToken<User>(){}.getType());
+	Candidate c = getGson().fromJson(json, new TypeToken<Candidate>(){}.getType());
 
-	assertNotNull(u);
+	assertNotNull(c);
 
     }
 

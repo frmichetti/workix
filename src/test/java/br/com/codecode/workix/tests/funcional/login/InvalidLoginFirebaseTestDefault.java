@@ -15,6 +15,7 @@ import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.codecode.workix.core.common.jdk8.Token;
@@ -34,7 +35,7 @@ public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTe
 
     private String json;
 
-    @Test
+    @Before
     @Override
     public void doLoginWithFirebase() {
 
@@ -54,9 +55,7 @@ public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTe
 
     @Test
     @Override
-    public void parseJson() {
-
-	doLoginWithFirebase();
+    public void parseJson() {	
 
 	System.out.println("[parseJson]");
 

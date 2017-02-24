@@ -3,6 +3,7 @@ package br.com.codecode.workix.tests.funcional.login;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import br.com.codecode.workix.core.common.jdk8.Token;
@@ -20,6 +21,7 @@ public class ValidLoginFirebaseRebuild extends BaseTest implements LoginTest {
 
     private String url = server + "/login/firebaselogin";
     
+    @Before
     @Override
     public void doLoginWithFirebase() {
 
@@ -35,9 +37,7 @@ public class ValidLoginFirebaseRebuild extends BaseTest implements LoginTest {
 
     @Test
     @Override
-    public void parseJson() {
-	
-	doLoginWithFirebase();
+    public void parseJson() {	
 
 	Object response = getGson().fromJson(json, Object.class);
 	
