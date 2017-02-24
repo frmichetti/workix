@@ -7,8 +7,7 @@
  * */
 package br.com.codecode.workix.core.common.compat;
 
-import java.sql.Timestamp;
-import java.time.Instant;
+import java.util.Calendar;
 
 import br.com.codecode.workix.interfaces.Buildable;
 
@@ -21,7 +20,8 @@ import br.com.codecode.workix.interfaces.Buildable;
  */
 public class Token {
 
-    private Timestamp createdAt;
+    //FIXME Broken    
+    private Calendar createdAt;
 
     private String key;
 
@@ -44,7 +44,7 @@ public class Token {
 	return new Builder();
     }
 
-    public Timestamp getCreatedAt() {
+    public Calendar getCreatedAt() {
 	return createdAt;
     }
 
@@ -52,7 +52,7 @@ public class Token {
 	return key;
     }
 
-    private void setCreatedAt(Timestamp createdAt) {
+    private void setCreatedAt(Calendar createdAt) {
 	this.createdAt = createdAt;
     }
 
@@ -84,7 +84,7 @@ public class Token {
 
 	public Builder withKey(String key) {
 	    super.key = key;
-	    super.createdAt = Timestamp.from(Instant.now());
+	    super.createdAt = Calendar.getInstance();
 	    return this;
 	}
     }

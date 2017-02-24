@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.jpa.compat;
+package br.com.codecode.workix.tests.json.parse.jdk8;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -9,45 +9,37 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.compat.Candidate;
+import br.com.codecode.workix.jpa.models.jdk8.Resume;
 import br.com.codecode.workix.tests.funcional.BaseTest;
 import br.com.codecode.workix.tests.json.DownloadTest;
 
-public class DownloadTestCandidate extends BaseTest implements DownloadTest<Candidate> {
+public class DownloadTestResume extends BaseTest implements DownloadTest<Resume> {
 
     private String resp;
-    
-    private Gson g;
 
     @Before    
     public void downloadItens() {
 
-	resp = downloadItens(server + "/candidates");
+	resp = downloadItens(server + "/resumes");
 
 	assertFalse(resp.isEmpty());
-	
-	g = new GsonBuilder()		
-		.setPrettyPrinting()
-		.create();
-	
+
     }
 
     @Test    
     public void parseItens() {	
 
-	List<Candidate> companies = parseItens(resp, new TypeToken<List<Candidate>>(){});
+	List<Resume> resumes = parseItens(resp, new TypeToken<List<Resume>>(){});
 
-	assertNotNull(companies);
+	assertNotNull(resumes);
 
-	assertTrue(companies.size() > 0);
+	assertTrue(resumes.size() > 0);
 
 	System.out.println("----Stream----");
 
-	companies.stream()	
+	resumes.stream()	
 	.forEach(System.out::println);
 
 	System.out.println("----Stream----");

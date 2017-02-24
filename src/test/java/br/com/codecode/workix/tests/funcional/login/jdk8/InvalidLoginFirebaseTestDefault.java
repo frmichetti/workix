@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.funcional.login;
+package br.com.codecode.workix.tests.funcional.login.jdk8;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -20,6 +20,7 @@ import org.junit.Test;
 
 import br.com.codecode.workix.core.common.jdk8.Token;
 import br.com.codecode.workix.tests.funcional.BaseTest;
+import br.com.codecode.workix.tests.funcional.login.LoginTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**

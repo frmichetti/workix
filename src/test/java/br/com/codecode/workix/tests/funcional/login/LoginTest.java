@@ -12,7 +12,7 @@ package br.com.codecode.workix.tests.funcional.login;
  * 
  * @author felipe
  */
-interface LoginTest {
+public interface LoginTest {
 
     void doLoginWithFirebase();
 
