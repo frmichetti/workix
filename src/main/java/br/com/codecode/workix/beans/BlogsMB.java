@@ -43,8 +43,7 @@ public class BlogsMB extends BaseMB {
 	    
 	    list = new ListDataModel<Blog>(dao.listAll(0, Integer.MAX_VALUE));
 	    
-	    comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));
-	    
+	    comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));    
 	    
 	    
 	} catch (NotImplementedYetException e) {	    

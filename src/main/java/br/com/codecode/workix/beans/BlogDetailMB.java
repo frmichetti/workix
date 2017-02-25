@@ -187,6 +187,9 @@ public class BlogDetailMB extends BaseMB implements Serializable{
 	try {
 	    
 	    comments = daoComment.listAll(0, Integer.MAX_VALUE);
+	    
+	    comments = comments.stream().filter(c -> c.getBlog().getId() == id)
+			.collect(Collectors.toList());
 	
 	} catch (NotImplementedYetException e) {
 	   
