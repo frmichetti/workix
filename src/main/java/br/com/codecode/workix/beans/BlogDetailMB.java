@@ -1,15 +1,17 @@
 package br.com.codecode.workix.beans;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.enterprise.inject.Default;
-import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
 
@@ -27,8 +29,14 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
  * @author felipe
  * @see BaseMB
  */
-@Model
-public class BlogDetailMB extends BaseMB {
+@Named
+@ViewScoped
+public class BlogDetailMB extends BaseMB implements Serializable{
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -1445938230157483518L;
 
     private List<BlogCategory> blogCategories;    
 
@@ -166,13 +174,22 @@ public class BlogDetailMB extends BaseMB {
     public String saveComment(){
 	
 	try {
-	    //TODO FIXME Null Pointer 
+
 	    daoComment.save(Comment.builder().withBlog(currentBlog).withEmail(email).withName(name).withText(text).build());
 
 	    messagesHelper.addFlash(new FacesMessage("Comentário Enviado !"));
 
 	} catch (NotImplementedYetException e) {
 
+	    e.printStackTrace();
+	}
+	
+	try {
+	    
+	    comments = daoComment.listAll(0, Integer.MAX_VALUE);
+	
+	} catch (NotImplementedYetException e) {
+	   
 	    e.printStackTrace();
 	}
 
