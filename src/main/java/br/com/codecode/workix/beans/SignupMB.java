@@ -51,17 +51,8 @@ public class SignupMB extends BaseMB {
 	} catch (NotImplementedYetException e) {
 
 	    e.printStackTrace();
-
-	    messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_ERROR,
-		    "Error on Save " + subscriber.getEmail(), "Not Implemented Yet"));
-
-	} catch (Exception e) {
-
-	    e.printStackTrace();
-
-	    messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_ERROR,
-		    "Error on Save " + subscriber.getEmail(), e.toString()));
-	}
+	   
+	} 
 
     }
 
