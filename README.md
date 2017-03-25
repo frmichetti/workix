@@ -30,7 +30,7 @@ Video Demonstração
 
 License
 --
-Not Implemented Yet!
+GNU General Public License v3.0
 
 
 **Visite http://www.workix.com.br**
