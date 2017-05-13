@@ -7,7 +7,7 @@ import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifiers.Push;
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
 
 /**
  * CDI Observer Class for {@link Candidate}

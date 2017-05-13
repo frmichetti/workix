@@ -1,8 +1,8 @@
 package br.com.codecode.workix.cdi.dao.implementations.standalone;
 
 import br.com.codecode.workix.cdi.dao.implementations.persist.BaseDao;
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
-import br.com.codecode.workix.jpa.models.jdk8.Resume;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Resume;
 
 /**
  * Stand Alone DAO for Resume

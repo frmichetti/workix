@@ -20,8 +20,8 @@ import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.enums.BlogCategory;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.jdk8.Blog;
-import br.com.codecode.workix.jpa.models.jdk8.Comment;
+import br.com.codecode.workix.jpa.models.Blog;
+import br.com.codecode.workix.jpa.models.Comment;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**

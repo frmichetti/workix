@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.14" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
+  realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Comment" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Comment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="383" width="265" x="974" y="765"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Education.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Education.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="203" width="265" x="585" y="2646"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Education" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Education.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="401" width="265" x="585" y="1899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Company.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Company.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="239" width="269" x="-725" y="2646"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Job" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Job.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="761" width="269" x="-437" y="765"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Tag.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Tag.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="131" width="269" x="1315" y="3474"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Blog" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Blog.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="707" width="269" x="1281" y="1899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Comment.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Comment.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="185" width="265" x="974" y="1566"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Locale" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Locale.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="473" width="269" x="-435" y="2961"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Contact" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Contact.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="185" width="269" x="-765" y="2961"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Skill.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="131" width="269" x="276" y="2646"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Contact.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Contact.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="131" width="269" x="-765" y="3474"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Member" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Member.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="473" width="269" x="-57" y="2961"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Skill" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="185" width="269" x="276" y="1899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="br.com.codecode.workix.jpa.models.jdk8.User" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="401" width="269" x="252" y="2961"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Locale.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Locale.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="221" width="269" x="-435" y="3474"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/SelectiveProcess.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="833" width="269" x="-117" y="-108"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Candidate" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Candidate.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="293" width="259" x="-332" y="1899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Subscriber" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Subscriber.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="239" width="269" x="-56" y="765"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Blog.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Blog.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="275" width="269" x="1294" y="2646"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="br.com.codecode.workix.jpa.models.jdk8.MyEntity" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/MyEntity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="383" width="269" x="892" y="-108"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Company" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Company.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="383" width="269" x="-683" y="1899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Member.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Member.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="203" width="269" x="-57" y="3474"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Testimonial.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Testimonial.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="203" width="259" x="953" y="2646"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Author" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Author.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="437" width="269" x="953" y="2961"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Tag" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Tag.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="185" width="269" x="1315" y="2961"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="br.com.codecode.workix.jpa.models.jdk8.User.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/User.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="185" width="269" x="273" y="3474"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="br.com.codecode.workix.jpa.models.jdk8.SocialMedia" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/SocialMedia.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="239" width="269" x="495" y="3735"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Testimonial" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Testimonial.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="383" width="259" x="953" y="1899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Author.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Author.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="185" width="269" x="663" y="3474"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Experience" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Experience.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="401" width="269" x="-33" y="1899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Job.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Job.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="293" width="269" x="-727" y="1566"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="br.com.codecode.workix.jpa.models.jdk8.SocialMedia.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/SocialMedia.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="149" width="269" x="495" y="4014"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Subscriber.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Subscriber.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="131" width="269" x="-77" y="1566"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Person" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Person.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="257" width="259" x="-397" y="1566"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Resume" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Resume.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="563" width="269" x="274" y="765"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Resume.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Resume.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="221" width="269" x="274" y="1566"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Experience.Builder" project="workix" 
+    file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Experience.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="203" width="269" x="-33" y="2646"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="38"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <nesting id="40">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="4"/>  
+  </nesting>  
+  <association id="41">    
+    <bendpoint x="573" y="1566"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="42" name="skills"/>      
+      <multiplicity id="43" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="26"/>  
+  </generalization>  
+  <generalization id="45">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="14"/>  
+  </generalization>  
+  <nesting id="46">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="20"/>  
+  </nesting>  
+  <dependency id="47">    
+    <bendpoint x="-64" y="2646"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <generalization id="48">    
+    <end type="SOURCE" refId="27"/>    
+    <end type="TARGET" refId="15"/>  
+  </generalization>  
+  <association id="49">    
+    <bendpoint x="1242" y="2646"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="50" name="author"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="52">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <nesting id="53">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="27"/>  
+  </nesting>  
+  <association id="54">    
+    <bendpoint x="962" y="3474"/>    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="55" name="medias"/>      
+      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <bendpoint x="-777" y="1899"/>    
+    <bendpoint x="-777" y="2646"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="58" name="contact"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="60">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="16"/>  
+  </nesting>  
+  <nesting id="61">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="6"/>  
+  </nesting>  
+  <nesting id="62">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="32"/>  
+  </nesting>  
+  <nesting id="63">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="12"/>  
+  </nesting>  
+  <dependency id="64">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <generalization id="65">    
+    <bendpoint x="1290" y="1566"/>    
+    <bendpoint x="1290" y="765"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <generalization id="66">    
+    <bendpoint x="-87" y="765"/>    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <generalization id="67">    
+    <end type="SOURCE" refId="33"/>    
+    <end type="TARGET" refId="28"/>  
+  </generalization>  
+  <nesting id="68">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="23"/>  
+  </nesting>  
+  <generalization id="69">    
+    <bendpoint x="922" y="2646"/>    
+    <bendpoint x="922" y="1899"/>    
+    <bendpoint x="922" y="1566"/>    
+    <bendpoint x="922" y="765"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <dependency id="70">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="71">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="72">    
+    <bendpoint x="1593" y="2646"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="73" name="tags"/>      
+      <multiplicity id="74" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="75">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="10"/>  
+  </generalization>  
+  <dependency id="77">    
+    <bendpoint x="-756" y="2646"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <generalization id="78">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <dependency id="79">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="80">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <nesting id="81">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </nesting>  
+  <association id="82">    
+    <bendpoint x="1269" y="1566"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="83" name="blog"/>      
+      <multiplicity id="84" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="85">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="13"/>  
+  </generalization>  
+  <association id="86">    
+    <bendpoint x="243" y="1566"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="87" name="experiences"/>      
+      <multiplicity id="88" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="89">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="31"/>  
+  </dependency>  
+  <dependency id="90">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="26"/>  
+  </dependency>  
+  <dependency id="91">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <nesting id="92">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="33"/>  
+  </nesting>  
+  <association id="93">    
+    <bendpoint x="222" y="1566"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="94" name="candidate"/>      
+      <multiplicity id="95" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="96">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="25"/>  
+  </generalization>  
+  <generalization id="97">    
+    <bendpoint x="901" y="2646"/>    
+    <bendpoint x="901" y="1899"/>    
+    <bendpoint x="901" y="1566"/>    
+    <bendpoint x="901" y="765"/>    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <dependency id="98">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <generalization id="99">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <generalization id="100">    
+    <end type="SOURCE" refId="34"/>    
+    <end type="TARGET" refId="19"/>  
+  </generalization>  
+  <association id="101">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="102" name="job"/>      
+      <multiplicity id="103" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="104">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <dependency id="105">    
+    <bendpoint x="-405" y="2646"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <association id="106">    
+    <bendpoint x="-384" y="1899"/>    
+    <bendpoint x="-384" y="2646"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="107" name="locale"/>      
+      <multiplicity id="108" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="109">    
+    <bendpoint x="242" y="3474"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="110" name="medias"/>      
+      <multiplicity id="111" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="112">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="113">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <nesting id="114">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="34"/>  
+  </nesting>  
+  <generalization id="115">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="116">    
+    <bendpoint x="880" y="2646"/>    
+    <bendpoint x="880" y="1899"/>    
+    <bendpoint x="880" y="1566"/>    
+    <bendpoint x="880" y="765"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <generalization id="117">    
+    <bendpoint x="943" y="1566"/>    
+    <bendpoint x="943" y="765"/>    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <generalization id="118">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <nesting id="119">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="24"/>  
+  </nesting>  
+  <generalization id="120">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="35"/>  
+  </generalization>  
+  <association id="121">    
+    <bendpoint x="1263" y="2646"/>    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="122" name="author"/>      
+      <multiplicity id="123" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="124">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <generalization id="125">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="9"/>  
+  </generalization>  
+  <nesting id="126">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="38"/>  
+  </nesting>  
+  <dependency id="127">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <association id="128">    
+    <bendpoint x="-428" y="1566"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="129" name="company"/>      
+      <multiplicity id="130" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="131">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="21"/>  
+  </generalization>  
+  <generalization id="132">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="29"/>  
+  </generalization>  
+  <nesting id="133">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="30"/>  
+  </nesting>  
+  <nesting id="134">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
+  <dependency id="135">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="25"/>  
+  </dependency>  
+  <generalization id="136">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="36"/>  
+  </generalization>  
+  <nesting id="137">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="11"/>  
+  </nesting>  
+  <association id="138">    
+    <bendpoint x="594" y="1566"/>    
+    <end type="SOURCE" refId="36" navigable="false">      
+      <attribute id="139" name="educations"/>      
+      <multiplicity id="140" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="141">    
+    <bendpoint x="-363" y="1899"/>    
+    <bendpoint x="-363" y="2646"/>    
+    <end type="SOURCE" refId="35" navigable="false">      
+      <attribute id="142" name="user"/>      
+      <multiplicity id="143" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="144">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <dependency id="145">    
+    <bendpoint x="-426" y="2646"/>    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="146">    
+    <end type="SOURCE" refId="30"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <association id="147">    
+    <bendpoint x="-108" y="765"/>    
+    <bendpoint x="-108" y="1566"/>    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="148" name="candidates"/>      
+      <multiplicity id="149" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="18" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="150">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="37"/>  
+  </nesting>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

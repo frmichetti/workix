@@ -17,8 +17,8 @@ import javax.inject.Inject;
 
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
-import br.com.codecode.workix.jpa.models.jdk8.Job;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Job;
 import br.com.codecode.workix.util.ReadFile;
 
 /**

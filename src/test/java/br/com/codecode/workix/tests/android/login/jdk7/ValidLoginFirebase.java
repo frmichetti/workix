@@ -9,7 +9,7 @@ import org.junit.Test;
 import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.core.common.jk7.Token;
-import br.com.codecode.workix.jpa.models.jdk7.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.android.login.LoginTest;
 import br.com.codecode.workix.tests.util.HttpTest;

@@ -52,11 +52,11 @@ br.com.codecode.workix.tests.android.login.jdk8
 br.com.codecode.workix.tests.config
 br.com.codecode.workix.tests.jsf.pagination
 br.com.codecode.workix.tests.json.parse
-br.com.codecode.workix.tests.json.parse.jdk7
+br.com.codecode.workix.tests.json.parse.models
 br.com.codecode.workix.tests.json.parse.jdk8
 br.com.codecode.workix.tests.model.draft
 br.com.codecode.workix.tests.populate
-br.com.codecode.workix.tests.populate.jdk7
+br.com.codecode.workix.tests.populate.models
 br.com.codecode.workix.tests.populate.jdk8
 br.com.codecode.workix.tests.reflection
 br.com.codecode.workix.tests.util
