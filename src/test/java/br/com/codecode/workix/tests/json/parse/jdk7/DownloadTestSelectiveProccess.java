@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.parse.compat;
+package br.com.codecode.workix.tests.json.parse.jdk7;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;

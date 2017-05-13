@@ -5,7 +5,7 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.android.login.compat;
+package br.com.codecode.workix.tests.android.login.jdk7;
 
 import static org.junit.Assert.assertNotNull;
 

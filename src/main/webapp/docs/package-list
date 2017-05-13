@@ -47,12 +47,12 @@ br.com.codecode.workix.rest.android
 br.com.codecode.workix.rest.scaffold
 br.com.codecode.workix.tests.android
 br.com.codecode.workix.tests.android.login
-br.com.codecode.workix.tests.android.login.compat
+br.com.codecode.workix.tests.android.login.jdk7
 br.com.codecode.workix.tests.android.login.jdk8
 br.com.codecode.workix.tests.config
 br.com.codecode.workix.tests.jsf.pagination
 br.com.codecode.workix.tests.json.parse
-br.com.codecode.workix.tests.json.parse.compat
+br.com.codecode.workix.tests.json.parse.jdk7
 br.com.codecode.workix.tests.json.parse.jdk8
 br.com.codecode.workix.tests.model.draft
 br.com.codecode.workix.tests.populate

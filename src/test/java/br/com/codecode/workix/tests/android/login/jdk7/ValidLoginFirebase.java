@@ -1,35 +1,29 @@
-/**
- *
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- * */
-package br.com.codecode.workix.tests.android.login.compat;
+package br.com.codecode.workix.tests.android.login.jdk7;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import com.google.gson.reflect.TypeToken;
+
 import br.com.codecode.workix.core.common.jk7.Token;
+import br.com.codecode.workix.jpa.models.jdk7.Candidate;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.android.login.LoginTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
- * Do Login With Firebase Server with Gson
- * 
- * @author felipe
  * @since 1.0
  * @version 1.1
+ * @author felipe
  */
-public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest {
-
-    private String url = server + "/login/firebaselogin";
+public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
     private String json;
+
+    private String url = server + "/login/firebaselogin";
 
     @Before
     @Override
@@ -37,7 +31,7 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
 
 	System.out.println("[doLoginWithFirebase]");
 
-	Token t = Token.builder().withKey("XXXXXXXXXXX").build();
+	Token t = Token.builder().withKey("x5rXx6LCyCddLErHSWRctK74SUR2").build();
 
 	json = HttpTest.sendPost(url, getGson().toJson(t));
 
@@ -49,9 +43,9 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
     @Override
     public void parseJson() {
 
-	System.out.println("[parseJson]");
+	Candidate c = getGson().fromJson(json, new TypeToken<Candidate>(){}.getType());
 
-	assertTrue(json.startsWith("{\"action\":\"rebuild\"}"));
+	assertNotNull(c);
 
     }
 

@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.parse.compat;
+package br.com.codecode.workix.tests.json.parse.jdk7;
 
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;

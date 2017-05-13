@@ -29,41 +29,39 @@ public class EntityManagerProducer implements Serializable {
 
     private static final long serialVersionUID = -1826763804778726145L;
 
-   /* @PersistenceUnit(unitName = "ProdDS")
+    @PersistenceUnit(unitName = "ProdDS")
     private EntityManagerFactory emfProd;
 
-    @PersistenceUnit(unitName = "DevDS")
-    private EntityManagerFactory emfDev;*/
+    @PersistenceUnit(unitName = "PostgresDS")
+    private EntityManagerFactory emfPostGres;
 
-    @PersistenceUnit(unitName = "MySQLDS")
-    private EntityManagerFactory emfOpenShift;
+    @PersistenceUnit(unitName = "MysqlDS")
+    private EntityManagerFactory emfMysql;
 
     /**
      * Produce EntityManager for CDI Injection Points
      * 
      * @return EntityManager Production Implementation
      */
-/*  @Produces
+    @Produces
     @RequestScoped
     @Factory
     @Production
     public EntityManager getProdEntityManager() {
 	return emfProd.createEntityManager();
     }
-*/
     /**
      * Produce EntityManager for CDI Injection Points
      * 
      * @return EntityManager Development Implementation
      */
-/*    @Produces
+    @Produces
     @RequestScoped
     @Factory
     @Development
     public EntityManager getDevEntityManager() {
-	return emfDev.createEntityManager();
+	return emfPostGres.createEntityManager();
     }
-*/
     /**
      * Produce EntityManager for CDI Injection Points
      * 
@@ -74,7 +72,7 @@ public class EntityManagerProducer implements Serializable {
     @Factory
     @OpenShift
     public EntityManager getOpenShiftEntityManager() {
-	return emfOpenShift.createEntityManager();
+	return emfMysql.createEntityManager();
     }
 
     /**
@@ -93,17 +91,17 @@ public class EntityManagerProducer implements Serializable {
 
 	EntityManagerFactory emf = null;
 
-/*	if (getContextParam().equals("Production")) {
+	if (getContextParam().equals("Production")) {
 
 	    emf = emfProd;
 
 	} else if (getContextParam().equals("Development")) {
 
-	    emf = emfDev;
+	    emf = emfPostGres;
 
-	} else */ if (getContextParam().equals("OpenShift")) {
+	} else  if (getContextParam().equals("OpenShift")) {
 
-	    emf = emfOpenShift;
+	    emf = emfMysql;
 
 	} else {
 	    throw new RuntimeException("Context Param is NULL or Undefined");
@@ -141,6 +139,5 @@ public class EntityManagerProducer implements Serializable {
 	    return s;
 	} else
 	    throw new RuntimeException("Impossible to Discover Runtime Environment");
-
     }
 }
