@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.compat.Job;
+import br.com.codecode.workix.jpa.models.jdk7.Job;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.json.parse.DownloadTest;
 

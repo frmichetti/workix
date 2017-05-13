@@ -12,7 +12,7 @@ import org.junit.Test;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.compat.Candidate;
+import br.com.codecode.workix.jpa.models.jdk7.Candidate;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.json.parse.DownloadTest;
 

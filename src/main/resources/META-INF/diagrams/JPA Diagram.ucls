@@ -78,7 +78,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="br.com.codecode.workix.jpa.models.compat.Contact.Builder" project="workix" 
+  <class id="9" language="java" name="br.com.codecode.workix.jpa.models.jdk7.Contact.Builder" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/compat/Contact.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="149" width="269" x="539" y="1080"/>    
@@ -116,7 +116,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="br.com.codecode.workix.jpa.models.compat.Contact" project="workix" 
+  <class id="13" language="java" name="br.com.codecode.workix.jpa.models.jdk7.Contact" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/compat/Contact.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="167" width="269" x="539" y="603"/>    

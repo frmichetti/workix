@@ -7,5 +7,5 @@ package br.com.codecode.workix.core.enums;
  * @version 1.0
  */
 public enum BlogCategory {
-    COMPANIES,JOBS,RESUMES,MARKET
+    COMPANIES, JOBS, RESUMES, MARKET
 }
