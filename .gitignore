@@ -3,6 +3,8 @@
 .project
 .tern-project
 .settings
+.idea/
+workix.iml
 nb-configuration.xml
 javadoc.xml
 scaffold
