@@ -21,7 +21,7 @@ Screenshots
 <img src="https://frmichetti.github.io/workix/web.png" title="Workix on web screenshot">
 
 - no Celular
-<img src="https://frmichetti.github.io/workix/android.png" title="Workix on mobile screenshot" width="80%" height="50%">
+<img src="https://frmichetti.github.io/workix/android.png" title="Workix on mobile screenshot" width="70%" height="35%">
 
 See Running on Youtube
 --
