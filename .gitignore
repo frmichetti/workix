@@ -8,3 +8,4 @@ workix.iml
 nb-configuration.xml
 javadoc.xml
 scaffold
+/classes/
