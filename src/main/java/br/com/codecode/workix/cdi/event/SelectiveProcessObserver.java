@@ -9,7 +9,7 @@ import javax.jms.JMSProducer;
 
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.SelectiveProcessTopic;
-import br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess;
+import br.com.codecode.workix.jpa.models.SelectiveProcess;
 
 /**
  * CDI Observer Class for {@link SelectiveProcess}

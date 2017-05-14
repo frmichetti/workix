@@ -9,7 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
 
 
 

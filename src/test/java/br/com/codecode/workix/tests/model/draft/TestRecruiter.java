@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import br.com.codecode.workix.jpa.models.Candidate;
 
 
 

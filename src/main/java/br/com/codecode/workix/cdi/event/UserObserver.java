@@ -9,7 +9,7 @@ import javax.jms.JMSProducer;
 
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.UserTopic;
-import br.com.codecode.workix.jpa.models.jdk8.User;
+import br.com.codecode.workix.jpa.models.User;
 
 /**
  * CDI Observer Class for User

@@ -2,7 +2,6 @@ package br.com.codecode.workix.ejb;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -16,7 +15,7 @@ import javax.inject.Inject;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.dao.implementations.standalone.CleanupDao;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess;
+import br.com.codecode.workix.jpa.models.SelectiveProcess;
 
 /**
  * This Class is a Enterprise Java Bean witch execute tasks in Some Periods

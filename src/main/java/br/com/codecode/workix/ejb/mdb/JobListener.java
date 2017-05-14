@@ -23,7 +23,7 @@ import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifiers.Email;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Push;
-import br.com.codecode.workix.jpa.models.jdk8.Job;
+import br.com.codecode.workix.jpa.models.Job;
 
 /**
  * This Class is a {@link MessageDrivenBean} for {@link Job} Execute Actions

@@ -9,7 +9,7 @@ import javax.persistence.TypedQuery;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.jpa.models.jdk8.User;
+import br.com.codecode.workix.jpa.models.User;
 
 /**
  * DAO for Job
