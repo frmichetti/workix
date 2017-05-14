@@ -5,14 +5,15 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.core.common.jdk8;
+package br.com.codecode.workix.core.common;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.util.Date;
 
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
- * Token Model
+ * Token Model for Compatibily with Older Versions
  * 
  * @author felipe
  * @since 1.0
@@ -20,7 +21,8 @@ import br.com.codecode.workix.interfaces.Buildable;
  */
 public class Token {
 
-    private LocalDateTime createdAt;
+    //TODO - FIXME Broken
+    private Date createdAt;
 
     private String key;
 
@@ -43,7 +45,7 @@ public class Token {
 	return new Builder();
     }
 
-    public LocalDateTime getCreatedAt() {
+    public Date getCreatedAt() {
 	return createdAt;
     }
 
@@ -51,7 +53,7 @@ public class Token {
 	return key;
     }
 
-    private void setCreatedAt(LocalDateTime createdAt) {
+    private void setCreatedAt(Date createdAt) {
 	this.createdAt = createdAt;
     }
 
@@ -83,7 +85,7 @@ public class Token {
 
 	public Builder withKey(String key) {
 	    super.key = key;
-	    super.createdAt = LocalDateTime.now();
+	    super.createdAt = Date.from(Instant.now());
 	    return this;
 	}
     }

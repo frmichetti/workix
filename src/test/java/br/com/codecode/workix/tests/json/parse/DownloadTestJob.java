@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.json.parse.models;
+package br.com.codecode.workix.tests.json.parse;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -11,18 +11,18 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.SelectiveProcess;
+import br.com.codecode.workix.jpa.models.Job;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.json.parse.DownloadTest;
 
-public class DownloadTestSelectiveProccess extends BaseTest implements DownloadTest<SelectiveProcess> {
+public class DownloadTestJob extends BaseTest implements DownloadTest<Job> {
 
     private String resp;
 
     @Before    
     public void downloadItens() {	
 
-	resp = downloadItens(server + "/selectiveprocesses");	
+	resp = downloadItens(server + "/jobs");	
 
     }
 
@@ -31,17 +31,17 @@ public class DownloadTestSelectiveProccess extends BaseTest implements DownloadT
 	
 	assertFalse(resp.isEmpty());
 	
-	List<SelectiveProcess> sps = parseItens(resp, new TypeToken<List<SelectiveProcess>>(){});
+	List<Job> jobs = parseItens(resp, new TypeToken<List<Job>>(){});
 
-	assertNotNull(sps);
+	assertNotNull(jobs);
 
-	assertTrue(sps.size() >= 0);		
+	assertTrue(jobs.size() > 0);		
 
 	System.out.println("----Stream----");
 	
-	System.out.println(sps.size());
+	System.out.println(jobs.size());
 
-	sps.stream().forEach(System.out::println);
+	jobs.stream().forEach(j -> System.out.println(j.getDescription()));
 
 	System.out.println("----Stream----");
 

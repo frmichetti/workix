@@ -1,4 +1,4 @@
-package br.com.codecode.workix.tests.populate.models;
+package br.com.codecode.workix.tests.populate;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

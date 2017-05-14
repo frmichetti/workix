@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.com.codecode.workix.core.annotations.jdk7;
+package br.com.codecode.workix.core.annotations;
 
 import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.RetentionPolicy.SOURCE;

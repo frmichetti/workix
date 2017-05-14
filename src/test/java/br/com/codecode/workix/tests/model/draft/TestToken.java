@@ -15,7 +15,7 @@ import org.junit.Test;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import br.com.codecode.workix.core.common.jk7.Token;
+import br.com.codecode.workix.core.common.Token;
 import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonDateDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
