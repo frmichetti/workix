@@ -4,9 +4,7 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.jaxrs.converter.LocalDateAdapter;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -80,7 +78,7 @@ public class Experience implements Serializable {
 		return employerName;
 	}
 
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	@Temporal(TemporalType.DATE)
 	@Column
 	public Date getEndDate() {
 		return endDate;
@@ -91,7 +89,7 @@ public class Experience implements Serializable {
 		return jobTitle;
 	}
 
-	@XmlJavaTypeAdapter(LocalDateAdapter.class)
+	@Temporal(TemporalType.DATE)
 	@Column
 	public Date getStartDate() {
 		return startDate;

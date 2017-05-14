@@ -35,6 +35,7 @@ public class Candidate extends Person {
      */
     public Candidate(){}
 
+    @Temporal(TemporalType.DATE)
     @Column(nullable = false)
     public Date getBirthDate() {
         return birthDate;

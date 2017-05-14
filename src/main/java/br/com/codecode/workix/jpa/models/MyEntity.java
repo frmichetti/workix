@@ -51,11 +51,13 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
 	this.setUuid(UUID.randomUUID().toString());
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(updatable = false, nullable = false)
     private Date getCreatedAt() {
 	return createdAt;
     }
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column
     private Date getUpdatedAt() {
 	return updatedAt;

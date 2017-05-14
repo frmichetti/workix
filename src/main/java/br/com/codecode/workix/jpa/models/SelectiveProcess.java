@@ -44,14 +44,15 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Candidate> candidates;
 
+    @Temporal(TemporalType.DATE)
     @Column
     private Date createdAt;
 
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @Temporal(TemporalType.DATE)
     @Column
     private Date disabledAt;
 
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @Temporal(TemporalType.DATE)
     @Column
     private Date expire;
 
@@ -66,11 +67,11 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @Column(nullable = false)
     private int maxCandidates;
 
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @Temporal(TemporalType.DATE)
     @Column
     private Date start;
 
-    @XmlJavaTypeAdapter(LocalDateTimeAdapter.class)
+    @Temporal(TemporalType.DATE)
     @Column
     private Date updatedAt;
 

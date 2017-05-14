@@ -3,9 +3,7 @@ package br.com.codecode.workix.jpa.models;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Lob;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -74,6 +72,7 @@ public class Education implements Serializable {
 		return description;
 	}
 
+	@Temporal(TemporalType.DATE)
 	@Column
 	public Date getEndDate() {
 		return endDate;
@@ -90,6 +89,7 @@ public class Education implements Serializable {
 		return schoolName;
 	}
 
+	@Temporal(TemporalType.DATE)
 	@Column
 	public Date getStartDate() {
 		return startDate;

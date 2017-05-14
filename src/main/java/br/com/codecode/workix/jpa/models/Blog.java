@@ -38,7 +38,7 @@ public class Blog extends MyEntity {
 
 	private String content;
 
-	private Date date;
+	private Date publishDate;
 
 	private long id;
 
@@ -67,7 +67,7 @@ public class Blog extends MyEntity {
 		this.category = builder.getCategory();
 		this.citation = builder.getCitation();
 		this.content = builder.getContent();
-		this.date = builder.getDate();
+		this.publishDate = builder.getPublishDate();
 		this.pictures = builder.getPictures();
 		this.resume = builder.getResume();
 		this.tags = builder.getTags();
@@ -137,9 +137,10 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the date
 	 */
+	@Temporal(TemporalType.DATE)
 	@Column
-	public Date getDate() {
-		return date;
+	public Date getPublishDate() {
+		return publishDate;
 	}
 
 	@Id
@@ -232,8 +233,8 @@ public class Blog extends MyEntity {
 	/**
 	 * @param date the date to set
 	 */
-	public void setDate(Date date) {
-		this.date = date;
+	public void setPublishDate(Date date) {
+		this.publishDate = date;
 	}
 
 	@Override
@@ -307,7 +308,7 @@ public class Blog extends MyEntity {
 		}
 
 		public Builder withDate(Date date) {
-			super.date = new Date();
+			super.publishDate = new Date();
 			return this;
 		}
 
