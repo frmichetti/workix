@@ -55,13 +55,16 @@ public class JobsFragment extends BaseMB {
 	try {   
 	    	    
 	    List<Job> jobs = dao.listAll(0, 10);
-	    
-	    visible = new ListDataModel<Job>(jobs.subList(0, 5));
-		 
-	    hidden = new ListDataModel<Job>(jobs.subList(5, 10));	    
-	    
-	    featuredJob = jobs.stream().filter(j -> j.getJobType() == JobType.FULLTIME).findFirst().orElse(jobs.get(jobs.size()-1));	    		
-		    		
+
+	    if (jobs.size() > 0){
+
+            visible = new ListDataModel<>(jobs.subList(0, 5));
+
+            hidden = new ListDataModel<>(jobs.subList(5, 10));
+
+            featuredJob = jobs.stream().filter(j -> j.getJobType() == JobType.FULLTIME)
+                    .findFirst().orElse(jobs.get(jobs.size()-1));
+        }
 
 	    
 	} catch (NotImplementedYetException e) {
