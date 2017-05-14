@@ -10,9 +10,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Blog JPA with Inherited Fields and Methods
@@ -42,11 +40,11 @@ public class Blog extends MyEntity {
 
 	private long id;
 
-	private List<String> pictures;
+	private Set<String> pictures;
 
 	private String resume;
 
-	private List<Tag> tags;
+	private Set<Tag> tags;
 
 	private String title;
 
@@ -85,7 +83,7 @@ public class Blog extends MyEntity {
 
 	public void addPicture(String picture){
 		if(pictures == null){
-			pictures = new ArrayList<>();
+			pictures = new HashSet<>();
 		}
 
 		pictures.add(picture);
@@ -93,7 +91,7 @@ public class Blog extends MyEntity {
 
 	public void addTag(Tag tag){
 		if(tags == null){
-			tags = new ArrayList<>();
+			tags = new HashSet<>();
 		}
 		tags.add(tag);
 	}
@@ -155,7 +153,7 @@ public class Blog extends MyEntity {
 	 */
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
-	public List<String> getPictures() {
+	public Set<String> getPictures() {
 		return pictures;
 	}
 
@@ -175,7 +173,7 @@ public class Blog extends MyEntity {
 	 */
 	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name = "Blog_Tags", joinColumns = @JoinColumn(name = "id"))
-	public List<Tag> getTags() {
+	public Set<Tag> getTags() {
 		return tags;
 	}
 
@@ -186,7 +184,7 @@ public class Blog extends MyEntity {
 
 	public void removePicture(String picture){
 		if(pictures == null){
-			pictures = new ArrayList<>();
+			pictures = new HashSet<>();
 		}
 
 		pictures.remove(picture);
@@ -194,7 +192,7 @@ public class Blog extends MyEntity {
 
 	public void removeTag(Tag tag){
 		if(tags == null){
-			tags = new ArrayList<>();
+			tags = new HashSet<>();
 		}
 		tags.remove(tag);
 	}
@@ -244,7 +242,7 @@ public class Blog extends MyEntity {
 	/**
 	 * @param pictures the pictures to set
 	 */
-	public void setPictures(List<String> pictures) {
+	public void setPictures(Set<String> pictures) {
 		this.pictures = pictures;
 	}
 
@@ -258,7 +256,7 @@ public class Blog extends MyEntity {
 	/**
 	 * @param tags the tags to set
 	 */
-	public void setTags(List<Tag> tags) {
+	public void setTags(Set<Tag> tags) {
 		this.tags = tags;
 	}
 
@@ -311,7 +309,7 @@ public class Blog extends MyEntity {
 			return this;
 		}
 
-		public Builder withPictures(List<String> pictures) {
+		public Builder withPictures(Set<String> pictures) {
 			super.pictures = pictures;
 			return this;
 		}
@@ -321,7 +319,7 @@ public class Blog extends MyEntity {
 			return this;
 		}
 
-		public Builder withTags(List<Tag> tags) {
+		public Builder withTags(Set<Tag> tags) {
 			super.tags = tags;
 			return this;
 		}
