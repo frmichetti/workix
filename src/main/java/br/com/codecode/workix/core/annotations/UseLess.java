@@ -1,4 +1,4 @@
-package br.com.codecode.workix.core.annotations.jdk8;
+package br.com.codecode.workix.core.annotations;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.CONSTRUCTOR;
