@@ -1,6 +1,6 @@
 package br.com.codecode.workix.jpa.models.jdk8;
 
-import br.com.codecode.workix.jpa.models.compat.Contact;
+import br.com.codecode.workix.jpa.models.jdk7.Contact;
 import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
