@@ -7,13 +7,6 @@
  * */
 package br.com.codecode.workix.beans;
 
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
-import javax.faces.application.FacesMessage;
-import javax.inject.Inject;
-
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
@@ -22,6 +15,12 @@ import br.com.codecode.workix.cdi.qualifiers.Push;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Send Token ManagedBean

@@ -7,10 +7,10 @@
  * */
 package br.com.codecode.workix.core.common;
 
+import br.com.codecode.workix.interfaces.Buildable;
+
 import java.time.Instant;
 import java.util.Date;
-
-import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Token Model for Compatibily with Older Versions

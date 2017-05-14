@@ -1,14 +1,13 @@
 package br.com.codecode.workix.cdi.producers;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * MessageDigest Producer<br>

@@ -1,8 +1,5 @@
 package br.com.codecode.workix.jpa.models;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
@@ -11,6 +8,8 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Resume JPA with Inherited Fields and Methods
@@ -128,7 +127,7 @@ public class Resume extends MyEntity {
     }
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(updatable = false, nullable = false)
 	@Override
     public long getId() {

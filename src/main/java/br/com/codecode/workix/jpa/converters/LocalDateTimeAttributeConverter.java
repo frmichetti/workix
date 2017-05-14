@@ -1,10 +1,9 @@
 package br.com.codecode.workix.jpa.converters;
 
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 /**
  * @see <a href=

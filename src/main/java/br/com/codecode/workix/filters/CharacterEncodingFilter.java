@@ -7,17 +7,11 @@
  * */
 package br.com.codecode.workix.filters;
 
-import static java.nio.charset.StandardCharsets.UTF_8;
-
+import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * Always Force requests of JaxRs to Configured Charset

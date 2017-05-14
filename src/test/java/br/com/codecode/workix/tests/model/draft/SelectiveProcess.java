@@ -1,13 +1,13 @@
 package br.com.codecode.workix.tests.model.draft;
 
+import br.com.codecode.workix.jpa.models.Candidate;
+
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
-
-import br.com.codecode.workix.jpa.models.Candidate;
 
 
 

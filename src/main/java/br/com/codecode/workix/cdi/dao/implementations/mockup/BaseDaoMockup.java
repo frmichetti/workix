@@ -1,18 +1,13 @@
 package br.com.codecode.workix.cdi.dao.implementations.mockup;
 
-import java.io.Serializable;
+import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
+import br.com.codecode.workix.cdi.qualifiers.*;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
-import br.com.codecode.workix.cdi.qualifiers.PostgreSQL;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Mockup;
-import br.com.codecode.workix.cdi.qualifiers.MySQL;
-import br.com.codecode.workix.cdi.qualifiers.Production;
-import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+import java.io.Serializable;
 
 /**
  * BaseClass for Mockup Implementation

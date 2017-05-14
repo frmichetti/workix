@@ -1,8 +1,7 @@
 package br.com.codecode.workix.jaxrs.converter;
 
-import java.time.LocalDateTime;
-
 import javax.xml.bind.annotation.adapters.XmlAdapter;
+import java.time.LocalDateTime;
 
 /**
  * Converter for Java 8 Dates {@link LocalDateTime} FIXME Not Working with JaxRs

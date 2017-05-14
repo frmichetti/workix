@@ -1,8 +1,11 @@
 package br.com.codecode.workix.beans;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Job;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -10,13 +13,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.persistence.NoResultException;
-
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Job;
-import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Job Detail ManagedBean

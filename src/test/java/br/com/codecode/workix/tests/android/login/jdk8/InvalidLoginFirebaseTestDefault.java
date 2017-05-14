@@ -7,21 +7,19 @@
  * */
 package br.com.codecode.workix.tests.android.login.jdk8;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.StringReader;
-
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import br.com.codecode.workix.core.common.Token;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.android.login.LoginTest;
 import br.com.codecode.workix.tests.util.HttpTest;
+import org.junit.Before;
+import org.junit.Test;
+
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonReader;
+import java.io.StringReader;
+
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Do Login With Firebase Server with JsonP

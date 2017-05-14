@@ -1,25 +1,13 @@
 package br.com.codecode.workix.jaas.models;
 
-import java.io.Serializable;
-import java.util.Set;
+import br.com.codecode.workix.jaas.PassGenerator;
 
 import javax.inject.Inject;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlTransient;
-
-import br.com.codecode.workix.jaas.PassGenerator;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * Only for JAAS security

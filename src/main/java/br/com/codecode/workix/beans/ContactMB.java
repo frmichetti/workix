@@ -1,14 +1,14 @@
 package br.com.codecode.workix.beans;
 
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+import br.com.codecode.workix.mail.MailSender;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
-import br.com.codecode.workix.mail.MailSender;
 
 /**
  * This ManagedBean controls Contact Fragment in fragments/contact.xhtml

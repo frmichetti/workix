@@ -1,11 +1,10 @@
 package br.com.codecode.workix.tests.model.draft;
 
-import java.util.ArrayList;
-
+import br.com.codecode.workix.jpa.models.Candidate;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.jpa.models.Candidate;
+import java.util.ArrayList;
 
 
 

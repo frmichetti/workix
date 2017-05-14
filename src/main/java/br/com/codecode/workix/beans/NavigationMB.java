@@ -1,13 +1,13 @@
 package br.com.codecode.workix.beans;
 
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 /**
  * This ManagedBean Shares info for navigation Execute with

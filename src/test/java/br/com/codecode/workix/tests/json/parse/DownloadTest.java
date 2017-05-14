@@ -1,13 +1,12 @@
 package br.com.codecode.workix.tests.json.parse;
 
-import java.io.Serializable;
-import java.util.List;
-
+import br.com.codecode.workix.gson.util.GsonProvider;
+import br.com.codecode.workix.tests.util.HttpTest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.gson.util.GsonProvider;
-import br.com.codecode.workix.tests.util.HttpTest;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Markup Interface for Download Test Unit

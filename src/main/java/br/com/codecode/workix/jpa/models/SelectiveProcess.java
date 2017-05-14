@@ -1,8 +1,5 @@
 package br.com.codecode.workix.jpa.models;
 
-import java.io.Serializable;
-import java.util.*;
-
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
@@ -15,6 +12,8 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * Selective Process JPA with Inherited Fields and Methods
@@ -57,7 +56,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     private Date expire;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private long id;
 

@@ -1,8 +1,8 @@
 package br.com.codecode.workix.jsf.util.helper;
 
-import javax.enterprise.context.RequestScoped;
-
 import br.com.codecode.workix.core.enums.JobType;
+
+import javax.enterprise.context.RequestScoped;
 
 /**
  * Job Type Link Helper

@@ -7,14 +7,13 @@
  * */
 package br.com.codecode.workix.jsf.util.converter;
 
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.DateTimeConverter;
 import javax.faces.convert.FacesConverter;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Calendar Converter for JSF

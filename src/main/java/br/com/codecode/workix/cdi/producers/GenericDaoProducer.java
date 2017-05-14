@@ -1,7 +1,8 @@
 package br.com.codecode.workix.cdi.producers;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
+import br.com.codecode.workix.cdi.dao.implementations.generic.Dao;
+import br.com.codecode.workix.cdi.qualifiers.*;
+import br.com.codecode.workix.interfaces.Persistable;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
@@ -10,11 +11,8 @@ import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import br.com.codecode.workix.cdi.dao.implementations.generic.Dao;
-import br.com.codecode.workix.cdi.qualifiers.*;
-import br.com.codecode.workix.cdi.qualifiers.PostgreSQL;
-import br.com.codecode.workix.interfaces.Persistable;
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
 
 /**
  * Factory for Generic {@link Dao} Injection

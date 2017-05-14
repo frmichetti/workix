@@ -1,7 +1,12 @@
 package br.com.codecode.workix.beans;
 
-import java.util.ArrayList;
-import java.util.List;
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Blog;
+import br.com.codecode.workix.jpa.models.Comment;
+import br.com.codecode.workix.jsf.util.helper.Paginator;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -10,14 +15,8 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.validation.constraints.Min;
-
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Blog;
-import br.com.codecode.workix.jpa.models.Comment;
-import br.com.codecode.workix.jsf.util.helper.Paginator;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This ManagedBean controls Blogs List

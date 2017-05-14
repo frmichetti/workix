@@ -1,16 +1,16 @@
 package br.com.codecode.workix.beans;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
-import javax.faces.application.FacesMessage;
-import javax.inject.Inject;
-import javax.transaction.Transactional;
-
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Subscriber;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
+import javax.faces.application.FacesMessage;
+import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 /**
  * This ManagedBean controls Signup Fragment in footer.xhtml

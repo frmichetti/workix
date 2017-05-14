@@ -1,5 +1,7 @@
 package br.com.codecode.workix.mail;
 
+import br.com.codecode.workix.cdi.qualifiers.Gmail;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.mail.Message;
@@ -10,8 +12,6 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import javax.ws.rs.core.MediaType;
-
-import br.com.codecode.workix.cdi.qualifiers.Gmail;
 
 /**
  * This Class Prepare and Send a Email

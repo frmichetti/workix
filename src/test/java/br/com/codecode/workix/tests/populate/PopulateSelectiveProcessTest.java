@@ -1,22 +1,17 @@
 package br.com.codecode.workix.tests.populate;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import br.com.codecode.workix.jpa.models.Job;
+import br.com.codecode.workix.jpa.models.SelectiveProcess;
+import br.com.codecode.workix.tests.android.BaseTest;
+import br.com.codecode.workix.tests.util.HttpTest;
+import com.google.gson.reflect.TypeToken;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.gson.reflect.TypeToken;
-
-import br.com.codecode.workix.jpa.models.Job;
-import br.com.codecode.workix.jpa.models.SelectiveProcess;
-import br.com.codecode.workix.tests.android.BaseTest;
-import br.com.codecode.workix.tests.populate.CommonPopTest;
-import br.com.codecode.workix.tests.util.HttpTest;
+import static org.junit.Assert.*;
 
 /**
  * Populate DB with Selective Processes

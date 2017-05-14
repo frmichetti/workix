@@ -1,10 +1,13 @@
 package br.com.codecode.workix.beans;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.core.enums.BlogCategory;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Blog;
+import br.com.codecode.workix.jpa.models.Comment;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 import javax.enterprise.inject.Default;
 import javax.faces.application.FacesMessage;
@@ -14,15 +17,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
-
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.core.enums.BlogCategory;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Blog;
-import br.com.codecode.workix.jpa.models.Comment;
-import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Blog Detail ManagedBean

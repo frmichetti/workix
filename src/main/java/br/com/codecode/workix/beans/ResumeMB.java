@@ -1,7 +1,15 @@
 package br.com.codecode.workix.beans;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.dao.implementations.standalone.ResumeCompleteDao;
+import br.com.codecode.workix.cdi.notify.Notification;
+import br.com.codecode.workix.cdi.qualifiers.Email;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.cdi.qualifiers.Push;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.*;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -11,21 +19,8 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.persistence.NoResultException;
-
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.dao.implementations.standalone.ResumeCompleteDao;
-import br.com.codecode.workix.cdi.notify.Notification;
-import br.com.codecode.workix.cdi.qualifiers.Email;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.cdi.qualifiers.Push;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jpa.models.Education;
-import br.com.codecode.workix.jpa.models.Experience;
-import br.com.codecode.workix.jpa.models.Resume;
-import br.com.codecode.workix.jpa.models.Skill;
-import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * This ManagedBean controls resume.xhtml

@@ -7,18 +7,16 @@
  * */
 package br.com.codecode.workix.jaas;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-
-import javax.enterprise.inject.Default;
-import javax.inject.Inject;
-
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.jaas.models.JAASUser;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.jboss.security.Base64Encoder;
 
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.jaas.models.JAASUser;
+import javax.enterprise.inject.Default;
+import javax.inject.Inject;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 
 /**
  * This Class Encodes Strings. Use with {@link JAASUser #setPassword(String)}

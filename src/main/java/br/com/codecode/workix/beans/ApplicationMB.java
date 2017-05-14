@@ -1,6 +1,6 @@
 package br.com.codecode.workix.beans;
 
-import java.time.LocalDate;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
@@ -9,10 +9,8 @@ import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-
 import java.io.Serializable;
+import java.time.LocalDate;
 
 /**
  * This ManagedBean Shares info in index.xhtml Execute with

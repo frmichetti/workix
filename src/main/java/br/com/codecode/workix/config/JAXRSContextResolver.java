@@ -1,20 +1,18 @@
 package br.com.codecode.workix.config;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.ext.ContextResolver;
-import javax.ws.rs.ext.Provider;
-
+import br.com.codecode.workix.jaxrs.deserializer.CalendarDeserializer;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import br.com.codecode.workix.jaxrs.deserializer.CalendarDeserializer;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.ext.ContextResolver;
+import javax.ws.rs.ext.Provider;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 /**
  * This Class define Startup Properties for JAXRS

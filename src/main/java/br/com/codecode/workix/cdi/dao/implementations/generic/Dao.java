@@ -1,18 +1,17 @@
 package br.com.codecode.workix.cdi.dao.implementations.generic;
 
-import java.io.Serializable;
-import java.math.BigInteger;
-import java.util.List;
+import br.com.codecode.workix.cdi.dao.BaseCrud;
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.producers.GenericDaoProducer;
+import br.com.codecode.workix.interfaces.Persistable;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
-import br.com.codecode.workix.cdi.dao.BaseCrud;
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.producers.GenericDaoProducer;
-import br.com.codecode.workix.interfaces.Persistable;
+import java.io.Serializable;
+import java.math.BigInteger;
+import java.util.List;
 
 /**
  * Generic DAO Implementation

@@ -7,14 +7,13 @@
  * */
 package br.com.codecode.workix.jsf.util.converter;
 
-import java.util.Map;
+import br.com.codecode.workix.interfaces.Persistable;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
-
-import br.com.codecode.workix.interfaces.Persistable;
+import java.util.Map;
 
 /**
  * Simple Entity Converter for JSF

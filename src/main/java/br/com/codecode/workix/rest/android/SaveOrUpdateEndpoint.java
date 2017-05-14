@@ -1,5 +1,13 @@
 package br.com.codecode.workix.rest.android;
 
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.config.JAXRSConfiguration;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Resume;
+import br.com.codecode.workix.jpa.models.User;
+
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
@@ -10,14 +18,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.config.JAXRSConfiguration;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jpa.models.Resume;
-import br.com.codecode.workix.jpa.models.User;
 
 /**
  * This Class is a Simple StandAlone Endpoint for Android Uses

@@ -1,12 +1,12 @@
 package br.com.codecode.workix.cdi.producers;
 
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+
 import javax.annotation.Resource;
 import javax.enterprise.concurrent.ManagedExecutorService;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 /**
  * Managed Executor Service Producer<br>

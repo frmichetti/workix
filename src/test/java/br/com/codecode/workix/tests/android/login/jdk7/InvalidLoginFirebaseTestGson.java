@@ -7,16 +7,15 @@
  * */
 package br.com.codecode.workix.tests.android.login.jdk7;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import br.com.codecode.workix.core.common.Token;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.android.login.LoginTest;
 import br.com.codecode.workix.tests.util.HttpTest;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Do Login With Firebase Server with Gson

@@ -1,10 +1,10 @@
 package br.com.codecode.workix.cdi.dao.implementations.standalone;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
 import br.com.codecode.workix.cdi.dao.implementations.persist.BaseDao;
 import br.com.codecode.workix.jpa.models.SelectiveProcess;
+
+import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * StandAlone DAO for find Expired Selective Processes 

@@ -1,13 +1,12 @@
 package br.com.codecode.workix.cdi.dao.implementations.persist;
 
-import java.math.BigInteger;
-import java.util.List;
-
-import javax.persistence.TypedQuery;
-
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.jpa.models.Company;
+
+import javax.persistence.TypedQuery;
+import java.math.BigInteger;
+import java.util.List;
 
 /**
  * DAO for Company

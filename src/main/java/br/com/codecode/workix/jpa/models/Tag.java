@@ -1,7 +1,5 @@
 package br.com.codecode.workix.jpa.models;
 
-import java.io.Serializable;
-
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -12,6 +10,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import java.io.Serializable;
 
 /**
  * Tag JPA Embeddable

@@ -11,6 +11,7 @@
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
 		</properties>
 	</persistence-unit>
 	<persistence-unit name="postgresDS" transaction-type="JTA">
@@ -20,6 +21,8 @@
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
+			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
 		</properties>
 	</persistence-unit>
 </persistence>

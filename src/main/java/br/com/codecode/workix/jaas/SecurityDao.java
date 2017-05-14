@@ -7,12 +7,11 @@
  * */
 package br.com.codecode.workix.jaas;
 
-import javax.ejb.Stateless;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
 import br.com.codecode.workix.cdi.dao.implementations.persist.BaseDao;
 import br.com.codecode.workix.jaas.models.JAASUser;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.ejb.Stateless;
 
 /**
  * Stand Alone DAO for JAASUser

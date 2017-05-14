@@ -1,10 +1,10 @@
 package br.com.codecode.workix.cdi.dao;
 
-import java.io.Serializable;
-import java.util.List;
-
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.interfaces.Persistable;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Markup Interface <br>

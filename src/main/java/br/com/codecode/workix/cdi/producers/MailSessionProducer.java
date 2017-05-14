@@ -1,15 +1,15 @@
 package br.com.codecode.workix.cdi.producers;
 
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Fake;
+import br.com.codecode.workix.cdi.qualifiers.Gmail;
+import br.com.codecode.workix.mail.MailSender;
+
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.mail.Session;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Fake;
-import br.com.codecode.workix.cdi.qualifiers.Gmail;
-import br.com.codecode.workix.mail.MailSender;
 
 /**
  * Mail Session Producer

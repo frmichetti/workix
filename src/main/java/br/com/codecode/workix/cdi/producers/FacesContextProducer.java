@@ -7,13 +7,13 @@
  * */
 package br.com.codecode.workix.cdi.producers;
 
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Produces;
 import javax.faces.context.FacesContext;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 /**
  * Faces Context Producer

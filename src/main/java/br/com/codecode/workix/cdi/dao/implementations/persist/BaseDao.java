@@ -1,14 +1,12 @@
 package br.com.codecode.workix.cdi.dao.implementations.persist;
 
-import java.io.Serializable;
+import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
+import br.com.codecode.workix.cdi.qualifiers.*;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
-import br.com.codecode.workix.cdi.qualifiers.*;
-import br.com.codecode.workix.cdi.qualifiers.MySQL;
+import java.io.Serializable;
 
 /**
  * Only for Share Entity Manager

@@ -1,6 +1,8 @@
 package br.com.codecode.workix.cdi.producers;
 
-import java.io.Serializable;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.MySQL;
+import br.com.codecode.workix.cdi.qualifiers.PostgreSQL;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
@@ -10,10 +12,7 @@ import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
-
-import br.com.codecode.workix.cdi.qualifiers.PostgreSQL;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.MySQL;
+import java.io.Serializable;
 
 /**
  * Entity Manager Producer

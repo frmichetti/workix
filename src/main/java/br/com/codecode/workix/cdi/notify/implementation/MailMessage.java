@@ -7,14 +7,14 @@
  * */
 package br.com.codecode.workix.cdi.notify.implementation;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifiers.Email;
 import br.com.codecode.workix.interfaces.Debugable;
 import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.mail.MailSender;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 /**
  * Email Message Implementation

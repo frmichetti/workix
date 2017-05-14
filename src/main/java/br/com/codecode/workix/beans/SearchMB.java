@@ -1,11 +1,11 @@
 package br.com.codecode.workix.beans;
 
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
-
-import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**
  * This ManagedBean controls Search on HeaderPage

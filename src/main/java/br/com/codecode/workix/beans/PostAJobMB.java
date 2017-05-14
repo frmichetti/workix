@@ -1,14 +1,5 @@
 package br.com.codecode.workix.beans;
 
-import java.util.Arrays;
-import java.util.List;
-
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
-import javax.inject.Inject;
-
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
@@ -18,6 +9,14 @@ import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Company;
 import br.com.codecode.workix.jpa.models.Job;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
+import javax.inject.Inject;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * This ManagedBean controls post-a-job.xhtml

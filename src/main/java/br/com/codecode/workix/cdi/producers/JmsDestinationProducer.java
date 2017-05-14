@@ -1,15 +1,15 @@
 package br.com.codecode.workix.cdi.producers;
 
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.JobTopic;
+import br.com.codecode.workix.cdi.qualifiers.SelectiveProcessTopic;
+import br.com.codecode.workix.cdi.qualifiers.UserTopic;
+
 import javax.annotation.Resource;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.jms.Destination;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.JobTopic;
-import br.com.codecode.workix.cdi.qualifiers.SelectiveProcessTopic;
-import br.com.codecode.workix.cdi.qualifiers.UserTopic;
 
 /**
  * JMS Destination Producer

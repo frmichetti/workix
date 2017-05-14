@@ -1,10 +1,10 @@
 package br.com.codecode.workix.rest;
 
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 /**
  * Only for Share EntityManager

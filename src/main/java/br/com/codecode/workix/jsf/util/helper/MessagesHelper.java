@@ -7,14 +7,14 @@
  * */
 package br.com.codecode.workix.jsf.util.helper;
 
+import br.com.codecode.workix.cdi.producers.FacesContextProducer;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
-import br.com.codecode.workix.cdi.producers.FacesContextProducer;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 /**
  * JSF Messages Helper

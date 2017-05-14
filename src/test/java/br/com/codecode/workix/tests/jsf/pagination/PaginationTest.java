@@ -1,10 +1,9 @@
 package br.com.codecode.workix.tests.jsf.pagination;
 
-import static org.junit.Assert.assertEquals;
-
+import br.com.codecode.workix.jsf.util.helper.Pagination;
 import org.junit.Test;
 
-import br.com.codecode.workix.jsf.util.helper.Pagination;
+import static org.junit.Assert.assertEquals;
 
 /**
  * TDD Pagination Test
