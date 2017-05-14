@@ -18,10 +18,10 @@
 Screenshots
 --
 - na Web
-![Workix Web ScreenShot](https://frmichetti.github.io/workix/web.png)
+<img src="https://frmichetti.github.io/workix/web.png" title="Workix on web screenshot">
 
 - no Celular
-![Workix Web ScreenShot](https://frmichetti.github.io/workix/android.png)
+<img src="https://frmichetti.github.io/workix/android.png" title="Workix on mobile screenshot" width="80%" height="50%">
 
 See Running on Youtube
 --
@@ -38,7 +38,7 @@ GNU General Public License v3.0
 
 We prefer
 --
-[![Intellij](https://frmichetti.github.io/workix/jet-brains-logos/logo-variant-4.png)](https://frmichetti.github.io/workix/jet-brains-logos/logo-variant-4.png)
+<img src="https://frmichetti.github.io/workix/jet-brains-logos/logo-variant-4.png" title="Workix powered by Intellij" width="40%" height="20%">
 
 
 **Visite http://www.workix.com.br**
