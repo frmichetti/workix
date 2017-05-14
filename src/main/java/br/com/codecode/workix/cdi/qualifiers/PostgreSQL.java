@@ -24,5 +24,5 @@ import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
 @Target({ METHOD, FIELD })
 @Retention(RUNTIME)
 @Documented
-public @interface OpenShift {
+public @interface PostgreSQL {
 }

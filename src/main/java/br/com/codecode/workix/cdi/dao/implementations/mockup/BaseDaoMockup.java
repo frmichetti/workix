@@ -7,10 +7,10 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 
 import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
-import br.com.codecode.workix.cdi.qualifiers.Development;
+import br.com.codecode.workix.cdi.qualifiers.PostgreSQL;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Mockup;
-import br.com.codecode.workix.cdi.qualifiers.OpenShift;
+import br.com.codecode.workix.cdi.qualifiers.MySQL;
 import br.com.codecode.workix.cdi.qualifiers.Production;
 import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
@@ -41,7 +41,7 @@ public class BaseDaoMockup implements Serializable {
      * CDI Injection Point for {@link EntityManager}
      * 
      * @see EntityManagerProducer Possible values {@link Default}
-     *      {@link Production} {@link Development} {@link OpenShift}
+     *      {@link Production} {@link PostgreSQL} {@link MySQL}
      */
     @Inject
     @Factory

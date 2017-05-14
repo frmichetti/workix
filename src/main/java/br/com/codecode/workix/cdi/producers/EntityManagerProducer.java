@@ -11,10 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 
-import br.com.codecode.workix.cdi.qualifiers.Development;
+import br.com.codecode.workix.cdi.qualifiers.PostgreSQL;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.OpenShift;
-import br.com.codecode.workix.cdi.qualifiers.Production;
+import br.com.codecode.workix.cdi.qualifiers.MySQL;
 
 /**
  * Entity Manager Producer
@@ -29,49 +28,34 @@ public class EntityManagerProducer implements Serializable {
 
     private static final long serialVersionUID = -1826763804778726145L;
 
-    @PersistenceUnit(unitName = "ProdDS")
-    private EntityManagerFactory emfProd;
-
-    @PersistenceUnit(unitName = "PostgresDS")
+    @PersistenceUnit(unitName = "postgresDS")
     private EntityManagerFactory emfPostGres;
 
-    @PersistenceUnit(unitName = "MysqlDS")
+    @PersistenceUnit(unitName = "mysqlDS")
     private EntityManagerFactory emfMysql;
 
     /**
      * Produce EntityManager for CDI Injection Points
      * 
-     * @return EntityManager Production Implementation
+     * @return EntityManager PostgreSQL Implementation
      */
     @Produces
     @RequestScoped
     @Factory
-    @Production
-    public EntityManager getProdEntityManager() {
-	return emfProd.createEntityManager();
-    }
-    /**
-     * Produce EntityManager for CDI Injection Points
-     * 
-     * @return EntityManager Development Implementation
-     */
-    @Produces
-    @RequestScoped
-    @Factory
-    @Development
-    public EntityManager getDevEntityManager() {
+    @PostgreSQL
+    public EntityManager getPostgreSQLEntityManager() {
 	return emfPostGres.createEntityManager();
     }
     /**
      * Produce EntityManager for CDI Injection Points
      * 
-     * @return EntityManager OpenShift Implementation
+     * @return EntityManager PostgreSQL Implementation
      */
     @Produces
     @RequestScoped
     @Factory
-    @OpenShift
-    public EntityManager getOpenShiftEntityManager() {
+    @MySQL
+    public EntityManager getMySQLEntityManager() {
 	return emfMysql.createEntityManager();
     }
 
@@ -91,15 +75,11 @@ public class EntityManagerProducer implements Serializable {
 
 	EntityManagerFactory emf = null;
 
-	if (getContextParam().equals("Production")) {
-
-	    emf = emfProd;
-
-	} else if (getContextParam().equals("Development")) {
+    if (getContextParam().equals("PostgreSQL")) {
 
 	    emf = emfPostGres;
 
-	} else  if (getContextParam().equals("OpenShift")) {
+	} else  if (getContextParam().equals("MySQL")) {
 
 	    emf = emfMysql;
 
@@ -133,7 +113,7 @@ public class EntityManagerProducer implements Serializable {
      */
     private String getContextParam() throws RuntimeException {
 
-	String s = "OpenShift";
+	String s = "MySQL";
 
 	if (!s.isEmpty()) {
 	    return s;

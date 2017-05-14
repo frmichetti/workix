@@ -22,14 +22,4 @@
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
 		</properties>
 	</persistence-unit>
-
-<!--	<persistence-unit name="prodDS" transaction-type="JTA">
-		<description>Production Persistence Unit</description>
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>java:/prodDS</jta-data-source>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
-		<properties>
-			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
-		</properties>
-	</persistence-unit>-->
 </persistence>
