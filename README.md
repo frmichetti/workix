@@ -30,7 +30,7 @@ Video Demonstração
 
 Documentação Java
 --
-[![Documentação Técnica](https://frmichetti.github.io/workix/java-docs/index.html)](https://frmichetti.github.io/workix/docs/java-docs/index.html)
+https://frmichetti.github.io/workix/java-docs/index.html
 
 License
 --
