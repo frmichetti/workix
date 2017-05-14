@@ -1,4 +1,4 @@
-package br.com.codecode.workix.core.annotations.compat;
+package br.com.codecode.workix.core.annotations.jdk7;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.CONSTRUCTOR;
@@ -15,17 +15,16 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * The Interface NeedUpgrade.
+ * The Interface UseLess.
  */
 @Documented
 @Retention(SOURCE)
 @Target({ TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE, ANNOTATION_TYPE, PACKAGE})
 /**
- * Mark Object as needing upgrade
+ * Mark Whatever Object as Useless
  * 
  * @author felipe
  * @since 1.0
  * @version 1.0
- * 
  */
-public @interface NeedUpgrade{}
+public @interface UseLess{}

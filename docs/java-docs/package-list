@@ -13,10 +13,10 @@ br.com.codecode.workix.cdi.producers
 br.com.codecode.workix.cdi.qualifiers
 br.com.codecode.workix.config
 br.com.codecode.workix.core
-br.com.codecode.workix.core.annotations.compat
+br.com.codecode.workix.core.annotations.jdk7
 br.com.codecode.workix.core.annotations.jdk8
 br.com.codecode.workix.core.common
-br.com.codecode.workix.core.common.compat
+br.com.codecode.workix.core.common.jdk7
 br.com.codecode.workix.core.common.jdk8
 br.com.codecode.workix.core.enums
 br.com.codecode.workix.core.exceptions
