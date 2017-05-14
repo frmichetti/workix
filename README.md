@@ -18,19 +18,19 @@
 ScreenShots
 --
 - Web
-![Workix Web ScreenShot](https://frmichetti.github.io/workix/docs/web.png)
+![Workix Web ScreenShot](https://frmichetti.github.io/workix/web.png)
 
 - Celular
-![Workix Web ScreenShot](https://frmichetti.github.io/workix/docs/android.png)
+![Workix Web ScreenShot](https://frmichetti.github.io/workix/android.png)
 
 Video Demonstração
 --
 
-[![See on Youtube](https://frmichetti.github.io/workix/docs/workix.gif)](https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F)
+[![See on Youtube](https://frmichetti.github.io/workix/workix.gif)](https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F)
 
 Documentação Java
 --
-[![Documentação Técnica](https://frmichetti.github.io/workix/docs/java-docs/index.html)](https://frmichetti.github.io/workix/docs/java-docs/index.html)
+[![Documentação Técnica](https://frmichetti.github.io/workix/java-docs/index.html)](https://frmichetti.github.io/workix/docs/java-docs/index.html)
 
 License
 --
