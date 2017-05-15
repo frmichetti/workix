@@ -101,7 +101,7 @@ public class JobsMB extends BaseMB {
 	    
 	    List<Job> jobs = dao.listAll(start - 1, end);
 	    
-	    list = new ListDataModel<Job>(jobs);
+	    list = new ListDataModel<>(jobs);
 
 	} catch (NotImplementedYetException e) {
 

@@ -10,9 +10,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Blog JPA with Inherited Fields and Methods
@@ -158,6 +156,11 @@ public class Blog extends MyEntity {
 	@CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
 	public Set<String> getPictures() {
 		return pictures;
+	}
+
+	@Transient
+	public List<String> getPicturesAsList(){
+		return new ArrayList<>(getPictures());
 	}
 
 

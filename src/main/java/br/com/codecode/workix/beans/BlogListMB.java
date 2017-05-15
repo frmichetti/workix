@@ -8,6 +8,7 @@ import br.com.codecode.workix.jpa.models.Blog;
 import br.com.codecode.workix.jpa.models.Comment;
 import br.com.codecode.workix.jsf.util.helper.Paginator;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
@@ -106,9 +107,9 @@ public class BlogListMB extends BaseMB {
 
 	    end = paginator.getEnd();
 
-	    list = new ListDataModel<Blog>(dao.listAll(start -1 , end));
+	    list = new ListDataModel<>(dao.listAll(start -1 , end));
 
-	    comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));	    
+	    comments = new ListDataModel<>(daoComment.listAll(0, Integer.MAX_VALUE));
 
 
 	} catch (NotImplementedYetException e) {	    
@@ -126,7 +127,7 @@ public class BlogListMB extends BaseMB {
 	    pager.add(x);
 	}
 
-	{
+	debug:{
 	    System.out.println("Current Page : " + page);
 
 	    System.out.println("Total Rows : " + totalRows);
