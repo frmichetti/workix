@@ -47,7 +47,7 @@ public class GsonDateDeserializer implements JsonDeserializer<Date> {
 		 * 
 		 * @return
 		 */
-		d = new SimpleDateFormat().parse(dateRaw);
+		d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
 
 		return d;
 
