@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * This ManagedBean controls candidates.xhtml and candidates2.xhtml
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -38,7 +38,7 @@ public class CandidatesMB extends BaseMB {
     @Generic
     private Crud<Candidate> dao;
 
-    
+
     /**
      * @return the pager
      */
@@ -49,7 +49,7 @@ public class CandidatesMB extends BaseMB {
     private DataModel<Candidate> list;
 
     private String prefix, sufix;
-    
+
     private List<Integer> pager = new ArrayList<>();
 
     /**
@@ -68,93 +68,93 @@ public class CandidatesMB extends BaseMB {
     @Override
     public void init() {
 
-	try {
+        try {
 
-	    totalRows = dao.countRegisters().intValue();
+            totalRows = dao.countRegisters().intValue();
 
-	    paginator = new Paginator(limitRows, page, totalRows);
+            paginator = new Paginator(limitRows, page, totalRows);
 
-	    totalPages = paginator.getTotalPages();
+            totalPages = paginator.getTotalPages();
 
-	    start = paginator.getStart();
+            start = paginator.getStart();
 
-	    end = paginator.getEnd();
-	    
-	    list = new ListDataModel<Candidate>(dao.listAll(start - 1, end));
+            end = paginator.getEnd();
 
-	} catch (NotImplementedYetException e) {
+            list = new ListDataModel<Candidate>(dao.listAll(start - 1, limitRows));
 
-	    e.printStackTrace();
+        } catch (NotImplementedYetException e) {
 
-	    goToErrorPage();
+            e.printStackTrace();
 
-	} catch (Exception e) {
+            goToErrorPage();
 
-	    e.printStackTrace();
+        } catch (Exception e) {
 
-	    goToErrorPage();
-	}
-	
-	prefix = "/" + facesContext.getExternalContext().getContextName();
+            e.printStackTrace();
 
-	sufix = "&faces-redirect=true";
+            goToErrorPage();
+        }
 
-	{
-	    System.out.println("Current Page : " + page);
+        prefix = "/" + facesContext.getExternalContext().getContextName();
 
-	    System.out.println("Current totalRows : " + totalRows);
+        sufix = "&faces-redirect=true";
 
-	    System.out.println("Current totalPages : " + totalPages);
+        {
+            System.out.println("Current Page : " + page);
 
-	    System.out.println("Start " + start);
+            System.out.println("Current totalRows : " + totalRows);
 
-	    System.out.println("End " + end);
-	}
-	
-	for(int x = 0 ; x <= totalPages; x++){
-	    if (x == 0) continue;
-	    	pager.add(x);
-	}
+            System.out.println("Current totalPages : " + totalPages);
+
+            System.out.println("Start " + start);
+
+            System.out.println("End " + end);
+        }
+
+        for(int x = 0 ; x <= totalPages; x++){
+            if (x == 0) continue;
+            pager.add(x);
+        }
     }
 
     public int getPage() {
-	return page;
+        return page;
     }
 
     public void setPage(int page) {
-	this.page = page;
+        this.page = page;
     }
 
     public DataModel<Candidate> getList() {
-	return list;
+        return list;
     }
 
     public String goToCandidateDetail(Candidate candidate) {
 
-	System.out.println("Received Candidate " + candidate.toString());
+        System.out.println("Received Candidate " + candidate.toString());
 
-	return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix;
+        return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix;
     }
 
     private String goToErrorPage() {
 
-	try {
+        try {
 
-	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+            facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
-	return prefix + "/404.xhtml" + sufix;
+            e.printStackTrace();
+        }
+        return prefix + "/404.xhtml" + sufix;
     }
-    
-    public String goToLastPage() {
-  	return prefix + "/candidates2.xhtml?page=" + String.valueOf(totalPages) + sufix;
-      }
 
-      public String goToFirstPage() {
-  	return prefix + "/candidates2.xhtml?page=" + String.valueOf(1) + sufix;
-      }
+    public String goToLastPage() {
+        return prefix + "/candidates2.xhtml?page=" + String.valueOf(totalPages) + sufix;
+    }
+
+    public String goToFirstPage() {
+        return prefix + "/candidates2.xhtml?page=" + String.valueOf(1) + sufix;
+    }
 
 }

@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * This ManagedBean controls jobs.xhtml and jobs2.xhtml Execute with
  * {@link Model}
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -47,10 +47,10 @@ public class JobsMB extends BaseMB {
     private String prefix, sufix;
 
     private LocalDate localdate = LocalDate.now();
-    
+
     private List<Integer> pager = new ArrayList<>();
 
-    
+
     /**
      * @return the pager
      */
@@ -60,7 +60,7 @@ public class JobsMB extends BaseMB {
 
 
     public String discoverBadge(JobType jobType){
-	return jobTypeLinkHelper.returnType(jobType);
+        return jobTypeLinkHelper.returnType(jobType);
     }
 
 
@@ -68,7 +68,7 @@ public class JobsMB extends BaseMB {
      * @return the localdate
      */
     public LocalDate getLocaldate() {
-	return localdate;
+        return localdate;
     }
 
     /**
@@ -87,80 +87,80 @@ public class JobsMB extends BaseMB {
     @Override
     public void init() {
 
-	try {
+        try {
 
-	    totalRows = dao.countRegisters().intValue();
+            totalRows = dao.countRegisters().intValue();
 
-	    paginator = new Paginator(limitRows, page, totalRows);
+            paginator = new Paginator(limitRows, page, totalRows);
 
-	    totalPages = paginator.getTotalPages();
+            totalPages = paginator.getTotalPages();
 
-	    start = paginator.getStart();
+            start = paginator.getStart();
 
-	    end = paginator.getEnd();
-	    
-	    List<Job> jobs = dao.listAll(start - 1, end);
-	    
-	    list = new ListDataModel<>(jobs);
+            end = paginator.getEnd();
 
-	} catch (NotImplementedYetException e) {
+            List<Job> jobs = dao.listAll(start - 1, limitRows);
 
-	    e.printStackTrace();
-	}
+            list = new ListDataModel<>(jobs);
 
-	prefix = "/" + facesContext.getExternalContext().getContextName();
+        } catch (NotImplementedYetException e) {
 
-	sufix = "&faces-redirect=true";
+            e.printStackTrace();
+        }
 
-	{
-	    System.out.println("Current Page : " + page);
+        prefix = "/" + facesContext.getExternalContext().getContextName();
 
-	    System.out.println("Total Rows : " + totalRows);
+        sufix = "&faces-redirect=true";
 
-	    System.out.println("Total Pages : " + totalPages);
+        {
+            System.out.println("Current Page : " + page);
 
-	    System.out.println("Start " + start);
+            System.out.println("Total Rows : " + totalRows);
 
-	    System.out.println("End " + end);
-	}
-	
-	for(int x = 0 ; x <= totalPages; x++){
-	    if (x == 0) continue;
-	    	pager.add(x);
-	}
+            System.out.println("Total Pages : " + totalPages);
+
+            System.out.println("Start " + start);
+
+            System.out.println("End " + end);
+        }
+
+        for(int x = 0 ; x <= totalPages; x++){
+            if (x == 0) continue;
+            pager.add(x);
+        }
 
     }
 
     public DataModel<Job> getList() {
-	return list;
+        return list;
     }
 
     public String goToJobDetail(Job job) {
 
-	System.out.println("Received Job " + job.toString());
+        System.out.println("Received Job " + job.toString());
 
-	return prefix + "/job-details.xhtml?id=" + String.valueOf(job.getId()) + sufix;
+        return prefix + "/job-details.xhtml?id=" + String.valueOf(job.getId()) + sufix;
     }
 
     public String goToLastPage() {
-	return prefix + "/jobs2.xhtml?page=" + String.valueOf(totalPages) + sufix;
+        return prefix + "/jobs2.xhtml?page=" + String.valueOf(totalPages) + sufix;
     }
 
     public String goToFirstPage() {
-	return prefix + "/jobs2.xhtml?page=" + String.valueOf(1) + sufix;
+        return prefix + "/jobs2.xhtml?page=" + String.valueOf(1) + sufix;
     }
-  
+
 
     public int getPage() {
-	return page;
+        return page;
     }
 
     public void setPage(int page) {
-	this.page = page;
+        this.page = page;
     }
 
     public int getTotalPages() {
-	return totalPages;
+        return totalPages;
     }
 
 }
