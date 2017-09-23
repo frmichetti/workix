@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  * This ManagedBean controls Blogs List
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -43,7 +43,7 @@ public class BlogListMB extends BaseMB {
     @Generic
     private Crud<Comment> daoComment;
 
-    private Paginator paginator;    
+    private Paginator paginator;
 
     private DataModel<Blog> list;
 
@@ -66,92 +66,92 @@ public class BlogListMB extends BaseMB {
      * @return the pager
      */
     public List<Integer> getPager() {
-	return pager;
+        return pager;
     }
 
     /**
      * @return the comments
      */
     public DataModel<Comment> getComments() {
-	return comments;
-    }    
+        return comments;
+    }
 
     /**
      * @return the list
      */
     public DataModel<Blog> getList() {
-	return list;
+        return list;
     }
 
 
     public int getPage() {
-	return page;
+        return page;
     }
 
     public int getTotalPages() {
-	return totalPages;
+        return totalPages;
     }
 
     @Override
     public void init() {
 
-	try {
+        try {
 
-	    totalRows = dao.countRegisters().intValue();
+            totalRows = dao.countRegisters().intValue();
 
-	    paginator = new Paginator(limitRows, page, totalRows);
+            paginator = new Paginator(limitRows, page, totalRows);
 
-	    totalPages = paginator.getTotalPages();
+            totalPages = paginator.getTotalPages();
 
-	    start = paginator.getStart();
+            start = paginator.getStart();
 
-	    end = paginator.getEnd();
+            end = paginator.getEnd();
 
-	    list = new ListDataModel<>(dao.listAll(start -1 , end));
+            list = new ListDataModel<>(dao.listAll(start -1 , limitRows));
 
-	    comments = new ListDataModel<>(daoComment.listAll(0, Integer.MAX_VALUE));
+            comments = new ListDataModel<>(daoComment.listAll(0, limitRows));
 
 
-	} catch (NotImplementedYetException e) {	    
-	    e.printStackTrace();
-	}		
+        } catch (NotImplementedYetException e) {
+            e.printStackTrace();
+        }
 
-	prefix = "/" + facesContext.getExternalContext().getContextName();
+        prefix = "/" + facesContext.getExternalContext().getContextName();
 
-	sufix = "&faces-redirect=true";
-	
-	for (int x=0; x <= totalPages  ; x++) {
-	    
-	    if(x == 0) continue;
-	    
-	    pager.add(x);
-	}
+        sufix = "&faces-redirect=true";
 
-	debug:{
-	    System.out.println("Current Page : " + page);
+        for (int x=0; x <= totalPages  ; x++) {
 
-	    System.out.println("Total Rows : " + totalRows);
+            if(x == 0) continue;
 
-	    System.out.println("Total Pages : " + totalPages);
+            pager.add(x);
+        }
 
-	    System.out.println("Start " + start);
+        debug:{
+            System.out.println("Current Page : " + page);
 
-	    System.out.println("End " + end);
-	}
+            System.out.println("Total Rows : " + totalRows);
+
+            System.out.println("Total Pages : " + totalPages);
+
+            System.out.println("Start " + start);
+
+            System.out.println("End " + end);
+        }
 
 
     }
 
     public void setPage(int page) {
-	this.page = page;
+        this.page = page;
     }
 
     public String goToLastPage(){
-	return prefix + "/blog.xhtml?page=" + String.valueOf(totalPages) + sufix;
+        return prefix + "/blog.xhtml?page=" + String.valueOf(totalPages) + sufix;
     }
 
     public String goToFirstPage(){
-	return prefix + "/blog.xhtml?page=" + String.valueOf(1) + sufix;
+        return prefix + "/blog.xhtml?page=" + String.valueOf(1) + sufix;
     }
 
 

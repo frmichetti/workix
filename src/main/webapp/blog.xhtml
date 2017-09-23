@@ -45,7 +45,9 @@
 										<span><i class="fa fa-comment"></i>24</span>
 									</div>
 									<p>
-										<h:graphicImage url="#{blog.pictures.get(0)}" alt="" styleClass="img-responsive" />										
+                                        <ui:remove rendered="#{!empty blog.pictures}">
+                                            <h:graphicImage url="#{blog.pictures.get(0)}" alt="" styleClass="img-responsive"/>
+                                        </ui:remove>
 									</p>
 									<p><h:outputText value="#{blog.resume}" /></p>
 									<a href="./post.xhtml?id=#{blog.id}" class="btn btn-primary">Leia Mais <i class="fa fa-arrow-right"></i></a>
