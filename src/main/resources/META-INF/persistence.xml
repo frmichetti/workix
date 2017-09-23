@@ -5,7 +5,7 @@
 	<persistence-unit name="mysqlDS" transaction-type="JTA">
 		<description>Persistence Unit for MySQL</description>
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>java:jboss/datasources/mysql/workix</jta-data-source>
+		<jta-data-source>java:/MysqlDS</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />
@@ -16,7 +16,7 @@
 	<persistence-unit name="postgresDS" transaction-type="JTA">
 		<description>Persistence Unit for Postgres</description>
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>java:jboss/datasources/postgres/workix</jta-data-source>
+		<jta-data-source>java:/PostgresDS</jta-data-source>
 		<exclude-unlisted-classes>false</exclude-unlisted-classes>
 		<properties>
 			<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />

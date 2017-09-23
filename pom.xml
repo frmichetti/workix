@@ -1,168 +1,178 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>workix</artifactId>
-	<packaging>war</packaging>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>workix</artifactId>
+    <groupId>br.com.codecode.workix</groupId>
+    <packaging>war</packaging>
+    <version>0.1</version>
 
-	<build>
-		<finalName>workix</finalName>
-		<plugins>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<failOnMissingWebXml>true</failOnMissingWebXml>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.wildfly.plugins</groupId>
-				<artifactId>wildfly-maven-plugin</artifactId>
-				<version>${version.wildfly.maven.plugin}</version>
-			</plugin>
-		</plugins>
-	</build>
+    <!--<parent>-->
+        <!--<groupId>br.com.codecode</groupId>-->
+        <!--<artifactId>master</artifactId>-->
+        <!--<version>0.0</version>-->
+    <!--</parent>-->
 
-	<dependencies>
+    <build>
+        <finalName>workix</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <failOnMissingWebXml>true</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.wildfly.plugins</groupId>-->
+                <!--<artifactId>wildfly-maven-plugin</artifactId>-->
+                <!--<version>${version.wildfly.maven.plugin}</version>-->
+            <!--</plugin>-->
+        </plugins>
+    </build>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
+    <dependencies>
 
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>2.8.0</version>
-			<scope>provided</scope>
-			<optional>true</optional>
-		</dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>org.jboss.as</groupId>
-			<artifactId>jboss-as-security</artifactId>
-			<version>7.2.0.Final</version>
-		</dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.0</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
 
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<scope>provided</scope>
-			<version>5.1.3.Final</version>
-		</dependency>
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-security</artifactId>
+            <version>7.2.0.Final</version>
+        </dependency>
 
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>${jackson-version}</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>provided</scope>
+            <version>5.1.3.Final</version>
+        </dependency>
 
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-jsr310</artifactId>
-			<version>${jackson-version}</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-version}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-core</artifactId>
-			<version>${jackson-version}</version>
-			<scope>provided</scope>
-		</dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-version}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>javax.enterprise</groupId>
-			<artifactId>cdi-api</artifactId>
-			<scope>provided</scope>
-			<version>1.2</version>
-		</dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-version}</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-			<groupId>org.jboss.spec.javax.faces</groupId>
-			<artifactId>jboss-jsf-api_2.2_spec</artifactId>
-			<scope>provided</scope>
-			<version>2.2.11</version>
-		</dependency>
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+            <version>1.2</version>
+        </dependency>
 
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>${version.api}</version>
-			<scope>provided</scope>
+        <dependency>
+            <groupId>org.jboss.spec.javax.faces</groupId>
+            <artifactId>jboss-jsf-api_2.2_spec</artifactId>
+            <scope>provided</scope>
+            <version>2.2.11</version>
+        </dependency>
 
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.16.12</version>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>${version.api}</version>
+            <scope>provided</scope>
+
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.12</version>
+        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>br.com.codecode</groupId>-->
+            <!--<artifactId>workix</artifactId>-->
+            <!--<version>0.0</version>-->
+        <!--</dependency>-->
+    </dependencies>
 
 
-	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<failOnMissingWebXml>false</failOnMissingWebXml>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<jackson-version>2.6.0</jackson-version>
-		<version.jboss.bom>9.0.2.Final</version.jboss.bom>
-		<version.api>7.0</version.api>
-		<version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
-	</properties>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <jackson-version>2.6.0</jackson-version>
+        <version.jboss.bom>9.0.2.Final</version.jboss.bom>
+        <version.api>7.0</version.api>
+        <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
+    </properties>
 
-	<name>Workix</name>
+    <name>Workix</name>
 
-	<organization>
-		<name>codecode.com.br</name>
-		<url>http://www.codecode.com.br</url>
-	</organization>
+    <organization>
+        <name>codecode.com.br</name>
+        <url>http://www.codecode.com.br</url>
+    </organization>
 
-	<url>http://www.workix.com.br</url>
+    <url>http://www.workix.com.br</url>
 
-	<description>Plataforma de Empregos Totalmente Grátis</description>
-	<scm>
-		<url>https://github.com/frmichetti/workix</url>
-		<developerConnection>frmichetti</developerConnection>
-		<tag>jobs</tag>
-	</scm>
-	<inceptionYear>2016</inceptionYear>
+    <description>Plataforma de Empregos Totalmente Grátis</description>
+    <scm>
+        <url>https://github.com/frmichetti/workix</url>
+        <developerConnection>frmichetti</developerConnection>
+        <tag>jobs</tag>
+    </scm>
+    <inceptionYear>2016</inceptionYear>
 
-	<parent>
-		<groupId>br.com.codecode</groupId>
-		<artifactId>master</artifactId>
-		<version>0.0</version>
-	</parent>
 
-	<dependencyManagement>
-		<dependencies>
 
-			<dependency>
-				<groupId>org.wildfly.bom</groupId>
-				<artifactId>
-					jboss-javaee-7.0-wildfly-with-tools
-				</artifactId>
-				<version>${version.jboss.bom}</version>
-				<type>pom</type>
-				<scope>import</scope>
-				<optional>true</optional>
-			</dependency>
+    <dependencyManagement>
+        <dependencies>
 
-			<dependency>
-				<groupId>javax</groupId>
-				<artifactId>javaee-api</artifactId>
-				<version>${version.api}</version>
-				<scope>provided</scope>
-				<optional>true</optional>
-			</dependency>
+            <dependency>
+                <groupId>org.wildfly.bom</groupId>
+                <artifactId>
+                    jboss-javaee-7.0-wildfly-with-tools
+                </artifactId>
+                <version>${version.jboss.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <optional>true</optional>
+            </dependency>
 
-			<dependency>
-				<groupId>org.wildfly</groupId>
-				<artifactId>wildfly-dist</artifactId>
-				<version>${version.jboss.bom}</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+            <dependency>
+                <groupId>javax</groupId>
+                <artifactId>javaee-api</artifactId>
+                <version>${version.api}</version>
+                <scope>provided</scope>
+                <optional>true</optional>
+            </dependency>
+
+            <dependency>
+                <groupId>org.wildfly</groupId>
+                <artifactId>wildfly-dist</artifactId>
+                <version>${version.jboss.bom}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
