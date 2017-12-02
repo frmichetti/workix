@@ -25,7 +25,7 @@ import java.util.Date;
 @FacesConverter("CalendarConverter")
 public class CalendarConverter implements Converter {
 
-    private static DateTimeConverter originalConverter = new DateTimeConverter();
+    private static final DateTimeConverter originalConverter = new DateTimeConverter();
 
     static {
 	originalConverter.setPattern("yyyy-MM-dd");

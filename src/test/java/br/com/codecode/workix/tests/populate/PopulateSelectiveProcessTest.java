@@ -28,7 +28,7 @@ public class PopulateSelectiveProcessTest extends BaseTest implements CommonPopT
 
     private List<SelectiveProcess> processes;
 
-    private int howManyProcesses = 50;
+    private final int howManyProcesses = 50;
 
     @Before
     public void downloadJobs() {

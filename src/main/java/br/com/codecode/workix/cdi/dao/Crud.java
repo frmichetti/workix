@@ -59,5 +59,5 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> 
      * @throws NotImplementedYetException
      *             if Method is Not Implemented Yet
      */
-    public BigInteger countRegisters() throws NotImplementedYetException;
+    public BigInteger countRegisters();
 }

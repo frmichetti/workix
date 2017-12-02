@@ -52,7 +52,7 @@ public class SimpleEntityConverter implements Converter {
 	return (String) value;
     }
 
-    protected void addAttribute(UIComponent component, Persistable o) {
+    private void addAttribute(UIComponent component, Persistable o) {
 
 	String key = String.valueOf(o.getId()); // codigo da empresa como chave
 						// neste caso
@@ -60,7 +60,7 @@ public class SimpleEntityConverter implements Converter {
 	this.getAttributesFrom(component).put(key, o);
     }
 
-    protected Map<String, Object> getAttributesFrom(UIComponent component) {
+    private Map<String, Object> getAttributesFrom(UIComponent component) {
 	return component.getAttributes();
     }
 

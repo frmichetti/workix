@@ -33,7 +33,7 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
 
     private String resp;
 
-    private int howManyAuthors = 100;
+    private final int howManyAuthors = 100;
 
     @Before
     @Override
@@ -78,7 +78,7 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
     @Override
     public void sendToServer() {
 
-	authors.stream().forEach(a -> {
+	authors.forEach(a -> {
 
 	    System.out.println("[sendToServer] " + a.getName());
 

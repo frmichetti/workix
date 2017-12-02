@@ -32,7 +32,7 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
 
     private String resp;
 
-    private int howManyUsers = 100;
+    private final int howManyUsers = 100;
 
     @Before
     @Override
@@ -78,7 +78,7 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
     @Override
     public void sendToServer() {
 
-	users.stream().forEach(u -> {
+	users.forEach(u -> {
 
 	    System.out.println("[sendToServer] " + u.getEmail());
 

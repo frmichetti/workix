@@ -8,7 +8,6 @@ import br.com.codecode.workix.jpa.models.Blog;
 import br.com.codecode.workix.jpa.models.Comment;
 import br.com.codecode.workix.jsf.util.helper.Paginator;
 
-import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
 import javax.faces.context.FacesContext;
@@ -59,7 +58,7 @@ public class BlogListMB extends BaseMB {
 
     private int start, end, totalRows, totalPages;
 
-    private List<Integer> pager = new ArrayList<>();
+    private final List<Integer> pager = new ArrayList<>();
 
 
     /**

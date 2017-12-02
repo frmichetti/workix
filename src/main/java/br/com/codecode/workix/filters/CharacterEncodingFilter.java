@@ -25,7 +25,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 public final class CharacterEncodingFilter implements Filter {
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
     }
 
     @Override

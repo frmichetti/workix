@@ -36,7 +36,7 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 
     private String resp;    
     
-    private int howManyPosts = 20;
+    private final int howManyPosts = 20;
     
     private List<Author> authors;
     
@@ -118,7 +118,7 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 	
 	create();
 
-	posts.stream().forEach(b -> {
+	posts.forEach(b -> {
 
 	    System.out.println("[sendToServer] " + b.getTitle());
 

@@ -27,7 +27,7 @@ import java.net.URL;
  * @since 1.0
  * @version 1.0
  */
-public class MailBodyBuilder {
+class MailBodyBuilder {
 
     @Inject
     @Factory

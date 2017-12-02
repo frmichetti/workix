@@ -50,7 +50,7 @@ public class CandidatesMB extends BaseMB {
 
     private String prefix, sufix;
 
-    private List<Integer> pager = new ArrayList<>();
+    private final List<Integer> pager = new ArrayList<>();
 
     /**
      * Max Results By Page
@@ -80,13 +80,7 @@ public class CandidatesMB extends BaseMB {
 
             end = paginator.getEnd();
 
-            list = new ListDataModel<Candidate>(dao.listAll(start - 1, limitRows));
-
-        } catch (NotImplementedYetException e) {
-
-            e.printStackTrace();
-
-            goToErrorPage();
+            list = new ListDataModel<>(dao.listAll(start - 1, limitRows));
 
         } catch (Exception e) {
 

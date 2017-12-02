@@ -147,20 +147,15 @@ public class BlogDetailMB extends BaseMB implements Serializable{
 		comments = comments.stream().filter(c -> c.getBlog().getId() == id)
 			.collect(Collectors.toList());
 
-	    } catch (NotImplementedYetException e) {
+	    } catch (NotImplementedYetException | NoResultException e) {
 
 		e.printStackTrace();
 
 		goToErrorPage();
 
-	    } catch (NoResultException e) {
-
-		e.printStackTrace();
-
-		goToErrorPage();
 	    }
 
-	    if (currentBlog == null) {
+        if (currentBlog == null) {
 		goToErrorPage();
 	    }
 

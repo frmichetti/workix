@@ -30,7 +30,7 @@ import static org.junit.Assert.assertNotNull;
  */
 public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTest {
 
-    private String url = server + "/login/firebaselogin";
+    private final String url = server + "/login/firebaselogin";
 
     private String json;
 

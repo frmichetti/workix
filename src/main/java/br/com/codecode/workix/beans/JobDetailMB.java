@@ -100,20 +100,15 @@ public class JobDetailMB extends BaseMB {
 			.filter(j -> j.getId() != currentJob.getId())			
 			.collect(Collectors.toList());
 
-	    } catch (NotImplementedYetException e) {
+	    } catch (NotImplementedYetException | NoResultException e) {
 
 		e.printStackTrace();
 
 		goToErrorPage();
 
-	    } catch (NoResultException e) {
-
-		e.printStackTrace();
-
-		goToErrorPage();
 	    }
 
-	if (currentJob == null) {
+        if (currentJob == null) {
 	    goToErrorPage();
 	}
 

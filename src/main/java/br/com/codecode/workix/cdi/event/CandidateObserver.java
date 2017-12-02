@@ -16,7 +16,7 @@ import java.time.Instant;
  * @since 1.0
  * @version 1.1
  */
-public class CandidateObserver {
+class CandidateObserver {
 
     @Inject
     @Push

@@ -22,12 +22,11 @@ import java.util.Calendar;
  * @since 1.0
  * @version 1.0
  */
-public class CalendarSerializer extends JsonSerializer<Calendar> {
+class CalendarSerializer extends JsonSerializer<Calendar> {
 
 
     @Override
-    public void serialize(Calendar value, JsonGenerator gen, SerializerProvider serializers)
-	    throws IOException, JsonProcessingException {	
+    public void serialize(Calendar value, JsonGenerator gen, SerializerProvider serializers) {
 	
     }
 }

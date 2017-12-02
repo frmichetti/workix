@@ -10,7 +10,7 @@ public class Paginator {
     
     private int limitRows, currentPage,totalPages, maxRows;
     
-    private Pagination pagination = new Pagination();
+    private final Pagination pagination = new Pagination();
     
     /**
      * Stub Constructor

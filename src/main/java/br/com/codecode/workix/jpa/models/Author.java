@@ -207,7 +207,7 @@ public class Author extends MyEntity {
 
     @Override
     public String toString() {
-        return new StringBuilder().append(name).toString();
+        return name;
     }
 
 }

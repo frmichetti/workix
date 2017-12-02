@@ -17,7 +17,7 @@ import java.util.List;
  * @see Serializable
  * @see GsonProvider
  */
-public interface DownloadTest<T extends Serializable> {    
+interface DownloadTest<T extends Serializable> {
 
     /**
      * Download Items to a String
@@ -43,7 +43,6 @@ public interface DownloadTest<T extends Serializable> {
     
     /**
      * Parse Items to Entity with Another Gson Implementation
-     * @param Gson Gson instance for Parse Item
      * @param rawJson Raw Json String
      * @param type Expected Type
      * @return List of Parsed Object

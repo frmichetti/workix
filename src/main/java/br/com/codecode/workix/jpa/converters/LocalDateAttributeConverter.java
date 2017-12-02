@@ -14,7 +14,7 @@ import java.time.LocalDate;
  * @version 1.0
  */
 @Converter(autoApply = true)
-public class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {
+class LocalDateAttributeConverter implements AttributeConverter<LocalDate, Date> {
 
     @Override
     public Date convertToDatabaseColumn(LocalDate locDate) {

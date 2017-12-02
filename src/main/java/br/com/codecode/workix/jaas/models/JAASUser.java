@@ -99,8 +99,8 @@ public class JAASUser extends JAASBase {
 
 	@Override
 	public String toString() {
-		return new StringBuilder().append("JAASUser [login=").append(login)
-				.append(", roles=").append(roles).append("]").toString();
+		return "JAASUser [login=" + login +
+                ", roles=" + roles + "]";
 	}
 
 	/**

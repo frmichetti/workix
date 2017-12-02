@@ -33,7 +33,7 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
     private String resp;    
 
-    private int repeat = 30;
+    private final int repeat = 30;
 
     private List<Author> authors;
     
@@ -96,7 +96,7 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 	
 	create();
 
-	testimonials.stream().forEach(t -> {
+	testimonials.forEach(t -> {
 
 	    System.out.println("[sendToServer] " + t.getAuthor().getName());
 

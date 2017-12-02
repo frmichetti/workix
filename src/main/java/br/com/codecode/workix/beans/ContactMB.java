@@ -37,7 +37,7 @@ public class ContactMB extends BaseMB {
     @Override
     protected void init(){}
 
-    public String getName() {
+    private String getName() {
 	return name;
     }
 
@@ -45,7 +45,7 @@ public class ContactMB extends BaseMB {
 	this.name = name;
     }
 
-    public String getEmail() {
+    private String getEmail() {
 	return email;
     }
 
@@ -53,7 +53,7 @@ public class ContactMB extends BaseMB {
 	this.email = email;
     }
 
-    public String getSubject() {
+    private String getSubject() {
 	return subject;
     }
 
@@ -61,7 +61,7 @@ public class ContactMB extends BaseMB {
 	this.subject = subject;
     }
 
-    public String getBody() {
+    private String getBody() {
 	return body;
     }
 

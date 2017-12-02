@@ -25,7 +25,7 @@ import java.util.List;
  */
 @Singleton
 @Startup
-public class TimerBean {
+class TimerBean {
 
     private Timer timer;
     

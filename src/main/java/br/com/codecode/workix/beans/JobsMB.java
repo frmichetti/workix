@@ -46,9 +46,9 @@ public class JobsMB extends BaseMB {
 
     private String prefix, sufix;
 
-    private LocalDate localdate = LocalDate.now();
+    private final LocalDate localdate = LocalDate.now();
 
-    private List<Integer> pager = new ArrayList<>();
+    private final List<Integer> pager = new ArrayList<>();
 
 
     /**

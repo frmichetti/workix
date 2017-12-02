@@ -93,7 +93,7 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
     @Override
     public void sendToServer() {
 
-	members.stream().forEach(m -> {
+	members.forEach(m -> {
 
 	    System.out.println("[sendToServer] " + m.getName());
 

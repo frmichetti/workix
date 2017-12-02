@@ -23,14 +23,14 @@ public class BaseDaoMockup implements Serializable {
    
     private static final long serialVersionUID = -4533114503790241039L;
 
-    protected static final String TITLE = "MOCKUP";
+    static final String TITLE = "MOCKUP";
 
-    protected static final String SAVEMESSAGE = " Salvo com Sucesso!";
+    static final String SAVEMESSAGE = " Salvo com Sucesso!";
 
-    protected static final String UPDATEMESSAGE = " Atualizado com Sucesso!";
+    static final String UPDATEMESSAGE = " Atualizado com Sucesso!";
 
     @Inject
-    protected MessagesHelper messagesHelper;
+    MessagesHelper messagesHelper;
 
     /**
      * CDI Injection Point for {@link EntityManager}

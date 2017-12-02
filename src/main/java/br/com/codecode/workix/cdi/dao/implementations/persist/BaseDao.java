@@ -17,7 +17,7 @@ import java.io.Serializable;
  * @version 1.0
  */
 @Persist
-public abstract class BaseDao implements Serializable {
+public class BaseDao implements Serializable {
 
    
     private static final long serialVersionUID = 3943660229318614845L;

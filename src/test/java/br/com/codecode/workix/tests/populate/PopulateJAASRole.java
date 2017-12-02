@@ -67,7 +67,7 @@ public class PopulateJAASRole extends BaseTest {
     @Test
     public void sendToServer() {
 
-	roles.stream().forEach(r -> {
+	roles.forEach(r -> {
 
 	    System.out.println("[sendToServer] " + r.getName());
 

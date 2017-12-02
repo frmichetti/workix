@@ -39,7 +39,7 @@ public class DownloadTestCandidate extends BaseTest implements DownloadTest<Cand
 
 	System.out.println("----Stream----");
 
-	companies.stream()	
+	companies
 	.forEach(System.out::println);
 
 	System.out.println("----Stream----");

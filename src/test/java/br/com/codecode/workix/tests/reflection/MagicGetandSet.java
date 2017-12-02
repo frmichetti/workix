@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 abstract class MagicGetAndSet {
 
     public void set(String attr, Object valor) throws ClassNotFoundException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
-	Class<?> clazz = Class.forName(getClass().getName().toString());
+	Class<?> clazz = Class.forName(getClass().getName());
 	
 	Field field = clazz.getDeclaredField(attr);
 	
@@ -17,7 +17,7 @@ abstract class MagicGetAndSet {
 
     public Object get(String attr) throws ClassNotFoundException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
 	
-	Class<?> clazz = Class.forName(getClass().getName().toString());
+	Class<?> clazz = Class.forName(getClass().getName());
 	
 	Field field = clazz.getDeclaredField(attr);
 	
@@ -28,7 +28,7 @@ abstract class MagicGetAndSet {
     
     public Object with(String attr, Object valor) throws ClassNotFoundException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException{
 	
-	Class<?> clazz = Class.forName(getClass().getName().toString());
+	Class<?> clazz = Class.forName(getClass().getName());
 	
 	Field field = clazz.getDeclaredField(attr);
 	

@@ -26,7 +26,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest {
 
-    private String url = server + "/login/firebaselogin";
+    private final String url = server + "/login/firebaselogin";
 
     private String json;
 

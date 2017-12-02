@@ -147,7 +147,7 @@ public final class HttpTest {
 		throw new RuntimeException(e.getMessage(), e);
 	    }
 
-	    StringBuffer response = new StringBuffer();
+	    StringBuilder response = new StringBuilder();
 
 	    String inputLine;
 
@@ -321,7 +321,7 @@ public final class HttpTest {
 		throw new RuntimeException(e.getMessage(), e);
 	    }
 
-	    StringBuffer response = new StringBuffer();
+	    StringBuilder response = new StringBuilder();
 
 	    String inputLine;
 

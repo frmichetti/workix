@@ -131,7 +131,7 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
 
 	assertNotNull(companies);
 
-	companies.stream().forEach(c -> {
+	companies.forEach(c -> {
 
 	    System.out.println("[sendToServer] " + c.getName());
 

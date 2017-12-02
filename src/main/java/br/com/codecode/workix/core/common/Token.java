@@ -63,12 +63,11 @@ public class Token {
 
     @Override
     public String toString() {
-	return new StringBuilder()
-		.append("Token [createdAt=")
-		.append(createdAt)
-		.append(", key=")
-		.append(key)
-		.append("]").toString();
+	return "Token [createdAt=" +
+            createdAt +
+            ", key=" +
+            key +
+            "]";
     }
 
     /**

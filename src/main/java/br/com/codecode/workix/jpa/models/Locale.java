@@ -129,11 +129,9 @@ public class Locale implements Serializable {
 
     @Override
     public String toString() {	
-	return new StringBuilder()
-		.append(city)
-		.append(", ")
-		.append(estate)
-		.toString();
+	return city +
+            ", " +
+            estate;
     }
 
     /**

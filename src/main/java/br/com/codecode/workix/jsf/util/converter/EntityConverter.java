@@ -106,7 +106,7 @@ public class EntityConverter implements Converter {
      *            Object
      * @return String
      */
-    public String getId(Class<?> clazz, Object obj)
+    private String getId(Class<?> clazz, Object obj)
 	    throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 
 	List<Class<?>> hierarquiaDeClasses = this.getHierarquiaDeClasses(clazz);
@@ -139,9 +139,9 @@ public class EntityConverter implements Converter {
      *            Class
      * @return List clazz
      */
-    public List<Class<?>> getHierarquiaDeClasses(Class<?> clazz) {
+    private List<Class<?>> getHierarquiaDeClasses(Class<?> clazz) {
 
-	List<Class<?>> hierarquiaDeClasses = new ArrayList<Class<?>>();
+	List<Class<?>> hierarquiaDeClasses = new ArrayList<>();
 
 	Class<?> classeNaHierarquia = clazz;
 

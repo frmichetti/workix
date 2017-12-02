@@ -21,7 +21,7 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
     private String json;
 
-    private String url = server + "/login/firebaselogin";
+    private final String url = server + "/login/firebaselogin";
 
     @Before
     @Override

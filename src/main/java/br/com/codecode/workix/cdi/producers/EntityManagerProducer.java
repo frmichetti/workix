@@ -74,17 +74,20 @@ public class EntityManagerProducer implements Serializable {
 
 	EntityManagerFactory emf = null;
 
-    if (getContextParam().equals("PostgreSQL")) {
+        switch (getContextParam()) {
+            case "PostgreSQL":
 
-	    emf = emfPostGres;
+                emf = emfPostGres;
 
-	} else  if (getContextParam().equals("MySQL")) {
+                break;
+            case "MySQL":
 
-	    emf = emfMysql;
+                emf = emfMysql;
 
-	} else {
-	    throw new RuntimeException("Context Param is NULL or Undefined");
-	}
+                break;
+            default:
+                throw new RuntimeException("Context Param is NULL or Undefined");
+        }
 
 	return emf.createEntityManager();
     }

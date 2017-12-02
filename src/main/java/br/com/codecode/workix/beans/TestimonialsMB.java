@@ -33,7 +33,7 @@ public class TestimonialsMB extends BaseMB {
     protected void init() {
 	try {
 	    
-	    list = new ListDataModel<Testimonial>(testDao.listAll(0, Integer.MAX_VALUE));
+	    list = new ListDataModel<>(testDao.listAll(0, Integer.MAX_VALUE));
 	    
 	} catch (NotImplementedYetException e) {	    
 	    e.printStackTrace();

@@ -38,7 +38,7 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
     private String resp;
 
-    private int howManyJobs = 50;
+    private final int howManyJobs = 50;
 
     @Before
     public void downloadCompanies() {

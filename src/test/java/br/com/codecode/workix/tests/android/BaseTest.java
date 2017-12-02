@@ -33,11 +33,11 @@ public class BaseTest {
      * @see HttpConfig #JAVAEE_PROJ_PROD or
      * @see HttpConfig #JAVAEE_PROJ_TEST
      */
-    protected String server = HttpConfig.JAVAEE_PROJ_TEST;
+    protected final String server = HttpConfig.JAVAEE_PROJ_TEST;
 
-    private Gson gson;
+    private final Gson gson;
 
-    public BaseTest() {
+    protected BaseTest() {
 
 	gson = buildGson();
 
@@ -75,7 +75,7 @@ public class BaseTest {
 		.create();
     }
 
-    public Gson getGson() throws RuntimeException {
+    protected Gson getGson() throws RuntimeException {
 	if (gson != null)
 	    return gson;
 	else

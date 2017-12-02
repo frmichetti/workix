@@ -101,7 +101,7 @@ public class ResumeMB extends BaseMB {
 
 	skillList.addAll(resume.getSkills());
 
-	skills = new ListDataModel<Skill>(skillList);
+	skills = new ListDataModel<>(skillList);
 
 	ArrayList<Education> educationList = new ArrayList<>();
 

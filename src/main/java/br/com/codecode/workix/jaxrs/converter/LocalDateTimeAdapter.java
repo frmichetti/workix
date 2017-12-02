@@ -11,15 +11,15 @@ import java.time.LocalDateTime;
  * @since 1.0
  * @version 1.0
  */
-public class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
+class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
 
     @Override
-    public LocalDateTime unmarshal(String s) throws Exception {
+    public LocalDateTime unmarshal(String s) {
 	return LocalDateTime.parse(s);
     }
 
     @Override
-    public String marshal(LocalDateTime dateTime) throws Exception {
+    public String marshal(LocalDateTime dateTime) {
 	return dateTime.toString();
     }
 }

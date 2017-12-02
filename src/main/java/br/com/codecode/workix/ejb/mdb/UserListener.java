@@ -34,7 +34,7 @@ import java.time.Instant;
  */
 @MessageDriven(activationConfig = {
 	@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:/jms/topics/usersTopic") })
-public final class UserListener implements MessageListener {
+final class UserListener implements MessageListener {
 
     @Inject
     @Factory

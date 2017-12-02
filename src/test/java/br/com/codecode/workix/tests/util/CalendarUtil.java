@@ -8,7 +8,7 @@ import java.util.Calendar;
  * @author BalusC
  * @link http://balusc.omnifaces.org/2007/09/calendarutil.html
  */
-public final class CalendarUtil {
+final class CalendarUtil {
 
     // Init ---------------------------------------------------------------------------------------
 
@@ -52,8 +52,8 @@ public final class CalendarUtil {
      * @return True if the given day, month, year, hour, minute and second combination is a valid
      * date.
      */
-    public static boolean isValidDate(
-        int year, int month, int day, int hour, int minute, int second)
+    private static boolean isValidDate(
+            int year, int month, int day, int hour, int minute, int second)
     {
         try {
             getValidCalendar(year, month, day, hour, minute, second);
@@ -88,8 +88,8 @@ public final class CalendarUtil {
      * @return A Calendar instance prefilled with the given date elements.
      * @throws IllegalArgumentException If the given date elements does not represent a valid date.
      */
-    public static Calendar getValidCalendar(
-        int year, int month, int day, int hour, int minute, int second)
+    private static Calendar getValidCalendar(
+            int year, int month, int day, int hour, int minute, int second)
     {
         Calendar calendar = Calendar.getInstance();
         calendar.clear();

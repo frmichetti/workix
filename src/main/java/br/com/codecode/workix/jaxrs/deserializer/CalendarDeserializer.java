@@ -27,7 +27,7 @@ import java.util.Calendar;
 public class CalendarDeserializer extends JsonDeserializer<Calendar> {
 
     @Override
-    public Calendar deserialize(JsonParser jp, DeserializationContext dc) throws IOException, JsonProcessingException {
+    public Calendar deserialize(JsonParser jp, DeserializationContext dc) throws IOException {
 
 	JsonNode node = jp.getCodec().readTree(jp);
 
@@ -51,6 +51,6 @@ public class CalendarDeserializer extends JsonDeserializer<Calendar> {
     }
 
     private int getInt(String name, JsonNode node) {
-	return (Integer) ((IntNode) node.get(name)).numberValue();
+	return (Integer) node.get(name).numberValue();
     }
 }
