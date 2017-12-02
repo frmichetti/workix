@@ -27,8 +27,6 @@ import javax.inject.Inject;
 @Email
 public class MailMessage implements Notification, Debugable {
 
-    private final String FROM = "frmichetti@gmail.com";
-
     @Inject
     private MailSender mailSender;
 
@@ -40,7 +38,8 @@ public class MailMessage implements Notification, Debugable {
     @Override
     public void doSendMessage(Notificable to, String title, String body) {
 
-	mailSender.send(FROM, to.getEmail(), title, body);
+        String FROM = "frmichetti@gmail.com";
+        mailSender.send(FROM, to.getEmail(), title, body);
 
     }
 

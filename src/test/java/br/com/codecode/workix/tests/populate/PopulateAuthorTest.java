@@ -33,15 +33,14 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
 
     private String resp;
 
-    private final int howManyAuthors = 100;
-
     @Before
     @Override
     public void create() {
 
 	authors = new ArrayList<>();
 
-	for (int x = 0; x < howManyAuthors; x++) {
+        int howManyAuthors = 100;
+        for (int x = 0; x < howManyAuthors; x++) {
 
 	    Author a = Author.builder()
 		    .withName("Autor 'Mockup' " + String.valueOf(x + 1))	    

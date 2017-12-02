@@ -26,8 +26,6 @@ import static org.junit.Assert.assertTrue;
  */
 public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest {
 
-    private final String url = server + "/login/firebaselogin";
-
     private String json;
 
     @Before
@@ -38,7 +36,8 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
 
 	Token t = Token.builder().withKey("XXXXXXXXXXX").build();
 
-	json = HttpTest.sendPost(url, getGson().toJson(t));
+        String url = server + "/login/firebaselogin";
+        json = HttpTest.sendPost(url, getGson().toJson(t));
 
 	assertFalse(json.isEmpty());
 

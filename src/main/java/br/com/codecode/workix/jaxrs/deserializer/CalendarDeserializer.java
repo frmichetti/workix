@@ -3,11 +3,9 @@ package br.com.codecode.workix.jaxrs.deserializer;
 import br.com.codecode.workix.config.JAXRSConfiguration;
 import br.com.codecode.workix.config.JAXRSContextResolver;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.IntNode;
 
 import java.io.IOException;
 import java.util.Calendar;

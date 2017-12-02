@@ -31,9 +31,7 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
     private List<Testimonial> testimonials;
 
-    private String resp;    
-
-    private final int repeat = 30;
+    private String resp;
 
     private List<Author> authors;
     
@@ -58,7 +56,8 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
 	testimonials = new ArrayList<>();
 
-	for (int x = 0; x < repeat; x++) {
+        int repeat = 30;
+        for (int x = 0; x < repeat; x++) {
 
 	    Testimonial t = Testimonial.builder()
 

@@ -32,15 +32,14 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
 
     private String resp;
 
-    private final int howManyUsers = 100;
-
     @Before
     @Override
     public void create() {
 
 	users = new ArrayList<>();
 
-	for (int x = 0; x < howManyUsers; x++) {
+        int howManyUsers = 100;
+        for (int x = 0; x < howManyUsers; x++) {
 
 	    User u = User.builder()
 

@@ -3,7 +3,6 @@ package br.com.codecode.workix.beans;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jsf.util.helper.Paginator;
 
@@ -32,8 +31,6 @@ public class CandidatesMB extends BaseMB {
     @Inject @Factory @Default
     private FacesContext facesContext;
 
-    private Paginator paginator;
-
     @Inject
     @Generic
     private Crud<Candidate> dao;
@@ -52,11 +49,6 @@ public class CandidatesMB extends BaseMB {
 
     private final List<Integer> pager = new ArrayList<>();
 
-    /**
-     * Max Results By Page
-     */
-    private final int limitRows = 10;
-
     private int start, end, totalRows, totalPages;
 
     @Min(1)
@@ -72,7 +64,11 @@ public class CandidatesMB extends BaseMB {
 
             totalRows = dao.countRegisters().intValue();
 
-            paginator = new Paginator(limitRows, page, totalRows);
+            /*
+      Max Results By Page
+     */
+            int limitRows = 10;
+            Paginator paginator = new Paginator(limitRows, page, totalRows);
 
             totalPages = paginator.getTotalPages();
 

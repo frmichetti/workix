@@ -21,8 +21,6 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
     private String json;
 
-    private final String url = server + "/login/firebaselogin";
-
     @Before
     @Override
     public void doLoginWithFirebase() {
@@ -31,7 +29,8 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
 	Token t = Token.builder().withKey("x5rXx6LCyCddLErHSWRctK74SUR2").build();
 
-	json = HttpTest.sendPost(url, getGson().toJson(t));
+        String url = server + "/login/firebaselogin";
+        json = HttpTest.sendPost(url, getGson().toJson(t));
 
 	assertFalse(json.isEmpty());
 

@@ -38,8 +38,6 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
     private String resp;
 
-    private final int howManyJobs = 50;
-
     @Before
     public void downloadCompanies() {
 
@@ -64,7 +62,8 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
 	jobs = new ArrayList<>();
 
-	for (int x = 0; x < howManyJobs; x++) {
+        int howManyJobs = 50;
+        for (int x = 0; x < howManyJobs; x++) {
 
 	    Job j = Job.builder()
 

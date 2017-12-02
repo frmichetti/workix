@@ -30,8 +30,6 @@ import static org.junit.Assert.assertNotNull;
  */
 public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTest {
 
-    private final String url = server + "/login/firebaselogin";
-
     private String json;
 
     @Before
@@ -46,7 +44,8 @@ public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTe
 		.add("createdAt", t.getCreatedAt().toString())
 		.add("key", t.getKey()).build();
 
-	json = HttpTest.sendPost(url, jsonObject.toString());
+        String url = server + "/login/firebaselogin";
+        json = HttpTest.sendPost(url, jsonObject.toString());
 
 	assertNotNull(json);
 

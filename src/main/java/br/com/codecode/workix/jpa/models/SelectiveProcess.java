@@ -44,10 +44,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     @Temporal(TemporalType.DATE)
     @Column
-    private Date createdAt;
-
-    @Temporal(TemporalType.DATE)
-    @Column
     private Date disabledAt;
 
     @Temporal(TemporalType.DATE)
@@ -68,14 +64,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @Temporal(TemporalType.DATE)
     @Column
     private Date start;
-
-    @Temporal(TemporalType.DATE)
-    @Column
-    private Date updatedAt;
-
-    @XmlTransient
-    @Column(nullable = false)
-    private String uuid;
 
     @XmlTransient
     @Version
@@ -115,7 +103,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     @Override
     public void generateUUID() {
-        uuid = UUID.randomUUID().toString();
+        String uuid = UUID.randomUUID().toString();
     }
 
     public Set<Candidate> getCandidates() {
@@ -173,7 +161,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     @Override
     public void insertTimeStamp() {
-        createdAt = new Date();
+        Date createdAt = new Date();
     }
 
     public boolean isActive() {
@@ -305,7 +293,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @PreUpdate
     @Override
     public void updateTimeStamp() {
-        updatedAt = new Date();
+        Date updatedAt = new Date();
     }
 
 }

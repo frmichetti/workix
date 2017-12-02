@@ -26,12 +26,6 @@ import java.nio.charset.StandardCharsets;
 @Deprecated
 public class Http {
 
-    private final String USER_AGENT = "Mozilla/5.0";
-
-    private final Integer TIME_OUT = 35_000;
-
-    private final String WEB_API_KEY = "AIzaSyDF7Uc_yoj_VAOx-7fzag92DLTfyca88aE";
-
     public Http() {
 	System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
     }
@@ -62,7 +56,8 @@ public class Http {
 	    e.printStackTrace();
 	}
 
-	con.setReadTimeout(TIME_OUT);
+        Integer TIME_OUT = 35_000;
+        con.setReadTimeout(TIME_OUT);
 
 	try {
 
@@ -73,13 +68,15 @@ public class Http {
 	    e.printStackTrace();
 	}
 
-	con.setRequestProperty("User-Agent", USER_AGENT);
+        String USER_AGENT = "Mozilla/5.0";
+        con.setRequestProperty("User-Agent", USER_AGENT);
 
 	con.setRequestProperty("Accept-Language", "pt-BR");
 
 	con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
-	con.setRequestProperty("Authorization", "key=" + WEB_API_KEY);
+        String WEB_API_KEY = "AIzaSyDF7Uc_yoj_VAOx-7fzag92DLTfyca88aE";
+        con.setRequestProperty("Authorization", "key=" + WEB_API_KEY);
 
 	con.setDoOutput(true);
 

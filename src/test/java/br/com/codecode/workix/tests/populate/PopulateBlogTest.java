@@ -34,10 +34,8 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 
     private List<Blog> posts;
 
-    private String resp;    
-    
-    private final int howManyPosts = 20;
-    
+    private String resp;
+
     private List<Author> authors;
     
     @Before
@@ -58,9 +56,10 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
     @Override
     public void create() {
 
-	posts = new ArrayList<>();	
-	
-	for (int x = 0; x < howManyPosts; x++) {
+	posts = new ArrayList<>();
+
+        int howManyPosts = 20;
+        for (int x = 0; x < howManyPosts; x++) {
 	    
 	    Blog b = Blog.builder()	    
 	    
@@ -97,7 +96,7 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 	}       
 	
 
-	assertEquals(howManyPosts , posts.size());
+	assertEquals(howManyPosts, posts.size());
 
     }
 

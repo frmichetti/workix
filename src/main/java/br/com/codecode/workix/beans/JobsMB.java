@@ -34,8 +34,6 @@ public class JobsMB extends BaseMB {
     @Inject @Factory @Default
     private FacesContext facesContext;
 
-    private Paginator paginator;
-
     @Inject @Generic
     private Crud<Job> dao;
 
@@ -71,12 +69,9 @@ public class JobsMB extends BaseMB {
         return localdate;
     }
 
-    /**
-     * Max Results By Page
-     */
-    private final int limitRows = 10;
-
-    private int start, end, totalRows, totalPages;
+    private int start;
+    private int end;
+    private int totalPages;
 
     @Min(1)
     private int page;
@@ -87,11 +82,16 @@ public class JobsMB extends BaseMB {
     @Override
     public void init() {
 
+        int totalRows;
         try {
 
             totalRows = dao.countRegisters().intValue();
 
-            paginator = new Paginator(limitRows, page, totalRows);
+            /*
+      Max Results By Page
+     */
+            int limitRows = 10;
+            Paginator paginator = new Paginator(limitRows, page, totalRows);
 
             totalPages = paginator.getTotalPages();
 

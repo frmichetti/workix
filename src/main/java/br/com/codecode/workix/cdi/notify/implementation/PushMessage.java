@@ -30,8 +30,6 @@ import javax.json.JsonObject;
 @Push
 public class PushMessage implements Notification, Debugable {
 
-    private final String FCM_SERVER = "https://fcm.googleapis.com/fcm/send";
-
     private final String WEB_API_KEY = "AIzaSyDF7Uc_yoj_VAOx-7fzag92DLTfyca88aE";
 
     // TODO FIXME REMOVEME
@@ -65,7 +63,8 @@ public class PushMessage implements Notification, Debugable {
 	     */
 
 	    // TODO FIXME REMOVEME
-	    String resp = http.sendPost(FCM_SERVER, json);
+        String FCM_SERVER = "https://fcm.googleapis.com/fcm/send";
+        String resp = http.sendPost(FCM_SERVER, json);
 
 	    System.out.println(resp);
 

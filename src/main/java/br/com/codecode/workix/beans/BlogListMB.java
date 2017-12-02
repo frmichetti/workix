@@ -42,21 +42,16 @@ public class BlogListMB extends BaseMB {
     @Generic
     private Crud<Comment> daoComment;
 
-    private Paginator paginator;
-
     private DataModel<Blog> list;
 
     private String prefix, sufix;
 
-    /**
-     * Max Results By Page
-     */
-    private final int limitRows = 10;
-
     @Min(1)
     private int page;
 
-    private int start, end, totalRows, totalPages;
+    private int start;
+    private int end;
+    private int totalPages;
 
     private final List<Integer> pager = new ArrayList<>();
 
@@ -94,11 +89,16 @@ public class BlogListMB extends BaseMB {
     @Override
     public void init() {
 
+        int totalRows;
         try {
 
             totalRows = dao.countRegisters().intValue();
 
-            paginator = new Paginator(limitRows, page, totalRows);
+            /*
+      Max Results By Page
+     */
+            int limitRows = 10;
+            Paginator paginator = new Paginator(limitRows, page, totalRows);
 
             totalPages = paginator.getTotalPages();
 
