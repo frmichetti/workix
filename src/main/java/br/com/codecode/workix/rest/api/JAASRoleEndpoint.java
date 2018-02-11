@@ -16,7 +16,7 @@ import java.util.List;
 @Stateless
 @Path("/jaasroles")
 public class JAASRoleEndpoint {
-	@PersistenceContext(unitName = "mysqlDS")
+	@PersistenceContext(unitName = "MySQLDS")
 	private EntityManager em;
 
 	@POST

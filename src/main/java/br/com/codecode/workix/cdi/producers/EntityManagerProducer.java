@@ -30,7 +30,7 @@ public class EntityManagerProducer implements Serializable {
     @PersistenceUnit(unitName = "postgresDS")
     private EntityManagerFactory emfPostGres;
 
-    @PersistenceUnit(unitName = "mysqlDS")
+    @PersistenceUnit(unitName = "MySQLDS")
     private EntityManagerFactory emfMysql;
 
     /**
