@@ -123,7 +123,7 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <maven.compiler.target>1.8</maven.compiler.target>
         <jackson-version>2.6.0</jackson-version>
-        <version.jboss.bom>9.0.2.Final</version.jboss.bom>
+        <version.jboss.bom>10.0.0.Final</version.jboss.bom>
         <version.api>7.0</version.api>
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
     </properties>
@@ -139,13 +139,11 @@
 
     <description>Plataforma de Empregos Totalmente Grátis</description>
     <scm>
-        <url>https://github.com/frmichetti/workix</url>
+        <url>https://github.com/frmichetti/workix.git</url>
         <developerConnection>frmichetti</developerConnection>
         <tag>jobs</tag>
     </scm>
     <inceptionYear>2016</inceptionYear>
-
-
 
     <dependencyManagement>
         <dependencies>
