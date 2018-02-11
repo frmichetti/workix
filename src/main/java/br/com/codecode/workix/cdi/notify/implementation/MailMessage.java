@@ -38,7 +38,7 @@ public class MailMessage implements Notification, Debugable {
     @Override
     public void doSendMessage(Notificable to, String title, String body) {
 
-        String FROM = "frmichetti@gmail.com";
+        String FROM = "contato@workix.com.br";
         mailSender.send(FROM, to.getEmail(), title, body);
 
     }
