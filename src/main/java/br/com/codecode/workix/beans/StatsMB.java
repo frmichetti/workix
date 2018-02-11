@@ -14,11 +14,11 @@ import javax.inject.Inject;
 
 /**
  * This ManagedBean controls Counter Fragment on HomePage
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class StatsMB extends BaseMB {
@@ -45,39 +45,33 @@ public class StatsMB extends BaseMB {
     @Override
     protected void init() {
 
-	try {
+        jobDao.countRegisters();
 
-	    jobDao.countRegisters();
+        counterJobs = jobDao.countRegisters().intValue();
 
-	    counterJobs = jobDao.countRegisters().intValue();
+        counterEmployeers = companyDao.countRegisters().intValue();
 
-	    counterEmployeers = companyDao.countRegisters().intValue();
+        counterCandidates = candidateDao.countRegisters().intValue();
 
-	    counterCandidates = candidateDao.countRegisters().intValue();
+        counterResumes = resumeDao.countRegisters().intValue();
 
-	    counterResumes = resumeDao.countRegisters().intValue();
-
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	}
 
     }
 
     public int getCounterJobs() {
-	return counterJobs;
+        return counterJobs;
     }
 
     public int getCounterCandidates() {
-	return counterCandidates;
+        return counterCandidates;
     }
 
     public int getCounterEmployeers() {
-	return counterEmployeers;
+        return counterEmployeers;
     }
 
     public int getCounterResumes() {
-	return counterResumes;
+        return counterResumes;
     }
 
 }

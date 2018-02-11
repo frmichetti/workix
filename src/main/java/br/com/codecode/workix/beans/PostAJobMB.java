@@ -20,11 +20,11 @@ import java.util.List;
 
 /**
  * This ManagedBean controls post-a-job.xhtml
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class PostAJobMB extends BaseMB {
@@ -37,7 +37,8 @@ public class PostAJobMB extends BaseMB {
     @Generic
     private Crud<Company> companyDao;
 
-    @Inject @Persist
+    @Inject
+    @Persist
     private Job job;
 
     private DataModel<Estate> estates;
@@ -52,69 +53,55 @@ public class PostAJobMB extends BaseMB {
     @Override
     protected void init() {
 
-	try {
+        employeers = companyDao.listAll(0, 100);
 
-	    employeers = companyDao.listAll(0, 100);
+        estates = new ListDataModel<>(Arrays.asList(Estate.values()));
 
-	} catch (NotImplementedYetException e) {
+        jobTypes = new ListDataModel<>(Arrays.asList(JobType.values()));
 
-	    e.printStackTrace();
-	}
+        jobCategories = new ListDataModel<>(Arrays.asList(JobCategory.values()));
 
-	estates = new ListDataModel<>(Arrays.asList(Estate.values()));
-
-	jobTypes = new ListDataModel<>(Arrays.asList(JobType.values()));
-
-	jobCategories = new ListDataModel<>(Arrays.asList(JobCategory.values()));
-
-	debug();
+        debug();
     }
 
     private void debug() {
-	if (job != null) {
-	    job.setActive(true);
-	    job.setJobCategory(JobCategory.OPERATOR);
-	    job.setCompany(employeers.get(3));
-	    job.setDescription("WHATEVER TEXT ");
-	}
+        if (job != null) {
+            job.setActive(true);
+            job.setJobCategory(JobCategory.OPERATOR);
+            job.setCompany(employeers.get(3));
+            job.setDescription("WHATEVER TEXT ");
+        }
 
     }
 
     public DataModel<Estate> getEstates() {
-	return estates;
+        return estates;
     }
 
     public DataModel<JobType> getJobTypes() {
-	return jobTypes;
+        return jobTypes;
     }
 
     public DataModel<JobCategory> getJobCategories() {
-	return jobCategories;
+        return jobCategories;
     }
 
     public Job getJob() {
-	return job;
+        return job;
     }
 
     public void setJob(Job currentJob) {
-	this.job = currentJob;
+        this.job = currentJob;
     }
 
     public void commit() {
 
-	try {
-
-	    dao.save(job);
-
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	}
+        dao.save(job);
 
     }
 
     public List<Company> getEmployeers() {
-	return employeers;
+        return employeers;
     }
 
 }

@@ -25,16 +25,19 @@ import java.util.List;
  * {@link Model}
  *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @since 1.0
  */
 @Model
 public class JobsMB extends BaseMB {
 
-    @Inject @Factory @Default
+    @Inject
+    @Factory
+    @Default
     private FacesContext facesContext;
 
-    @Inject @Generic
+    @Inject
+    @Generic
     private Crud<Job> dao;
 
     @Inject
@@ -57,7 +60,7 @@ public class JobsMB extends BaseMB {
     }
 
 
-    public String discoverBadge(JobType jobType){
+    public String discoverBadge(JobType jobType) {
         return jobTypeLinkHelper.returnType(jobType);
     }
 
@@ -83,30 +86,26 @@ public class JobsMB extends BaseMB {
     public void init() {
 
         int totalRows;
-        try {
 
-            totalRows = dao.countRegisters().intValue();
+
+        totalRows = dao.countRegisters().intValue();
 
             /*
       Max Results By Page
      */
-            int limitRows = 10;
-            Paginator paginator = new Paginator(limitRows, page, totalRows);
+        int limitRows = 10;
+        Paginator paginator = new Paginator(limitRows, page, totalRows);
 
-            totalPages = paginator.getTotalPages();
+        totalPages = paginator.getTotalPages();
 
-            start = paginator.getStart();
+        start = paginator.getStart();
 
-            end = paginator.getEnd();
+        end = paginator.getEnd();
 
-            List<Job> jobs = dao.listAll(start - 1, limitRows);
+        List<Job> jobs = dao.listAll(start - 1, limitRows);
 
-            list = new ListDataModel<>(jobs);
+        list = new ListDataModel<>(jobs);
 
-        } catch (NotImplementedYetException e) {
-
-            e.printStackTrace();
-        }
 
         prefix = "/" + facesContext.getExternalContext().getContextName();
 
@@ -124,7 +123,7 @@ public class JobsMB extends BaseMB {
             System.out.println("End " + end);
         }
 
-        for(int x = 0 ; x <= totalPages; x++){
+        for (int x = 0; x <= totalPages; x++) {
             if (x == 0) continue;
             pager.add(x);
         }

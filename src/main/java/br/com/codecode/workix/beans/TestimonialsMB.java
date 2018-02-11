@@ -13,42 +13,34 @@ import javax.inject.Inject;
 
 /**
  * This ManagedBean controls Testimonials Fragment on HomePage and AboutPage
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class TestimonialsMB extends BaseMB {
-    
+
     @Inject
     @Generic
     private Crud<Testimonial> testDao;
-    
+
     private DataModel<Testimonial> list;
 
     @PostConstruct
     @Override
     protected void init() {
-	try {
-	    
-	    list = new ListDataModel<>(testDao.listAll(0, Integer.MAX_VALUE));
-	    
-	} catch (NotImplementedYetException e) {	    
-	    e.printStackTrace();
-	}	
-
+        list = new ListDataModel<>(testDao.listAll(0, Integer.MAX_VALUE));
     }
 
-    
+
     /**
      * @return the list
      */
     public DataModel<Testimonial> getList() {
         return list;
     }
-    
-    
+
 
 }

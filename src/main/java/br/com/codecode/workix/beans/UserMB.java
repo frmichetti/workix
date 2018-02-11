@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.beans;
 
 import br.com.codecode.workix.cdi.dao.Crud;
@@ -18,11 +17,11 @@ import javax.inject.Inject;
 
 /**
  * User ManagedBean
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class UserMB extends BaseMB {
@@ -36,26 +35,21 @@ public class UserMB extends BaseMB {
 
     @PostConstruct
     @Override
-    protected void init(){}
+    protected void init() {
+    }
 
     public User getUser() {
-	return user;
+        return user;
     }
 
     public void setUser(User user) {
-	this.user = user;
+        this.user = user;
     }
 
     public void save() {
 
-	try {
+        userDao.save(user);
 
-	    userDao.save(user);
-
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	}
     }
 
 }

@@ -16,31 +16,31 @@ import java.util.List;
 
 /**
  * This ManagedBean controls Jobs Fragment on HomePage
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
-public class JobsFragment extends BaseMB {    
+public class JobsFragment extends BaseMB {
 
     @Inject
     @Generic
     private Crud<Job> dao;
-    
+
     @Inject
     private JobTypeLinkHelper jobTypeLinkHelper;
 
-    private DataModel<Job> visible,hidden;
-    
-    private Job featuredJob;    
-    
-    public String discoverBadge(JobType jobType){
-	return jobTypeLinkHelper.returnType(jobType);
+    private DataModel<Job> visible, hidden;
+
+    private Job featuredJob;
+
+    public String discoverBadge(JobType jobType) {
+        return jobTypeLinkHelper.returnType(jobType);
     }
 
-    
+
     /**
      * @return the featuredJob
      */
@@ -51,42 +51,34 @@ public class JobsFragment extends BaseMB {
     @PostConstruct
     @Override
     protected void init() {
-	
-	try {   
-	    	    
-	    List<Job> jobs = dao.listAll(0, 10);
 
-	    if (jobs.size() > 0){
+        List<Job> jobs = dao.listAll(0, 10);
+
+        if (jobs.size() > 0) {
 
             visible = new ListDataModel<>(jobs.subList(0, 5));
 
             hidden = new ListDataModel<>(jobs.subList(5, 10));
 
             featuredJob = jobs.stream().filter(j -> j.getJobType() == JobType.FULLTIME)
-                    .findFirst().orElse(jobs.get(jobs.size()-1));
+                    .findFirst().orElse(jobs.get(jobs.size() - 1));
         }
 
-	    
-	} catch (NotImplementedYetException e) {
-	   
-	    e.printStackTrace();
-	}
-	
     }
 
     /**
      * @return the Show list
      */
     public DataModel<Job> getVisible() {
-	return visible;
+        return visible;
     }
-    
+
 
     /**
      * @return the Hidden list
      */
     public DataModel<Job> getHidden() {
-	return hidden;
+        return hidden;
     }
 
 }

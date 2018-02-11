@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.beans;
 
 import br.com.codecode.workix.cdi.dao.Crud;
@@ -24,7 +23,7 @@ import java.util.List;
 
 /**
  * Send Token ManagedBean
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -44,7 +43,8 @@ public class SendTokenMB extends BaseMB {
     @Generic
     private Crud<Candidate> dao;
 
-    @Inject @Persist
+    @Inject
+    @Persist
     private Candidate candidate;
 
     private String title, message;
@@ -55,79 +55,74 @@ public class SendTokenMB extends BaseMB {
     @Override
     protected void init() {
 
-	try {
-	    candidates = dao.listAll(0, Integer.MAX_VALUE);
+        candidates = dao.listAll(0, Integer.MAX_VALUE);
 
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	}
     }
 
     public String getTitle() {
-	return title;
+        return title;
     }
 
     public void setTitle(String title) {
-	this.title = title;
+        this.title = title;
     }
 
     public String getMessage() {
-	return message;
+        return message;
     }
 
     public void setMessage(String message) {
-	this.message = message;
+        this.message = message;
     }
 
     public List<Candidate> getCandidates() {
-	return candidates;
+        return candidates;
     }
 
     public void setCustomers(List<Candidate> candidates) {
-	this.candidates = candidates;
+        this.candidates = candidates;
     }
 
     public Candidate getCandidate() {
-	return candidate;
+        return candidate;
     }
 
     public void setCandidate(Candidate customer) {
-	this.candidate = customer;
+        this.candidate = customer;
     }
 
     public void doSendPush() {
 
-	sendPush.doSendMessage(candidate.getUser(), title, message);
+        sendPush.doSendMessage(candidate.getUser(), title, message);
 
-	messagesHelper
-		.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
+        messagesHelper
+                .addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
     }
 
     public void doSendPush(String title, String message, Candidate candidate) {
 
-	sendPush.doSendMessage(candidate.getUser(), title, message);
+        sendPush.doSendMessage(candidate.getUser(), title, message);
 
-	messagesHelper
-		.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
+        messagesHelper
+                .addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
 
     }
 
     public void doSendPush(String title, String message, Candidate... candidates) {
 
-	for (Candidate c : candidates) {
+        for (Candidate c : candidates) {
 
-	    sendPush.doSendMessage(c.getUser(), title, message);
+            sendPush.doSendMessage(c.getUser(), title, message);
 
-	    messagesHelper.addFlash(
-		    new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
+            messagesHelper.addFlash(
+                    new FacesMessage(FacesMessage.SEVERITY_INFO, "Information", "Message sent successfully!"));
 
-	}
+        }
 
     }
 
     public String doBack() {
 
-	return "index.xhtml?faces-redirect=true";
+        return "index.xhtml?faces-redirect=true";
     }
 }

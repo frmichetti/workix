@@ -22,16 +22,18 @@ import java.util.List;
  * This ManagedBean controls Blogs List
  *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class BlogListMB extends BaseMB {
 
     private DataModel<Comment> comments;
 
-    @Inject @Factory @Default
+    @Inject
+    @Factory
+    @Default
     private FacesContext facesContext;
 
     @Inject
@@ -90,43 +92,39 @@ public class BlogListMB extends BaseMB {
     public void init() {
 
         int totalRows;
-        try {
 
-            totalRows = dao.countRegisters().intValue();
+        totalRows = dao.countRegisters().intValue();
 
             /*
       Max Results By Page
      */
-            int limitRows = 10;
-            Paginator paginator = new Paginator(limitRows, page, totalRows);
+        int limitRows = 10;
+        Paginator paginator = new Paginator(limitRows, page, totalRows);
 
-            totalPages = paginator.getTotalPages();
+        totalPages = paginator.getTotalPages();
 
-            start = paginator.getStart();
+        start = paginator.getStart();
 
-            end = paginator.getEnd();
+        end = paginator.getEnd();
 
-            list = new ListDataModel<>(dao.listAll(start -1 , limitRows));
+        list = new ListDataModel<>(dao.listAll(start - 1, limitRows));
 
-            comments = new ListDataModel<>(daoComment.listAll(0, limitRows));
+        comments = new ListDataModel<>(daoComment.listAll(0, limitRows));
 
-
-        } catch (NotImplementedYetException e) {
-            e.printStackTrace();
-        }
 
         prefix = "/" + facesContext.getExternalContext().getContextName();
 
         sufix = "&faces-redirect=true";
 
-        for (int x=0; x <= totalPages  ; x++) {
+        for (int x = 0; x <= totalPages; x++) {
 
-            if(x == 0) continue;
+            if (x == 0) continue;
 
             pager.add(x);
         }
 
-        debug:{
+        debug:
+        {
             System.out.println("Current Page : " + page);
 
             System.out.println("Total Rows : " + totalRows);
@@ -145,14 +143,13 @@ public class BlogListMB extends BaseMB {
         this.page = page;
     }
 
-    public String goToLastPage(){
+    public String goToLastPage() {
         return prefix + "/blog.xhtml?page=" + String.valueOf(totalPages) + sufix;
     }
 
-    public String goToFirstPage(){
+    public String goToFirstPage() {
         return prefix + "/blog.xhtml?page=" + String.valueOf(1) + sufix;
     }
-
 
 
 }

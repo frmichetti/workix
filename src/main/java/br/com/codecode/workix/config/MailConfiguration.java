@@ -23,4 +23,4 @@ import javax.mail.MailSessionDefinition;
     password = "fake@fake", transportProtocol = "smtp", from = "fake@gmail.com", properties = { "mail.smtp.port=465" })
 @Startup
 @Singleton
-class MailConfiguration{}
+public class MailConfiguration{}
