@@ -6,7 +6,7 @@
     <persistence-unit name="MySQLDS" transaction-type="JTA">
         <description>Persistence Unit for MySQL</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:jboss/datasources/MySQLDS</jta-data-source>
+        <jta-data-source>java:/MySqlDS</jta-data-source>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>
