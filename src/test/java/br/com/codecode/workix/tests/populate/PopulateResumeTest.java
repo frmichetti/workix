@@ -15,10 +15,10 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Populate DB with Resumes
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @since 1.0
  */
 public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume> {
 
@@ -30,76 +30,77 @@ public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume
 
     private void downloadCandidate() {
 
-	resp = HttpTest.sendGet(server + "/candidates");
+        resp = HttpTest.sendGet(server + "/candidates");
 
-	candidates = getGson().fromJson(resp, new TypeToken<List<Candidate>>(){}.getType());
+        candidates = getGson().fromJson(resp, new TypeToken<List<Candidate>>() {
+        }.getType());
 
-	assertTrue(candidates.size() > 0);
+        assertTrue(candidates.size() > 0);
 
     }
 
     @Override
     public void create() {
 
-	downloadCandidate();
+        downloadCandidate();
 
-	assertNotNull(candidates);
+        assertNotNull(candidates);
 
-	res = new ArrayList<>();
+        res = new ArrayList<>();
 
-	for (Candidate c : candidates) {
+        for (Candidate c : candidates) {
 
-	    Resume r = Resume.builder()
-		    .withContent("Conteúdo de " + c.getName())
-		    .withObjective("Objetivo do " + c.getName())
-		    .withCandidate(c);
+            Resume r = Resume.builder()
+                    .withContent("Conteúdo de " + c.getName())
+                    .withObjective("Objetivo do " + c.getName())
+                    .withCandidate(c);
 
-	    r.addExperience(Experience.builder().withEmployerName("Empregador 1")
-		    .withDescription("Cargo 1")
-		    .withStartDate(new Date())
-		    .withEndDate(new Date())
-		    .build());
+            r.addExperience(Experience.builder().withEmployerName("Empregador 1")
+                    .withDescription("Cargo 1")
+                    .withStartDate(new Date())
+                    .withEndDate(new Date())
+                    .build());
 
-	    r.addExperience(Experience.builder().withEmployerName("Empregador 2")
-		    .withDescription("Cargo 2")
-		    .withStartDate(new Date())
-		    .withEndDate(new Date())
-		    .build());
+            r.addExperience(Experience.builder().withEmployerName("Empregador 2")
+                    .withDescription("Cargo 2")
+                    .withStartDate(new Date())
+                    .withEndDate(new Date())
+                    .build());
 
-	    r.addEducation(Education.builder().withSchoolName("Escola 1")
-		    .withStartDate(new Date())
-		    .withEndDate(new Date())
-		    .withQualification("Qualificações")
-		    .withDescription("Descrição")
-		    .build());
+            r.addEducation(Education.builder().withSchoolName("Escola 1")
+                    .withStartDate(new Date())
+                    .withEndDate(new Date())
+                    .withQualification("Qualificações")
+                    .withDescription("Descrição")
+                    .build());
 
-	    r.addEducation(Education.builder().withSchoolName("Escola 2")
-		    .withStartDate(new Date())
-		    .withEndDate(new Date())
-		    .withQualification("Qualificações 2")
-		    .withDescription("Descrição 2")		    
-		    .build());
+            r.addEducation(Education.builder().withSchoolName("Escola 2")
+                    .withStartDate(new Date())
+                    .withEndDate(new Date())
+                    .withQualification("Qualificações 2")
+                    .withDescription("Descrição 2")
+                    .build());
 
-	    r.addSkill(Skill.builder().withSkillName("Habilidade 1").build());
+            r.addSkill(Skill.builder().withSkillName("Habilidade 1").build());
 
-	    r.addSkill(Skill.builder().withSkillName("Habilidade 2").build());
+            r.addSkill(Skill.builder().withSkillName("Habilidade 2").build());
 
-	    addToList(r);
+            addToList(r);
 
-	}
+        }
 
     }
 
     @Override
     public void addToList(Resume resume) {
 
-	assertNotNull(candidates);
+        assertNotNull(candidates);
 
-	assertNotNull(resume);
+        assertNotNull(resume);
 
-	System.out.println("[addToList]" + resume.getContent());
+        System.out.println("[addToList]" + resume.getContent());
 
-	res.add(resume);
+        res.add(resume);
 
     }
 
@@ -107,18 +108,18 @@ public class PopulateResumeTest extends BaseTest implements CommonPopTest<Resume
     @Override
     public void sendToServer() {
 
-	create();
+        create();
 
-	assertNotNull(res);
+        assertNotNull(res);
 
-	res.forEach(r -> {
+        res.forEach(r -> {
 
-	    System.out.println("[sendToServer] " + r.getContent());
+            System.out.println("[sendToServer] " + r.getContent());
 
-	    resp = HttpTest.sendPost(server + "/resumes", getGson().toJson(r));
+            resp = HttpTest.sendPost(server + "/resumes", getGson().toJson(r));
 
-	    assertNotNull(resp);
-	});
+            assertNotNull(resp);
+        });
 
     }
 

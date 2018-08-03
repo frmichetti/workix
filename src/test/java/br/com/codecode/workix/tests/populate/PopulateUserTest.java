@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.tests.populate;
 
 import br.com.codecode.workix.jpa.models.User;
@@ -21,7 +20,7 @@ import static org.junit.Assert.*;
 
 /**
  * Populate DB with Users
- * 
+ *
  * @author felipe
  * @since 1.1
  * @version 1.0
@@ -36,40 +35,40 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
     @Override
     public void create() {
 
-	users = new ArrayList<>();
+        users = new ArrayList<>();
 
         int howManyUsers = 100;
         for (int x = 0; x < howManyUsers; x++) {
 
-	    User u = User.builder()
+            User u = User.builder()
 
-	    .withEmail("mockupusernumber" + String.valueOf(x + 1) + "@test.com")
-	    
-	    .withFirebaseUUID(UUID.randomUUID().toString())
-	    
-	    .withFirebaseMessageToken(UUID.randomUUID().toString());
+                    .withEmail("mockupusernumber" + String.valueOf(x + 1) + "@test.com")
 
-	    assertNotNull(u.getEmail());
+                    .withFirebaseUUID(UUID.randomUUID().toString())
 
-	    assertNotEquals("", u.getEmail());	    
+                    .withFirebaseMessageToken(UUID.randomUUID().toString());
 
-	    System.out.println("[create] " + u.getEmail());
+            assertNotNull(u.getEmail());
 
-	    addToList(u);
-	}
+            assertNotEquals("", u.getEmail());
 
-	assertEquals(howManyUsers, users.size());
+            System.out.println("[create] " + u.getEmail());
+
+            addToList(u);
+        }
+
+        assertEquals(howManyUsers, users.size());
 
     }
 
     @Override
     public void addToList(User u) {
 
-	assertNotNull(u);
+        assertNotNull(u);
 
-	System.out.println("[addToList] " + u.getEmail());
+        System.out.println("[addToList] " + u.getEmail());
 
-	users.add(u);
+        users.add(u);
 
     }
 
@@ -77,15 +76,15 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
     @Override
     public void sendToServer() {
 
-	users.forEach(u -> {
+        users.forEach(u -> {
 
-	    System.out.println("[sendToServer] " + u.getEmail());
+            System.out.println("[sendToServer] " + u.getEmail());
 
-	    resp = HttpTest.sendPost(server + "/users", getGson().toJson(u));
+            resp = HttpTest.sendPost(server + "/users", getGson().toJson(u));
 
-	    assertNotNull(resp);
+            assertNotNull(resp);
 
-	});
+        });
 
     }
 
