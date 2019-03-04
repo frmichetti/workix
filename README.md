@@ -40,5 +40,9 @@ We prefer
 --
 <img src="https://frmichetti.github.io/workix/jet-brains-logos/logo-variant-4.png" title="Workix powered by Intellij" width="40%" height="20%">
 
+Building the Docker image
+To build, simply run:
+docker build --build-arg DB_HOST=localhost --build-arg DB_NAME=test --build-arg DB_USER=test --build-arg DB_PASS=testPassword .
+
 
 **Visite http://www.workix.com.br**
