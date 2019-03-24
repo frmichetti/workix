@@ -1,19 +1,15 @@
 package br.com.codecode.workix.tests.json.parse.jdk7;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.gson.reflect.TypeToken;
-
 import br.com.codecode.workix.jpa.models.jdk7.SelectiveProcess;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.json.parse.DownloadTest;
+import com.google.gson.reflect.TypeToken;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class DownloadTestSelectiveProccess extends BaseTest implements DownloadTest<SelectiveProcess> {
 

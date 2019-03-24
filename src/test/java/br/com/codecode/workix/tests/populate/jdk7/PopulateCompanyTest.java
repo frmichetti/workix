@@ -7,26 +7,22 @@
  * */
 package br.com.codecode.workix.tests.populate.jdk7;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.gson.reflect.TypeToken;
-
 import br.com.codecode.workix.core.enums.Estate;
-import br.com.codecode.workix.jpa.models.jdk7.Contact;
 import br.com.codecode.workix.jpa.models.jdk7.Company;
+import br.com.codecode.workix.jpa.models.jdk7.Contact;
 import br.com.codecode.workix.jpa.models.jdk7.Locale;
 import br.com.codecode.workix.jpa.models.jdk7.User;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
+import com.google.gson.reflect.TypeToken;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * Populate DB with Companies

@@ -1,10 +1,9 @@
 package br.com.codecode.workix.jpa.models.jdk7;
 
-import java.io.Serializable;
-
-
 import br.com.codecode.workix.core.enums.Estate;
 import br.com.codecode.workix.interfaces.Buildable;
+
+import java.io.Serializable;
 
 /**
  * Locale JPA Embeddable

@@ -1,10 +1,10 @@
 package br.com.codecode.workix.jpa.models.jdk7;
 
+import br.com.codecode.workix.interfaces.Buildable;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
-
-import br.com.codecode.workix.interfaces.Buildable;
 
 /**
  * Experience JPA Embeddable

@@ -1,20 +1,16 @@
 package br.com.codecode.workix.tests.json.parse.jdk7;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.List;
-
+import br.com.codecode.workix.jpa.models.jdk7.Candidate;
+import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.json.parse.DownloadTest;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
+import java.util.List;
 
-import br.com.codecode.workix.jpa.models.jdk7.Candidate;
-import br.com.codecode.workix.tests.android.BaseTest;
+import static org.junit.Assert.*;
 
 public class DownloadTestCandidate extends BaseTest implements DownloadTest<Candidate> {
 

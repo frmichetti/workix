@@ -1,7 +1,6 @@
 package br.com.codecode.workix.cdi.producers;
 
 import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Fake;
 import br.com.codecode.workix.cdi.qualifiers.Gmail;
 import br.com.codecode.workix.mail.MailSender;
 

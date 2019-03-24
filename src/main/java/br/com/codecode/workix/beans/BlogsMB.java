@@ -2,7 +2,6 @@ package br.com.codecode.workix.beans;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Blog;
 import br.com.codecode.workix.jpa.models.Comment;
 

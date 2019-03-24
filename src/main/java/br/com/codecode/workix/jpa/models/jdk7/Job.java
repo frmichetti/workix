@@ -1,10 +1,10 @@
 package br.com.codecode.workix.jpa.models.jdk7;
 
-import java.math.BigDecimal;
-
 import br.com.codecode.workix.core.enums.JobCategory;
 import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.interfaces.Buildable;
+
+import java.math.BigDecimal;
 
 /**
  * Job JPA with Inherited Fields and Methods

@@ -7,9 +7,9 @@
  * */
 package br.com.codecode.workix.core.common.jdk7;
 
-import java.util.Calendar;
-
 import br.com.codecode.workix.interfaces.Buildable;
+
+import java.util.Calendar;
 
 /**
  * Token Model for Compatibily with Older Versions

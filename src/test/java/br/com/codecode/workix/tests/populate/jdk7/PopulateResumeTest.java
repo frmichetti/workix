@@ -1,24 +1,18 @@
 package br.com.codecode.workix.tests.populate.jdk7;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import br.com.codecode.workix.jpa.models.jdk7.*;
+import br.com.codecode.workix.tests.android.BaseTest;
+import br.com.codecode.workix.tests.populate.CommonPopTest;
+import br.com.codecode.workix.tests.util.HttpTest;
+import com.google.gson.reflect.TypeToken;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import org.junit.Test;
-
-import com.google.gson.reflect.TypeToken;
-
-import br.com.codecode.workix.jpa.models.jdk7.Candidate;
-import br.com.codecode.workix.jpa.models.jdk7.Education;
-import br.com.codecode.workix.jpa.models.jdk7.Experience;
-import br.com.codecode.workix.jpa.models.jdk7.Resume;
-import br.com.codecode.workix.jpa.models.jdk7.Skill;
-import br.com.codecode.workix.tests.android.BaseTest;
-import br.com.codecode.workix.tests.populate.CommonPopTest;
-import br.com.codecode.workix.tests.util.HttpTest;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Populate DB with Resumes

@@ -1,18 +1,16 @@
 package br.com.codecode.workix.tests.android.login.compat;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.gson.reflect.TypeToken;
-
 import br.com.codecode.workix.core.common.jdk7.Token;
 import br.com.codecode.workix.jpa.models.jdk7.Candidate;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.android.login.LoginTest;
 import br.com.codecode.workix.tests.util.HttpTest;
+import com.google.gson.reflect.TypeToken;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * @since 1.0

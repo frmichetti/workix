@@ -1,11 +1,11 @@
 package br.com.codecode.workix.jpa.models.jdk7;
 
+import br.com.codecode.workix.interfaces.Persistable;
+import br.com.codecode.workix.interfaces.Traceable;
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.UUID;
-
-import br.com.codecode.workix.interfaces.Persistable;
-import br.com.codecode.workix.interfaces.Traceable;
 
 /**
  * MyEntity JPA with Inherited Fields and Methods <br>

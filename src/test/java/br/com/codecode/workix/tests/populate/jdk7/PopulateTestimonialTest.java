@@ -7,23 +7,19 @@
  * */
 package br.com.codecode.workix.tests.populate.jdk7;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import com.google.gson.reflect.TypeToken;
-
 import br.com.codecode.workix.jpa.models.jdk7.Author;
 import br.com.codecode.workix.jpa.models.jdk7.Testimonial;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
+import com.google.gson.reflect.TypeToken;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * Populate DB with Testimonials

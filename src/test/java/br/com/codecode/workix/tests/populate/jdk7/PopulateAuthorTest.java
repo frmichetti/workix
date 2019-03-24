@@ -7,20 +7,19 @@
  * */
 package br.com.codecode.workix.tests.populate.jdk7;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import br.com.codecode.workix.jpa.models.jdk7.Author;
 import br.com.codecode.workix.jpa.models.jdk7.SocialMedia;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.populate.CommonPopTest;
 import br.com.codecode.workix.tests.util.HttpTest;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Populate DB with Authors

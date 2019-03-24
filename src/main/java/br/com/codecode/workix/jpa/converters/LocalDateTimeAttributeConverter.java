@@ -1,7 +1,6 @@
 package br.com.codecode.workix.jpa.converters;
 
 import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 

@@ -1,8 +1,8 @@
 package br.com.codecode.workix.jpa.models.jdk7;
 
-import java.io.Serializable;
-
 import br.com.codecode.workix.interfaces.Buildable;
+
+import java.io.Serializable;
 
 /**
  * SocialMedia JPA Embeddable
