@@ -3,7 +3,7 @@ package br.com.codecode.workix.cdi.dao.implementations.mockup;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Mockup;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.Resume;
+import br.com.codecode.workix.jpa.models.jdk7.Resume;
 
 import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;

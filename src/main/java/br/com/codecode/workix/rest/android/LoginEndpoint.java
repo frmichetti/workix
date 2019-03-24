@@ -1,7 +1,7 @@
 package br.com.codecode.workix.rest.android;
 
 import br.com.codecode.workix.config.JAXRSConfiguration;
-import br.com.codecode.workix.core.common.Token;
+import br.com.codecode.workix.core.common.jdk7.Token;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jpa.models.Contact;
 import br.com.codecode.workix.jpa.models.Locale;

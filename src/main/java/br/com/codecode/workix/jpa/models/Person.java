@@ -1,5 +1,6 @@
 package br.com.codecode.workix.jpa.models;
 
+import br.com.codecode.workix.jpa.models.jdk7.MyEntity;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.hibernate.validator.constraints.NotEmpty;
 

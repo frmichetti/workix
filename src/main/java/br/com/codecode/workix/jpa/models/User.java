@@ -3,6 +3,7 @@ package br.com.codecode.workix.jpa.models;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import br.com.codecode.workix.interfaces.Notificable;
+import br.com.codecode.workix.jpa.models.jdk7.MyEntity;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 

@@ -3,6 +3,7 @@ package br.com.codecode.workix.jpa.models;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.BlogCategory;
 import br.com.codecode.workix.interfaces.Buildable;
+import br.com.codecode.workix.jpa.models.jdk7.MyEntity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

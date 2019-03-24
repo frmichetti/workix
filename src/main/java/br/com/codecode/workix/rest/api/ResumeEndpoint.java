@@ -1,6 +1,7 @@
 package br.com.codecode.workix.rest.api;
 
-import br.com.codecode.workix.jpa.models.Resume;
+
+import br.com.codecode.workix.jpa.models.jdk7.Resume;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;

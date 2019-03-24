@@ -4,6 +4,7 @@ import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.JobCategory;
 import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.interfaces.Buildable;
+import br.com.codecode.workix.jpa.models.jdk7.MyEntity;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.*;

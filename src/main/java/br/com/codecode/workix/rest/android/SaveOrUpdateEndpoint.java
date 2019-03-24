@@ -5,8 +5,8 @@ import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.config.JAXRSConfiguration;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jpa.models.Resume;
 import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.jpa.models.jdk7.Resume;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;

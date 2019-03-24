@@ -2,7 +2,7 @@ package br.com.codecode.workix.cdi.dao.implementations.persist;
 
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.jpa.models.Resume;
+import br.com.codecode.workix.jpa.models.jdk7.Resume;
 
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
