@@ -1,5 +1,6 @@
 package br.com.codecode.workix.tests.populate;
 
+import br.com.codecode.workix.tests.populate.jdk7.PopulateJAASRole;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;

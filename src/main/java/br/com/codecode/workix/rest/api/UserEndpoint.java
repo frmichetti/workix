@@ -16,7 +16,7 @@ import java.util.List;
 @Stateless
 @Path("/users")
 public class UserEndpoint {
-	@PersistenceContext(unitName = "MySQLDS")
+	@PersistenceContext(unitName = "mysqlDS")
 	private EntityManager em;
 
 	@POST

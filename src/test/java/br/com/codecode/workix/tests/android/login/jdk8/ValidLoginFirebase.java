@@ -3,12 +3,12 @@ package br.com.codecode.workix.tests.android.login.jdk8;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
+import br.com.codecode.workix.core.common.jdk7.Token;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.core.common.jdk8.Token;
 import br.com.codecode.workix.jpa.models.jdk7.Candidate;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.android.login.LoginTest;

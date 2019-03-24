@@ -1,6 +1,6 @@
 package br.com.codecode.workix.tests.populate;
 
-import br.com.codecode.workix.jpa.models.*;
+import br.com.codecode.workix.jpa.models.jdk7.*;
 import br.com.codecode.workix.tests.android.BaseTest;
 import br.com.codecode.workix.tests.util.HttpTest;
 import com.google.gson.reflect.TypeToken;

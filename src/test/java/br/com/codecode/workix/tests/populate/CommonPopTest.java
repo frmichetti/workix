@@ -16,7 +16,7 @@ import java.io.Serializable;
  * 
  * @author felipe
  */
-interface CommonPopTest<Whatever extends Persistable & Serializable> {
+public interface CommonPopTest<Whatever extends Persistable & Serializable> {
 
     /**
      * Create and Populate Entities Stage 1 , Additional Stages MAY occur before

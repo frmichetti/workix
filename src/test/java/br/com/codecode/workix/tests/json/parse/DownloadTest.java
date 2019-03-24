@@ -17,7 +17,7 @@ import java.util.List;
  * @see Serializable
  * @see GsonProvider
  */
-interface DownloadTest<T extends Serializable> {
+public interface DownloadTest<T extends Serializable> {
 
     /**
      * Download Items to a String

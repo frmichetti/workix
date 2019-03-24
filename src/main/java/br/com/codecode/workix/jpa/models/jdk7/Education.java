@@ -2,6 +2,7 @@ package br.com.codecode.workix.jpa.models.jdk7;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 
 import br.com.codecode.workix.interfaces.Buildable;
 
@@ -170,6 +171,13 @@ public class Education implements Serializable {
 	    return this;
 	}
 
-    }
+		public Builder withStartDate(Date date) {
+			return null;
+		}
+
+		public Builder withEndDate(Date date) {
+			return null;
+		}
+	}
 
 }
