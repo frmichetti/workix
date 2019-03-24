@@ -39,7 +39,7 @@ public class Job extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Job() {
+    Job() {
     }
 
     /**
@@ -79,12 +79,10 @@ public class Job extends MyEntity {
         if (!(obj instanceof Job))
             return false;
         Job other = (Job) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 
-    public String getBenefits() {
+    String getBenefits() {
         return benefits;
     }
 
@@ -92,7 +90,7 @@ public class Job extends MyEntity {
         this.benefits = benefits;
     }
 
-    public Company getCompany() {
+    Company getCompany() {
         return company;
     }
 
@@ -118,7 +116,7 @@ public class Job extends MyEntity {
         this.id = id;
     }
 
-    public JobCategory getJobCategory() {
+    JobCategory getJobCategory() {
         return jobCategory;
     }
 
@@ -126,7 +124,7 @@ public class Job extends MyEntity {
         this.jobCategory = category;
     }
 
-    public JobType getJobType() {
+    JobType getJobType() {
         return jobType;
     }
 
@@ -134,7 +132,7 @@ public class Job extends MyEntity {
         this.jobType = type;
     }
 
-    public BigDecimal getMaxPayment() {
+    BigDecimal getMaxPayment() {
         return maxPayment;
     }
 
@@ -142,7 +140,7 @@ public class Job extends MyEntity {
         this.maxPayment = maxPayment;
     }
 
-    public BigDecimal getMinPayment() {
+    BigDecimal getMinPayment() {
         return minPayment;
     }
 
@@ -150,7 +148,7 @@ public class Job extends MyEntity {
         this.minPayment = minPayment;
     }
 
-    public String getRequirement() {
+    String getRequirement() {
         return requirement;
     }
 
@@ -174,7 +172,7 @@ public class Job extends MyEntity {
         return result;
     }
 
-    public boolean isActive() {
+    boolean isActive() {
         return active;
     }
 

@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "companies")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Company extends Person {
 
@@ -73,9 +73,7 @@ public class Company extends Person {
         if (!(obj instanceof Company))
             return false;
         Company other = (Company) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 
     @Column(nullable = false, unique = true)

@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.core.enums.BlogCategory;
@@ -36,8 +30,6 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 
     private String resp;
 
-    private int howManyPosts = 20;
-
     private List<Author> authors;
 
     @Before
@@ -61,6 +53,7 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 
         posts = new ArrayList<>();
 
+        int howManyPosts = 20;
         for (int x = 0; x < howManyPosts; x++) {
 
             Blog b = Blog.builder()
@@ -119,7 +112,7 @@ public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 
         create();
 
-        posts.stream().forEach(b -> {
+        posts.forEach(b -> {
 
             System.out.println("[sendToServer] " + b.getTitle());
 

@@ -75,8 +75,7 @@ public class SubscriberEndpoint {
         if (maxResult != null) {
             findAllQuery.setMaxResults(maxResult);
         }
-        final List<Subscriber> results = findAllQuery.getResultList();
-        return results;
+        return findAllQuery.getResultList();
     }
 
     @PUT

@@ -38,7 +38,7 @@ public class DownloadTestUser extends BaseTest implements DownloadTest<User> {
 
         System.out.println(users.size());
 
-        users.stream().forEach(u -> System.out.println(u.getEmail()));
+        users.forEach(u -> System.out.println(u.getEmail()));
 
         System.out.println("----Stream----");
 

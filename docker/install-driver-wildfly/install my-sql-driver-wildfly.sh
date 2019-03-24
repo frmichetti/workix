@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.15.tar.gz
 wget https://jdbc.postgresql.org/download/postgresql-9.4.1212.jar
 

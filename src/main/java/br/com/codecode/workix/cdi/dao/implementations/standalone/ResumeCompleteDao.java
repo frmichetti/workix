@@ -21,9 +21,7 @@ public class ResumeCompleteDao extends BaseDao {
 
         String jpql = "select r from Resume r where r.candidate = :candidate";
 
-        Resume resume = em.createQuery(jpql, Resume.class).setParameter("candidate", candidate).getSingleResult();
-
-        return resume;
+        return em.createQuery(jpql, Resume.class).setParameter("candidate", candidate).getSingleResult();
     }
 
 }

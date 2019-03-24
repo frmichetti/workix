@@ -42,7 +42,7 @@ public abstract class MyEntity implements Traceable, Persistable, Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public MyEntity() {
+    protected MyEntity() {
     }
 
     @Override

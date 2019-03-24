@@ -77,8 +77,7 @@ public class ResumeEndpoint {
         if (maxResult != null) {
             findAllQuery.setMaxResults(maxResult);
         }
-        final List<Resume> results = findAllQuery.getResultList();
-        return results;
+        return findAllQuery.getResultList();
     }
 
     @PUT

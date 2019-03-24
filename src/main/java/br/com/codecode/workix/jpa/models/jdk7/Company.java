@@ -24,7 +24,7 @@ public class Company extends Person {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Company() {
+    Company() {
     }
 
     /**
@@ -60,12 +60,10 @@ public class Company extends Person {
         if (!(obj instanceof Company))
             return false;
         Company other = (Company) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 
-    public long getCnpj() {
+    long getCnpj() {
         return cnpj;
     }
 
@@ -97,7 +95,7 @@ public class Company extends Person {
         this.id = id;
     }
 
-    public String getSegment() {
+    String getSegment() {
         return segment;
     }
 

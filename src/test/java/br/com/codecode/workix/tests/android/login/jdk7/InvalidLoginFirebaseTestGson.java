@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.android.login.compat;
 
 import br.com.codecode.workix.core.common.jdk7.Token;
@@ -25,8 +19,6 @@ import static org.junit.Assert.assertTrue;
  */
 public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest {
 
-    private String url = server + "/login/firebaselogin";
-
     private String json;
 
     @Before
@@ -37,6 +29,7 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
 
         Token t = Token.builder().withKey("XXXXXXXXXXX").build();
 
+        String url = server + "/login/firebaselogin";
         json = HttpTest.sendPost(url, getGson().toJson(t));
 
         assertFalse(json.isEmpty());

@@ -33,7 +33,7 @@ public class Member extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Member() {
+    Member() {
     }
 
 
@@ -91,7 +91,7 @@ public class Member extends MyEntity {
     /**
      * @return the medias
      */
-    public List<SocialMedia> getMedias() {
+    List<SocialMedia> getMedias() {
         return medias;
     }
 
@@ -119,7 +119,7 @@ public class Member extends MyEntity {
     /**
      * @return the occupation
      */
-    public String getOccupation() {
+    String getOccupation() {
         return occupation;
     }
 
@@ -133,7 +133,7 @@ public class Member extends MyEntity {
     /**
      * @return the picture
      */
-    public String getPicture() {
+    String getPicture() {
         return picture;
     }
 
@@ -147,7 +147,7 @@ public class Member extends MyEntity {
     /**
      * @return the shortText
      */
-    public String getShortText() {
+    String getShortText() {
         return shortText;
     }
 

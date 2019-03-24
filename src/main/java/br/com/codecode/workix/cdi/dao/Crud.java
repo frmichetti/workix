@@ -24,9 +24,8 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> 
      * @param entity Entity Passed to Persist or Update
      * @return Managed Entity
      * @throws IllegalArgumentException   if Entity is Null
-     * @throws NotImplementedYetException if Methods is Not Implemented Yet
      */
-    default public T saveOrUpdate(T entity) throws IllegalArgumentException, NotImplementedYetException {
+    default T saveOrUpdate(T entity) throws IllegalArgumentException {
 
         if (entity == null) throw new IllegalArgumentException("Entity Passed to Persist is Null");
 
@@ -45,7 +44,7 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> 
      * @return Fetched Entity
      * @throws NotImplementedYetException if Method is Not Implemented Yet
      */
-    public T findByUuid(String uuid) throws NotImplementedYetException;
+    T findByUuid(String uuid) throws NotImplementedYetException;
 
     /**
      * Count Registers on Database
@@ -53,5 +52,5 @@ public interface Crud<T extends Persistable & Serializable> extends BaseCrud<T> 
      * @return Total Rows of Entity
      * @throws NotImplementedYetException if Method is Not Implemented Yet
      */
-    public BigInteger countRegisters();
+    BigInteger countRegisters();
 }

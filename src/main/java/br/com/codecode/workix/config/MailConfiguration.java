@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.config;
 
 import javax.ejb.Singleton;
@@ -22,5 +16,5 @@ import javax.mail.MailSessionDefinition;
         password = "fake@fake", transportProtocol = "smtp", from = "fake@gmail.com", properties = {"mail.smtp.port=465"})
 @Startup
 @Singleton
-public class MailConfiguration {
+class MailConfiguration {
 }

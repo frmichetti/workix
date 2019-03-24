@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.jaas.models.JAASRole;
@@ -66,7 +60,7 @@ public class PopulateJAASRole extends BaseTest {
     @Test
     public void sendToServer() {
 
-        roles.stream().forEach(r -> {
+        roles.forEach(r -> {
 
             System.out.println("[sendToServer] " + r.getName());
 

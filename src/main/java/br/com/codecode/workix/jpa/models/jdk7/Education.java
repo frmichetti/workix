@@ -32,7 +32,7 @@ public class Education implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Education() {
+    Education() {
     }
 
     /**
@@ -41,7 +41,7 @@ public class Education implements Serializable {
      * @param builder Builder for Generate a new Education
      * @see Buildable
      */
-    public Education(Builder builder) {
+    Education(Builder builder) {
         this.schoolName = builder.getSchoolName();
         this.startDate = builder.getStartDate();
         this.endDate = builder.getEndDate();
@@ -58,43 +58,43 @@ public class Education implements Serializable {
         return new Builder();
     }
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    void setDescription(String description) {
         this.description = description;
     }
 
-    public Calendar getEndDate() {
+    Calendar getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Calendar endDate) {
+    void setEndDate(Calendar endDate) {
         this.endDate = endDate;
     }
 
-    public String getQualification() {
+    String getQualification() {
         return qualification;
     }
 
-    public void setQualification(String qualification) {
+    void setQualification(String qualification) {
         this.qualification = qualification;
     }
 
-    public String getSchoolName() {
+    String getSchoolName() {
         return schoolName;
     }
 
-    public void setSchoolName(String schoolName) {
+    void setSchoolName(String schoolName) {
         this.schoolName = schoolName;
     }
 
-    public Calendar getStartDate() {
+    Calendar getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Calendar startDate) {
+    void setStartDate(Calendar startDate) {
         this.startDate = startDate;
     }
 

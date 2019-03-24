@@ -41,12 +41,7 @@ public class MailSessionProducer {
         return sessionGmail;
     }
 
-    /**
-     * Produces Session for {@link MailSender} use in CDI Injection Points
-     *
-     * @return Session Instance for {@link MailSender}
-     */
-//    @Produces
+    //    @Produces
 //    @Dependent
 //    @Factory
 //    @Fake

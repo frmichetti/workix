@@ -22,7 +22,7 @@ public class Skill implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Skill() {
+    Skill() {
     }
 
     /**
@@ -31,7 +31,7 @@ public class Skill implements Serializable {
      * @param builder Builder for Generate a New Skill
      * @see Buildable
      */
-    public Skill(Builder builder) {
+    Skill(Builder builder) {
         this.setSkillName(builder.getSkillName());
     }
 
@@ -47,14 +47,14 @@ public class Skill implements Serializable {
     /**
      * @return the Skill Name
      */
-    public String getSkillName() {
+    String getSkillName() {
         return this.skillName;
     }
 
     /**
      * @param skillName the Skill Name to set
      */
-    public void setSkillName(String skillName) {
+    void setSkillName(String skillName) {
         this.skillName = skillName;
     }
 

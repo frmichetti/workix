@@ -24,7 +24,7 @@ import java.util.List;
 @Entity
 @Table(name = "authors")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Author extends MyEntity {
 

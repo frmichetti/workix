@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate;
 
 import br.com.codecode.workix.jpa.models.Author;
@@ -30,7 +24,7 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
 
     private List<Author> authors;
 
-    private String resp, serviceUrl;
+    private String resp;
 
     @Before
     @Override
@@ -38,6 +32,7 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
 
         authors = new ArrayList<>();
 
+        String serviceUrl;
         if (server.contains("localhost")) {
             serviceUrl = "http://localhost/resources/placeholder/140x140.jpg";
         } else {
@@ -49,7 +44,7 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
 
 
             Author a = Author.builder()
-                    .withName("Autor 'Mockup' " + String.valueOf(x + 1))
+                    .withName("Autor 'Mockup' " + (x + 1))
                     .withPicture(serviceUrl)
                     .withAboutText("Sobre o Autor " + x);
 

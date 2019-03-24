@@ -24,7 +24,7 @@ public class SocialMedia implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public SocialMedia() {
+    SocialMedia() {
     }
 
     /**
@@ -52,7 +52,7 @@ public class SocialMedia implements Serializable {
     /**
      * @return the media
      */
-    public String getMedia() {
+    String getMedia() {
         return media;
     }
 
@@ -66,7 +66,7 @@ public class SocialMedia implements Serializable {
     /**
      * @return the url
      */
-    public String getUrl() {
+    String getUrl() {
         return url;
     }
 

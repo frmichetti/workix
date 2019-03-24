@@ -25,7 +25,7 @@ import java.util.*;
 @Entity
 @Table(name = "blogs")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Blog extends MyEntity {
 

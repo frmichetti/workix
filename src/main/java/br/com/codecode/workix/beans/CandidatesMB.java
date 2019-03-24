@@ -119,7 +119,7 @@ public class CandidatesMB extends BaseMB {
 
         System.out.println("Received Candidate " + candidate.toString());
 
-        return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix;
+        return prefix + "/resume.xhtml?id=" + candidate.getId() + sufix;
     }
 
     private String goToErrorPage() {
@@ -136,11 +136,11 @@ public class CandidatesMB extends BaseMB {
     }
 
     public String goToLastPage() {
-        return prefix + "/candidates2.xhtml?page=" + String.valueOf(totalPages) + sufix;
+        return prefix + "/candidates2.xhtml?page=" + totalPages + sufix;
     }
 
     public String goToFirstPage() {
-        return prefix + "/candidates2.xhtml?page=" + String.valueOf(1) + sufix;
+        return prefix + "/candidates2.xhtml?page=" + 1 + sufix;
     }
 
 }

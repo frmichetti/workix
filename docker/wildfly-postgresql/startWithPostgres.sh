@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -f wildfly.started ]; then
-JBOSS_CLI=$WILDFLY_HOME/bin/jboss-cli.sh
+JBOSS_CLI=${WILDFLY_HOME}/bin/jboss-cli.sh
 
 function wait_for_server() {
   until `$JBOSS_CLI -c "ls /deployments" &> /dev/null`; do

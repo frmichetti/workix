@@ -22,7 +22,7 @@ import java.util.Date;
 @Entity
 @Table(name = "candidates")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Candidate extends Person {
 

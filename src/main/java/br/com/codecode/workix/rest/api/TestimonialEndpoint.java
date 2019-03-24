@@ -77,8 +77,7 @@ public class TestimonialEndpoint {
         if (maxResult != null) {
             findAllQuery.setMaxResults(maxResult);
         }
-        final List<Testimonial> results = findAllQuery.getResultList();
-        return results;
+        return findAllQuery.getResultList();
     }
 
     @PUT

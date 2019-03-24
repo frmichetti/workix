@@ -33,7 +33,7 @@ public class Locale implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Locale() {
+    Locale() {
     }
 
     /**
@@ -42,7 +42,7 @@ public class Locale implements Serializable {
      * @param builder Builder for Generate a New Locale
      * @see Buildable
      */
-    public Locale(Builder builder) {
+    Locale(Builder builder) {
         this.zipCode = builder.getZipCode();
         this.city = builder.getCity();
         this.neighborhood = builder.getNeighborhood();
@@ -60,51 +60,51 @@ public class Locale implements Serializable {
         return new Builder();
     }
 
-    public String getCity() {
+    String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
+    void setCity(String city) {
         this.city = city;
     }
 
-    public Estate getEstate() {
+    Estate getEstate() {
         return estate;
     }
 
-    public void setEstate(Estate estate) {
+    void setEstate(Estate estate) {
         this.estate = estate;
     }
 
-    public String getNeighborhood() {
+    String getNeighborhood() {
         return neighborhood;
     }
 
-    public void setNeighborhood(String neighborhood) {
+    void setNeighborhood(String neighborhood) {
         this.neighborhood = neighborhood;
     }
 
-    public String getNumber() {
+    String getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    void setNumber(String number) {
         this.number = number;
     }
 
-    public String getStreet() {
+    String getStreet() {
         return street;
     }
 
-    public void setStreet(String street) {
+    void setStreet(String street) {
         this.street = street;
     }
 
-    public long getZipCode() {
+    long getZipCode() {
         return zipCode;
     }
 
-    public void setZipCode(long zipCode) {
+    void setZipCode(long zipCode) {
         this.zipCode = zipCode;
     }
 

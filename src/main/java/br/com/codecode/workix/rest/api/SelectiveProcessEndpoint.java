@@ -77,8 +77,7 @@ public class SelectiveProcessEndpoint {
         if (maxResult != null) {
             findAllQuery.setMaxResults(maxResult);
         }
-        final List<SelectiveProcess> results = findAllQuery.getResultList();
-        return results;
+        return findAllQuery.getResultList();
     }
 
     @PUT

@@ -27,8 +27,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     private Set<Candidate> candidates;
 
-    private Calendar createdAt;
-
     private Calendar disabledAt;
 
     private Calendar expire;
@@ -40,10 +38,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     private int maxCandidates;
 
     private Calendar start;
-
-    private Calendar updatedAt;
-
-    private String uuid;
 
     private int version;
 
@@ -73,15 +67,12 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
             return false;
         }
         SelectiveProcess other = (SelectiveProcess) obj;
-        if (id != other.id) {
-            return false;
-        }
-        return true;
+        return id == other.id;
     }
 
     @Override
     public void generateUUID() {
-        uuid = UUID.randomUUID().toString();
+        String uuid = UUID.randomUUID().toString();
     }
 
     public Set<Candidate> getCandidates() {
@@ -174,10 +165,10 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     @Override
     public void insertTimeStamp() {
-        createdAt = Calendar.getInstance();
+        Calendar createdAt = Calendar.getInstance();
     }
 
-    public boolean isActive() {
+    private boolean isActive() {
         return active;
     }
 
@@ -198,7 +189,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
         return (candidates.size() < maxCandidates);
     }
 
-    public boolean isInProcess(Candidate candidate) {
+    private boolean isInProcess(Candidate candidate) {
         System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)));
         return (candidates.contains(candidate));
     }
@@ -266,7 +257,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     @Override
     public void updateTimeStamp() {
-        updatedAt = Calendar.getInstance();
+        Calendar updatedAt = Calendar.getInstance();
     }
 
 }

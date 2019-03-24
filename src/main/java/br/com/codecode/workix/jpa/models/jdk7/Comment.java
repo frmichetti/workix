@@ -28,7 +28,7 @@ public class Comment extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Comment() {
+    Comment() {
     }
 
     /**
@@ -57,7 +57,7 @@ public class Comment extends MyEntity {
     /**
      * @return the blog
      */
-    public Blog getBlog() {
+    Blog getBlog() {
         return blog;
     }
 
@@ -71,7 +71,7 @@ public class Comment extends MyEntity {
     /**
      * @return the email
      */
-    public String getEmail() {
+    String getEmail() {
         return email;
     }
 
@@ -95,7 +95,7 @@ public class Comment extends MyEntity {
     /**
      * @return the name
      */
-    public String getName() {
+    String getName() {
         return name;
     }
 
@@ -109,7 +109,7 @@ public class Comment extends MyEntity {
     /**
      * @return the text
      */
-    public String getText() {
+    String getText() {
         return text;
     }
 

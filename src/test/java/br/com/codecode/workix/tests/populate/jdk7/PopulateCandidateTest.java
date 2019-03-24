@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.core.enums.Estate;
@@ -74,7 +68,7 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
 
             c.setBirthDate(Calendar.getInstance());
 
-            c.setName("Candidato 'Mockup' N# " + String.valueOf(u.getId()));
+            c.setName("Candidato 'Mockup' N# " + u.getId());
 
             c.setCpf(new BigInteger(36, new Random()).longValue());
 

@@ -1,6 +1,3 @@
-/**
- *
- */
 package br.com.codecode.workix.core.annotations.jdk7;
 
 import java.lang.annotation.Documented;
@@ -16,12 +13,5 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
 @Documented
 @Retention(SOURCE)
 @Target(PARAMETER)
-/**
- * Mark Object as Not Nullable
- *
- * @author felipe
- * @since 1.1
- * @version 1.0
- */
 public @interface NonNull {
 }

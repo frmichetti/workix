@@ -22,7 +22,7 @@ public class Subscriber extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Subscriber() {
+    Subscriber() {
     }
 
     /**
@@ -31,7 +31,7 @@ public class Subscriber extends MyEntity {
      * @param builder Builder for Generate New Subscriber
      * @see Buildable
      */
-    public Subscriber(Builder builder) {
+    Subscriber(Builder builder) {
         this.setEmail(builder.getEmail());
     }
 
@@ -47,14 +47,14 @@ public class Subscriber extends MyEntity {
     /**
      * @return the email
      */
-    public String getEmail() {
+    String getEmail() {
         return email;
     }
 
     /**
      * @param email the email to set
      */
-    public void setEmail(String email) {
+    void setEmail(String email) {
         this.email = email;
     }
 

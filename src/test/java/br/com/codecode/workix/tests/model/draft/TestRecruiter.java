@@ -81,10 +81,8 @@ public class TestRecruiter {
         pro3.setActive(false);
 
         pro2.setActive(false);
-        ;
 
         pro1.setActive(false);
-        ;
 
     }
 

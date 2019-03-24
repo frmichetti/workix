@@ -29,7 +29,7 @@ import java.util.*;
 @Entity
 @Table(name = "selective_processes")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
 
@@ -97,10 +97,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
             return false;
         }
         SelectiveProcess other = (SelectiveProcess) obj;
-        if (id != other.id) {
-            return false;
-        }
-        return true;
+        return id == other.id;
     }
 
     @Override

@@ -43,7 +43,7 @@ public class Blog extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Blog() {
+    Blog() {
     }
 
     /**
@@ -91,7 +91,7 @@ public class Blog extends MyEntity {
     /**
      * @return the author
      */
-    public Author getAuthor() {
+    Author getAuthor() {
         return author;
     }
 
@@ -105,7 +105,7 @@ public class Blog extends MyEntity {
     /**
      * @return the blogCategory
      */
-    public BlogCategory getCategory() {
+    BlogCategory getCategory() {
         return category;
     }
 
@@ -119,7 +119,7 @@ public class Blog extends MyEntity {
     /**
      * @return the citation
      */
-    public String getCitation() {
+    String getCitation() {
         return citation;
     }
 
@@ -147,7 +147,7 @@ public class Blog extends MyEntity {
     /**
      * @return the date
      */
-    public Calendar getDate() {
+    Calendar getDate() {
         return date;
     }
 
@@ -171,7 +171,7 @@ public class Blog extends MyEntity {
     /**
      * @return the pictures
      */
-    public List<String> getPictures() {
+    List<String> getPictures() {
         return pictures;
     }
 
@@ -199,7 +199,7 @@ public class Blog extends MyEntity {
     /**
      * @return the tags
      */
-    public List<Tag> getTags() {
+    List<Tag> getTags() {
         return tags;
     }
 

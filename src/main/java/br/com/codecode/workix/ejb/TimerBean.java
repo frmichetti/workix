@@ -54,7 +54,7 @@ class TimerBean {
 
     }
 
-    @Schedule(hour = "*", minute = "0/30", second = "0", persistent = false)
+    @Schedule(hour = "*", minute = "0/30", persistent = false)
     public void execute() {
 
         System.out.println("[TimerBean] Execute Schedule ... "

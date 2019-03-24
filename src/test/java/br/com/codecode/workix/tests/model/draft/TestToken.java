@@ -28,7 +28,7 @@ public class TestToken {
     private Token token;
 
     @BeforeClass
-    public static void setUpBeforeClass() throws Exception {
+    public static void setUpBeforeClass() {
 
         g = new GsonBuilder()
 
@@ -55,8 +55,8 @@ public class TestToken {
     }
 
     @Before
-    public void setUp() throws Exception {
-        token = token.builder().withKey("key").build();
+    public void setUp() {
+        token = Token.builder().withKey("key").build();
     }
 
     @Test

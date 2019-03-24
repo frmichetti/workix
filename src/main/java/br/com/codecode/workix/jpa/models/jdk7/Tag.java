@@ -22,7 +22,7 @@ public class Tag implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Tag() {
+    Tag() {
     }
 
     /**
@@ -47,7 +47,7 @@ public class Tag implements Serializable {
     /**
      * @return the name
      */
-    public String getName() {
+    String getName() {
         return name;
     }
 

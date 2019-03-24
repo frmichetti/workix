@@ -38,7 +38,7 @@ public class DownloadTestSelectiveProccess extends BaseTest implements DownloadT
 
         System.out.println(sps.size());
 
-        sps.stream().forEach(System.out::println);
+        sps.forEach(System.out::println);
 
         System.out.println("----Stream----");
 

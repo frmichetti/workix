@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate;
 
 import br.com.codecode.workix.jpa.models.User;
@@ -42,7 +36,7 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
 
             User u = User.builder()
 
-                    .withEmail("mockupusernumber" + String.valueOf(x + 1) + "@test.com")
+                    .withEmail("mockupusernumber" + (x + 1) + "@test.com")
 
                     .withFirebaseUUID(UUID.randomUUID().toString())
 

@@ -26,7 +26,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "jobs")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Job extends MyEntity {
 
@@ -93,9 +93,7 @@ public class Job extends MyEntity {
         if (!(obj instanceof Job))
             return false;
         Job other = (Job) obj;
-        if (id != other.id)
-            return false;
-        return true;
+        return id == other.id;
     }
 
     @Lob

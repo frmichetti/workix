@@ -58,12 +58,6 @@ public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
 
             try {
 
-                /**
-                 * attempt for DateFormat
-                 *
-                 *
-                 * @return
-                 */
                 if (dateRaw.length() == 10)
                     d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
                 else

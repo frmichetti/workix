@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate;
 
 import br.com.codecode.workix.core.enums.JobCategory;
@@ -67,13 +61,13 @@ public class PopulateJobTest extends BaseTest implements CommonPopTest<Job> {
 
             Job j = Job.builder()
 
-                    .withTitle("Vaga 'Mockup' N# " + String.valueOf(x + 1))
+                    .withTitle("Vaga 'Mockup' N# " + (x + 1))
 
-                    .withDescription("Descrição da Vaga " + String.valueOf(x + 1))
+                    .withDescription("Descrição da Vaga " + (x + 1))
 
-                    .withRequirement("Requerimentos da Vaga " + String.valueOf(x + 1))
+                    .withRequirement("Requerimentos da Vaga " + (x + 1))
 
-                    .withBenefits("Benefícios da Vaga " + String.valueOf(x + 1))
+                    .withBenefits("Benefícios da Vaga " + (x + 1))
 
                     .withJobType((x % 2 == 0) ? JobType.FULLTIME : JobType.TEMPORARY)
 

@@ -26,7 +26,7 @@ public class User extends MyEntity implements Notificable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public User() {
+    User() {
     }
 
     /**
@@ -35,7 +35,7 @@ public class User extends MyEntity implements Notificable {
      * @param builder Builder for Generate a New User
      * @see Buildable
      */
-    public User(Builder builder) {
+    User(Builder builder) {
         this.active = builder.isActive();
         this.email = builder.getEmail();
         this.firebaseUUID = builder.getFirebaseUUID();
@@ -92,11 +92,11 @@ public class User extends MyEntity implements Notificable {
         this.id = id;
     }
 
-    public boolean isActive() {
+    boolean isActive() {
         return active;
     }
 
-    public void setActive(boolean active) {
+    void setActive(boolean active) {
         this.active = active;
     }
 

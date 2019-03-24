@@ -44,8 +44,6 @@ public class BlogListMB extends BaseMB {
     private String prefix, sufix;
     @Min(1)
     private int page;
-    private int start;
-    private int end;
     private int totalPages;
 
     /**
@@ -97,9 +95,9 @@ public class BlogListMB extends BaseMB {
 
         totalPages = paginator.getTotalPages();
 
-        start = paginator.getStart();
+        int start = paginator.getStart();
 
-        end = paginator.getEnd();
+        int end = paginator.getEnd();
 
         list = new ListDataModel<>(dao.listAll(start - 1, limitRows));
 
@@ -117,7 +115,6 @@ public class BlogListMB extends BaseMB {
             pager.add(x);
         }
 
-        debug:
         {
             System.out.println("Current Page : " + page);
 
@@ -134,11 +131,11 @@ public class BlogListMB extends BaseMB {
     }
 
     public String goToLastPage() {
-        return prefix + "/blog.xhtml?page=" + String.valueOf(totalPages) + sufix;
+        return prefix + "/blog.xhtml?page=" + totalPages + sufix;
     }
 
     public String goToFirstPage() {
-        return prefix + "/blog.xhtml?page=" + String.valueOf(1) + sufix;
+        return prefix + "/blog.xhtml?page=" + 1 + sufix;
     }
 
 

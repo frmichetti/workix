@@ -1,24 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @author Flávio Henrique
- * @version 1.0.3
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- * <p>
- * Converter para entidades JPA. Baseia-se nas anotações @Id e @EmbeddedId para identificar o
- * atributo que representa a identidade da entidade. Capaz de detectar as anotações nas classes superiores.
- * @since 05/10/2010
- */
-
-/**
- * Converter para entidades JPA. Baseia-se nas anotações @Id e @EmbeddedId para identificar o
- * atributo que representa a identidade da entidade. Capaz de detectar as anotações nas classes superiores.
- *
- * @author Flávio Henrique
- * @version 1.0.3
- * @since 05/10/2010
- */
 package br.com.codecode.workix.jsf.util.converter;
 
 import javax.faces.component.UIComponent;

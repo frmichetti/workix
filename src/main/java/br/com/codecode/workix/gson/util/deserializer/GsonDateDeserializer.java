@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.gson.util.deserializer;
 
 import com.google.gson.JsonDeserializationContext;
@@ -40,12 +34,6 @@ public class GsonDateDeserializer implements JsonDeserializer<Date> {
 
             try {
 
-                /**
-                 * attempt for DateFormat , Pattern Must be Equals
-                 *
-                 *
-                 * @return
-                 */
                 d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
 
                 return d;

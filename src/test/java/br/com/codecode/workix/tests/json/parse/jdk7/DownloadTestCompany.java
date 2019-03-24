@@ -36,7 +36,7 @@ public class DownloadTestCompany extends BaseTest implements DownloadTest<Compan
 
         System.out.println("----Stream----");
 
-        companies.stream().forEach(System.out::println);
+        companies.forEach(System.out::println);
 
         System.out.println("----Stream----");
 

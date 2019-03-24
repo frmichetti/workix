@@ -38,7 +38,7 @@ public class DownloadTestJob extends BaseTest implements DownloadTest<Job> {
 
         System.out.println(jobs.size());
 
-        jobs.stream().forEach(j -> System.out.println(j.getDescription()));
+        jobs.forEach(j -> System.out.println(j.getDescription()));
 
         System.out.println("----Stream----");
 

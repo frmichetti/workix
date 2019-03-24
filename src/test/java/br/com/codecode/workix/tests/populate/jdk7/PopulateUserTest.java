@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.jpa.models.jdk7.User;
@@ -32,19 +26,18 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
 
     private String resp;
 
-    private int howManyUsers = 100;
-
     @Before
     @Override
     public void create() {
 
         users = new ArrayList<>();
 
+        int howManyUsers = 100;
         for (int x = 0; x < howManyUsers; x++) {
 
             User u = User.builder()
 
-                    .withEmail("mockupusernumber" + String.valueOf(x + 1) + "@test.com")
+                    .withEmail("mockupusernumber" + (x + 1) + "@test.com")
 
                     .withFirebaseUUID(UUID.randomUUID().toString())
 
@@ -78,7 +71,7 @@ public class PopulateUserTest extends BaseTest implements CommonPopTest<User> {
     @Override
     public void sendToServer() {
 
-        users.stream().forEach(u -> {
+        users.forEach(u -> {
 
             System.out.println("[sendToServer] " + u.getEmail());
 

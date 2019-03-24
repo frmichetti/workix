@@ -22,7 +22,7 @@ import java.util.Date;
  */
 @Embeddable
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Education implements Serializable {
 

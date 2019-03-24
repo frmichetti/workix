@@ -24,7 +24,7 @@ import java.util.Set;
 @Entity
 @Table(name = "resumes")
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Resume extends MyEntity {
 

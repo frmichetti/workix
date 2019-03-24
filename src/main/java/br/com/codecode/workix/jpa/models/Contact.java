@@ -22,7 +22,7 @@ import java.io.Serializable;
  */
 @Embeddable
 @XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
+@XmlAccessorType()
 @Persist
 public class Contact implements Serializable {
 

@@ -43,8 +43,6 @@ public class JobsMB extends BaseMB {
     private JobTypeLinkHelper jobTypeLinkHelper;
     private DataModel<Job> list;
     private String prefix, sufix;
-    private int start;
-    private int end;
     private int totalPages;
     @Min(1)
     private int page;
@@ -86,9 +84,9 @@ public class JobsMB extends BaseMB {
 
         totalPages = paginator.getTotalPages();
 
-        start = paginator.getStart();
+        int start = paginator.getStart();
 
-        end = paginator.getEnd();
+        int end = paginator.getEnd();
 
         List<Job> jobs = dao.listAll(start - 1, limitRows);
 
@@ -126,15 +124,15 @@ public class JobsMB extends BaseMB {
 
         System.out.println("Received Job " + job.toString());
 
-        return prefix + "/job-details.xhtml?id=" + String.valueOf(job.getId()) + sufix;
+        return prefix + "/job-details.xhtml?id=" + job.getId() + sufix;
     }
 
     public String goToLastPage() {
-        return prefix + "/jobs2.xhtml?page=" + String.valueOf(totalPages) + sufix;
+        return prefix + "/jobs2.xhtml?page=" + totalPages + sufix;
     }
 
     public String goToFirstPage() {
-        return prefix + "/jobs2.xhtml?page=" + String.valueOf(1) + sufix;
+        return prefix + "/jobs2.xhtml?page=" + 1 + sufix;
     }
 
 

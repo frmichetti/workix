@@ -36,7 +36,7 @@ public class DownloadTestResume extends BaseTest implements DownloadTest<Resume>
 
         System.out.println("----Stream----");
 
-        resumes.stream()
+        resumes
                 .forEach(System.out::println);
 
         System.out.println("----Stream----");

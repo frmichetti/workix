@@ -31,7 +31,7 @@ public class Author extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Author() {
+    Author() {
     }
 
     /**
@@ -73,7 +73,7 @@ public class Author extends MyEntity {
     /**
      * @return the aboutText
      */
-    public String getAboutText() {
+    String getAboutText() {
         return aboutText;
     }
 
@@ -100,7 +100,7 @@ public class Author extends MyEntity {
     /**
      * @return the medias
      */
-    public List<SocialMedia> getMedias() {
+    List<SocialMedia> getMedias() {
         return medias;
     }
 

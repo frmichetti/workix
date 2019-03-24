@@ -22,7 +22,7 @@ public class Contact implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Contact() {
+    Contact() {
     }
 
     /**
@@ -31,7 +31,7 @@ public class Contact implements Serializable {
      * @param builder Builder for Generate a New Contact
      * @see Buildable
      */
-    public Contact(Builder builder) {
+    Contact(Builder builder) {
         this.mobilePhone = builder.getMobilePhone();
     }
 
@@ -47,14 +47,14 @@ public class Contact implements Serializable {
     /**
      * @return the Mobile Phone
      */
-    public long getMobilePhone() {
+    long getMobilePhone() {
         return mobilePhone;
     }
 
     /**
      * @param mobilePhone the Mobile Phone to set
      */
-    public void setMobilePhone(long mobilePhone) {
+    void setMobilePhone(long mobilePhone) {
         this.mobilePhone = mobilePhone;
     }
 

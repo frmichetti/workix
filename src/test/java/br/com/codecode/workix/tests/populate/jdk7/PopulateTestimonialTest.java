@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.jpa.models.jdk7.Author;
@@ -33,8 +27,6 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
     private String resp;
 
-    private int repeat = 30;
-
     private List<Author> authors;
 
     @Before
@@ -59,6 +51,7 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
         testimonials = new ArrayList<>();
 
+        int repeat = 30;
         for (int x = 0; x < repeat; x++) {
 
             Testimonial t = Testimonial.builder()
@@ -97,7 +90,7 @@ public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<T
 
         create();
 
-        testimonials.stream().forEach(t -> {
+        testimonials.forEach(t -> {
 
             System.out.println("[sendToServer] " + t.getAuthor().getName());
 

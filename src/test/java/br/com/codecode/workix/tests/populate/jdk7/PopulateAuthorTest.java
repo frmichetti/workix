@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.jpa.models.jdk7.Author;
@@ -33,18 +27,17 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
 
     private String resp;
 
-    private int howManyAuthors = 100;
-
     @Before
     @Override
     public void create() {
 
         authors = new ArrayList<>();
 
+        int howManyAuthors = 100;
         for (int x = 0; x < howManyAuthors; x++) {
 
             Author a = Author.builder()
-                    .withName("Autor 'Mockup' " + String.valueOf(x + 1))
+                    .withName("Autor 'Mockup' " + (x + 1))
                     .withPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg")
                     .withAboutText("Sobre o Autor " + x);
 
@@ -78,7 +71,7 @@ public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author
     @Override
     public void sendToServer() {
 
-        authors.stream().forEach(a -> {
+        authors.forEach(a -> {
 
             System.out.println("[sendToServer] " + a.getName());
 

@@ -28,10 +28,10 @@ abstract class Person extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Person() {
+    Person() {
     }
 
-    public Contact getContact() {
+    Contact getContact() {
         return contact;
     }
 
@@ -39,7 +39,7 @@ abstract class Person extends MyEntity {
         this.contact = contact;
     }
 
-    public Locale getLocale() {
+    Locale getLocale() {
         return locale;
     }
 

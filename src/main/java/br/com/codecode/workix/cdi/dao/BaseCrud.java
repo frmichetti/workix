@@ -15,7 +15,7 @@ import java.util.List;
  * @see Persistable
  * @see Serializable
  */
-public abstract interface BaseCrud<T extends Persistable & Serializable> {
+public interface BaseCrud<T extends Persistable & Serializable> {
 
     /**
      * Create Current Entity in Database
@@ -23,7 +23,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @param entity Save/Persist a Entity in Database
      * @throws NotImplementedYetException if Methods is Not Implemented Yet
      */
-    public void save(T entity);
+    void save(T entity);
 
     /**
      * Update Entity in Database
@@ -32,7 +32,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @return Updated Entity
      * @throws NotImplementedYetException if Methods is Not Implemented Yet
      */
-    public T update(T entity);
+    T update(T entity);
 
     /**
      * Localize Entity by Id
@@ -41,7 +41,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @return Fetched Entity
      * @throws NotImplementedYetException if Methods is Not Implemented Yet
      */
-    public T findById(long id) throws NotImplementedYetException;
+    T findById(long id) throws NotImplementedYetException;
 
     /**
      * Localize Entity by Id and Delete
@@ -49,7 +49,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @param id Fetch for Entity by id Field and Delete
      * @throws NotImplementedYetException if Methods is Not Implemented Yet
      */
-    public void deleteById(long id) throws NotImplementedYetException;
+    void deleteById(long id) throws NotImplementedYetException;
 
     /**
      * List Registers of an Entity between Start and End Index
@@ -59,5 +59,5 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @return List of Results
      * @throws NotImplementedYetException if Methods is Not Implemented Yet
      */
-    public List<T> listAll(int start, int end);
+    List<T> listAll(int start, int end);
 }

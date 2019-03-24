@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.jpa.models.jdk7.Member;
@@ -93,7 +87,7 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
     @Override
     public void sendToServer() {
 
-        members.stream().forEach(m -> {
+        members.forEach(m -> {
 
             System.out.println("[sendToServer] " + m.getName());
 

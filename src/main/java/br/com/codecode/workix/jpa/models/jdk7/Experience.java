@@ -32,7 +32,7 @@ public class Experience implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Experience() {
+    Experience() {
     }
 
     /**
@@ -41,7 +41,7 @@ public class Experience implements Serializable {
      * @param builder Builder for Generate a New Experience
      * @see Buildable
      */
-    public Experience(Builder builder) {
+    Experience(Builder builder) {
         this.employerName = builder.getEmployerName();
         this.jobTitle = builder.getJobTitle();
         this.startDate = builder.getStartDate();
@@ -61,39 +61,39 @@ public class Experience implements Serializable {
         return description;
     }
 
-    public void setDescription(String description) {
+    void setDescription(String description) {
         this.description = description;
     }
 
-    public String getEmployerName() {
+    String getEmployerName() {
         return employerName;
     }
 
-    public void setEmployerName(String employerName) {
+    void setEmployerName(String employerName) {
         this.employerName = employerName;
     }
 
-    public Calendar getEndDate() {
+    Calendar getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Calendar endDate) {
+    void setEndDate(Calendar endDate) {
         this.endDate = endDate;
     }
 
-    public String getJobTitle() {
+    String getJobTitle() {
         return jobTitle;
     }
 
-    public void setJobTitle(String jobTitle) {
+    void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
 
-    public Calendar getStartDate() {
+    Calendar getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Calendar startDate) {
+    void setStartDate(Calendar startDate) {
         this.startDate = startDate;
     }
 

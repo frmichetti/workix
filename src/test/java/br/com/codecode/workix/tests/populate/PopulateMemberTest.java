@@ -1,9 +1,3 @@
-/**
- * @author Felipe Rodrigues Michetti
- * @see http://portfolio-frmichetti.rhcloud.com
- * @see http://www.codecode.com.br
- * @see mailto:frmichetti@gmail.com
- */
 package br.com.codecode.workix.tests.populate;
 
 import br.com.codecode.workix.jpa.models.Member;
@@ -30,7 +24,7 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 
     private List<Member> members;
 
-    private String resp, serviceUrl, pictureUrl;
+    private String resp;
 
     @Before
     @Override
@@ -38,6 +32,8 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 
         members = new ArrayList<>();
 
+        String pictureUrl;
+        String serviceUrl;
         if (server.contains("localhost")) {
             serviceUrl = "http://localhost/resources/placeholder/140x140.jpg";
             pictureUrl = "http://localhost/resources/images/members/felipe_140_140.jpg";

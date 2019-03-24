@@ -28,7 +28,7 @@ public class Testimonial extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Testimonial() {
+    Testimonial() {
     }
 
     /**
@@ -85,7 +85,7 @@ public class Testimonial extends MyEntity {
         this.id = id;
     }
 
-    public String getPicture() {
+    String getPicture() {
         return picture;
     }
 
@@ -96,7 +96,7 @@ public class Testimonial extends MyEntity {
     /**
      * @return the signature
      */
-    public String getSignature() {
+    String getSignature() {
         return signature;
     }
 
@@ -110,7 +110,7 @@ public class Testimonial extends MyEntity {
     /**
      * @return the text
      */
-    public String getText() {
+    String getText() {
         return text;
     }
 
