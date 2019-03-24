@@ -1,17 +1,6 @@
 package br.com.codecode.workix.tests.model.draft;
 
-import br.com.codecode.workix.core.common.Token;
-import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
-import br.com.codecode.workix.gson.util.deserializer.GsonDateDeserializer;
-import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
-import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateTimeDeserializer;
-import br.com.codecode.workix.gson.util.serializer.GsonLocalDateSerializer;
-import br.com.codecode.workix.gson.util.serializer.GsonLocalDateTimeSerializer;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import static org.junit.Assert.*;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -19,7 +8,20 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
-import static org.junit.Assert.assertNotNull;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import br.com.codecode.workix.core.common.jdk7.Token;
+import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
+import br.com.codecode.workix.gson.util.deserializer.GsonDateDeserializer;
+import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
+import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateTimeDeserializer;
+import br.com.codecode.workix.gson.util.serializer.GsonLocalDateSerializer;
+import br.com.codecode.workix.gson.util.serializer.GsonLocalDateTimeSerializer;
 
 
 public class TestToken {
@@ -29,7 +31,7 @@ public class TestToken {
     private static Gson g;
 
     @BeforeClass
-    public static void setUpBeforeClass() {
+    public static void setUpBeforeClass() throws Exception {
 	
 	g = new GsonBuilder()
 	
@@ -56,8 +58,8 @@ public class TestToken {
     }
 
     @Before
-    public void setUp() {
-	token = Token.builder().withKey("key").build();
+    public void setUp() throws Exception {
+	token = token.builder().withKey("key").build();
     }
 
     @Test
