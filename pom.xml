@@ -31,6 +31,34 @@
                     <skipTests>true</skipTests>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <release>10</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+                <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                    </argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.0</version>
+                <configuration>
+                    <argLine>
+                        --illegal-access=permit
+                    </argLine>
+                </configuration>
+            </plugin>
             <!--<plugin>-->
             <!--<groupId>org.wildfly.plugins</groupId>-->
             <!--<artifactId>wildfly-maven-plugin</artifactId>-->
@@ -45,7 +73,7 @@
         <dependency>
             <groupId>com.hypertino</groupId>
             <artifactId>inflector_2.12</artifactId>
-            <version>1.0.12</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
@@ -58,22 +86,22 @@
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.0</version>
+            <version>LATEST</version>
             <scope>provided</scope>
-            <optional>true</optional>
+            <optional>false</optional>
         </dependency>
 
         <dependency>
             <groupId>org.jboss.as</groupId>
             <artifactId>jboss-as-security</artifactId>
-            <version>7.2.0.Final</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <scope>provided</scope>
-            <version>5.1.3.Final</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
@@ -101,14 +129,14 @@
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
             <scope>provided</scope>
-            <version>1.2</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
             <groupId>org.jboss.spec.javax.faces</groupId>
             <artifactId>jboss-jsf-api_2.2_spec</artifactId>
             <scope>provided</scope>
-            <version>2.2.11</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
@@ -121,7 +149,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.12</version>
+            <version>LATEST</version>
         </dependency>
         <!--<dependency>-->
         <!--<groupId>br.com.codecode</groupId>-->
@@ -130,9 +158,25 @@
         <!--</dependency>-->
 
         <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-core</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jaxrs</artifactId>
-            <version>1.5.7</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
@@ -143,9 +187,6 @@
             <systemPath>/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar</systemPath>
         </dependency>
 
-
-
-
     </dependencies>
 
 
@@ -154,11 +195,11 @@
         <skipTests>true</skipTests>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
         <jackson-version>2.6.0</jackson-version>
-        <version.jboss.bom>10.0.0.Final</version.jboss.bom>
-        <version.api>7.0</version.api>
+        <version.jboss.bom>16.0.0.Final</version.jboss.bom>
+        <version.api>8.0</version.api>
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
     </properties>
 
@@ -184,7 +225,7 @@
 
             <dependency>
                 <groupId>org.wildfly.bom</groupId>
-                <artifactId>wildfly-javaee7-with-tools</artifactId>
+                <artifactId>wildfly-javaee8-with-tools</artifactId>
                 <version>${version.jboss.bom}</version>
                 <type>pom</type>
                 <scope>import</scope>
