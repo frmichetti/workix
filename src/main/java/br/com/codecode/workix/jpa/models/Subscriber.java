@@ -21,6 +21,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @since 1.0
  */
 @Entity
+@Table(name = "subscribers")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist

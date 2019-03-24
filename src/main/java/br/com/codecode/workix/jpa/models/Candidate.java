@@ -20,6 +20,7 @@ import java.util.Date;
  * @since 1.0
  */
 @Entity
+@Table(name = "candidates")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist

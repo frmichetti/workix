@@ -41,6 +41,13 @@
 
     <dependencies>
 
+        <!-- https://mvnrepository.com/artifact/com.hypertino/inflector -->
+        <dependency>
+            <groupId>com.hypertino</groupId>
+            <artifactId>inflector_2.12</artifactId>
+            <version>1.0.12</version>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -135,7 +142,12 @@
             <scope>system</scope>
             <systemPath>/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar</systemPath>
         </dependency>
+
+
+
+
     </dependencies>
+
 
 
     <properties>

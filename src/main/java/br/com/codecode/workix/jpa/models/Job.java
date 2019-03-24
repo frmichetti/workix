@@ -24,6 +24,7 @@ import java.math.BigDecimal;
  * @since 1.0
  */
 @Entity
+@Table(name = "jobs")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist

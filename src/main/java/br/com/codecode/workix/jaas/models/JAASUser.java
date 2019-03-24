@@ -17,7 +17,7 @@ import java.util.Set;
  * @since 1.0
  */
 @Entity
-@Table(name = "JAAS_User")
+@Table(name = "jaas_user")
 @XmlRootElement
 public class JAASUser extends JAASBase {
 
@@ -88,7 +88,7 @@ public class JAASUser extends JAASBase {
     }
 
     @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "JAAS_Roles", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_name"))
+    @JoinTable(name = "jaas_roles", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_name"))
     public Set<JAASRole> getRoles() {
         return roles;
     }

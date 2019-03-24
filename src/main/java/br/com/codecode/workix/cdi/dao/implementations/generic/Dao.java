@@ -4,6 +4,8 @@ import br.com.codecode.workix.cdi.dao.BaseCrud;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.producers.GenericDaoProducer;
 import br.com.codecode.workix.interfaces.Persistable;
+import com.hypertino.inflector.English;
+
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.spi.InjectionPoint;
@@ -34,6 +36,8 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 
     private EntityManager em;
 
+    private String pluralizedClassName;
+
     /**
      * STUB Constructor
      */
@@ -51,6 +55,9 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
         this();
         this.clazz = clazz;
         this.em = em;
+
+        String lowerCaseClassName = clazz.getSimpleName().toLowerCase();
+        pluralizedClassName = English.plural(lowerCaseClassName);
     }
 
     /**
@@ -87,9 +94,9 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
     @Override
     public T findByUuid(String uuid) {
 
-        String jpql = "SELECT x FROM " + clazz.getSimpleName() + "x WHERE x.uuid = :uuid";
+        String jpql = "SELECT x FROM " + pluralizedClassName + "x WHERE x.uuid = :uuid";
 
-        return em.createQuery(jpql, clazz).setParameter("uuid", uuid).getSingleResult();
+        return (T) em.createNativeQuery(jpql, clazz).setParameter("uuid", uuid).getSingleResult();
 
     }
 
@@ -97,8 +104,8 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
     @Override
     public List<T> listAll(int start, int end) {
 
-        TypedQuery<?> findAllQuery = em
-                .createQuery("SELECT DISTINCT x FROM " + clazz.getSimpleName() + " x ORDER BY x.id", clazz);
+        TypedQuery<?> findAllQuery = (TypedQuery<?>) em
+                .createNativeQuery("SELECT DISTINCT * FROM " + pluralizedClassName + " x ORDER BY x.id", clazz);
 
         findAllQuery.setFirstResult(start);
 
@@ -109,7 +116,7 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
 
     @Override
     public BigInteger countRegisters() {
-        return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + clazz.getSimpleName()).getSingleResult();
+        return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + pluralizedClassName).getSingleResult();
     }
 
 }

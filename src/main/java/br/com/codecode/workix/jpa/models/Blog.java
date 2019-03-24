@@ -23,6 +23,7 @@ import java.util.*;
  * @since 1.0
  */
 @Entity
+@Table(name = "blogs")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -195,7 +196,7 @@ public class Blog extends MyEntity {
      * @return the pictures
      */
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "blog_pictures", joinColumns = @JoinColumn(name = "id"))
     public Set<String> getPictures() {
         return pictures;
     }
@@ -232,7 +233,7 @@ public class Blog extends MyEntity {
      * @return the tags
      */
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Blog_Tags", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "blog_tags", joinColumns = @JoinColumn(name = "id"))
     public Set<Tag> getTags() {
         return tags;
     }

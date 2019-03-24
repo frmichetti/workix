@@ -22,6 +22,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @since 1.0
  */
 @Entity
+@Table(name = "testimonials")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist

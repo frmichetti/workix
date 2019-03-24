@@ -19,6 +19,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @since 1.0
  */
 @Entity
+@Table(name = "companies")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
