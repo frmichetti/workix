@@ -11,8 +11,8 @@ import java.util.Calendar;
 public class GsonCalendarSerializer implements JsonSerializer<Calendar> {
 
     @Override
-    public JsonElement serialize(Calendar src, Type typeOfSrc, JsonSerializationContext context) {	
-	return new JsonPrimitive(src.getTimeInMillis());
+    public JsonElement serialize(Calendar src, Type typeOfSrc, JsonSerializationContext context) {
+        return new JsonPrimitive(src.getTimeInMillis());
     }
 
 }

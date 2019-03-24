@@ -23,8 +23,8 @@ import static org.junit.Assert.*;
  * Populate DB with Testimonials
  *
  * @author felipe
- * @since 1.1
  * @version 1.0
+ * @since 1.1
  */
 public class PopulateTestimonialTest extends BaseTest implements CommonPopTest<Testimonial> {
 

@@ -15,30 +15,31 @@ public class DownloadTestResume extends BaseTest implements DownloadTest<Resume>
 
     private String resp;
 
-    @Before    
+    @Before
     public void downloadItens() {
 
-	resp = downloadItens(server + "/resumes");
+        resp = downloadItens(server + "/resumes");
 
-	assertFalse(resp.isEmpty());
+        assertFalse(resp.isEmpty());
 
     }
 
-    @Test    
-    public void parseItens() {	
+    @Test
+    public void parseItens() {
 
-	List<Resume> resumes = parseItens(resp, new TypeToken<List<Resume>>(){});
+        List<Resume> resumes = parseItens(resp, new TypeToken<List<Resume>>() {
+        });
 
-	assertNotNull(resumes);
+        assertNotNull(resumes);
 
-	assertTrue(resumes.size() > 0);
+        assertTrue(resumes.size() > 0);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
 
-	resumes.stream()	
-		.forEach(System.out::println);
+        resumes.stream()
+                .forEach(System.out::println);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
 
     }
 

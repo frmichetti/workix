@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.tests.util;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -22,7 +21,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Http Request for Test
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -45,313 +44,313 @@ public final class HttpTest {
 
     /**
      * Send Http GET Method to URL
-     * 
+     *
      * @param url
      *            Destiny URL
      * @return a Response as String
      */
     public static String sendGet(@NotBlank String url) throws RuntimeException {
 
-	if ((url == null) || (url.isEmpty())) {
-	    throw new RuntimeException("Url Cannot be Empty");
-	}
+        if ((url == null) || (url.isEmpty())) {
+            throw new RuntimeException("Url Cannot be Empty");
+        }
 
-	URL obj = null;
+        URL obj = null;
 
-	try {
+        try {
 
-	    obj = new URL(url);
+            obj = new URL(url);
 
-	} catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
 
-	    System.err.println("Could not Parse Url");
+            System.err.println("Could not Parse Url");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
+            throw new RuntimeException(e.getMessage(), e);
 
-	}
+        }
 
-	HttpURLConnection con = null;
+        HttpURLConnection con = null;
 
-	try {
+        try {
 
-	    con = (HttpURLConnection) obj.openConnection();
+            con = (HttpURLConnection) obj.openConnection();
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    System.err.println("Could not Open Connection");
+            System.err.println("Could not Open Connection");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	// add request header
-	try {
+        // add request header
+        try {
 
-	    con.setRequestMethod("GET");
+            con.setRequestMethod("GET");
 
-	} catch (ProtocolException e) {
+        } catch (ProtocolException e) {
 
-	    System.err.println("Could not Set Protocol of Request");
+            System.err.println("Could not Set Protocol of Request");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	con.setReadTimeout(TIME_OUT);
+        con.setReadTimeout(TIME_OUT);
 
-	con.setRequestProperty("Accept-Language", ACCEPT_LANGUAGE);
+        con.setRequestProperty("Accept-Language", ACCEPT_LANGUAGE);
 
-	con.setRequestProperty("Content-Type", CONTENT_TYPE);
+        con.setRequestProperty("Content-Type", CONTENT_TYPE);
 
-	con.setRequestProperty("User-Agent", USER_AGENT);
+        con.setRequestProperty("User-Agent", USER_AGENT);
 
-	int responseCode = 0;
+        int responseCode = 0;
 
-	try {
+        try {
 
-	    responseCode = con.getResponseCode();
+            responseCode = con.getResponseCode();
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    System.err.println("Could not Get Response Code");
+            System.err.println("Could not Get Response Code");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	System.out.println("Send Request " + con.getRequestMethod() + " to URL : " + url);
+        System.out.println("Send Request " + con.getRequestMethod() + " to URL : " + url);
 
-	System.out.println("Response Code : " + responseCode);
+        System.out.println("Response Code : " + responseCode);
 
-	String resp;
+        String resp;
 
-	if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
+        if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
 
-	    BufferedReader in = null;
+            BufferedReader in = null;
 
-	    try {
+            try {
 
-		in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-	    } catch (IOException e) {
+            } catch (IOException e) {
 
-		System.err.println("Could not Receive Data");
+                System.err.println("Could not Receive Data");
 
-		e.printStackTrace();
+                e.printStackTrace();
 
-		throw new RuntimeException(e.getMessage(), e);
-	    }
+                throw new RuntimeException(e.getMessage(), e);
+            }
 
-	    StringBuilder response = new StringBuilder();
+            StringBuilder response = new StringBuilder();
 
-	    String inputLine;
+            String inputLine;
 
-	    try {
+            try {
 
-		while ((inputLine = in.readLine()) != null) {
-		    response.append(inputLine);
-		}
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
 
-	    } catch (IOException e) {
+            } catch (IOException e) {
 
-		System.err.println("Could not Read Received Data");
+                System.err.println("Could not Read Received Data");
 
-		e.printStackTrace();
+                e.printStackTrace();
 
-		throw new RuntimeException(e.getMessage(), e);
-	    }
+                throw new RuntimeException(e.getMessage(), e);
+            }
 
-	    System.out.println("Response of Server ");
+            System.out.println("Response of Server ");
 
-	    System.out.println(response.toString());
+            System.out.println(response.toString());
 
-	    resp = response.toString();
+            resp = response.toString();
 
-	} else {
+        } else {
 
-	    System.err.println("Server Response Code : " + responseCode);
+            System.err.println("Server Response Code : " + responseCode);
 
-	    resp = null;
-	}
+            resp = null;
+        }
 
-	return resp;
+        return resp;
     }
 
     // HTTP POST request
     public static String sendPost(@NotBlank String url, @NotEmpty String params) throws RuntimeException {
 
-	if ((url == null) || (url.isEmpty())) {
-	    throw new RuntimeException("Url Cannot be Empty");
-	}
+        if ((url == null) || (url.isEmpty())) {
+            throw new RuntimeException("Url Cannot be Empty");
+        }
 
-	params = new String(params.getBytes(), StandardCharsets.ISO_8859_1);
+        params = new String(params.getBytes(), StandardCharsets.ISO_8859_1);
 
-	URL obj = null;
+        URL obj = null;
 
-	try {
+        try {
 
-	    obj = new URL(url);
+            obj = new URL(url);
 
-	} catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
 
-	    System.err.println("Could not Parse Url");
+            System.err.println("Could not Parse Url");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException("Could not Parse Url");
-	}
+            throw new RuntimeException("Could not Parse Url");
+        }
 
-	HttpURLConnection con = null;
+        HttpURLConnection con = null;
 
-	try {
+        try {
 
-	    con = (HttpURLConnection) obj.openConnection();
+            con = (HttpURLConnection) obj.openConnection();
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    // TODO Auto-generated catch block
+            // TODO Auto-generated catch block
 
-	    System.err.println("Verify your connection");
+            System.err.println("Verify your connection");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException("Verify your connection");
-	}
+            throw new RuntimeException("Verify your connection");
+        }
 
-	// add request header
-	try {
+        // add request header
+        try {
 
-	    con.setRequestMethod("POST");
+            con.setRequestMethod("POST");
 
-	} catch (ProtocolException e) {
+        } catch (ProtocolException e) {
 
-	    System.err.println("Could not Set Protocol of Request");
+            System.err.println("Could not Set Protocol of Request");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	con.setRequestProperty("User-Agent", USER_AGENT);
+        con.setRequestProperty("User-Agent", USER_AGENT);
 
-	con.setRequestProperty("Accept-Language", ACCEPT_LANGUAGE);
+        con.setRequestProperty("Accept-Language", ACCEPT_LANGUAGE);
 
-	con.setRequestProperty("Content-Type", CONTENT_TYPE);
+        con.setRequestProperty("Content-Type", CONTENT_TYPE);
 
-	// Send post request
-	con.setDoOutput(true);
+        // Send post request
+        con.setDoOutput(true);
 
-	DataOutputStream wr = null;
+        DataOutputStream wr = null;
 
-	try {
+        try {
 
-	    wr = new DataOutputStream(con.getOutputStream());
+            wr = new DataOutputStream(con.getOutputStream());
 
-	} catch (IOException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	try {
+        try {
 
-	    wr.writeBytes(params);
+            wr.writeBytes(params);
 
-	} catch (IOException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	try {
+        try {
 
-	    wr.flush();
+            wr.flush();
 
-	} catch (IOException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	int responseCode = 0;
+        int responseCode = 0;
 
-	try {
+        try {
 
-	    responseCode = con.getResponseCode();
+            responseCode = con.getResponseCode();
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    System.err.println("Could not Get Response Code");
+            System.err.println("Could not Get Response Code");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
-	System.out.println("Send Request " + con.getRequestMethod() + " to URL : " + url);
+        System.out.println("Send Request " + con.getRequestMethod() + " to URL : " + url);
 
-	System.out.println("Response Code : " + responseCode);
+        System.out.println("Response Code : " + responseCode);
 
-	System.out.println("Parameters of Post : \n" + params);
+        System.out.println("Parameters of Post : \n" + params);
 
-	String resp;
+        String resp;
 
-	if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
+        if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
 
-	    System.out.println("Server Response Code : " + responseCode);
+            System.out.println("Server Response Code : " + responseCode);
 
-	    BufferedReader in = null;
+            BufferedReader in = null;
 
-	    try {
+            try {
 
-		in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-	    } catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
 
-		throw new RuntimeException(e.getMessage(), e);
-	    }
+                throw new RuntimeException(e.getMessage(), e);
+            }
 
-	    StringBuilder response = new StringBuilder();
+            StringBuilder response = new StringBuilder();
 
-	    String inputLine;
+            String inputLine;
 
-	    try {
-		while ((inputLine = in.readLine()) != null) {
+            try {
+                while ((inputLine = in.readLine()) != null) {
 
-		    response.append(inputLine);
+                    response.append(inputLine);
 
-		}
-	    } catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
+                }
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
 
-		throw new RuntimeException(e.getMessage(), e);
-	    }
+                throw new RuntimeException(e.getMessage(), e);
+            }
 
-	    System.out.println("Response of Server");
+            System.out.println("Response of Server");
 
-	    System.out.println(response.toString());
+            System.out.println(response.toString());
 
-	    resp = response.toString();
+            resp = response.toString();
 
-	} else {
+        } else {
 
-	    System.err.println("Server Response Code : " + responseCode);
+            System.err.println("Server Response Code : " + responseCode);
 
-	    resp = null;
-	}
+            resp = null;
+        }
 
-	return resp;
+        return resp;
 
     }
 

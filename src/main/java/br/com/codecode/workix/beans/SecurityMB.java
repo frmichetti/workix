@@ -7,18 +7,18 @@ import java.io.Serializable;
 
 /**
  * Security ManagedBean
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
  * @see Serializable
+ * @since 1.0
  */
 @Named
 @SessionScoped
 public class SecurityMB extends BaseMB implements Serializable {
 
-   
+
     private static final long serialVersionUID = 4062470003123871957L;
 
     @PostConstruct

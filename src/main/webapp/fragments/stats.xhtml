@@ -6,62 +6,62 @@
 
 <ui:composition>
 
-	<!-- ============ STATS START ============ -->
+    <!-- ============ STATS START ============ -->
 
-	<section id="stats" class="parallax text-center">
-		<div class="tint"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1>
-						Estatísticas
-						<h:outputText value="#{applicationMB.appName}" />
-					</h1>
-					<h4>Quantas Pessoas Temos ajudado</h4>
-				</div>
-			</div>
-			<div class="row" id="counter">
+    <section id="stats" class="parallax text-center">
+        <div class="tint"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>
+                        Estatísticas
+                        <h:outputText value="#{applicationMB.appName}"/>
+                    </h1>
+                    <h4>Quantas Pessoas Temos ajudado</h4>
+                </div>
+            </div>
+            <div class="row" id="counter">
 
-				<div class="counter">
-					<div class="number">
-						<h:outputText value="#{statsMB.counterCandidates}" />
-					</div>
-					<div class="description">Candidatos</div>
-				</div>
+                <div class="counter">
+                    <div class="number">
+                        <h:outputText value="#{statsMB.counterCandidates}"/>
+                    </div>
+                    <div class="description">Candidatos</div>
+                </div>
 
-				<div class="counter">
-					<div class="number">
-						<h:outputText value="#{statsMB.counterJobs}" />
-					</div>
-					<div class="description">Vagas</div>
-				</div>
+                <div class="counter">
+                    <div class="number">
+                        <h:outputText value="#{statsMB.counterJobs}"/>
+                    </div>
+                    <div class="description">Vagas</div>
+                </div>
 
-				<div class="counter">
-					<div class="number">
-						<h:outputText value="#{statsMB.counterResumes}" />
-					</div>
-					<div class="description">Currículos</div>
-				</div>
+                <div class="counter">
+                    <div class="number">
+                        <h:outputText value="#{statsMB.counterResumes}"/>
+                    </div>
+                    <div class="description">Currículos</div>
+                </div>
 
-				<div class="counter">
-					<div class="number">
-						<h:outputText value="#{statsMB.counterEmployeers}" />
-					</div>
-					<div class="description">Empresas</div>
-				</div>
+                <div class="counter">
+                    <div class="number">
+                        <h:outputText value="#{statsMB.counterEmployeers}"/>
+                    </div>
+                    <div class="description">Empresas</div>
+                </div>
 
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<p>
-						<a class="link-login btn btn-primary">Junte-se a nós</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>
+                        <a class="link-login btn btn-primary">Junte-se a nós</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	<!-- ============ STATS END ============ -->
+    <!-- ============ STATS END ============ -->
 
 </ui:composition>
 </html>

@@ -4,207 +4,213 @@
       xmlns:h="http://java.sun.com/jsf/html"
 >
 <h:head>
-	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	<meta name="description" content="#{applicationMB.appName} - Plataforma de Empregos Totalmente Grátis" />
-	<meta name="author" content="Code Code, frmichetti@gmail.com" />
-	<title>#{applicationMB.appName} - #{applicationMB.slogan}</title>
-	<link rel="shortcut icon" href="images/favicon.png" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="description" content="#{applicationMB.appName} - Plataforma de Empregos Totalmente Grátis"/>
+    <meta name="author" content="Code Code, frmichetti@gmail.com"/>
+    <title>#{applicationMB.appName} - #{applicationMB.slogan}</title>
+    <link rel="shortcut icon" href="images/favicon.png"/>
 
 
-	<!-- Main Stylesheet -->
-	<link href="css/style.css" rel="stylesheet" />
+    <!-- Main Stylesheet -->
+    <link href="css/style.css" rel="stylesheet"/>
 
-	<link href="css/notify.css" rel="stylesheet" />	
-	
-	<link href="fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/notify.css" rel="stylesheet"/>
+
+    <link href="fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet"/>
 
 
-	<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-		<script src="js/html5shiv.js"></script>
-		<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
 
-	<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');		
-		  ga('create', 'UA-86285208-1', 'auto');
-		  ga('send', 'pageview');		
-	</script>
-	
-	<ui:param name="basePath" value=" #{request.getContextPath()}/layout" />
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-86285208-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+    <ui:param name="basePath" value=" #{request.getContextPath()}/layout"/>
 
 
 </h:head>
 
 <body id="home">
 
-	<!-- ============ PAGE LOADER START ============ -->
+<!-- ============ PAGE LOADER START ============ -->
 
-	<div id="loader">
-		<i class="fa fa-cog fa-4x fa-spin"></i>
-	</div>
+<div id="loader">
+    <i class="fa fa-cog fa-4x fa-spin"></i>
+</div>
 
-	<!-- ============ PAGE LOADER END ============ -->
+<!-- ============ PAGE LOADER END ============ -->
 
-	<ui:insert name="navigation">
-		<ui:include src="fragments/navigation.xhtml" />
-	</ui:insert>
+<ui:insert name="navigation">
+    <ui:include src="fragments/navigation.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="header">
-		<ui:include src="fragments/header.xhtml" />
-	</ui:insert>
+<ui:insert name="header">
+    <ui:include src="fragments/header.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="slides">
-		<ui:include src="fragments/slides.xhtml" />
-	</ui:insert>
+<ui:insert name="slides">
+    <ui:include src="fragments/slides.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="modal">
-		<ui:include src="fragments/tempMessage.xhtml" />
-	</ui:insert>
-	
-	<ui:insert name="jobs">
-		<ui:include src="fragments/homeJobs.xhtml" />
-	</ui:insert>	
+<ui:insert name="modal">
+    <ui:include src="fragments/tempMessage.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="companies">
-		<ui:include src="fragments/companies.xhtml" />
-	</ui:insert>
+<ui:insert name="jobs">
+    <ui:include src="fragments/homeJobs.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="stats">
-		<ui:include src="fragments/stats.xhtml" />
-	</ui:insert>
+<ui:insert name="companies">
+    <ui:include src="fragments/companies.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="howdoesitwork">
-		<ui:include src="fragments/howdoesitwork.xhtml" />
-	</ui:insert>
+<ui:insert name="stats">
+    <ui:include src="fragments/stats.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="app">
-		<ui:include src="fragments/app.xhtml" />
-	</ui:insert>
+<ui:insert name="howdoesitwork">
+    <ui:include src="fragments/howdoesitwork.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="pricing">
-		<ui:include src="fragments/pricing.xhtml" />
-	</ui:insert>
+<ui:insert name="app">
+    <ui:include src="fragments/app.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="testimonials">
-		<ui:include src="fragments/testimonials.xhtml" />
-	</ui:insert>
+<ui:insert name="pricing">
+    <ui:include src="fragments/pricing.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="blog">
-		<ui:include src="fragments/blog.xhtml" />
-	</ui:insert>
+<ui:insert name="testimonials">
+    <ui:include src="fragments/testimonials.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="contact">
-		<ui:include src="fragments/contact.xhtml" />
-	</ui:insert>
+<ui:insert name="blog">
+    <ui:include src="fragments/blog.xhtml"/>
+</ui:insert>
 
-	<!-- ============ CLIENTS START ============ -->
+<ui:insert name="contact">
+    <ui:include src="fragments/contact.xhtml"/>
+</ui:insert>
 
-	<section id="clients">
-		<div class="container">
-			<div class="row text-center">
-				<div class="col-sm-12">
-					<h1>Clientes satisfeitos</h1>
-					<h4>Algumas das muitas empresas que já ajudamos</h4>
-					<div class="owl-carousel">
+<!-- ============ CLIENTS START ============ -->
 
-						<!-- Logo 1 -->
-						<div>
-							<a href="company.xhtml">
-							<h:graphicImage name="133x69.gif" library="placeholder" alt="" /></a>
-						</div>
+<section id="clients">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-12">
+                <h1>Clientes satisfeitos</h1>
+                <h4>Algumas das muitas empresas que já ajudamos</h4>
+                <div class="owl-carousel">
 
-						<!-- Logo 2 -->
-						<div>
-							<a href="company.xhtml">
-							<h:graphicImage name="133x69.gif" library="placeholder" alt="" /></a>
-						</div>
+                    <!-- Logo 1 -->
+                    <div>
+                        <a href="company.xhtml">
+                            <h:graphicImage name="133x69.gif" library="placeholder" alt=""/></a>
+                    </div>
 
-						<!-- Logo 3 -->
-						<div>
-							<a href="company.xhtml">
-							<h:graphicImage name="133x69.gif" library="placeholder" alt="" /></a>
-						</div>
+                    <!-- Logo 2 -->
+                    <div>
+                        <a href="company.xhtml">
+                            <h:graphicImage name="133x69.gif" library="placeholder" alt=""/></a>
+                    </div>
 
-						<!-- Logo 4 -->
-						<div>
-							<a href="company.xhtml">
-							<h:graphicImage name="133x69.gif" library="placeholder" alt="" /></a>
-						</div>
+                    <!-- Logo 3 -->
+                    <div>
+                        <a href="company.xhtml">
+                            <h:graphicImage name="133x69.gif" library="placeholder" alt=""/></a>
+                    </div>
 
-						<!-- Logo 5 -->
-						<div>
-							<a href="company.xhtml">
-							<h:graphicImage name="133x69.gif" library="placeholder" alt="" /></a>
-						</div>
+                    <!-- Logo 4 -->
+                    <div>
+                        <a href="company.xhtml">
+                            <h:graphicImage name="133x69.gif" library="placeholder" alt=""/></a>
+                    </div>
 
-						<!-- Logo 6 -->
-						<div>
-							<a href="company.xhtml">
-							<h:graphicImage name="133x69.gif" library="placeholder" alt="" />
-							</a>
-						</div>
+                    <!-- Logo 5 -->
+                    <div>
+                        <a href="company.xhtml">
+                            <h:graphicImage name="133x69.gif" library="placeholder" alt=""/></a>
+                    </div>
 
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                    <!-- Logo 6 -->
+                    <div>
+                        <a href="company.xhtml">
+                            <h:graphicImage name="133x69.gif" library="placeholder" alt=""/>
+                        </a>
+                    </div>
 
-	<!-- ============ CLIENTS END ============ -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-	<ui:insert name="footer">
-		<ui:include src="fragments/footer.xhtml" />
-	</ui:insert>
+<!-- ============ CLIENTS END ============ -->
 
-	<ui:insert name="login">
-		<ui:include src="fragments/login.xhtml" />
-	</ui:insert>
+<ui:insert name="footer">
+    <ui:include src="fragments/footer.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="register">
-		<ui:include src="fragments/register.xhtml" />
-	</ui:insert>
+<ui:insert name="login">
+    <ui:include src="fragments/login.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="scripts">
-		<ui:include src="fragments/scripts.xhtml" />
-	</ui:insert>
+<ui:insert name="register">
+    <ui:include src="fragments/register.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="alerts">
-		<ui:include src="fragments/alerts.xhtml" />
-	</ui:insert>
+<ui:insert name="scripts">
+    <ui:include src="fragments/scripts.xhtml"/>
+</ui:insert>
 
-	<ui:insert name="secrets">
-		<ui:include src="fragments/secrets.xhtml" />
-	</ui:insert>
+<ui:insert name="alerts">
+    <ui:include src="fragments/alerts.xhtml"/>
+</ui:insert>
 
-	<script type="text/javascript">
-		$('#myModal').modal('show');    
-	</script>
+<ui:insert name="secrets">
+    <ui:include src="fragments/secrets.xhtml"/>
+</ui:insert>
 
-	<script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Job Search",
-  "name": "Workix",
-  "potentialAction": {
-    "@type": "ViewAction",
-    "target": [
-      "http://www.workix.com.br",
-      {
-        "@type": "EntryPoint",
-        "urlTemplate": "http://www.workix.com.br",
-        "contentType": "application/json+ld"
-      },
-		"android-app://br.com.frmichetti.openjobs.android/https/play.google.com/store/apps/",      
-           
-    ]
-  }
-}
+<script type="text/javascript">
+    $('#myModal').modal('show');
+</script>
+
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Job Search",
+        "name": "Workix",
+        "potentialAction": {
+            "@type": "ViewAction",
+            "target": [
+                "http://www.workix.com.br",
+                {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "http://www.workix.com.br",
+                    "contentType": "application/json+ld"
+                },
+                "android-app://br.com.frmichetti.openjobs.android/https/play.google.com/store/apps/",
+            ]
+        }
+    }
 </script>
 
 

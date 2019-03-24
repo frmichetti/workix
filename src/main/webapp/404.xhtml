@@ -6,29 +6,29 @@
 
 <ui:composition template="/template.xhtml">
 
-	<ui:define name="headerTitle">Workix - Página Solicitada Não Encontrada</ui:define>
+    <ui:define name="headerTitle">Workix - Página Solicitada Não Encontrada</ui:define>
 
-	<ui:define name="title">		
-		
-		<h1>Erro 404 - Página não encontrada</h1>
+    <ui:define name="title">
 
-		<h4>Talvez você se interesse por ...</h4>
-		
-		<br/>
-		
-		<br/>
-		
-		<h:graphicImage name="error.jpg" library="images" />
+        <h1>Erro 404 - Página não encontrada</h1>
 
-	</ui:define>
+        <h4>Talvez você se interesse por ...</h4>
 
-	<ui:define name="content">
+        <br/>
 
-		<ui:insert name="blog">
-			<ui:include src="fragments/blog.xhtml" />
-		</ui:insert>
+        <br/>
 
-	</ui:define>
+        <h:graphicImage name="error.jpg" library="images"/>
+
+    </ui:define>
+
+    <ui:define name="content">
+
+        <ui:insert name="blog">
+            <ui:include src="fragments/blog.xhtml"/>
+        </ui:insert>
+
+    </ui:define>
 </ui:composition>
 
 </html>

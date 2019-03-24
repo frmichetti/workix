@@ -28,34 +28,25 @@ import java.util.List;
 @Model
 public class BlogListMB extends BaseMB {
 
+    private final List<Integer> pager = new ArrayList<>();
     private DataModel<Comment> comments;
-
     @Inject
     @Factory
     @Default
     private FacesContext facesContext;
-
     @Inject
     @Generic
     private Crud<Blog> dao;
-
     @Inject
     @Generic
     private Crud<Comment> daoComment;
-
     private DataModel<Blog> list;
-
     private String prefix, sufix;
-
     @Min(1)
     private int page;
-
     private int start;
     private int end;
     private int totalPages;
-
-    private final List<Integer> pager = new ArrayList<>();
-
 
     /**
      * @return the pager
@@ -81,6 +72,10 @@ public class BlogListMB extends BaseMB {
 
     public int getPage() {
         return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
     }
 
     public int getTotalPages() {
@@ -136,10 +131,6 @@ public class BlogListMB extends BaseMB {
         }
 
 
-    }
-
-    public void setPage(int page) {
-        this.page = page;
     }
 
     public String goToLastPage() {

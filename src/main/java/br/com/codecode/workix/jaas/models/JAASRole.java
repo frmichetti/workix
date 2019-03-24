@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.jaas.models;
 
 import br.com.codecode.workix.interfaces.Buildable;
@@ -19,7 +18,7 @@ import java.io.Serializable;
 
 /**
  * Only for JAAS security
- * 
+ *
  * @since 1.0
  * @version 1.1
  * @see Serializable
@@ -40,60 +39,60 @@ public class JAASRole implements Serializable {
     }
 
     private JAASRole(Builder builder) {
-	this.name = builder.getName();
+        this.name = builder.getName();
     }
 
     /**
      * Creates builder to build {@link JAASRole}.
-     * 
+     *
      * @return created builder
      */
     @XmlTransient
     public static Builder builder() {
-	return new Builder();
+        return new Builder();
     }
 
     @Id
     @Column(unique = true, nullable = false)
     public String getName() {
-	return this.name;
+        return this.name;
     }
 
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     /**
      * Builder to build {@link JAASRole}.
-     * 
+     *
      * @see Buildable
      * @see JAASRole
      */
     public static final class Builder extends JAASRole
-    implements
-    Buildable<JAASRole> {
+            implements
+            Buildable<JAASRole> {
 
-	/**
-	 * @serialField
-	 *                  Default Auto Generated Serial
-	 */
-	private static final long serialVersionUID = -6819879310880521871L;
+        /**
+         * @serialField
+         *                  Default Auto Generated Serial
+         */
+        private static final long serialVersionUID = -6819879310880521871L;
 
-	/**
-	 * Disabled Empty Constructor
-	 */
-	private Builder() {
-	}
+        /**
+         * Disabled Empty Constructor
+         */
+        private Builder() {
+        }
 
-	@Override
-	public JAASRole build() {
-	    return new JAASRole(this);
-	}
+        @Override
+        public JAASRole build() {
+            return new JAASRole(this);
+        }
 
-	public Builder withName(String name) {
-	    super.name = name;
-	    return this;
-	}
-    }  
+        public Builder withName(String name) {
+            super.name = name;
+            return this;
+        }
+    }
 
 }

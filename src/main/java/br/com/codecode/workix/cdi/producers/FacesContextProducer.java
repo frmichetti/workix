@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.cdi.producers;
 
 import br.com.codecode.workix.cdi.qualifiers.Factory;
@@ -17,7 +16,7 @@ import javax.faces.context.FacesContext;
 
 /**
  * Faces Context Producer
- * 
+ *
  * @see Produces
  * @author felipe
  * @since 1.0
@@ -28,7 +27,7 @@ public class FacesContextProducer {
 
     /**
      * Produce FacesContext for CDI Injection Points
-     * 
+     *
      * @return {@link FacesContext} Instance
      */
     @Produces
@@ -36,7 +35,7 @@ public class FacesContextProducer {
     @Factory
     @Default
     public FacesContext getFacesContext() {
-	return FacesContext.getCurrentInstance();
+        return FacesContext.getCurrentInstance();
     }
 
 }

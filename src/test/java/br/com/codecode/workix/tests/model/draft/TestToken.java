@@ -23,56 +23,54 @@ import static org.junit.Assert.assertNotNull;
 
 
 public class TestToken {
-    
-    private Token token;
-    
+
     private static Gson g;
+    private Token token;
 
     @BeforeClass
     public static void setUpBeforeClass() throws Exception {
-	
-	g = new GsonBuilder()
-	
-	.setPrettyPrinting()
-	
-	.setDateFormat(new SimpleDateFormat().toPattern())
-	
-	.enableComplexMapKeySerialization()	
-	
-	.registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
-	
-	.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeSerializer())
-	
-	.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-	
-	.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())
-	
-	.registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
-	
-	.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
-	
-	.create();
-	
+
+        g = new GsonBuilder()
+
+                .setPrettyPrinting()
+
+                .setDateFormat(new SimpleDateFormat().toPattern())
+
+                .enableComplexMapKeySerialization()
+
+                .registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
+
+                .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeSerializer())
+
+                .registerTypeAdapter(Date.class, new GsonDateDeserializer())
+
+                .registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())
+
+                .registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
+
+                .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
+
+                .create();
+
     }
 
     @Before
     public void setUp() throws Exception {
-	token = token.builder().withKey("key").build();
+        token = token.builder().withKey("key").build();
     }
 
     @Test
     public void test() {
-	
-	assertNotNull(token);
-	
-	System.out.println(token.getKey());
-	
-	System.out.println(token.getCreatedAt());
-	
-	System.out.println(g.toJson(token));
-	
-	
-	
+
+        assertNotNull(token);
+
+        System.out.println(token.getKey());
+
+        System.out.println(token.getCreatedAt());
+
+        System.out.println(g.toJson(token));
+
+
     }
 
 }

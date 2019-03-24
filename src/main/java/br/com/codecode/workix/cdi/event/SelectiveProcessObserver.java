@@ -12,11 +12,11 @@ import java.time.Instant;
 
 /**
  * CDI Observer Class for {@link SelectiveProcess}
- * 
- * @see Observes
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @see Observes
+ * @since 1.0
  */
 class SelectiveProcessObserver {
 
@@ -31,28 +31,27 @@ class SelectiveProcessObserver {
 
     /**
      * Execute an Action on Event as FiredUp
-     * 
-     * @param process
-     *            Observer for SelectiveProcess Events
+     *
+     * @param process Observer for SelectiveProcess Events
      */
     public void alert(@Observes SelectiveProcess process) {
 
-	System.out.println("[CDI - Alert for Selective Processes]");
+        System.out.println("[CDI - Alert for Selective Processes]");
 
-	System.out.println(process.getId());
+        System.out.println(process.getId());
 
-	System.out.println(Instant.now());
+        System.out.println(Instant.now());
 
-	System.out.println("[-----------------------]");
+        System.out.println("[-----------------------]");
 
-	if (process.isActive()) {
-	    System.out.println("Process is Active");
-	} else {
-	    System.out.println("Process is no More Elegible");
-	    System.out.println("Process is Disabled from Database");
-	}
+        if (process.isActive()) {
+            System.out.println("Process is Active");
+        } else {
+            System.out.println("Process is no More Elegible");
+            System.out.println("Process is Disabled from Database");
+        }
 
-	jmsProducer.send(destination, process.getId());
+        jmsProducer.send(destination, process.getId());
 
     }
 

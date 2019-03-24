@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.jaas.models.JAASRole;
@@ -21,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Populate DB with JAAS Roles
- * 
+ *
  * @author felipe
  * @since 1.1
  * @version 1.0
@@ -30,52 +29,52 @@ public class PopulateJAASRole extends BaseTest {
 
     private String resp;
 
-    private List<JAASRole> roles;    
+    private List<JAASRole> roles;
 
     private void addToList(JAASRole role) {
 
-	assertNotNull(role);
+        assertNotNull(role);
 
-	System.out.println("[addToList] " + role.getName());
+        System.out.println("[addToList] " + role.getName());
 
-	roles.add(role);
+        roles.add(role);
 
     }
 
 
-    @Before    
+    @Before
     public void create() {
 
-	roles = new ArrayList<>();	
+        roles = new ArrayList<>();
 
-	JAASRole admin = JAASRole.builder().withName("Admin").build();
+        JAASRole admin = JAASRole.builder().withName("Admin").build();
 
-	JAASRole guest = JAASRole.builder().withName("Guest").build();
+        JAASRole guest = JAASRole.builder().withName("Guest").build();
 
-	System.out.println("[create] " + admin.getName());
+        System.out.println("[create] " + admin.getName());
 
-	addToList(admin);		
+        addToList(admin);
 
-	System.out.println("[create] " + guest.getName());	
-	
-	addToList(guest);
+        System.out.println("[create] " + guest.getName());
 
-	assertTrue(roles.size() > 0 );
+        addToList(guest);
+
+        assertTrue(roles.size() > 0);
 
     }
 
     @Test
     public void sendToServer() {
 
-	roles.stream().forEach(r -> {
+        roles.stream().forEach(r -> {
 
-	    System.out.println("[sendToServer] " + r.getName());
+            System.out.println("[sendToServer] " + r.getName());
 
-	    resp = HttpTest.sendPost(server + "/jaasroles", getGson().toJson(r));
+            resp = HttpTest.sendPost(server + "/jaasroles", getGson().toJson(r));
 
-	    assertNotNull(resp);
+            assertNotNull(resp);
 
-	});
+        });
 
     }
 

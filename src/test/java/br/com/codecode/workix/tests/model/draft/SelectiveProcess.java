@@ -10,10 +10,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 
-
 /**
  * TDD for Class {@link SelectiveProcess}
- * 
+ *
  * @author felipe
  */
 class SelectiveProcess extends Observable implements Observer, Serializable {
@@ -29,70 +28,70 @@ class SelectiveProcess extends Observable implements Observer, Serializable {
     private int maxCandidates;
 
     public SelectiveProcess() {
-	this.addObserver(this);
+        this.addObserver(this);
     }
 
     public Collection<Candidate> getCandidates() {
-	return candidates;
+        return candidates;
     }
 
     public void setCandidates(Collection<Candidate> candidates) {
-	this.candidates = candidates;
+        this.candidates = candidates;
     }
 
     public boolean isActive() {
-	return active;
+        return active;
     }
 
     public void setActive(boolean active) {
 
-	if (!active) {
-	    disabledAt = Instant.now();
-	}
+        if (!active) {
+            disabledAt = Instant.now();
+        }
 
-	this.active = active;
+        this.active = active;
 
-	notifyChanges();
+        notifyChanges();
     }
 
     public Instant getDisabledAt() {
-	return disabledAt;
+        return disabledAt;
     }
 
     public void setDisabledAt(Instant disabledAt) {
-	this.disabledAt = disabledAt;
+        this.disabledAt = disabledAt;
     }
 
     public int getMaxCandidates() {
-	return maxCandidates;
+        return maxCandidates;
     }
 
     public void setMaxCandidates(int maxCandidates) {
-	this.maxCandidates = maxCandidates;
+        this.maxCandidates = maxCandidates;
     }
 
     public boolean registerCandidate(Candidate candidate) {
 
-	boolean b = false;
+        boolean b = false;
 
-	if ((isActive()) && (isElegible()) && (!isInProcess(candidate))) {
+        if ((isActive()) && (isElegible()) && (!isInProcess(candidate))) {
 
-	    candidates.add(candidate);
+            candidates.add(candidate);
 
-	    System.out.println(candidate.getName() + " Registered with Success");
+            System.out.println(candidate.getName() + " Registered with Success");
 
-	    b = true;
+            b = true;
 
-	} else {
+        } else {
 
-	    System.out.println(candidate.getName() + " Cannot Registered");
+            System.out.println(candidate.getName() + " Cannot Registered");
 
-	    b = false;
-	}
+            b = false;
+        }
 
-	notifyChanges(candidates);
+        notifyChanges(candidates);
 
-	return b;
+        return b;
 
     }
 
@@ -100,53 +99,53 @@ class SelectiveProcess extends Observable implements Observer, Serializable {
     @Override
     public void update(Observable observable, Object object) {
 
-	if (observable instanceof SelectiveProcess) {
+        if (observable instanceof SelectiveProcess) {
 
-	    if (active = isElegible()) {
+            if (active = isElegible()) {
 
-		if (object instanceof Collection<?>) {
+                if (object instanceof Collection<?>) {
 
-		    countCandidates(((ArrayList<Candidate>) object));
+                    countCandidates(((ArrayList<Candidate>) object));
 
-		}
+                }
 
-	    } else {
-		if (disabledAt != null)
-		    System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
-	    }
+            } else {
+                if (disabledAt != null)
+                    System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
+            }
 
-	}
+        }
 
     }
 
     private boolean isElegible() {
-	System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
-	System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
-	return (candidates.size() < maxCandidates);
+        System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
+        System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
+        return (candidates.size() < maxCandidates);
     }
 
     private boolean isInProcess(Candidate candidate) {
-	System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)));
-	return (candidates.contains(candidate));
+        System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)));
+        return (candidates.contains(candidate));
     }
 
     private void countCandidates(ArrayList<Candidate> collection) {
-	maxCandidates = collection.size();
+        maxCandidates = collection.size();
     }
 
     private void notifyChanges() {
-	notifyObservers();
-	setChanged();
+        notifyObservers();
+        setChanged();
     }
 
     private void notifyChanges(Object object) {
-	notifyObservers(object);
-	setChanged();
+        notifyObservers(object);
+        setChanged();
     }
 
     @Override
     public String toString() {
-	return "SelectiveProcess [active=" + active + ", maxCandidates=" + maxCandidates + "]";
+        return "SelectiveProcess [active=" + active + ", maxCandidates=" + maxCandidates + "]";
     }
 
 }

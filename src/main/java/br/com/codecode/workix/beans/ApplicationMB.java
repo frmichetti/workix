@@ -15,18 +15,18 @@ import java.time.LocalDate;
 /**
  * This ManagedBean Shares info in index.xhtml Execute with
  * {@link ApplicationScoped}
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
  * @see Serializable
+ * @since 1.0
  */
 @Named
 @ApplicationScoped
 public class ApplicationMB extends BaseMB implements Serializable {
 
-   
+
     private static final long serialVersionUID = -4759086144184129975L;
 
     private String appName, slogan;
@@ -42,26 +42,26 @@ public class ApplicationMB extends BaseMB implements Serializable {
     @Override
     protected void init() {
 
-	ExternalContext exContext = context.getExternalContext();
+        ExternalContext exContext = context.getExternalContext();
 
-	appName = exContext.getInitParameter("appName");
+        appName = exContext.getInitParameter("appName");
 
-	slogan = exContext.getInitParameter("slogan");
+        slogan = exContext.getInitParameter("slogan");
 
-	year = LocalDate.now().getYear();
+        year = LocalDate.now().getYear();
 
     }
 
     public String getAppName() {
-	return appName;
+        return appName;
     }
 
     public String getSlogan() {
-	return slogan;
+        return slogan;
     }
 
     public int getYear() {
-	return year;
+        return year;
     }
 
 }

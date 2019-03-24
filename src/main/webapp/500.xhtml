@@ -6,31 +6,31 @@
 
 <ui:composition template="/template.xhtml">
 
-	<ui:define name="headerTitle">Workix - Erro interno do Servidor</ui:define>
+    <ui:define name="headerTitle">Workix - Erro interno do Servidor</ui:define>
 
-	<ui:define name="title">		
-		
-		<h1>Erro 500 - Erro interno do Servidor</h1>
-		
-		<h3>Tente novamente mais tarde</h3>
-		
-		<h4>Talvez você se interesse por ...</h4>
-				
-		<br/>
-		
-		<br/>
-		
-		<h:graphicImage name="error.jpg" library="images" />
+    <ui:define name="title">
 
-	</ui:define>
+        <h1>Erro 500 - Erro interno do Servidor</h1>
 
-	<ui:define name="content">
+        <h3>Tente novamente mais tarde</h3>
 
-		<ui:insert name="blog">
-			<ui:include src="fragments/blog.xhtml" />
-		</ui:insert>
+        <h4>Talvez você se interesse por ...</h4>
 
-	</ui:define>
+        <br/>
+
+        <br/>
+
+        <h:graphicImage name="error.jpg" library="images"/>
+
+    </ui:define>
+
+    <ui:define name="content">
+
+        <ui:insert name="blog">
+            <ui:include src="fragments/blog.xhtml"/>
+        </ui:insert>
+
+    </ui:define>
 </ui:composition>
 
 </html>

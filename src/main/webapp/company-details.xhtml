@@ -7,209 +7,225 @@
 
 <ui:composition template="/template.xhtml">
 
-	<ui:define name="headerTitle">#{applicationMB.appName} - Detalhes da Empresa</ui:define>
-	
-	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{companyDetailsMB.id}" />
-		<f:viewAction action="#{companyDetailsMB.init()}" />
-	</f:metadata>
+    <ui:define name="headerTitle">#{applicationMB.appName} - Detalhes da Empresa</ui:define>
 
-	<ui:define name="title">
-		<h:graphicImage name="332x120.gif" library="placeholder" styleClass="img-responsive" alt="" />		
-	</ui:define>
+    <f:metadata>
+        <f:viewParam id="id" name="id" value="#{companyDetailsMB.id}"/>
+        <f:viewAction action="#{companyDetailsMB.init()}"/>
+    </f:metadata>
 
-	<ui:define name="content">
+    <ui:define name="title">
+        <h:graphicImage name="332x120.gif" library="placeholder" styleClass="img-responsive" alt=""/>
+    </ui:define>
 
-<!-- ============ CONTENT START ============ -->
+    <ui:define name="content">
 
-		<section id="jobs">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8">
+        <!-- ============ CONTENT START ============ -->
 
-						<article>
-							
-							<h2>Sobre esta Empresa</h2>
-							
-							<p><h:outputText value="#{companyDetailsMB.company.description}" /></p>							
-							
-							<hr/>
-							
-							<h2>Segmento da Empresa</h2>
-							
-							<p><h:outputText value="#{companyDetailsMB.company.segment}" /></p>
+        <section id="jobs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
 
-							<h2>Localização</h2>
+                        <article>
+
+                            <h2>Sobre esta Empresa</h2>
+
+                            <p><h:outputText value="#{companyDetailsMB.company.description}"/></p>
+
+                            <hr/>
+
+                            <h2>Segmento da Empresa</h2>
+
+                            <p><h:outputText value="#{companyDetailsMB.company.segment}"/></p>
+
+                            <h2>Localização</h2>
 
 
-							<!-- Google Map Script -->
-							<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-							<script type="text/javascript" src="js/company-map.js"></script>
+                            <!-- Google Map Script -->
+                            <script type="text/javascript"
+                                    src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+                            <script type="text/javascript" src="js/company-map.js"></script>
 
-							<div id="map-canvas"></div>
+                            <div id="map-canvas"></div>
 
-							<hr />
+                            <hr/>
 
-							<h2>Vagas desta Empresa</h2>
+                            <h2>Vagas desta Empresa</h2>
 
-							<div class="jobs">
-							
-							<ui:repeat var="job" value="#{companyDetailsMB.jobs}">
-							
-								<!-- Job offer -->
-								<a href="./job-details.xhtml?id=#{job.id}">
-									<div class="featured"></div>									
-										<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
-									<div class="title">
-										<h5><h:outputText value="#{job.title}" /></h5>
-										<p><h:outputText value="#{job.company.segment}" /></p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i><h:outputText value="#{job.company.locale.city}" /></span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i><h:outputText value="#{job.jobType}" /></span>
-										<span class="sallary"><i class="fa fa-dollar"></i><h:outputText value="#{job.maxPayment}" /></span>
-									</div>
-								</a>
-							
-							
-							
-							</ui:repeat>
-							
-							<ui:remove>
-								
-								<!-- Job offer 1 -->
-								<a href="#">
-									<div class="featured"></div>									
-										<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
-									<div class="title">
-										<h5>Web Designer</h5>
-										<p>Amazon Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>New York City</span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 2 -->
-								<a href="#">
-									<div class="featured"></div>
-									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
-									<div class="title">
-										<h5>Senior Web Developer</h5>
-										<p>Dropbox Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>Los Angeles</span>
-										<span class="type part-time"><i class="fa fa-clock-o"></i>Part Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>85,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 3 -->
-								<a href="#">
-									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
-									<div class="title">
-										<h5>Project Manager</h5>
-										<p>Apple Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>San Francisco</span>
-										<span class="type freelance"><i class="fa fa-clock-o"></i>Freelance</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>60,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 4 -->
-								<a href="#">
-									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
-									<div class="title">
-										<h5>Key Account Manager</h5>
-										<p>Dell Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>Boston</span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>55,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 5 -->
-								<a href="#">
-									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
-									<div class="title">
-										<h5>Front End Developer</h5>
-										<p>Ebay Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>Chicago</span>
-										<span class="type part-time"><i class="fa fa-clock-o"></i>Part Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>75,000</span>
-									</div>
-								</a>
-								
-								<!-- Job offer 6 -->
-								<a href="#">
-									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle" alt="" />
-									<div class="title">
-										<h5>Web Designer</h5>
-										<p>Amazon Inc.</p>
-									</div>
-									<div class="data">
-										<span class="city"><i class="fa fa-map-marker"></i>New York City</span>
-										<span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
-										<span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
-									</div>
-								</a>
-								
-							</ui:remove>	
+                            <div class="jobs">
 
-							</div>
+                                <ui:repeat var="job" value="#{companyDetailsMB.jobs}">
 
-						</article>
-					</div>
-					
-					<div class="col-sm-4" id="sidebar">
-						
-						<div class="sidebar-widget" id="share">
-						
-							<h2>Compartilhe</h2>
-						
-							<ul>
-								<li><a href="https://www.facebook.com/sharer/sharer.php?u=#{applicationMB.appName}"><i
-										class="fa fa-facebook"></i></a></li>
-								<li><a href="https://twitter.com/home?status=#{applicationMB.appName}"><i
-										class="fa fa-twitter"></i></a></li>
-								<li><a href="https://plus.google.com/share?url=#{applicationMB.appName}"><i
-										class="fa fa-google-plus"></i></a></li>
-								<li><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#{applicationMB.appName}"><i
-										class="fa fa-linkedin"></i></a></li>
-							</ul>
-						</div>
-						
-						<hr />
-						
-						<div class="sidebar-widget" id="widget-contact">
-							
-							<h2>Contato</h2>
-							
-							<ul>
-								<li><i class="fa fa-building"></i><h:outputText value="#{companyDetailsMB.company.name}" /></li>
-								<li><i class="fa fa-map-marker"></i><h:outputText value="#{companyDetailsMB.company.locale.street}" /></li>
-								<li><i class="fa"></i><h:outputText value="#{companyDetailsMB.company.locale.city}" />, <h:outputText value="#{companyDetailsMB.company.locale.estate}" /></li>
-								<li><i class="fa fa-phone"></i><h:outputText value="#{companyDetailsMB.company.contact.mobilePhone}" /></li>
-								<li><i class="fa fa-envelope"></i><a href="mailto:#{companyDetailsMB.company.user.email}">Envie um Email</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+                                    <!-- Job offer -->
+                                    <a href="./job-details.xhtml?id=#{job.id}">
+                                        <div class="featured"></div>
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle"
+                                                        alt=""/>
+                                        <div class="title">
+                                            <h5><h:outputText value="#{job.title}"/></h5>
+                                            <p><h:outputText value="#{job.company.segment}"/></p>
+                                        </div>
+                                        <div class="data">
+                                            <span class="city"><i class="fa fa-map-marker"></i><h:outputText
+                                                    value="#{job.company.locale.city}"/></span>
+                                            <span class="type full-time"><i class="fa fa-clock-o"></i><h:outputText
+                                                    value="#{job.jobType}"/></span>
+                                            <span class="sallary"><i class="fa fa-dollar"></i><h:outputText
+                                                    value="#{job.maxPayment}"/></span>
+                                        </div>
+                                    </a>
 
-<!-- ============ CONTENT END ============ -->
 
-	</ui:define>
+                                </ui:repeat>
+
+                                <ui:remove>
+
+                                    <!-- Job offer 1 -->
+                                    <a href="#">
+                                        <div class="featured"></div>
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle"
+                                                        alt=""/>
+                                        <div class="title">
+                                            <h5>Web Designer</h5>
+                                            <p>Amazon Inc.</p>
+                                        </div>
+                                        <div class="data">
+                                            <span class="city"><i class="fa fa-map-marker"></i>New York City</span>
+                                            <span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
+                                            <span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
+                                        </div>
+                                    </a>
+
+                                    <!-- Job offer 2 -->
+                                    <a href="#">
+                                        <div class="featured"></div>
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle"
+                                                        alt=""/>
+                                        <div class="title">
+                                            <h5>Senior Web Developer</h5>
+                                            <p>Dropbox Inc.</p>
+                                        </div>
+                                        <div class="data">
+                                            <span class="city"><i class="fa fa-map-marker"></i>Los Angeles</span>
+                                            <span class="type part-time"><i class="fa fa-clock-o"></i>Part Time</span>
+                                            <span class="sallary"><i class="fa fa-dollar"></i>85,000</span>
+                                        </div>
+                                    </a>
+
+                                    <!-- Job offer 3 -->
+                                    <a href="#">
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle"
+                                                        alt=""/>
+                                        <div class="title">
+                                            <h5>Project Manager</h5>
+                                            <p>Apple Inc.</p>
+                                        </div>
+                                        <div class="data">
+                                            <span class="city"><i class="fa fa-map-marker"></i>San Francisco</span>
+                                            <span class="type freelance"><i class="fa fa-clock-o"></i>Freelance</span>
+                                            <span class="sallary"><i class="fa fa-dollar"></i>60,000</span>
+                                        </div>
+                                    </a>
+
+                                    <!-- Job offer 4 -->
+                                    <a href="#">
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle"
+                                                        alt=""/>
+                                        <div class="title">
+                                            <h5>Key Account Manager</h5>
+                                            <p>Dell Inc.</p>
+                                        </div>
+                                        <div class="data">
+                                            <span class="city"><i class="fa fa-map-marker"></i>Boston</span>
+                                            <span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
+                                            <span class="sallary"><i class="fa fa-dollar"></i>55,000</span>
+                                        </div>
+                                    </a>
+
+                                    <!-- Job offer 5 -->
+                                    <a href="#">
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle"
+                                                        alt=""/>
+                                        <div class="title">
+                                            <h5>Front End Developer</h5>
+                                            <p>Ebay Inc.</p>
+                                        </div>
+                                        <div class="data">
+                                            <span class="city"><i class="fa fa-map-marker"></i>Chicago</span>
+                                            <span class="type part-time"><i class="fa fa-clock-o"></i>Part Time</span>
+                                            <span class="sallary"><i class="fa fa-dollar"></i>75,000</span>
+                                        </div>
+                                    </a>
+
+                                    <!-- Job offer 6 -->
+                                    <a href="#">
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle"
+                                                        alt=""/>
+                                        <div class="title">
+                                            <h5>Web Designer</h5>
+                                            <p>Amazon Inc.</p>
+                                        </div>
+                                        <div class="data">
+                                            <span class="city"><i class="fa fa-map-marker"></i>New York City</span>
+                                            <span class="type full-time"><i class="fa fa-clock-o"></i>Full Time</span>
+                                            <span class="sallary"><i class="fa fa-dollar"></i>45,000</span>
+                                        </div>
+                                    </a>
+
+                                </ui:remove>
+
+                            </div>
+
+                        </article>
+                    </div>
+
+                    <div class="col-sm-4" id="sidebar">
+
+                        <div class="sidebar-widget" id="share">
+
+                            <h2>Compartilhe</h2>
+
+                            <ul>
+                                <li><a href="https://www.facebook.com/sharer/sharer.php?u=#{applicationMB.appName}"><i
+                                        class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/home?status=#{applicationMB.appName}"><i
+                                        class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://plus.google.com/share?url=#{applicationMB.appName}"><i
+                                        class="fa fa-google-plus"></i></a></li>
+                                <li>
+                                    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=#{applicationMB.appName}"><i
+                                            class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <hr/>
+
+                        <div class="sidebar-widget" id="widget-contact">
+
+                            <h2>Contato</h2>
+
+                            <ul>
+                                <li><i class="fa fa-building"></i><h:outputText
+                                        value="#{companyDetailsMB.company.name}"/></li>
+                                <li><i class="fa fa-map-marker"></i><h:outputText
+                                        value="#{companyDetailsMB.company.locale.street}"/></li>
+                                <li><i class="fa"></i><h:outputText value="#{companyDetailsMB.company.locale.city}"/>,
+                                    <h:outputText value="#{companyDetailsMB.company.locale.estate}"/></li>
+                                <li><i class="fa fa-phone"></i><h:outputText
+                                        value="#{companyDetailsMB.company.contact.mobilePhone}"/></li>
+                                <li><i class="fa fa-envelope"></i><a
+                                        href="mailto:#{companyDetailsMB.company.user.email}">Envie um Email</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTENT END ============ -->
+
+    </ui:define>
 
 </ui:composition>
 </html>

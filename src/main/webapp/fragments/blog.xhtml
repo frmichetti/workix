@@ -6,50 +6,52 @@
 <ui:composition>
 
 
+    <!-- ============ BLOG START ============ -->
 
-	<!-- ============ BLOG START ============ -->
+    <section id="blog">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <h1>Últimas notícias</h1>
+                    <h4>Fique por dentro do mundo Empresarial</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="owl-carousel">
 
-	<section id="blog">
-		<div class="container">
-			<div class="row text-center">
-				<div class="col-sm-12">
-					<h1>Últimas notícias</h1>
-					<h4>Fique por dentro do mundo Empresarial</h4>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="owl-carousel">
-					
-						<ui:repeat var="blog" value="#{blogsMB.list}">
-							
-						<!-- Blog -->
-						<div>
-							<!-- FIX ME ERROR 500 get(0) for Hash-->
-							<h:graphicImage url="#{blog.picturesAsList.get(0)}" styleClass="img-responsive" alt="Blog Post" />
+                        <ui:repeat var="blog" value="#{blogsMB.list}">
 
-							<h4><h:outputText value="#{blog.title}"/></h4>
-							
-							<h5>							
-								<span><i class="fa fa-calendar"></i><h:outputText value="#{blog.publishDate}" /></span>
-								<span><i class="fa fa-comment"></i><h:outputText value="#{blogsMB.comments.rowCount}" /> Comentários</span>
-							</h5>
-							
-							<p><h:outputText value="#{blog.resume}" /></p>
-							
-							<p><a href="./post.xhtml?id=#{blog.id}" class="btn btn-primary">Leia Mais</a></p>
-							
-						</div>
-						
-						</ui:repeat>
-										
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+                            <!-- Blog -->
+                            <div>
+                                <!-- FIX ME ERROR 500 get(0) for Hash-->
+                                <h:graphicImage url="#{blog.picturesAsList.get(0)}" styleClass="img-responsive"
+                                                alt="Blog Post"/>
 
-	<!-- ============ BLOG END ============ -->
+                                <h4><h:outputText value="#{blog.title}"/></h4>
+
+                                <h5>
+                                    <span><i class="fa fa-calendar"></i><h:outputText
+                                            value="#{blog.publishDate}"/></span>
+                                    <span><i class="fa fa-comment"></i><h:outputText
+                                            value="#{blogsMB.comments.rowCount}"/> Comentários</span>
+                                </h5>
+
+                                <p><h:outputText value="#{blog.resume}"/></p>
+
+                                <p><a href="./post.xhtml?id=#{blog.id}" class="btn btn-primary">Leia Mais</a></p>
+
+                            </div>
+
+                        </ui:repeat>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ BLOG END ============ -->
 
 </ui:composition>
 </html>

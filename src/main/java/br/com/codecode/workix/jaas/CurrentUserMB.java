@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.jaas;
 
 import br.com.codecode.workix.interfaces.Debugable;
@@ -20,7 +19,7 @@ import java.security.Principal;
 
 /**
  * This Class Verify for {@link JAASUser} is Signed In Session
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -44,34 +43,34 @@ public class CurrentUserMB implements Serializable, Debugable {
     @PostConstruct
     private void init() {
 
-	System.out.println("----Security Bean------");
+        System.out.println("----Security Bean------");
 
-	Debugable.super.onStart();
+        Debugable.super.onStart();
 
-	loadSystemUser();
+        loadSystemUser();
     }
 
     @Override
     protected void finalize() throws Throwable {
-	System.out.println("----Security Bean------");
-	super.finalize();
+        System.out.println("----Security Bean------");
+        super.finalize();
     }
 
     public JAASUser get() {
-	return this.user;
+        return this.user;
     }
 
     public boolean hasRole(String name) {
-	return request.isUserInRole(name);
+        return request.isUserInRole(name);
     }
 
     private void loadSystemUser() {
 
-	Principal principal = request.getUserPrincipal();
+        Principal principal = request.getUserPrincipal();
 
-	if (principal != null) {
-	    this.user = securityDao.loadUserByUsername(principal.getName());
-	}
+        if (principal != null) {
+            this.user = securityDao.loadUserByUsername(principal.getName());
+        }
     }
 
 }

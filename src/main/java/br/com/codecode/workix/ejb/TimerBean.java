@@ -18,66 +18,67 @@ import java.util.List;
 
 /**
  * This Class is a Enterprise Java Bean witch execute tasks in Some Periods
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @since 1.0
  */
 @Singleton
 @Startup
 class TimerBean {
 
     private Timer timer;
-    
+
     @Inject
     private CleanupDao dao;
-    
-    @Inject @Generic
+
+    @Inject
+    @Generic
     private Crud<SelectiveProcess> spDao;
 
     @PostConstruct
     public void init() {
 
-	System.out.println("[TimerBean] Starting EJB timer");
+        System.out.println("[TimerBean] Starting EJB timer");
 
-	System.out.println("[TimerBean] Create Schedule on Startup");	
-	
+        System.out.println("[TimerBean] Create Schedule on Startup");
+
     }
 
     @PreDestroy
     public void destroy() {
 
-	System.out.println("[TimerBean] Finalizing schedule...");
+        System.out.println("[TimerBean] Finalizing schedule...");
 
-	if (timer != null) timer.cancel();
+        if (timer != null) timer.cancel();
 
     }
 
     @Schedule(hour = "*", minute = "0/30", second = "0", persistent = false)
     public void execute() {
-	
-	System.out.println("[TimerBean] Execute Schedule ... " 
-		+Instant.now());
-	
-	try{
-	   
-	    List<SelectiveProcess> expireds = dao.findExpiredProcesses(LocalDateTime.now());
-	    
-	    for (SelectiveProcess sp : expireds) {
-		
-		sp.setActive(false);
-		
-		spDao.save(sp);
-		
-	    }
-	    
-	}catch (Exception e) {
-	    
-	    System.err.println(e);
-	    
-	    e.printStackTrace();
-	}
-	
+
+        System.out.println("[TimerBean] Execute Schedule ... "
+                + Instant.now());
+
+        try {
+
+            List<SelectiveProcess> expireds = dao.findExpiredProcesses(LocalDateTime.now());
+
+            for (SelectiveProcess sp : expireds) {
+
+                sp.setActive(false);
+
+                spDao.save(sp);
+
+            }
+
+        } catch (Exception e) {
+
+            System.err.println(e);
+
+            e.printStackTrace();
+        }
+
     }
 
 }

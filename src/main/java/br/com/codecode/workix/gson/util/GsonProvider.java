@@ -1,4 +1,3 @@
-
 package br.com.codecode.workix.gson.util;
 
 import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
@@ -20,61 +19,62 @@ import java.util.Date;
 
 /**
  * Gson Singleton Provider
- * 
- * @since 1.1
- * @version 1.0
+ *
  * @author felipe
+ * @version 1.0
+ * @since 1.1
  */
 public class GsonProvider {
 
     private static GsonProvider instance;
 
-    private GsonProvider(){}
+    private GsonProvider() {
+    }
 
     private static synchronized GsonProvider getInstance() {
 
-	if (instance == null) {
-	    instance = new GsonProvider();
-	}
+        if (instance == null) {
+            instance = new GsonProvider();
+        }
 
-	return instance;
+        return instance;
     }
 
     /**
      * Generate a Custom Gson <br>
      * <em> attempt for DateFormat</em>
-     * 
+     *
      * @return a New Gson
      */
     public static Gson buildGson() {
 
-	getInstance();
+        getInstance();
 
-	return new GsonBuilder()
+        return new GsonBuilder()
 
-		.setPrettyPrinting()
+                .setPrettyPrinting()
 
-		.setDateFormat(new SimpleDateFormat().toPattern())
+                .setDateFormat(new SimpleDateFormat().toPattern())
 
-		.enableComplexMapKeySerialization()
-		
-		.registerTypeAdapter(Date.class, new GsonDateSerializer())
+                .enableComplexMapKeySerialization()
 
-		.registerTypeAdapter(Date.class, new GsonDateDeserializer())
+                .registerTypeAdapter(Date.class, new GsonDateSerializer())
 
-		.registerTypeAdapter(Calendar.class, new GsonCalendarSerializer())
-		
-		.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())		
+                .registerTypeAdapter(Date.class, new GsonDateDeserializer())
 
-		.registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
+                .registerTypeAdapter(Calendar.class, new GsonCalendarSerializer())
 
-		.registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
+                .registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())
 
-		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeSerializer())
+                .registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
 
-		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
+                .registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
 
-		.create();
+                .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeSerializer())
+
+                .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
+
+                .create();
     }
 
 }

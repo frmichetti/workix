@@ -14,10 +14,11 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  * Subscriber JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see MyEntity
+ * @since 1.0
  */
 @Entity
 @XmlRootElement
@@ -25,105 +26,105 @@ import javax.xml.bind.annotation.XmlTransient;
 @Persist
 public class Subscriber extends MyEntity {
 
-	private static final long serialVersionUID = 6675137603968146834L;
+    private static final long serialVersionUID = 6675137603968146834L;
 
-	private String email;
+    private String email;
 
-	private long id;
+    private long id;
 
-	/**
-	 * Public Default Constructor for JPA Compatibility Only
-	 */
-	public Subscriber(){}
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Subscriber() {
+    }
 
-	/**
-	 * Public Constructor for {@link Builder} Compatibility
-	 *
-	 * @see Buildable
-	 * @param builder
-	 *            Builder for Generate New Subscriber
-	 */
-	public Subscriber(Builder builder) {
-		this.setEmail(builder.getEmail());
-	}
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     *
+     * @param builder Builder for Generate New Subscriber
+     * @see Buildable
+     */
+    public Subscriber(Builder builder) {
+        this.setEmail(builder.getEmail());
+    }
 
-	/**
-	 * Creates builder to build {@link Subscriber}.
-	 * @return created builder
-	 */
-	@XmlTransient
-	public static Builder builder() {
-		return new Builder();
-	}
+    /**
+     * Creates builder to build {@link Subscriber}.
+     *
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+        return new Builder();
+    }
 
-	/**
-	 * @return the email
-	 */
-	@NotEmpty
-	@Column
-	public String getEmail() {
-		return email;
-	}
+    /**
+     * @return the email
+     */
+    @NotEmpty
+    @Column
+    public String getEmail() {
+        return email;
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
-	@Override
-	public long getId() {
-		return this.id;
-	}
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	/**
-	 * @param email
-	 *            the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+        return this.id;
+    }
 
-	@Override
-	public void setId(long id) {
-		this.id = id;
-	}
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
 
-	/**
-	 * Builder NestedClass for {@link Subscriber}
-	 *
-	 * @author felipe
-	 * @since 1.0
-	 * @version 1.0
-	 * @see Buildable
-	 * @see Subscriber
-	 */
-	public final static class Builder extends Subscriber implements Buildable<Subscriber> {
+    /**
+     * Builder NestedClass for {@link Subscriber}
+     *
+     * @author felipe
+     * @version 1.0
+     * @see Buildable
+     * @see Subscriber
+     * @since 1.0
+     */
+    public final static class Builder extends Subscriber implements Buildable<Subscriber> {
 
-		private static final long serialVersionUID = -7750971468814207111L;
+        private static final long serialVersionUID = -7750971468814207111L;
 
-		/**
-		 * Disabled Empty Constructor
-		 */
-		private Builder(){}
+        /**
+         * Disabled Empty Constructor
+         */
+        private Builder() {
+        }
 
-		/**
-		 * @return a new Subscriber
-		 */
-		@Override
-		public Subscriber build() {
+        /**
+         * @return a new Subscriber
+         */
+        @Override
+        public Subscriber build() {
 
-			return new Subscriber(this);
-		}
+            return new Subscriber(this);
+        }
 
-		/**
-		 * @param email
-		 *            the email to set
-		 * @return Builder
-		 */
-		public Builder withEmail(String email) {
-			this.setEmail(email);
-			return this;
-		}
+        /**
+         * @param email the email to set
+         * @return Builder
+         */
+        public Builder withEmail(String email) {
+            this.setEmail(email);
+            return this;
+        }
 
-	}
+    }
 
 }

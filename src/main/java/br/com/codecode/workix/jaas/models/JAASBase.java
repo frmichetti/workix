@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * JAAS Base Entity Only For Share Common Fields
- * 
+ *
  * @author felipe
  * @see Persistable
  * @see Serializable
@@ -19,11 +19,11 @@ abstract class JAASBase implements Persistable, Serializable {
 
     long id;
 
+    public JAASBase() {
+    }
+
     @Override
     public void setId(long id) {
-	this.id = id;
+        this.id = id;
     }
-    
-    
-    public JAASBase(){}
 }

@@ -16,11 +16,11 @@ import java.lang.reflect.ParameterizedType;
 
 /**
  * Factory for Generic {@link Dao} Injection
- * 
- * @see Produces
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @see Produces
+ * @since 1.0
  */
 @ApplicationScoped
 public class GenericDaoProducer {
@@ -36,23 +36,21 @@ public class GenericDaoProducer {
 
     /**
      * Produces a Dao based on param from {@link InjectionPoint}
-     * 
-     * @param injectionPoint
-     *            Injection Point Received by CDI
-     * @param <T>
-     *            ParameterizedType Received on InjectionPoint
+     *
+     * @param injectionPoint Injection Point Received by CDI
+     * @param <T>            ParameterizedType Received on InjectionPoint
      * @return Dao Implementation for Received Clazz
      */
     @Produces
     @Dependent
     @Generic
-    @SuppressWarnings({ "unchecked", "rawtypes" })
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public <T extends Persistable & Serializable> Dao<T> getDao(InjectionPoint injectionPoint) {
 
-	ParameterizedType type = (ParameterizedType) injectionPoint.getType();
+        ParameterizedType type = (ParameterizedType) injectionPoint.getType();
 
-	Class clazz = (Class) type.getActualTypeArguments()[0];
+        Class clazz = (Class) type.getActualTypeArguments()[0];
 
-	return new Dao<>(clazz, em);
+        return new Dao<>(clazz, em);
     }
 }

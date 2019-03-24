@@ -19,17 +19,17 @@ import java.util.Date;
 
 /**
  * BaseTest Class Share Common Fields
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @since 1.0
  */
 public class BaseTest {
 
     /**
      * Must Be Changed Startup Configuration
-     * 
-     * @see HttpConfig 
+     *
+     * @see HttpConfig
      * @see HttpConfig #JAVAEE_PROJ_PROD or
      * @see HttpConfig #JAVAEE_PROJ_TEST
      */
@@ -39,47 +39,47 @@ public class BaseTest {
 
     protected BaseTest() {
 
-	gson = buildGson();
+        gson = buildGson();
 
-	if (gson == null) throw new RuntimeException("Gson is Null - Generated Gson Before Start");
+        if (gson == null) throw new RuntimeException("Gson is Null - Generated Gson Before Start");
 
     }
 
     /**
      * Generate a Custom Gson attempt for DateFormat , Pattern Must be Equals
      * {@link JacksonContextResolver #init()}
-     * 
+     *
      * @return a New Gson
      */
     private Gson buildGson() {
-	return new GsonBuilder()
-		
-		.setPrettyPrinting()
-		
-		.setDateFormat(new SimpleDateFormat().toPattern())
-		
-		.enableComplexMapKeySerialization()	
-		
-		.registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
-		
-		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeSerializer())
-		
-		.registerTypeAdapter(Date.class, new GsonDateDeserializer())
-		
-		.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())
-		
-		.registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
-		
-		.registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
-		
-		.create();
+        return new GsonBuilder()
+
+                .setPrettyPrinting()
+
+                .setDateFormat(new SimpleDateFormat().toPattern())
+
+                .enableComplexMapKeySerialization()
+
+                .registerTypeAdapter(LocalDate.class, new GsonLocalDateSerializer())
+
+                .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeSerializer())
+
+                .registerTypeAdapter(Date.class, new GsonDateDeserializer())
+
+                .registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())
+
+                .registerTypeAdapter(LocalDate.class, new GsonLocalDateDeserializer())
+
+                .registerTypeAdapter(LocalDateTime.class, new GsonLocalDateTimeDeserializer())
+
+                .create();
     }
 
     protected Gson getGson() throws RuntimeException {
-	if (gson != null)
-	    return gson;
-	else
-	    throw new RuntimeException("Gson is Null - Generated Gson Before Start");
+        if (gson != null)
+            return gson;
+        else
+            throw new RuntimeException("Gson is Null - Generated Gson Before Start");
     }
 
 }

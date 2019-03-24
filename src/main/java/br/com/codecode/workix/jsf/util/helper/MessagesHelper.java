@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.jsf.util.helper;
 
 import br.com.codecode.workix.cdi.producers.FacesContextProducer;
@@ -18,7 +17,7 @@ import javax.inject.Inject;
 
 /**
  * JSF Messages Helper
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.0
@@ -34,9 +33,9 @@ public class MessagesHelper {
 
     public void addFlash(FacesMessage facesMessage) {
 
-	facesContext.getExternalContext().getFlash().setKeepMessages(true);
+        facesContext.getExternalContext().getFlash().setKeepMessages(true);
 
-	facesContext.addMessage(null, facesMessage);
+        facesContext.addMessage(null, facesMessage);
 
     }
 }

@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.core.enums.Estate;
@@ -26,7 +25,7 @@ import static org.junit.Assert.*;
 
 /**
  * Populate DB with Companies
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.0
@@ -42,83 +41,84 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
     @Before
     public void downloadUsers() {
 
-	System.out.println("[downloadUsers]");
+        System.out.println("[downloadUsers]");
 
-	users = new ArrayList<>();
+        users = new ArrayList<>();
 
-	resp = HttpTest.sendGet(server + "/users");
+        resp = HttpTest.sendGet(server + "/users");
 
-	users = getGson().fromJson(resp, new TypeToken<List<User>>(){}.getType());
+        users = getGson().fromJson(resp, new TypeToken<List<User>>() {
+        }.getType());
 
-	assertTrue(users.size() > 0);
+        assertTrue(users.size() > 0);
 
     }
 
     @Override
     public void create() {
 
-	assertNotNull(users);
+        assertNotNull(users);
 
-	assertTrue(users.size() > 0);
+        assertTrue(users.size() > 0);
 
-	users = users.subList((users.size() / 2), users.size());
+        users = users.subList((users.size() / 2), users.size());
 
-	assertEquals(51L, users.get(0).getId());
+        assertEquals(51L, users.get(0).getId());
 
-	companies = new ArrayList<>();
+        companies = new ArrayList<>();
 
-	for (User u : users) {
+        for (User u : users) {
 
-	    Company c = Company.builder()
+            Company c = Company.builder()
 
-		    .withName("Empresa 'Mockup' N# " + String.valueOf(u.getId()))
+                    .withName("Empresa 'Mockup' N# " + String.valueOf(u.getId()))
 
-		    .withSegment("Segmento N# " + String.valueOf(u.getId()))
+                    .withSegment("Segmento N# " + String.valueOf(u.getId()))
 
-		    .withCnpj(Long.MAX_VALUE - u.getId())
+                    .withCnpj(Long.MAX_VALUE - u.getId())
 
-		    .withContact(Contact.builder().withMobilePhone(123456).build())	    
+                    .withContact(Contact.builder().withMobilePhone(123456).build())
 
-		    .withLocale(Locale.builder()
-			    .withCity("São José dos Campos")
-			    .withEstate(Estate.SP)
-			    .withNeighborhood("Bairro")
-			    .withNumber("212")
-			    .withStreet("Rua")
-			    .withZipCode(45632145)
-			    .build())
+                    .withLocale(Locale.builder()
+                            .withCity("São José dos Campos")
+                            .withEstate(Estate.SP)
+                            .withNeighborhood("Bairro")
+                            .withNumber("212")
+                            .withStreet("Rua")
+                            .withZipCode(45632145)
+                            .build())
 
-		    .withUser(u);
-	    
-	    c.setDescription("Descrição Aqui ");
-	    
-	    for (int i = 0; i < 5; i++) {
-		c.setDescription(c.getDescription().concat(c.getDescription()));
-	    }  
-	    
+                    .withUser(u);
 
-	    assertNotNull(c);
+            c.setDescription("Descrição Aqui ");
 
-	    System.out.println("[create] " + c.getName());
+            for (int i = 0; i < 5; i++) {
+                c.setDescription(c.getDescription().concat(c.getDescription()));
+            }
 
-	    addToList(c);
 
-	}
+            assertNotNull(c);
 
-	assertEquals(50, companies.size());
+            System.out.println("[create] " + c.getName());
+
+            addToList(c);
+
+        }
+
+        assertEquals(50, companies.size());
 
     }
 
     @Override
     public void addToList(Company company) {
 
-	assertNotNull(company);
+        assertNotNull(company);
 
-	assertNotNull(companies);
+        assertNotNull(companies);
 
-	System.out.println("[addToList] " + company.getName());
+        System.out.println("[addToList] " + company.getName());
 
-	companies.add(company);
+        companies.add(company);
 
     }
 
@@ -126,20 +126,20 @@ public class PopulateCompanyTest extends BaseTest implements CommonPopTest<Compa
     @Override
     public void sendToServer() {
 
-	assertNotNull(users);
+        assertNotNull(users);
 
-	create();
+        create();
 
-	assertNotNull(companies);
+        assertNotNull(companies);
 
-	companies.stream().forEach(c -> {
+        companies.stream().forEach(c -> {
 
-	    System.out.println("[sendToServer] " + c.getName());
+            System.out.println("[sendToServer] " + c.getName());
 
-	    resp = HttpTest.sendPost(server + "/companies", getGson().toJson(c));
+            resp = HttpTest.sendPost(server + "/companies", getGson().toJson(c));
 
-	    assertNotNull(resp);
-	});
+            assertNotNull(resp);
+        });
 
     }
 

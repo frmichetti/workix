@@ -24,9 +24,9 @@ import java.util.List;
  * Send Token ManagedBean
  *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class SendTokenMB extends BaseMB {

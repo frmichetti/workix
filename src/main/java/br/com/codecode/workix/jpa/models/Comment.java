@@ -15,10 +15,11 @@ import javax.xml.bind.annotation.XmlTransient;
 /**
  * Comment JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
- * @see MyEntity
+ *
  * @author felipe
- * @since 1.1
  * @version 1.0
+ * @see MyEntity
+ * @since 1.1
  */
 @Entity
 @XmlRootElement
@@ -41,14 +42,14 @@ public class Comment extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Comment(){}
+    public Comment() {
+    }
 
     /**
      * Public Constructor for {@link Builder} Compatibility
      *
+     * @param builder Builder for Generate a New Comment
      * @see Buildable
-     * @param builder
-     *            Builder for Generate a New Comment
      */
     private Comment(Builder builder) {
         this.email = builder.getEmail();
@@ -59,6 +60,7 @@ public class Comment extends MyEntity {
 
     /**
      * Creates builder to build {@link Comment}.
+     *
      * @return created builder
      */
     @XmlTransient
@@ -77,6 +79,13 @@ public class Comment extends MyEntity {
     }
 
     /**
+     * @param blog the blog to set
+     */
+    public void setBlog(Blog blog) {
+        this.blog = blog;
+    }
+
+    /**
      * @return the email
      */
     @NotEmpty
@@ -86,12 +95,24 @@ public class Comment extends MyEntity {
         return email;
     }
 
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
         return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     /**
@@ -104,6 +125,13 @@ public class Comment extends MyEntity {
     }
 
     /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * @return the text
      */
     @NotEmpty
@@ -111,32 +139,6 @@ public class Comment extends MyEntity {
     @Lob
     public String getText() {
         return text;
-    }
-
-    /**
-     * @param blog the blog to set
-     */
-    public void setBlog(Blog blog) {
-        this.blog = blog;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    @Override
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
     }
 
     /**
@@ -157,7 +159,8 @@ public class Comment extends MyEntity {
         /**
          * Disabled Empty Constructor
          */
-        private Builder(){}
+        private Builder() {
+        }
 
         /**
          * @return a new Comment

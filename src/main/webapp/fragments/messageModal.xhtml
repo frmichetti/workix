@@ -6,45 +6,46 @@
 
 <ui:composition>
 
-	<h:form>
-		<!-- Message Modal -->
-		<div id="myModal" class="modal fade" role="dialog"
-			style="z-index: 1000000000">
-			<div class="modal-dialog">
+    <h:form>
+        <!-- Message Modal -->
+        <div id="myModal" class="modal fade" role="dialog"
+             style="z-index: 1000000000">
+            <div class="modal-dialog">
 
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">x</button>
-						<h4 class="modal-title">Enviar Mensagem</h4>
-					</div>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">x</button>
+                        <h4 class="modal-title">Enviar Mensagem</h4>
+                    </div>
 
-					<div class="modal-body">
-						<div class="form-group">
-							<h:inputText pt:type="text"
-								pt:value="#{candidateDetailsMB.messageTitle}"
-								styleClass="form-control" pt:required="required"
-								pt:placeholder="Insira um Título" />
-							<h:inputTextarea pt:type="text"
-								pt:value="#{candidateDetailsMB.messageBody}"
-								styleClass="form-control" pt:required="required"
-								pt:placeholder="Conteúdo da Mensagem" />
-						</div>
-					</div>
-					<div class="modal-footer">
-						<div class="form-group">
-							<button pt:type="button" class="btn btn-default"
-								data-dismiss="modal">Close</button>
-							<h:commandButton action="#{candidateDetailsMB.notifyByPush()}"
-								value="Enviar Mensagem" styleClass="btn btn-primary" />
-						</div>
-					</div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h:inputText pt:type="text"
+                                         pt:value="#{candidateDetailsMB.messageTitle}"
+                                         styleClass="form-control" pt:required="required"
+                                         pt:placeholder="Insira um Título"/>
+                            <h:inputTextarea pt:type="text"
+                                             pt:value="#{candidateDetailsMB.messageBody}"
+                                             styleClass="form-control" pt:required="required"
+                                             pt:placeholder="Conteúdo da Mensagem"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="form-group">
+                            <button pt:type="button" class="btn btn-default"
+                                    data-dismiss="modal">Close
+                            </button>
+                            <h:commandButton action="#{candidateDetailsMB.notifyByPush()}"
+                                             value="Enviar Mensagem" styleClass="btn btn-primary"/>
+                        </div>
+                    </div>
 
-				</div>
+                </div>
 
-			</div>
-		</div>
-	</h:form>
+            </div>
+        </div>
+    </h:form>
 
 </ui:composition>
 </html>

@@ -12,12 +12,13 @@ import static java.lang.annotation.RetentionPolicy.SOURCE;
  */
 @Documented
 @Retention(SOURCE)
-@Target({ TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE, ANNOTATION_TYPE, PACKAGE})
+@Target({TYPE, FIELD, METHOD, PARAMETER, CONSTRUCTOR, LOCAL_VARIABLE, ANNOTATION_TYPE, PACKAGE})
 /**
  * Mark Whatever Object as Useless
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.0
  */
-public @interface UseLess{}
+public @interface UseLess {
+}

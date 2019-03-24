@@ -8,10 +8,10 @@ import javax.persistence.EntityManager;
 
 /**
  * Only for Share EntityManager
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @since 1.0
  */
 public abstract class BaseEndpoint {
 

@@ -16,38 +16,38 @@ import java.util.Calendar;
 
 /**
  * This Class define Startup Properties for JAXRS
- * 
+ *
  * @author felipe
- * @since 1.1
  * @version 1.1
+ * @since 1.1
  */
 @Provider
-@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 public class JAXRSContextResolver implements ContextResolver<ObjectMapper> {
 
     private static final ObjectMapper om = build();
 
-    @Override
-    public ObjectMapper getContext(Class<?> objectType) {
-	return om;
-    }
-
     private static ObjectMapper build() {
 
-	return new ObjectMapper()
-		
-		.registerModule(new JavaTimeModule())		
+        return new ObjectMapper()
 
-		.setDateFormat(new SimpleDateFormat())
-		
-		.registerModule(new SimpleModule()
-			.addDeserializer(Calendar.class, new CalendarDeserializer()))		
+                .registerModule(new JavaTimeModule())
 
-		.enable(SerializationFeature.INDENT_OUTPUT)
+                .setDateFormat(new SimpleDateFormat())
 
-		.disable(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES)
-		
-		.disable(SerializationFeature.WRITE_DATE_KEYS_AS_TIMESTAMPS);
+                .registerModule(new SimpleModule()
+                        .addDeserializer(Calendar.class, new CalendarDeserializer()))
 
+                .enable(SerializationFeature.INDENT_OUTPUT)
+
+                .disable(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES)
+
+                .disable(SerializationFeature.WRITE_DATE_KEYS_AS_TIMESTAMPS);
+
+    }
+
+    @Override
+    public ObjectMapper getContext(Class<?> objectType) {
+        return om;
     }
 }

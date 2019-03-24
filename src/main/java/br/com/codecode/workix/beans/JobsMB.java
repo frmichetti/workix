@@ -30,26 +30,24 @@ import java.util.List;
 @Model
 public class JobsMB extends BaseMB {
 
+    private final LocalDate localdate = LocalDate.now();
+    private final List<Integer> pager = new ArrayList<>();
     @Inject
     @Factory
     @Default
     private FacesContext facesContext;
-
     @Inject
     @Generic
     private Crud<Job> dao;
-
     @Inject
     private JobTypeLinkHelper jobTypeLinkHelper;
-
     private DataModel<Job> list;
-
     private String prefix, sufix;
-
-    private final LocalDate localdate = LocalDate.now();
-
-    private final List<Integer> pager = new ArrayList<>();
-
+    private int start;
+    private int end;
+    private int totalPages;
+    @Min(1)
+    private int page;
 
     /**
      * @return the pager
@@ -58,11 +56,9 @@ public class JobsMB extends BaseMB {
         return pager;
     }
 
-
     public String discoverBadge(JobType jobType) {
         return jobTypeLinkHelper.returnType(jobType);
     }
-
 
     /**
      * @return the localdate
@@ -70,13 +66,6 @@ public class JobsMB extends BaseMB {
     public LocalDate getLocaldate() {
         return localdate;
     }
-
-    private int start;
-    private int end;
-    private int totalPages;
-
-    @Min(1)
-    private int page;
 
     /**
      * Must be Called by f:viewAction After f:viewParam {page}

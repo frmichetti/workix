@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.jaas;
 
 import br.com.codecode.workix.cdi.dao.implementations.persist.BaseDao;
@@ -15,7 +14,7 @@ import javax.ejb.Stateless;
 
 /**
  * Stand Alone DAO for JAASUser
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -27,11 +26,11 @@ public class SecurityDao extends BaseDao {
 
     public JAASUser loadUserByUsername(@NotEmpty String userName) {
 
-	String jpql = "select u from JAASUser u where u.login = :login";
+        String jpql = "select u from JAASUser u where u.login = :login";
 
-	JAASUser user = em.createQuery(jpql, JAASUser.class).setParameter("login", userName).getSingleResult();
+        JAASUser user = em.createQuery(jpql, JAASUser.class).setParameter("login", userName).getSingleResult();
 
-	return user;
+        return user;
     }
 
 }

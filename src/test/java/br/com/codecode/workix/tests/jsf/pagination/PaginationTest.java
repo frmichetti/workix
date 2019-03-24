@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * TDD Pagination Test
- * 
+ *
  * @author felipe
  */
 public class PaginationTest {
@@ -18,82 +18,82 @@ public class PaginationTest {
 
     private void input() {
 
-	pagination = new Pagination();
+        pagination = new Pagination();
 
-	totalRows = 50;
+        totalRows = 50;
 
-	limitRows = 10;
+        limitRows = 10;
 
-	currentPage = 5;
+        currentPage = 5;
 
     }
 
     @Test
     public void discoverTotalPages() {
 
-	input();
+        input();
 
-	int totPages = totalRows / limitRows;
+        int totPages = totalRows / limitRows;
 
-	assertEquals(totPages, pagination.discoverTotalPages(limitRows, totalRows));
+        assertEquals(totPages, pagination.discoverTotalPages(limitRows, totalRows));
 
     }
 
     @Test
     public void discoverMaxRows() {
 
-	input();
+        input();
 
-	assertEquals(totalRows,
-		pagination.discoverMaxRows(limitRows, pagination.discoverTotalPages(limitRows, totalRows)));
+        assertEquals(totalRows,
+                pagination.discoverMaxRows(limitRows, pagination.discoverTotalPages(limitRows, totalRows)));
 
     }
 
     @Test
     public void discoverStartRange() {
 
-	input();
+        input();
 
-	assertEquals((limitRows * currentPage) - limitRows + 1, pagination.discoverStartRange(limitRows, currentPage,
-		pagination.discoverTotalPages(limitRows, totalRows)));
+        assertEquals((limitRows * currentPage) - limitRows + 1, pagination.discoverStartRange(limitRows, currentPage,
+                pagination.discoverTotalPages(limitRows, totalRows)));
 
-	System.out.println("Total Rows : " + totalRows);
+        System.out.println("Total Rows : " + totalRows);
 
-	System.out.println("Limit Rows : " + limitRows);
+        System.out.println("Limit Rows : " + limitRows);
 
-	int totalPages = pagination.discoverTotalPages(limitRows, totalRows);
+        int totalPages = pagination.discoverTotalPages(limitRows, totalRows);
 
-	System.out.println("Total Pages : " + totalPages);
+        System.out.println("Total Pages : " + totalPages);
 
-	System.out.println("Current Page : " + currentPage);
+        System.out.println("Current Page : " + currentPage);
 
-	System.out.println("Start Range : " + pagination.discoverStartRange(limitRows, currentPage, totalPages));
+        System.out.println("Start Range : " + pagination.discoverStartRange(limitRows, currentPage, totalPages));
 
-	System.out.println("End Range : " + pagination.discoverEndRange(limitRows, currentPage, totalPages));
+        System.out.println("End Range : " + pagination.discoverEndRange(limitRows, currentPage, totalPages));
 
     }
 
     @Test
     public void discoverEndRange() {
 
-	input();
+        input();
 
-	assertEquals(currentPage * limitRows, pagination.discoverEndRange(limitRows, currentPage,
-		pagination.discoverTotalPages(limitRows, totalRows)));
+        assertEquals(currentPage * limitRows, pagination.discoverEndRange(limitRows, currentPage,
+                pagination.discoverTotalPages(limitRows, totalRows)));
 
     }
 
     @Test
     public void pagination() {
 
-	input();
+        input();
 
-	while (currentPage <= pagination.discoverTotalPages(limitRows, totalRows)) {
+        while (currentPage <= pagination.discoverTotalPages(limitRows, totalRows)) {
 
-	    System.out.println("Current Page " + currentPage);
+            System.out.println("Current Page " + currentPage);
 
-	    currentPage++;
-	}
+            currentPage++;
+        }
 
     }
 

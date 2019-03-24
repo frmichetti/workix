@@ -9,14 +9,15 @@ import java.util.*;
 /**
  * Selective Process JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see Observable
  * @see Observer
  * @see Traceable
  * @see Persistable
  * @see Serializable
+ * @since 1.0
  */
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
 
@@ -49,224 +50,223 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public SelectiveProcess(){}
+    public SelectiveProcess() {
+    }
 
     public int countCandidates() {
-	return maxCandidates - candidates.size();
+        return maxCandidates - candidates.size();
     }
 
     private void countCandidates(Set<Candidate> collection) {
-	maxCandidates = collection.size();
+        maxCandidates = collection.size();
     }
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
-	}
-	if (!super.equals(obj)) {
-	    return false;
-	}
-	if (!(obj instanceof SelectiveProcess)) {
-	    return false;
-	}
-	SelectiveProcess other = (SelectiveProcess) obj;
-	if (id != other.id) {
-	    return false;
-	}
-	return true;
+        if (this == obj) {
+            return true;
+        }
+        if (!super.equals(obj)) {
+            return false;
+        }
+        if (!(obj instanceof SelectiveProcess)) {
+            return false;
+        }
+        SelectiveProcess other = (SelectiveProcess) obj;
+        if (id != other.id) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public void generateUUID() {
-	uuid = UUID.randomUUID().toString();
+        uuid = UUID.randomUUID().toString();
     }
 
     public Set<Candidate> getCandidates() {
-	return this.candidates;
+        return this.candidates;
+    }
+
+    public void setCandidates(Set<Candidate> candidates) {
+        this.candidates = candidates;
+        notifyChanges();
     }
 
     /**
      * @return the expire
      */
     public Calendar getExpire() {
-	return expire;
+        return expire;
+    }
+
+    /**
+     * @param expire the expire to set
+     */
+    public void setExpire(Calendar expire) {
+        this.expire = expire;
     }
 
     @Override
     public long getId() {
-	return this.id;
+        return this.id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Job getJob() {
-	return this.job;
+        return this.job;
+    }
+
+    public void setJob(final Job job) {
+        this.job = job;
     }
 
     public int getMaxCandidates() {
-	return maxCandidates;
+        return maxCandidates;
+    }
+
+    public void setMaxCandidates(int maxCandidates) {
+        this.maxCandidates = maxCandidates;
     }
 
     /**
      * @return the start
      */
     public Calendar getStart() {
-	return start;
+        return start;
+    }
+
+    /**
+     * @param start the start to set
+     */
+    public void setStart(Calendar start) {
+        this.start = start;
     }
 
     protected int getVersion() {
-	return this.version;
+        return this.version;
+    }
+
+    protected void setVersion(final int version) {
+        this.version = version;
     }
 
     @Override
     public int hashCode() {
-	final int prime = 31;
-	int result = super.hashCode();
-	result = prime * result + (int) (id ^ (id >>> 32));
-	return result;
+        final int prime = 31;
+        int result = super.hashCode();
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
     }
 
     /**
      * Initialize Fields for CDI Injection
      */
     private void init() {
-	this.addObserver(this);
-	active = true;
-	candidates = new HashSet<>();
+        this.addObserver(this);
+        active = true;
+        candidates = new HashSet<>();
     }
 
     @Override
     public void insertTimeStamp() {
-	createdAt = Calendar.getInstance();
+        createdAt = Calendar.getInstance();
     }
 
     public boolean isActive() {
-	return active;
-    }
-
-    private boolean isElegible() {
-	System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
-	System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
-	return (candidates.size() < maxCandidates);
-    }
-
-    public boolean isInProcess(Candidate candidate) {
-	System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)));
-	return (candidates.contains(candidate));
-    }
-
-    private void notifyChanges() {
-	notifyObservers();
-	setChanged();
-    }
-
-    private void notifyChanges(Object object) {
-	notifyObservers(object);
-	setChanged();
-    }
-
-    @Override
-    public void prepareToPersist() {
-	Traceable.super.prepareToPersist();
-    }
-
-    public boolean registerCandidate(Candidate candidate) {
-
-	boolean b = false;
-
-	if ((isActive()) && (isElegible()) && (!isInProcess(candidate))) {
-
-	    candidates.add(candidate);
-
-	    System.out.println(candidate.getName() + " Registered with Success");
-
-	    b = true;
-
-	} else {
-
-	    System.out.println(candidate.getName() + " Cannot Registered");
-
-	    b = false;
-	}
-
-	notifyChanges(candidates);
-
-	return b;
-
+        return active;
     }
 
     public void setActive(boolean active) {
 
-	if (!active) {
-	    disabledAt = Calendar.getInstance();
-	}
+        if (!active) {
+            disabledAt = Calendar.getInstance();
+        }
 
-	this.active = active;
+        this.active = active;
 
-	notifyChanges();
+        notifyChanges();
     }
 
-    public void setCandidates(Set<Candidate> candidates) {
-	this.candidates = candidates;
-	notifyChanges();
+    private boolean isElegible() {
+        System.out.println("Process is Elegible " + (candidates.size() < maxCandidates));
+        System.out.println("Candidates --> [" + candidates.size() + "/" + maxCandidates + "]");
+        return (candidates.size() < maxCandidates);
     }
 
-    /**
-     * @param expire
-     *            the expire to set
-     */
-    public void setExpire(Calendar expire) {
-	this.expire = expire;
+    public boolean isInProcess(Candidate candidate) {
+        System.out.println(candidate.getName() + " are in this process ? " + (candidates.contains(candidate)));
+        return (candidates.contains(candidate));
+    }
+
+    private void notifyChanges() {
+        notifyObservers();
+        setChanged();
+    }
+
+    private void notifyChanges(Object object) {
+        notifyObservers(object);
+        setChanged();
     }
 
     @Override
-    public void setId(long id) {
-	this.id = id;
+    public void prepareToPersist() {
+        Traceable.super.prepareToPersist();
     }
 
-    public void setJob(final Job job) {
-	this.job = job;
-    }
+    public boolean registerCandidate(Candidate candidate) {
 
-    public void setMaxCandidates(int maxCandidates) {
-	this.maxCandidates = maxCandidates;
-    }
+        boolean b = false;
 
-    /**
-     * @param start
-     *            the start to set
-     */
-    public void setStart(Calendar start) {
-	this.start = start;
-    }
+        if ((isActive()) && (isElegible()) && (!isInProcess(candidate))) {
 
-    protected void setVersion(final int version) {
-	this.version = version;
+            candidates.add(candidate);
+
+            System.out.println(candidate.getName() + " Registered with Success");
+
+            b = true;
+
+        } else {
+
+            System.out.println(candidate.getName() + " Cannot Registered");
+
+            b = false;
+        }
+
+        notifyChanges(candidates);
+
+        return b;
+
     }
 
     @Override
     public void update(Observable observable, Object object) {
 
-	if (observable instanceof SelectiveProcess) {
+        if (observable instanceof SelectiveProcess) {
 
-	    if (active = isElegible()) {
+            if (active = isElegible()) {
 
-		if (object instanceof Collection<?>) {
+                if (object instanceof Collection<?>) {
 
-		    countCandidates((Set<Candidate>) object);
+                    countCandidates((Set<Candidate>) object);
 
-		}
+                }
 
-	    } else {
-		if (disabledAt != null)
-		    System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
-	    }
+            } else {
+                if (disabledAt != null)
+                    System.out.println("Max candidates Reached - Disabled Process at " + disabledAt);
+            }
 
-	}
+        }
     }
 
     @Override
     public void updateTimeStamp() {
-	updatedAt = Calendar.getInstance();
+        updatedAt = Calendar.getInstance();
     }
 
 }

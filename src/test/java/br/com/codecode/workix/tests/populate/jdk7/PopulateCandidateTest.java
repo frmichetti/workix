@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.core.enums.Estate;
@@ -29,7 +28,7 @@ import static org.junit.Assert.*;
 
 /**
  * Populate DB with Candidates
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.0
@@ -45,91 +44,91 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
     @Before
     public void downloadUsers() {
 
-	System.out.println("[downloadUsers]");
+        System.out.println("[downloadUsers]");
 
-	users = new ArrayList<>();
+        users = new ArrayList<>();
 
-	resp = HttpTest.sendGet(server + "/users");
+        resp = HttpTest.sendGet(server + "/users");
 
-	users = getGson().fromJson(resp, new TypeToken<List<User>>() {
-	}.getType());
+        users = getGson().fromJson(resp, new TypeToken<List<User>>() {
+        }.getType());
 
-	assertTrue(users.size() > 0);
+        assertTrue(users.size() > 0);
 
     }
 
     @Override
     public void create() {
 
-	assertNotNull(users);
+        assertNotNull(users);
 
-	assertTrue(users.size() > 0);
+        assertTrue(users.size() > 0);
 
-	users = users.subList(0, users.size() / 2);
+        users = users.subList(0, users.size() / 2);
 
-	candidates = new ArrayList<>();
+        candidates = new ArrayList<>();
 
-	for (User u : users) {
+        for (User u : users) {
 
-	    Candidate c = new Candidate();
+            Candidate c = new Candidate();
 
-	    c.setBirthDate(Calendar.getInstance());
+            c.setBirthDate(Calendar.getInstance());
 
-	    c.setName("Candidato 'Mockup' N# " + String.valueOf(u.getId()));
+            c.setName("Candidato 'Mockup' N# " + String.valueOf(u.getId()));
 
-	    c.setCpf(new BigInteger(36, new Random()).longValue());	   
-	    
-	    c.setContact(Contact.builder().withMobilePhone(123456).build());
-	    
-	    c.setLocale(Locale.builder()
-		    .withCity("São José dos Campos")
-		    .withEstate(Estate.SP)
-		    .withNeighborhood("Bairro")
-		    .withZipCode(45632145)
-		    .withStreet("Rua")
-		    .withNumber("212").build());
+            c.setCpf(new BigInteger(36, new Random()).longValue());
 
-	    c.setUser(u);
+            c.setContact(Contact.builder().withMobilePhone(123456).build());
 
-	    System.out.println("[create] " + c.getName());
+            c.setLocale(Locale.builder()
+                    .withCity("São José dos Campos")
+                    .withEstate(Estate.SP)
+                    .withNeighborhood("Bairro")
+                    .withZipCode(45632145)
+                    .withStreet("Rua")
+                    .withNumber("212").build());
 
-	    addToList(c);
-	}
+            c.setUser(u);
 
-	assertEquals(users.size(), candidates.size());
+            System.out.println("[create] " + c.getName());
+
+            addToList(c);
+        }
+
+        assertEquals(users.size(), candidates.size());
 
     }
 
     @Override
     public void addToList(Candidate candidate) {
 
-	assertNotNull(candidates);
+        assertNotNull(candidates);
 
-	assertNotNull(candidate);
+        assertNotNull(candidate);
 
-	System.out.println("[addToList]" + candidate.getName());
+        System.out.println("[addToList]" + candidate.getName());
 
-	candidates.add(candidate);
+        candidates.add(candidate);
     }
 
     @Test
     @Override
     public void sendToServer() {
 
-	assertNotNull(users);
+        assertNotNull(users);
 
-	create();
+        create();
 
-	assertNotNull(candidates);
+        assertNotNull(candidates);
 
-	candidates.forEach(c -> {
+        candidates.forEach(c -> {
 
-	    System.out.println("[sendToServer] " + c.getName());
+            System.out.println("[sendToServer] " + c.getName());
 
-	    resp = HttpTest.sendPost(server + "/candidates", getGson().toJson(c));
+            resp = HttpTest.sendPost(server + "/candidates", getGson().toJson(c));
 
-	    assertNotNull(resp);
-	});
+            assertNotNull(resp);
+        });
 
     }
 

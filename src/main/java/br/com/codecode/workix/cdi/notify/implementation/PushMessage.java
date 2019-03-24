@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.cdi.notify.implementation;
 
 import br.com.codecode.workix.cdi.notify.Notification;
@@ -21,7 +20,7 @@ import javax.json.JsonObject;
 /**
  * Push Message Implementation<br>
  * Send a Text Message to Firebase
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -38,39 +37,39 @@ public class PushMessage implements Notification, Debugable {
 
     @PostConstruct
     private void init() {
-	Debugable.super.onStart();
+        Debugable.super.onStart();
     }
 
     @Override
     public void doSendMessage(Notificable to, String title, String body) {
 
-	JsonObject jsonObject = Json.createObjectBuilder().add("to", to.getFirebaseMessageToken())
-		.add("notification",
-			Json.createObjectBuilder().add("body", body).add("title", title).add("icon", "myicon").build())
-		.build();
+        JsonObject jsonObject = Json.createObjectBuilder().add("to", to.getFirebaseMessageToken())
+                .add("notification",
+                        Json.createObjectBuilder().add("body", body).add("title", title).add("icon", "myicon").build())
+                .build();
 
-	String json = jsonObject.toString();
+        String json = jsonObject.toString();
 
-	System.out.println(json);
+        System.out.println(json);
 
-	try {
+        try {
 
-	    /*
-	     * //TODO FIXME TESTME Test this javax.ws.rs.core.Response r =
-	     * ClientBuilder.newClient().target(FCM_SERVER)
-	     * .property("Authorization", "key="+ WEB_API_KEY)
-	     * .request(MediaType.APPLICATION_JSON).post(Entity.json(json));
-	     */
+            /*
+             * //TODO FIXME TESTME Test this javax.ws.rs.core.Response r =
+             * ClientBuilder.newClient().target(FCM_SERVER)
+             * .property("Authorization", "key="+ WEB_API_KEY)
+             * .request(MediaType.APPLICATION_JSON).post(Entity.json(json));
+             */
 
-	    // TODO FIXME REMOVEME
-        String FCM_SERVER = "https://fcm.googleapis.com/fcm/send";
-        String resp = http.sendPost(FCM_SERVER, json);
+            // TODO FIXME REMOVEME
+            String FCM_SERVER = "https://fcm.googleapis.com/fcm/send";
+            String resp = http.sendPost(FCM_SERVER, json);
 
-	    System.out.println(resp);
+            System.out.println(resp);
 
-	} catch (Exception e) {
-	    e.printStackTrace();
-	}
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 

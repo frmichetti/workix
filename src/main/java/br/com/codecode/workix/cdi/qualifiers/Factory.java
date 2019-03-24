@@ -11,14 +11,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * CDI Qualifier for Factory Producers
- * 
- * @see Produces
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @see Produces
+ * @since 1.0
  */
 @Qualifier
-@Target({ METHOD, PARAMETER, FIELD })
+@Target({METHOD, PARAMETER, FIELD})
 @Retention(RUNTIME)
 @Documented
 public @interface Factory {

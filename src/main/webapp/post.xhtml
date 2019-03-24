@@ -1,351 +1,365 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
 <ui:composition template="/template.xhtml">
 
-	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{blogDetailMB.id}" />
-		<f:viewAction action="#{blogDetailMB.init()}" />
-	</f:metadata>
+    <f:metadata>
+        <f:viewParam id="id" name="id" value="#{blogDetailMB.id}"/>
+        <f:viewAction action="#{blogDetailMB.init()}"/>
+    </f:metadata>
 
-	<ui:define name="headerTitle">Workix - Blog Post - #{blogDetailMB.currentBlog.title}</ui:define>
+    <ui:define name="headerTitle">Workix - Blog Post - #{blogDetailMB.currentBlog.title}</ui:define>
 
-	<ui:define name="title">
+    <ui:define name="title">
 
-	</ui:define>
+    </ui:define>
 
-	<ui:define name="content">
+    <ui:define name="content">
 
-		<!-- ============ TITLE START ============ -->
+        <!-- ============ TITLE START ============ -->
 
-		<section id="title">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						
-						<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />
-						
-					</div>
-					
-					<div class="col-sm-10">
-						<h1><h:outputText value="#{blogDetailMB.currentBlog.title}" /></h1>
-						<div class="meta">
-							<span><i class="fa fa-user"></i><h:outputText value="#{blogDetailMB.currentBlog.author}" /></span>
-							<span><i class="fa fa-calendar"></i><h:outputText value="#{blogDetailMB.currentBlog.publishDate}"/></span>
-							<span><i class="fa fa-comment"></i><h:outputText value="#{blogDetailMB.comments.size()}" /></span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+        <section id="title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2">
 
-		<!-- ============ TITLE END ============ -->
+                        <h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle"
+                                        alt=""/>
 
-		<!-- ============ CONTENT START ============ -->
+                    </div>
 
-		<section id="blog">
-			<div class="container">
-				<div class="row">
+                    <div class="col-sm-10">
+                        <h1><h:outputText value="#{blogDetailMB.currentBlog.title}"/></h1>
+                        <div class="meta">
+                            <span><i class="fa fa-user"></i><h:outputText
+                                    value="#{blogDetailMB.currentBlog.author}"/></span>
+                            <span><i class="fa fa-calendar"></i><h:outputText
+                                    value="#{blogDetailMB.currentBlog.publishDate}"/></span>
+                            <span><i class="fa fa-comment"></i><h:outputText
+                                    value="#{blogDetailMB.comments.size()}"/></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-					<div class="col-sm-8">
+        <!-- ============ TITLE END ============ -->
 
-						<!-- POSTS START -->
+        <!-- ============ CONTENT START ============ -->
 
-						<article>
-							<p>
-								<ui:remove rendered="#{!empty blogDetailMB.currentBlog.pictures}">
-									<h:graphicImage url="#{blogDetailMB.currentBlog.pictures.get(0)}" styleClass="img-responsive" alt="" />
-								</ui:remove>
-							</p>
-							
-							<p><h:outputText value="#{blogDetailMB.currentBlog.resume}" /></p>
-								
-							<p><h:outputText value="#{blogDetailMB.currentBlog.content}" /></p>
-							
-							<h2>Galeria de Imagens</h2>		
-														
-							<ul class="gallery row">
-							
-								<ui:repeat var="picture" value="#{blogDetailMB.currentBlog.pictures}">
-									
-									<li class="col-xs-4 col-sm-3 col-lg-2">
-									
-									<a href="#{picture}" class="fancybox"
-									data-fancybox-group="gallery" title="#{picture}">
-									
-									<h:graphicImage name="200x200.jpg" library="placeholder" styleClass="img-responsive" alt="" />
-									 
-								</a></li>
-								
-								</ui:repeat>
-							
-							
-																
-							</ul>						
-							
-							
-							<blockquote><h:outputText value="#{blogDetailMB.currentBlog.citation}" /></blockquote>								
-							
-								
-						</article>
+        <section id="blog">
+            <div class="container">
+                <div class="row">
 
-						<!-- POSTS END -->
+                    <div class="col-sm-8">
 
-						<!-- SHARING START -->
+                        <!-- POSTS START -->
 
-						<ul class="share">
-							
-							<li><h5>Compartilhe</h5></li>
-							
-							<li>
-								<a href="https://www.facebook.com/sharer/sharer.php?u=#{applicationMB.appName}/job-details.xhtml">
-								<i class="fa fa-2x fa-facebook-square"></i></a></li>
-							<li>
-								<a href="https://twitter.com/home?status=http://#{applicationMB.appName}/job-details.xhtml">
-								<i class="fa fa-2x fa-twitter-square"></i></a></li>
-							<li>
-								<a href="https://plus.google.com/share?url=http://#{applicationMB.appName}/job-details.xhtml">
-								<i class="fa fa-2x fa-google-plus-square"></i></a></li>
-							<li>
-								<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://#{applicationMB.appName}/job-details.xhtml&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source=">
-								<i class="fa fa-2x fa-linkedin-square"></i></a></li>
-						</ul>
+                        <article>
+                            <p>
+                                <ui:remove rendered="#{!empty blogDetailMB.currentBlog.pictures}">
+                                    <h:graphicImage url="#{blogDetailMB.currentBlog.pictures.get(0)}"
+                                                    styleClass="img-responsive" alt=""/>
+                                </ui:remove>
+                            </p>
 
-						<!-- SHARING END -->
+                            <p><h:outputText value="#{blogDetailMB.currentBlog.resume}"/></p>
 
-						<!-- TAGS START -->
+                            <p><h:outputText value="#{blogDetailMB.currentBlog.content}"/></p>
 
-						<ul class="tags">							
-							
-							<li><i class="fa fa-tag"></i></li>
-							
-							<ui:repeat value="#{blogDetailMB.currentBlog.tags}" var="tag">
-								<li><a href="#"><h:outputText value="#{tag}" /></a></li>
-							</ui:repeat>
-							
-						</ul>
+                            <h2>Galeria de Imagens</h2>
 
-						<!-- TAGS END -->
+                            <ul class="gallery row">
 
-						<!-- AUTHOR START -->
+                                <ui:repeat var="picture" value="#{blogDetailMB.currentBlog.pictures}">
 
-						<div id="author" class="row">
-							<div class="col-sm-2">
-								<h:graphicImage name="140x140.jpg" library="placeholder" styleClass="img-responsive img-circle" alt="" />								
-							</div>
-							
-							<div class="col-sm-10">
-								
-								<h5>Sobre o Autor</h5>
-								
-								<ui:repeat var="author" value="#{blogDetailMB.currentBlog.author}">
-								
-								<p><h:outputText value="#{author.name}" /></p>
-								
-								<ul class="social">
-								
-									<ui:repeat var="social" value="#{author.medias}">
-								
-										<li><a href="#{social.url}">
-								
-										<i class="#{membersMB.whatSocialLink(social.url)}"></i></a></li>
-								
-									</ui:repeat>
-								
-								</ul>
-								
-								</ui:repeat>
-								
-								
-							</div>
-						</div>
+                                    <li class="col-xs-4 col-sm-3 col-lg-2">
 
-						<!-- AUTHOR END -->
+                                        <a href="#{picture}" class="fancybox"
+                                           data-fancybox-group="gallery" title="#{picture}">
 
-						<!-- PAGING START -->
+                                            <h:graphicImage name="200x200.jpg" library="placeholder"
+                                                            styleClass="img-responsive" alt=""/>
 
-						<ul id="paging">
-							<li class="pull-left"><a href="#" class="btn btn-primary"><i
-									class="fa fa-arrow-left"></i> Prev</a></li>
-							<li class="pull-right"><a href="#" class="btn btn-primary">Next
-									<i class="fa fa-arrow-right"></i>
-							</a></li>
-						</ul>
+                                        </a></li>
 
-						<!-- PAGING END -->
+                                </ui:repeat>
 
-						<hr />
 
-						<!-- COMMENTS START -->
+                            </ul>
 
-						<div class="row">
-							<div class="col-sm-12">
-								
-								<h2><h:outputText value="#{blogDetailMB.comments.size()}" /> Comentários</h2>
-								
-								<ul class="media-list">
-								
-								<ui:repeat var="comment" value="#{blogDetailMB.comments}">
-								
-									<li class="media">
-								
-									<a class="pull-left media-photo" href="#">
-										<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="media-object img-responsive img-circle" alt="" />
-									</a>
-											
-										<div class="media-body">
-											
-											<p class="media-heading">
-												<a href="#"><h:outputText value="#{comment.name}" />, <h:outputText value="#{comment.email}" /></a>
-												<a href="#" class="pull-right"><i class="fa fa-reply"></i> Comentar</a>
-											</p>
-								
-											<p><h:outputText value="#{comment.text}" /></p>											
 
-										</div></li>								
-																
-								</ui:repeat>							
-									
-								</ul>
-							</div>
-						</div>
+                            <blockquote><h:outputText value="#{blogDetailMB.currentBlog.citation}"/></blockquote>
 
-						<!-- COMMENTS END -->
 
-						<hr />
+                        </article>
 
-						<!-- COMMENT FORM START -->
+                        <!-- POSTS END -->
 
-						<h2>Deixe um Comentário</h2>
-						
-						<h:form role="form">
-							
-							<div class="row" data-scroll-reveal="">
-								
-								<div class="form-group col-sm-6">
-									<h:inputText value="#{blogDetailMB.name}" styleClass="form-control" id="input-comment-name" required="true" pt:placeholder="Nome" />									
-								</div>
-								
-								<div class="form-group col-sm-6">
-									<h:inputText value="#{blogDetailMB.email}" styleClass="form-control" pt:type="email" pt:placeholder="Email" required="true" id="input-comment-email" />									
-								</div>
-								
-							</div>
-							
-							<div class="row" data-scroll-reveal="">
-								<div class="form-group col-sm-12">
-									<h:inputTextarea value="#{blogDetailMB.text}" styleClass="form-control" rows="5" pt:placeholder="Comentário" required="required" />									
-								</div>
-							</div>
-							
-							<div class="row" data-scroll-reveal="">
-								<div class="form-group col-sm-12">
-									<h:commandButton action="#{blogDetailMB.saveComment()}" value="Enviar" styleClass="btn btn-primary" />									
-								</div>
-							</div>
-							
-						</h:form>
+                        <!-- SHARING START -->
 
-						<!-- COMMENTS FORM END -->
+                        <ul class="share">
 
-					</div>
+                            <li><h5>Compartilhe</h5></li>
 
-					<!-- SIDEBAR START -->
+                            <li>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u=#{applicationMB.appName}/job-details.xhtml">
+                                    <i class="fa fa-2x fa-facebook-square"></i></a></li>
+                            <li>
+                                <a href="https://twitter.com/home?status=http://#{applicationMB.appName}/job-details.xhtml">
+                                    <i class="fa fa-2x fa-twitter-square"></i></a></li>
+                            <li>
+                                <a href="https://plus.google.com/share?url=http://#{applicationMB.appName}/job-details.xhtml">
+                                    <i class="fa fa-2x fa-google-plus-square"></i></a></li>
+                            <li>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://#{applicationMB.appName}/job-details.xhtml&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source=">
+                                    <i class="fa fa-2x fa-linkedin-square"></i></a></li>
+                        </ul>
 
-					<div class="col-sm-4" id="sidebar">
+                        <!-- SHARING END -->
 
-						<div class="sidebar-links" id="categories">
-							<h5>
+                        <!-- TAGS START -->
+
+                        <ul class="tags">
+
+                            <li><i class="fa fa-tag"></i></li>
+
+                            <ui:repeat value="#{blogDetailMB.currentBlog.tags}" var="tag">
+                                <li><a href="#"><h:outputText value="#{tag}"/></a></li>
+                            </ui:repeat>
+
+                        </ul>
+
+                        <!-- TAGS END -->
+
+                        <!-- AUTHOR START -->
+
+                        <div id="author" class="row">
+                            <div class="col-sm-2">
+                                <h:graphicImage name="140x140.jpg" library="placeholder"
+                                                styleClass="img-responsive img-circle" alt=""/>
+                            </div>
+
+                            <div class="col-sm-10">
+
+                                <h5>Sobre o Autor</h5>
+
+                                <ui:repeat var="author" value="#{blogDetailMB.currentBlog.author}">
+
+                                    <p><h:outputText value="#{author.name}"/></p>
+
+                                    <ul class="social">
+
+                                        <ui:repeat var="social" value="#{author.medias}">
+
+                                            <li><a href="#{social.url}">
+
+                                                <i class="#{membersMB.whatSocialLink(social.url)}"></i></a></li>
+
+                                        </ui:repeat>
+
+                                    </ul>
+
+                                </ui:repeat>
+
+
+                            </div>
+                        </div>
+
+                        <!-- AUTHOR END -->
+
+                        <!-- PAGING START -->
+
+                        <ul id="paging">
+                            <li class="pull-left"><a href="#" class="btn btn-primary"><i
+                                    class="fa fa-arrow-left"></i> Prev</a></li>
+                            <li class="pull-right"><a href="#" class="btn btn-primary">Next
+                                <i class="fa fa-arrow-right"></i>
+                            </a></li>
+                        </ul>
+
+                        <!-- PAGING END -->
+
+                        <hr/>
+
+                        <!-- COMMENTS START -->
+
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <h2><h:outputText value="#{blogDetailMB.comments.size()}"/> Comentários</h2>
+
+                                <ul class="media-list">
+
+                                    <ui:repeat var="comment" value="#{blogDetailMB.comments}">
+
+                                        <li class="media">
+
+                                            <a class="pull-left media-photo" href="#">
+                                                <h:graphicImage name="60x60.jpg" library="placeholder"
+                                                                styleClass="media-object img-responsive img-circle"
+                                                                alt=""/>
+                                            </a>
+
+                                            <div class="media-body">
+
+                                                <p class="media-heading">
+                                                    <a href="#"><h:outputText value="#{comment.name}"/>, <h:outputText
+                                                            value="#{comment.email}"/></a>
+                                                    <a href="#" class="pull-right"><i class="fa fa-reply"></i> Comentar</a>
+                                                </p>
+
+                                                <p><h:outputText value="#{comment.text}"/></p>
+
+                                            </div>
+                                        </li>
+
+                                    </ui:repeat>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- COMMENTS END -->
+
+                        <hr/>
+
+                        <!-- COMMENT FORM START -->
+
+                        <h2>Deixe um Comentário</h2>
+
+                        <h:form role="form">
+
+                            <div class="row" data-scroll-reveal="">
+
+                                <div class="form-group col-sm-6">
+                                    <h:inputText value="#{blogDetailMB.name}" styleClass="form-control"
+                                                 id="input-comment-name" required="true" pt:placeholder="Nome"/>
+                                </div>
+
+                                <div class="form-group col-sm-6">
+                                    <h:inputText value="#{blogDetailMB.email}" styleClass="form-control" pt:type="email"
+                                                 pt:placeholder="Email" required="true" id="input-comment-email"/>
+                                </div>
+
+                            </div>
+
+                            <div class="row" data-scroll-reveal="">
+                                <div class="form-group col-sm-12">
+                                    <h:inputTextarea value="#{blogDetailMB.text}" styleClass="form-control" rows="5"
+                                                     pt:placeholder="Comentário" required="required"/>
+                                </div>
+                            </div>
+
+                            <div class="row" data-scroll-reveal="">
+                                <div class="form-group col-sm-12">
+                                    <h:commandButton action="#{blogDetailMB.saveComment()}" value="Enviar"
+                                                     styleClass="btn btn-primary"/>
+                                </div>
+                            </div>
+
+                        </h:form>
+
+                        <!-- COMMENTS FORM END -->
+
+                    </div>
+
+                    <!-- SIDEBAR START -->
+
+                    <div class="col-sm-4" id="sidebar">
+
+                        <div class="sidebar-links" id="categories">
+                            <h5>
 								<span class="fa-stack fa-lg"> <i
-									class="fa fa-circle fa-stack-2x"></i> <i
-									class="fa fa-folder fa-stack-1x fa-inverse"></i>
+                                        class="fa fa-circle fa-stack-2x"></i> <i
+                                        class="fa fa-folder fa-stack-1x fa-inverse"></i>
 								</span> Categorias
-							</h5>
-							
-							<ul>
-								
-								<ui:repeat var="cat" value="#{blogDetailMB.blogCategories}">
-									<li><a href="#"><h:outputText value="#{cat.name().toLowerCase()}" /></a></li>
-								</ui:repeat>
-								
-							</ul>
-							
-						</div>
+                            </h5>
 
-						<div class="sidebar-links" id="archives">
-							<h5>
+                            <ul>
+
+                                <ui:repeat var="cat" value="#{blogDetailMB.blogCategories}">
+                                    <li><a href="#"><h:outputText value="#{cat.name().toLowerCase()}"/></a></li>
+                                </ui:repeat>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="sidebar-links" id="archives">
+                            <h5>
 								<span class="fa-stack fa-lg"> <i
-									class="fa fa-circle fa-stack-2x"></i> <i
-									class="fa fa-archive fa-stack-1x fa-inverse"></i>
+                                        class="fa fa-circle fa-stack-2x"></i> <i
+                                        class="fa fa-archive fa-stack-1x fa-inverse"></i>
 								</span> Arquivos
-							</h5>
-							<ul>
-								<li><a href="#">April 2015</a></li>
-								<li><a href="#">March 2015</a></li>
-								<li><a href="#">February 2015</a></li>
-								<li><a href="#">January 2015</a></li>
-							</ul>
-						</div>
+                            </h5>
+                            <ul>
+                                <li><a href="#">April 2015</a></li>
+                                <li><a href="#">March 2015</a></li>
+                                <li><a href="#">February 2015</a></li>
+                                <li><a href="#">January 2015</a></li>
+                            </ul>
+                        </div>
 
-						<div class="sidebar-links" id="recent-posts">
-							<h5>
+                        <div class="sidebar-links" id="recent-posts">
+                            <h5>
 								<span class="fa-stack fa-lg"> <i
-									class="fa fa-circle fa-stack-2x"></i> <i
-									class="fa fa-flag fa-stack-1x fa-inverse"></i>
+                                        class="fa fa-circle fa-stack-2x"></i> <i
+                                        class="fa fa-flag fa-stack-1x fa-inverse"></i>
 								</span> Postagens Recentes
-							</h5>
-							<ul>
-								<li><a href="#"><span class="meta">28/04/2015 by
+                            </h5>
+                            <ul>
+                                <li><a href="#"><span class="meta">28/04/2015 by
 											Susie Johnson</span>Lorem ipsum dolor sit amet, consectetur
-										adipiscing elit.</a></li>
-								<li><a href="#"><span class="meta">26/04/2015 by
+                                    adipiscing elit.</a></li>
+                                <li><a href="#"><span class="meta">26/04/2015 by
 											Matt Berry</span>Proin eu erat tincidunt, scelerisque ipsum non,
-										fringilla dolor.</a></li>
-								<li><a href="#"><span class="meta">24/04/2015 by
+                                    fringilla dolor.</a></li>
+                                <li><a href="#"><span class="meta">24/04/2015 by
 											Spencer Conner</span>Quisque interdum congue tellus. Aliquam vel
-										odio sit amet ex laoreet finibus.</a></li>
-								<li><a href="#"><span class="meta">22/04/2015 by
+                                    odio sit amet ex laoreet finibus.</a></li>
+                                <li><a href="#"><span class="meta">22/04/2015 by
 											Nadine Carlson</span>Etiam commodo purus tortor, sed interdum justo
-										faucibus vitae.</a></li>
-							</ul>
-						</div>
+                                    faucibus vitae.</a></li>
+                            </ul>
+                        </div>
 
-						<div class="sidebar-links" id="recent-comments">
-							<h5>
+                        <div class="sidebar-links" id="recent-comments">
+                            <h5>
 								<span class="fa-stack fa-lg"> <i
-									class="fa fa-circle fa-stack-2x"></i> <i
-									class="fa fa-flag fa-stack-1x fa-inverse"></i>
+                                        class="fa fa-circle fa-stack-2x"></i> <i
+                                        class="fa fa-flag fa-stack-1x fa-inverse"></i>
 								</span> Comentários Recentes
-							</h5>
-							<ul>
-								<li><a href="#"><span class="meta">Susie Johnson
+                            </h5>
+                            <ul>
+                                <li><a href="#"><span class="meta">Susie Johnson
 											on</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</a></li>
-								<li><a href="#"><span class="meta">Matt Berry on</span>Proin
-										eu erat tincidunt, scelerisque ipsum non, fringilla dolor.</a></li>
-								<li><a href="#"><span class="meta">Spencer
+                                <li><a href="#"><span class="meta">Matt Berry on</span>Proin
+                                    eu erat tincidunt, scelerisque ipsum non, fringilla dolor.</a></li>
+                                <li><a href="#"><span class="meta">Spencer
 											Conner on</span>Quisque interdum congue tellus. Aliquam vel odio sit
-										amet ex laoreet finibus.</a></li>
-								<li><a href="#"><span class="meta">Nadine
+                                    amet ex laoreet finibus.</a></li>
+                                <li><a href="#"><span class="meta">Nadine
 											Carlson on</span>Etiam commodo purus tortor, sed interdum justo
-										faucibus vitae.</a></li>
-							</ul>
-						</div>
+                                    faucibus vitae.</a></li>
+                            </ul>
+                        </div>
 
-					</div>
+                    </div>
 
-					<!-- SIDEBAR END -->
+                    <!-- SIDEBAR END -->
 
-				</div>
-			</div>
-		</section>
+                </div>
+            </div>
+        </section>
 
-		<!-- ============ CONTENT END ============ -->
+        <!-- ============ CONTENT END ============ -->
 
-	</ui:define>
+    </ui:define>
 
 </ui:composition>
 </html>

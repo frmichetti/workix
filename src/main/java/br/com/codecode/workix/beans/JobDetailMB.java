@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 
 /**
  * Job Detail ManagedBean
+ *
  * @author felipe
  * @see BaseMB
  */
@@ -35,10 +36,10 @@ public class JobDetailMB extends BaseMB {
     @Factory
     @Default
     private FacesContext facesContext;
-    
+
     private long id;
 
-    
+
     private List<Job> jobs;
 
     @Inject
@@ -47,11 +48,15 @@ public class JobDetailMB extends BaseMB {
     private String prefix, sufix;
 
     public Job getCurrentJob() {
-	return currentJob;
+        return currentJob;
     }
 
     public long getId() {
-	return id;
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     /**
@@ -63,15 +68,15 @@ public class JobDetailMB extends BaseMB {
 
     private String goToErrorPage() {
 
-	try {
+        try {
 
-	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+            facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
-	return prefix + "/404.xhtml" + sufix;
+            e.printStackTrace();
+        }
+        return prefix + "/404.xhtml" + sufix;
     }
 
     /**
@@ -80,46 +85,42 @@ public class JobDetailMB extends BaseMB {
     @Override
     public void init() {
 
-	prefix = facesContext.getExternalContext().getRequestContextPath();
+        prefix = facesContext.getExternalContext().getRequestContextPath();
 
-	sufix = "?faces-redirect=true";
+        sufix = "?faces-redirect=true";
 
-	System.out.println("JOB ID RECEIVED -> " + id);
+        System.out.println("JOB ID RECEIVED -> " + id);
 
-	if (id < 1)
-	    goToErrorPage();
-	else
+        if (id < 1)
+            goToErrorPage();
+        else
 
-	    try {
+            try {
 
-		currentJob = dao.findById(id);
-		
-		jobs = dao.listAll(0, Integer.MAX_VALUE)
-			.stream()
-			.filter(j -> j.getCompany() == currentJob.getCompany())
-			.filter(j -> j.getId() != currentJob.getId())			
-			.collect(Collectors.toList());
+                currentJob = dao.findById(id);
 
-	    } catch (NotImplementedYetException | NoResultException e) {
+                jobs = dao.listAll(0, Integer.MAX_VALUE)
+                        .stream()
+                        .filter(j -> j.getCompany() == currentJob.getCompany())
+                        .filter(j -> j.getId() != currentJob.getId())
+                        .collect(Collectors.toList());
 
-		e.printStackTrace();
+            } catch (NotImplementedYetException | NoResultException e) {
 
-		goToErrorPage();
+                e.printStackTrace();
 
-	    }
+                goToErrorPage();
+
+            }
 
         if (currentJob == null) {
-	    goToErrorPage();
-	}
+            goToErrorPage();
+        }
 
-    }
-
-    public void setId(long id) {
-	this.id = id;
     }
 
     public void signup() {
-	messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
+        messagesHelper.addFlash(new FacesMessage("Você foi inscrito com Sucesso !"));
 
     }
 

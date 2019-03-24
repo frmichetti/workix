@@ -13,18 +13,19 @@ import java.util.Calendar;
  * To use:
  * <code>
  * .registerModule(new SimpleModule()
-			.addSerializer(Calendar.class, new CalendarSerializer()))</code>
+ * .addSerializer(Calendar.class, new CalendarSerializer()))</code>
+ *
+ * @author felipe
+ * @version 1.0
  * @see JAXRSConfiguration
  * @see JAXRSContextResolver
- * @author felipe
  * @since 1.0
- * @version 1.0
  */
 class CalendarSerializer extends JsonSerializer<Calendar> {
 
 
     @Override
     public void serialize(Calendar value, JsonGenerator gen, SerializerProvider serializers) {
-	
+
     }
 }

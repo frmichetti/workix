@@ -12,12 +12,12 @@ import javax.mail.Session;
 
 /**
  * Mail Session Producer
- * 
+ *
+ * @author felipe
+ * @version 1.0
  * @see Produces
  * @see Session
- * @author felipe
  * @since 1.0
- * @version 1.0
  */
 @ApplicationScoped
 public class MailSessionProducer {
@@ -30,7 +30,7 @@ public class MailSessionProducer {
 
     /**
      * Produces Session for {@link MailSender} use in CDI Injection Points
-     * 
+     *
      * @return Session Instance for {@link MailSender}
      */
     @Produces
@@ -38,12 +38,12 @@ public class MailSessionProducer {
     @Factory
     @Gmail
     public Session getSessionGmail() {
-	return sessionGmail;
+        return sessionGmail;
     }
 
     /**
      * Produces Session for {@link MailSender} use in CDI Injection Points
-     * 
+     *
      * @return Session Instance for {@link MailSender}
      */
 //    @Produces

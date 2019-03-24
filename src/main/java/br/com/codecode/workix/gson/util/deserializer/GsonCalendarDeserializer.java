@@ -15,76 +15,76 @@ import java.util.Date;
  * Simple Calendar Deserializer for Gson <br>
  * Register in GsonBuilder <br>
  * Example:<br>
- * <code>new GsonBuilder()			
- *	.registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())			
- *	.create();
- *	</code>
- * 
+ * <code>new GsonBuilder()
+ * .registerTypeAdapter(Calendar.class, new GsonCalendarDeserializer())
+ * .create();
+ * </code>
+ *
  * @author felipe
  */
 public class GsonCalendarDeserializer implements JsonDeserializer<Calendar> {
-    
+
     @Override
     public Calendar deserialize(JsonElement json, Type type, JsonDeserializationContext context)
-	    throws JsonParseException {
+            throws JsonParseException {
 
-	if (json.isJsonObject()) {
+        if (json.isJsonObject()) {
 
-	    int year = getInt("year", json);
+            int year = getInt("year", json);
 
-	    int month = getInt("month", json);
+            int month = getInt("month", json);
 
-	    int dayOfMonth = getInt("dayOfMonth", json);
+            int dayOfMonth = getInt("dayOfMonth", json);
 
-	    int hourOfDay = getInt("hourOfDay", json);
+            int hourOfDay = getInt("hourOfDay", json);
 
-	    int minute = getInt("minute", json);
+            int minute = getInt("minute", json);
 
-	    int second = getInt("second", json);
+            int second = getInt("second", json);
 
-	    Calendar c = Calendar.getInstance();
+            Calendar c = Calendar.getInstance();
 
-	    c.set(year, month, dayOfMonth, hourOfDay, minute, second);
+            c.set(year, month, dayOfMonth, hourOfDay, minute, second);
 
-	    return c;
+            return c;
 
-	} else if (json.isJsonPrimitive()) {
+        } else if (json.isJsonPrimitive()) {
 
-	    String dateRaw = json.getAsString();
+            String dateRaw = json.getAsString();
 
-	    Calendar c = Calendar.getInstance();
+            Calendar c = Calendar.getInstance();
 
-	    Date d = null;
+            Date d = null;
 
-	    try {
+            try {
 
-		/**
-		 * attempt for DateFormat
-		 * 
-		 * 
-		 * @return
-		 */
-		if(dateRaw.length() == 10)
-		    d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
-		else
-		    d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS").parse(dateRaw);
-	    } catch (ParseException e) {
+                /**
+                 * attempt for DateFormat
+                 *
+                 *
+                 * @return
+                 */
+                if (dateRaw.length() == 10)
+                    d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
+                else
+                    d = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS").parse(dateRaw);
+            } catch (ParseException e) {
 
-		e.printStackTrace();
-	    }
+                e.printStackTrace();
+            }
 
-	    c.setTime(d);
+            c.setTime(d);
 
-	    return c;
+            return c;
 
-	} else
-	    throw new JsonParseException("Cannot Parse Json Object");
+        } else
+            throw new JsonParseException("Cannot Parse Json Object");
 
     }
 
     private int getInt(String name, JsonElement element) {
 
-	return element.getAsJsonObject().get(name).getAsInt();
+        return element.getAsJsonObject().get(name).getAsInt();
 
     }
 

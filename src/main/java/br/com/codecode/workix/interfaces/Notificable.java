@@ -2,10 +2,10 @@ package br.com.codecode.workix.interfaces;
 
 /**
  * Markup Interface for Notificable Objects
- * 
+ *
  * @author felipe
- * @since 1.1
  * @version 1.1
+ * @since 1.1
  */
 public interface Notificable {
 
@@ -15,24 +15,24 @@ public interface Notificable {
     String getEmail();
 
     /**
-     * @return the Firebase Message Token
-     */
-    String getFirebaseMessageToken();
-
-    /**
-     * @return the Firebase UUID
-     */
-    String getFirebaseUUID();
-
-    /**
      * @param email define the Email
      */
     void setEmail(String email);
 
     /**
+     * @return the Firebase Message Token
+     */
+    String getFirebaseMessageToken();
+
+    /**
      * @param firebaseMessageToken define the Firebase Message Token
      */
     void setFirebaseMessageToken(String firebaseMessageToken);
+
+    /**
+     * @return the Firebase UUID
+     */
+    String getFirebaseUUID();
 
     /**
      * @param firebaseUUID define the Firebase UUID

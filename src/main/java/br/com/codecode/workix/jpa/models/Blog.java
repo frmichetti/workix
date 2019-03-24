@@ -16,10 +16,11 @@ import java.util.*;
 /**
  * Blog JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
- * @see MyEntity
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @see MyEntity
+ * @since 1.0
  */
 @Entity
 @XmlRootElement
@@ -27,314 +28,311 @@ import java.util.*;
 @Persist
 public class Blog extends MyEntity {
 
-	private static final long serialVersionUID = -5273926504177459295L;
+    private static final long serialVersionUID = -5273926504177459295L;
 
-	private Author author;
+    private Author author;
 
-	private BlogCategory category;
+    private BlogCategory category;
 
-	private String citation;
+    private String citation;
 
-	private String content;
+    private String content;
 
-	private Date publishDate;
+    private Date publishDate;
 
-	private long id;
+    private long id;
 
-	private Set<String> pictures;
+    private Set<String> pictures;
 
-	private String resume;
+    private String resume;
 
-	private Set<Tag> tags;
+    private Set<Tag> tags;
 
-	private String title;
+    private String title;
 
-	/**
-	 * Public Default Constructor for JPA Compatibility Only
-	 */
-	public Blog(){}
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Blog() {
+    }
 
-	/**
-	 * Public Constructor for {@link Builder} Compatibility
-	 *
-	 * @see Buildable
-	 * @param builder
-	 *            Builder for Generate a New Blog
-	 */
-	private Blog(Builder builder) {
-		this.author = builder.getAuthor();
-		this.category = builder.getCategory();
-		this.citation = builder.getCitation();
-		this.content = builder.getContent();
-		this.publishDate = builder.getPublishDate();
-		this.pictures = builder.getPictures();
-		this.resume = builder.getResume();
-		this.tags = builder.getTags();
-		this.title = builder.getTitle();
-	}
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     *
+     * @param builder Builder for Generate a New Blog
+     * @see Buildable
+     */
+    private Blog(Builder builder) {
+        this.author = builder.getAuthor();
+        this.category = builder.getCategory();
+        this.citation = builder.getCitation();
+        this.content = builder.getContent();
+        this.publishDate = builder.getPublishDate();
+        this.pictures = builder.getPictures();
+        this.resume = builder.getResume();
+        this.tags = builder.getTags();
+        this.title = builder.getTitle();
+    }
 
-	/**
-	 * Creates builder to build {@link Blog}.
-	 * @return created builder
-	 */
-	@XmlTransient
-	public static Builder builder() {
-		return new Builder();
-	}
+    /**
+     * Creates builder to build {@link Blog}.
+     *
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+        return new Builder();
+    }
 
-	public void addPicture(String picture){
-		if(pictures == null){
-			pictures = new HashSet<>();
-		}
+    public void addPicture(String picture) {
+        if (pictures == null) {
+            pictures = new HashSet<>();
+        }
 
-		pictures.add(picture);
-	}
+        pictures.add(picture);
+    }
 
-	public void addTag(Tag tag){
-		if(tags == null){
-			tags = new HashSet<>();
-		}
-		tags.add(tag);
-	}
+    public void addTag(Tag tag) {
+        if (tags == null) {
+            tags = new HashSet<>();
+        }
+        tags.add(tag);
+    }
 
-	/**
-	 * @return the author
-	 */
-	@NotNull
-	@ManyToOne(fetch= FetchType.EAGER)
-	public Author getAuthor() {
-		return author;
-	}
+    /**
+     * @return the author
+     */
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    public Author getAuthor() {
+        return author;
+    }
 
+    /**
+     * @param author the author to set
+     */
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
 
-	/**
-	 * @return the blogCategory
-	 */
-	@Enumerated(EnumType.STRING)
-	public BlogCategory getCategory() {
-		return category;
-	}
+    /**
+     * @return the blogCategory
+     */
+    @Enumerated(EnumType.STRING)
+    public BlogCategory getCategory() {
+        return category;
+    }
 
-	/**
-	 * @return the citation
-	 */
-	@Column
-	@Lob
-	public String getCitation() {
-		return citation;
-	}
+    /**
+     * @param blogCategory the blogCategory to set
+     */
+    public void setCategory(BlogCategory blogCategory) {
+        this.category = blogCategory;
+    }
 
-	/**
-	 * @return the content
-	 */
-	@Column
-	@Lob
-	public String getContent() {
-		return content;
-	}
+    /**
+     * @return the citation
+     */
+    @Column
+    @Lob
+    public String getCitation() {
+        return citation;
+    }
 
-	/**
-	 * @return the date
-	 */
-	@Temporal(TemporalType.DATE)
-	@Column
-	public Date getPublishDate() {
-		return publishDate;
-	}
+    /**
+     * @param citation the citation to set
+     */
+    public void setCitation(String citation) {
+        this.citation = citation;
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
-	@Override
-	public long getId() {
-		return id;
-	}
+    /**
+     * @return the content
+     */
+    @Column
+    @Lob
+    public String getContent() {
+        return content;
+    }
 
-	/**
-	 * @return the pictures
-	 */
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
-	public Set<String> getPictures() {
-		return pictures;
-	}
+    /**
+     * @param content the content to set
+     */
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	@Transient
-	public List<String> getPicturesAsList(){
-		return new ArrayList<>(getPictures());
-	}
+    /**
+     * @return the date
+     */
+    @Temporal(TemporalType.DATE)
+    @Column
+    public Date getPublishDate() {
+        return publishDate;
+    }
 
+    /**
+     * @param date the date to set
+     */
+    public void setPublishDate(Date date) {
+        this.publishDate = date;
+    }
 
-	/**
-	 * @return the resume
-	 */
-	@Column
-	@Lob
-	public String getResume() {
-		return resume;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+        return id;
+    }
 
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	/**
-	 * @return the tags
-	 */
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Blog_Tags", joinColumns = @JoinColumn(name = "id"))
-	public Set<Tag> getTags() {
-		return tags;
-	}
+    /**
+     * @return the pictures
+     */
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
+    public Set<String> getPictures() {
+        return pictures;
+    }
 
-	@Column
-	public String getTitle() {
-		return title;
-	}
+    /**
+     * @param pictures the pictures to set
+     */
+    public void setPictures(Set<String> pictures) {
+        this.pictures = pictures;
+    }
 
-	public void removePicture(String picture){
-		if(pictures == null){
-			pictures = new HashSet<>();
-		}
+    @Transient
+    public List<String> getPicturesAsList() {
+        return new ArrayList<>(getPictures());
+    }
 
-		pictures.remove(picture);
-	}
+    /**
+     * @return the resume
+     */
+    @Column
+    @Lob
+    public String getResume() {
+        return resume;
+    }
 
-	public void removeTag(Tag tag){
-		if(tags == null){
-			tags = new HashSet<>();
-		}
-		tags.remove(tag);
-	}
+    /**
+     * @param resume the resume to set
+     */
+    public void setResume(String resume) {
+        this.resume = resume;
+    }
 
-	/**
-	 * @param author the author to set
-	 */
-	public void setAuthor(Author author) {
-		this.author = author;
-	}
+    /**
+     * @return the tags
+     */
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "Blog_Tags", joinColumns = @JoinColumn(name = "id"))
+    public Set<Tag> getTags() {
+        return tags;
+    }
 
-	/**
-	 * @param blogCategory the blogCategory to set
-	 */
-	public void setCategory(BlogCategory blogCategory) {
-		this.category = blogCategory;
-	}
+    /**
+     * @param tags the tags to set
+     */
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
 
+    @Column
+    public String getTitle() {
+        return title;
+    }
 
-	/**
-	 * @param citation the citation to set
-	 */
-	public void setCitation(String citation) {
-		this.citation = citation;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
+    public void removePicture(String picture) {
+        if (pictures == null) {
+            pictures = new HashSet<>();
+        }
 
-	/**
-	 * @param content the content to set
-	 */
-	public void setContent(String content) {
-		this.content = content;
-	}
+        pictures.remove(picture);
+    }
 
-	/**
-	 * @param date the date to set
-	 */
-	public void setPublishDate(Date date) {
-		this.publishDate = date;
-	}
+    public void removeTag(Tag tag) {
+        if (tags == null) {
+            tags = new HashSet<>();
+        }
+        tags.remove(tag);
+    }
 
-	@Override
-	public void setId(long id) {
-		this.id = id;
-	}
+    /**
+     * Builder to build {@link Blog}.
+     */
+    public static final class Builder extends Blog implements Buildable<Blog> {
 
-	/**
-	 * @param pictures the pictures to set
-	 */
-	public void setPictures(Set<String> pictures) {
-		this.pictures = pictures;
-	}
+        private static final long serialVersionUID = -6727265310553560126L;
 
-	/**
-	 * @param resume the resume to set
-	 */
-	public void setResume(String resume) {
-		this.resume = resume;
-	}
+        /**
+         * Disabled Empty Constructor
+         */
+        private Builder() {
+        }
 
-	/**
-	 * @param tags the tags to set
-	 */
-	public void setTags(Set<Tag> tags) {
-		this.tags = tags;
-	}
+        /**
+         * @return a new Blog
+         */
+        @Override
+        public Blog build() {
+            return new Blog(this);
+        }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+        public Builder withAuthor(Author author) {
+            super.author = author;
+            return this;
+        }
 
-	/**
-	 * Builder to build {@link Blog}.
-	 */
-	public static final class Builder extends Blog implements Buildable<Blog> {
+        public Builder withBlogCategory(BlogCategory category) {
+            super.category = category;
+            return this;
+        }
 
-		private static final long serialVersionUID = -6727265310553560126L;
+        public Builder withCitation(String citation) {
+            super.citation = citation;
+            return this;
+        }
 
-		/**
-		 * Disabled Empty Constructor
-		 */
-		private Builder() {}
+        public Builder withContent(String content) {
+            super.content = content;
+            return this;
+        }
 
-		/**
-		 * @return a new Blog
-		 */
-		@Override
-		public Blog build() {
-			return new Blog(this);
-		}
+        public Builder withDate(Date date) {
+            super.publishDate = new Date();
+            return this;
+        }
 
-		public Builder withAuthor(Author author) {
-			super.author = author;
-			return this;
-		}
+        public Builder withPictures(Set<String> pictures) {
+            super.pictures = pictures;
+            return this;
+        }
 
-		public Builder withBlogCategory(BlogCategory category) {
-			super.category = category;
-			return this;
-		}
+        public Builder withResume(String resume) {
+            super.resume = resume;
+            return this;
+        }
 
-		public Builder withCitation(String citation) {
-			super.citation = citation;
-			return this;
-		}
+        public Builder withTags(Set<Tag> tags) {
+            super.tags = tags;
+            return this;
+        }
 
-		public Builder withContent(String content) {
-			super.content = content;
-			return this;
-		}
-
-		public Builder withDate(Date date) {
-			super.publishDate = new Date();
-			return this;
-		}
-
-		public Builder withPictures(Set<String> pictures) {
-			super.pictures = pictures;
-			return this;
-		}
-
-		public Builder withResume(String resume) {
-			super.resume = resume;
-			return this;
-		}
-
-		public Builder withTags(Set<Tag> tags) {
-			super.tags = tags;
-			return this;
-		}
-
-		public Builder withTitle(String title) {
-			super.title = title;
-			return this;
-		}
-	}
+        public Builder withTitle(String title) {
+            super.title = title;
+            return this;
+        }
+    }
 
 }

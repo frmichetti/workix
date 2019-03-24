@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 
 
 public class TestGetandSet {
-    
+
     private NovaClasse n;
 
     @BeforeClass
@@ -18,15 +18,15 @@ public class TestGetandSet {
     @SuppressWarnings("static-access")
     @Before
     public void setUp() {
-	
-	n = n.builder().cpf(123456789).nome("felipe").idade(28).build();
-	
+
+        n = n.builder().cpf(123456789).nome("felipe").idade(28).build();
+
     }
 
     @Test
     public void test() {
-	assertNotNull(n);
-	
+        assertNotNull(n);
+
     }
 
 }

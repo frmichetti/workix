@@ -12,63 +12,63 @@ import java.util.List;
 
 /**
  * Mockup Class for Demonstration Only
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
  * @see BaseDaoMockup
  * @see Crud
+ * @since 1.0
  */
 @Mockup
 public class CompanyDaoMockup extends BaseDaoMockup implements Crud<Company> {
 
-   
+
     private static final long serialVersionUID = 8018323736641984258L;
 
     @Override
     public void save(Company entity) {
-	messagesHelper.addFlash(new FacesMessage(TITLE, entity.getName() + SAVEMESSAGE));
+        messagesHelper.addFlash(new FacesMessage(TITLE, entity.getName() + SAVEMESSAGE));
 
     }
 
     @Override
     public Company update(Company entity) {
-	messagesHelper.addFlash(new FacesMessage(TITLE, entity.getName() + UPDATEMESSAGE));
-	return entity;
+        messagesHelper.addFlash(new FacesMessage(TITLE, entity.getName() + UPDATEMESSAGE));
+        return entity;
     }
 
     @Override
     public void deleteById(long id) throws NotImplementedYetException {
-	throw new NotImplementedYetException();
+        throw new NotImplementedYetException();
 
     }
 
     @Override
     public Company findById(long id) throws NotImplementedYetException {
-	throw new NotImplementedYetException();
+        throw new NotImplementedYetException();
     }
 
     @Override
     public List<Company> listAll(int start, int end) {
-	TypedQuery<Company> findAllQuery = em.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
-		Company.class);
+        TypedQuery<Company> findAllQuery = em.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
+                Company.class);
 
-	findAllQuery.setFirstResult(start);
+        findAllQuery.setFirstResult(start);
 
-	findAllQuery.setMaxResults(end);
+        findAllQuery.setMaxResults(end);
 
-	return findAllQuery.getResultList();
+        return findAllQuery.getResultList();
     }
 
     @Override
     public BigInteger countRegisters() {
-	return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Company.class.getSimpleName())
-		.getSingleResult();
+        return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Company.class.getSimpleName())
+                .getSingleResult();
     }
 
     @Override
     public Company findByUuid(String uuid) throws NotImplementedYetException {
-	throw new NotImplementedYetException();
+        throw new NotImplementedYetException();
     }
 
 }

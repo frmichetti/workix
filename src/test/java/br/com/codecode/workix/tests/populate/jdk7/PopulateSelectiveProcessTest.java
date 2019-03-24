@@ -16,10 +16,10 @@ import static org.junit.Assert.*;
 
 /**
  * Populate DB with Selective Processes
- * 
- * @since 1.0
- * @version 1.0
+ *
  * @author felipe
+ * @version 1.0
+ * @since 1.0
  */
 public class PopulateSelectiveProcessTest extends BaseTest implements CommonPopTest<SelectiveProcess> {
 
@@ -34,52 +34,52 @@ public class PopulateSelectiveProcessTest extends BaseTest implements CommonPopT
     @Before
     public void downloadJobs() {
 
-	System.out.println("[downloadJobs]");
+        System.out.println("[downloadJobs]");
 
-	resp = HttpTest.sendGet(server + "/jobs");
+        resp = HttpTest.sendGet(server + "/jobs");
 
-	jobs = getGson().fromJson(resp, new TypeToken<List<Job>>() {
-	}.getType());
+        jobs = getGson().fromJson(resp, new TypeToken<List<Job>>() {
+        }.getType());
 
-	assertNotNull(jobs);
+        assertNotNull(jobs);
 
-	assertTrue(jobs.size() > 0);
+        assertTrue(jobs.size() > 0);
 
     }
 
     @Override
     public void addToList(SelectiveProcess selectiveProcess) {
 
-	assertNotNull(selectiveProcess);
+        assertNotNull(selectiveProcess);
 
-	assertNotNull(processes);
+        assertNotNull(processes);
 
-	System.out.println("[addToList]" + selectiveProcess.getJob().getTitle());
+        System.out.println("[addToList]" + selectiveProcess.getJob().getTitle());
 
-	processes.add(selectiveProcess);
+        processes.add(selectiveProcess);
     }
 
     @Override
     public void create() {
 
-	assertNotNull(jobs);
+        assertNotNull(jobs);
 
-	assertTrue(jobs.size() > 0);
+        assertTrue(jobs.size() > 0);
 
-	processes = new ArrayList<>();
+        processes = new ArrayList<>();
 
-	for (int x = 0; x < howManyProcesses; x++) {
+        for (int x = 0; x < howManyProcesses; x++) {
 
-	    SelectiveProcess sp = new SelectiveProcess();
+            SelectiveProcess sp = new SelectiveProcess();
 
-	    sp.setJob(jobs.get(x));
+            sp.setJob(jobs.get(x));
 
-	    sp.setMaxCandidates(1);
+            sp.setMaxCandidates(1);
 
-	    addToList(sp);
-	}
+            addToList(sp);
+        }
 
-	assertEquals(50, processes.size());
+        assertEquals(50, processes.size());
 
     }
 
@@ -87,21 +87,21 @@ public class PopulateSelectiveProcessTest extends BaseTest implements CommonPopT
     @Override
     public void sendToServer() {
 
-	create();
+        create();
 
-	assertNotNull(jobs);
+        assertNotNull(jobs);
 
-	assertTrue(jobs.size() > 0);
+        assertTrue(jobs.size() > 0);
 
-	processes.forEach(p -> {
+        processes.forEach(p -> {
 
-	    System.out.println("[sendToServer] " + p.getJob().getTitle());
+            System.out.println("[sendToServer] " + p.getJob().getTitle());
 
-	    resp = HttpTest.sendPost(server + "/selectiveprocesses", getGson().toJson(p));
+            resp = HttpTest.sendPost(server + "/selectiveprocesses", getGson().toJson(p));
 
-	    assertNotNull(resp);
+            assertNotNull(resp);
 
-	});
+        });
 
     }
 

@@ -15,10 +15,11 @@ import java.util.List;
 /**
  * Author JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
+ * @version 1.1
  * @see MyEntity
  * @since 1.0
- * @version 1.1
  */
 @Entity
 @XmlRootElement
@@ -41,14 +42,14 @@ public class Author extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Author(){}
+    public Author() {
+    }
 
     /**
      * Public Constructor for {@link Builder} Compatibility
      *
+     * @param builder Builder for Generate a New Author
      * @see Buildable
-     * @param builder
-     *            Builder for Generate a New Author
      */
     private Author(Builder builder) {
         this.id = builder.getId();
@@ -60,6 +61,7 @@ public class Author extends MyEntity {
 
     /**
      * Creates builder to build {@link Author}.
+     *
      * @return created builder
      */
     public static Builder builder() {
@@ -68,10 +70,11 @@ public class Author extends MyEntity {
 
     /**
      * Add Social Media
+     *
      * @param socialMedia Url for Social Media
      */
-    public void addSocialMedia(SocialMedia socialMedia){
-        if(medias == null){
+    public void addSocialMedia(SocialMedia socialMedia) {
+        if (medias == null) {
             medias = new ArrayList<>();
         }
 
@@ -88,6 +91,13 @@ public class Author extends MyEntity {
     }
 
     /**
+     * @param aboutText the aboutText to set
+     */
+    public void setAboutText(String aboutText) {
+        this.aboutText = aboutText;
+    }
+
+    /**
      * @return the id
      */
     @Id
@@ -96,6 +106,11 @@ public class Author extends MyEntity {
     @Override
     public long getId() {
         return id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     /**
@@ -108,12 +123,26 @@ public class Author extends MyEntity {
     }
 
     /**
+     * @param medias the medias to set
+     */
+    public void setMedias(List<SocialMedia> medias) {
+        this.medias = medias;
+    }
+
+    /**
      * @return the name
      */
     @NotEmpty
     @Column
     public String getName() {
         return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -125,61 +154,38 @@ public class Author extends MyEntity {
     }
 
     /**
-     * Remove Social Media
-     * @param socialMedia Url for Social Media
-     */
-    public void removeSocialMedia(SocialMedia socialMedia){
-        if(medias == null){
-            medias = new ArrayList<>();
-        }
-        medias.remove(socialMedia);
-    }
-
-    /**
-     * @param aboutText
-     *            the aboutText to set
-     */
-    public void setAboutText(String aboutText) {
-        this.aboutText = aboutText;
-    }
-
-    @Override
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    /**
-     * @param medias
-     *            the medias to set
-     */
-    public void setMedias(List<SocialMedia> medias) {
-        this.medias = medias;
-    }
-
-    /**
-     * @param name
-     *            the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @param picture
-     *            the picture to set
+     * @param picture the picture to set
      */
     public void setPicture(String picture) {
         this.picture = picture;
     }
 
     /**
+     * Remove Social Media
+     *
+     * @param socialMedia Url for Social Media
+     */
+    public void removeSocialMedia(SocialMedia socialMedia) {
+        if (medias == null) {
+            medias = new ArrayList<>();
+        }
+        medias.remove(socialMedia);
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    /**
      * Builder to build {@link Author}.
      */
-    public static final class Builder  extends Author implements Buildable<Author>{
+    public static final class Builder extends Author implements Buildable<Author> {
 
         private static final long serialVersionUID = -8399508111893300657L;
 
-        private Builder() {}
+        private Builder() {
+        }
 
         public Author build() {
             return new Author(this);
@@ -204,11 +210,6 @@ public class Author extends MyEntity {
             super.picture = picture;
             return this;
         }
-    }
-
-    @Override
-    public String toString() {
-        return name;
     }
 
 }

@@ -23,8 +23,8 @@ import static org.junit.Assert.assertNotNull;
  * Populate DB with Authors
  *
  * @author felipe
- * @since 1.1
  * @version 1.0
+ * @since 1.1
  */
 public class PopulateAuthorTest extends BaseTest implements CommonPopTest<Author> {
 

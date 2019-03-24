@@ -11,9 +11,9 @@ import javax.inject.Inject;
  * This ManagedBean controls Search on HeaderPage
  *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class SearchMB extends BaseMB {
@@ -29,17 +29,17 @@ public class SearchMB extends BaseMB {
     }
 
     public void doFind() {
-	if (!query.equals("")) {
-	    messagesHelper.addFlash(new FacesMessage("Looking for " + query));
-	}
+        if (!query.equals("")) {
+            messagesHelper.addFlash(new FacesMessage("Looking for " + query));
+        }
     }
 
     public String getQuery() {
-	return query;
+        return query;
     }
 
     public void setQuery(String query) {
-	this.query = query;
+        this.query = query;
     }
 
 }

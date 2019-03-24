@@ -3,12 +3,13 @@ package br.com.codecode.workix.jpa.models.jdk7;
 import br.com.codecode.workix.interfaces.Buildable;
 
 /**
- * Company JPA with Inherited Fields and Methods 
+ * Company JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
- * @see Person
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @see Person
+ * @since 1.0
  */
 public class Company extends Person {
 
@@ -23,148 +24,150 @@ public class Company extends Person {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Company(){}
+    public Company() {
+    }
 
     /**
      * Public Constructor for {@link Builder} Compatibility
-     * 
+     *
+     * @param builder Builder for Generate a New Company
      * @see Buildable
-     * @param builder
-     *            Builder for Generate a New Company
      */
-    private Company(Builder builder) {	
-	this.cnpj = builder.getCnpj();
-	this.segment = builder.getSegment();
-	this.setName(builder.getName());	
-	this.setContact(builder.getContact());
-	this.setLocale(builder.getLocale());
-	this.setUser(builder.getUser());	
+    private Company(Builder builder) {
+        this.cnpj = builder.getCnpj();
+        this.segment = builder.getSegment();
+        this.setName(builder.getName());
+        this.setContact(builder.getContact());
+        this.setLocale(builder.getLocale());
+        this.setUser(builder.getUser());
     }
 
     /**
      * Creates builder to build {@link Company}.
+     *
      * @return created builder
      */
     public static Builder builder() {
-	return new Builder();
+        return new Builder();
     }
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj)
-	    return true;
-	if (obj == null)
-	    return false;
-	if (!(obj instanceof Company))
-	    return false;
-	Company other = (Company) obj;
-	if (id != other.id)
-	    return false;
-	return true;
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (!(obj instanceof Company))
+            return false;
+        Company other = (Company) obj;
+        if (id != other.id)
+            return false;
+        return true;
     }
 
     public long getCnpj() {
-	return cnpj;
+        return cnpj;
+    }
+
+    public void setCnpj(long cnpj) {
+        this.cnpj = cnpj;
     }
 
     /**
      * @return the description
      */
     public String getDescription() {
-	return description;
-    }
-
-    @Override
-    public long getId() {
-	return this.id;
-    }
-    
-    public String getSegment() {
-	return segment;
-    }
-
-    @Override
-    public int hashCode() {
-	final int prime = 31;
-	int result = 1;
-	result = prime * result + (int) (id ^ (id >>> 32));
-	return result;
-    }
-
-    public void setCnpj(long cnpj) {
-	this.cnpj = cnpj;
+        return description;
     }
 
     /**
      * @param description the description to set
      */
     public void setDescription(String description) {
-	this.description = description;
+        this.description = description;
+    }
+
+    @Override
+    public long getId() {
+        return this.id;
     }
 
     @Override
     public void setId(long id) {
-	this.id = id;
+        this.id = id;
+    }
+
+    public String getSegment() {
+        return segment;
     }
 
     public void setSegment(String companySegment) {
-	this.segment = companySegment;
+        this.segment = companySegment;
+    }
+
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
     }
 
     /**
      * Builder to build {@link Company}.
-     */    
+     */
     public static final class Builder extends Company implements Buildable<Company> {
 
-	private static final long serialVersionUID = -2850736800336558944L;
+        private static final long serialVersionUID = -2850736800336558944L;
 
-	/**
-	 * Disabled Empty Constructor
-	 */
-	private Builder() {}
+        /**
+         * Disabled Empty Constructor
+         */
+        private Builder() {
+        }
 
-	/**
-	 * @return a new Company
-	 */
-	@Override
-	public Company build() {
-	    return new Company(this);
-	}
+        /**
+         * @return a new Company
+         */
+        @Override
+        public Company build() {
+            return new Company(this);
+        }
 
-	public Builder withCnpj(long cnpj) {
-	    super.cnpj = cnpj;
-	    return this;
-	}
+        public Builder withCnpj(long cnpj) {
+            super.cnpj = cnpj;
+            return this;
+        }
 
-	public Builder withContact(Contact contact) {
-	    super.setContact(contact);
-	    return this;
-	}
+        public Builder withContact(Contact contact) {
+            super.setContact(contact);
+            return this;
+        }
 
-	public Builder withDescription(String description) {
-	    super.description = description;
-	    return this;
-	}
+        public Builder withDescription(String description) {
+            super.description = description;
+            return this;
+        }
 
-	public Builder withLocale(Locale locale) {
-	    super.setLocale(locale);
-	    return this;
-	}
+        public Builder withLocale(Locale locale) {
+            super.setLocale(locale);
+            return this;
+        }
 
-	public Builder withName(String name) {
-	    super.setName(name);
-	    return this;
-	}
+        public Builder withName(String name) {
+            super.setName(name);
+            return this;
+        }
 
-	public Builder withSegment(String segment) {
-	    super.segment = segment;
-	    return this;
-	}
+        public Builder withSegment(String segment) {
+            super.segment = segment;
+            return this;
+        }
 
-	public Builder withUser(User user) {
-	    super.setUser(user);
-	    return this;
-	}
+        public Builder withUser(User user) {
+            super.setUser(user);
+            return this;
+        }
     }
 
 }

@@ -2,36 +2,36 @@ package br.com.codecode.workix.jsf.util.helper;
 
 /**
  * Paginator Helper for Pagination
+ *
  * @author felipe
- * @since 1.1
  * @version 1.0
+ * @since 1.1
  */
 public class Paginator {
-    
-    private int limitRows, currentPage,totalPages, maxRows;
-    
+
     private final Pagination pagination = new Pagination();
-    
+    private int limitRows, currentPage, totalPages, maxRows;
+
     /**
      * Stub Constructor
      */
-    private Paginator(){}
-    
-    /**
-     * 
-     * @param limitRows Limit Rows
-     * @param currentPage Current Page
-     * @param maxRows Max Rows Limitator
-     */
-    public Paginator(int limitRows, int currentPage,int maxRows){
-	this();
-	this.limitRows = limitRows;
-	this.currentPage = currentPage;
-	this.maxRows = maxRows;
-	this.totalPages = pagination.discoverTotalPages(limitRows, maxRows);
+    private Paginator() {
     }
 
-    
+    /**
+     * @param limitRows   Limit Rows
+     * @param currentPage Current Page
+     * @param maxRows     Max Rows Limitator
+     */
+    public Paginator(int limitRows, int currentPage, int maxRows) {
+        this();
+        this.limitRows = limitRows;
+        this.currentPage = currentPage;
+        this.maxRows = maxRows;
+        this.totalPages = pagination.discoverTotalPages(limitRows, maxRows);
+    }
+
+
     /**
      * @return the limitRows
      */
@@ -39,7 +39,7 @@ public class Paginator {
         return limitRows;
     }
 
-    
+
     /**
      * @return the currentPage
      */
@@ -47,7 +47,7 @@ public class Paginator {
         return currentPage;
     }
 
-    
+
     /**
      * @return the totalPages
      */
@@ -55,28 +55,27 @@ public class Paginator {
         return totalPages;
     }
 
-    
+
     /**
      * @return the maxRows
      */
     public int getMaxRows() {
         return maxRows;
-    }    
-  
+    }
+
     /**
      * @return the Start Range
      */
-    public int getStart(){
-	return pagination.discoverStartRange(limitRows, currentPage, totalPages);
+    public int getStart() {
+        return pagination.discoverStartRange(limitRows, currentPage, totalPages);
     }
-    
+
     /**
      * @return the End Range
      */
-    public int getEnd(){
-	return pagination.discoverEndRange(limitRows, currentPage, totalPages);
+    public int getEnd() {
+        return pagination.discoverEndRange(limitRows, currentPage, totalPages);
     }
-    
-    
+
 
 }

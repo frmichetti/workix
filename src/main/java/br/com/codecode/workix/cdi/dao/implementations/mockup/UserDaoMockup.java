@@ -14,17 +14,17 @@ import java.util.List;
 
 /**
  * Mockup Class for Demonstration Only
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
  * @see BaseDaoMockup
  * @see Crud
+ * @since 1.0
  */
 @Mockup
 public class UserDaoMockup extends BaseDaoMockup implements Crud<User> {
 
-   
+
     private static final long serialVersionUID = 8746840143580709391L;
 
     @Inject
@@ -33,51 +33,51 @@ public class UserDaoMockup extends BaseDaoMockup implements Crud<User> {
     @Override
     public void save(User entity) {
 
-	alertNewUser.fire(entity);
+        alertNewUser.fire(entity);
 
-	messagesHelper.addFlash(new FacesMessage(TITLE, entity.getEmail() + SAVEMESSAGE));
+        messagesHelper.addFlash(new FacesMessage(TITLE, entity.getEmail() + SAVEMESSAGE));
     }
 
     @Override
     public User update(User entity) {
 
-	messagesHelper.addFlash(new FacesMessage(TITLE, entity.getEmail() + UPDATEMESSAGE));
+        messagesHelper.addFlash(new FacesMessage(TITLE, entity.getEmail() + UPDATEMESSAGE));
 
-	return entity;
+        return entity;
     }
 
     @Override
     public void deleteById(long id) throws NotImplementedYetException {
-	throw new NotImplementedYetException();
+        throw new NotImplementedYetException();
 
     }
 
     @Override
     public User findById(long id) {
-	return em.find(User.class, id);
+        return em.find(User.class, id);
     }
 
     @Override
     public List<User> listAll(int start, int end) {
 
-	TypedQuery<User> findAllQuery = em.createQuery("SELECT DISTINCT u FROM User u ORDER BY u.id", User.class);
+        TypedQuery<User> findAllQuery = em.createQuery("SELECT DISTINCT u FROM User u ORDER BY u.id", User.class);
 
-	findAllQuery.setFirstResult(start);
+        findAllQuery.setFirstResult(start);
 
-	findAllQuery.setMaxResults(end);
+        findAllQuery.setMaxResults(end);
 
-	return findAllQuery.getResultList();
+        return findAllQuery.getResultList();
     }
 
     @Override
     public BigInteger countRegisters() {
-	return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + User.class.getSimpleName())
-		.getSingleResult();
+        return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + User.class.getSimpleName())
+                .getSingleResult();
     }
 
     @Override
     public User findByUuid(String uuid) throws NotImplementedYetException {
-	throw new NotImplementedYetException();
+        throw new NotImplementedYetException();
     }
 
 }

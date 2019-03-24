@@ -10,44 +10,45 @@
 	 -->
 <ui:composition>
 
-	<!-- ============ TESTIMONIALS START ============ -->
+    <!-- ============ TESTIMONIALS START ============ -->
 
-	<section id="testimonials" class="parallax text-center">
-		<div class="tint"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1>Depoimentos</h1>
-					<h4>Algumas palavras de Candidatos Satisfeitos</h4>
-					<div class="owl-carousel">
-					
-					<ui:repeat var="test" value="#{testimonialsMB.list}">
-											<div>
-												<div class="col-sm-3 col-md-2">
-													<h:graphicImage url="#{test.picture}" styleClass="img-circle img-responsive" alt="testimonial"/>
-												</div>
-												<div class="col-sm-9 col-md-10">
-													<blockquote>
-														<p><h:outputText value="#{test.text}"/></p>
-														<footer>
-															<h:outputText value="#{test.author.name}"/> <cite title="#{test.signature}">
-															<h:outputText value="#{test.signature}"/></cite>
-														</footer>
-													</blockquote>
-												</div>
-											</div>
-					</ui:repeat>
-					
-					</div>
-					<p>
-						<a href="testimonials.xhtml" class="btn btn-primary">Ler Todos</a>
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
+    <section id="testimonials" class="parallax text-center">
+        <div class="tint"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>Depoimentos</h1>
+                    <h4>Algumas palavras de Candidatos Satisfeitos</h4>
+                    <div class="owl-carousel">
 
-	<!-- ============ TESTIMONIALS END ============ -->
+                        <ui:repeat var="test" value="#{testimonialsMB.list}">
+                            <div>
+                                <div class="col-sm-3 col-md-2">
+                                    <h:graphicImage url="#{test.picture}" styleClass="img-circle img-responsive"
+                                                    alt="testimonial"/>
+                                </div>
+                                <div class="col-sm-9 col-md-10">
+                                    <blockquote>
+                                        <p><h:outputText value="#{test.text}"/></p>
+                                        <footer>
+                                            <h:outputText value="#{test.author.name}"/> <cite title="#{test.signature}">
+                                            <h:outputText value="#{test.signature}"/></cite>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                            </div>
+                        </ui:repeat>
+
+                    </div>
+                    <p>
+                        <a href="testimonials.xhtml" class="btn btn-primary">Ler Todos</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS END ============ -->
 
 </ui:composition>
 

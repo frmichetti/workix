@@ -92,9 +92,19 @@ public class BlogDetailMB extends BaseMB implements Serializable {
         return email;
     }
 
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public long getId() {
         return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     /**
@@ -104,9 +114,19 @@ public class BlogDetailMB extends BaseMB implements Serializable {
         return name;
     }
 
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public String getText() {
         return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     private String goToErrorPage() {
@@ -180,30 +200,6 @@ public class BlogDetailMB extends BaseMB implements Serializable {
 
 
         return prefix + "/post.xhtml?id=" + currentBlog.getId() + sufix;
-    }
-
-    /**
-     * @param email the email to set
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    public void setText(String text) {
-        this.text = text;
     }
 
 

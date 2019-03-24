@@ -10,55 +10,58 @@
 	 -->
 <ui:composition>
 
-	<!-- ============ FOOTER START ============ -->
+    <!-- ============ FOOTER START ============ -->
 
-	<footer>
-		<div id="prefooter">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6" id="newsletter">
-						<h2>Boletim Informativo</h2>
-						<h:form class="form-inline" id="news">
-							<div class="form-group">
-								<label class="sr-only" for="newsletter-email">Email</label>
-								<h:inputText pt:type="email" class="form-control"
-									pt:id="newsletter-email" pt:placeholder="Insira Seu Email"
-									pt:required="required" pt:value="#{signupMB.email}" />
-							</div>
-							<h:commandButton action="#{signupMB.addToList()}" value="Assinar"
-								styleClass="btn btn-primary" />
-						</h:form>
-					</div>
-					<div class="col-sm-6" id="social-networks">
-						<h2>ENTRE EM CONTATO</h2>
-						<ui:remove>
-						<a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
-						<a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
-						<a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>						
-						<a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
-						<a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>						
-						</ui:remove>
-						<a href="https://github.com/frmichetti/workix" target="_blank"><i class="fa fa-2x fa-github-square"></i></a>
-						<a href="https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F" target="_blank"><i class="fa fa-2x fa-youtube-square"></i></a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="credits">
-			<div class="container text-center">
-				<div class="row">
-					<div class="col-sm-12">
-						 
-						Copyright <h:outputText value="#{applicationMB.year}" /> - <h:outputText value="#{applicationMB.appName}" /><br />
-						Desenvolvido por <a href="http://www.codecode.com.br"
-							target="_blank">Felipe Rodrigues Michetti</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+    <footer>
+        <div id="prefooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6" id="newsletter">
+                        <h2>Boletim Informativo</h2>
+                        <h:form class="form-inline" id="news">
+                            <div class="form-group">
+                                <label class="sr-only" for="newsletter-email">Email</label>
+                                <h:inputText pt:type="email" class="form-control"
+                                             pt:id="newsletter-email" pt:placeholder="Insira Seu Email"
+                                             pt:required="required" pt:value="#{signupMB.email}"/>
+                            </div>
+                            <h:commandButton action="#{signupMB.addToList()}" value="Assinar"
+                                             styleClass="btn btn-primary"/>
+                        </h:form>
+                    </div>
+                    <div class="col-sm-6" id="social-networks">
+                        <h2>ENTRE EM CONTATO</h2>
+                        <ui:remove>
+                            <a href="#"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            <a href="#"><i class="fa fa-2x fa-twitter-square"></i></a>
+                            <a href="#"><i class="fa fa-2x fa-google-plus-square"></i></a>
+                            <a href="#"><i class="fa fa-2x fa-vimeo-square"></i></a>
+                            <a href="#"><i class="fa fa-2x fa-pinterest-square"></i></a>
+                        </ui:remove>
+                        <a href="https://github.com/frmichetti/workix" target="_blank"><i
+                                class="fa fa-2x fa-github-square"></i></a>
+                        <a href="https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F"
+                           target="_blank"><i class="fa fa-2x fa-youtube-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="credits">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-sm-12">
 
-	<!-- ============ FOOTER END ============ -->
+                        Copyright <h:outputText value="#{applicationMB.year}"/> - <h:outputText
+                            value="#{applicationMB.appName}"/><br/>
+                        Desenvolvido por <a href="http://www.codecode.com.br"
+                                            target="_blank">Felipe Rodrigues Michetti</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ FOOTER END ============ -->
 
 </ui:composition>
 

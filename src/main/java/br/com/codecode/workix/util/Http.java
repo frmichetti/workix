@@ -1,9 +1,8 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.util;
 
 import java.io.BufferedReader;
@@ -18,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * HTTP Request for Firebase
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -27,133 +26,133 @@ import java.nio.charset.StandardCharsets;
 public class Http {
 
     public Http() {
-	System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
+        System.out.println("[Creating Instance of " + this.getClass().getSimpleName() + "]");
     }
 
     public String sendPost(String url, String urlParameters) {
 
-	urlParameters = new String(urlParameters.getBytes(), StandardCharsets.ISO_8859_1);
+        urlParameters = new String(urlParameters.getBytes(), StandardCharsets.ISO_8859_1);
 
-	URL obj = null;
+        URL obj = null;
 
-	try {
+        try {
 
-	    obj = new URL(url);
+            obj = new URL(url);
 
-	} catch (MalformedURLException e) {
+        } catch (MalformedURLException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
-	HttpURLConnection con = null;
+        HttpURLConnection con = null;
 
-	try {
+        try {
 
-	    con = (HttpURLConnection) obj.openConnection();
+            con = (HttpURLConnection) obj.openConnection();
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
         Integer TIME_OUT = 35_000;
         con.setReadTimeout(TIME_OUT);
 
-	try {
+        try {
 
-	    con.setRequestMethod("POST");
+            con.setRequestMethod("POST");
 
-	} catch (ProtocolException e) {
+        } catch (ProtocolException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
         String USER_AGENT = "Mozilla/5.0";
         con.setRequestProperty("User-Agent", USER_AGENT);
 
-	con.setRequestProperty("Accept-Language", "pt-BR");
+        con.setRequestProperty("Accept-Language", "pt-BR");
 
-	con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+        con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
         String WEB_API_KEY = "AIzaSyDF7Uc_yoj_VAOx-7fzag92DLTfyca88aE";
         con.setRequestProperty("Authorization", "key=" + WEB_API_KEY);
 
-	con.setDoOutput(true);
+        con.setDoOutput(true);
 
-	DataOutputStream wr;
+        DataOutputStream wr;
 
-	try {
+        try {
 
-	    wr = new DataOutputStream(con.getOutputStream());
+            wr = new DataOutputStream(con.getOutputStream());
 
-	    wr.writeBytes(urlParameters);
+            wr.writeBytes(urlParameters);
 
-	    wr.flush();
+            wr.flush();
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
-	int responseCode = 0;
+        int responseCode = 0;
 
-	try {
+        try {
 
-	    responseCode = con.getResponseCode();
+            responseCode = con.getResponseCode();
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
-	System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
 
-	System.out.println("Response " + "Sending Request " + con.getRequestMethod() + " for URL : " + url);
+        System.out.println("Response " + "Sending Request " + con.getRequestMethod() + " for URL : " + url);
 
-	System.out.println("Response " + "Parameters of Post : " + urlParameters);
+        System.out.println("Response " + "Parameters of Post : " + urlParameters);
 
-	System.out.println("Response " + "Response Code : " + responseCode);
+        System.out.println("Response " + "Response Code : " + responseCode);
 
-	System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
 
-	StringBuffer response;
+        StringBuffer response;
 
-	BufferedReader in = null;
+        BufferedReader in = null;
 
-	try {
+        try {
 
-	    in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+            in = new BufferedReader(new InputStreamReader(con.getInputStream()));
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
-	String inputLine;
+        String inputLine;
 
-	response = new StringBuffer();
+        response = new StringBuffer();
 
-	try {
+        try {
 
-	    while ((inputLine = in.readLine()) != null) {
+            while ((inputLine = in.readLine()) != null) {
 
-		response.append(inputLine);
+                response.append(inputLine);
 
-	    }
-	} catch (IOException e) {
+            }
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
-	System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
 
-	System.out.println("Response " + "Response of Server");
+        System.out.println("Response " + "Response of Server");
 
-	System.out.println("Response " + response.toString());
+        System.out.println("Response " + response.toString());
 
-	System.out.println("--------------------------------------------------------");
+        System.out.println("--------------------------------------------------------");
 
-	return response.toString();
+        return response.toString();
 
     }
 

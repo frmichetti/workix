@@ -13,14 +13,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * CDI Qualifier for Persistence Unit
- * 
+ *
+ * @author felipe
+ * @version 1.1
  * @see EntityManagerProducer
  * @since 1.0
- * @version 1.1
- * @author felipe
  */
 @Qualifier
-@Target({ TYPE, FIELD })
+@Target({TYPE, FIELD})
 @Retention(RUNTIME)
 @Documented
 public @interface Persist {

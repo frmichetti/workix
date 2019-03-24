@@ -6,131 +6,143 @@
 
 <ui:composition>
 
-<!-- ============ JOBS START ============ -->
+    <!-- ============ JOBS START ============ -->
 
-	<section id="jobs">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8">
-					
-					<h2>Vagas Recentes</h2>
+    <section id="jobs">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
 
-					<div class="jobs">
+                    <h2>Vagas Recentes</h2>
 
-						<ui:repeat var="job" value="#{jobsFragment.visible}">
+                    <div class="jobs">
 
-							<!-- Job offer-->
-							<a href="./job-details.xhtml?id=#{job.id}" class="featured applied">
-								<div class="row">
-									
-									<div class="col-md-1 hidden-sm hidden-xs">
-										<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-responsive"/>										
-									</div>
-									
-									<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-										
-										<h5><h:outputText value="#{job.title}" /></h5>
-										
-										<p>
-											<strong><h:outputText value="#{job.company.name}" /> </strong>
-											<h:outputText value="#{job.company.segment}" />
-										</p>
-									</div>
-									
-									<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-										<p>
-											<strong><h:outputText value="#{job.company.locale.city}" />, <h:outputText value="#{job.company.locale.estate}" /></strong>
-										</p>
-										<p class="hidden-xs">126.3 miles away</p>
-									</div>
-									
-									<div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-										
-										<p class="job-salary">
-											<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
-										</p>
-										
-										<p class="#{jobsFragment.discoverBadge(job.jobType)}"><h:outputText value="#{job.jobType}" /></p>
-									</div>
-									
-								</div>
-							</a>
+                        <ui:repeat var="job" value="#{jobsFragment.visible}">
 
-						</ui:repeat>
+                            <!-- Job offer-->
+                            <a href="./job-details.xhtml?id=#{job.id}" class="featured applied">
+                                <div class="row">
 
-						<ui:repeat var="job" value="#{jobsFragment.hidden}">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" alt=""
+                                                        styleClass="img-responsive"/>
+                                    </div>
 
-						<!-- Job hidden offer -->
-						<a href="./job-details.xhtml?id=#{job.id}" class="hidden-job">
-							<div class="row">
-								<div class="col-md-1 hidden-sm hidden-xs">
-									<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-responsive"/>
-								</div>
-								<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-									<h5><h:outputText value="#{job.title}" /></h5>
-									<p>
-										<strong><h:outputText value="#{job.company.name}" /> </strong> <h:outputText value="#{job.company.segment}" />
-									</p>
-								</div>
-								<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-									<p>
-										<strong><h:outputText value="#{job.company.locale.city}" />, <h:outputText value="#{job.company.locale.estate}" /></strong>
-									</p>
-									<p class="hidden-xs">126.3 miles away</p>
-								</div>
-								<div
-									class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-									<p class="job-salary">
-										<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
-									</p>
-									<p class="#{jobsFragment.discoverBadge(job.jobType)}"><h:outputText value="#{job.jobType}" /></p>
-								</div>
-							</div>
-						</a>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+
+                                        <h5><h:outputText value="#{job.title}"/></h5>
+
+                                        <p>
+                                            <strong><h:outputText value="#{job.company.name}"/> </strong>
+                                            <h:outputText value="#{job.company.segment}"/>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p>
+                                            <strong><h:outputText value="#{job.company.locale.city}"/>, <h:outputText
+                                                    value="#{job.company.locale.estate}"/></strong>
+                                        </p>
+                                        <p class="hidden-xs">126.3 miles away</p>
+                                    </div>
+
+                                    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+
+                                        <p class="job-salary">
+                                            <strong>R$ <h:outputText value="#{job.maxPayment}"/></strong>
+                                        </p>
+
+                                        <p class="#{jobsFragment.discoverBadge(job.jobType)}"><h:outputText
+                                                value="#{job.jobType}"/></p>
+                                    </div>
+
+                                </div>
+                            </a>
+
+                        </ui:repeat>
+
+                        <ui:repeat var="job" value="#{jobsFragment.hidden}">
+
+                            <!-- Job hidden offer -->
+                            <a href="./job-details.xhtml?id=#{job.id}" class="hidden-job">
+                                <div class="row">
+                                    <div class="col-md-1 hidden-sm hidden-xs">
+                                        <h:graphicImage name="60x60.jpg" library="placeholder" alt=""
+                                                        styleClass="img-responsive"/>
+                                    </div>
+                                    <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                        <h5><h:outputText value="#{job.title}"/></h5>
+                                        <p>
+                                            <strong><h:outputText value="#{job.company.name}"/> </strong> <h:outputText
+                                                value="#{job.company.segment}"/>
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                        <p>
+                                            <strong><h:outputText value="#{job.company.locale.city}"/>, <h:outputText
+                                                    value="#{job.company.locale.estate}"/></strong>
+                                        </p>
+                                        <p class="hidden-xs">126.3 miles away</p>
+                                    </div>
+                                    <div
+                                            class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                        <p class="job-salary">
+                                            <strong>R$ <h:outputText value="#{job.maxPayment}"/></strong>
+                                        </p>
+                                        <p class="#{jobsFragment.discoverBadge(job.jobType)}"><h:outputText
+                                                value="#{job.jobType}"/></p>
+                                    </div>
+                                </div>
+                            </a>
 
 
-						</ui:repeat>
+                        </ui:repeat>
 
-					</div>
+                    </div>
 
-					<a class="btn btn-primary" id="more-jobs"> 
-						<span class="more">Mostrar Mais Vagas <i class="fa fa-arrow-down"></i></span> 
-						<span class="less">Mostrar Menos Vagas <i class="fa fa-arrow-up"></i></span>
-					</a>
+                    <a class="btn btn-primary" id="more-jobs">
+                        <span class="more">Mostrar Mais Vagas <i class="fa fa-arrow-down"></i></span>
+                        <span class="less">Mostrar Menos Vagas <i class="fa fa-arrow-up"></i></span>
+                    </a>
 
-				</div>
-				<div class="col-sm-4">
-					
-					<h2>Vagas em Destaque</h2>
-					
-					<a href="./job-details.xhtml?id=#{jobsFragment.featuredJob.id}"> 
-					
-					<h:graphicImage name="400x265.jpg" library="placeholder" alt="Featured Job" styleClass="img-responsive"/>					
-						<div class="featured-job">
-							
-							<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-responsive"/>
-							
-							<div class="title">
-								<h5><h:outputText value="#{jobsFragment.featuredJob.title}" /></h5>
-								<p><h:outputText value="#{jobsFragment.featuredJob.company.name}" /></p>
-							</div>
-							
-							<div class="data">
-								<span class="city"><i class="fa fa-map-marker"></i><h:outputText value="#{jobsFragment.featuredJob.company.locale.city}" /></span>
-								<span class="type full-time"><i class="fa fa-clock-o"></i><h:outputText value="#{jobsFragment.featuredJob.jobType}" /></span>
-								<span class="sallary">R<i class="fa fa-dollar"></i><h:outputText value="#{jobsFragment.featuredJob.maxPayment}" /></span>
-							</div>
-							
-							<div class="description"><h:outputText value="#{jobsFragment.featuredJob.description}" /></div>
-						</div>
-					</a>
-				</div>
-			</div>
-		</div>
-		
-	</section>
+                </div>
+                <div class="col-sm-4">
 
-	<!-- ============ JOBS END ============ -->
+                    <h2>Vagas em Destaque</h2>
+
+                    <a href="./job-details.xhtml?id=#{jobsFragment.featuredJob.id}">
+
+                        <h:graphicImage name="400x265.jpg" library="placeholder" alt="Featured Job"
+                                        styleClass="img-responsive"/>
+                        <div class="featured-job">
+
+                            <h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-responsive"/>
+
+                            <div class="title">
+                                <h5><h:outputText value="#{jobsFragment.featuredJob.title}"/></h5>
+                                <p><h:outputText value="#{jobsFragment.featuredJob.company.name}"/></p>
+                            </div>
+
+                            <div class="data">
+                                <span class="city"><i class="fa fa-map-marker"></i><h:outputText
+                                        value="#{jobsFragment.featuredJob.company.locale.city}"/></span>
+                                <span class="type full-time"><i class="fa fa-clock-o"></i><h:outputText
+                                        value="#{jobsFragment.featuredJob.jobType}"/></span>
+                                <span class="sallary">R<i class="fa fa-dollar"></i><h:outputText
+                                        value="#{jobsFragment.featuredJob.maxPayment}"/></span>
+                            </div>
+
+                            <div class="description"><h:outputText value="#{jobsFragment.featuredJob.description}"/>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ============ JOBS END ============ -->
 
 </ui:composition>
 </html>

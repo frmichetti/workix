@@ -16,34 +16,35 @@ public class DownloadTestCandidate extends BaseTest implements DownloadTest<Cand
 
     private String resp;
 
-    @Before    
+    @Before
     public void downloadItens() {
 
-	resp = downloadItens(server + "/candidates");
+        resp = downloadItens(server + "/candidates");
 
-	assertFalse(resp.isEmpty());
+        assertFalse(resp.isEmpty());
 
-	new GsonBuilder()		
-	.setPrettyPrinting()
-	.create();
+        new GsonBuilder()
+                .setPrettyPrinting()
+                .create();
 
     }
 
-    @Test    
-    public void parseItens() {	
+    @Test
+    public void parseItens() {
 
-	List<Candidate> companies = parseItens(resp, new TypeToken<List<Candidate>>(){});
+        List<Candidate> companies = parseItens(resp, new TypeToken<List<Candidate>>() {
+        });
 
-	assertNotNull(companies);
+        assertNotNull(companies);
 
-	assertTrue(companies.size() > 0);
+        assertTrue(companies.size() > 0);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
 
-	companies.stream()	
-	.forEach(System.out::println);
+        companies.stream()
+                .forEach(System.out::println);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
 
     }
 

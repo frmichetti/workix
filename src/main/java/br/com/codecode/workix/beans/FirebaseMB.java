@@ -12,18 +12,18 @@ import java.io.Serializable;
 
 /**
  * Firebase ManagedBean
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
  * @see Serializable
+ * @since 1.0
  */
 @Named
 @SessionScoped
 public class FirebaseMB extends BaseMB implements Serializable {
 
-   
+
     private static final long serialVersionUID = -893904762220030419L;
 
     private String name, email, uid, photo, idToken;
@@ -39,45 +39,45 @@ public class FirebaseMB extends BaseMB implements Serializable {
     }
 
     public String getName() {
-	return name;
+        return name;
     }
 
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     public String getEmail() {
-	return email;
+        return email;
     }
 
     public void setEmail(String email) {
-	this.email = email;
+        this.email = email;
     }
 
     public String getUid() {
-	return uid;
+        return uid;
     }
 
     public void setUid(String uid) {
-	this.uid = uid;
+        this.uid = uid;
     }
 
     public String getPhoto() {
-	return photo;
+        return photo;
     }
 
     public void setPhoto(String photo) {
-	this.photo = photo;
+        this.photo = photo;
     }
 
     public String getIdToken() {
-	System.out.println("TOKEN " + idToken);
-	return idToken;
+        System.out.println("TOKEN " + idToken);
+        return idToken;
     }
 
     public void setIdToken(String idToken) {
-	this.idToken = idToken;
-	System.out.println("TOKEN " + idToken);
+        this.idToken = idToken;
+        System.out.println("TOKEN " + idToken);
     }
 
 }

@@ -1,16 +1,16 @@
 //Initialize Firebase
 var config = {
-		apiKey: "AIzaSyDtccrM2X2IqflZ9BZYCSDQ46DpvYHk1i8",
-		authDomain: "akijob-2a6bc.firebaseapp.com",
-		databaseURL: "https://akijob-2a6bc.firebaseio.com",
-		storageBucket: "akijob-2a6bc.appspot.com",
-		messagingSenderId: "289835208718"
+    apiKey: "AIzaSyDtccrM2X2IqflZ9BZYCSDQ46DpvYHk1i8",
+    authDomain: "akijob-2a6bc.firebaseapp.com",
+    databaseURL: "https://akijob-2a6bc.firebaseio.com",
+    storageBucket: "akijob-2a6bc.appspot.com",
+    messagingSenderId: "289835208718"
 };
 
 firebase.initializeApp(config);
 
-window.onload = function() {
-	initApp();
+window.onload = function () {
+    initApp();
 };
 
 var googleMail;
@@ -27,66 +27,65 @@ var userUID;
  */
 function toggleSignIn() {
 
-	if (!firebase.auth().currentUser) {
+    if (!firebase.auth().currentUser) {
 
-		// [START createprovider]
-		var provider = new firebase.auth.GoogleAuthProvider();
-		// [END createprovider]
+        // [START createprovider]
+        var provider = new firebase.auth.GoogleAuthProvider();
+        // [END createprovider]
 
-		// [START addscopes]
-		provider.addScope('https://www.googleapis.com/auth/plus.login');
-		// [END addscopes]
+        // [START addscopes]
+        provider.addScope('https://www.googleapis.com/auth/plus.login');
+        // [END addscopes]
 
-		// [START signin]
-		firebase.auth().signInWithPopup(provider).then(function(result) {
-			// This gives you a Google Access Token. You can use it to access the Google API.
-			var token = result.credential.accessToken;
-			// The signed-in user info.
-			var user = result.user;
+        // [START signin]
+        firebase.auth().signInWithPopup(provider).then(function (result) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+            // The signed-in user info.
+            var user = result.user;
 
-			loggedUser = user;
+            loggedUser = user;
 
-			// [START_EXCLUDE]
-						
-			$('#quickstart-oauthtoken').text(token);			
+            // [START_EXCLUDE]
 
-			// [END_EXCLUDE]
-		}).catch(function(error) {
-			// Handle Errors here.
-			var errorCode = error.code;
+            $('#quickstart-oauthtoken').text(token);
 
-			var errorMessage = error.message;
-			// The email of the user's account used.
+            // [END_EXCLUDE]
+        }).catch(function (error) {
+            // Handle Errors here.
+            var errorCode = error.code;
 
-			var email = error.email;
-			// The firebase.auth.AuthCredential type that was used.
+            var errorMessage = error.message;
+            // The email of the user's account used.
 
-			var credential = error.credential;
-			// [START_EXCLUDE]
+            var email = error.email;
+            // The firebase.auth.AuthCredential type that was used.
 
-			if (errorCode === 'auth/account-exists-with-different-credential') {
+            var credential = error.credential;
+            // [START_EXCLUDE]
 
-				alert('You have already signed up with a different auth provider for that email.');
-				// If you are using multiple auth providers on your app you should handle linking
-				// the user's accounts here.
-			} else {
-				console.error(error);
-			}
-			// [END_EXCLUDE]
-		});
-		// [END signin]
-	} else {
-		// [START signout]
-		firebase.auth().signOut();
-		// [END signout]
-	}
-	// [START_EXCLUDE]	
+            if (errorCode === 'auth/account-exists-with-different-credential') {
 
-	$('#quickstart-sign-in').attr("disabled", true);
+                alert('You have already signed up with a different auth provider for that email.');
+                // If you are using multiple auth providers on your app you should handle linking
+                // the user's accounts here.
+            } else {
+                console.error(error);
+            }
+            // [END_EXCLUDE]
+        });
+        // [END signin]
+    } else {
+        // [START signout]
+        firebase.auth().signOut();
+        // [END signout]
+    }
+    // [START_EXCLUDE]	
 
-	// [END_EXCLUDE]	
+    $('#quickstart-sign-in').attr("disabled", true);
+
+    // [END_EXCLUDE]	
 }
-
 
 
 //[END buttoncallback]
@@ -98,171 +97,163 @@ function toggleSignIn() {
  */
 function initApp() {
 
-	// Listening for auth state changes.
-	// [START authstatelistener]
-	firebase.auth().onAuthStateChanged(function(user) {
+    // Listening for auth state changes.
+    // [START authstatelistener]
+    firebase.auth().onAuthStateChanged(function (user) {
 
-		if (user) {
-			// User is signed in.
-			var displayName = user.displayName;
+        if (user) {
+            // User is signed in.
+            var displayName = user.displayName;
 
-			var email = user.email;
+            var email = user.email;
 
-			var emailVerified = user.emailVerified;
+            var emailVerified = user.emailVerified;
 
-			var photoURL = user.photoURL;
+            var photoURL = user.photoURL;
 
-			var isAnonymous = user.isAnonymous;
+            var isAnonymous = user.isAnonymous;
 
-			var uid = user.uid;
-			
-			userUID = uid;
+            var uid = user.uid;
 
-			var providerData = user.providerData;
-			
+            userUID = uid;
 
-			if (user != null) {			
-
-				providerData.forEach(function (profile) {
-					
-					if(profile.providerId.startsWith("google.com")){
-						
-						googleName = profile.displayName;
-																	
-						googlePhoto = profile.photoURL;
-						
-						googleMail = profile.email;
-					}
-
-					console.log("Sign-in provider: " + profile.providerId);
-
-					console.log("  Provider-specific UID: " + profile.uid);
-
-					console.log("  Name: " + profile.displayName);
-
-					(displayName == null) ? displayName = profile.displayName : displayName;
-
-					console.log("  Email: " + profile.email);
-
-					console.log("  Photo URL: " + profile.photoURL);
-
-					(photoURL == null) ? photoURL = profile.photoURL : photoURL;
+            var providerData = user.providerData;
 
 
-				
+            if (user != null) {
+
+                providerData.forEach(function (profile) {
+
+                    if (profile.providerId.startsWith("google.com")) {
+
+                        googleName = profile.displayName;
+
+                        googlePhoto = profile.photoURL;
+
+                        googleMail = profile.email;
+                    }
+
+                    console.log("Sign-in provider: " + profile.providerId);
+
+                    console.log("  Provider-specific UID: " + profile.uid);
+
+                    console.log("  Name: " + profile.displayName);
+
+                    (displayName == null) ? displayName = profile.displayName : displayName;
+
+                    console.log("  Email: " + profile.email);
+
+                    console.log("  Photo URL: " + profile.photoURL);
+
+                    (photoURL == null) ? photoURL = profile.photoURL : photoURL;
 
 
-				});
-				
-				$('#fbName').val(googleName);
-				
-				$('#fbUser').val(googleMail);
+                });
 
-				$('#fbPhoto').val(googlePhoto);
+                $('#fbName').val(googleName);
 
-				$('#fbEmail').val(googleMail);
-				
-				$('#fbToken').val(userUID);
-			}	
+                $('#fbUser').val(googleMail);
 
+                $('#fbPhoto').val(googlePhoto);
 
+                $('#fbEmail').val(googleMail);
 
-			// [START_EXCLUDE]
-			$('#quickstart-sign-in-status').text('Signed in');			
-
-			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + email + '\n Sign out ' +"");		
+                $('#fbToken').val(userUID);
+            }
 
 
-			/****BootsTrap Notify**/
+            // [START_EXCLUDE]
+            $('#quickstart-sign-in-status').text('Signed in');
 
-			$.notify({
-				icon: photoURL,
-				title: 'Bem Vindo ! ' + ((displayName == null) ? "Visitante" : displayName),
-				message: 'Seu Email - ' + ((email == null) ? "Ainda não logado" : email)
-			},{
-				type: 'minimalist',
-
-				animate: {
-					enter: 'animated zoomInDown',
-					exit: 'animated zoomOutUp'
-				},
-
-				allow_dismiss: true,
-
-				position: null,placement: {
-					from: "bottom",
-					align: "center"
-				},
+            $('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + email + '\n Sign out ' + "");
 
 
-				delay: 5000,
+            /****BootsTrap Notify**/
 
-				icon_type: 'image',
-				template: 
-					'<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-					'<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
-					'<img data-notify="icon" class="img-circle pull-left" />' +
-					'<span data-notify="title">{1}</span>' +
-					'<span data-notify="message">{2}</span>' +
-					'</div>'
-			});
+            $.notify({
+                icon: photoURL,
+                title: 'Bem Vindo ! ' + ((displayName == null) ? "Visitante" : displayName),
+                message: 'Seu Email - ' + ((email == null) ? "Ainda não logado" : email)
+            }, {
+                type: 'minimalist',
 
+                animate: {
+                    enter: 'animated zoomInDown',
+                    exit: 'animated zoomOutUp'
+                },
 
+                allow_dismiss: true,
 
-
-			// [END_EXCLUDE]
-		} else {
-			// User is signed out.
-			// [START_EXCLUDE]
-			$('#quickstart-sign-in-status').text('Signed out');
-
-			$('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + 'Sign in with Google');			
-
-			$.notify({
-				icon: photoURL,
-				title: 'Logout ',
-				message: ((email == null) ? "Logout Realizado com sucesso" : email)
-			},
+                position: null, placement: {
+                    from: "bottom",
+                    align: "center"
+                },
 
 
-			{
-				type: 'minimalist',
-				delay: 5000,
+                delay: 5000,
 
-				animate: {
-					enter: 'animated zoomInDown',
-					exit: 'animated zoomOutUp'
-				},
-
-				allow_dismiss: true,
-
-				position: null,placement: {
-					from: "bottom",
-					align: "center"
-				},
-
-				icon_type: 'image',
-				template: 
-					'<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
-					'<img data-notify="icon" class="img-circle pull-left" />' +
-					'<span data-notify="title">{1}</span>' +
-					'<span data-notify="message">{2}</span>' +
-					'</div>'
-			});
-
-			// [END_EXCLUDE]
-		}
-		// [START_EXCLUDE]		
-		$('#quickstart-sign-in').attr("disabled", false);
-		// [END_EXCLUDE]	
+                icon_type: 'image',
+                template:
+                    '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                    '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                    '<img data-notify="icon" class="img-circle pull-left" />' +
+                    '<span data-notify="title">{1}</span>' +
+                    '<span data-notify="message">{2}</span>' +
+                    '</div>'
+            });
 
 
+            // [END_EXCLUDE]
+        } else {
+            // User is signed out.
+            // [START_EXCLUDE]
+            $('#quickstart-sign-in-status').text('Signed out');
+
+            $('#quickstart-sign-in').html("<i class='fa fa-google-plus'></i>" + 'Sign in with Google');
+
+            $.notify({
+                    icon: photoURL,
+                    title: 'Logout ',
+                    message: ((email == null) ? "Logout Realizado com sucesso" : email)
+                },
 
 
-	});
-	// [END authstatelistener]	
-	//$('#quickstart-sign-in').click(toggleSignIn);
-	document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
+                {
+                    type: 'minimalist',
+                    delay: 5000,
+
+                    animate: {
+                        enter: 'animated zoomInDown',
+                        exit: 'animated zoomOutUp'
+                    },
+
+                    allow_dismiss: true,
+
+                    position: null, placement: {
+                        from: "bottom",
+                        align: "center"
+                    },
+
+                    icon_type: 'image',
+                    template:
+                        '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                        '<img data-notify="icon" class="img-circle pull-left" />' +
+                        '<span data-notify="title">{1}</span>' +
+                        '<span data-notify="message">{2}</span>' +
+                        '</div>'
+                });
+
+            // [END_EXCLUDE]
+        }
+        // [START_EXCLUDE]		
+        $('#quickstart-sign-in').attr("disabled", false);
+        // [END_EXCLUDE]	
+
+
+    });
+    // [END authstatelistener]	
+    //$('#quickstart-sign-in').click(toggleSignIn);
+    document.getElementById('quickstart-sign-in').addEventListener('click', toggleSignIn, false);
 }
 
 

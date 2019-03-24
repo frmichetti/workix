@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.ejb.mdb;
 
 import br.com.codecode.workix.cdi.notify.Notification;
@@ -27,13 +26,13 @@ import java.time.Instant;
 /**
  * This Class is a {@link MessageDrivenBean} for {@link Job} Execute Actions
  * {@link #onMessage(Message)}
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
  */
 @MessageDriven(activationConfig = {
-	@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:/jms/topics/jobsTopic") })
+        @ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:/jms/topics/jobsTopic")})
 final class JobListener implements MessageListener {
 
     @Inject
@@ -54,31 +53,31 @@ final class JobListener implements MessageListener {
     @Override
     public void onMessage(Message message) {
 
-	System.out.println("[MDB - onMessage]");
+        System.out.println("[MDB - onMessage]");
 
-	TextMessage text = (TextMessage) message;
+        TextMessage text = (TextMessage) message;
 
-	System.out.println("Received Message -> " + text);
+        System.out.println("Received Message -> " + text);
 
-	try {
+        try {
 
-	    String uuid = text.getText();
+            String uuid = text.getText();
 
-	    managedExecutorService.submit(() -> {
+            managedExecutorService.submit(() -> {
 
-		System.out.println("TODO SEND A MAIL TO USER " + Instant.now());
+                System.out.println("TODO SEND A MAIL TO USER " + Instant.now());
 
-		System.out.println("UUID " + uuid);
+                System.out.println("UUID " + uuid);
 
-	    });
+            });
 
-	} catch (JMSException e) {
+        } catch (JMSException e) {
 
-	    System.err.println("---Error on Read Message---");
+            System.err.println("---Error on Read Message---");
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	}
+        }
     }
 
 }

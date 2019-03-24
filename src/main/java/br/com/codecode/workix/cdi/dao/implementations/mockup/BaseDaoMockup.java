@@ -11,36 +11,31 @@ import java.io.Serializable;
 
 /**
  * BaseClass for Mockup Implementation
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
  * @see Serializable
+ * @since 1.0
  */
 @Mockup
 public class BaseDaoMockup implements Serializable {
 
-   
-    private static final long serialVersionUID = -4533114503790241039L;
 
     static final String TITLE = "MOCKUP";
-
     static final String SAVEMESSAGE = " Salvo com Sucesso!";
-
     static final String UPDATEMESSAGE = " Atualizado com Sucesso!";
-
-    @Inject
-    MessagesHelper messagesHelper;
-
+    private static final long serialVersionUID = -4533114503790241039L;
     /**
      * CDI Injection Point for {@link EntityManager}
-     * 
+     *
      * @see EntityManagerProducer Possible values {@link Default}
-     *      {@link Production} {@link PostgreSQL} {@link MySQL}
+     * {@link Production} {@link PostgreSQL} {@link MySQL}
      */
     @Inject
     @Factory
     @Default
     protected EntityManager em;
+    @Inject
+    MessagesHelper messagesHelper;
 
 }

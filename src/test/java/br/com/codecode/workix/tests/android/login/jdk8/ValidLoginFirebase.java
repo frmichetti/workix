@@ -13,9 +13,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * @since 1.0
- * @version 1.1
  * @author felipe
+ * @version 1.1
+ * @since 1.0
  */
 public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
@@ -27,13 +27,13 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
     @Override
     public void doLoginWithFirebase() {
 
-	System.out.println("[doLoginWithFirebase]");
+        System.out.println("[doLoginWithFirebase]");
 
-	Token t = Token.builder().withKey("x5rXx6LCyCddLErHSWRctK74SUR2").build();
+        Token t = Token.builder().withKey("x5rXx6LCyCddLErHSWRctK74SUR2").build();
 
-	json = HttpTest.sendPost(url, getGson().toJson(t));
+        json = HttpTest.sendPost(url, getGson().toJson(t));
 
-	assertFalse(json.isEmpty());
+        assertFalse(json.isEmpty());
 
     }
 
@@ -41,9 +41,10 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
     @Override
     public void parseJson() {
 
-	Candidate c = getGson().fromJson(json, new TypeToken<Candidate>(){}.getType());
+        Candidate c = getGson().fromJson(json, new TypeToken<Candidate>() {
+        }.getType());
 
-	assertNotNull(c);
+        assertNotNull(c);
 
     }
 

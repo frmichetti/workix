@@ -14,15 +14,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * CDI - Qualifier for {@link Dao} Instance
- * 
+ *
+ * @author felipe
+ * @version 1.1
  * @see Dao
  * @see GenericDaoProducer
- * @author felipe
  * @since 1.0
- * @version 1.1
  */
 @Qualifier
-@Target({ METHOD, FIELD })
+@Target({METHOD, FIELD})
 @Retention(RUNTIME)
 @Documented
 public @interface Generic {

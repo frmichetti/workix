@@ -10,23 +10,23 @@ import java.io.Serializable;
 
 /**
  * Only for Share Entity Manager
- * 
+ *
  * @author felipe
+ * @version 1.0
  * @see Serializable
  * @since 1.0
- * @version 1.0
  */
 @Persist
 public class BaseDao implements Serializable {
 
-   
+
     private static final long serialVersionUID = 3943660229318614845L;
 
     /**
      * CDI Injection Point for {@link EntityManager}
-     * 
+     *
      * @see EntityManagerProducer Possible values {@link Default}
-     *      {@link Production} {@link PostgreSQL} {@link MySQL}
+     * {@link Production} {@link PostgreSQL} {@link MySQL}
      */
     @Inject
     @Factory

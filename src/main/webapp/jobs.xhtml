@@ -7,314 +7,319 @@
 
 <ui:composition template="/template.xhtml">
 
-	<f:metadata>
-		<f:viewParam id="page" name="page" value="#{jobsMB.page}" />
-		<f:viewAction action="#{jobsMB.init()}" />
-	</f:metadata>
+    <f:metadata>
+        <f:viewParam id="page" name="page" value="#{jobsMB.page}"/>
+        <f:viewAction action="#{jobsMB.init()}"/>
+    </f:metadata>
 
-	<ui:define name="headerTitle">#{applicationMB.appName} - Vagas</ui:define>
+    <ui:define name="headerTitle">#{applicationMB.appName} - Vagas</ui:define>
 
-	<ui:define name="title">
-		<h1>Encontre um emprego</h1>
-		<h4>Não há lugar melhor para começar</h4>
-	</ui:define>
+    <ui:define name="title">
+        <h1>Encontre um emprego</h1>
+        <h4>Não há lugar melhor para começar</h4>
+    </ui:define>
 
-	<ui:define name="content">
+    <ui:define name="content">
 
-		<!-- ============ JOBS START ============ -->
+        <!-- ============ JOBS START ============ -->
 
-		<section id="jobs">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8">
+        <section id="jobs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
 
-						<div class="jobs">
+                        <div class="jobs">
 
-							<h:form>
-								<ui:repeat var="job" value="#{jobsMB.list}">
+                            <h:form>
+                                <ui:repeat var="job" value="#{jobsMB.list}">
 
-									<a href="#{basePath}/job-details.xhtml?id=#{job.id}" class="featured applied">
+                                    <a href="#{basePath}/job-details.xhtml?id=#{job.id}" class="featured applied">
 
-										<div class="row">
+                                        <div class="row">
 
-											<div class="col-md-1 hidden-sm hidden-xs">
-												<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-responsive"/>												
-											</div>
+                                            <div class="col-md-1 hidden-sm hidden-xs">
+                                                <h:graphicImage name="60x60.jpg" library="placeholder" alt=""
+                                                                styleClass="img-responsive"/>
+                                            </div>
 
-											<div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
-												<h5>
-													<h:outputText value="#{job.title}" />
-												</h5>
-												
-												<p>
-													<strong><h:outputText value="#{job.company.name}" /></strong>
-													
-													<br/>
-													
-													<h:outputText value="#{job.company.segment}" />
-												</p>
-											</div>
+                                            <div class="col-lg-5 col-md-5 col-sm-7 col-xs-12 job-title">
+                                                <h5>
+                                                    <h:outputText value="#{job.title}"/>
+                                                </h5>
 
-											<div
-												class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
-												<p>
-													<strong>
-													
-													<h:outputText value="#{job.company.locale.city}" />, 
-													
-													<h:outputText value="#{job.company.locale.estate}" />
-													
-													</strong>
-												</p>
-												<p class="hidden-xs">126.3 miles away</p>
-											</div>
+                                                <p>
+                                                    <strong><h:outputText value="#{job.company.name}"/></strong>
 
-											<div
-												class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
-												<p class="job-salary">
-													<strong>R$ <h:outputText value="#{job.maxPayment}" /></strong>
-												</p>
-												
-												<p class="#{jobsMB.discoverBadge(job.jobType)}">
-													<h:outputText value="#{job.jobType.name()}" />
-												</p>
-											</div>
+                                                    <br/>
 
-										</div>
-									</a>
+                                                    <h:outputText value="#{job.company.segment}"/>
+                                                </p>
+                                            </div>
 
-								</ui:repeat>
-							</h:form>
+                                            <div
+                                                    class="col-lg-4 col-md-4 col-sm-5 col-xs-12 job-location">
+                                                <p>
+                                                    <strong>
+
+                                                        <h:outputText value="#{job.company.locale.city}"/>,
+
+                                                        <h:outputText value="#{job.company.locale.estate}"/>
+
+                                                    </strong>
+                                                </p>
+                                                <p class="hidden-xs">126.3 miles away</p>
+                                            </div>
+
+                                            <div
+                                                    class="col-lg-2 col-md-2 hidden-sm hidden-xs job-type text-center">
+                                                <p class="job-salary">
+                                                    <strong>R$ <h:outputText value="#{job.maxPayment}"/></strong>
+                                                </p>
+
+                                                <p class="#{jobsMB.discoverBadge(job.jobType)}">
+                                                    <h:outputText value="#{job.jobType.name()}"/>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </a>
+
+                                </ui:repeat>
+                            </h:form>
 
 
-							<!-- END JOBS -->
-						</div>
+                            <!-- END JOBS -->
+                        </div>
 
-						<nav>
-							<ul class="pagination">
-								<li><a href="#{jobsMB.goToFirstPage()}" aria-label="Primeira">
-								<span aria-hidden="true">Primeira</span></a></li>
-								<ui:repeat var="pag" value="#{jobsMB.pager}">
-									<li><a href="./jobs.xhtml?page=#{pag.intValue()}"><h:outputText value="#{pag.intValue()}" /></a></li>
-								</ui:repeat>								
-								<li><a href="#{jobsMB.goToLastPage()}" aria-label="Última">
-								<span aria-hidden="true">Última</span></a></li>
-							</ul>
-						</nav>
+                        <nav>
+                            <ul class="pagination">
+                                <li><a href="#{jobsMB.goToFirstPage()}" aria-label="Primeira">
+                                    <span aria-hidden="true">Primeira</span></a></li>
+                                <ui:repeat var="pag" value="#{jobsMB.pager}">
+                                    <li><a href="./jobs.xhtml?page=#{pag.intValue()}"><h:outputText
+                                            value="#{pag.intValue()}"/></a></li>
+                                </ui:repeat>
+                                <li><a href="#{jobsMB.goToLastPage()}" aria-label="Última">
+                                    <span aria-hidden="true">Última</span></a></li>
+                            </ul>
+                        </nav>
 
-					</div>
-					<div class="col-sm-4" id="sidebar">
+                    </div>
+                    <div class="col-sm-4" id="sidebar">
 
-						<!-- Featured Jobs Start -->
-						<div class="sidebar-widget">
-							<h2>Featured Jobs</h2>
-							<a href="#"> 
-							<h:graphicImage name="400x265.jpg" library="placeholder" styleClass="img-responsive" alt="Featured Job"/>							
-								<div class="featured-job">
-								<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-circle pull-left"/>									
-									<div class="title">
-										<h5>Web Designer</h5>
-										<p>Amazon</p>
-									</div>
-									<div class="data">
+                        <!-- Featured Jobs Start -->
+                        <div class="sidebar-widget">
+                            <h2>Featured Jobs</h2>
+                            <a href="#">
+                                <h:graphicImage name="400x265.jpg" library="placeholder" styleClass="img-responsive"
+                                                alt="Featured Job"/>
+                                <div class="featured-job">
+                                    <h:graphicImage name="60x60.jpg" library="placeholder" alt=""
+                                                    styleClass="img-circle pull-left"/>
+                                    <div class="title">
+                                        <h5>Web Designer</h5>
+                                        <p>Amazon</p>
+                                    </div>
+                                    <div class="data">
 										<span class="city"><i class="fa fa-map-marker"></i>New
 											York City</span> <span class="type full-time"><i
-											class="fa fa-clock-o"></i>Full Time</span> <span class="sallary"><i
-											class="fa fa-dollar"></i>45,000</span>
-									</div>
-									<div class="description">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Pellentesque tristique euismod
-										lorem, a consequat orci consequat a. Donec ullamcorper
-										tincidunt nunc, ut aliquam est pellentesque porta. In neque
-										erat, malesuada sit amet orci ac, laoreet laoreet mauris.</div>
-								</div>
-							</a>
-						</div>
-						<!-- Featured Jobs End -->
+                                            class="fa fa-clock-o"></i>Full Time</span> <span class="sallary"><i
+                                            class="fa fa-dollar"></i>45,000</span>
+                                    </div>
+                                    <div class="description">Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit. Pellentesque tristique euismod
+                                        lorem, a consequat orci consequat a. Donec ullamcorper
+                                        tincidunt nunc, ut aliquam est pellentesque porta. In neque
+                                        erat, malesuada sit amet orci ac, laoreet laoreet mauris.
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Featured Jobs End -->
 
-						<!-- Find a Job Start -->
-						<div class="sidebar-widget" id="jobsearch">
-							<h2>Find a Job</h2>
-							<form>
-								<div class="row">
-									<div class="col-xs-12">
-										<div class="form-group" id="job-search-group">
-											<label for="job-search" class="sr-only">Search</label> <input
-												type="text" class="form-control" id="job-search"
-												placeholder="Type and press enter" />
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<h5>Career Level</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Junior
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Middle
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Senior
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Expert
-											</label>
-										</div>
-									</div>
-									<div class="col-xs-6">
-										<h5>Presence</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Remote
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Office
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Relocation
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Travel a lot
-											</label>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<h5>Job Type</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Freelance
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Part Time
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Full Time
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Internship
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Volunteer
-											</label>
-										</div>
-									</div>
-									<div class="col-xs-6">
-										<h5>Location</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> New York
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Los Angeles
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> San Francisco
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Chicago
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Boston
-											</label>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<h5>Experience</h5>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<p>
-											More than <b><span id="years-field"></span></b> years
-										</p>
-									</div>
-									<div class="col-xs-6">
-										<div class="form-slider" id="years"></div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<h5>Salary</h5>
-										<div class="form-slider" id="salary"></div>
-										<p>
-											From <b><span id="salary-field-lower"></span></b> to <b><span
-												id="salary-field-upper"></span></b>
-										</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<a class="btn btn-primary">Reset All Filters</a>
-									</div>
-								</div>
-							</form>
-						</div>
-						<!-- Find a Job End -->
+                        <!-- Find a Job Start -->
+                        <div class="sidebar-widget" id="jobsearch">
+                            <h2>Find a Job</h2>
+                            <form>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group" id="job-search-group">
+                                            <label for="job-search" class="sr-only">Search</label> <input
+                                                type="text" class="form-control" id="job-search"
+                                                placeholder="Type and press enter"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h5>Career Level</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Junior
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Middle
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Senior
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Expert
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Presence</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Remote
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Office
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Relocation
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Travel a lot
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h5>Job Type</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Freelance
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Part Time
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Full Time
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Internship
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Volunteer
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Location</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> New York
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Los Angeles
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> San Francisco
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Chicago
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Boston
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h5>Experience</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            More than <b><span id="years-field"></span></b> years
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-slider" id="years"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h5>Salary</h5>
+                                        <div class="form-slider" id="salary"></div>
+                                        <p>
+                                            From <b><span id="salary-field-lower"></span></b> to <b><span
+                                                id="salary-field-upper"></span></b>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <a class="btn btn-primary">Reset All Filters</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Find a Job End -->
 
-					</div>
-				</div>
-			</div>
-		</section>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		<!-- ============ JOBS END ============ -->
+        <!-- ============ JOBS END ============ -->
 
-	</ui:define>
+    </ui:define>
 </ui:composition>
 </html>

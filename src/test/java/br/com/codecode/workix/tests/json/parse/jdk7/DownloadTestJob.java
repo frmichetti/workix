@@ -15,31 +15,32 @@ public class DownloadTestJob extends BaseTest implements DownloadTest<Job> {
 
     private String resp;
 
-    @Before    
-    public void downloadItens() {	
+    @Before
+    public void downloadItens() {
 
-	resp = downloadItens(server + "/jobs");	
+        resp = downloadItens(server + "/jobs");
 
     }
 
-    @Test    
+    @Test
     public void parseItens() {
-	
-	assertFalse(resp.isEmpty());
-	
-	List<Job> jobs = parseItens(resp, new TypeToken<List<Job>>(){});
 
-	assertNotNull(jobs);
+        assertFalse(resp.isEmpty());
 
-	assertTrue(jobs.size() > 0);		
+        List<Job> jobs = parseItens(resp, new TypeToken<List<Job>>() {
+        });
 
-	System.out.println("----Stream----");
-	
-	System.out.println(jobs.size());
+        assertNotNull(jobs);
 
-	jobs.stream().forEach(j -> System.out.println(j.getDescription()));
+        assertTrue(jobs.size() > 0);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
+
+        System.out.println(jobs.size());
+
+        jobs.stream().forEach(j -> System.out.println(j.getDescription()));
+
+        System.out.println("----Stream----");
 
     }
 

@@ -10,12 +10,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
- * Company JPA with Inherited Fields and Methods 
+ * Company JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
- * @see Person
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @see Person
+ * @since 1.0
  */
 @Entity
 @XmlRootElement
@@ -23,167 +24,169 @@ import javax.xml.bind.annotation.XmlTransient;
 @Persist
 public class Company extends Person {
 
-	private static final long serialVersionUID = 47663377480544994L;
+    private static final long serialVersionUID = 47663377480544994L;
 
-	private String description;
+    private String description;
 
-	private long id, cnpj;
+    private long id, cnpj;
 
-	private String segment;
+    private String segment;
 
-	/**
-	 * Public Default Constructor for JPA Compatibility Only
-	 */
-	public Company(){}
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Company() {
+    }
 
-	/**
-	 * Public Constructor for {@link Builder} Compatibility
-	 *
-	 * @see Buildable
-	 * @param builder
-	 *            Builder for Generate a New Company
-	 */
-	private Company(Builder builder) {
-		this.cnpj = builder.getCnpj();
-		this.segment = builder.getSegment();
-		this.setName(builder.getName());
-		this.setContact(builder.getContact());
-		this.setLocale(builder.getLocale());
-		this.setUser(builder.getUser());
-	}
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     *
+     * @param builder Builder for Generate a New Company
+     * @see Buildable
+     */
+    private Company(Builder builder) {
+        this.cnpj = builder.getCnpj();
+        this.segment = builder.getSegment();
+        this.setName(builder.getName());
+        this.setContact(builder.getContact());
+        this.setLocale(builder.getLocale());
+        this.setUser(builder.getUser());
+    }
 
-	/**
-	 * Creates builder to build {@link Company}.
-	 * @return created builder
-	 */
-	@XmlTransient
-	public static Builder builder() {
-		return new Builder();
-	}
+    /**
+     * Creates builder to build {@link Company}.
+     *
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+        return new Builder();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Company))
-			return false;
-		Company other = (Company) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (!(obj instanceof Company))
+            return false;
+        Company other = (Company) obj;
+        if (id != other.id)
+            return false;
+        return true;
+    }
 
-	@Column(nullable = false, unique = true)
-	public long getCnpj() {
-		return cnpj;
-	}
+    @Column(nullable = false, unique = true)
+    public long getCnpj() {
+        return cnpj;
+    }
 
-	/**
-	 * @return the description
-	 */
-	@Column
-	@Lob
-	public String getDescription() {
-		return description;
-	}
+    public void setCnpj(long cnpj) {
+        this.cnpj = cnpj;
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
-	@Override
-	public long getId() {
-		return this.id;
-	}
+    /**
+     * @return the description
+     */
+    @Column
+    @Lob
+    public String getDescription() {
+        return description;
+    }
 
-	@Column(nullable = false)
-	public String getSegment() {
-		return segment;
-	}
+    /**
+     * @param description the description to set
+     */
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+        return this.id;
+    }
 
-	public void setCnpj(long cnpj) {
-		this.cnpj = cnpj;
-	}
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	/**
-	 * @param description the description to set
-	 */
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    @Column(nullable = false)
+    public String getSegment() {
+        return segment;
+    }
 
-	@Override
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setSegment(String companySegment) {
+        this.segment = companySegment;
+    }
 
-	public void setSegment(String companySegment) {
-		this.segment = companySegment;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
 
-	/**
-	 * Builder to build {@link Company}.
-	 */
-	public static final class Builder extends Company implements Buildable<Company> {
+    /**
+     * Builder to build {@link Company}.
+     */
+    public static final class Builder extends Company implements Buildable<Company> {
 
-		private static final long serialVersionUID = -2850736800336558944L;
+        private static final long serialVersionUID = -2850736800336558944L;
 
-		/**
-		 * Disabled Empty Constructor
-		 */
-		private Builder() {}
+        /**
+         * Disabled Empty Constructor
+         */
+        private Builder() {
+        }
 
-		/**
-		 * @return a new Company
-		 */
-		@Override
-		public Company build() {
-			return new Company(this);
-		}
+        /**
+         * @return a new Company
+         */
+        @Override
+        public Company build() {
+            return new Company(this);
+        }
 
-		public Builder withCnpj(long cnpj) {
-			super.cnpj = cnpj;
-			return this;
-		}
+        public Builder withCnpj(long cnpj) {
+            super.cnpj = cnpj;
+            return this;
+        }
 
-		public Builder withContact(Contact contact) {
-			super.setContact(contact);
-			return this;
-		}
+        public Builder withContact(Contact contact) {
+            super.setContact(contact);
+            return this;
+        }
 
-		public Builder withDescription(String description) {
-			super.description = description;
-			return this;
-		}
+        public Builder withDescription(String description) {
+            super.description = description;
+            return this;
+        }
 
-		public Builder withLocale(Locale locale) {
-			super.setLocale(locale);
-			return this;
-		}
+        public Builder withLocale(Locale locale) {
+            super.setLocale(locale);
+            return this;
+        }
 
-		public Builder withName(String name) {
-			super.setName(name);
-			return this;
-		}
+        public Builder withName(String name) {
+            super.setName(name);
+            return this;
+        }
 
-		public Builder withSegment(String segment) {
-			super.segment = segment;
-			return this;
-		}
+        public Builder withSegment(String segment) {
+            super.segment = segment;
+            return this;
+        }
 
-		public Builder withUser(User user) {
-			super.setUser(user);
-			return this;
-		}
-	}
+        public Builder withUser(User user) {
+            super.setUser(user);
+            return this;
+        }
+    }
 
 }

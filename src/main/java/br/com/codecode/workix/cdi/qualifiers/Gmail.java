@@ -15,15 +15,15 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * CDI - Qualifier for {@link Session} Instance
- * 
+ *
+ * @author felipe
+ * @version 1.1
  * @see MailSender
  * @see MailSessionProducer
- * @author felipe
  * @since 1.0
- * @version 1.1
  */
 @Qualifier
-@Target({ METHOD, FIELD })
+@Target({METHOD, FIELD})
 @Retention(RUNTIME)
 @Documented
 public @interface Gmail {

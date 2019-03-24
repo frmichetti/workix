@@ -12,11 +12,12 @@ import java.util.Date;
 /**
  * Candidate JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
- * @see Person
+ *
  * @author felipe
+ * @version 1.1
+ * @see Person
  * @see Person
  * @since 1.0
- * @version 1.1
  */
 @Entity
 @XmlRootElement
@@ -33,7 +34,8 @@ public class Candidate extends Person {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Candidate(){}
+    public Candidate() {
+    }
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
@@ -41,9 +43,17 @@ public class Candidate extends Person {
         return birthDate;
     }
 
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
     @Column(nullable = false, unique = true)
     public long getCpf() {
         return cpf;
+    }
+
+    public void setCpf(long cpf) {
+        this.cpf = cpf;
     }
 
     @Id
@@ -54,25 +64,17 @@ public class Candidate extends Person {
         return this.id;
     }
 
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
+
     /**
      * Initialize Fields for CDI Injection
      */
     @PostConstruct
     private void init() {
         birthDate = new Date();
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public void setCpf(long cpf) {
-        this.cpf = cpf;
-    }
-
-    @Override
-    public void setId(long id) {
-        this.id = id;
     }
 
     @Override

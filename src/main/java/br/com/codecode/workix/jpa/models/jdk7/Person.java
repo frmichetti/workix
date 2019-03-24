@@ -5,17 +5,18 @@ package br.com.codecode.workix.jpa.models.jdk7;
  * Abstract Class for share common Fields with {@link Company} and
  * {@link Candidate}
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
+ * @version 1.1
  * @see MyEntity
- * @since 1.0
- * @version 1.1 
  * @see <a href="http://wiki.fasterxml.com/JacksonFAQ#Deserializing_Abstract_types">
  * DeSerializing Abstract Types</a>
+ * @since 1.0
  */
 abstract class Person extends MyEntity {
-   
+
     private static final long serialVersionUID = 703693002246144451L;
-    
+
     private String name;
 
     private User user;
@@ -27,38 +28,39 @@ abstract class Person extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Person(){}
+    public Person() {
+    }
 
     public Contact getContact() {
-	return contact;
-    }
-
-    public Locale getLocale() {
-	return locale;
-    }
-    
-    public String getName() {
-	return name;
-    }
-
-    public User getUser() {
-	return user;
+        return contact;
     }
 
     public void setContact(Contact contact) {
-	this.contact = contact;
+        this.contact = contact;
+    }
+
+    public Locale getLocale() {
+        return locale;
     }
 
     public void setLocale(Locale locale) {
-	this.locale = locale;
+        this.locale = locale;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public void setUser(User user) {
-	this.user = user;
+        this.user = user;
     }
 
 }

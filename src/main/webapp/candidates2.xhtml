@@ -7,86 +7,88 @@
 
 <ui:composition template="/template.xhtml">
 
-	<f:metadata>
-		<f:viewParam id="page" name="page" value="#{candidatesMB.page}" />
-		<f:viewAction action="#{candidatesMB.init()}" />
-	</f:metadata>
+    <f:metadata>
+        <f:viewParam id="page" name="page" value="#{candidatesMB.page}"/>
+        <f:viewAction action="#{candidatesMB.init()}"/>
+    </f:metadata>
 
-	<ui:define name="headerTitle">#{applicationMB.appName} - Candidatos 2</ui:define>
+    <ui:define name="headerTitle">#{applicationMB.appName} - Candidatos 2</ui:define>
 
-	<ui:define name="title">
-		<h1>Candidatos</h1>
-		<h4>Encontre seu funcionário</h4>
-	</ui:define>
+    <ui:define name="title">
+        <h1>Candidatos</h1>
+        <h4>Encontre seu funcionário</h4>
+    </ui:define>
 
-	<ui:define name="content">
-		<!-- ============ JOBS START ============ -->
+    <ui:define name="content">
+        <!-- ============ JOBS START ============ -->
 
-		<section id="jobs">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<h2>Candidatos</h2>
+        <section id="jobs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Candidatos</h2>
 
-						<div class="jobs">
+                        <div class="jobs">
 
-							<ui:repeat var="candidate" value="#{candidatesMB.list}">
+                            <ui:repeat var="candidate" value="#{candidatesMB.list}">
 
-								<a href="#{basePath}/resume.xhtml?id=#{candidate.id}"
-									class="featured">
-									<div class="row">
-										<div class="col-xs-3 col-sm-2 col-lg-1">
-										
-										<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle img-responsive" alt=""/>
-											
-										</div>
-										<div
-											class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-											<h5><h:outputText value="#{candidate.name}" /></h5>
-											<p>
-												<strong><h:outputText value="#{candidate.cpf}" /></strong>
-											</p>
-										</div>
-										<div
-											class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-											<p>
-												<strong><h:outputText value="#{candidate.locale}" /></strong>
-											</p>
-											<p>743.6 mi away</p>
-										</div>
-										<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-											<p class="candidate-date">Updated 3 weeks ago}</p>
-											<p class="candidate-tags">
-												<span class="badge">Marketing</span> <span class="badge">Sale</span>
-											</p>
-										</div>
-									</div>
-								</a>
+                                <a href="#{basePath}/resume.xhtml?id=#{candidate.id}"
+                                   class="featured">
+                                    <div class="row">
+                                        <div class="col-xs-3 col-sm-2 col-lg-1">
 
-							</ui:repeat>
+                                            <h:graphicImage name="60x60.jpg" library="placeholder"
+                                                            styleClass="img-circle img-responsive" alt=""/>
 
-						</div>
+                                        </div>
+                                        <div
+                                                class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
+                                            <h5><h:outputText value="#{candidate.name}"/></h5>
+                                            <p>
+                                                <strong><h:outputText value="#{candidate.cpf}"/></strong>
+                                            </p>
+                                        </div>
+                                        <div
+                                                class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+                                            <p>
+                                                <strong><h:outputText value="#{candidate.locale}"/></strong>
+                                            </p>
+                                            <p>743.6 mi away</p>
+                                        </div>
+                                        <div class="hidden-xs hidden-sm hidden-md col-lg-3">
+                                            <p class="candidate-date">Updated 3 weeks ago}</p>
+                                            <p class="candidate-tags">
+                                                <span class="badge">Marketing</span> <span class="badge">Sale</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
 
-						<nav>
-							<ul class="pagination">
-								<li><a href="#{candidatesMB.goToFirstPage()}" aria-label="Primeira">
-								<span aria-hidden="true">Primeira</span></a></li>
-								<ui:repeat var="pag" value="#{candidatesMB.pager}">
-									<li><a href="./candidates2.xhtml?page=#{pag.intValue()}"><h:outputText value="#{pag.intValue()}" /></a></li>
-								</ui:repeat>								
-								<li><a href="#{candidatesMB.goToLastPage()}" aria-label="Última">
-								<span aria-hidden="true">Última</span></a></li>
-							</ul>
-						</nav>
+                            </ui:repeat>
 
-					</div>
-				</div>
-			</div>
-		</section>
+                        </div>
 
-		<!-- ============ JOBS END ============ -->
+                        <nav>
+                            <ul class="pagination">
+                                <li><a href="#{candidatesMB.goToFirstPage()}" aria-label="Primeira">
+                                    <span aria-hidden="true">Primeira</span></a></li>
+                                <ui:repeat var="pag" value="#{candidatesMB.pager}">
+                                    <li><a href="./candidates2.xhtml?page=#{pag.intValue()}"><h:outputText
+                                            value="#{pag.intValue()}"/></a></li>
+                                </ui:repeat>
+                                <li><a href="#{candidatesMB.goToLastPage()}" aria-label="Última">
+                                    <span aria-hidden="true">Última</span></a></li>
+                            </ul>
+                        </nav>
 
-	</ui:define>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ JOBS END ============ -->
+
+    </ui:define>
 
 </ui:composition>
 </html>

@@ -12,28 +12,27 @@ import java.security.NoSuchAlgorithmException;
 /**
  * MessageDigest Producer<br>
  * Use for Encrypt Strings
- * 
+ *
+ * @author felipe
+ * @version 1.0
  * @see Produces
  * @see MessageDigest
- * @author felipe
  * @since 1.0
- * @version 1.0
  */
 @ApplicationScoped
 public class MessageDigestProducer {
 
     /**
      * Produce MessageDigest for CDI Injection Points
-     * 
+     *
      * @return MessageDigest Instance
-     * @throws NoSuchAlgorithmException
-     *             if Algorithm is Invalid
+     * @throws NoSuchAlgorithmException if Algorithm is Invalid
      */
     @Produces
     @Dependent
     @Factory
     @Default
     public MessageDigest getMessageDigest() throws NoSuchAlgorithmException {
-	return MessageDigest.getInstance("SHA-256");
+        return MessageDigest.getInstance("SHA-256");
     }
 }

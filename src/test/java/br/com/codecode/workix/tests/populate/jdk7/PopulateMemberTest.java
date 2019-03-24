@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.tests.populate.jdk7;
 
 import br.com.codecode.workix.jpa.models.jdk7.Member;
@@ -23,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 
 /**
  * Populate DB with Members
- * 
+ *
  * @author felipe
  * @since 1.1
  * @version 1.0
@@ -32,61 +31,61 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
 
     private List<Member> members;
 
-    private String resp;    
+    private String resp;
 
     @Before
     @Override
     public void create() {
 
-	members = new ArrayList<>();	
+        members = new ArrayList<>();
 
-	    Member felipe = Member.builder()
+        Member felipe = Member.builder()
 
-	    .withName("FELIPE RODRIGUES MICHETTI")
-	    
-	    .withOccupation("Fundador e Desenvolvedor")
-	    
-	    .withShortText("Porque pagar por um conteúdo que você não tem certeza de sua verdade?")
-	    
-	    .withPicture("http://localhost:8080/workix/resources/images/members/felipe_140_140.jpg");	    	    
-	    
-	    felipe.addSocialMedia(SocialMedia.builder().withMedia("GitHub").withUrl("https://github.com/frmichetti").build());
-	    
-	    felipe.addSocialMedia(SocialMedia.builder().withMedia("Twitter").withUrl("https://twitter.com/frmichetti").build());
-	    
-	    felipe.addSocialMedia(SocialMedia.builder().withMedia("Linkedin").withUrl("https://br.linkedin.com/pub/felipe-rodrigues-michetti/105/61/511").build());
+                .withName("FELIPE RODRIGUES MICHETTI")
 
-	    System.out.println("[create] " + felipe.getName());
+                .withOccupation("Fundador e Desenvolvedor")
 
-	    addToList(felipe);
-	    
-	    Member jefferson = Member.builder()
-	    
-	    .withName("JEFFERSON PEDROSO")
-	    
-	    .withOccupation("Co-Founder e CMO")
-	    
-	    .withShortText("Muitas idéias boas parecem loucura ou impossível em primeiro lugar.");
-	    
-	    jefferson.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");
+                .withShortText("Porque pagar por um conteúdo que você não tem certeza de sua verdade?")
 
-	    System.out.println("[create] " + jefferson.getName());
+                .withPicture("http://localhost:8080/workix/resources/images/members/felipe_140_140.jpg");
 
-	    addToList(jefferson); 
-	
+        felipe.addSocialMedia(SocialMedia.builder().withMedia("GitHub").withUrl("https://github.com/frmichetti").build());
 
-	assertEquals(2 , members.size());
+        felipe.addSocialMedia(SocialMedia.builder().withMedia("Twitter").withUrl("https://twitter.com/frmichetti").build());
+
+        felipe.addSocialMedia(SocialMedia.builder().withMedia("Linkedin").withUrl("https://br.linkedin.com/pub/felipe-rodrigues-michetti/105/61/511").build());
+
+        System.out.println("[create] " + felipe.getName());
+
+        addToList(felipe);
+
+        Member jefferson = Member.builder()
+
+                .withName("JEFFERSON PEDROSO")
+
+                .withOccupation("Co-Founder e CMO")
+
+                .withShortText("Muitas idéias boas parecem loucura ou impossível em primeiro lugar.");
+
+        jefferson.setPicture("http://localhost:8080/workix/resources/placeholder/140x140.jpg");
+
+        System.out.println("[create] " + jefferson.getName());
+
+        addToList(jefferson);
+
+
+        assertEquals(2, members.size());
 
     }
 
     @Override
     public void addToList(Member m) {
 
-	assertNotNull(m);
+        assertNotNull(m);
 
-	System.out.println("[addToList] " + m.getName());
+        System.out.println("[addToList] " + m.getName());
 
-	members.add(m);
+        members.add(m);
 
     }
 
@@ -94,15 +93,15 @@ public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member
     @Override
     public void sendToServer() {
 
-	members.stream().forEach(m -> {
+        members.stream().forEach(m -> {
 
-	    System.out.println("[sendToServer] " + m.getName());
+            System.out.println("[sendToServer] " + m.getName());
 
-	    resp = HttpTest.sendPost(server + "/members", getGson().toJson(m));
+            resp = HttpTest.sendPost(server + "/members", getGson().toJson(m));
 
-	    assertNotNull(resp);
+            assertNotNull(resp);
 
-	});
+        });
 
     }
 

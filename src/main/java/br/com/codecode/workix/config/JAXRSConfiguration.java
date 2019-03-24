@@ -1,10 +1,9 @@
 /**
-*
-* @author Felipe Rodrigues Michetti
-* @see http://portfolio-frmichetti.rhcloud.com
-* @see http://www.codecode.com.br
-* @see mailto:frmichetti@gmail.com
-* */
+ * @author Felipe Rodrigues Michetti
+ * @see http://portfolio-frmichetti.rhcloud.com
+ * @see http://www.codecode.com.br
+ * @see mailto:frmichetti@gmail.com
+ */
 package br.com.codecode.workix.config;
 
 import br.com.codecode.workix.jaxrs.converter.JacksonJavaTimeConfiguration;
@@ -23,7 +22,7 @@ import java.util.Set;
 
 /**
  * Configure Application Path for JaxRs
- * 
+ *
  * @see br.com.codecode.workix.rest.android
  * @see br.com.codecode.workix.rest.api
  * @author felipe
@@ -31,7 +30,7 @@ import java.util.Set;
  * @version 1.0
  */
 @ApplicationPath("services")
-public class JAXRSConfiguration extends Application{
+public class JAXRSConfiguration extends Application {
     public JAXRSConfiguration() {
         BeanConfig conf = new BeanConfig();
         conf.setTitle("Workix Api");
@@ -39,7 +38,7 @@ public class JAXRSConfiguration extends Application{
         conf.setVersion("1.0.0");
         conf.setHost("localhost:8080");
         conf.setBasePath("/workix/services");
-        conf.setSchemes(new String[] { "http" });
+        conf.setSchemes(new String[]{"http"});
         conf.setResourcePackage("br.com.codecode.workix.rest");
         conf.setScan(true);
     }

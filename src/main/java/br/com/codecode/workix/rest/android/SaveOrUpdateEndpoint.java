@@ -22,11 +22,11 @@ import javax.ws.rs.core.Response.Status;
 
 /**
  * This Class is a Simple StandAlone Endpoint for Android Uses
- * 
- * @see JAXRSConfiguration
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @see JAXRSConfiguration
+ * @since 1.0
  */
 @Api
 @Stateless
@@ -54,26 +54,26 @@ public class SaveOrUpdateEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(User user) {
 
-	try {
+        try {
 
-	    user = daoUser.saveOrUpdate(user);
+            user = daoUser.saveOrUpdate(user);
 
-	    alertNewUser.fire(user);
+            alertNewUser.fire(user);
 
-	} catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 
-	} catch (NotImplementedYetException e) {
+        } catch (NotImplementedYetException e) {
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    return Response.status(Status.NOT_IMPLEMENTED).build();
-	}
+            return Response.status(Status.NOT_IMPLEMENTED).build();
+        }
 
-	return Response.ok(user).build();
+        return Response.ok(user).build();
     }
 
     @Path("candidate")
@@ -82,24 +82,24 @@ public class SaveOrUpdateEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(Candidate candidate) {
 
-	try {
+        try {
 
-	    candidate = daoCandidate.saveOrUpdate(candidate);
+            candidate = daoCandidate.saveOrUpdate(candidate);
 
-	} catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
 
-	} catch (NotImplementedYetException e) {
+        } catch (NotImplementedYetException e) {
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    return Response.status(Status.NOT_IMPLEMENTED).build();
-	}
+            return Response.status(Status.NOT_IMPLEMENTED).build();
+        }
 
-	return Response.ok(candidate).build();
+        return Response.ok(candidate).build();
     }
 
     @Path("resume")
@@ -108,23 +108,23 @@ public class SaveOrUpdateEndpoint {
     @Produces(MediaType.APPLICATION_JSON)
     public Response save(Resume resume) {
 
-	try {
+        try {
 
-	    resume = daoResume.saveOrUpdate(resume);
+            resume = daoResume.saveOrUpdate(resume);
 
-	} catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    return Response.status(Status.INTERNAL_SERVER_ERROR).build();
-	} catch (NotImplementedYetException e) {
+            return Response.status(Status.INTERNAL_SERVER_ERROR).build();
+        } catch (NotImplementedYetException e) {
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	    return Response.status(Status.NOT_IMPLEMENTED).build();
-	}
+            return Response.status(Status.NOT_IMPLEMENTED).build();
+        }
 
-	return Response.ok(resume).build();
+        return Response.ok(resume).build();
     }
 
 }

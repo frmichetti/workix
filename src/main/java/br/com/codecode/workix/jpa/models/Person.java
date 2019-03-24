@@ -14,12 +14,13 @@ import javax.persistence.OneToOne;
  * Abstract Class for share common Fields with {@link Company} and
  * {@link Candidate}
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
- * @see MyEntity
- * @since 1.0
  * @version 1.1
+ * @see MyEntity
  * @see <a href="http://wiki.fasterxml.com/JacksonFAQ#Deserializing_Abstract_types">
  * DeSerializing Abstract Types</a>
+ * @since 1.0
  */
 @MappedSuperclass
 abstract class Person extends MyEntity {
@@ -37,12 +38,17 @@ abstract class Person extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Person(){}
+    public Person() {
+    }
 
     @JsonDeserialize(as = br.com.codecode.workix.jpa.models.Contact.class)
     @Embedded
     public Contact getContact() {
         return contact;
+    }
+
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 
     @JsonDeserialize(as = br.com.codecode.workix.jpa.models.Locale.class)
@@ -51,28 +57,24 @@ abstract class Person extends MyEntity {
         return locale;
     }
 
+    public void setLocale(Locale locale) {
+        this.locale = locale;
+    }
+
     @NotEmpty
     @Column(nullable = false)
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @JsonDeserialize(as = br.com.codecode.workix.jpa.models.User.class)
     @OneToOne(optional = false)
     public User getUser() {
         return user;
-    }
-
-    public void setContact(Contact contact) {
-        this.contact = contact;
-    }
-
-    public void setLocale(Locale locale) {
-        this.locale = locale;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setUser(User user) {

@@ -23,8 +23,8 @@ import static org.junit.Assert.assertNotNull;
  * Populate DB with Members
  *
  * @author felipe
- * @since 1.1
  * @version 1.0
+ * @since 1.1
  */
 public class PopulateMemberTest extends BaseTest implements CommonPopTest<Member> {
 

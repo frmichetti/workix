@@ -16,10 +16,11 @@ import java.util.List;
 /**
  * Member JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
+ * @version 1.1
  * @see MyEntity
  * @since 1.0
- * @version 1.1
  */
 @Entity
 @XmlRootElement
@@ -44,15 +45,15 @@ public class Member extends MyEntity {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Member(){}
+    public Member() {
+    }
 
 
     /**
      * Public Constructor for {@link Builder} Compatibility
      *
+     * @param builder Builder for Generate a New Member
      * @see Buildable
-     * @param builder
-     *            Builder for Generate a New Member
      */
     private Member(Builder builder) {
         this.medias = builder.getMedias();
@@ -64,6 +65,7 @@ public class Member extends MyEntity {
 
     /**
      * Creates builder to build {@link Member}.
+     *
      * @return created builder
      */
     @XmlTransient
@@ -73,10 +75,11 @@ public class Member extends MyEntity {
 
     /**
      * Add Social Media
+     *
      * @param socialMedia Social Media to Add in the List
      */
-    public void addSocialMedia(SocialMedia socialMedia){
-        if(medias == null){
+    public void addSocialMedia(SocialMedia socialMedia) {
+        if (medias == null) {
             medias = new ArrayList<>();
         }
         medias.add(socialMedia);
@@ -95,6 +98,13 @@ public class Member extends MyEntity {
     }
 
     /**
+     * @param id the id to set
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    /**
      * @return the medias
      */
     @ElementCollection(fetch = FetchType.EAGER)
@@ -103,6 +113,12 @@ public class Member extends MyEntity {
         return medias;
     }
 
+    /**
+     * @param medias the medias to set
+     */
+    public void setMedias(List<SocialMedia> medias) {
+        this.medias = medias;
+    }
 
     /**
      * @return the name
@@ -114,6 +130,13 @@ public class Member extends MyEntity {
     }
 
     /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
      * @return the occupation
      */
     @NotEmpty
@@ -122,6 +145,12 @@ public class Member extends MyEntity {
         return occupation;
     }
 
+    /**
+     * @param occupation the occupation to set
+     */
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
 
     /**
      * @return the picture
@@ -129,6 +158,13 @@ public class Member extends MyEntity {
     @Column
     public String getPicture() {
         return picture;
+    }
+
+    /**
+     * @param picture the picture to set
+     */
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
     /**
@@ -141,60 +177,22 @@ public class Member extends MyEntity {
     }
 
     /**
-     * Remove Social Media
-     * @param socialMedia Remove the Social Media from the List
-     */
-    public void removeSocialMedia(SocialMedia socialMedia){
-        if(medias == null){
-            medias = new ArrayList<>();
-        }
-        medias.remove(socialMedia);
-    }
-
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
-    /**
-     * @param medias the medias to set 
-     */
-    public void setMedias(List<SocialMedia> medias) {
-        this.medias = medias;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
-    /**
-     * @param occupation the occupation to set
-     */
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
-
-
-    /**
-     * @param picture the picture to set
-     */
-    public void setPicture(String picture) {
-        this.picture = picture;
-    }
-
-    /**
      * @param shortText the shortText to set
      */
     public void setShortText(String shortText) {
         this.shortText = shortText;
+    }
+
+    /**
+     * Remove Social Media
+     *
+     * @param socialMedia Remove the Social Media from the List
+     */
+    public void removeSocialMedia(SocialMedia socialMedia) {
+        if (medias == null) {
+            medias = new ArrayList<>();
+        }
+        medias.remove(socialMedia);
     }
 
     /**
@@ -207,7 +205,8 @@ public class Member extends MyEntity {
         /**
          * Disabled Empty Constructor
          */
-        private Builder(){}
+        private Builder() {
+        }
 
         /**
          * @return a new Member
@@ -241,7 +240,6 @@ public class Member extends MyEntity {
             return this;
         }
     }
-
 
 
 }

@@ -12,13 +12,13 @@ import javax.jms.JMSProducer;
 
 /**
  * JMS Context Producer
- * 
+ *
+ * @author felipe
+ * @version 1.0
  * @see Produces
  * @see JMSContext
  * @see JMSProducer
- * @author felipe
  * @since 1.0
- * @version 1.0
  */
 @ApplicationScoped
 public class JmsContextProducer {
@@ -29,14 +29,14 @@ public class JmsContextProducer {
 
     /**
      * Produces JMSProducer for CDI Injection Points
-     * 
+     *
      * @return JMSProducer Instance
      */
     @Produces
     @Dependent
     @Factory
     public JMSProducer getJMSProducer() {
-	return jmsContext.createProducer();
+        return jmsContext.createProducer();
     }
 
 }

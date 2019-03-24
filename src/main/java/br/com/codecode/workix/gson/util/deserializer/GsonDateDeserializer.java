@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.gson.util.deserializer;
 
 import com.google.gson.JsonDeserializationContext;
@@ -25,44 +24,44 @@ import java.util.Date;
  *	.registerTypeAdapter(Date.class, new GsonDateDeserializer())						
  *	.create();
  *	</code>
- * 
+ *
  * @author felipe
  */
 public class GsonDateDeserializer implements JsonDeserializer<Date> {
-    
+
     @Override
     public Date deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
 
-	if (json.isJsonPrimitive()) {
+        if (json.isJsonPrimitive()) {
 
-	    String dateRaw = json.getAsString();
+            String dateRaw = json.getAsString();
 
-	    Date d = new Date();
+            Date d = new Date();
 
-	    try {
+            try {
 
-		/**
-		 * attempt for DateFormat , Pattern Must be Equals
-		 * 
-		 * 
-		 * @return
-		 */
-		d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
+                /**
+                 * attempt for DateFormat , Pattern Must be Equals
+                 *
+                 *
+                 * @return
+                 */
+                d = new SimpleDateFormat("yyyy-MM-dd").parse(dateRaw);
 
-		return d;
+                return d;
 
-	    } catch (ParseException e) {
+            } catch (ParseException e) {
 
-		System.err.println(e);
+                System.err.println(e);
 
-		System.out.println("Try get Date as Long ...");
+                System.out.println("Try get Date as Long ...");
 
-		long date = json.getAsLong();
+                long date = json.getAsLong();
 
-		return new Date(date);
-	    }
-	} else
-	    throw new JsonParseException("Error on Parse Date");
+                return new Date(date);
+            }
+        } else
+            throw new JsonParseException("Error on Parse Date");
 
     }
 

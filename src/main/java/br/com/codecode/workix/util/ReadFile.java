@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.util;
 
 import java.io.BufferedReader;
@@ -15,7 +14,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Read External File
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -24,30 +23,30 @@ public final class ReadFile {
 
     public static String readFileFromURL(URL url) {
 
-	System.out.println("Received Url :" + url);
+        System.out.println("Received Url :" + url);
 
-	StringBuffer sb = null;
+        StringBuffer sb = null;
 
-	try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8))) {
+        try (BufferedReader in = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8))) {
 
-	    String inputLine;
+            String inputLine;
 
-	    sb = new StringBuffer();
+            sb = new StringBuffer();
 
-	    while ((inputLine = in.readLine()) != null) {
+            while ((inputLine = in.readLine()) != null) {
 
-		sb.append(inputLine);
+                sb.append(inputLine);
 
-	    }
+            }
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    System.err.println("Error on Open stream " + e);
+            System.err.println("Error on Open stream " + e);
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
-	return sb.toString();
+        return sb.toString();
 
     }
 }

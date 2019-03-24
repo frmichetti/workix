@@ -26,8 +26,8 @@ import static org.junit.Assert.*;
  * Populate DB with Blog Posts
  *
  * @author felipe
- * @since 1.1
  * @version 1.0
+ * @since 1.1
  */
 public class PopulateBlogTest extends BaseTest implements CommonPopTest<Blog> {
 

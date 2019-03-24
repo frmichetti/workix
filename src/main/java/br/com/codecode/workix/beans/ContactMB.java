@@ -12,11 +12,11 @@ import javax.inject.Inject;
 
 /**
  * This ManagedBean controls Contact Fragment in fragments/contact.xhtml
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class ContactMB extends BaseMB {
@@ -35,67 +35,68 @@ public class ContactMB extends BaseMB {
 
     @PostConstruct
     @Override
-    protected void init(){}
+    protected void init() {
+    }
 
     public String getName() {
-	return name;
+        return name;
     }
 
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
     public String getEmail() {
-	return email;
+        return email;
     }
 
     public void setEmail(String email) {
-	this.email = email;
+        this.email = email;
     }
 
     public String getSubject() {
-	return subject;
+        return subject;
     }
 
     public void setSubject(String subject) {
-	this.subject = subject;
+        this.subject = subject;
     }
 
     public String getBody() {
-	return body;
+        return body;
     }
 
     public void setBody(String body) {
-	this.body = body;
+        this.body = body;
     }
 
     public void doSendAMessage() {
 
-	managedExecutorService.execute(() -> {
+        managedExecutorService.execute(() -> {
 
-	    System.out.println("[DEBUG - doSendAMessage]");
+            System.out.println("[DEBUG - doSendAMessage]");
 
-	    System.out.println("Received Name " + getName());
+            System.out.println("Received Name " + getName());
 
-	    System.out.println("Received Email " + getEmail());
+            System.out.println("Received Email " + getEmail());
 
-	    System.out.println("Received Subject " + getSubject());
+            System.out.println("Received Subject " + getSubject());
 
-	    System.out.println("Received Body Message " + getBody());
+            System.out.println("Received Body Message " + getBody());
 
-	    mailSender.send(email, email, subject, body);
+            mailSender.send(email, email, subject, body);
 
-	});
+        });
 
-	showMessage();
+        showMessage();
     }
 
     private String showMessage() {
 
-	messagesHelper
-		.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Mensagem Enviada com Sucesso", "Obrigado!"));
+        messagesHelper
+                .addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO, "Mensagem Enviada com Sucesso", "Obrigado!"));
 
-	return "./index.xhtml?faces-redirect=true";
+        return "./index.xhtml?faces-redirect=true";
     }
 
 }

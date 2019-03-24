@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.tests.android.login.jdk8;
 
 import br.com.codecode.workix.core.common.jdk7.Token;
@@ -19,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 /**
  * Do Login With Firebase Server with Gson
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -32,14 +31,14 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
     @Override
     public void doLoginWithFirebase() {
 
-	System.out.println("[doLoginWithFirebase]");
+        System.out.println("[doLoginWithFirebase]");
 
-	Token t = Token.builder().withKey("XXXXXXXXXXX").build();
+        Token t = Token.builder().withKey("XXXXXXXXXXX").build();
 
         String url = server + "/login/firebaselogin";
         json = HttpTest.sendPost(url, getGson().toJson(t));
 
-	assertFalse(json.isEmpty());
+        assertFalse(json.isEmpty());
 
     }
 
@@ -47,9 +46,9 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
     @Override
     public void parseJson() {
 
-	System.out.println("[parseJson]");
+        System.out.println("[parseJson]");
 
-	assertTrue(json.startsWith("{\"action\":\"rebuild\"}"));
+        assertTrue(json.startsWith("{\"action\":\"rebuild\"}"));
 
     }
 

@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.jaas;
 
 import br.com.codecode.workix.cdi.qualifiers.Factory;
@@ -20,7 +19,7 @@ import java.security.MessageDigest;
 
 /**
  * This Class Encodes Strings. Use with {@link JAASUser #setPassword(String)}
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -34,15 +33,15 @@ public class PassGenerator {
 
     public String generate(@NotEmpty String rawPassword) {
 
-	try {
+        try {
 
-	    byte[] hash = messageDigest.digest(rawPassword.getBytes(StandardCharsets.UTF_8.displayName()));
+            byte[] hash = messageDigest.digest(rawPassword.getBytes(StandardCharsets.UTF_8.displayName()));
 
-	    return Base64Encoder.encode(hash);
+            return Base64Encoder.encode(hash);
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    throw new RuntimeException(e);
-	}
+            throw new RuntimeException(e);
+        }
     }
 }

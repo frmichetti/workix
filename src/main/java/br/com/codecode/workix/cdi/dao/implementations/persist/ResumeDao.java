@@ -12,16 +12,16 @@ import java.util.List;
 
 /**
  * DAO for Resume
- * 
- * @since 1.0
+ *
  * @version 1.0
  * @see BaseDao
  * @see Crud
+ * @since 1.0
  */
 @Persist
 public class ResumeDao extends BaseDao implements Crud<Resume> {
 
-   
+
     private static final long serialVersionUID = 4029639665489024760L;
 
     @Inject
@@ -30,51 +30,51 @@ public class ResumeDao extends BaseDao implements Crud<Resume> {
     @Override
     public void save(Resume entity) {
 
-	em.persist(entity);
+        em.persist(entity);
 
-	alertNewResume.fire(entity);
+        alertNewResume.fire(entity);
 
     }
 
     @Override
     public void deleteById(long id) {
-	Resume entity = em.find(Resume.class, id);
-	if (entity != null) {
-	    em.remove(entity);
-	}
+        Resume entity = em.find(Resume.class, id);
+        if (entity != null) {
+            em.remove(entity);
+        }
     }
 
     @Override
     public Resume findById(long id) {
-	return em.find(Resume.class, id);
+        return em.find(Resume.class, id);
     }
 
     @Override
     public Resume update(Resume entity) {
-	return em.merge(entity);
+        return em.merge(entity);
     }
 
     @Override
     public List<Resume> listAll(int startPosition, int maxResult) {
 
-	TypedQuery<Resume> findAllQuery = em.createQuery("SELECT DISTINCT r FROM Resume r ORDER BY r.id", Resume.class);
+        TypedQuery<Resume> findAllQuery = em.createQuery("SELECT DISTINCT r FROM Resume r ORDER BY r.id", Resume.class);
 
-	findAllQuery.setFirstResult(startPosition);
+        findAllQuery.setFirstResult(startPosition);
 
-	findAllQuery.setMaxResults(maxResult);
+        findAllQuery.setMaxResults(maxResult);
 
-	return findAllQuery.getResultList();
+        return findAllQuery.getResultList();
     }
 
     @Override
     public BigInteger countRegisters() {
-	return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Resume.class.getSimpleName())
-		.getSingleResult();
+        return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Resume.class.getSimpleName())
+                .getSingleResult();
     }
 
     @Override
     public Resume findByUuid(String uuid) {
-	// TODO Auto-generated method stub
-	return null;
+        // TODO Auto-generated method stub
+        return null;
     }
 }

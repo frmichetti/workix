@@ -12,11 +12,11 @@ import java.time.Instant;
 
 /**
  * CDI Observer Class for {@link Job}
- * 
- * @see Observes
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @see Observes
+ * @since 1.0
  */
 class JobObserver {
 
@@ -31,42 +31,41 @@ class JobObserver {
 
     /**
      * Execute an Action on Event as FiredUp
-     * 
-     * @param job
-     *            Observer for Job Events
+     *
+     * @param job Observer for Job Events
      */
     public void alert(@Observes Job job) {
 
-	System.out.println("[CDI - Alert for New Job]");
+        System.out.println("[CDI - Alert for New Job]");
 
-	System.out.println(job.getUuid());
+        System.out.println(job.getUuid());
 
-	System.out.println(Instant.now());
+        System.out.println(Instant.now());
 
-	System.out.println("[-----------------------]");
+        System.out.println("[-----------------------]");
 
-	if (job.getJobCategory() != null) {
-	    switch (job.getJobCategory()) {
+        if (job.getJobCategory() != null) {
+            switch (job.getJobCategory()) {
 
-		case MANAGEMENT: {
-		    System.out.println("SEND Notification for Management Job");
-		}
-		    break;
+                case MANAGEMENT: {
+                    System.out.println("SEND Notification for Management Job");
+                }
+                break;
 
-		case OPERATOR: {
-		    System.out.println("SEND Notification for Operator Job");
-		}
-		    break;
+                case OPERATOR: {
+                    System.out.println("SEND Notification for Operator Job");
+                }
+                break;
 
-		default: {
-		    System.out.println("SEND Notification for Default Job");
-		}
-		    break;
+                default: {
+                    System.out.println("SEND Notification for Default Job");
+                }
+                break;
 
-	    }
-	}
+            }
+        }
 
-	jmsProducer.send(destination, job.getUuid());
+        jmsProducer.send(destination, job.getUuid());
 
     }
 

@@ -7,170 +7,181 @@
 
 <ui:composition template="/template.xhtml">
 
-	<f:metadata>
-		<f:viewParam id="id" name="id" value="#{jobDetailMB.id}" />
-		<f:viewAction action="#{jobDetailMB.init()}" />
-	</f:metadata>
+    <f:metadata>
+        <f:viewParam id="id" name="id" value="#{jobDetailMB.id}"/>
+        <f:viewAction action="#{jobDetailMB.init()}"/>
+    </f:metadata>
 
-	<ui:define name="headerTitle">Workix - Detalhes da Vaga</ui:define>
-
-
-
-	<ui:define name="title">
-		<h1><h:outputText value="#{jobDetailMB.currentJob.title}" /></h1>
-		<h4>
-			<span><i class="fa fa-map-marker"></i><h:outputText value="#{jobDetailMB.currentJob.company.locale.city}" /></span>
-			<span><i class="fa fa-clock-o"></i><h:outputText value="#{jobDetailMB.currentJob.jobType.name()}" /></span>
-			<span>R<i class="fa fa-dollar"></i><h:outputText value="#{jobDetailMB.currentJob.maxPayment}" /></span>
-		</h4>
-	</ui:define>
-
-	<ui:define name="content">
-
-		<!-- ============ CONTENT START ============ -->
-
-		<section id="jobs">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8">
-						<article>
-							<h2>Detalhes da Vaga</h2>
-							
-							<p><h:outputText value="#{jobDetailMB.currentJob.description}" /></p>
-							
-							
-							<h3>Requerimentos</h3>
-							
-							<p><h:outputText value="#{jobDetailMB.currentJob.requirement}" /></p>						
-							
-							<ui:remove>
-								<ul>
-									<li>Aliquam rhoncus justo eget tellus scelerisque, at
-										mollis mi aliquam.</li>
-									<li>Quisque pretium convallis pulvinar.</li>
-									<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis
-										sed.</li>
-									<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor
-										dignissim sapien.</li>
-									<li>Pellentesque ipsum ex, imperdiet quis consequat sed,
-										consectetur ut ante.</li>
-									<li>Aliquam libero felis, mollis vitae elementum vel,
-										bibendum eu tortor.</li>
-									<li>Morbi rhoncus luctus interdum.</li>
-								</ul>
-							</ui:remove>
-
-							<h3>Benefícios</h3>
-							
-							<p><h:outputText value="#{jobDetailMB.currentJob.benefits}" /></p>
-							
-							<ui:remove>
-								<ul>
-									<li>Aliquam rhoncus justo eget tellus scelerisque, at
-										mollis mi aliquam.</li>
-									<li>Quisque pretium convallis pulvinar.</li>
-									<li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis
-										sed.</li>
-									<li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor
-										dignissim sapien.</li>
-									<li>Pellentesque ipsum ex, imperdiet quis consequat sed,
-										consectetur ut ante.</li>
-									<li>Aliquam libero felis, mollis vitae elementum vel,
-										bibendum eu tortor.</li>
-									<li>Morbi rhoncus luctus interdum.</li>
-								</ul>
-							</ui:remove>
+    <ui:define name="headerTitle">Workix - Detalhes da Vaga</ui:define>
 
 
-							<h3>Como se Candidatar</h3>
+    <ui:define name="title">
+        <h1><h:outputText value="#{jobDetailMB.currentJob.title}"/></h1>
+        <h4>
+            <span><i class="fa fa-map-marker"></i><h:outputText value="#{jobDetailMB.currentJob.company.locale.city}"/></span>
+            <span><i class="fa fa-clock-o"></i><h:outputText value="#{jobDetailMB.currentJob.jobType.name()}"/></span>
+            <span>R<i class="fa fa-dollar"></i><h:outputText value="#{jobDetailMB.currentJob.maxPayment}"/></span>
+        </h4>
+    </ui:define>
 
-							<ui:remove>
+    <ui:define name="content">
 
-								<p>
-									Vivamus pulvinar <a href="mailto:hr@netvibes.com">hr@netvibes.com</a>
-									lobortis placerat. Cras non est nibh. In a quam id justo
-									aliquam elementum. In cursus urna ac sem tincidunt aliquet.
-									Vivamus a aliquet purus, luctus tincidunt orci.
-								</p>
+        <!-- ============ CONTENT START ============ -->
 
-							</ui:remove>
+        <section id="jobs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <article>
+                            <h2>Detalhes da Vaga</h2>
 
-							<p>Simplesmente Clique no botão abaixo</p>
+                            <p><h:outputText value="#{jobDetailMB.currentJob.description}"/></p>
 
-							<p>
-								<h:form>
-									<h:commandButton action="#{jobDetailMB.signup()}"
-										value="Candidatar Agora" styleClass="btn btn-primary btn-lg" />
-								</h:form>
-								
-								<ui:remove>
-									<a href="#" class="btn btn-default btn-lg">Apply via LinkedIn</a>
-								</ui:remove>
 
-							</p>
+                            <h3>Requerimentos</h3>
 
-						</article>
-					</div>
-					<div class="col-sm-4" id="sidebar">
-						
-						<div class="sidebar-widget" id="share">
-							
-							<h2>Compartilhe essa Vaga</h2>
-							
-							<ul>
-								<li><a
-									href="https://www.facebook.com/sharer/sharer.php?u=http://#/job-details.html"><i
-										class="fa fa-facebook"></i></a></li>
-								<li><a
-									href="https://twitter.com/home?status=http://#/job-details.html"><i
-										class="fa fa-twitter"></i></a></li>
-								<li><a
-									href="https://plus.google.com/share?url=http://#/job-details.html"><i
-										class="fa fa-google-plus"></i></a></li>
-								<li><a
-									href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://#/job-details.html&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
-										class="fa fa-linkedin"></i></a></li>
-							</ul>
-						</div>
-						
-						<hr />
-						
-						<div class="sidebar-widget" id="company">
-						
-							<h2>Sobre a Empresa</h2>
-						
-							<p>	
-								<h:graphicImage library="placeholder" name="300x109.gif" styleClass="img-responsive"/>								
-							</p>
-						
-							<p><h:outputText value="#{jobDetailMB.currentJob.company.description}" /></p>
-							<p>
-								<a href="company-details.xhtml?id=#{jobDetailMB.currentJob.id}" class="btn btn-primary">Leia Mais</a>
-							</p>
-						</div>
-						
-						<hr />
-						
-						<div class="sidebar-widget" id="company-jobs">
-							
-							<h2>Mais Vagas desta Empresa</h2>
-							
-							<ul>
-								<ui:repeat var="job" value="#{jobDetailMB.jobs}">
-									<li><a href="./job-details.xhtml?id=#{job.id}"><h:outputText value="#{job.title}" /></a></li>
-								</ui:repeat>
-								
-							</ul>
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+                            <p><h:outputText value="#{jobDetailMB.currentJob.requirement}"/></p>
 
-		<!-- ============ CONTENT END ============ -->
+                            <ui:remove>
+                                <ul>
+                                    <li>Aliquam rhoncus justo eget tellus scelerisque, at
+                                        mollis mi aliquam.
+                                    </li>
+                                    <li>Quisque pretium convallis pulvinar.</li>
+                                    <li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis
+                                        sed.
+                                    </li>
+                                    <li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor
+                                        dignissim sapien.
+                                    </li>
+                                    <li>Pellentesque ipsum ex, imperdiet quis consequat sed,
+                                        consectetur ut ante.
+                                    </li>
+                                    <li>Aliquam libero felis, mollis vitae elementum vel,
+                                        bibendum eu tortor.
+                                    </li>
+                                    <li>Morbi rhoncus luctus interdum.</li>
+                                </ul>
+                            </ui:remove>
 
-	</ui:define>
+                            <h3>Benefícios</h3>
+
+                            <p><h:outputText value="#{jobDetailMB.currentJob.benefits}"/></p>
+
+                            <ui:remove>
+                                <ul>
+                                    <li>Aliquam rhoncus justo eget tellus scelerisque, at
+                                        mollis mi aliquam.
+                                    </li>
+                                    <li>Quisque pretium convallis pulvinar.</li>
+                                    <li>Nulla rutrum nisi mi, iaculis commodo nibh lobortis
+                                        sed.
+                                    </li>
+                                    <li>Sed pulvinar, nunc vitae molestie dapibus, lacus dolor
+                                        dignissim sapien.
+                                    </li>
+                                    <li>Pellentesque ipsum ex, imperdiet quis consequat sed,
+                                        consectetur ut ante.
+                                    </li>
+                                    <li>Aliquam libero felis, mollis vitae elementum vel,
+                                        bibendum eu tortor.
+                                    </li>
+                                    <li>Morbi rhoncus luctus interdum.</li>
+                                </ul>
+                            </ui:remove>
+
+
+                            <h3>Como se Candidatar</h3>
+
+                            <ui:remove>
+
+                                <p>
+                                    Vivamus pulvinar <a href="mailto:hr@netvibes.com">hr@netvibes.com</a>
+                                    lobortis placerat. Cras non est nibh. In a quam id justo
+                                    aliquam elementum. In cursus urna ac sem tincidunt aliquet.
+                                    Vivamus a aliquet purus, luctus tincidunt orci.
+                                </p>
+
+                            </ui:remove>
+
+                            <p>Simplesmente Clique no botão abaixo</p>
+
+                            <p>
+                                <h:form>
+                                    <h:commandButton action="#{jobDetailMB.signup()}"
+                                                     value="Candidatar Agora" styleClass="btn btn-primary btn-lg"/>
+                                </h:form>
+
+                                <ui:remove>
+                                    <a href="#" class="btn btn-default btn-lg">Apply via LinkedIn</a>
+                                </ui:remove>
+
+                            </p>
+
+                        </article>
+                    </div>
+                    <div class="col-sm-4" id="sidebar">
+
+                        <div class="sidebar-widget" id="share">
+
+                            <h2>Compartilhe essa Vaga</h2>
+
+                            <ul>
+                                <li><a
+                                        href="https://www.facebook.com/sharer/sharer.php?u=http://#/job-details.html"><i
+                                        class="fa fa-facebook"></i></a></li>
+                                <li><a
+                                        href="https://twitter.com/home?status=http://#/job-details.html"><i
+                                        class="fa fa-twitter"></i></a></li>
+                                <li><a
+                                        href="https://plus.google.com/share?url=http://#/job-details.html"><i
+                                        class="fa fa-google-plus"></i></a></li>
+                                <li><a
+                                        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://#/job-details.html&amp;title=#{applicationMB.appName}%20-%20Job%20Board%20Responsive%20HTML%20Template&amp;summary=&amp;source="><i
+                                        class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <hr/>
+
+                        <div class="sidebar-widget" id="company">
+
+                            <h2>Sobre a Empresa</h2>
+
+                            <p>
+                                <h:graphicImage library="placeholder" name="300x109.gif" styleClass="img-responsive"/>
+                            </p>
+
+                            <p><h:outputText value="#{jobDetailMB.currentJob.company.description}"/></p>
+                            <p>
+                                <a href="company-details.xhtml?id=#{jobDetailMB.currentJob.id}"
+                                   class="btn btn-primary">Leia Mais</a>
+                            </p>
+                        </div>
+
+                        <hr/>
+
+                        <div class="sidebar-widget" id="company-jobs">
+
+                            <h2>Mais Vagas desta Empresa</h2>
+
+                            <ul>
+                                <ui:repeat var="job" value="#{jobDetailMB.jobs}">
+                                    <li><a href="./job-details.xhtml?id=#{job.id}"><h:outputText value="#{job.title}"/></a>
+                                    </li>
+                                </ui:repeat>
+
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ CONTENT END ============ -->
+
+    </ui:define>
 </ui:composition>
 
 </html>

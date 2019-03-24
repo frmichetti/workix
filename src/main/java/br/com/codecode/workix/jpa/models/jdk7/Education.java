@@ -9,10 +9,11 @@ import java.util.Date;
 /**
  * Education JPA Embeddable
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see Serializable
+ * @since 1.0
  */
 public class Education implements Serializable {
 
@@ -31,153 +32,151 @@ public class Education implements Serializable {
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Education(){}
+    public Education() {
+    }
 
     /**
      * Public Constructor for {@link Builder} Compatibility
-     * 
+     *
+     * @param builder Builder for Generate a new Education
      * @see Buildable
-     * @param builder
-     *            Builder for Generate a new Education
      */
     public Education(Builder builder) {
-	this.schoolName = builder.getSchoolName();
-	this.startDate = builder.getStartDate();
-	this.endDate = builder.getEndDate();
-	this.qualification = builder.getQualification();
-	this.description = builder.getDescription();
+        this.schoolName = builder.getSchoolName();
+        this.startDate = builder.getStartDate();
+        this.endDate = builder.getEndDate();
+        this.qualification = builder.getQualification();
+        this.description = builder.getDescription();
     }
 
     /**
      * Creates builder to build {@link Experience}.
+     *
      * @return created builder
-     */    
+     */
     public static Builder builder() {
-	return new Builder();
+        return new Builder();
     }
 
     public String getDescription() {
-	return description;
-    }
-    
-    public Calendar getEndDate() {
-	return endDate;
-    }
-
-    public String getQualification() {
-	return qualification;
-    }
-
-    public String getSchoolName() {
-	return schoolName;
-    }
-    
-    public Calendar getStartDate() {
-	return startDate;
+        return description;
     }
 
     public void setDescription(String description) {
-	this.description = description;
+        this.description = description;
+    }
+
+    public Calendar getEndDate() {
+        return endDate;
     }
 
     public void setEndDate(Calendar endDate) {
-	this.endDate = endDate;
+        this.endDate = endDate;
+    }
+
+    public String getQualification() {
+        return qualification;
     }
 
     public void setQualification(String qualification) {
-	this.qualification = qualification;
+        this.qualification = qualification;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
     }
 
     public void setSchoolName(String schoolName) {
-	this.schoolName = schoolName;
+        this.schoolName = schoolName;
+    }
+
+    public Calendar getStartDate() {
+        return startDate;
     }
 
     public void setStartDate(Calendar startDate) {
-	this.startDate = startDate;
+        this.startDate = startDate;
     }
 
     /**
      * Builder NestedClass for {@link Education}
+     *
+     * @author felipe
+     * @version 1.0
      * @see Education
      * @see Buildable
-     * @author felipe
      * @since 1.0
-     * @version 1.0
      */
     public static class Builder extends Education implements Buildable<Education> {
 
-	private static final long serialVersionUID = 3075237483868037001L;
+        private static final long serialVersionUID = 3075237483868037001L;
 
-	/**
-	 * Disabled Empty Constructor
-	 */
-	private Builder(){}
+        /**
+         * Disabled Empty Constructor
+         */
+        private Builder() {
+        }
 
-	/**
-	 * @return Return a new Education
-	 */
-	@Override
-	public Education build() {
-	    return new Education(this);
-	}
+        /**
+         * @return Return a new Education
+         */
+        @Override
+        public Education build() {
+            return new Education(this);
+        }
 
-	/**
-	 * @param description
-	 *            the description to set
-	 * @return Builder
-	 */
-	public Builder withDescription(String description) {
-	    this.setDescription(description);
-	    return this;
-	}
+        /**
+         * @param description the description to set
+         * @return Builder
+         */
+        public Builder withDescription(String description) {
+            this.setDescription(description);
+            return this;
+        }
 
-	/**
-	 * @param endDate
-	 *            the endDate to set
-	 * @return Builder
-	 */
-	public Builder withEndDate(Calendar endDate) {
-	    this.setEndDate(endDate);
-	    return this;
-	}
+        /**
+         * @param endDate the endDate to set
+         * @return Builder
+         */
+        public Builder withEndDate(Calendar endDate) {
+            this.setEndDate(endDate);
+            return this;
+        }
 
-	/**
-	 * @param qualification
-	 *            the qualification to set
-	 * @return Builder
-	 */
-	public Builder withQualification(String qualification) {
-	    this.setQualification(qualification);
-	    return this;
-	}
+        /**
+         * @param qualification the qualification to set
+         * @return Builder
+         */
+        public Builder withQualification(String qualification) {
+            this.setQualification(qualification);
+            return this;
+        }
 
-	/**
-	 * @param schoolName
-	 *            the schoolName to set
-	 * @return Builder
-	 */
-	public Builder withSchoolName(String schoolName) {
-	    this.setSchoolName(schoolName);
-	    return this;
-	}
+        /**
+         * @param schoolName the schoolName to set
+         * @return Builder
+         */
+        public Builder withSchoolName(String schoolName) {
+            this.setSchoolName(schoolName);
+            return this;
+        }
 
-	/**
-	 * @param startDate
-	 *            the startDate to set
-	 * @return Builder
-	 */
-	public Builder withStartDate(Calendar startDate) {
-	    this.setStartDate(startDate);
-	    return this;
-	}
+        /**
+         * @param startDate the startDate to set
+         * @return Builder
+         */
+        public Builder withStartDate(Calendar startDate) {
+            this.setStartDate(startDate);
+            return this;
+        }
 
-		public Builder withStartDate(Date date) {
-			return null;
-		}
+        public Builder withStartDate(Date date) {
+            return null;
+        }
 
-		public Builder withEndDate(Date date) {
-			return null;
-		}
-	}
+        public Builder withEndDate(Date date) {
+            return null;
+        }
+    }
 
 }

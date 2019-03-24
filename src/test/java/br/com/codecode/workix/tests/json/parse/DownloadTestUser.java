@@ -14,31 +14,32 @@ public class DownloadTestUser extends BaseTest implements DownloadTest<User> {
 
     private String resp;
 
-    @Before    
-    public void downloadItens() {	
+    @Before
+    public void downloadItens() {
 
-	resp = downloadItens(server + "/users");	
+        resp = downloadItens(server + "/users");
 
     }
 
-    @Test    
+    @Test
     public void parseItens() {
-	
-	assertFalse(resp.isEmpty());
-	
-	List<User> users = parseItens(resp, new TypeToken<List<User>>(){});
 
-	assertNotNull(users);
+        assertFalse(resp.isEmpty());
 
-	assertTrue(users.size() > 0);		
+        List<User> users = parseItens(resp, new TypeToken<List<User>>() {
+        });
 
-	System.out.println("----Stream----");
-	
-	System.out.println(users.size());
+        assertNotNull(users);
 
-	users.forEach(u -> System.out.println(u.getEmail()));
+        assertTrue(users.size() > 0);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
+
+        System.out.println(users.size());
+
+        users.forEach(u -> System.out.println(u.getEmail()));
+
+        System.out.println("----Stream----");
 
     }
 

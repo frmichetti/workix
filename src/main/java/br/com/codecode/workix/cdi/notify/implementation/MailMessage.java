@@ -1,10 +1,9 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ */
 package br.com.codecode.workix.cdi.notify.implementation;
 
 import br.com.codecode.workix.cdi.notify.Notification;
@@ -18,7 +17,7 @@ import javax.inject.Inject;
 
 /**
  * Email Message Implementation
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -32,7 +31,7 @@ public class MailMessage implements Notification, Debugable {
 
     @PostConstruct
     private void init() {
-	Debugable.super.onStart();
+        Debugable.super.onStart();
     }
 
     @Override

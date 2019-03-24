@@ -6,50 +6,50 @@
 
 <ui:composition template="/template.xhtml">
 
-	<ui:define name="headerTitle">#{applicationMB.appName} - Depoimentos</ui:define>
+    <ui:define name="headerTitle">#{applicationMB.appName} - Depoimentos</ui:define>
 
-	<ui:define name="title">
-		<h1>Depoimentos</h1>
-		<h4>Algumas palavras de clientes satisfeitos</h4>
-	</ui:define>
+    <ui:define name="title">
+        <h1>Depoimentos</h1>
+        <h4>Algumas palavras de clientes satisfeitos</h4>
+    </ui:define>
 
-	<ui:define name="content">
+    <ui:define name="content">
 
-		<!-- ============ TESTIMONIALS START ============ -->
+        <!-- ============ TESTIMONIALS START ============ -->
 
-		<section id="testimonials-long">
-			<div class="container">
-				<ui:repeat var="test" value="#{testimonialsMB.list}">
-				
-								<div class="row">
-									<div class="col-sm-3 col-md-2">
-										<h:graphicImage url="#{test.picture}" styleClass="img-circle img-responsive" />
-									</div>
-									<div class="col-sm-9 col-md-10">
-										<blockquote>
-											<p><h:outputText value="#{test.text}"/></p>
-											<footer>
-												<h:outputText value="#{test.author.name}"/> <cite title="#{test.signature}">
-												<h:outputText value="#{test.signature}" /></cite>
-											</footer>
-										</blockquote>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="col-sm-12">
-										<hr />
-									</div>
-								</div>
-				
-				</ui:repeat>
-			</div>
-			
-		</section>
+        <section id="testimonials-long">
+            <div class="container">
+                <ui:repeat var="test" value="#{testimonialsMB.list}">
 
-		<!-- ============ TESTIMONIALS END ============ -->
+                    <div class="row">
+                        <div class="col-sm-3 col-md-2">
+                            <h:graphicImage url="#{test.picture}" styleClass="img-circle img-responsive"/>
+                        </div>
+                        <div class="col-sm-9 col-md-10">
+                            <blockquote>
+                                <p><h:outputText value="#{test.text}"/></p>
+                                <footer>
+                                    <h:outputText value="#{test.author.name}"/> <cite title="#{test.signature}">
+                                    <h:outputText value="#{test.signature}"/></cite>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
 
-	</ui:define>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <hr/>
+                        </div>
+                    </div>
+
+                </ui:repeat>
+            </div>
+
+        </section>
+
+        <!-- ============ TESTIMONIALS END ============ -->
+
+    </ui:define>
 
 </ui:composition>
 </html>

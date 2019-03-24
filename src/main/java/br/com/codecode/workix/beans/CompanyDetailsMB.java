@@ -23,11 +23,11 @@ import java.util.stream.Collectors;
 
 /**
  * This ManagedBean controls company-details.xhtml
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class CompanyDetailsMB extends BaseMB {
@@ -37,7 +37,7 @@ public class CompanyDetailsMB extends BaseMB {
     @Inject
     @Generic
     private Crud<Company> dao;
-    
+
     @Inject
     @Generic
     private Crud<Job> daoJob;
@@ -63,7 +63,7 @@ public class CompanyDetailsMB extends BaseMB {
     private String prefix, sufix;
 
     private Company company;
-    
+
     private List<Job> jobs;
 
     /**
@@ -72,29 +72,29 @@ public class CompanyDetailsMB extends BaseMB {
     @Override
     public void init() {
 
-	prefix = facesContext.getExternalContext().getRequestContextPath();
+        prefix = facesContext.getExternalContext().getRequestContextPath();
 
-	sufix = "?faces-redirect=true";
+        sufix = "?faces-redirect=true";
 
-	try {
+        try {
 
-	    company = dao.findById(id);
-	    
-	    jobs = daoJob.listAll(0, Integer.MAX_VALUE);
-	    
-	    jobs = jobs.stream().filter(j -> j.getCompany() == company).collect(Collectors.toList());    
+            company = dao.findById(id);
 
-	    if (company == null) goToErrorPage();
+            jobs = daoJob.listAll(0, Integer.MAX_VALUE);
 
-	} catch (NotImplementedYetException | NoResultException e) {
+            jobs = jobs.stream().filter(j -> j.getCompany() == company).collect(Collectors.toList());
 
-	    e.printStackTrace();
+            if (company == null) goToErrorPage();
 
-	}
+        } catch (NotImplementedYetException | NoResultException e) {
+
+            e.printStackTrace();
+
+        }
 
     }
 
-    
+
     /**
      * @return the jobs
      */
@@ -103,56 +103,56 @@ public class CompanyDetailsMB extends BaseMB {
     }
 
     public long getId() {
-	return id;
+        return id;
     }
 
     public void setId(long id) {
-	this.id = id;
+        this.id = id;
     }
 
     public Company getCompany() {
-	return company;
+        return company;
     }
 
     public void notifyByEmail() {
-	messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
-	mailNotification.doSendMessage(company.getUser(), messageTitle, messageBody);
+        messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
+        mailNotification.doSendMessage(company.getUser(), messageTitle, messageBody);
 
     }
 
     public void notifyByPush() {
-	messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-	pushNotification.doSendMessage(company.getUser(), messageTitle, messageBody);
+        messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
+        pushNotification.doSendMessage(company.getUser(), messageTitle, messageBody);
 
     }
 
     public String getMessageBody() {
-	return messageBody;
+        return messageBody;
     }
 
     public void setMessageBody(String messageBody) {
-	this.messageBody = messageBody;
+        this.messageBody = messageBody;
     }
 
     public String getMessageTitle() {
-	return messageTitle;
+        return messageTitle;
     }
 
     public void setMessageTitle(String messageTitle) {
-	this.messageTitle = messageTitle;
+        this.messageTitle = messageTitle;
     }
 
     private String goToErrorPage() {
 
-	try {
+        try {
 
-	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+            facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
-	return prefix + "/404.xhtml" + sufix;
+            e.printStackTrace();
+        }
+        return prefix + "/404.xhtml" + sufix;
     }
 
 }

@@ -1,7 +1,8 @@
 /**
- * Container for CDI Functions 
+ * Container for CDI Functions
+ *
  * @author felipe
- * @since 1.1
  * @version 1.0
+ * @since 1.1
  */
 package br.com.codecode.workix.cdi;

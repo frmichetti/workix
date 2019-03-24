@@ -13,11 +13,11 @@ import javax.ws.rs.core.Response.Status;
 
 /**
  * Ping JaxRs Endpoint
- * 
- * @see JAXRSConfiguration
+ *
  * @author felipe
- * @since 1.1
  * @version 1.1
+ * @see JAXRSConfiguration
+ * @since 1.1
  */
 @Api
 @Path("ping")
@@ -25,19 +25,19 @@ public class PingEndpoint {
 
     @POST
     @Path("test")
-    @Consumes({MediaType.APPLICATION_JSON,MediaType.TEXT_PLAIN})
+    @Consumes({MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
     @Produces(MediaType.APPLICATION_JSON)
     public Response doTest(String string) {
-	
-	System.out.println(string);
 
-	if (string == null || string.isEmpty()) {
+        System.out.println(string);
 
-	    return Response.status(Status.BAD_REQUEST).build(); 
+        if (string == null || string.isEmpty()) {
 
-	}
-	
-	return Response.ok(string).build();
+            return Response.status(Status.BAD_REQUEST).build();
+
+        }
+
+        return Response.ok(string).build();
 
     }
 }    

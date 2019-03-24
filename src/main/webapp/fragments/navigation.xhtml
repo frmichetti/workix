@@ -10,75 +10,76 @@
 	 -->
 <ui:composition>
 
-	<!-- ============ NAVBAR START ============ -->
+    <!-- ============ NAVBAR START ============ -->
 
-	<div class="fm-container">
-		<!-- Menu -->
-		<div class="menu">
+    <div class="fm-container">
+        <!-- Menu -->
+        <div class="menu">
 
-			<div class="button-close text-right">
-				<a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
-			</div>
+            <div class="button-close text-right">
+                <a class="fm-button"><i class="fa fa-close fa-2x"></i></a>
+            </div>
 
-			<ul class="nav">
-				<li><a href="#{navigationMB.goToIndex()}">Início</a></li>
+            <ul class="nav">
+                <li><a href="#{navigationMB.goToIndex()}">Início</a></li>
 
-				<li><a href="#{navigationMB.goToAboutUs()}">Sobre Nós</a></li>
+                <li><a href="#{navigationMB.goToAboutUs()}">Sobre Nós</a></li>
 
-				<li><a href="#">Candidatos</a>
+                <li><a href="#">Candidatos</a>
 
-					<ul>
-						<li><a href="#{navigationMB.goToPostAResume()}">Publicar Curriculum</a></li>
+                    <ul>
+                        <li><a href="#{navigationMB.goToPostAResume()}">Publicar Curriculum</a></li>
 
-						<li><a href="resume.xhtml">Visualizar Currículum</a></li>
+                        <li><a href="resume.xhtml">Visualizar Currículum</a></li>
 
-					</ul></li>
+                    </ul>
+                </li>
 
-				<li><a href="#">Recrutadores</a>
-					<ul>
-						<li><a href="#{navigationMB.goToPostAJob()}">Publicar Vaga</a></li>
-
-						
-
-						<li><a href=".">Detalhes da Vaga</a></li>
-
-						<li><a href=".">Detalhes da Empresa</a></li>
-
-					</ul></li>
-
-				<li><a href="#{navigationMB.goToJobs()}">Vagas</a></li>
-				
-				<li><a href="#{navigationMB.goToCandidates()}">Candidatos</a></li>
-
-				<h:form rendered="true">
-					<li><a class="link-login">Entrar</a></li>
-				</h:form>
-
-				<h:form rendered="true">
-					<li><a class="link-register">Registrar</a></li>
-				</h:form>
-
-				<li><a href="#{navigationMB.goToBlog()}">Blog</a></li>
-				
-				<ui:remove>
-				
-				<li><a href=".">Postagem Blog</a></li>
-				
-				</ui:remove>
-				
-				<li><a href="testimonials.xhtml">Depoimentos</a></li>
-
-				<ui:remove>
-					<li><a href="options.xhtml">Opções</a></li>
-				</ui:remove>
+                <li><a href="#">Recrutadores</a>
+                    <ul>
+                        <li><a href="#{navigationMB.goToPostAJob()}">Publicar Vaga</a></li>
 
 
-			</ul>
-		</div>
-		<!-- end Menu -->
-	</div>
+                        <li><a href=".">Detalhes da Vaga</a></li>
 
-	<!-- ============ NAVBAR END ============ -->
+                        <li><a href=".">Detalhes da Empresa</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="#{navigationMB.goToJobs()}">Vagas</a></li>
+
+                <li><a href="#{navigationMB.goToCandidates()}">Candidatos</a></li>
+
+                <h:form rendered="true">
+                    <li><a class="link-login">Entrar</a></li>
+                </h:form>
+
+                <h:form rendered="true">
+                    <li><a class="link-register">Registrar</a></li>
+                </h:form>
+
+                <li><a href="#{navigationMB.goToBlog()}">Blog</a></li>
+
+                <ui:remove>
+
+                    <li><a href=".">Postagem Blog</a></li>
+
+                </ui:remove>
+
+                <li><a href="testimonials.xhtml">Depoimentos</a></li>
+
+                <ui:remove>
+                    <li><a href="options.xhtml">Opções</a></li>
+                </ui:remove>
+
+
+            </ul>
+        </div>
+        <!-- end Menu -->
+    </div>
+
+    <!-- ============ NAVBAR END ============ -->
 
 </ui:composition>
 

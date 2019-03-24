@@ -5,10 +5,10 @@ import javax.persistence.PreUpdate;
 
 /**
  * Markup Interface for Traceable Entities
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @since 1.0
  */
 public interface Traceable {
 
@@ -16,8 +16,8 @@ public interface Traceable {
      * Must Be Called on JPA {@link PrePersist} Event
      */
     default void prepareToPersist() {
-	insertTimeStamp();
-	generateUUID();
+        insertTimeStamp();
+        generateUUID();
     }
 
     /**

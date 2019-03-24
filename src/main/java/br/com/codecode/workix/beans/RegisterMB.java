@@ -15,11 +15,11 @@ import javax.inject.Inject;
 
 /**
  * Register ManagedBean
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class RegisterMB extends BaseMB {
@@ -45,60 +45,60 @@ public class RegisterMB extends BaseMB {
 
     public String doRegister() {
 
-	ExternalContext ec = facescontext.getExternalContext();
+        ExternalContext ec = facescontext.getExternalContext();
 
-	fbEmail = ec.getRequestParameterMap().get("fbUser");
+        fbEmail = ec.getRequestParameterMap().get("fbUser");
 
-	fbToken = ec.getRequestParameterMap().get("fbToken");
+        fbToken = ec.getRequestParameterMap().get("fbToken");
 
-	System.out.println("[doRegister]");
+        System.out.println("[doRegister]");
 
-	System.out.println(fbEmail);
+        System.out.println(fbEmail);
 
-	System.out.println(fbToken);
+        System.out.println(fbToken);
 
-	try {
+        try {
 
-	    dao.saveOrUpdate(user);
+            dao.saveOrUpdate(user);
 
-	} catch (IllegalArgumentException | NotImplementedYetException e) {
+        } catch (IllegalArgumentException | NotImplementedYetException e) {
 
-	    e.printStackTrace();
-	}
+            e.printStackTrace();
+        }
 
-	return "main.xhtml";
+        return "main.xhtml";
     }
 
     public FacesContext getFacescontext() {
-	return facescontext;
+        return facescontext;
     }
 
     public void setFacescontext(FacesContext facescontext) {
-	this.facescontext = facescontext;
+        this.facescontext = facescontext;
     }
 
     public User getUser() {
-	return user;
+        return user;
     }
 
     public void setUser(User user) {
-	this.user = user;
+        this.user = user;
     }
 
     public String getFbEmail() {
-	return fbEmail;
+        return fbEmail;
     }
 
     public void setFbEmail(String fbEmail) {
-	this.fbEmail = fbEmail;
+        this.fbEmail = fbEmail;
     }
 
     public String getFbToken() {
-	return fbToken;
+        return fbToken;
     }
 
     public void setFbToken(String fbToken) {
-	this.fbToken = fbToken;
+        this.fbToken = fbToken;
     }
 
 }

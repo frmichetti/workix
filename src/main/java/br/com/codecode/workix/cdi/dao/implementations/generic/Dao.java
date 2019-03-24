@@ -16,15 +16,14 @@ import java.util.List;
 /**
  * Generic DAO Implementation
  *
+ * @param <T> Any Entity witch implements Persistable and Serializable
+ * @author felipe
+ * @version 1.0
  * @see GenericDaoProducer
  * @see BaseCrud
  * @see Crud
- * @author felipe
  * @see Serializable
- * @param <T>
- *            Any Entity witch implements Persistable and Serializable
  * @since 1.0
- * @version 1.0
  */
 public class Dao<T extends Persistable & Serializable> implements Crud<T>, Serializable {
 
@@ -45,10 +44,8 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
      * {@link EntityManager} Must be in the construction Method else Causes
      * NullPointerException on {@link InjectionPoint}
      *
-     * @param clazz
-     *            Type of Class for Injection
-     * @param em
-     *            Entity Manager used in DB Transactions
+     * @param clazz Type of Class for Injection
+     * @param em    Entity Manager used in DB Transactions
      */
     public Dao(Class<T> clazz, EntityManager em) {
         this();

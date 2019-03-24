@@ -10,11 +10,11 @@ import java.time.Instant;
 
 /**
  * CDI Observer Class for {@link Candidate}
- * 
- * @see Observes
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @see Observes
+ * @since 1.0
  */
 class CandidateObserver {
 
@@ -24,22 +24,21 @@ class CandidateObserver {
 
     /**
      * Execute an Action on Event as FiredUp
-     * 
-     * @param candidate
-     *            Observer for Candidate Events
+     *
+     * @param candidate Observer for Candidate Events
      */
     public void alert(@Observes Candidate candidate) {
 
-	System.out.println("[CDI - Alert for Candidate Visited]");
+        System.out.println("[CDI - Alert for Candidate Visited]");
 
-	System.out.println(candidate.getName());
+        System.out.println(candidate.getName());
 
-	System.out.println(Instant.now());
+        System.out.println(Instant.now());
 
-	System.out.println("[-----------------------]");
+        System.out.println("[-----------------------]");
 
-	sendPush.doSendMessage(candidate.getUser(), "Seu Perfil foi Visualizado",
-		"Olá Seu Perfil Acabou de Ser Visualizado, Boa Sorte !");
+        sendPush.doSendMessage(candidate.getUser(), "Seu Perfil foi Visualizado",
+                "Olá Seu Perfil Acabou de Ser Visualizado, Boa Sorte !");
 
     }
 

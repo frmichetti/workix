@@ -15,10 +15,10 @@ import javax.ws.rs.core.MediaType;
 
 /**
  * This Class Prepare and Send a Email
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @since 1.0
  */
 @ApplicationScoped
 public class MailSender {
@@ -29,35 +29,31 @@ public class MailSender {
 
     /**
      * Send Mail Message
-     * 
-     * @param from
-     *            Email from Sender
-     * @param to
-     *            Email to Deliver
-     * @param subject
-     *            Subject of Message
-     * @param body
-     *            Body Content of Message
+     *
+     * @param from    Email from Sender
+     * @param to      Email to Deliver
+     * @param subject Subject of Message
+     * @param body    Body Content of Message
      */
     public void send(String from, String to, String subject, String body) {
 
-	Message mimeMessage = new MimeMessage(session);
+        Message mimeMessage = new MimeMessage(session);
 
-	try {
+        try {
 
-	    mimeMessage.setRecipients(RecipientType.TO, InternetAddress.parse(to));
+            mimeMessage.setRecipients(RecipientType.TO, InternetAddress.parse(to));
 
-	    mimeMessage.setFrom(new InternetAddress(from));
+            mimeMessage.setFrom(new InternetAddress(from));
 
-	    mimeMessage.setSubject(subject);
+            mimeMessage.setSubject(subject);
 
-	    mimeMessage.setContent(body, MediaType.TEXT_HTML);
+            mimeMessage.setContent(body, MediaType.TEXT_HTML);
 
-	    Transport.send(mimeMessage);
+            Transport.send(mimeMessage);
 
-	} catch (MessagingException e) {
-	    throw new RuntimeException(e.getMessage(), e);
-	}
+        } catch (MessagingException e) {
+            throw new RuntimeException(e.getMessage(), e);
+        }
 
     }
 

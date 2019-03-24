@@ -10,45 +10,48 @@ import java.util.List;
 
 /**
  * Markup Interface for Download Test Unit
- * 
+ *
  * @author felipe
  * @version 1.1
- * @since 1.1
  * @see Serializable
  * @see GsonProvider
+ * @since 1.1
  */
 public interface DownloadTest<T extends Serializable> {
 
     /**
      * Download Items to a String
+     *
      * @param url Download Url
      */
-    default String downloadItens(String url) {	
+    default String downloadItens(String url) {
 
-	return HttpTest.sendGet(url);
+        return HttpTest.sendGet(url);
     }
 
     /**
      * Parse Items to Entity with Default Gson
+     *
      * @param rawJson Raw Json String
-     * @param type Expected Type
+     * @param type    Expected Type
      * @return List of Parsed Object
      */
-    default List<T> parseItens(String rawJson,TypeToken<?> type) {	
-	
-	return GsonProvider.buildGson()
-		.fromJson(rawJson, type.getType());	
-	
+    default List<T> parseItens(String rawJson, TypeToken<?> type) {
+
+        return GsonProvider.buildGson()
+                .fromJson(rawJson, type.getType());
+
     }
-    
+
     /**
      * Parse Items to Entity with Another Gson Implementation
+     *
      * @param rawJson Raw Json String
-     * @param type Expected Type
+     * @param type    Expected Type
      * @return List of Parsed Object
      */
-    default List<T> parseItens(Gson gson,String rawJson,TypeToken<?> type){
-	return gson.fromJson(rawJson, type.getType());	
+    default List<T> parseItens(Gson gson, String rawJson, TypeToken<?> type) {
+        return gson.fromJson(rawJson, type.getType());
     }
 
 }

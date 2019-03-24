@@ -15,40 +15,41 @@ import java.util.Calendar;
  * To use:
  * <code>
  * .registerModule(new SimpleModule()
-			.addDeserializer(Calendar.class, new CalendarDeserializer()))</code>
+ * .addDeserializer(Calendar.class, new CalendarDeserializer()))</code>
+ *
+ * @author felipe
+ * @version 1.0
  * @see JAXRSConfiguration
  * @see JAXRSContextResolver
- * @author felipe
  * @since 1.0
- * @version 1.0
  */
 public class CalendarDeserializer extends JsonDeserializer<Calendar> {
 
     @Override
     public Calendar deserialize(JsonParser jp, DeserializationContext dc) throws IOException {
 
-	JsonNode node = jp.getCodec().readTree(jp);
+        JsonNode node = jp.getCodec().readTree(jp);
 
-	int year = getInt("year", node);
+        int year = getInt("year", node);
 
-	int month = getInt("month", node);
+        int month = getInt("month", node);
 
-	int dayOfMonth = getInt("dayOfMonth", node);
+        int dayOfMonth = getInt("dayOfMonth", node);
 
-	int hourOfDay = getInt("hourOfDay", node);
+        int hourOfDay = getInt("hourOfDay", node);
 
-	int minute = getInt("minute", node);
+        int minute = getInt("minute", node);
 
-	int second = getInt("second", node);
+        int second = getInt("second", node);
 
-	Calendar c = Calendar.getInstance();
+        Calendar c = Calendar.getInstance();
 
-	c.set(year, month, dayOfMonth, hourOfDay, minute, second);
+        c.set(year, month, dayOfMonth, hourOfDay, minute, second);
 
-	return c;
+        return c;
     }
 
     private int getInt(String name, JsonNode node) {
-	return (Integer) node.get(name).numberValue();
+        return (Integer) node.get(name).numberValue();
     }
 }

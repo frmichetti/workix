@@ -16,14 +16,15 @@ import java.util.*;
 /**
  * Selective Process JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see Observable
  * @see Observer
  * @see Traceable
  * @see Persistable
  * @see Serializable
+ * @since 1.0
  */
 @Entity
 @Table(name = "Selective_Process")
@@ -73,7 +74,8 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public SelectiveProcess(){}
+    public SelectiveProcess() {
+    }
 
     public int countCandidates() {
         return maxCandidates - candidates.size();
@@ -110,6 +112,11 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
         return this.candidates;
     }
 
+    public void setCandidates(Set<Candidate> candidates) {
+        this.candidates = candidates;
+        notifyChanges();
+    }
+
     /**
      * @return the expire
      */
@@ -117,17 +124,37 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
         return expire;
     }
 
+    /**
+     * @param expire the expire to set
+     */
+    public void setExpire(Date expire) {
+        this.expire = expire;
+    }
+
     @Override
     public long getId() {
         return this.id;
+    }
+
+    @Override
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Job getJob() {
         return this.job;
     }
 
+    public void setJob(final Job job) {
+        this.job = job;
+    }
+
     public int getMaxCandidates() {
         return maxCandidates;
+    }
+
+    public void setMaxCandidates(int maxCandidates) {
+        this.maxCandidates = maxCandidates;
     }
 
     /**
@@ -137,8 +164,19 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
         return start;
     }
 
+    /**
+     * @param start the start to set
+     */
+    public void setStart(Date start) {
+        this.start = start;
+    }
+
     protected int getVersion() {
         return this.version;
+    }
+
+    protected void setVersion(final int version) {
+        this.version = version;
     }
 
     @Override
@@ -166,6 +204,17 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
     public boolean isActive() {
         return active;
+    }
+
+    public void setActive(boolean active) {
+
+        if (!active) {
+            disabledAt = new Date();
+        }
+
+        this.active = active;
+
+        notifyChanges();
     }
 
     private boolean isElegible() {
@@ -218,55 +267,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
 
         return b;
 
-    }
-
-    public void setActive(boolean active) {
-
-        if (!active) {
-            disabledAt = new Date();
-        }
-
-        this.active = active;
-
-        notifyChanges();
-    }
-
-    public void setCandidates(Set<Candidate> candidates) {
-        this.candidates = candidates;
-        notifyChanges();
-    }
-
-    /**
-     * @param expire
-     *            the expire to set
-     */
-    public void setExpire(Date expire) {
-        this.expire = expire;
-    }
-
-    @Override
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setJob(final Job job) {
-        this.job = job;
-    }
-
-    public void setMaxCandidates(int maxCandidates) {
-        this.maxCandidates = maxCandidates;
-    }
-
-    /**
-     * @param start
-     *            the start to set
-     */
-    public void setStart(Date start) {
-        this.start = start;
-    }
-
-    protected void setVersion(final int version) {
-        this.version = version;
     }
 
     @Override

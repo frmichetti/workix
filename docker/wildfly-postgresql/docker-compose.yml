@@ -1,22 +1,22 @@
 version: '2'
 services:
-    postgres:
-        image: postgres:9.6.1
-        ports:
-            - "5432:5432"
-        environment:
-            - POSTGRES_USER=myapp
-            - POSTGRES_PASSWORD=my-password
-            - POSTGRES_DB=database
-    wildfly:
-        image: frmichetti/wildfly-postgresql
-        ports:
-            - "8080:8080"
-            - "9990:9990"
-        environment:
-            - DB_HOST=postgres
-            - DB_NAME=database
-            - DB_USER=myapp
-            - DB_PASS=my-password
-        depends_on:
-            - postgres
+  postgres:
+    image: postgres:9.6.1
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=myapp
+      - POSTGRES_PASSWORD=my-password
+      - POSTGRES_DB=database
+  wildfly:
+    image: frmichetti/wildfly-postgresql
+    ports:
+      - "8080:8080"
+      - "9990:9990"
+    environment:
+      - DB_HOST=postgres
+      - DB_NAME=database
+      - DB_USER=myapp
+      - DB_PASS=my-password
+    depends_on:
+      - postgres

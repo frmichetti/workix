@@ -14,17 +14,17 @@ import java.util.List;
 
 /**
  * Mockup Class for Demonstration Only
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
  * @see BaseDaoMockup
  * @see Crud
+ * @since 1.0
  */
 @Mockup
 public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {
 
-   
+
     private static final long serialVersionUID = -7123666749649316280L;
 
     @Inject
@@ -33,50 +33,50 @@ public class ResumeDaoMockup extends BaseDaoMockup implements Crud<Resume> {
     @Override
     public void save(Resume entity) {
 
-	messagesHelper.addFlash(new FacesMessage(TITLE, entity.getObjective() + SAVEMESSAGE));
+        messagesHelper.addFlash(new FacesMessage(TITLE, entity.getObjective() + SAVEMESSAGE));
 
-	alertNewResume.fire(entity);
+        alertNewResume.fire(entity);
 
     }
 
     @Override
     public Resume update(Resume entity) {
 
-	messagesHelper.addFlash(new FacesMessage(TITLE, entity.getObjective() + UPDATEMESSAGE));
+        messagesHelper.addFlash(new FacesMessage(TITLE, entity.getObjective() + UPDATEMESSAGE));
 
-	return entity;
+        return entity;
     }
 
     @Override
     public void deleteById(long id) throws NotImplementedYetException {
-	throw new NotImplementedYetException();
+        throw new NotImplementedYetException();
     }
 
     @Override
     public Resume findById(long id) {
-	return em.find(Resume.class, id);
+        return em.find(Resume.class, id);
     }
 
     @Override
     public List<Resume> listAll(int start, int end) {
-	TypedQuery<Resume> findAllQuery = em.createQuery("SELECT DISTINCT r FROM Resume r ORDER BY r.id", Resume.class);
+        TypedQuery<Resume> findAllQuery = em.createQuery("SELECT DISTINCT r FROM Resume r ORDER BY r.id", Resume.class);
 
-	findAllQuery.setFirstResult(start);
+        findAllQuery.setFirstResult(start);
 
-	findAllQuery.setMaxResults(end);
+        findAllQuery.setMaxResults(end);
 
-	return findAllQuery.getResultList();
+        return findAllQuery.getResultList();
     }
 
     @Override
     public BigInteger countRegisters() {
-	return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Resume.class.getSimpleName())
-		.getSingleResult();
+        return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Resume.class.getSimpleName())
+                .getSingleResult();
     }
 
     @Override
     public Resume findByUuid(String uuid) throws NotImplementedYetException {
-	throw new NotImplementedYetException();
+        throw new NotImplementedYetException();
     }
 
 }

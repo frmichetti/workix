@@ -11,12 +11,12 @@ import javax.enterprise.inject.Produces;
 /**
  * Managed Executor Service Producer<br>
  * Use for Asynchronous Tasks
- * 
+ *
+ * @author felipe
+ * @version 1.0
  * @see Produces
  * @see ManagedExecutorService
- * @author felipe
  * @since 1.0
- * @version 1.0
  */
 @ApplicationScoped
 public class ManagedExecutorServiceProducer {
@@ -26,13 +26,13 @@ public class ManagedExecutorServiceProducer {
 
     /**
      * Produce ManagedExecutorService for CDI Injection Points
-     * 
+     *
      * @return ManagedExecutorService Instance
      */
     @Produces
     @Dependent
     @Factory
     public ManagedExecutorService getManagedExecutorService() {
-	return managedExecutorService;
+        return managedExecutorService;
     }
 }

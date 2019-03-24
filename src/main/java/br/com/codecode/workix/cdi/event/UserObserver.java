@@ -12,11 +12,11 @@ import java.time.Instant;
 
 /**
  * CDI Observer Class for User
- * 
- * @see Observes
+ *
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @see Observes
+ * @since 1.0
  */
 class UserObserver {
 
@@ -31,21 +31,20 @@ class UserObserver {
 
     /**
      * Execute an Action on Event as FiredUp
-     * 
-     * @param user
-     *            Observer for User Events
+     *
+     * @param user Observer for User Events
      */
     public void alert(@Observes User user) {
 
-	System.out.println("[CDI - Alert for new User]");
+        System.out.println("[CDI - Alert for new User]");
 
-	System.out.println(user.getEmail());
+        System.out.println(user.getEmail());
 
-	System.out.println(Instant.now());
+        System.out.println(Instant.now());
 
-	System.out.println("[-----------------------]");
+        System.out.println("[-----------------------]");
 
-	jmsProducer.send(destination, user.getUuid());
+        jmsProducer.send(destination, user.getUuid());
 
     }
 

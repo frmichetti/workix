@@ -13,14 +13,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
  * CDI Qualifier for Persistence Unit
- * 
- * @see EntityManagerProducer
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
+ * @see EntityManagerProducer
+ * @since 1.0
  */
 @Qualifier
-@Target({ METHOD, FIELD })
+@Target({METHOD, FIELD})
 @Retention(RUNTIME)
 @Documented
 public @interface PostgreSQL {

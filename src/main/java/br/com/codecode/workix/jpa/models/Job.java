@@ -17,10 +17,11 @@ import java.math.BigDecimal;
 /**
  * Job JPA with Inherited Fields and Methods
  * No Anotation for Compatibility Only with Older Versions
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see MyEntity
+ * @since 1.0
  */
 @Entity
 @XmlRootElement
@@ -28,268 +29,270 @@ import java.math.BigDecimal;
 @Persist
 public class Job extends MyEntity {
 
-	private static final long serialVersionUID = 2246753300384053586L;
+    private static final long serialVersionUID = 2246753300384053586L;
 
-	private boolean active;
+    private boolean active;
 
-	/**
-	 * Many {@link Job} To One {@link Company}
-	 */
-	private Company company;
+    /**
+     * Many {@link Job} To One {@link Company}
+     */
+    private Company company;
 
-	private long id;
+    private long id;
 
-	private JobCategory jobCategory;
+    private JobCategory jobCategory;
 
-	private JobType jobType;
+    private JobType jobType;
 
-	private BigDecimal minPayment, maxPayment;
+    private BigDecimal minPayment, maxPayment;
 
-	private String title, description, requirement, benefits;
+    private String title, description, requirement, benefits;
 
-	/**
-	 * Public Default Constructor for JPA Compatibility Only
-	 */
-	public Job(){}
+    /**
+     * Public Default Constructor for JPA Compatibility Only
+     */
+    public Job() {
+    }
 
-	/**
-	 * Public Constructor for {@link Builder} Compatibility
-	 *
-	 * @see Buildable
-	 * @param builder
-	 *            Builder for Generate a New Job
-	 */
-	private Job(Builder builder) {
-		this.active = builder.isActive();
-		this.title = builder.getTitle();
-		this.description = builder.getDescription();
-		this.requirement = builder.getRequirement();
-		this.benefits = builder.getBenefits();
-		this.minPayment = builder.getMinPayment();
-		this.maxPayment = builder.getMaxPayment();
-		this.jobType = builder.getJobType();
-		this.jobCategory = builder.getJobCategory();
-		this.company = builder.getCompany();
-	}
+    /**
+     * Public Constructor for {@link Builder} Compatibility
+     *
+     * @param builder Builder for Generate a New Job
+     * @see Buildable
+     */
+    private Job(Builder builder) {
+        this.active = builder.isActive();
+        this.title = builder.getTitle();
+        this.description = builder.getDescription();
+        this.requirement = builder.getRequirement();
+        this.benefits = builder.getBenefits();
+        this.minPayment = builder.getMinPayment();
+        this.maxPayment = builder.getMaxPayment();
+        this.jobType = builder.getJobType();
+        this.jobCategory = builder.getJobCategory();
+        this.company = builder.getCompany();
+    }
 
-	/**
-	 * Creates builder to build {@link Job}.
-	 * @return created builder
-	 */
-	@XmlTransient
-	public static Builder builder() {
-		return new Builder();
-	}
+    /**
+     * Creates builder to build {@link Job}.
+     *
+     * @return created builder
+     */
+    @XmlTransient
+    public static Builder builder() {
+        return new Builder();
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Job))
-			return false;
-		Job other = (Job) obj;
-		if (id != other.id)
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (!(obj instanceof Job))
+            return false;
+        Job other = (Job) obj;
+        if (id != other.id)
+            return false;
+        return true;
+    }
 
-	@Lob
-	@Column(nullable = false)
-	public String getBenefits() {
-		return benefits;
-	}
+    @Lob
+    @Column(nullable = false)
+    public String getBenefits() {
+        return benefits;
+    }
 
-	@ManyToOne(optional = false)
-	public Company getCompany() {
-		return company;
-	}
+    public void setBenefits(String benefits) {
+        this.benefits = benefits;
+    }
 
-	@Lob
-	@Column(nullable = false)
-	public String getDescription() {
-		return description;
-	}
+    @ManyToOne(optional = false)
+    public Company getCompany() {
+        return company;
+    }
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
-	@Override
-	public long getId() {
-		return this.id;
-	}
+    public void setCompany(Company employeer) {
+        this.company = employeer;
+    }
 
-	@Column
-	@Enumerated(EnumType.STRING)
-	public JobCategory getJobCategory() {
-		return jobCategory;
-	}
+    @Lob
+    @Column(nullable = false)
+    public String getDescription() {
+        return description;
+    }
 
-	@Column
-	@Enumerated(EnumType.STRING)
-	public JobType getJobType() {
-		return jobType;
-	}
+    public void setDescription(String resume) {
+        this.description = resume;
+    }
 
-	@Column
-	public BigDecimal getMaxPayment() {
-		return maxPayment;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(updatable = false, nullable = false)
+    @Override
+    public long getId() {
+        return this.id;
+    }
 
-	@Column
-	public BigDecimal getMinPayment() {
-		return minPayment;
-	}
+    @Override
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	@Lob
-	@Column(nullable = false)
-	public String getRequirement() {
-		return requirement;
-	}
+    @Column
+    @Enumerated(EnumType.STRING)
+    public JobCategory getJobCategory() {
+        return jobCategory;
+    }
 
-	@Column(nullable = false)
-	public String getTitle() {
-		return title;
-	}
+    public void setJobCategory(JobCategory category) {
+        this.jobCategory = category;
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
-		return result;
-	}
+    @Column
+    @Enumerated(EnumType.STRING)
+    public JobType getJobType() {
+        return jobType;
+    }
 
-	/**
-	 * Initialize Fields for CDI Injection
-	 */
-	@PostConstruct
-	private void init() {
-		minPayment = BigDecimal.ZERO;
-		maxPayment = BigDecimal.ZERO;
-		active = true;
-	}
+    public void setJobType(JobType type) {
+        this.jobType = type;
+    }
 
-	@Column
+    @Column
+    public BigDecimal getMaxPayment() {
+        return maxPayment;
+    }
 
-	public boolean isActive() {
-		return active;
-	}
+    public void setMaxPayment(BigDecimal maxPayment) {
+        this.maxPayment = maxPayment;
+    }
 
-	public void setActive(boolean active) {
-		this.active = active;
-	}
+    @Column
+    public BigDecimal getMinPayment() {
+        return minPayment;
+    }
 
-	public void setBenefits(String benefits) {
-		this.benefits = benefits;
-	}
+    public void setMinPayment(BigDecimal minPayment) {
+        this.minPayment = minPayment;
+    }
 
-	public void setCompany(Company employeer) {
-		this.company = employeer;
-	}
+    @Lob
+    @Column(nullable = false)
+    public String getRequirement() {
+        return requirement;
+    }
 
-	public void setDescription(String resume) {
-		this.description = resume;
-	}
+    public void setRequirement(String requirement) {
+        this.requirement = requirement;
+    }
 
-	@Override
-	public void setId(long id) {
-		this.id = id;
-	}
+    @Column(nullable = false)
+    public String getTitle() {
+        return title;
+    }
 
-	public void setJobCategory(JobCategory category) {
-		this.jobCategory = category;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setJobType(JobType type) {
-		this.jobType = type;
-	}
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        return result;
+    }
 
-	public void setMaxPayment(BigDecimal maxPayment) {
-		this.maxPayment = maxPayment;
-	}
+    /**
+     * Initialize Fields for CDI Injection
+     */
+    @PostConstruct
+    private void init() {
+        minPayment = BigDecimal.ZERO;
+        maxPayment = BigDecimal.ZERO;
+        active = true;
+    }
 
-	public void setMinPayment(BigDecimal minPayment) {
-		this.minPayment = minPayment;
-	}
+    @Column
 
-	public void setRequirement(String requirement) {
-		this.requirement = requirement;
-	}
+    public boolean isActive() {
+        return active;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
-	/**
-	 * Builder to build {@link Job}.
-	 */
-	public static final class Builder extends Job implements Buildable<Job> {
+    /**
+     * Builder to build {@link Job}.
+     */
+    public static final class Builder extends Job implements Buildable<Job> {
 
-		private static final long serialVersionUID = -2178589087775440695L;
+        private static final long serialVersionUID = -2178589087775440695L;
 
-		/**
-		 * Disabled Empty Constructor
-		 */
-		private Builder(){}
+        /**
+         * Disabled Empty Constructor
+         */
+        private Builder() {
+        }
 
-		/**
-		 * @return Return a new Job
-		 */
-		public Job build() {
-			return new Job(this);
-		}
+        /**
+         * @return Return a new Job
+         */
+        public Job build() {
+            return new Job(this);
+        }
 
-		public Builder withActive(boolean active) {
-			super.active = active;
-			return this;
-		}
+        public Builder withActive(boolean active) {
+            super.active = active;
+            return this;
+        }
 
-		public Builder withBenefits(String benefits) {
-			super.benefits = benefits;
-			return this;
-		}
+        public Builder withBenefits(String benefits) {
+            super.benefits = benefits;
+            return this;
+        }
 
-		public Builder withCompany(Company company) {
-			super.company = company;
-			return this;
-		}
+        public Builder withCompany(Company company) {
+            super.company = company;
+            return this;
+        }
 
-		public Builder withDescription(String description) {
-			super.description = description;
-			return this;
-		}
+        public Builder withDescription(String description) {
+            super.description = description;
+            return this;
+        }
 
-		public Builder withJobCategory(JobCategory jobCategory) {
-			super.jobCategory = jobCategory;
-			return this;
-		}
+        public Builder withJobCategory(JobCategory jobCategory) {
+            super.jobCategory = jobCategory;
+            return this;
+        }
 
-		public Builder withJobType(JobType jobType) {
-			super.jobType = jobType;
-			return this;
-		}
+        public Builder withJobType(JobType jobType) {
+            super.jobType = jobType;
+            return this;
+        }
 
-		public Builder withMaxPayment(BigDecimal maxPayment) {
-			super.maxPayment = maxPayment;
-			return this;
-		}
+        public Builder withMaxPayment(BigDecimal maxPayment) {
+            super.maxPayment = maxPayment;
+            return this;
+        }
 
-		public Builder withMinPayment(BigDecimal minPayment) {
-			super.minPayment = minPayment;
-			return this;
-		}
+        public Builder withMinPayment(BigDecimal minPayment) {
+            super.minPayment = minPayment;
+            return this;
+        }
 
-		public Builder withRequirement(String requirement) {
-			super.requirement = requirement;
-			return this;
-		}
+        public Builder withRequirement(String requirement) {
+            super.requirement = requirement;
+            return this;
+        }
 
-		public Builder withTitle(String title) {
-			super.title = title;
-			return this;
-		}
-	}
+        public Builder withTitle(String title) {
+            super.title = title;
+            return this;
+        }
+    }
 
 }

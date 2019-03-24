@@ -13,12 +13,12 @@ import javax.jms.Destination;
 
 /**
  * JMS Destination Producer
- * 
+ *
+ * @author felipe
+ * @version 1.0
  * @see Produces
  * @see Destination
- * @author felipe
  * @since 1.0
- * @version 1.0
  */
 @ApplicationScoped
 public class JmsDestinationProducer {
@@ -34,7 +34,7 @@ public class JmsDestinationProducer {
 
     /**
      * Produces JMS Destination for CDI Injection Points
-     * 
+     *
      * @return JMS Destination Instance
      */
     @Produces
@@ -42,12 +42,12 @@ public class JmsDestinationProducer {
     @Factory
     @JobTopic
     public Destination getJobDestination() {
-	return jobsTopic;
+        return jobsTopic;
     }
 
     /**
      * Produces JMS Destination for CDI Injection Points
-     * 
+     *
      * @return JMS Destination Instance
      */
     @Produces
@@ -55,12 +55,12 @@ public class JmsDestinationProducer {
     @Factory
     @UserTopic
     public Destination getUserDestination() {
-	return usersTopic;
+        return usersTopic;
     }
 
     /**
      * Produces JMS Destination for CDI Injection Points
-     * 
+     *
      * @return JMS Destination Instance
      */
     @Produces
@@ -68,7 +68,7 @@ public class JmsDestinationProducer {
     @Factory
     @SelectiveProcessTopic
     public Destination getSelectiveProcessesDestination() {
-	return selectiveProcessesTopic;
+        return selectiveProcessesTopic;
     }
 
 }

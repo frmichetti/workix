@@ -13,11 +13,11 @@ import javax.inject.Inject;
 
 /**
  * This ManagedBean controls Members Fragment on AboutPage
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class MembersMB extends BaseMB {
@@ -44,17 +44,16 @@ public class MembersMB extends BaseMB {
      * @return the list
      */
     public DataModel<Member> getList() {
-	return list;
+        return list;
     }
 
     /**
-     * @return discover Social Media Link
      * @param url Enter the Url for Discover Social Media
+     * @return discover Social Media Link
      */
-    public String whatSocialLink(String url){
-	return linkHelper.returnMedia(url);
+    public String whatSocialLink(String url) {
+        return linkHelper.returnMedia(url);
     }
-
 
 
 }

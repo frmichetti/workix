@@ -20,11 +20,11 @@ import java.io.IOException;
 
 /**
  * This ManagedBean controls candidate-details.xhtml
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class CandidateDetailsMB extends BaseMB {
@@ -63,75 +63,75 @@ public class CandidateDetailsMB extends BaseMB {
     @Override
     public void init() {
 
-	prefix = facesContext.getExternalContext().getRequestContextPath();
+        prefix = facesContext.getExternalContext().getRequestContextPath();
 
-	sufix = "?faces-redirect=true";
+        sufix = "?faces-redirect=true";
 
-	try {
+        try {
 
-	    candidate = dao.findById(id);
+            candidate = dao.findById(id);
 
-	    if (candidate == null) goToErrorPage();
+            if (candidate == null) goToErrorPage();
 
-	} catch (NotImplementedYetException | NoResultException e) {
+        } catch (NotImplementedYetException | NoResultException e) {
 
-	    e.printStackTrace();
+            e.printStackTrace();
 
-	}
+        }
 
     }
 
     public long getId() {
-	return id;
+        return id;
     }
 
     public void setId(long id) {
-	this.id = id;
+        this.id = id;
     }
 
     public Candidate getCandidate() {
-	return candidate;
+        return candidate;
     }
 
     public void notifyByEmail() {
-	messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
-	mailNotification.doSendMessage(candidate.getUser(), messageTitle, messageBody);
+        messagesHelper.addFlash(new FacesMessage("Email Enviado com Sucesso !"));
+        mailNotification.doSendMessage(candidate.getUser(), messageTitle, messageBody);
 
     }
 
     public void notifyByPush() {
-	messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
-	pushNotification.doSendMessage(candidate.getUser(), messageTitle, messageBody);
+        messagesHelper.addFlash(new FacesMessage("Push Message Enviado com Sucesso !"));
+        pushNotification.doSendMessage(candidate.getUser(), messageTitle, messageBody);
 
     }
 
     public String getMessageBody() {
-	return messageBody;
+        return messageBody;
     }
 
     public void setMessageBody(String messageBody) {
-	this.messageBody = messageBody;
+        this.messageBody = messageBody;
     }
 
     public String getMessageTitle() {
-	return messageTitle;
+        return messageTitle;
     }
 
     public void setMessageTitle(String messageTitle) {
-	this.messageTitle = messageTitle;
+        this.messageTitle = messageTitle;
     }
 
     private String goToErrorPage() {
 
-	try {
+        try {
 
-	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+            facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
-	return prefix + "/404.xhtml" + sufix;
+            e.printStackTrace();
+        }
+        return prefix + "/404.xhtml" + sufix;
     }
 
 }

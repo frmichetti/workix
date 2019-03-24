@@ -21,20 +21,27 @@ import java.util.List;
  * This ManagedBean controls candidates.xhtml and candidates2.xhtml
  *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class CandidatesMB extends BaseMB {
 
-    @Inject @Factory @Default
+    private final List<Integer> pager = new ArrayList<>();
+    @Inject
+    @Factory
+    @Default
     private FacesContext facesContext;
-
     @Inject
     @Generic
     private Crud<Candidate> dao;
+    private DataModel<Candidate> list;
 
+    private String prefix, sufix;
+    private int start, end, totalRows, totalPages;
+    @Min(1)
+    private int page;
 
     /**
      * @return the pager
@@ -42,17 +49,6 @@ public class CandidatesMB extends BaseMB {
     public List<Integer> getPager() {
         return pager;
     }
-
-    private DataModel<Candidate> list;
-
-    private String prefix, sufix;
-
-    private final List<Integer> pager = new ArrayList<>();
-
-    private int start, end, totalRows, totalPages;
-
-    @Min(1)
-    private int page;
 
     /**
      * Must be Called by f:viewAction After f:viewParam {page}
@@ -101,7 +97,7 @@ public class CandidatesMB extends BaseMB {
             System.out.println("End " + end);
         }
 
-        for(int x = 0 ; x <= totalPages; x++){
+        for (int x = 0; x <= totalPages; x++) {
             if (x == 0) continue;
             pager.add(x);
         }

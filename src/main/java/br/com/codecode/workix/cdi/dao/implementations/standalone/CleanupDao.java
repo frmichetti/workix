@@ -7,23 +7,24 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 /**
- * StandAlone DAO for find Expired Selective Processes 
+ * StandAlone DAO for find Expired Selective Processes
+ *
  * @author felipe
- * @since 1.1
  * @version 1.0
  * @see BaseDao
+ * @since 1.1
  */
 public class CleanupDao extends BaseDao {
 
-   
+
     private static final long serialVersionUID = 8313089022686190122L;
-    
+
     public List<SelectiveProcess> findExpiredProcesses(LocalDateTime expire) {
 
-	String jpql = "select p from SelectiveProcess p where p.expire <= :expire";
+        String jpql = "select p from SelectiveProcess p where p.expire <= :expire";
 
-	return em.createQuery(jpql, SelectiveProcess.class).setParameter("expire", expire).getResultList();
-	 
+        return em.createQuery(jpql, SelectiveProcess.class).setParameter("expire", expire).getResultList();
+
     }
 
 }

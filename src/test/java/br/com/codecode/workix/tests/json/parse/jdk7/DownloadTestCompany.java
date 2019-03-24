@@ -15,29 +15,30 @@ public class DownloadTestCompany extends BaseTest implements DownloadTest<Compan
 
     private String resp;
 
-    @Before        
-    public void downloadItens() {	
+    @Before
+    public void downloadItens() {
 
-	resp = downloadItens(server + "/companies");
+        resp = downloadItens(server + "/companies");
 
-	assertFalse(resp.isEmpty());
+        assertFalse(resp.isEmpty());
 
     }
 
-    @Test    
+    @Test
     public void parseItens() {
 
-	List<Company> companies = parseItens(resp, new TypeToken<List<Company>>(){});
+        List<Company> companies = parseItens(resp, new TypeToken<List<Company>>() {
+        });
 
-	assertNotNull(companies);
+        assertNotNull(companies);
 
-	assertTrue(companies.size() > 0);
+        assertTrue(companies.size() > 0);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
 
-	companies.stream().forEach(System.out::println);
+        companies.stream().forEach(System.out::println);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
 
     }
 

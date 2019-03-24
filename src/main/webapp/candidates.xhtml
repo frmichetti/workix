@@ -7,298 +7,303 @@
 
 <ui:composition template="/template.xhtml">
 
-	<f:metadata>
-		<f:viewParam id="page" name="page" value="#{candidatesMB.page}" />
-		<f:viewAction action="#{candidatesMB.init()}" />
-	</f:metadata>
+    <f:metadata>
+        <f:viewParam id="page" name="page" value="#{candidatesMB.page}"/>
+        <f:viewAction action="#{candidatesMB.init()}"/>
+    </f:metadata>
 
-	<ui:define name="headerTitle">#{applicationMB.appName} - Candidatos</ui:define>
+    <ui:define name="headerTitle">#{applicationMB.appName} - Candidatos</ui:define>
 
-	<ui:define name="title">
-		<h1>Candidatos</h1>
-		<h4>Encontre seu funcionário</h4>
-	</ui:define>
+    <ui:define name="title">
+        <h1>Candidatos</h1>
+        <h4>Encontre seu funcionário</h4>
+    </ui:define>
 
-	<ui:define name="content">
+    <ui:define name="content">
 
-		<!-- ============ JOBS START ============ -->
+        <!-- ============ JOBS START ============ -->
 
-		<section id="jobs">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8">
-						<h2>Candidatos</h2>
+        <section id="jobs">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h2>Candidatos</h2>
 
-						<div class="jobs">
+                        <div class="jobs">
 
-							<ui:repeat var="candidate" value="#{candidatesMB.list}">
+                            <ui:repeat var="candidate" value="#{candidatesMB.list}">
 
-								<a href="#{basePath}/resume.xhtml?id=#{candidate.id}"
-									class="featured">
-									<div class="row">
-										
-										<div class="col-xs-3 col-sm-2 col-lg-1">
-											<h:graphicImage name="60x60.jpg" library="placeholder" alt="" styleClass="img-circle img-responsive" />											
-										</div>
-										
-										<div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
-											
-											<h5><h:outputText value="#{candidate.name}" /></h5>
-											
-											<p>
-												<strong><h:outputText value="#{candidate.cpf}" /></strong>
-											</p>
-										</div>
-										
-										<div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
-											<p>
-												<strong>New York City, NY, USA</strong>
-											</p>
-											
-											<p>743.6 mi away</p>
-											
-										</div>
-										
-										<div class="hidden-xs hidden-sm hidden-md col-lg-3">
-											<p class="candidate-date">Updated 3 weeks ago}</p>
-											<p class="candidate-tags">
-												<span class="badge">Marketing</span> <span class="badge">Sale</span>
-											</p>
-										</div>
-									</div>
-								</a>
+                                <a href="#{basePath}/resume.xhtml?id=#{candidate.id}"
+                                   class="featured">
+                                    <div class="row">
 
-							</ui:repeat>
+                                        <div class="col-xs-3 col-sm-2 col-lg-1">
+                                            <h:graphicImage name="60x60.jpg" library="placeholder" alt=""
+                                                            styleClass="img-circle img-responsive"/>
+                                        </div>
 
-						</div>
+                                        <div class="col-xs-9 col-sm-4 col-md-5 col-lg-4 candidate-name">
 
-						<nav>
-							<ul class="pagination">
-								<li><a href="#{candidatesMB.goToFirstPage()}" aria-label="Primeira">
-								<span aria-hidden="true">Primeira</span></a></li>
-								<ui:repeat var="pag" value="#{candidatesMB.pager}">
-									<li><a href="./candidates.xhtml?page=#{pag.intValue()}"><h:outputText value="#{pag.intValue()}" /></a></li>
-								</ui:repeat>								
-								<li><a href="#{candidatesMB.goToLastPage()}" aria-label="Última">
-								<span aria-hidden="true">Última</span></a></li>
-							</ul>
-						</nav>
+                                            <h5><h:outputText value="#{candidate.name}"/></h5>
 
-					</div>
-					<div class="col-sm-4" id="sidebar">
+                                            <p>
+                                                <strong><h:outputText value="#{candidate.cpf}"/></strong>
+                                            </p>
+                                        </div>
 
-						<!-- Featured Jobs Start -->
-						<div class="sidebar-widget">
-							<h2>Candidato Destaque</h2>
-							<a href="#">
-								<h:graphicImage name="400x260.jpg"  library="placeholder" styleClass="img-responsive" alt="Featured Job" />
-							 
-								<div class="featured-job">
-									<h:graphicImage name="60x60.jpg" library="placeholder" styleClass="img-circle pull-left" alt=""/>									
-									<div class="title">
-										<h5>Susie Johnson</h5>
-										<p>Project Manager</p>
-									</div>
-									<div class="data">
+                                        <div class="hidden-xs col-sm-6 col-md-5 col-lg-4 candidate-location">
+                                            <p>
+                                                <strong>New York City, NY, USA</strong>
+                                            </p>
+
+                                            <p>743.6 mi away</p>
+
+                                        </div>
+
+                                        <div class="hidden-xs hidden-sm hidden-md col-lg-3">
+                                            <p class="candidate-date">Updated 3 weeks ago}</p>
+                                            <p class="candidate-tags">
+                                                <span class="badge">Marketing</span> <span class="badge">Sale</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </ui:repeat>
+
+                        </div>
+
+                        <nav>
+                            <ul class="pagination">
+                                <li><a href="#{candidatesMB.goToFirstPage()}" aria-label="Primeira">
+                                    <span aria-hidden="true">Primeira</span></a></li>
+                                <ui:repeat var="pag" value="#{candidatesMB.pager}">
+                                    <li><a href="./candidates.xhtml?page=#{pag.intValue()}"><h:outputText
+                                            value="#{pag.intValue()}"/></a></li>
+                                </ui:repeat>
+                                <li><a href="#{candidatesMB.goToLastPage()}" aria-label="Última">
+                                    <span aria-hidden="true">Última</span></a></li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                    <div class="col-sm-4" id="sidebar">
+
+                        <!-- Featured Jobs Start -->
+                        <div class="sidebar-widget">
+                            <h2>Candidato Destaque</h2>
+                            <a href="#">
+                                <h:graphicImage name="400x260.jpg" library="placeholder" styleClass="img-responsive"
+                                                alt="Featured Job"/>
+
+                                <div class="featured-job">
+                                    <h:graphicImage name="60x60.jpg" library="placeholder"
+                                                    styleClass="img-circle pull-left" alt=""/>
+                                    <div class="title">
+                                        <h5>Susie Johnson</h5>
+                                        <p>Project Manager</p>
+                                    </div>
+                                    <div class="data">
 										<span class="city"><i class="fa fa-map-marker"></i>New
 											York City</span> <span class="experience"><i
-											class="fa fa-trophy"></i>12 years</span> <span class="sallary"><i
-											class="fa fa-dollar"></i>45,000</span>
-									</div>
-									<div class="description">Lorem ipsum dolor sit amet,
-										consectetur adipiscing elit. Pellentesque tristique euismod
-										lorem, a consequat orci consequat a. Donec ullamcorper
-										tincidunt nunc, ut aliquam est pellentesque porta. In neque
-										erat, malesuada sit amet orci ac, laoreet laoreet mauris.</div>
-								</div>
-							</a>
-						</div>
-						<!-- Featured Jobs End -->
+                                            class="fa fa-trophy"></i>12 years</span> <span class="sallary"><i
+                                            class="fa fa-dollar"></i>45,000</span>
+                                    </div>
+                                    <div class="description">Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit. Pellentesque tristique euismod
+                                        lorem, a consequat orci consequat a. Donec ullamcorper
+                                        tincidunt nunc, ut aliquam est pellentesque porta. In neque
+                                        erat, malesuada sit amet orci ac, laoreet laoreet mauris.
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Featured Jobs End -->
 
-						<!-- Find a Job Start -->
-						<div class="sidebar-widget" id="jobsearch">
-							<h2>Localizar Candidato</h2>
-							<form>
-								<div class="row">
-									<div class="col-xs-12">
-										<div class="form-group" id="job-search-group">
-											<label for="job-search" class="sr-only">Search</label> <input
-												type="text" class="form-control" id="job-search"
-												placeholder="Type and press enter" />
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<h5>Career Level</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Junior
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Middle
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Senior
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Expert
-											</label>
-										</div>
-									</div>
-									<div class="col-xs-6">
-										<h5>Presence</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Remote
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Office
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Relocation
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Travel a lot
-											</label>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<h5>Job Type</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Freelance
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Part Time
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Full Time
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Internship
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Volunteer
-											</label>
-										</div>
-									</div>
-									<div class="col-xs-6">
-										<h5>Location</h5>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> All Types
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> New York
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Los Angeles
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> San Francisco
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Chicago
-											</label>
-										</div>
-										<div class="checkbox">
-											<label> <input type="checkbox" /> Boston
-											</label>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<h5>Experience</h5>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-6">
-										<p>
-											More than <b><span id="years-field"></span></b> years
-										</p>
-									</div>
-									<div class="col-xs-6">
-										<div class="form-slider" id="years"></div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<h5>Salary</h5>
-										<div class="form-slider" id="salary"></div>
-										<p>
-											From <b><span id="salary-field-lower"></span></b> to <b><span
-												id="salary-field-upper"></span></b>
-										</p>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<hr />
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12">
-										<a class="btn btn-primary">Reset All Filters</a>
-									</div>
-								</div>
-							</form>
-						</div>
-						<!-- Find a Job End -->
+                        <!-- Find a Job Start -->
+                        <div class="sidebar-widget" id="jobsearch">
+                            <h2>Localizar Candidato</h2>
+                            <form>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group" id="job-search-group">
+                                            <label for="job-search" class="sr-only">Search</label> <input
+                                                type="text" class="form-control" id="job-search"
+                                                placeholder="Type and press enter"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h5>Career Level</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Junior
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Middle
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Senior
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Expert
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Presence</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Remote
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Office
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Relocation
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Travel a lot
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h5>Job Type</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Freelance
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Part Time
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Full Time
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Internship
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Volunteer
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5>Location</h5>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> All Types
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> New York
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Los Angeles
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> San Francisco
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Chicago
+                                            </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label> <input type="checkbox"/> Boston
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h5>Experience</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            More than <b><span id="years-field"></span></b> years
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-slider" id="years"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <h5>Salary</h5>
+                                        <div class="form-slider" id="salary"></div>
+                                        <p>
+                                            From <b><span id="salary-field-lower"></span></b> to <b><span
+                                                id="salary-field-upper"></span></b>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <hr/>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <a class="btn btn-primary">Reset All Filters</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Find a Job End -->
 
-					</div>
-				</div>
-			</div>
-		</section>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-		<!-- ============ JOBS END ============ -->
+        <!-- ============ JOBS END ============ -->
 
-	</ui:define>
+    </ui:define>
 
 </ui:composition>
 </html>

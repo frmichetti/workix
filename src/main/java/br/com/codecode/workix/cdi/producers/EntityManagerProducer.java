@@ -17,10 +17,10 @@ import java.io.Serializable;
 /**
  * Entity Manager Producer
  *
- * @see Produces
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @see Produces
+ * @since 1.0
  */
 @ApplicationScoped
 public class EntityManagerProducer implements Serializable {
@@ -45,6 +45,7 @@ public class EntityManagerProducer implements Serializable {
     public EntityManager getPostgreSQLEntityManager() {
         return emfPostGres.createEntityManager();
     }
+
     /**
      * Produce EntityManager for CDI Injection Points
      *
@@ -95,8 +96,7 @@ public class EntityManagerProducer implements Serializable {
     /**
      * Closes Entity Manager when Necessary
      *
-     * @param em
-     *            Provide a EntityManager AutoClose
+     * @param em Provide a EntityManager AutoClose
      */
     public void close(@Disposes EntityManager em) {
 
@@ -110,8 +110,7 @@ public class EntityManagerProducer implements Serializable {
      * Discover Project Stage Parameter to Choose Default EntityManager
      *
      * @return String Representation for Entity Manager Selection
-     * @throws RuntimeException
-     *             if ContextParam is not Accessible
+     * @throws RuntimeException if ContextParam is not Accessible
      */
     private String getContextParam() throws RuntimeException {
 

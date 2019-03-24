@@ -20,9 +20,10 @@ final class CalendarUtil {
 
     /**
      * Checks whether the given day, month and year combination is a valid date or not.
-     * @param year The year part of the date.
+     *
+     * @param year  The year part of the date.
      * @param month The month part of the date.
-     * @param day The day part of the date.
+     * @param day   The day part of the date.
      * @return True if the given day, month and year combination is a valid date.
      */
     public static boolean isValidDate(int year, int month, int day) {
@@ -31,7 +32,8 @@ final class CalendarUtil {
 
     /**
      * Checks whether the given hour, minute and second combination is a valid time or not.
-     * @param hour The hour part of the time.
+     *
+     * @param hour   The hour part of the time.
      * @param minute The minute part of the time.
      * @param second The second part of the time.
      * @return True if the given hour, minute and second combination is a valid time.
@@ -43,18 +45,18 @@ final class CalendarUtil {
     /**
      * Checks whether the given day, month, year, hour, minute and second combination is a valid
      * date or not.
-     * @param year The year part of the date.
-     * @param month The month part of the date.
-     * @param day The day part of the date.
-     * @param hour The hour part of the date.
+     *
+     * @param year   The year part of the date.
+     * @param month  The month part of the date.
+     * @param day    The day part of the date.
+     * @param hour   The hour part of the date.
      * @param minute The minute part of the date.
      * @param second The second part of the date.
      * @return True if the given day, month, year, hour, minute and second combination is a valid
      * date.
      */
     private static boolean isValidDate(
-            int year, int month, int day, int hour, int minute, int second)
-    {
+            int year, int month, int day, int hour, int minute, int second) {
         try {
             getValidCalendar(year, month, day, hour, minute, second);
             return true;
@@ -66,9 +68,10 @@ final class CalendarUtil {
     /**
      * Validate the actual date of the given date elements and returns a calendar instance based on
      * the given date elements. The time is forced to 00:00:00.
-     * @param year The year part of the date.
+     *
+     * @param year  The year part of the date.
      * @param month The month part of the date.
-     * @param day The day part of the date.
+     * @param day   The day part of the date.
      * @return A Calendar instance prefilled with the given date elements.
      * @throws IllegalArgumentException If the given date elements does not represent a valid date.
      */
@@ -79,18 +82,18 @@ final class CalendarUtil {
     /**
      * Validate the actual date of the given date elements and returns a calendar instance based on
      * the given date elements.
-     * @param year The year part of the date.
-     * @param month The month part of the date.
-     * @param day The day part of the date.
-     * @param hour The hour part of the date.
+     *
+     * @param year   The year part of the date.
+     * @param month  The month part of the date.
+     * @param day    The day part of the date.
+     * @param hour   The hour part of the date.
      * @param minute The minute part of the date.
      * @param second The second part of the date.
      * @return A Calendar instance prefilled with the given date elements.
      * @throws IllegalArgumentException If the given date elements does not represent a valid date.
      */
     private static Calendar getValidCalendar(
-            int year, int month, int day, int hour, int minute, int second)
-    {
+            int year, int month, int day, int hour, int minute, int second) {
         Calendar calendar = Calendar.getInstance();
         calendar.clear();
         calendar.setLenient(false); // Don't automatically convert invalid date.
@@ -104,9 +107,10 @@ final class CalendarUtil {
     /**
      * Add the given amount of years to the given calendar. The changes are reflected in the given
      * calendar.
+     *
      * @param calendar The calendar to add the given amount of years to.
-     * @param years The amount of years to be added to the given calendar. Negative values are also
-     * allowed, it will just go back in time.
+     * @param years    The amount of years to be added to the given calendar. Negative values are also
+     *                 allowed, it will just go back in time.
      */
     public static void addYears(Calendar calendar, int years) {
         calendar.add(Calendar.YEAR, years);
@@ -115,9 +119,10 @@ final class CalendarUtil {
     /**
      * Add the given amount of months to the given calendar. The changes are reflected in the given
      * calendar.
+     *
      * @param calendar The calendar to add the given amount of months to.
-     * @param months The amount of months to be added to the given calendar. Negative values are
-     * also allowed, it will just go back in time.
+     * @param months   The amount of months to be added to the given calendar. Negative values are
+     *                 also allowed, it will just go back in time.
      */
     public static void addMonths(Calendar calendar, int months) {
         calendar.add(Calendar.MONTH, months);
@@ -126,9 +131,10 @@ final class CalendarUtil {
     /**
      * Add the given amount of days to the given calendar. The changes are reflected in the given
      * calendar.
+     *
      * @param calendar The calendar to add the given amount of days to.
-     * @param days The amount of days to be added to the given calendar. Negative values are also
-     * allowed, it will just go back in time.
+     * @param days     The amount of days to be added to the given calendar. Negative values are also
+     *                 allowed, it will just go back in time.
      */
     public static void addDays(Calendar calendar, int days) {
         calendar.add(Calendar.DATE, days);
@@ -137,9 +143,10 @@ final class CalendarUtil {
     /**
      * Add the given amount of hours to the given calendar. The changes are reflected in the given
      * calendar.
+     *
      * @param calendar The calendar to add the given amount of hours to.
-     * @param hours The amount of hours to be added to the given calendar. Negative values are also
-     * allowed, it will just go back in time.
+     * @param hours    The amount of hours to be added to the given calendar. Negative values are also
+     *                 allowed, it will just go back in time.
      */
     public static void addHours(Calendar calendar, int hours) {
         calendar.add(Calendar.HOUR, hours);
@@ -148,9 +155,10 @@ final class CalendarUtil {
     /**
      * Add the given amount of minutes to the given calendar. The changes are reflected in the given
      * calendar.
+     *
      * @param calendar The calendar to add the given amount of minutes to.
-     * @param minutes The amount of minutes to be added to the given calendar. Negative values are
-     * also allowed, it will just go back in time.
+     * @param minutes  The amount of minutes to be added to the given calendar. Negative values are
+     *                 also allowed, it will just go back in time.
      */
     public static void addMinutes(Calendar calendar, int minutes) {
         calendar.add(Calendar.MINUTE, minutes);
@@ -159,9 +167,10 @@ final class CalendarUtil {
     /**
      * Add the given amount of seconds to the given calendar. The changes are reflected in the given
      * calendar.
+     *
      * @param calendar The calendar to add the given amount of seconds to.
-     * @param seconds The amount of seconds to be added to the given calendar. Negative values are
-     * also allowed, it will just go back in time.
+     * @param seconds  The amount of seconds to be added to the given calendar. Negative values are
+     *                 also allowed, it will just go back in time.
      */
     public static void addSeconds(Calendar calendar, int seconds) {
         calendar.add(Calendar.SECOND, seconds);
@@ -170,9 +179,10 @@ final class CalendarUtil {
     /**
      * Add the given amount of millis to the given calendar. The changes are reflected in the given
      * calendar.
+     *
      * @param calendar The calendar to add the given amount of millis to.
-     * @param millis The amount of millis to be added to the given calendar. Negative values are
-     * also allowed, it will just go back in time.
+     * @param millis   The amount of millis to be added to the given calendar. Negative values are
+     *                 also allowed, it will just go back in time.
      */
     public static void addMillis(Calendar calendar, int millis) {
         calendar.add(Calendar.MILLISECOND, millis);
@@ -182,6 +192,7 @@ final class CalendarUtil {
 
     /**
      * Returns <tt>true</tt> if the two given calendars are dated on the same year.
+     *
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year.
@@ -192,6 +203,7 @@ final class CalendarUtil {
 
     /**
      * Returns <tt>true</tt> if the two given calendars are dated on the same year and month.
+     *
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year and month.
@@ -202,6 +214,7 @@ final class CalendarUtil {
 
     /**
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month and day.
+     *
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year, month and day.
@@ -213,6 +226,7 @@ final class CalendarUtil {
     /**
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month, day and
      * hour.
+     *
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year, month, day and hour.
@@ -224,6 +238,7 @@ final class CalendarUtil {
     /**
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month, day,
      * hour and minute.
+     *
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year, month, day, hour and
@@ -236,6 +251,7 @@ final class CalendarUtil {
     /**
      * Returns <tt>true</tt> if the two given calendars are dated on the same year, month, day,
      * hour, minute and second.
+     *
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same year, month, day, hour, minute
@@ -248,6 +264,7 @@ final class CalendarUtil {
     /**
      * Returns <tt>true</tt> if the two given calendars are dated on the same time. The difference
      * from <tt>one.equals(two)</tt> is that this method does not respect the time zone.
+     *
      * @param one The one calendar.
      * @param two The other calendar.
      * @return True if the two given calendars are dated on the same time.
@@ -260,8 +277,9 @@ final class CalendarUtil {
 
     /**
      * Retrieve the amount of elapsed years between the two given calendars.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The amount of elapsed years between the two given calendars.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
@@ -271,8 +289,9 @@ final class CalendarUtil {
 
     /**
      * Retrieve the amount of elapsed months between the two given calendars.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The amount of elapsed months between the two given calendars.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
@@ -282,8 +301,9 @@ final class CalendarUtil {
 
     /**
      * Retrieve the amount of elapsed days between the two given calendars.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The amount of elapsed days between the two given calendars.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
@@ -293,8 +313,9 @@ final class CalendarUtil {
 
     /**
      * Retrieve the amount of elapsed hours between the two given calendars.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The amount of elapsed hours between the two given calendars.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
@@ -304,8 +325,9 @@ final class CalendarUtil {
 
     /**
      * Retrieve the amount of elapsed minutes between the two given calendars.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The amount of elapsed minutes between the two given calendars.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
@@ -315,8 +337,9 @@ final class CalendarUtil {
 
     /**
      * Retrieve the amount of elapsed seconds between the two given calendars.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The amount of elapsed seconds between the two given calendars.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
@@ -326,8 +349,9 @@ final class CalendarUtil {
 
     /**
      * Retrieve the amount of elapsed milliseconds between the two given calendars.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The amount of elapsed milliseconds between the two given calendars.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
@@ -339,8 +363,9 @@ final class CalendarUtil {
      * Calculate the total of elapsed time from years up to seconds between the two given calendars.
      * It returns an int array with the elapsed years, months, days, hours, minutes and seconds
      * respectively.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @return The elapsed time between the two given calendars in years, months, days, hours,
      * minutes and seconds.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
@@ -374,9 +399,10 @@ final class CalendarUtil {
     /**
      * Retrieve the amount of elapsed time between the two given calendars based on the given
      * calendar field as definied in the Calendar constants, e.g. <tt>Calendar.MONTH</tt>.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
-     * @param field The calendar field as definied in the Calendar constants.
+     * @param after  The second calendar with expected date after the first calendar.
+     * @param field  The calendar field as definied in the Calendar constants.
      * @return The amount of elapsed time between the two given calendars based on the given
      * calendar field.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
@@ -397,34 +423,36 @@ final class CalendarUtil {
      * divide the outcome by the given factor. E.g.: if the division factor is 1, then you will get
      * the elapsed milliseconds unchanged; if the division factor is 1000, then the elapsed
      * milliseconds will be divided by 1000, resulting in the amount of elapsed seconds.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @param factor The division factor which to divide the milliseconds with, expected to be at
-     * least 1.
+     *               least 1.
      * @return The amount of elapsed milliseconds between the two given calendars, divided by the
      * given factor.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar or
-     * if the division factor is less than 1.
+     *                                  if the division factor is less than 1.
      */
     private static long elapsedMillis(Calendar before, Calendar after, int factor) {
         checkBeforeAfter(before, after);
         if (factor < 1) {
             throw new IllegalArgumentException(
-                "Division factor '" + factor + "' should not be less than 1.");
+                    "Division factor '" + factor + "' should not be less than 1.");
         }
         return (after.getTimeInMillis() - before.getTimeInMillis()) / factor;
     }
 
     /**
      * Check if the first calendar is actually dated before the second calendar.
+     *
      * @param before The first calendar with expected date before the second calendar.
-     * @param after The second calendar with expected date after the first calendar.
+     * @param after  The second calendar with expected date after the first calendar.
      * @throws IllegalArgumentException If the first calendar is dated after the second calendar.
      */
     private static void checkBeforeAfter(Calendar before, Calendar after) {
         if (before.after(after)) {
             throw new IllegalArgumentException(
-                "The first calendar should be dated before the second calendar.");
+                    "The first calendar should be dated before the second calendar.");
         }
     }
 

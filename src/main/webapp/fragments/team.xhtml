@@ -10,37 +10,37 @@
 	 -->
 <ui:composition>
 
-	<!-- ============ TEAM START ============ -->
+    <!-- ============ TEAM START ============ -->
 
-	<section id="team" class="color1">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h2>Nossa Equipe</h2>
-					<div class="owl-carousel">
-					<ui:repeat var="member" value="#{membersMB.list}">
-						
-						<div class="team-member text-center img-rounded">
-							<h:graphicImage url="#{member.picture}" styleClass="img-responsive img-circle" alt="" />
-							
-							<h5><h:outputText value="#{member.name}"/></h5>
-							<h6><h:outputText value="#{member.occupation}"/></h6>
-							<p><h:outputText value="#{member.shortText}"/></p>
-							<p>
-							<ui:repeat var="sm" value="#{member.medias}">
-								<a href="#{sm.url}"><i class="#{membersMB.whatSocialLink(sm.url)}"></i></a>
-							</ui:repeat>																	
-							</p>
-						</div>
-					
-					</ui:repeat>					
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <section id="team" class="color1">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2>Nossa Equipe</h2>
+                    <div class="owl-carousel">
+                        <ui:repeat var="member" value="#{membersMB.list}">
 
-	<!-- ============ TEAM END ============ -->
+                            <div class="team-member text-center img-rounded">
+                                <h:graphicImage url="#{member.picture}" styleClass="img-responsive img-circle" alt=""/>
+
+                                <h5><h:outputText value="#{member.name}"/></h5>
+                                <h6><h:outputText value="#{member.occupation}"/></h6>
+                                <p><h:outputText value="#{member.shortText}"/></p>
+                                <p>
+                                    <ui:repeat var="sm" value="#{member.medias}">
+                                        <a href="#{sm.url}"><i class="#{membersMB.whatSocialLink(sm.url)}"></i></a>
+                                    </ui:repeat>
+                                </p>
+                            </div>
+
+                        </ui:repeat>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ TEAM END ============ -->
 
 </ui:composition>
 

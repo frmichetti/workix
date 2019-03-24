@@ -9,12 +9,12 @@ import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 
 public class GsonLocalDateTimeDeserializer implements JsonDeserializer<LocalDateTime> {
-    
+
     @Override
     public LocalDateTime deserialize(JsonElement json, Type type, JsonDeserializationContext context)
-	    throws JsonParseException {
+            throws JsonParseException {
 
-	return LocalDateTime.parse(json.getAsJsonPrimitive().getAsString());
+        return LocalDateTime.parse(json.getAsJsonPrimitive().getAsString());
 
     }
 

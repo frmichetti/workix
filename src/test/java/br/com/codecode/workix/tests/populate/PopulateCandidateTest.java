@@ -29,8 +29,8 @@ import static org.junit.Assert.*;
  * Populate DB with Candidates
  *
  * @author felipe
- * @since 1.0
  * @version 1.0
+ * @since 1.0
  */
 public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Candidate> {
 

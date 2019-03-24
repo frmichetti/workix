@@ -14,31 +14,32 @@ public class DownloadTestSelectiveProccess extends BaseTest implements DownloadT
 
     private String resp;
 
-    @Before    
-    public void downloadItens() {	
+    @Before
+    public void downloadItens() {
 
-	resp = downloadItens(server + "/selectiveprocesses");	
+        resp = downloadItens(server + "/selectiveprocesses");
 
     }
 
-    @Test    
+    @Test
     public void parseItens() {
-	
-	assertFalse(resp.isEmpty());
-	
-	List<SelectiveProcess> sps = parseItens(resp, new TypeToken<List<SelectiveProcess>>(){});
 
-	assertNotNull(sps);
+        assertFalse(resp.isEmpty());
 
-	assertTrue(sps.size() >= 0);		
+        List<SelectiveProcess> sps = parseItens(resp, new TypeToken<List<SelectiveProcess>>() {
+        });
 
-	System.out.println("----Stream----");
-	
-	System.out.println(sps.size());
+        assertNotNull(sps);
 
-	sps.forEach(System.out::println);
+        assertTrue(sps.size() >= 0);
 
-	System.out.println("----Stream----");
+        System.out.println("----Stream----");
+
+        System.out.println(sps.size());
+
+        sps.forEach(System.out::println);
+
+        System.out.println("----Stream----");
 
     }
 

@@ -10,63 +10,63 @@ import java.util.List;
 
 /**
  * DAO for Company
- * 
- * @since 1.0
+ *
  * @version 1.0
  * @see BaseDao
  * @see Crud
+ * @since 1.0
  */
 @Persist
 public class CompanyDao extends BaseDao implements Crud<Company> {
 
-   
+
     private static final long serialVersionUID = -6997728484075279219L;
 
     @Override
     public void save(Company entity) {
-	em.persist(entity);
+        em.persist(entity);
     }
 
     @Override
     public void deleteById(long id) {
-	Company entity = em.find(Company.class, id);
-	if (entity != null) {
-	    em.remove(entity);
-	}
+        Company entity = em.find(Company.class, id);
+        if (entity != null) {
+            em.remove(entity);
+        }
     }
 
     @Override
     public Company findById(long id) {
-	return em.find(Company.class, id);
+        return em.find(Company.class, id);
     }
 
     @Override
     public Company update(Company entity) {
-	return em.merge(entity);
+        return em.merge(entity);
     }
 
     @Override
     public List<Company> listAll(int startPosition, int maxResult) {
 
-	TypedQuery<Company> findAllQuery = em.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
-		Company.class);
+        TypedQuery<Company> findAllQuery = em.createQuery("SELECT DISTINCT c FROM Company c ORDER BY c.id",
+                Company.class);
 
-	findAllQuery.setFirstResult(startPosition);
+        findAllQuery.setFirstResult(startPosition);
 
-	findAllQuery.setMaxResults(maxResult);
+        findAllQuery.setMaxResults(maxResult);
 
-	return findAllQuery.getResultList();
+        return findAllQuery.getResultList();
     }
 
     @Override
     public BigInteger countRegisters() {
-	return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Company.class.getSimpleName())
-		.getSingleResult();
+        return (BigInteger) em.createNativeQuery("SELECT count(1) FROM " + Company.class.getSimpleName())
+                .getSingleResult();
     }
 
     @Override
     public Company findByUuid(String uuid) {
-	// TODO Auto-generated method stub
-	return null;
+        // TODO Auto-generated method stub
+        return null;
     }
 }

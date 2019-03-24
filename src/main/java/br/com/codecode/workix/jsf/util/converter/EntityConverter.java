@@ -1,15 +1,20 @@
 /**
- *
  * @author Felipe Rodrigues Michetti
+ * @author Flávio Henrique
+ * @version 1.0.3
  * @see http://portfolio-frmichetti.rhcloud.com
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
- * */
+ * <p>
+ * Converter para entidades JPA. Baseia-se nas anotações @Id e @EmbeddedId para identificar o
+ * atributo que representa a identidade da entidade. Capaz de detectar as anotações nas classes superiores.
+ * @since 05/10/2010
+ */
 
 /**
  * Converter para entidades JPA. Baseia-se nas anotações @Id e @EmbeddedId para identificar o
  * atributo que representa a identidade da entidade. Capaz de detectar as anotações nas classes superiores.
- * 
+ *
  * @author Flávio Henrique
  * @version 1.0.3
  * @since 05/10/2010
@@ -28,7 +33,7 @@ import java.util.List;
 
 /**
  * Entity Converter for JSF
- * 
+ *
  * @author felipe
  * @since 1.0
  * @version 1.0
@@ -39,45 +44,45 @@ public class EntityConverter implements Converter {
     @Override
     public Object getAsObject(FacesContext ctx, UIComponent component, String value) {
 
-	if (value != null) {
-	    return component.getAttributes().get(value);
-	}
+        if (value != null) {
+            return component.getAttributes().get(value);
+        }
 
-	return null;
+        return null;
     }
 
     @Override
     public String getAsString(FacesContext ctx, UIComponent component, Object obj) {
 
-	if (obj != null && !"".equals(obj)) {
-	    String id;
+        if (obj != null && !"".equals(obj)) {
+            String id;
 
-	    try {
+            try {
 
-		id = this.getId(getClazz(ctx, component), obj);
+                id = this.getId(getClazz(ctx, component), obj);
 
-		if (id == null) {
-		    id = "";
-		}
+                if (id == null) {
+                    id = "";
+                }
 
-		id = id.trim();
+                id = id.trim();
 
-		component.getAttributes().put(id, getClazz(ctx, component).cast(obj));
+                component.getAttributes().put(id, getClazz(ctx, component).cast(obj));
 
-		return id;
+                return id;
 
-	    } catch (SecurityException | IllegalArgumentException | NoSuchFieldException | IllegalAccessException e) {
+            } catch (SecurityException | IllegalArgumentException | NoSuchFieldException | IllegalAccessException e) {
 
-		e.printStackTrace(); // seu log aqui
-	    }
-	}
+                e.printStackTrace(); // seu log aqui
+            }
+        }
 
-	return null;
+        return null;
     }
 
     /**
      * Obtém, via expression language, a classe do objeto.
-     * 
+     *
      * @param facesContext
      *            FacesContext
      * @param component
@@ -85,13 +90,13 @@ public class EntityConverter implements Converter {
      * @return Class
      */
     private Class<?> getClazz(FacesContext facesContext, UIComponent component) {
-	return component.getValueExpression("value").getType(facesContext.getELContext());
+        return component.getValueExpression("value").getType(facesContext.getELContext());
     }
 
     /**
      * Retorna a representação em String do retorno do método anotado com @Id
      * ou @EmbeddedId do objeto.
-     * 
+     *
      * @throws SecurityException
      *             SecurityException
      * @throws NoSuchFieldException
@@ -107,50 +112,50 @@ public class EntityConverter implements Converter {
      * @return String
      */
     private String getId(Class<?> clazz, Object obj)
-	    throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+            throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 
-	List<Class<?>> hierarquiaDeClasses = this.getHierarquiaDeClasses(clazz);
+        List<Class<?>> hierarquiaDeClasses = this.getHierarquiaDeClasses(clazz);
 
-	for (Class<?> classeDaHierarquia : hierarquiaDeClasses) {
+        for (Class<?> classeDaHierarquia : hierarquiaDeClasses) {
 
-	    for (Field field : classeDaHierarquia.getDeclaredFields()) {
+            for (Field field : classeDaHierarquia.getDeclaredFields()) {
 
-		if ((field.getAnnotation(Id.class)) != null || field.getAnnotation(EmbeddedId.class) != null) {
+                if ((field.getAnnotation(Id.class)) != null || field.getAnnotation(EmbeddedId.class) != null) {
 
-		    Field privateField = classeDaHierarquia.getDeclaredField(field.getName());
+                    Field privateField = classeDaHierarquia.getDeclaredField(field.getName());
 
-		    privateField.setAccessible(true);
+                    privateField.setAccessible(true);
 
-		    if (privateField.get(clazz.cast(obj)) != null) {
+                    if (privateField.get(clazz.cast(obj)) != null) {
 
-			return field.getType().cast(privateField.get(clazz.cast(obj))).toString();
-		    }
-		}
-	    }
-	}
-	return null;
+                        return field.getType().cast(privateField.get(clazz.cast(obj))).toString();
+                    }
+                }
+            }
+        }
+        return null;
     }
 
     /**
      * Retorna uma lista com a hierarquia de classes, sem considerar a classe
      * Object.class
-     * 
+     *
      * @param clazz
      *            Class
      * @return List clazz
      */
     private List<Class<?>> getHierarquiaDeClasses(Class<?> clazz) {
 
-	List<Class<?>> hierarquiaDeClasses = new ArrayList<>();
+        List<Class<?>> hierarquiaDeClasses = new ArrayList<>();
 
-	Class<?> classeNaHierarquia = clazz;
+        Class<?> classeNaHierarquia = clazz;
 
-	while (classeNaHierarquia != Object.class) {
+        while (classeNaHierarquia != Object.class) {
 
-	    hierarquiaDeClasses.add(classeNaHierarquia);
+            hierarquiaDeClasses.add(classeNaHierarquia);
 
-	    classeNaHierarquia = classeNaHierarquia.getSuperclass();
-	}
-	return hierarquiaDeClasses;
+            classeNaHierarquia = classeNaHierarquia.getSuperclass();
+        }
+        return hierarquiaDeClasses;
     }
 }
