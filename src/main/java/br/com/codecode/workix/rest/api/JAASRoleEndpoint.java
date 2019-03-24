@@ -1,6 +1,7 @@
 package br.com.codecode.workix.rest.api;
 
 import br.com.codecode.workix.jaas.models.JAASRole;
+import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * 
  */
+@Api
 @Stateless
 @Path("/jaasroles")
 public class JAASRoleEndpoint {

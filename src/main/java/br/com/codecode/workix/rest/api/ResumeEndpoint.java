@@ -2,6 +2,7 @@ package br.com.codecode.workix.rest.api;
 
 
 import br.com.codecode.workix.jpa.models.jdk7.Resume;
+import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
 /**
  * 
  */
+@Api
 @Stateless
 @Path("/resumes")
 public class ResumeEndpoint {

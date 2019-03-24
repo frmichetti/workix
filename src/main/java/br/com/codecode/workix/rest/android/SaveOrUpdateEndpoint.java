@@ -7,6 +7,7 @@ import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jpa.models.User;
 import br.com.codecode.workix.jpa.models.jdk7.Resume;
+import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
@@ -27,6 +28,7 @@ import javax.ws.rs.core.Response.Status;
  * @since 1.0
  * @version 1.1
  */
+@Api
 @Stateless
 @Path("save")
 public class SaveOrUpdateEndpoint {
