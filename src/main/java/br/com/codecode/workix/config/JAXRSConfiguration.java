@@ -7,7 +7,7 @@
 * */
 package br.com.codecode.workix.config;
 
-import br.com.codecode.workix.rest.JacksonJavaTimeConfiguration;
+import br.com.codecode.workix.jaxrs.converter.JacksonJavaTimeConfiguration;
 import br.com.codecode.workix.rest.android.LoginEndpoint;
 import br.com.codecode.workix.rest.android.PingEndpoint;
 import br.com.codecode.workix.rest.android.SaveOrUpdateEndpoint;
@@ -40,7 +40,7 @@ public class JAXRSConfiguration extends Application{
         conf.setHost("localhost:8080");
         conf.setBasePath("/workix/services");
         conf.setSchemes(new String[] { "http" });
-        conf.setResourcePackage("br.com.frmichetti.workix");
+        conf.setResourcePackage("br.com.codecode.workix.rest");
         conf.setScan(true);
     }
 

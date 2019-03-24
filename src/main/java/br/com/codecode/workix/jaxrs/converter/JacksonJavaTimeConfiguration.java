@@ -1,4 +1,4 @@
-package br.com.codecode.workix.rest;
+package br.com.codecode.workix.jaxrs.converter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
