@@ -1,12 +1,12 @@
 package br.com.codecode.workix.jpa.converters;
 
+import javax.persistence.AttributeConverter;
+import javax.persistence.Converter;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
-
 /**
+ * FIXME causing:  AttributeConverter: Unable to instantiate exception
  * @see <a href=
  *      "http://www.thoughts-on-java.org/persist-localdate-localdatetime-jpa">
  *      Persist LocalDate LocalDateTime</a>
@@ -14,8 +14,8 @@ import javax.persistence.Converter;
  * @since 1.0
  * @version 1.0
  */
-@Converter(autoApply = true)
-public class LocalDateTimeAttributeConverter implements AttributeConverter<LocalDateTime, Timestamp> {
+//@Converter(autoApply = true)
+class LocalDateTimeAttributeConverter implements AttributeConverter<LocalDateTime, Timestamp> {
 
     @Override
     public Timestamp convertToDatabaseColumn(LocalDateTime locDateTime) {

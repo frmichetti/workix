@@ -1,11 +1,10 @@
 package br.com.codecode.workix.tests.model.draft;
 
-import java.util.ArrayList;
-
+import br.com.codecode.workix.jpa.models.Candidate;
 import org.junit.Before;
 import org.junit.Test;
 
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import java.util.ArrayList;
 
 
 
@@ -13,11 +12,7 @@ public class TestRecruiter {
 
     private SelectiveProcess pro1, pro2, pro3;
 
-    private ArrayList<Candidate> candidates;
-
-    private Candidate c1, c2, c3;
-
-    private Recruiter recruiter;
+    private Candidate c2;
 
     @Before
     public void init() {
@@ -46,11 +41,11 @@ public class TestRecruiter {
 
 	pro3.setMaxCandidates(1);
 
-	c1 = new Candidate();
+        Candidate c1 = new Candidate();
 	c2 = new Candidate();
-	c3 = new Candidate();
+        Candidate c3 = new Candidate();
 
-	candidates = new ArrayList<>();
+        ArrayList<Candidate> candidates = new ArrayList<>();
 
 	candidates.add(c1);
 	candidates.add(c2);
@@ -70,7 +65,7 @@ public class TestRecruiter {
 
 	System.out.println();
 
-	recruiter = new Recruiter();
+        Recruiter recruiter = new Recruiter();
 
 	recruiter.register(pro1);
 

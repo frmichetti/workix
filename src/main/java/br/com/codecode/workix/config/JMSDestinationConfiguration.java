@@ -31,4 +31,4 @@ import javax.jms.JMSDestinationDefinitions;
 	    destinationName = "selectiveProcessesTopic", interfaceName = "javax.jms.Topic") })
 @Startup
 @Singleton
-public class JMSDestinationConfiguration{}
+class JMSDestinationConfiguration{}

@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import br.com.codecode.workix.tests.json.parse.DownloadTest;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,7 +15,6 @@ import com.google.gson.reflect.TypeToken;
 
 import br.com.codecode.workix.jpa.models.jdk7.Candidate;
 import br.com.codecode.workix.tests.android.BaseTest;
-import br.com.codecode.workix.tests.json.parse.DownloadTest;
 
 public class DownloadTestCandidate extends BaseTest implements DownloadTest<Candidate> {
 

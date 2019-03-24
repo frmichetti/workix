@@ -7,17 +7,16 @@
  * */
 package br.com.codecode.workix.jaas;
 
-import java.io.Serializable;
-import java.security.Principal;
+import br.com.codecode.workix.interfaces.Debugable;
+import br.com.codecode.workix.jaas.models.JAASUser;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
-
-import br.com.codecode.workix.interfaces.Debugable;
-import br.com.codecode.workix.jaas.models.JAASUser;
+import java.io.Serializable;
+import java.security.Principal;
 
 /**
  * This Class Verify for {@link JAASUser} is Signed In Session

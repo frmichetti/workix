@@ -7,15 +7,16 @@
  * */
 package br.com.codecode.workix.cdi.notify.implementation;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonObject;
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifiers.Push;
 import br.com.codecode.workix.interfaces.Debugable;
 import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.util.Http;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.json.Json;
+import javax.json.JsonObject;
 
 /**
  * Push Message Implementation<br>
@@ -28,8 +29,6 @@ import br.com.codecode.workix.util.Http;
  */
 @Push
 public class PushMessage implements Notification, Debugable {
-
-    private final String FCM_SERVER = "https://fcm.googleapis.com/fcm/send";
 
     private final String WEB_API_KEY = "AIzaSyDF7Uc_yoj_VAOx-7fzag92DLTfyca88aE";
 
@@ -64,7 +63,8 @@ public class PushMessage implements Notification, Debugable {
 	     */
 
 	    // TODO FIXME REMOVEME
-	    String resp = http.sendPost(FCM_SERVER, json);
+        String FCM_SERVER = "https://fcm.googleapis.com/fcm/send";
+        String resp = http.sendPost(FCM_SERVER, json);
 
 	    System.out.println(resp);
 

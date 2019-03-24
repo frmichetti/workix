@@ -35,7 +35,7 @@
 						<h1><h:outputText value="#{blogDetailMB.currentBlog.title}" /></h1>
 						<div class="meta">
 							<span><i class="fa fa-user"></i><h:outputText value="#{blogDetailMB.currentBlog.author}" /></span>
-							<span><i class="fa fa-calendar"></i><h:outputText value="#{blogDetailMB.currentBlog.date}" converter="localDateFacesConverter" /></span>
+							<span><i class="fa fa-calendar"></i><h:outputText value="#{blogDetailMB.currentBlog.publishDate}"/></span>
 							<span><i class="fa fa-comment"></i><h:outputText value="#{blogDetailMB.comments.size()}" /></span>
 						</div>
 					</div>
@@ -57,7 +57,9 @@
 
 						<article>
 							<p>
-								<h:graphicImage url="#{blogDetailMB.currentBlog.pictures.get(0)}" styleClass="img-responsive" alt="" />								
+								<ui:remove rendered="#{!empty blogDetailMB.currentBlog.pictures}">
+									<h:graphicImage url="#{blogDetailMB.currentBlog.pictures.get(0)}" styleClass="img-responsive" alt="" />
+								</ui:remove>
 							</p>
 							
 							<p><h:outputText value="#{blogDetailMB.currentBlog.resume}" /></p>
@@ -122,7 +124,7 @@
 							<li><i class="fa fa-tag"></i></li>
 							
 							<ui:repeat value="#{blogDetailMB.currentBlog.tags}" var="tag">
-								<li><a href="#"><h:outputText value="#{tag.name}" /></a></li>
+								<li><a href="#"><h:outputText value="#{tag}" /></a></li>
 							</ui:repeat>
 							
 						</ul>

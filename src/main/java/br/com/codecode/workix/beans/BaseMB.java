@@ -15,7 +15,7 @@ abstract class BaseMB implements Debugable {
     /**
      * For Debug Use Only
      */
-    public BaseMB() {
+    BaseMB() {
 	System.out.println("---CDI---");
 	Debugable.super.onStart();
     }

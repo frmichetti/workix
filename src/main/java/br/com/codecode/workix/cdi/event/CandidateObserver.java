@@ -1,13 +1,12 @@
 package br.com.codecode.workix.cdi.event;
 
-import java.time.Instant;
+import br.com.codecode.workix.cdi.notify.Notification;
+import br.com.codecode.workix.cdi.qualifiers.Push;
+import br.com.codecode.workix.jpa.models.Candidate;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
-
-import br.com.codecode.workix.cdi.notify.Notification;
-import br.com.codecode.workix.cdi.qualifiers.Push;
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import java.time.Instant;
 
 /**
  * CDI Observer Class for {@link Candidate}
@@ -17,7 +16,7 @@ import br.com.codecode.workix.jpa.models.jdk8.Candidate;
  * @since 1.0
  * @version 1.1
  */
-public class CandidateObserver {
+class CandidateObserver {
 
     @Inject
     @Push

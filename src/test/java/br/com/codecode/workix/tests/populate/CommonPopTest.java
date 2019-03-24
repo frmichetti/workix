@@ -7,9 +7,9 @@
  * */
 package br.com.codecode.workix.tests.populate;
 
-import java.io.Serializable;
-
 import br.com.codecode.workix.interfaces.Persistable;
+
+import java.io.Serializable;
 
 /**
  * Markup Interface for Populate Test Units

@@ -1,10 +1,9 @@
 package br.com.codecode.workix.jaas.models;
 
-import java.io.Serializable;
+import br.com.codecode.workix.interfaces.Persistable;
 
 import javax.persistence.MappedSuperclass;
-
-import br.com.codecode.workix.interfaces.Persistable;
+import java.io.Serializable;
 
 /**
  * JAAS Base Entity Only For Share Common Fields
@@ -18,7 +17,7 @@ abstract class JAASBase implements Persistable, Serializable {
 
     private static final long serialVersionUID = 8234434925475474481L;
 
-    protected long id; 
+    long id;
 
     @Override
     public void setId(long id) {

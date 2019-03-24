@@ -1,7 +1,8 @@
 package br.com.codecode.workix.cdi.producers;
 
-import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
+import br.com.codecode.workix.cdi.dao.implementations.generic.Dao;
+import br.com.codecode.workix.cdi.qualifiers.*;
+import br.com.codecode.workix.interfaces.Persistable;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
@@ -10,14 +11,8 @@ import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import br.com.codecode.workix.cdi.dao.implementations.generic.Dao;
-import br.com.codecode.workix.cdi.qualifiers.Development;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.cdi.qualifiers.OpenShift;
-import br.com.codecode.workix.cdi.qualifiers.Production;
-import br.com.codecode.workix.interfaces.Persistable;
+import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
 
 /**
  * Factory for Generic {@link Dao} Injection
@@ -31,8 +26,8 @@ import br.com.codecode.workix.interfaces.Persistable;
 public class GenericDaoProducer {
 
     /**
-     * MAY Change for {@link Production} or {@link Development} or
-     * {@link OpenShift} Default is AutoDiscover
+     * MAY Change for {@link Production} or {@link PostgreSQL} or
+     * {@link MySQL} Default is AutoDiscover
      */
     @Inject
     @Factory

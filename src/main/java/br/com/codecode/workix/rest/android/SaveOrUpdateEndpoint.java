@@ -1,5 +1,14 @@
 package br.com.codecode.workix.rest.android;
 
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.config.JAXRSConfiguration;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.jpa.models.jdk7.Resume;
+import io.swagger.annotations.Api;
+
 import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
@@ -11,14 +20,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.config.JAXRSConfiguration;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
-import br.com.codecode.workix.jpa.models.jdk8.Resume;
-import br.com.codecode.workix.jpa.models.jdk8.User;
-
 /**
  * This Class is a Simple StandAlone Endpoint for Android Uses
  * 
@@ -27,6 +28,7 @@ import br.com.codecode.workix.jpa.models.jdk8.User;
  * @since 1.0
  * @version 1.1
  */
+@Api
 @Stateless
 @Path("save")
 public class SaveOrUpdateEndpoint {

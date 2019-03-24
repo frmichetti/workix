@@ -7,19 +7,18 @@
  * */
 package br.com.codecode.workix.mail;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Job;
+import br.com.codecode.workix.util.ReadFile;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
-import br.com.codecode.workix.jpa.models.jdk8.Job;
-import br.com.codecode.workix.util.ReadFile;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 /**
  * This Class Construct Email Body from a Template TODO FIXME
@@ -28,7 +27,7 @@ import br.com.codecode.workix.util.ReadFile;
  * @since 1.0
  * @version 1.0
  */
-public class MailBodyBuilder {
+class MailBodyBuilder {
 
     @Inject
     @Factory

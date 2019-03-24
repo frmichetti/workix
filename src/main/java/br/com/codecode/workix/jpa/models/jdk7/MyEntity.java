@@ -29,7 +29,7 @@ import br.com.codecode.workix.interfaces.Traceable;
  * @see Persistable
  * @see Serializable
  */
-abstract class MyEntity implements Traceable, Persistable, Serializable {
+public abstract class MyEntity implements Traceable, Persistable, Serializable {
    
     private final static long serialVersionUID = -5791260209364116790L;
     

@@ -7,7 +7,7 @@
  * */
 package br.com.codecode.workix.jaas.models;
 
-import java.io.Serializable;
+import br.com.codecode.workix.interfaces.Buildable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,8 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
-
-import br.com.codecode.workix.interfaces.Buildable;
+import java.io.Serializable;
 
 /**
  * Only for JAAS security

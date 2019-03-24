@@ -7,14 +7,14 @@
  * */
 package br.com.codecode.workix.cdi.notify.implementation;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-
 import br.com.codecode.workix.cdi.notify.Notification;
 import br.com.codecode.workix.cdi.qualifiers.Email;
 import br.com.codecode.workix.interfaces.Debugable;
 import br.com.codecode.workix.interfaces.Notificable;
 import br.com.codecode.workix.mail.MailSender;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 /**
  * Email Message Implementation
@@ -27,8 +27,6 @@ import br.com.codecode.workix.mail.MailSender;
 @Email
 public class MailMessage implements Notification, Debugable {
 
-    private final String FROM = "frmichetti@gmail.com";
-
     @Inject
     private MailSender mailSender;
 
@@ -40,7 +38,8 @@ public class MailMessage implements Notification, Debugable {
     @Override
     public void doSendMessage(Notificable to, String title, String body) {
 
-	mailSender.send(FROM, to.getEmail(), title, body);
+        String FROM = "contato@workix.com.br";
+        mailSender.send(FROM, to.getEmail(), title, body);
 
     }
 

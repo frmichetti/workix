@@ -1,17 +1,16 @@
 package br.com.codecode.workix.cdi.dao.implementations.mockup;
 
-import java.math.BigInteger;
-import java.util.List;
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Mockup;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Candidate;
 
 import javax.enterprise.event.Event;
 import javax.faces.application.FacesMessage;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
-
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Mockup;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.jdk8.Candidate;
+import java.math.BigInteger;
+import java.util.List;
 
 /**
  * Mockup Class for Demonstration Only

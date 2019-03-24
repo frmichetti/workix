@@ -1,10 +1,13 @@
 package br.com.codecode.workix.beans;
 
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.core.enums.BlogCategory;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Blog;
+import br.com.codecode.workix.jpa.models.Comment;
+import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 import javax.enterprise.inject.Default;
 import javax.faces.application.FacesMessage;
@@ -14,35 +17,32 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.NoResultException;
 import javax.transaction.Transactional;
-
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.core.enums.BlogCategory;
-import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
-import br.com.codecode.workix.jpa.models.jdk8.Blog;
-import br.com.codecode.workix.jpa.models.jdk8.Comment;
-import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Blog Detail ManagedBean
+ *
  * @author felipe
  * @see BaseMB
  */
 @Named
 @ViewScoped
-public class BlogDetailMB extends BaseMB implements Serializable{
+public class BlogDetailMB extends BaseMB implements Serializable {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -1445938230157483518L;
 
-    private List<BlogCategory> blogCategories;    
+    private List<BlogCategory> blogCategories;
 
-    private List<Comment> comments;    
+    private List<Comment> comments;
 
-    private Blog currentBlog; 
+    private Blog currentBlog;
 
     @Inject
     @Generic
@@ -71,143 +71,126 @@ public class BlogDetailMB extends BaseMB implements Serializable{
      * @return the blogCategories
      */
     public List<BlogCategory> getBlogCategories() {
-	return blogCategories;
+        return blogCategories;
     }
 
     /**
      * @return the comments
      */
     public List<Comment> getComments() {
-	return comments;
+        return comments;
     }
 
     public Blog getCurrentBlog() {
-	return currentBlog;
+        return currentBlog;
     }
 
     /**
      * @return the email
      */
     public String getEmail() {
-	return email;
+        return email;
     }
 
 
     public long getId() {
-	return id;
+        return id;
     }
 
     /**
      * @return the name
      */
     public String getName() {
-	return name;
+        return name;
     }
 
 
     public String getText() {
-	return text;
+        return text;
     }
 
     private String goToErrorPage() {
 
-	try {
+        try {
 
-	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+            facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
 
-	} catch (IOException e) {
+        } catch (IOException e) {
 
-	    e.printStackTrace();
-	}
-	return prefix + "/404.xhtml" + sufix;
+            e.printStackTrace();
+        }
+        return prefix + "/404.xhtml" + sufix;
     }
 
     /**
      * Must be Called by f:viewAction After f:viewParam {page}
-     */    
+     */
     @Override
     public void init() {
 
-	blogCategories = Arrays.asList(BlogCategory.values());	
+        blogCategories = Arrays.asList(BlogCategory.values());
 
-	prefix = facesContext.getExternalContext().getRequestContextPath();
+        prefix = facesContext.getExternalContext().getRequestContextPath();
 
-	sufix = "?faces-redirect=true";
+        sufix = "?faces-redirect=true";
 
-	System.out.println("BLOG ID RECEIVED -> " + id);
+        System.out.println("BLOG ID RECEIVED -> " + id);
 
-	if (id < 1){
-	    goToErrorPage();
-	}else{
-	    try {
+        if (id < 1) {
+            goToErrorPage();
+        } else {
+            try {
 
-		currentBlog = daoBlog.findById(id);
+                currentBlog = daoBlog.findById(id);
 
-		comments = daoComment.listAll(0, Integer.MAX_VALUE);
+                comments = daoComment.listAll(0, Integer.MAX_VALUE);
 
-		comments = comments.stream().filter(c -> c.getBlog().getId() == id)
-			.collect(Collectors.toList());
+                comments = comments.stream().filter(c -> c.getBlog().getId() == id)
+                        .collect(Collectors.toList());
 
-	    } catch (NotImplementedYetException e) {
+            } catch (NotImplementedYetException | NoResultException e) {
 
-		e.printStackTrace();
+                e.printStackTrace();
 
-		goToErrorPage();
+                goToErrorPage();
 
-	    } catch (NoResultException e) {
+            }
 
-		e.printStackTrace();
+            if (currentBlog == null) {
+                goToErrorPage();
+            }
 
-		goToErrorPage();
-	    }
-
-	    if (currentBlog == null) {
-		goToErrorPage();
-	    }
-
-	}
+        }
 
 
     }
 
     @Transactional
-    public String saveComment(){
-	
-	try {
+    public String saveComment() {
 
-	    daoComment.save(Comment.builder().withBlog(currentBlog).withEmail(email).withName(name).withText(text).build());
+        daoComment.save(Comment.builder().withBlog(currentBlog).withEmail(email).withName(name).withText(text).build());
 
-	    messagesHelper.addFlash(new FacesMessage("Comentário Enviado !"));
+        messagesHelper.addFlash(new FacesMessage("Comentário Enviado !"));
 
-	} catch (NotImplementedYetException e) {
 
-	    e.printStackTrace();
-	}
-	
-	try {
-	    
-	    comments = daoComment.listAll(0, Integer.MAX_VALUE);
-	    
-	    comments = comments.stream().filter(c -> c.getBlog().getId() == id)
-			.collect(Collectors.toList());
-	
-	} catch (NotImplementedYetException e) {
-	   
-	    e.printStackTrace();
-	}
+        comments = daoComment.listAll(0, Integer.MAX_VALUE);
 
-	return prefix + "/post.xhtml?id=" + currentBlog.getId() + sufix;
+        comments = comments.stream().filter(c -> c.getBlog().getId() == id)
+                .collect(Collectors.toList());
+
+
+        return prefix + "/post.xhtml?id=" + currentBlog.getId() + sufix;
     }
 
     /**
      * @param email the email to set
      */
     public void setEmail(String email) {
-	this.email = email;
-    }   
+        this.email = email;
+    }
 
     public void setId(long id) {
-	this.id = id;
+        this.id = id;
     }
 
 
@@ -215,14 +198,13 @@ public class BlogDetailMB extends BaseMB implements Serializable{
      * @param name the name to set
      */
     public void setName(String name) {
-	this.name = name;
+        this.name = name;
     }
 
 
     public void setText(String text) {
-	this.text = text;
+        this.text = text;
     }
-
 
 
 }

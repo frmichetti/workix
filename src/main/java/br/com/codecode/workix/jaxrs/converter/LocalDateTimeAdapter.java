@@ -1,8 +1,7 @@
 package br.com.codecode.workix.jaxrs.converter;
 
-import java.time.LocalDateTime;
-
 import javax.xml.bind.annotation.adapters.XmlAdapter;
+import java.time.LocalDateTime;
 
 /**
  * Converter for Java 8 Dates {@link LocalDateTime} FIXME Not Working with JaxRs
@@ -12,15 +11,15 @@ import javax.xml.bind.annotation.adapters.XmlAdapter;
  * @since 1.0
  * @version 1.0
  */
-public class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
+class LocalDateTimeAdapter extends XmlAdapter<String, LocalDateTime> {
 
     @Override
-    public LocalDateTime unmarshal(String s) throws Exception {
+    public LocalDateTime unmarshal(String s) {
 	return LocalDateTime.parse(s);
     }
 
     @Override
-    public String marshal(LocalDateTime dateTime) throws Exception {
+    public String marshal(LocalDateTime dateTime) {
 	return dateTime.toString();
     }
 }

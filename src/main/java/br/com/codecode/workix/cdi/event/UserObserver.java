@@ -1,15 +1,14 @@
 package br.com.codecode.workix.cdi.event;
 
-import java.time.Instant;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.UserTopic;
+import br.com.codecode.workix.jpa.models.User;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;
 import javax.jms.Destination;
 import javax.jms.JMSProducer;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.UserTopic;
-import br.com.codecode.workix.jpa.models.jdk8.User;
+import java.time.Instant;
 
 /**
  * CDI Observer Class for User
@@ -19,7 +18,7 @@ import br.com.codecode.workix.jpa.models.jdk8.User;
  * @since 1.0
  * @version 1.0
  */
-public class UserObserver {
+class UserObserver {
 
     @Inject
     @Factory

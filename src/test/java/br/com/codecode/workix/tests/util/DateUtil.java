@@ -2,11 +2,7 @@ package br.com.codecode.workix.tests.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * Useful Date utilities.
@@ -15,7 +11,7 @@ import java.util.TimeZone;
  * @see CalendarUtil
  * @link http://balusc.omnifaces.org/2007/09/dateutil.html
  */
-public final class DateUtil {
+final class DateUtil {
 
     // Init ---------------------------------------------------------------------------------------
 
@@ -62,7 +58,7 @@ public final class DateUtil {
      * @param date The date to be converted to Calendar.
      * @return The Calendar object set to the given date and using the local timezone.
      */
-    public static Calendar toCalendar(Date date) {
+    private static Calendar toCalendar(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.clear();
         calendar.setTime(date);
@@ -90,7 +86,7 @@ public final class DateUtil {
      * @throws ParseException If the date format pattern of the given date string is unknown, or if
      * the given date string or its actual date is invalid based on the date format pattern.
      */
-    public static Date parse(String dateString) throws ParseException {
+    private static Date parse(String dateString) throws ParseException {
         String dateFormat = determineDateFormat(dateString);
         if (dateFormat == null) {
             throw new ParseException("Unknown date format.", 0);
@@ -108,7 +104,7 @@ public final class DateUtil {
      * given date format pattern.
      * @see SimpleDateFormat
      */
-    public static Date parse(String dateString, String dateFormat) throws ParseException {
+    private static Date parse(String dateString, String dateFormat) throws ParseException {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
         simpleDateFormat.setLenient(false); // Don't automatically convert invalid date.
         return simpleDateFormat.parse(dateString);
@@ -159,7 +155,7 @@ public final class DateUtil {
      * @return The matching SimpleDateFormat pattern, or null if format is unknown.
      * @see SimpleDateFormat
      */
-    public static String determineDateFormat(String dateString) {
+    private static String determineDateFormat(String dateString) {
         for (String regexp : DATE_FORMAT_REGEXPS.keySet()) {
             if (dateString.toLowerCase().matches(regexp)) {
                 return DATE_FORMAT_REGEXPS.get(regexp);

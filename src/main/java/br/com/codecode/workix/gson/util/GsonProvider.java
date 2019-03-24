@@ -1,15 +1,6 @@
 
 package br.com.codecode.workix.gson.util;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonDateDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
@@ -18,6 +9,14 @@ import br.com.codecode.workix.gson.util.serializer.GsonCalendarSerializer;
 import br.com.codecode.workix.gson.util.serializer.GsonDateSerializer;
 import br.com.codecode.workix.gson.util.serializer.GsonLocalDateSerializer;
 import br.com.codecode.workix.gson.util.serializer.GsonLocalDateTimeSerializer;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Gson Singleton Provider

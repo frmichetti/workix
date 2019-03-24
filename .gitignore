@@ -9,3 +9,5 @@ nb-configuration.xml
 javadoc.xml
 scaffold
 /classes/
+/lib/
+.attach*

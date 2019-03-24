@@ -1,13 +1,12 @@
 package br.com.codecode.workix.tests.json.parse;
 
-import java.io.Serializable;
-import java.util.List;
-
+import br.com.codecode.workix.gson.util.GsonProvider;
+import br.com.codecode.workix.tests.util.HttpTest;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.gson.util.GsonProvider;
-import br.com.codecode.workix.tests.util.HttpTest;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Markup Interface for Download Test Unit
@@ -18,7 +17,7 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @see Serializable
  * @see GsonProvider
  */
-public interface DownloadTest<T extends Serializable> {    
+public interface DownloadTest<T extends Serializable> {
 
     /**
      * Download Items to a String
@@ -44,7 +43,6 @@ public interface DownloadTest<T extends Serializable> {
     
     /**
      * Parse Items to Entity with Another Gson Implementation
-     * @param Gson Gson instance for Parse Item
      * @param rawJson Raw Json String
      * @param type Expected Type
      * @return List of Parsed Object

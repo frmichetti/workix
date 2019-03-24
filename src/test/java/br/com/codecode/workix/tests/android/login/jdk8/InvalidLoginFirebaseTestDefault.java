@@ -7,21 +7,19 @@
  * */
 package br.com.codecode.workix.tests.android.login.jdk8;
 
-import static org.junit.Assert.assertNotNull;
-
-import java.io.StringReader;
+import br.com.codecode.workix.core.common.jdk7.Token;
+import br.com.codecode.workix.tests.android.BaseTest;
+import br.com.codecode.workix.tests.android.login.LoginTest;
+import br.com.codecode.workix.tests.util.HttpTest;
+import org.junit.Before;
+import org.junit.Test;
 
 import javax.json.Json;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import java.io.StringReader;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import br.com.codecode.workix.core.common.jdk8.Token;
-import br.com.codecode.workix.tests.android.BaseTest;
-import br.com.codecode.workix.tests.android.login.LoginTest;
-import br.com.codecode.workix.tests.util.HttpTest;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Do Login With Firebase Server with JsonP
@@ -31,8 +29,6 @@ import br.com.codecode.workix.tests.util.HttpTest;
  * @version 1.1
  */
 public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTest {
-
-    private String url = server + "/login/firebaselogin";
 
     private String json;
 
@@ -48,7 +44,8 @@ public class InvalidLoginFirebaseTestDefault extends BaseTest implements LoginTe
 		.add("createdAt", t.getCreatedAt().toString())
 		.add("key", t.getKey()).build();
 
-	json = HttpTest.sendPost(url, jsonObject.toString());
+        String url = server + "/login/firebaselogin";
+        json = HttpTest.sendPost(url, jsonObject.toString());
 
 	assertNotNull(json);
 

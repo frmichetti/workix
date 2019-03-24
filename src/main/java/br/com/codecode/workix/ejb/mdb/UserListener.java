@@ -7,7 +7,11 @@
  * */
 package br.com.codecode.workix.ejb.mdb;
 
-import java.time.Instant;
+import br.com.codecode.workix.cdi.notify.Notification;
+import br.com.codecode.workix.cdi.qualifiers.Email;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Push;
+import br.com.codecode.workix.jpa.models.User;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
@@ -18,12 +22,7 @@ import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
-
-import br.com.codecode.workix.cdi.notify.Notification;
-import br.com.codecode.workix.cdi.qualifiers.Email;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Push;
-import br.com.codecode.workix.jpa.models.jdk8.User;
+import java.time.Instant;
 
 /**
  * This Class is a {@link MessageDrivenBean} for {@link User} Execute Actions
@@ -35,7 +34,7 @@ import br.com.codecode.workix.jpa.models.jdk8.User;
  */
 @MessageDriven(activationConfig = {
 	@ActivationConfigProperty(propertyName = "destinationLookup", propertyValue = "java:/jms/topics/usersTopic") })
-public final class UserListener implements MessageListener {
+final class UserListener implements MessageListener {
 
     @Inject
     @Factory

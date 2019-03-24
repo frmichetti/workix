@@ -1,10 +1,10 @@
 package br.com.codecode.workix.cdi.dao;
 
-import java.io.Serializable;
-import java.util.List;
-
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.interfaces.Persistable;
+
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Markup Interface <br>
@@ -26,7 +26,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @throws NotImplementedYetException
      *             if Methods is Not Implemented Yet
      */
-    public void save(T entity) throws NotImplementedYetException;
+    public void save(T entity);
 
     /**
      * Update Entity in Database
@@ -37,7 +37,7 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @throws NotImplementedYetException
      *             if Methods is Not Implemented Yet
      */
-    public T update(T entity) throws NotImplementedYetException;
+    public T update(T entity);
 
     /**
      * Localize Entity by Id
@@ -71,5 +71,5 @@ public abstract interface BaseCrud<T extends Persistable & Serializable> {
      * @throws NotImplementedYetException
      *             if Methods is Not Implemented Yet
      */
-    public List<T> listAll(int start, int end) throws NotImplementedYetException;
+    public List<T> listAll(int start, int end);
 }

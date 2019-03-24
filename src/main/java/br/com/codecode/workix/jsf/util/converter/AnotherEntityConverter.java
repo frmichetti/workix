@@ -16,16 +16,15 @@
  */
 package br.com.codecode.workix.jsf.util.converter;
 
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 import javax.faces.convert.FacesConverter;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Id;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Another Entity Converter for JSF
@@ -105,7 +104,7 @@ public class AnotherEntityConverter implements Converter {
      *             IllegalAccessException
      * @return String
      */
-    public String getId(Class<?> clazz, Object obj)
+    private String getId(Class<?> clazz, Object obj)
 	    throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 	List<Class<?>> hierarquiaDeClasses = this.getHierarquiaDeClasses(clazz);
 	for (Class<?> classeDaHierarquia : hierarquiaDeClasses) {
@@ -130,8 +129,8 @@ public class AnotherEntityConverter implements Converter {
      *            Class
      * @return Lista de Classes
      */
-    public List<Class<?>> getHierarquiaDeClasses(Class<?> clazz) {
-	List<Class<?>> hierarquiaDeClasses = new ArrayList<Class<?>>();
+    private List<Class<?>> getHierarquiaDeClasses(Class<?> clazz) {
+	List<Class<?>> hierarquiaDeClasses = new ArrayList<>();
 	Class<?> classeNaHierarquia = clazz;
 	while (classeNaHierarquia != Object.class) {
 	    hierarquiaDeClasses.add(classeNaHierarquia);

@@ -11,7 +11,7 @@ import javax.faces.event.ValueChangeListener;
  * @since 1.0
  * @version 1.1
  */
-public class MyValueChangeListener implements ValueChangeListener {
+class MyValueChangeListener implements ValueChangeListener {
 
     @Override
     public void processValueChange(ValueChangeEvent event) throws AbortProcessingException {

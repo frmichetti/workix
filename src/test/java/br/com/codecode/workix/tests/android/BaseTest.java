@@ -1,14 +1,5 @@
 package br.com.codecode.workix.tests.android;
 
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Calendar;
-import java.util.Date;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonDateDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
@@ -16,6 +7,14 @@ import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateTimeDeserializ
 import br.com.codecode.workix.gson.util.serializer.GsonLocalDateSerializer;
 import br.com.codecode.workix.gson.util.serializer.GsonLocalDateTimeSerializer;
 import br.com.codecode.workix.tests.config.HttpConfig;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 
 
 /**
@@ -34,11 +33,11 @@ public class BaseTest {
      * @see HttpConfig #JAVAEE_PROJ_PROD or
      * @see HttpConfig #JAVAEE_PROJ_TEST
      */
-    protected String server = HttpConfig.JAVAEE_PROJ_TEST;
+    protected final String server = HttpConfig.JAVAEE_PROJ_TEST;
 
-    private Gson gson;
+    private final Gson gson;
 
-    public BaseTest() {
+    protected BaseTest() {
 
 	gson = buildGson();
 
@@ -76,7 +75,7 @@ public class BaseTest {
 		.create();
     }
 
-    public Gson getGson() throws RuntimeException {
+    protected Gson getGson() throws RuntimeException {
 	if (gson != null)
 	    return gson;
 	else

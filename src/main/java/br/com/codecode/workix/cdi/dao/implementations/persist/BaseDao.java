@@ -1,17 +1,12 @@
 package br.com.codecode.workix.cdi.dao.implementations.persist;
 
-import java.io.Serializable;
+import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
+import br.com.codecode.workix.cdi.qualifiers.*;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-
-import br.com.codecode.workix.cdi.producers.EntityManagerProducer;
-import br.com.codecode.workix.cdi.qualifiers.Development;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.OpenShift;
-import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.cdi.qualifiers.Production;
+import java.io.Serializable;
 
 /**
  * Only for Share Entity Manager
@@ -22,7 +17,7 @@ import br.com.codecode.workix.cdi.qualifiers.Production;
  * @version 1.0
  */
 @Persist
-public abstract class BaseDao implements Serializable {
+public class BaseDao implements Serializable {
 
    
     private static final long serialVersionUID = 3943660229318614845L;
@@ -31,7 +26,7 @@ public abstract class BaseDao implements Serializable {
      * CDI Injection Point for {@link EntityManager}
      * 
      * @see EntityManagerProducer Possible values {@link Default}
-     *      {@link Production} {@link Development} {@link OpenShift}
+     *      {@link Production} {@link PostgreSQL} {@link MySQL}
      */
     @Inject
     @Factory

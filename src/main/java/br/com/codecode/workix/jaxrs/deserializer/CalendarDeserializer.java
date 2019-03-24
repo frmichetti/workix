@@ -1,17 +1,14 @@
 package br.com.codecode.workix.jaxrs.deserializer;
 
-import java.io.IOException;
-import java.util.Calendar;
-
+import br.com.codecode.workix.config.JAXRSConfiguration;
+import br.com.codecode.workix.config.JAXRSContextResolver;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.IntNode;
 
-import br.com.codecode.workix.config.JAXRSConfiguration;
-import br.com.codecode.workix.config.JAXRSContextResolver;
+import java.io.IOException;
+import java.util.Calendar;
 
 /**
  * Calendar Deserializer for Jackson
@@ -28,7 +25,7 @@ import br.com.codecode.workix.config.JAXRSContextResolver;
 public class CalendarDeserializer extends JsonDeserializer<Calendar> {
 
     @Override
-    public Calendar deserialize(JsonParser jp, DeserializationContext dc) throws IOException, JsonProcessingException {
+    public Calendar deserialize(JsonParser jp, DeserializationContext dc) throws IOException {
 
 	JsonNode node = jp.getCodec().readTree(jp);
 
@@ -52,6 +49,6 @@ public class CalendarDeserializer extends JsonDeserializer<Calendar> {
     }
 
     private int getInt(String name, JsonNode node) {
-	return (Integer) ((IntNode) node.get(name)).numberValue();
+	return (Integer) node.get(name).numberValue();
     }
 }

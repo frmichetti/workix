@@ -1,6 +1,6 @@
 package br.com.codecode.workix.beans;
 
-import java.io.Serializable;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -8,8 +8,7 @@ import javax.enterprise.inject.Default;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
-
-import br.com.codecode.workix.cdi.qualifiers.Factory;
+import java.io.Serializable;
 
 /**
  * Firebase ManagedBean
