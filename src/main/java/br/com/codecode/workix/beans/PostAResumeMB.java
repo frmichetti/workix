@@ -3,8 +3,8 @@ package br.com.codecode.workix.beans;
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.jpa.models.jdk7.Candidate;
-import br.com.codecode.workix.jpa.models.jdk7.Resume;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Resume;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -49,9 +49,7 @@ public class PostAResumeMB extends BaseMB {
     private void debug() {
         currentResume.setContent("STUB CONTENT HERE");
         currentResume.setObjective("STUB OBJECTIVE");
-        // TODO FIX ME
         currentResume.setCandidate(candidates.get(candidates.size() - 1));
-
     }
 
     public Resume getCurrentResume() {
