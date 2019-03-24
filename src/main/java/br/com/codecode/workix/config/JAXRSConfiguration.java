@@ -25,7 +25,7 @@ import java.util.Set;
  * Configure Application Path for JaxRs
  * 
  * @see br.com.codecode.workix.rest.android
- * @see br.com.codecode.workix.rest.scaffold
+ * @see br.com.codecode.workix.rest.api
  * @author felipe
  * @since 1.0
  * @version 1.0
