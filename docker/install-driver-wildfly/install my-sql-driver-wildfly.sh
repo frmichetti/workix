@@ -34,3 +34,8 @@ sh jboss-cli.sh
 # ENV DATASOURCE_JNDI java:/postgresDS
 # data-source add --jndi-name=java:/postgresDS --name=postgresDS --connection-url=jdbc:postgresql://localhost:5432/workix --driver-name=postgres --user-name=postgres --password=postgres
 # data-source add --jndi-name=java:/mysqlDS --name=mysqlDS --connection-url=jdbc:mysql://localhost:3306/workix --driver-name=mysql --user-name=root --password=root
+
+# Configure Message Queue
+# /subsystem=messaging-activemq/server=default/jms-queue=jobsTopic:add(entries=[java:/jms/topics/jobsTopic])
+# /subsystem=messaging-activemq/server=default/jms-queue=usersTopic:add(entries=[java:/jms/topics/usersTopic])
+
