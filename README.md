@@ -1,6 +1,8 @@
 # workix
 (este projeto foi renomeado)
 
+## Precisamos de investidores
+https://pipe.social/startup/907/perfil
 
 **Plataforma de Empregos Totalmente Grátis**
 
