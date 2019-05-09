@@ -1,30 +1,14 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Resume JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @since 1.0
- * @version 1.1
- * @see MyEntity
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Resume extends MyEntity {
-   
+
     private static final long serialVersionUID = 7569771700044121495L;
 
     /**
@@ -49,7 +33,7 @@ public class Resume extends MyEntity {
 
     /**
      * One {@link Resume} To Many {@link Skill}
-     */    
+     */
     private Set<Skill> skills;
 
     /**
@@ -59,12 +43,12 @@ public class Resume extends MyEntity {
 
     /**
      * Public Constructor for {@link Builder} Compatibility
-     * 
+     *
      * @see Buildable
      * @param builder
      *            Builder for Generate a New Resume
      */
-    private Resume(Builder builder) {	
+    private Resume(Builder builder) {
 	this.candidate = builder.getCandidate();
 	this.objective = builder.getObjective();
 	this.content = builder.getContent();
@@ -207,7 +191,7 @@ public class Resume extends MyEntity {
 
     /**
      * Builder to build {@link Resume}.
-     */    
+     */
     public static final class Builder extends Resume implements Buildable<Resume>{
 
 	private static final long serialVersionUID = -5218494421810694002L;
@@ -243,7 +227,7 @@ public class Resume extends MyEntity {
 	public Builder withExperiences(Set<Experience> experiences) {
 	    super.experiences = experiences;
 	    return this;
-	}	
+	}
 
 	public Builder withObjective(String objective) {
 	    super.objective = objective;
