@@ -31,10 +31,10 @@ https://pipe.social/startup/907/perfil
 <img src="https://workix.com.br/docs/android.png" title="Workix on mobile screenshot" width="70%" height="35%">
 
 **Veja funcionando no Youtube**
+https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F
 
 [![See on Youtube](https://workix.com.br/docs/workix.gif)](https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F)
 
-https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F
 
 ### Documentação Java
 --
