@@ -5,7 +5,7 @@
     <artifactId>workix</artifactId>
     <groupId>br.com.codecode.workix</groupId>
     <packaging>war</packaging>
-    <version>0.1</version>
+    <version>0.2</version>
 
     <!--<parent>-->
     <!--<groupId>br.com.codecode</groupId>-->
@@ -107,6 +107,7 @@
             <scope>provided</scope>
 
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -123,7 +124,7 @@
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
-            <version>1.7.0.13</version>
+            <version>LATEST</version>
             <scope>system</scope>
         </dependency>
 
