@@ -2,7 +2,7 @@
 ~~akijobs~~ - ~~openjobs~~ - (este projeto foi renomeado por conflitar com projetos já existentes no mercado)
 
 ## Precisamos de investidores
-**Estamos no Pipe Social**
+**Estamos no Pipe Social:**
 https://pipe.social/startup/907/perfil
 
 ### Descrição do Projeto
@@ -39,7 +39,7 @@ https://pipe.social/startup/907/perfil
 --
 https://frmichetti.github.io/workix/java-docs/index.html
 
-### Licensa
+### Licença
 --
 GNU General Public License v3.0
 
