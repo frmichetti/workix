@@ -1,28 +1,10 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
-import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Author JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @see MyEntity
- * @since 1.0
- * @version 1.1
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Author extends MyEntity {
 
     private static final long serialVersionUID = 4441917823240375511L;
@@ -80,8 +62,6 @@ public class Author extends MyEntity {
     /**
      * @return the aboutText
      */
-    @NotEmpty
-    @Column
     public String getAboutText() {
         return aboutText;
     }
@@ -89,9 +69,6 @@ public class Author extends MyEntity {
     /**
      * @return the id
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
         return id;
@@ -100,8 +77,6 @@ public class Author extends MyEntity {
     /**
      * @return the medias
      */
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Author_Medias", joinColumns = @JoinColumn(name = "id"))
     public List<SocialMedia> getMedias() {
         return medias;
     }
@@ -109,8 +84,6 @@ public class Author extends MyEntity {
     /**
      * @return the name
      */
-    @NotEmpty
-    @Column
     public String getName() {
         return name;
     }
@@ -118,7 +91,6 @@ public class Author extends MyEntity {
     /**
      * @return the picture
      */
-    @Column
     public String getPicture() {
         return picture;
     }
