@@ -1,28 +1,7 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-
-/**
- * Comment JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @see MyEntity
- * @author felipe
- * @since 1.1
- * @version 1.0
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Comment extends MyEntity {
 
     private static final long serialVersionUID = 7358996279677908814L;
@@ -60,7 +39,6 @@ public class Comment extends MyEntity {
      * Creates builder to build {@link Comment}.
      * @return created builder
      */
-    @XmlTransient
 
     public static Builder builder() {
         return new Builder();
@@ -70,7 +48,6 @@ public class Comment extends MyEntity {
     /**
      * @return the blog
      */
-    @ManyToOne
     public Blog getBlog() {
         return blog;
     }
@@ -78,16 +55,10 @@ public class Comment extends MyEntity {
     /**
      * @return the email
      */
-    @NotEmpty
-    @Email
-    @Column
     public String getEmail() {
         return email;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
         return id;
@@ -96,8 +67,6 @@ public class Comment extends MyEntity {
     /**
      * @return the name
      */
-    @NotEmpty
-    @Column
     public String getName() {
         return name;
     }
@@ -105,9 +74,6 @@ public class Comment extends MyEntity {
     /**
      * @return the text
      */
-    @NotEmpty
-    @Column
-    @Lob
     public String getText() {
         return text;
     }
