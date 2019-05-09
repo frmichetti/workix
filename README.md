@@ -32,8 +32,9 @@ https://pipe.social/startup/907/perfil
 
 **Veja funcionando no Youtube**
 
-
 [![See on Youtube](https://workix.com.br/docs/workix.gif)](https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F)
+
+https://www.youtube.com/playlist?list=PLDzyDVZ4JbDhYUQvZf_fti3kDujvt4o5F
 
 ### Documentação Java
 --
