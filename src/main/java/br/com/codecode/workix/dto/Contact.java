@@ -1,28 +1,10 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
-/**
- * Contact JPA Embeddable
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @since 1.0
- * @version 1.1
- * @see Serializable
- */
-@Embeddable
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Contact implements Serializable {
 
 	private static final long serialVersionUID = -2482737185460142872L;
@@ -57,7 +39,6 @@ public class Contact implements Serializable {
 	/**
 	 * @return the Mobile Phone
 	 */
-	@Column
 	public long getMobilePhone() {
 		return mobilePhone;
 	}
