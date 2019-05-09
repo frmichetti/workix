@@ -1,30 +1,11 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.JobCategory;
 import br.com.codecode.workix.core.enums.JobType;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.math.BigDecimal;
 
-/**
- * Job JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @since 1.0
- * @version 1.1
- * @see MyEntity
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Job extends MyEntity {
 
 	private static final long serialVersionUID = 2246753300384053586L;
@@ -75,7 +56,6 @@ public class Job extends MyEntity {
 	 * Creates builder to build {@link Job}.
 	 * @return created builder
 	 */
-	@XmlTransient
 	public static Builder builder() {
 		return new Builder();
 	}
@@ -94,60 +74,43 @@ public class Job extends MyEntity {
 		return true;
 	}
 
-	@Lob
-	@Column(nullable = false)
 	public String getBenefits() {
 		return benefits;
 	}
 
-	@ManyToOne(optional = false)
 	public Company getCompany() {
 		return company;
 	}
 
-	@Lob
-	@Column(nullable = false)
 	public String getDescription() {
 		return description;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
 	@Override
 	public long getId() {
 		return this.id;
 	}
 
-	@Column
-	@Enumerated(EnumType.STRING)
 	public JobCategory getJobCategory() {
 		return jobCategory;
 	}
 
-	@Column
-	@Enumerated(EnumType.STRING)
 	public JobType getJobType() {
 		return jobType;
 	}
 
-	@Column
 	public BigDecimal getMaxPayment() {
 		return maxPayment;
 	}
 
-	@Column
 	public BigDecimal getMinPayment() {
 		return minPayment;
 	}
 
-	@Lob
-	@Column(nullable = false)
 	public String getRequirement() {
 		return requirement;
 	}
 
-	@Column(nullable = false)
 	public String getTitle() {
 		return title;
 	}
@@ -163,14 +126,11 @@ public class Job extends MyEntity {
 	/**
 	 * Initialize Fields for CDI Injection
 	 */
-	@PostConstruct
 	private void init() {
 		minPayment = BigDecimal.ZERO;
 		maxPayment = BigDecimal.ZERO;
 		active = true;
 	}
-
-	@Column
 
 	public boolean isActive() {
 		return active;
