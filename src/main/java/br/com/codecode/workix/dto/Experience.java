@@ -1,28 +1,10 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
- * Experience JPA Embeddable
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @since 1.0
- * @version 1.1
- * @see Serializable
- */
-@Embeddable
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Experience implements Serializable {
 
 	private static final long serialVersionUID = -6311235469498858665L;
@@ -60,35 +42,26 @@ public class Experience implements Serializable {
 	 * Creates builder to build {@link Experience}.
 	 * @return created builder
 	 */
-	@XmlTransient
 	public static Builder builder() {
 		return new Builder();
 	}
 
-	@Lob
-	@Column
 	public String getDescription() {
 		return description;
 	}
 
-	@Column
 	public String getEmployerName() {
 		return employerName;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column
 	public Date getEndDate() {
 		return endDate;
 	}
 
-	@Column
 	public String getJobTitle() {
 		return jobTitle;
 	}
 
-	@Temporal(TemporalType.DATE)
-	@Column
 	public Date getStartDate() {
 		return startDate;
 	}
