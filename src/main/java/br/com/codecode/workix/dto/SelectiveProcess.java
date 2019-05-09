@@ -1,73 +1,31 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.*;
 
-/**
- * Selective Process JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @since 1.0
- * @version 1.1
- * @see Observable
- * @see Observer
- * @see Traceable
- * @see Persistable
- * @see Serializable
- */
-@Entity
-@Table(name = "Selective_Process")
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class SelectiveProcess extends Observable implements Observer, Traceable, Persistable, Serializable {
 
     private static final long serialVersionUID = -5336099006523168288L;
 
-    @Column
     private boolean active;
 
-    @JoinTable(name = "Selective_Process_Candidates",
-            joinColumns = @JoinColumn(name = "sp_id"), inverseJoinColumns = @JoinColumn(name = "candidate_id"))
-    @OneToMany(fetch = FetchType.EAGER)
     private Set<Candidate> candidates;
 
-    @Temporal(TemporalType.DATE)
-    @Column
     private Date disabledAt;
 
-    @Temporal(TemporalType.DATE)
-    @Column
     private Date expire;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
     private long id;
 
-    @ManyToOne(optional = false)
     private Job job;
 
-    @Column(nullable = false)
     private int maxCandidates;
 
-    @Temporal(TemporalType.DATE)
-    @Column
     private Date start;
 
-    @XmlTransient
-    @Version
-    @Column
     private int version;
 
     /**
@@ -152,7 +110,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     /**
      * Initialize Fields for CDI Injection
      */
-    @PostConstruct
     private void init() {
         this.addObserver(this);
         active = true;
@@ -189,7 +146,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
         setChanged();
     }
 
-    @PrePersist
     @Override
     public void prepareToPersist() {
         Traceable.super.prepareToPersist();
@@ -290,7 +246,6 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
         }
     }
 
-    @PreUpdate
     @Override
     public void updateTimeStamp() {
         Date updatedAt = new Date();
