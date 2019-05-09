@@ -1,28 +1,9 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
-/**
- * Testimonial JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @since 1.0
- * @version 1.1
- * @see MyEntity
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Testimonial extends MyEntity {
 
     private static final long serialVersionUID = 9143527358797800527L;
@@ -61,7 +42,6 @@ public class Testimonial extends MyEntity {
      * Creates builder to build {@link Testimonial}.
      * @return created builder
      */
-    @XmlTransient
     public static Builder builder() {
         return new Builder();
     }
@@ -70,8 +50,6 @@ public class Testimonial extends MyEntity {
     /**
      * @return the author
      */
-    @NotNull
-    @OneToOne
     public Author getAuthor() {
         return author;
     }
@@ -79,16 +57,11 @@ public class Testimonial extends MyEntity {
     /**
      * @return the id
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
         return this.id;
     }
 
-    @NotEmpty
-    @Column
     public String getPicture() {
         return picture;
     }
@@ -96,8 +69,6 @@ public class Testimonial extends MyEntity {
     /**
      * @return the signature
      */
-    @NotEmpty
-    @Column
     public String getSignature() {
         return signature;
     }
@@ -106,9 +77,6 @@ public class Testimonial extends MyEntity {
     /**
      * @return the text
      */
-    @NotEmpty
-    @Lob
-    @Column
     public String getText() {
         return text;
     }
