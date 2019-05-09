@@ -1,29 +1,11 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Member JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @see MyEntity
- * @since 1.0
- * @version 1.1
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Member extends MyEntity {
 
     private static final long serialVersionUID = -9177132485712227287L;
@@ -65,7 +47,6 @@ public class Member extends MyEntity {
      * Creates builder to build {@link Member}.
      * @return created builder
      */
-    @XmlTransient
     public static Builder builder() {
         return new Builder();
     }
@@ -85,9 +66,6 @@ public class Member extends MyEntity {
     /**
      * @return the id
      */
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
         return id;
@@ -96,8 +74,6 @@ public class Member extends MyEntity {
     /**
      * @return the medias
      */
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Member_Medias", joinColumns = @JoinColumn(name = "id"))
     public List<SocialMedia> getMedias() {
         return medias;
     }
@@ -106,8 +82,6 @@ public class Member extends MyEntity {
     /**
      * @return the name
      */
-    @NotEmpty
-    @Column
     public String getName() {
         return name;
     }
@@ -115,8 +89,6 @@ public class Member extends MyEntity {
     /**
      * @return the occupation
      */
-    @NotEmpty
-    @Column
     public String getOccupation() {
         return occupation;
     }
@@ -125,7 +97,6 @@ public class Member extends MyEntity {
     /**
      * @return the picture
      */
-    @Column
     public String getPicture() {
         return picture;
     }
@@ -133,8 +104,6 @@ public class Member extends MyEntity {
     /**
      * @return the shortText
      */
-    @NotEmpty
-    @Column
     public String getShortText() {
         return shortText;
     }
@@ -160,7 +129,7 @@ public class Member extends MyEntity {
 
 
     /**
-     * @param medias the medias to set 
+     * @param medias the medias to set
      */
     public void setMedias(List<SocialMedia> medias) {
         this.medias = medias;
