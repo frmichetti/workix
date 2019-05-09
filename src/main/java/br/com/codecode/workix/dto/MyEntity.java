@@ -1,36 +1,13 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
 import br.com.codecode.workix.interfaces.Persistable;
 import br.com.codecode.workix.interfaces.Traceable;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
-/**
- * MyEntity JPA with Inherited Fields and Methods <br>
- * Base abstract Class for Share common Fields <br>
- * All inherited classes MUST contain<br>
- * No Anotation for Compatibility Only with Older Versions
- * <table>
- * <caption> Inherited Fields </caption>
- * <tr> 
- * <th>{@link #version}</th>
- * <th>{@link #createdAt}</th>
- * <th>{@link #updatedAt}</th>
- * <th>{@link #uuid}</th>
- * </tr>
- * </table>
- * 
- * @author felipe
- * @since 1.0
- * @version 1.1
- * @see Traceable
- * @see Persistable
- * @see Serializable
- */
-@MappedSuperclass
+
 abstract class MyEntity implements Traceable, Persistable, Serializable {
    
     private final static long serialVersionUID = -5791260209364116790L;
@@ -51,25 +28,18 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
 	this.setUuid(UUID.randomUUID().toString());
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(updatable = false, nullable = false)
     private Date getCreatedAt() {
 	return createdAt;
     }
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column
     private Date getUpdatedAt() {
 	return updatedAt;
     }
 
-    @Column(updatable = false, nullable = false)
     public String getUuid() {
 	return uuid;
     }
 
-    @Version
-    @Column
     private int getVersion() {
 	return version;
     }
@@ -79,7 +49,6 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
 	this.setCreatedAt(new Date());
     }
 
-    @PrePersist
     @Override
     public void prepareToPersist() {
 	Traceable.super.prepareToPersist();
@@ -101,7 +70,6 @@ abstract class MyEntity implements Traceable, Persistable, Serializable {
 	this.version = version;
     }
 
-    @PreUpdate
     @Override
     public void updateTimeStamp() {
 	this.setUpdatedAt(new Date());
