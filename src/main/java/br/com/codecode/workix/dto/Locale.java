@@ -1,31 +1,10 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.Estate;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
-/**
- * Locale JPA Embeddable
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @see Serializable
- * @since 1.0
- * @version 1.1
- */
-@Embeddable
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Locale implements Serializable {
    
     private static final long serialVersionUID = -607806075186010186L;
@@ -51,7 +30,6 @@ public class Locale implements Serializable {
      * Creates builder to build {@link Locale}.
      * @return created builder
      */
-	@XmlTransient
 	public static Builder builder() {
 	return new Builder();
     }
@@ -72,33 +50,26 @@ public class Locale implements Serializable {
 	this.estate = builder.getEstate();
     }
 
-	@Column
 	public String getCity() {
 	return city;
     }
 
-	@Enumerated(EnumType.STRING)
-	@Column
     public Estate getEstate() {
 	return estate;
     }
 
-	@Column
     public String getNeighborhood() {
 	return neighborhood;
     }
 
-	@Column
     public String getNumber() {
 	return number;
     }
 
-	@Column
     public String getStreet() {
 	return street;
     }
 
-	@Column
 	public long getZipCode() {
 	return zipCode;
     }
