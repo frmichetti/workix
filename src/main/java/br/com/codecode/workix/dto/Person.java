@@ -1,26 +1,5 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
-
-/**
- * Person JPA with Inherited Fields and Methods <br>
- * Abstract Class for share common Fields with {@link Company} and
- * {@link Candidate}
- * No Anotation for Compatibility Only with Older Versions
- * @author felipe
- * @see MyEntity
- * @since 1.0
- * @version 1.1
- * @see <a href="http://wiki.fasterxml.com/JacksonFAQ#Deserializing_Abstract_types">
- * DeSerializing Abstract Types</a>
- */
-@MappedSuperclass
 abstract class Person extends MyEntity {
 
     private static final long serialVersionUID = 703693002246144451L;
@@ -38,26 +17,18 @@ abstract class Person extends MyEntity {
      */
     public Person(){}
 
-    @JsonDeserialize(as = br.com.codecode.workix.jpa.models.Contact.class)
-    @Embedded
     public Contact getContact() {
         return contact;
     }
 
-    @JsonDeserialize(as = br.com.codecode.workix.jpa.models.Locale.class)
-    @Embedded
     public Locale getLocale() {
         return locale;
     }
 
-    @NotEmpty
-    @Column(nullable = false)
     public String getName() {
         return name;
     }
 
-    @JsonDeserialize(as = br.com.codecode.workix.jpa.models.User.class)
-    @OneToOne(optional = false)
     public User getUser() {
         return user;
     }
