@@ -1,29 +1,10 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.core.enums.BlogCategory;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.util.*;
 
-/**
- * Blog JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
- * @see MyEntity
- * @author felipe
- * @since 1.0
- * @version 1.0
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Blog extends MyEntity {
 
 	private static final long serialVersionUID = -5273926504177459295L;
@@ -76,7 +57,6 @@ public class Blog extends MyEntity {
 	 * Creates builder to build {@link Blog}.
 	 * @return created builder
 	 */
-	@XmlTransient
 	public static Builder builder() {
 		return new Builder();
 	}
@@ -99,8 +79,6 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the author
 	 */
-	@NotNull
-	@ManyToOne(fetch= FetchType.EAGER)
 	public Author getAuthor() {
 		return author;
 	}
@@ -109,7 +87,6 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the blogCategory
 	 */
-	@Enumerated(EnumType.STRING)
 	public BlogCategory getCategory() {
 		return category;
 	}
@@ -117,8 +94,6 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the citation
 	 */
-	@Column
-	@Lob
 	public String getCitation() {
 		return citation;
 	}
@@ -126,8 +101,6 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the content
 	 */
-	@Column
-	@Lob
 	public String getContent() {
 		return content;
 	}
@@ -135,15 +108,10 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the date
 	 */
-	@Temporal(TemporalType.DATE)
-	@Column
 	public Date getPublishDate() {
 		return publishDate;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
 	@Override
 	public long getId() {
 		return id;
@@ -152,13 +120,10 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the pictures
 	 */
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
 	public Set<String> getPictures() {
 		return pictures;
 	}
 
-	@Transient
 	public List<String> getPicturesAsList(){
 		return new ArrayList<>(getPictures());
 	}
@@ -167,8 +132,6 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the resume
 	 */
-	@Column
-	@Lob
 	public String getResume() {
 		return resume;
 	}
@@ -177,13 +140,10 @@ public class Blog extends MyEntity {
 	/**
 	 * @return the tags
 	 */
-	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Blog_Tags", joinColumns = @JoinColumn(name = "id"))
 	public Set<Tag> getTags() {
 		return tags;
 	}
 
-	@Column
 	public String getTitle() {
 		return title;
 	}
