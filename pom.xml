@@ -112,18 +112,21 @@
             <artifactId>lombok</artifactId>
             <version>1.16.12</version>
         </dependency>
+
         <!--<dependency>-->
         <!--<groupId>br.com.codecode</groupId>-->
         <!--<artifactId>workix</artifactId>-->
         <!--<version>0.0</version>-->
         <!--</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/com.sun/tools -->
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
-            <version>1.6</version>
+            <version>1.7.0.13</version>
             <scope>system</scope>
-            <systemPath>/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar</systemPath>
         </dependency>
+
     </dependencies>
 
 
