@@ -1,26 +1,7 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-
-/**
- * Company JPA with Inherited Fields and Methods 
- * No Anotation for Compatibility Only with Older Versions
- * @see Person
- * @author felipe
- * @since 1.0
- * @version 1.1
- */
-@Entity
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Company extends Person {
 
 	private static final long serialVersionUID = 47663377480544994L;
@@ -56,7 +37,6 @@ public class Company extends Person {
 	 * Creates builder to build {@link Company}.
 	 * @return created builder
 	 */
-	@XmlTransient
 	public static Builder builder() {
 		return new Builder();
 	}
@@ -75,7 +55,6 @@ public class Company extends Person {
 		return true;
 	}
 
-	@Column(nullable = false, unique = true)
 	public long getCnpj() {
 		return cnpj;
 	}
@@ -83,21 +62,15 @@ public class Company extends Person {
 	/**
 	 * @return the description
 	 */
-	@Column
-	@Lob
 	public String getDescription() {
 		return description;
 	}
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(updatable = false, nullable = false)
 	@Override
 	public long getId() {
 		return this.id;
 	}
 
-	@Column(nullable = false)
 	public String getSegment() {
 		return segment;
 	}
