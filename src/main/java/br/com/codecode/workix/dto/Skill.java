@@ -1,14 +1,7 @@
-package br.com.codecode.workix.jpa.models;
+package br.com.codecode.workix.dto;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
 import br.com.codecode.workix.interfaces.Buildable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 
 /**
@@ -19,10 +12,6 @@ import java.io.Serializable;
  * @version 1.1
  * @see Serializable
  */
-@Embeddable
-@XmlRootElement
-@XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
-@Persist
 public class Skill implements Serializable {
 
 	private static final long serialVersionUID = -5975419980185059163L;
@@ -49,7 +38,6 @@ public class Skill implements Serializable {
 	 * Creates builder to build {@link Skill}.
 	 * @return created builder
 	 */
-	@XmlTransient
 	public static Builder builder() {
 		return new Builder();
 	}
@@ -57,7 +45,6 @@ public class Skill implements Serializable {
 	/**
 	 * @return the Skill Name
 	 */
-	@Column
 	public String getSkillName() {
 		return this.skillName;
 	}
