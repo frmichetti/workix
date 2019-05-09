@@ -1,19 +1,26 @@
 package br.com.codecode.workix.jpa.models;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.interfaces.Buildable;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
+
 /**
  * Testimonial JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -25,6 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Persist
 public class Testimonial extends MyEntity {
 
+   
     private static final long serialVersionUID = 9143527358797800527L;
 
     private Author author;
@@ -37,23 +45,24 @@ public class Testimonial extends MyEntity {
 
     private String text;
 
+
     /**
      * Public Default Constructor for JPA Compatibility Only
      */
-    public Testimonial(){}
+    public Testimonial(){}   
 
     /**
      * Public Constructor for {@link Builder} Compatibility
-     *
+     * 
      * @see Buildable
      * @param builder
      *            Builder for Generate a New Testimonial
      */
     private Testimonial(Builder builder) {
-        this.author = builder.getAuthor();
-        this.picture = builder.getPicture();
-        this.signature = builder.getSignature();
-        this.text = builder.getText();
+	this.author = builder.getAuthor();	
+	this.picture = builder.getPicture();
+	this.signature = builder.getSignature();
+	this.text = builder.getText();
     }
 
 
@@ -63,7 +72,7 @@ public class Testimonial extends MyEntity {
      */
     @XmlTransient
     public static Builder builder() {
-        return new Builder();
+	return new Builder();
     }
 
 
@@ -73,25 +82,28 @@ public class Testimonial extends MyEntity {
     @NotNull
     @OneToOne
     public Author getAuthor() {
-        return author;
+	return author;
     }
+
 
     /**
      * @return the id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
-        return this.id;
+	return this.id;
     }
+
 
     @NotEmpty
     @Column
     public String getPicture() {
-        return picture;
+	return picture;
     }
+
 
     /**
      * @return the signature
@@ -99,7 +111,7 @@ public class Testimonial extends MyEntity {
     @NotEmpty
     @Column
     public String getSignature() {
-        return signature;
+	return signature;
     }
 
 
@@ -110,14 +122,15 @@ public class Testimonial extends MyEntity {
     @Lob
     @Column
     public String getText() {
-        return text;
+	return text;
     }
+
 
     /**
      * @param author the author to set
      */
     public void setAuthor(Author author) {
-        this.author = author;
+	this.author = author;
     }
 
     /**
@@ -125,18 +138,19 @@ public class Testimonial extends MyEntity {
      */
     @Override
     public void setId(long id) {
-        this.id = id;
+	this.id = id;
     }
 
+
     public void setPicture(String picture) {
-        this.picture = picture;
+	this.picture = picture;
     }
 
     /**
      * @param signature the signature to set
      */
     public void setSignature(String signature) {
-        this.signature = signature;
+	this.signature = signature;
     }
 
 
@@ -144,48 +158,54 @@ public class Testimonial extends MyEntity {
      * @param text the text to set
      */
     public void setText(String text) {
-        this.text = text;
+	this.text = text;
     }
 
     /**
      * Builder to build {@link Testimonial}.
-     */
+     */    
     public static final class Builder extends Testimonial implements Buildable<Testimonial>  {
 
-        private static final long serialVersionUID = 136923846936951445L;
+	private static final long serialVersionUID = 136923846936951445L;
 
-        /**
-         * Disabled Empty Constructor
-         */
-        private Builder(){}
+	/**
+	 * Disabled Empty Constructor
+	 */
+	private Builder(){}
 
-        /**
-         * Return a New Testimonial
-         */
-        @Override
-        public Testimonial build() {
-            return new Testimonial(this);
-        }
+	/**
+	 * Return a New Testimonial
+	 */
+	@Override
+	public Testimonial build() {
+	    return new Testimonial(this);
+	}
 
-        public Builder withAuthor(Author author) {
-            super.author = author;
-            return this;
-        }
+	public Builder withAuthor(Author author) {
+	    super.author = author;
+	    return this;
+	}
 
-        public Builder withPicture(String picture) {
-            super.picture = picture;
-            return this;
-        }
+	public Builder withId(long id) {
+	    super.id = id;
+	    return this;
+	}
 
-        public Builder withSignature(String signature) {
-            super.signature = signature;
-            return this;
-        }
+	public Builder withPicture(String picture) {
+	    super.picture = picture;
+	    return this;
+	}
 
-        public Builder withText(String text) {
-            super.text = text;
-            return this;
-        }
+	public Builder withSignature(String signature) {
+	    super.signature = signature;
+	    return this;
+	}
+
+	public Builder withText(String text) {
+	    super.text = text;
+	    return this;
+	}
     }
+
 
 }

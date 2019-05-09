@@ -1,12 +1,6 @@
 package br.com.codecode.workix.rest.android;
 
-import br.com.codecode.workix.config.JAXRSConfiguration;
-import br.com.codecode.workix.core.common.Token;
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jpa.models.Contact;
-import br.com.codecode.workix.jpa.models.Locale;
-import br.com.codecode.workix.jpa.models.User;
-import br.com.codecode.workix.rest.BaseEndpoint;
+import java.time.LocalDate;
 
 import javax.persistence.NoResultException;
 import javax.ws.rs.Consumes;
@@ -16,7 +10,14 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
-import java.util.Date;
+
+import br.com.codecode.workix.config.JAXRSConfiguration;
+import br.com.codecode.workix.core.common.Token;
+import br.com.codecode.workix.jpa.models.Contact;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jpa.models.Locale;
+import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.rest.BaseEndpoint;
 
 /**
  * Login JaxRs Endpoint
@@ -99,7 +100,7 @@ public class LoginEndpoint extends BaseEndpoint {
 	    
 	    candidate = new Candidate();
 	    
-	    candidate.setBirthDate(new Date());
+	    candidate.setBirthDate(LocalDate.of(1900, 01, 01));
 
 	    candidate.setUser(user);
 	    

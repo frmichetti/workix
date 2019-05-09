@@ -1,14 +1,15 @@
 package br.com.codecode.workix.cdi.dao.implementations.mockup;
 
+import java.math.BigInteger;
+import java.util.List;
+
+import javax.faces.application.FacesMessage;
+import javax.persistence.TypedQuery;
+
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Mockup;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Job;
-
-import javax.faces.application.FacesMessage;
-import javax.persistence.TypedQuery;
-import java.math.BigInteger;
-import java.util.List;
 
 /**
  * Mockup Class for Demonstration Only

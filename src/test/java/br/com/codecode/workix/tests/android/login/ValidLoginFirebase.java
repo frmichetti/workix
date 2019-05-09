@@ -1,16 +1,17 @@
-package br.com.codecode.workix.tests.android.login.jdk8;
-
-import br.com.codecode.workix.core.common.Token;
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.tests.android.BaseTest;
-import br.com.codecode.workix.tests.android.login.LoginTest;
-import br.com.codecode.workix.tests.util.HttpTest;
-import com.google.gson.reflect.TypeToken;
-import org.junit.Before;
-import org.junit.Test;
+package br.com.codecode.workix.tests.android.login;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import com.google.gson.reflect.TypeToken;
+
+import br.com.codecode.workix.core.common.Token;
+import br.com.codecode.workix.jpa.models.jdk7.Candidate;
+import br.com.codecode.workix.tests.android.BaseTest;
+import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
  * @since 1.0
@@ -21,6 +22,8 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
     private String json;
 
+    private String url = server + "/login/firebaselogin";
+
     @Before
     @Override
     public void doLoginWithFirebase() {
@@ -29,8 +32,7 @@ public class ValidLoginFirebase extends BaseTest implements LoginTest {
 
 	Token t = Token.builder().withKey("x5rXx6LCyCddLErHSWRctK74SUR2").build();
 
-        String url = server + "/login/firebaselogin";
-        json = HttpTest.sendPost(url, getGson().toJson(t));
+	json = HttpTest.sendPost(url, getGson().toJson(t));
 
 	assertFalse(json.isEmpty());
 

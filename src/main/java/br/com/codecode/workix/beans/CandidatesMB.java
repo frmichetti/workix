@@ -1,10 +1,8 @@
 package br.com.codecode.workix.beans;
 
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Factory;
-import br.com.codecode.workix.cdi.qualifiers.Generic;
-import br.com.codecode.workix.jpa.models.Candidate;
-import br.com.codecode.workix.jsf.util.helper.Paginator;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.enterprise.inject.Default;
 import javax.enterprise.inject.Model;
@@ -13,13 +11,17 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.inject.Inject;
 import javax.validation.constraints.Min;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Factory;
+import br.com.codecode.workix.cdi.qualifiers.Generic;
+import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
+import br.com.codecode.workix.jpa.models.Candidate;
+import br.com.codecode.workix.jsf.util.helper.Paginator;
 
 /**
  * This ManagedBean controls candidates.xhtml and candidates2.xhtml
- *
+ * 
  * @author felipe
  * @since 1.0
  * @version 1.1
@@ -31,11 +33,13 @@ public class CandidatesMB extends BaseMB {
     @Inject @Factory @Default
     private FacesContext facesContext;
 
+    private Paginator paginator;
+
     @Inject
     @Generic
     private Crud<Candidate> dao;
 
-
+    
     /**
      * @return the pager
      */
@@ -46,8 +50,13 @@ public class CandidatesMB extends BaseMB {
     private DataModel<Candidate> list;
 
     private String prefix, sufix;
+    
+    private List<Integer> pager = new ArrayList<>();
 
-    private final List<Integer> pager = new ArrayList<>();
+    /**
+     * Max Results By Page
+     */
+    private final int limitRows = 10;
 
     private int start, end, totalRows, totalPages;
 
@@ -60,91 +69,93 @@ public class CandidatesMB extends BaseMB {
     @Override
     public void init() {
 
-        try {
+	try {
 
-            totalRows = dao.countRegisters().intValue();
+	    totalRows = dao.countRegisters().intValue();
 
-            /*
-      Max Results By Page
-     */
-            int limitRows = 10;
-            Paginator paginator = new Paginator(limitRows, page, totalRows);
+	    paginator = new Paginator(limitRows, page, totalRows);
 
-            totalPages = paginator.getTotalPages();
+	    totalPages = paginator.getTotalPages();
 
-            start = paginator.getStart();
+	    start = paginator.getStart();
 
-            end = paginator.getEnd();
+	    end = paginator.getEnd();
+	    
+	    list = new ListDataModel<Candidate>(dao.listAll(start - 1, end));
 
-            list = new ListDataModel<>(dao.listAll(start - 1, limitRows));
+	} catch (NotImplementedYetException e) {
 
-        } catch (Exception e) {
+	    e.printStackTrace();
 
-            e.printStackTrace();
+	    goToErrorPage();
 
-            goToErrorPage();
-        }
+	} catch (Exception e) {
 
-        prefix = "/" + facesContext.getExternalContext().getContextName();
+	    e.printStackTrace();
 
-        sufix = "&faces-redirect=true";
+	    goToErrorPage();
+	}
+	
+	prefix = "/" + facesContext.getExternalContext().getContextName();
 
-        {
-            System.out.println("Current Page : " + page);
+	sufix = "&faces-redirect=true";
 
-            System.out.println("Current totalRows : " + totalRows);
+	{
+	    System.out.println("Current Page : " + page);
 
-            System.out.println("Current totalPages : " + totalPages);
+	    System.out.println("Current totalRows : " + totalRows);
 
-            System.out.println("Start " + start);
+	    System.out.println("Current totalPages : " + totalPages);
 
-            System.out.println("End " + end);
-        }
+	    System.out.println("Start " + start);
 
-        for(int x = 0 ; x <= totalPages; x++){
-            if (x == 0) continue;
-            pager.add(x);
-        }
+	    System.out.println("End " + end);
+	}
+	
+	for(int x = 0 ; x <= totalPages; x++){
+	    if (x == 0) continue;
+	    	pager.add(x);
+	}
     }
 
     public int getPage() {
-        return page;
+	return page;
     }
 
     public void setPage(int page) {
-        this.page = page;
+	this.page = page;
     }
 
     public DataModel<Candidate> getList() {
-        return list;
+	return list;
     }
 
     public String goToCandidateDetail(Candidate candidate) {
 
-        System.out.println("Received Candidate " + candidate.toString());
+	System.out.println("Received Candidate " + candidate.toString());
 
-        return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix;
+	return prefix + "/resume.xhtml?id=" + String.valueOf(candidate.getId()) + sufix;
     }
 
     private String goToErrorPage() {
 
-        try {
+	try {
 
-            facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
+	    facesContext.getExternalContext().redirect(prefix + "/404.xhtml" + sufix);
 
-        } catch (IOException e) {
+	} catch (IOException e) {
 
-            e.printStackTrace();
-        }
-        return prefix + "/404.xhtml" + sufix;
+	    e.printStackTrace();
+	}
+	return prefix + "/404.xhtml" + sufix;
     }
-
+    
     public String goToLastPage() {
-        return prefix + "/candidates2.xhtml?page=" + String.valueOf(totalPages) + sufix;
-    }
+  	return prefix + "/candidates2.xhtml?page=" + String.valueOf(totalPages) + sufix;
+      }
 
-    public String goToFirstPage() {
-        return prefix + "/candidates2.xhtml?page=" + String.valueOf(1) + sufix;
-    }
+      public String goToFirstPage() {
+  	return prefix + "/candidates2.xhtml?page=" + String.valueOf(1) + sufix;
+      }
 
 }

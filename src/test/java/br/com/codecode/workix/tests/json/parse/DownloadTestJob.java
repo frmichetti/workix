@@ -1,14 +1,18 @@
 package br.com.codecode.workix.tests.json.parse;
 
-import br.com.codecode.workix.jpa.models.Job;
-import br.com.codecode.workix.tests.android.BaseTest;
-import com.google.gson.reflect.TypeToken;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.google.gson.reflect.TypeToken;
+
+import br.com.codecode.workix.jpa.models.Job;
+import br.com.codecode.workix.tests.android.BaseTest;
 
 public class DownloadTestJob extends BaseTest implements DownloadTest<Job> {
 
@@ -36,7 +40,7 @@ public class DownloadTestJob extends BaseTest implements DownloadTest<Job> {
 	
 	System.out.println(jobs.size());
 
-	jobs.forEach(j -> System.out.println(j.getDescription()));
+	jobs.stream().forEach(j -> System.out.println(j.getDescription()));
 
 	System.out.println("----Stream----");
 

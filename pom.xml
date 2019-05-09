@@ -23,7 +23,7 @@
                     <!-- Element skipTests is not allowed here
                     It's actually a IntelliJ Idea's bug. It sometimes doesn't recognize some of configuration properties correctly.
                     The plugin does have this property, so you don't really have other option than to just ignore the error in IDE. The plugin will work as expected. -->
-                    <skipTests>${skipTests}</skipTests>
+                    <!-- <skipTests>${skipTests}</skipTests>-->
                     <failOnMissingWebXml>true</failOnMissingWebXml>
                 </configuration>
             </plugin>

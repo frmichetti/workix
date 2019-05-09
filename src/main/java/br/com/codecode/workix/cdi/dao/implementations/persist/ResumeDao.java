@@ -1,14 +1,15 @@
 package br.com.codecode.workix.cdi.dao.implementations.persist;
 
-import br.com.codecode.workix.cdi.dao.Crud;
-import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.jpa.models.Resume;
+import java.math.BigInteger;
+import java.util.List;
 
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.TypedQuery;
-import java.math.BigInteger;
-import java.util.List;
+
+import br.com.codecode.workix.cdi.dao.Crud;
+import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.jpa.models.Resume;
 
 /**
  * DAO for Resume

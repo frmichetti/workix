@@ -1,14 +1,15 @@
 package br.com.codecode.workix.tests.model.draft;
 
-import br.com.codecode.workix.jpa.models.Candidate;
-
-import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Named;
+
+import br.com.codecode.workix.jpa.models.Candidate;
 
 
 

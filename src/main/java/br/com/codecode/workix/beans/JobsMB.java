@@ -1,5 +1,17 @@
 package br.com.codecode.workix.beans;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.enterprise.inject.Default;
+import javax.enterprise.inject.Model;
+import javax.faces.context.FacesContext;
+import javax.faces.model.DataModel;
+import javax.faces.model.ListDataModel;
+import javax.inject.Inject;
+import javax.validation.constraints.Min;
+
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Factory;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
@@ -9,35 +21,23 @@ import br.com.codecode.workix.jpa.models.Job;
 import br.com.codecode.workix.jsf.util.helper.JobTypeLinkHelper;
 import br.com.codecode.workix.jsf.util.helper.Paginator;
 
-import javax.enterprise.inject.Default;
-import javax.enterprise.inject.Model;
-import javax.faces.context.FacesContext;
-import javax.faces.model.DataModel;
-import javax.faces.model.ListDataModel;
-import javax.inject.Inject;
-import javax.validation.constraints.Min;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * This ManagedBean controls jobs.xhtml and jobs2.xhtml Execute with
  * {@link Model}
- *
+ * 
  * @author felipe
- * @version 1.1
  * @since 1.0
+ * @version 1.1
  */
 @Model
 public class JobsMB extends BaseMB {
 
-    @Inject
-    @Factory
-    @Default
+    @Inject @Factory @Default
     private FacesContext facesContext;
 
-    @Inject
-    @Generic
+    private Paginator paginator;
+
+    @Inject @Generic
     private Crud<Job> dao;
 
     @Inject
@@ -47,11 +47,11 @@ public class JobsMB extends BaseMB {
 
     private String prefix, sufix;
 
-    private final LocalDate localdate = LocalDate.now();
+    private LocalDate localdate = LocalDate.now();
+    
+    private List<Integer> pager = new ArrayList<>();
 
-    private final List<Integer> pager = new ArrayList<>();
-
-
+    
     /**
      * @return the pager
      */
@@ -60,8 +60,8 @@ public class JobsMB extends BaseMB {
     }
 
 
-    public String discoverBadge(JobType jobType) {
-        return jobTypeLinkHelper.returnType(jobType);
+    public String discoverBadge(JobType jobType){
+	return jobTypeLinkHelper.returnType(jobType);
     }
 
 
@@ -69,12 +69,15 @@ public class JobsMB extends BaseMB {
      * @return the localdate
      */
     public LocalDate getLocaldate() {
-        return localdate;
+	return localdate;
     }
 
-    private int start;
-    private int end;
-    private int totalPages;
+    /**
+     * Max Results By Page
+     */
+    private final int limitRows = 10;
+
+    private int start, end, totalRows, totalPages;
 
     @Min(1)
     private int page;
@@ -85,81 +88,80 @@ public class JobsMB extends BaseMB {
     @Override
     public void init() {
 
-        int totalRows;
+	try {
 
+	    totalRows = dao.countRegisters().intValue();
 
-        totalRows = dao.countRegisters().intValue();
+	    paginator = new Paginator(limitRows, page, totalRows);
 
-            /*
-      Max Results By Page
-     */
-        int limitRows = 10;
-        Paginator paginator = new Paginator(limitRows, page, totalRows);
+	    totalPages = paginator.getTotalPages();
 
-        totalPages = paginator.getTotalPages();
+	    start = paginator.getStart();
 
-        start = paginator.getStart();
+	    end = paginator.getEnd();
+	    
+	    List<Job> jobs = dao.listAll(start - 1, end);
+	    
+	    list = new ListDataModel<Job>(jobs);
 
-        end = paginator.getEnd();
+	} catch (NotImplementedYetException e) {
 
-        List<Job> jobs = dao.listAll(start - 1, limitRows);
+	    e.printStackTrace();
+	}
 
-        list = new ListDataModel<>(jobs);
+	prefix = "/" + facesContext.getExternalContext().getContextName();
 
+	sufix = "&faces-redirect=true";
 
-        prefix = "/" + facesContext.getExternalContext().getContextName();
+	{
+	    System.out.println("Current Page : " + page);
 
-        sufix = "&faces-redirect=true";
+	    System.out.println("Total Rows : " + totalRows);
 
-        {
-            System.out.println("Current Page : " + page);
+	    System.out.println("Total Pages : " + totalPages);
 
-            System.out.println("Total Rows : " + totalRows);
+	    System.out.println("Start " + start);
 
-            System.out.println("Total Pages : " + totalPages);
-
-            System.out.println("Start " + start);
-
-            System.out.println("End " + end);
-        }
-
-        for (int x = 0; x <= totalPages; x++) {
-            if (x == 0) continue;
-            pager.add(x);
-        }
+	    System.out.println("End " + end);
+	}
+	
+	for(int x = 0 ; x <= totalPages; x++){
+	    if (x == 0) continue;
+	    	pager.add(x);
+	}
 
     }
 
     public DataModel<Job> getList() {
-        return list;
+	return list;
     }
 
     public String goToJobDetail(Job job) {
 
-        System.out.println("Received Job " + job.toString());
+	System.out.println("Received Job " + job.toString());
 
-        return prefix + "/job-details.xhtml?id=" + String.valueOf(job.getId()) + sufix;
+	return prefix + "/job-details.xhtml?id=" + String.valueOf(job.getId()) + sufix;
     }
 
     public String goToLastPage() {
-        return prefix + "/jobs2.xhtml?page=" + String.valueOf(totalPages) + sufix;
+	return prefix + "/jobs2.xhtml?page=" + String.valueOf(totalPages) + sufix;
     }
 
     public String goToFirstPage() {
-        return prefix + "/jobs2.xhtml?page=" + String.valueOf(1) + sufix;
+	return prefix + "/jobs2.xhtml?page=" + String.valueOf(1) + sufix;
     }
-
+  
 
     public int getPage() {
-        return page;
+	return page;
     }
 
     public void setPage(int page) {
-        this.page = page;
+	this.page = page;
     }
 
     public int getTotalPages() {
-        return totalPages;
+	return totalPages;
     }
 
 }

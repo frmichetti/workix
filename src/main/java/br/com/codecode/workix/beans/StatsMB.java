@@ -1,5 +1,9 @@
 package br.com.codecode.workix.beans;
 
+import javax.annotation.PostConstruct;
+import javax.enterprise.inject.Model;
+import javax.inject.Inject;
+
 import br.com.codecode.workix.cdi.dao.Crud;
 import br.com.codecode.workix.cdi.qualifiers.Generic;
 import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
@@ -8,17 +12,13 @@ import br.com.codecode.workix.jpa.models.Company;
 import br.com.codecode.workix.jpa.models.Job;
 import br.com.codecode.workix.jpa.models.Resume;
 
-import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Model;
-import javax.inject.Inject;
-
 /**
  * This ManagedBean controls Counter Fragment on HomePage
- *
+ * 
  * @author felipe
+ * @since 1.0
  * @version 1.1
  * @see BaseMB
- * @since 1.0
  */
 @Model
 public class StatsMB extends BaseMB {
@@ -45,33 +45,39 @@ public class StatsMB extends BaseMB {
     @Override
     protected void init() {
 
-        jobDao.countRegisters();
+	try {
 
-        counterJobs = jobDao.countRegisters().intValue();
+	    jobDao.countRegisters();
 
-        counterEmployeers = companyDao.countRegisters().intValue();
+	    counterJobs = jobDao.countRegisters().intValue();
 
-        counterCandidates = candidateDao.countRegisters().intValue();
+	    counterEmployeers = companyDao.countRegisters().intValue();
 
-        counterResumes = resumeDao.countRegisters().intValue();
+	    counterCandidates = candidateDao.countRegisters().intValue();
 
+	    counterResumes = resumeDao.countRegisters().intValue();
+
+	} catch (NotImplementedYetException e) {
+
+	    e.printStackTrace();
+	}
 
     }
 
     public int getCounterJobs() {
-        return counterJobs;
+	return counterJobs;
     }
 
     public int getCounterCandidates() {
-        return counterCandidates;
+	return counterCandidates;
     }
 
     public int getCounterEmployeers() {
-        return counterEmployeers;
+	return counterEmployeers;
     }
 
     public int getCounterResumes() {
-        return counterResumes;
+	return counterResumes;
     }
 
 }

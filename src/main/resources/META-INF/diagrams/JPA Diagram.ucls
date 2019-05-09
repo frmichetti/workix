@@ -10,7 +10,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="br.com.codecode.workix.jpa.models.jdk8.SelectiveProcess" project="workix" 
+  <class id="2" language="java" name="br.com.codecode.workix.jpa.models.models.SelectiveProcess" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/SelectiveProcess.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="725" width="269" x="2367" y="-891"/>    
@@ -20,7 +20,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Candidate" project="workix" 
+  <class id="3" language="java" name="br.com.codecode.workix.jpa.models.models.Candidate" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Candidate.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="275" width="259" x="2377" y="603"/>    
@@ -30,7 +30,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Company" project="workix" 
+  <class id="4" language="java" name="br.com.codecode.workix.jpa.models.models.Company" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Company.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="257" width="253" x="1157" y="603"/>    
@@ -40,7 +40,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Skill.Builder" project="workix" 
+  <class id="5" language="java" name="br.com.codecode.workix.jpa.models.models.Skill.Builder" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="149" width="269" x="2068" y="1080"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -58,7 +58,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Subscriber" project="workix" 
+  <class id="7" language="java" name="br.com.codecode.workix.jpa.models.models.Subscriber" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Subscriber.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="221" width="269" x="-73" y="-126"/>    
@@ -68,7 +68,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Subscriber.Builder" project="workix" 
+  <class id="8" language="java" name="br.com.codecode.workix.jpa.models.models.Subscriber.Builder" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Subscriber.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="185" width="269" x="-73" y="603"/>    
@@ -106,7 +106,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="br.com.codecode.workix.jpa.models.jdk8.MyEntity" project="workix" 
+  <class id="12" language="java" name="br.com.codecode.workix.jpa.models.models.MyEntity" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/MyEntity.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="383" width="269" x="1110" y="-891"/>    
@@ -144,7 +144,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Person" project="workix" 
+  <class id="16" language="java" name="br.com.codecode.workix.jpa.models.models.Person" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Person.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="257" width="259" x="830" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -153,7 +153,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Skill" project="workix" 
+  <class id="17" language="java" name="br.com.codecode.workix.jpa.models.models.Skill" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Skill.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="167" width="269" x="2068" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -162,7 +162,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Resume" project="workix" 
+  <class id="18" language="java" name="br.com.codecode.workix.jpa.models.models.Resume" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Resume.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="527" width="265" x="1759" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -171,7 +171,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="br.com.codecode.workix.jpa.models.jdk8.User.Builder" project="workix" 
+  <class id="19" language="java" name="br.com.codecode.workix.jpa.models.models.User.Builder" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/User.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="203" width="269" x="848" y="1080"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -180,7 +180,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="br.com.codecode.workix.jpa.models.jdk8.Job" project="workix" 
+  <class id="20" language="java" name="br.com.codecode.workix.jpa.models.models.Job" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/Job.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="689" width="265" x="1157" y="-126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
@@ -189,7 +189,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="br.com.codecode.workix.jpa.models.jdk8.User" project="workix" 
+  <class id="21" language="java" name="br.com.codecode.workix.jpa.models.models.User" project="workix"
     file="/workix/src/main/java/br/com/codecode/workix/jpa/models/jdk8/User.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="383" width="269" x="848" y="603"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 

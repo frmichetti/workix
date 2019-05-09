@@ -1,14 +1,18 @@
 package br.com.codecode.workix.tests.json.parse;
 
-import br.com.codecode.workix.jpa.models.SelectiveProcess;
-import br.com.codecode.workix.tests.android.BaseTest;
-import com.google.gson.reflect.TypeToken;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+
+import com.google.gson.reflect.TypeToken;
+
+import br.com.codecode.workix.jpa.models.SelectiveProcess;
+import br.com.codecode.workix.tests.android.BaseTest;
 
 public class DownloadTestSelectiveProccess extends BaseTest implements DownloadTest<SelectiveProcess> {
 
@@ -36,7 +40,7 @@ public class DownloadTestSelectiveProccess extends BaseTest implements DownloadT
 	
 	System.out.println(sps.size());
 
-	sps.forEach(System.out::println);
+	sps.stream().forEach(System.out::println);
 
 	System.out.println("----Stream----");
 

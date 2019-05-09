@@ -5,17 +5,17 @@
  * @see http://www.codecode.com.br
  * @see mailto:frmichetti@gmail.com
  * */
-package br.com.codecode.workix.tests.android.login.jdk7;
-
-import br.com.codecode.workix.core.common.Token;
-import br.com.codecode.workix.tests.android.BaseTest;
-import br.com.codecode.workix.tests.android.login.LoginTest;
-import br.com.codecode.workix.tests.util.HttpTest;
-import org.junit.Before;
-import org.junit.Test;
+package br.com.codecode.workix.tests.android.login;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import br.com.codecode.workix.core.common.Token;
+import br.com.codecode.workix.tests.android.BaseTest;
+import br.com.codecode.workix.tests.util.HttpTest;
 
 /**
  * Do Login With Firebase Server with Gson
@@ -25,6 +25,8 @@ import static org.junit.Assert.assertTrue;
  * @version 1.1
  */
 public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest {
+
+    private String url = server + "/login/firebaselogin";
 
     private String json;
 
@@ -36,8 +38,7 @@ public class InvalidLoginFirebaseTestGson extends BaseTest implements LoginTest 
 
 	Token t = Token.builder().withKey("XXXXXXXXXXX").build();
 
-        String url = server + "/login/firebaselogin";
-        json = HttpTest.sendPost(url, getGson().toJson(t));
+	json = HttpTest.sendPost(url, getGson().toJson(t));
 
 	assertFalse(json.isEmpty());
 

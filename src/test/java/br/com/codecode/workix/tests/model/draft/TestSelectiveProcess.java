@@ -1,13 +1,17 @@
 package br.com.codecode.workix.tests.model.draft;
 
-import br.com.codecode.workix.jpa.models.Candidate;
-import org.junit.Before;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+
+import br.com.codecode.workix.jpa.models.Candidate;
 
 public class TestSelectiveProcess {
 

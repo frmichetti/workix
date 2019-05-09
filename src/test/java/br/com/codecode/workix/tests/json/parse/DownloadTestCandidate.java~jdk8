@@ -11,36 +11,35 @@ import org.junit.Test;
 
 import com.google.gson.reflect.TypeToken;
 
-import br.com.codecode.workix.jpa.models.User;
+import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.tests.android.BaseTest;
 
-public class DownloadTestUser extends BaseTest implements DownloadTest<User> {
+public class DownloadTestCandidate extends BaseTest implements DownloadTest<Candidate> {
 
     private String resp;
 
     @Before    
-    public void downloadItens() {	
+    public void downloadItens() {
 
-	resp = downloadItens(server + "/users");	
+	resp = downloadItens(server + "/candidates");
+
+	assertFalse(resp.isEmpty());
 
     }
 
     @Test    
-    public void parseItens() {
-	
-	assertFalse(resp.isEmpty());
-	
-	List<User> users = parseItens(resp, new TypeToken<List<User>>(){});
+    public void parseItens() {	
 
-	assertNotNull(users);
+	List<Candidate> companies = parseItens(resp, new TypeToken<List<Candidate>>(){});
 
-	assertTrue(users.size() > 0);		
+	assertNotNull(companies);
+
+	assertTrue(companies.size() > 0);
 
 	System.out.println("----Stream----");
-	
-	System.out.println(users.size());
 
-	users.stream().forEach(u -> System.out.println(u.getEmail()));
+	companies.stream()	
+	.forEach(System.out::println);
 
 	System.out.println("----Stream----");
 

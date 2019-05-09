@@ -1,19 +1,27 @@
 package br.com.codecode.workix.jpa.models;
 
-import br.com.codecode.workix.cdi.qualifiers.Persist;
-import br.com.codecode.workix.interfaces.Buildable;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
+import br.com.codecode.workix.interfaces.Persistable;
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
+import br.com.codecode.workix.cdi.qualifiers.Persist;
+import br.com.codecode.workix.interfaces.Buildable;
+
 /**
  * Comment JPA with Inherited Fields and Methods
- * No Anotation for Compatibility Only with Older Versions
+ * 
  * @see MyEntity
  * @author felipe
  * @since 1.1
@@ -23,13 +31,13 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
-public class Comment extends MyEntity {
-
+public class Comment extends MyEntity implements Persistable {
+   
     private static final long serialVersionUID = 7358996279677908814L;
 
-    private Blog blog;
+    private Blog blog; 
 
-    private String email;
+    private String email;    
 
     private long id;
 
@@ -44,16 +52,16 @@ public class Comment extends MyEntity {
 
     /**
      * Public Constructor for {@link Builder} Compatibility
-     *
+     * 
      * @see Buildable
      * @param builder
      *            Builder for Generate a New Comment
      */
-    private Comment(Builder builder) {
-        this.email = builder.getEmail();
-        this.name = builder.getName();
-        this.text = builder.getText();
-        this.blog = builder.getBlog();
+    private Comment(Builder builder) {	
+	this.email = builder.getEmail();
+	this.name = builder.getName();
+	this.text = builder.getText();
+	this.blog = builder.getBlog();
     }
 
     /**
@@ -61,9 +69,8 @@ public class Comment extends MyEntity {
      * @return created builder
      */
     @XmlTransient
-
     public static Builder builder() {
-        return new Builder();
+	return new Builder();
     }
 
 
@@ -72,8 +79,8 @@ public class Comment extends MyEntity {
      */
     @ManyToOne
     public Blog getBlog() {
-        return blog;
-    }
+	return blog;
+    }    
 
     /**
      * @return the email
@@ -82,15 +89,16 @@ public class Comment extends MyEntity {
     @Email
     @Column
     public String getEmail() {
-        return email;
+	return email;
     }
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(updatable = false, nullable = false)
     @Override
-    public long getId() {
-        return id;
+    public long getId() {	
+	return id;
     }
 
     /**
@@ -99,7 +107,7 @@ public class Comment extends MyEntity {
     @NotEmpty
     @Column
     public String getName() {
-        return name;
+	return name;
     }
 
     /**
@@ -109,40 +117,40 @@ public class Comment extends MyEntity {
     @Column
     @Lob
     public String getText() {
-        return text;
+	return text;
     }
 
     /**
      * @param blog the blog to set
      */
     public void setBlog(Blog blog) {
-        this.blog = blog;
+	this.blog = blog;
     }
 
     /**
      * @param email the email to set
      */
     public void setEmail(String email) {
-        this.email = email;
+	this.email = email;
     }
 
     @Override
     public void setId(long id) {
-        this.id = id;
+	this.id = id;	
     }
 
     /**
      * @param name the name to set
      */
     public void setName(String name) {
-        this.name = name;
+	this.name = name;
     }
 
     /**
      * @param text the text to set
      */
     public void setText(String text) {
-        this.text = text;
+	this.text = text;
     }
 
     /**
@@ -151,40 +159,40 @@ public class Comment extends MyEntity {
 
     public static final class Builder extends Comment implements Buildable<Comment> {
 
-        private static final long serialVersionUID = 5724281033461828110L;
+	private static final long serialVersionUID = 5724281033461828110L;
 
-        /**
-         * Disabled Empty Constructor
-         */
-        private Builder(){}
+	/**
+	 * Disabled Empty Constructor
+	 */
+	private Builder(){}
 
-        /**
-         * @return a new Comment
-         */
-        @Override
-        public Comment build() {
-            return new Comment(this);
-        }
+	/**
+	 * @return a new Comment
+	 */
+	@Override
+	public Comment build() {
+	    return new Comment(this);
+	}
 
-        public Builder withBlog(Blog blog) {
-            super.blog = blog;
-            return this;
-        }
+	public Builder withBlog(Blog blog) {
+	    super.blog = blog;
+	    return this;
+	}
 
-        public Builder withEmail(String email) {
-            super.email = email;
-            return this;
-        }
+	public Builder withEmail(String email) {
+	    super.email = email;
+	    return this;
+	}	
 
-        public Builder withName(String name) {
-            super.name = name;
-            return this;
-        }
+	public Builder withName(String name) {
+	    super.name = name;
+	    return this;
+	}
 
-        public Builder withText(String text) {
-            super.text = text;
-            return this;
-        }
+	public Builder withText(String text) {
+	    super.text = text;
+	    return this;
+	}
     }
 
 }
