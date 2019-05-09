@@ -5,7 +5,7 @@
     <artifactId>workix</artifactId>
     <groupId>br.com.codecode.workix</groupId>
     <packaging>war</packaging>
-    <version>0.1</version>
+    <version>0.2</version>
 
     <!--<parent>-->
     <!--<groupId>br.com.codecode</groupId>-->
@@ -20,6 +20,9 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.6</version>
                 <configuration>
+                    <!-- Element skipTests is not allowed here
+                    It's actually a IntelliJ Idea's bug. It sometimes doesn't recognize some of configuration properties correctly.
+                    The plugin does have this property, so you don't really have other option than to just ignore the error in IDE. The plugin will work as expected. -->
                     <skipTests>${skipTests}</skipTests>
                     <failOnMissingWebXml>true</failOnMissingWebXml>
                 </configuration>
@@ -104,23 +107,27 @@
             <scope>provided</scope>
 
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.12</version>
         </dependency>
+
         <!--<dependency>-->
         <!--<groupId>br.com.codecode</groupId>-->
         <!--<artifactId>workix</artifactId>-->
         <!--<version>0.0</version>-->
         <!--</dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/com.sun/tools -->
         <dependency>
             <groupId>com.sun</groupId>
             <artifactId>tools</artifactId>
-            <version>1.6</version>
+            <version>LATEST</version>
             <scope>system</scope>
-            <systemPath>/usr/lib/jvm/java-8-openjdk-amd64/lib/tools.jar</systemPath>
         </dependency>
+
     </dependencies>
 
 
@@ -130,7 +137,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <jackson-version>2.6.0</jackson-version>
+        <jackson-version>LATEST</jackson-version>
         <version.jboss.bom>10.0.0.Final</version.jboss.bom>
         <version.api>7.0</version.api>
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
@@ -139,11 +146,11 @@
     <name>Workix</name>
 
     <organization>
-        <name>codecode.com.br</name>
-        <url>http://www.codecode.com.br</url>
+        <name>felipe-rodrigues-michetti</name>
+        <url>https://feliperodriguesmichetti.com.br</url>
     </organization>
 
-    <url>http://www.workix.com.br</url>
+    <url>https://www.workix.com.br</url>
 
     <description>Plataforma de Empregos Totalmente Grátis</description>
     <scm>
