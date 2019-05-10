@@ -88,28 +88,21 @@ public class JobsMB extends BaseMB {
     @Override
     public void init() {
 
-	try {
+        totalRows = dao.countRegisters().intValue();
 
-	    totalRows = dao.countRegisters().intValue();
+        paginator = new Paginator(limitRows, page, totalRows);
 
-	    paginator = new Paginator(limitRows, page, totalRows);
+        totalPages = paginator.getTotalPages();
 
-	    totalPages = paginator.getTotalPages();
+        start = paginator.getStart();
 
-	    start = paginator.getStart();
+        end = paginator.getEnd();
 
-	    end = paginator.getEnd();
-	    
-	    List<Job> jobs = dao.listAll(start - 1, end);
-	    
-	    list = new ListDataModel<Job>(jobs);
+        List<Job> jobs = dao.listAll(start - 1, end);
 
-	} catch (NotImplementedYetException e) {
+        list = new ListDataModel<Job>(jobs);
 
-	    e.printStackTrace();
-	}
-
-	prefix = "/" + facesContext.getExternalContext().getContextName();
+        prefix = "/" + facesContext.getExternalContext().getContextName();
 
 	sufix = "&faces-redirect=true";
 

@@ -48,14 +48,8 @@ public class UserMB extends BaseMB {
 
     public void save() {
 
-	try {
+        userDao.save(user);
 
-	    userDao.save(user);
-
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	}
     }
 
 }

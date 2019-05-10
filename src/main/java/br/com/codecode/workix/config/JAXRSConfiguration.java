@@ -20,4 +20,16 @@ import javax.ws.rs.core.Application;
  * @version 1.0
  */
 @ApplicationPath("services")
-public class JAXRSConfiguration extends Application{}
+public class JAXRSConfiguration extends Application{
+    public JAXRSConfiguration() {
+//        BeanConfig conf = new BeanConfig();
+//        conf.setTitle("Payfast API");
+//        conf.setDescription("Pagamentos rápidos");
+//        conf.setVersion("1.0.0");
+//        conf.setHost("localhost:8080");
+//        conf.setBasePath("/fj36-payfast/v1");
+//        conf.setSchemes(new String[] { "http" });
+//        conf.setResourcePackage("br.com.caelum.payfast");
+//        conf.setScan(true);
+    }
+}

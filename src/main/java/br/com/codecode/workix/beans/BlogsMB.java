@@ -14,46 +14,39 @@ import br.com.codecode.workix.jpa.models.Comment;
 
 /**
  * This ManagedBean controls Blogs Fragment on HomePage and 404 page
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class BlogsMB extends BaseMB {
-    
+
     @Inject
     @Generic
     private Crud<Blog> dao;
-    
+
     @Inject
     @Generic
     private Crud<Comment> daoComment;
-    
+
     private DataModel<Blog> list;
-    
+
     private DataModel<Comment> comments;
 
     @PostConstruct
     @Override
     protected void init() {
-	
-	try {
-	    
-	    list = new ListDataModel<Blog>(dao.listAll(0, Integer.MAX_VALUE));
-	    
-	    comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));    
-	    
-	    
-	} catch (NotImplementedYetException e) {	    
-	    e.printStackTrace();
-	}	
+
+        list = new ListDataModel<Blog>(dao.listAll(0, Integer.MAX_VALUE));
+
+        comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));
+
 
     }
 
-    
-    
+
     /**
      * @return the comments
      */
@@ -68,7 +61,6 @@ public class BlogsMB extends BaseMB {
     public DataModel<Blog> getList() {
         return list;
     }
-    
-    
+
 
 }

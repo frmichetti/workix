@@ -1,6 +1,7 @@
 package br.com.codecode.workix.rest.android;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.NoResultException;
 import javax.ws.rs.Consumes;
@@ -99,8 +100,10 @@ public class LoginEndpoint extends BaseEndpoint {
 	if (candidate == null) {
 	    
 	    candidate = new Candidate();
-	    
-	    candidate.setBirthDate(LocalDate.of(1900, 01, 01));
+
+
+
+		candidate.setBirthDate(new Date());
 
 	    candidate.setUser(user);
 	    

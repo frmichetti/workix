@@ -95,28 +95,22 @@ public class BlogListMB extends BaseMB {
     @Override
     public void init() {
 
-	try {
+        totalRows = dao.countRegisters().intValue();
 
-	    totalRows = dao.countRegisters().intValue();
+        paginator = new Paginator(limitRows, page, totalRows);
 
-	    paginator = new Paginator(limitRows, page, totalRows);
+        totalPages = paginator.getTotalPages();
 
-	    totalPages = paginator.getTotalPages();
+        start = paginator.getStart();
 
-	    start = paginator.getStart();
+        end = paginator.getEnd();
 
-	    end = paginator.getEnd();
+        list = new ListDataModel<Blog>(dao.listAll(start -1 , end));
 
-	    list = new ListDataModel<Blog>(dao.listAll(start -1 , end));
-
-	    comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));	    
+        comments = new ListDataModel<Comment>(daoComment.listAll(0, Integer.MAX_VALUE));
 
 
-	} catch (NotImplementedYetException e) {	    
-	    e.printStackTrace();
-	}		
-
-	prefix = "/" + facesContext.getExternalContext().getContextName();
+        prefix = "/" + facesContext.getExternalContext().getContextName();
 
 	sufix = "&faces-redirect=true";
 	

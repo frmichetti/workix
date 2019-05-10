@@ -83,12 +83,6 @@ public class CandidatesMB extends BaseMB {
 	    
 	    list = new ListDataModel<Candidate>(dao.listAll(start - 1, end));
 
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-
-	    goToErrorPage();
-
 	} catch (Exception e) {
 
 	    e.printStackTrace();
