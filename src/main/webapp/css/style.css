@@ -83,8 +83,8 @@ a (hover):              #a0205f (darker cyan)
 
 6. Featured companies
 7. Parallax
-8. Jobseek app & contact
-9. Jobseek stats
+8. Workix app & contact
+9. Workix stats
 10. Plans & pricing
 11. Testimonials
 
@@ -1150,7 +1150,7 @@ label {
 	background-image: url(../images/1400x900.jpg);
 }
 
-/* 8. JOBSEEK APP & CONTACT
+/* 8. Workix APP & CONTACT
 -------------------------------------------------------------------*/
 #app {
 	padding: 50px 0 0;
@@ -1176,7 +1176,7 @@ label {
 	text-transform: uppercase;
 }
 
-/* 9. JOBSEEK STATS
+/* 9. Workix STATS
 -------------------------------------------------------------------*/
 #counter {
 	margin: 40px;
