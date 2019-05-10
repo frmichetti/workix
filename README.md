@@ -53,7 +53,14 @@ GNU General Public License v3.0
  * Felipe Rodrigues Michetti - Main Developer
 
 ### Instruções 
+--
+#### Swagger
 
+http://localhost:8080/services/swagger.json
+e
+http://localhost:8080/services/swagger.yaml
+
+#### Docker
 Building the Docker image
 To build, simply run:
 docker build --build-arg DB_HOST=localhost --build-arg DB_NAME=test --build-arg DB_USER=test --build-arg DB_PASS=testPassword .
