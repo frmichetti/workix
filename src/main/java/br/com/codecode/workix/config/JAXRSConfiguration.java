@@ -7,6 +7,8 @@
 * */
 package br.com.codecode.workix.config;
 
+import io.swagger.jaxrs.config.BeanConfig;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
@@ -22,14 +24,14 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("services")
 public class JAXRSConfiguration extends Application{
     public JAXRSConfiguration() {
-//        BeanConfig conf = new BeanConfig();
-//        conf.setTitle("Payfast API");
-//        conf.setDescription("Pagamentos rápidos");
-//        conf.setVersion("1.0.0");
-//        conf.setHost("localhost:8080");
-//        conf.setBasePath("/fj36-payfast/v1");
-//        conf.setSchemes(new String[] { "http" });
-//        conf.setResourcePackage("br.com.caelum.payfast");
-//        conf.setScan(true);
+        BeanConfig conf = new BeanConfig();
+        conf.setTitle("Workix API");
+        conf.setDescription("Workix Restfull Api with JAXRS");
+        conf.setVersion("1.0.0");
+        conf.setHost("localhost:8080");
+        conf.setBasePath("/services");
+        conf.setSchemes(new String[] { "http" });
+        conf.setResourcePackage("br.com.codecode.workix");
+        conf.setScan(true);
     }
 }
