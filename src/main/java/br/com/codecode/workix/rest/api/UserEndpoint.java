@@ -1,6 +1,7 @@
 package br.com.codecode.workix.rest.api;
 
 import br.com.codecode.workix.jpa.models.User;
+import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
@@ -14,8 +15,11 @@ import java.util.List;
  * 
  */
 @Stateless
+@Api
 @Path("/users")
 public class UserEndpoint {
+
+	// TODO FIX ME - get default persistence unit here...
 	@PersistenceContext(unitName = "MySQLDS")
 	private EntityManager em;
 

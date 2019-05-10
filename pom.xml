@@ -126,6 +126,14 @@
             <artifactId>tools</artifactId>
             <version>LATEST</version>
             <scope>system</scope>
+            <!-- $ whereis javac to discover path of javac ....-->
+            <systemPath>/usr/lib/jvm/java-8-oracle/lib/tools.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-jaxrs</artifactId>
+            <version>1.5.22</version>
         </dependency>
 
     </dependencies>

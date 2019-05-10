@@ -1,6 +1,7 @@
 package br.com.codecode.workix.rest.api;
 
 import br.com.codecode.workix.jpa.models.Member;
+import io.swagger.annotations.Api;
 
 import javax.ejb.Stateless;
 import javax.persistence.*;
@@ -14,6 +15,7 @@ import java.util.List;
  * 
  */
 @Stateless
+@Api
 @Path("/members")
 public class MemberEndpoint {
 	@PersistenceContext(unitName = "MySQLDS")

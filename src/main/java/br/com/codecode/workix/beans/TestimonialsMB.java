@@ -31,13 +31,8 @@ public class TestimonialsMB extends BaseMB {
     @PostConstruct
     @Override
     protected void init() {
-	try {
-	    
-	    list = new ListDataModel<Testimonial>(testDao.listAll(0, Integer.MAX_VALUE));
-	    
-	} catch (NotImplementedYetException e) {	    
-	    e.printStackTrace();
-	}	
+
+        list = new ListDataModel<Testimonial>(testDao.listAll(0, Integer.MAX_VALUE));
 
     }
 

@@ -14,11 +14,11 @@ import br.com.codecode.workix.jsf.util.helper.MessagesHelper;
 
 /**
  * This ManagedBean controls Signup Fragment in footer.xhtml
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
 public class SignupMB extends BaseMB {
@@ -34,34 +34,27 @@ public class SignupMB extends BaseMB {
 
     @PostConstruct
     @Override
-    protected void init(){}
+    protected void init() {
+    }
 
     @Transactional
     public void addToList() {
 
-	Subscriber subscriber = Subscriber.builder().withEmail(email).build();
+        Subscriber subscriber = Subscriber.builder().withEmail(email).build();
 
-	try {
+        dao.save(subscriber);
 
-	    dao.save(subscriber);
-
-	    messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO,
-		    subscriber.getEmail() + " inscrito na Lista de Novidades", "Obrigado!"));
-
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	   
-	} 
+        messagesHelper.addFlash(new FacesMessage(FacesMessage.SEVERITY_INFO,
+                subscriber.getEmail() + " inscrito na Lista de Novidades", "Obrigado!"));
 
     }
 
     public String getEmail() {
-	return email;
+        return email;
     }
 
     public void setEmail(String email) {
-	this.email = email;
+        this.email = email;
     }
 
 }

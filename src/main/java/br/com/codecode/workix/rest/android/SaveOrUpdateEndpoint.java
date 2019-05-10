@@ -18,6 +18,7 @@ import br.com.codecode.workix.core.exceptions.NotImplementedYetException;
 import br.com.codecode.workix.jpa.models.Candidate;
 import br.com.codecode.workix.jpa.models.Resume;
 import br.com.codecode.workix.jpa.models.User;
+import io.swagger.annotations.Api;
 
 /**
  * This Class is a Simple StandAlone Endpoint for Android Uses
@@ -28,6 +29,7 @@ import br.com.codecode.workix.jpa.models.User;
  * @version 1.1
  */
 @Stateless
+@Api
 @Path("save")
 public class SaveOrUpdateEndpoint {
 

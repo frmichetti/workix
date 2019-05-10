@@ -45,22 +45,15 @@ public class StatsMB extends BaseMB {
     @Override
     protected void init() {
 
-	try {
+        jobDao.countRegisters();
 
-	    jobDao.countRegisters();
+        counterJobs = jobDao.countRegisters().intValue();
 
-	    counterJobs = jobDao.countRegisters().intValue();
+        counterEmployeers = companyDao.countRegisters().intValue();
 
-	    counterEmployeers = companyDao.countRegisters().intValue();
+        counterCandidates = candidateDao.countRegisters().intValue();
 
-	    counterCandidates = candidateDao.countRegisters().intValue();
-
-	    counterResumes = resumeDao.countRegisters().intValue();
-
-	} catch (NotImplementedYetException e) {
-
-	    e.printStackTrace();
-	}
+        counterResumes = resumeDao.countRegisters().intValue();
 
     }
 
