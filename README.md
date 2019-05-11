@@ -1,6 +1,9 @@
 # workix
 ~~akijobs~~ - ~~openjobs~~ - (este projeto foi renomeado por conflitar com projetos já existentes no mercado)
 
+## Nosso Slack
+https://workix.slack.com
+
 ## Precisamos de investidores
 **Estamos no Pipe Social:**
 https://pipe.social/startup/907/perfil
