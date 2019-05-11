@@ -114,6 +114,12 @@
             <version>1.16.12</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.graphql-java</groupId>
+            <artifactId>graphql-java</artifactId>
+            <version>11.0</version>
+        </dependency>
+
         <!--<dependency>-->
         <!--<groupId>br.com.codecode</groupId>-->
         <!--<artifactId>workix</artifactId>-->
