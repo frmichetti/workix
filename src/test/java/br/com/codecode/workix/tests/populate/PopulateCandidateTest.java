@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 import java.math.BigInteger;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -76,7 +77,7 @@ public class PopulateCandidateTest extends BaseTest implements CommonPopTest<Can
 
 	    Candidate c = new Candidate();
 
-	    c.setBirthDate(LocalDate.now());
+	    c.setBirthDate(new Date());
 
 	    c.setName("Candidato 'Mockup' N# " + String.valueOf(u.getId()));
 

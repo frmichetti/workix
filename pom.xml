@@ -127,7 +127,8 @@
             <version>LATEST</version>
             <scope>system</scope>
             <!-- $ whereis javac to discover path of javac ....-->
-            <systemPath>/usr/lib/jvm/java-8-oracle/lib/tools.jar</systemPath>
+            <!-- <systemPath>/usr/lib/jvm/java-8-oracle/lib/tools.jar</systemPath>-->
+            <systemPath>C:\Program Files\Java\jdk1.8.0_211\lib\tools.jar</systemPath>
         </dependency>
 
         <dependency>

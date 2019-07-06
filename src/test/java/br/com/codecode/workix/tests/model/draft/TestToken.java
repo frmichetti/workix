@@ -8,6 +8,7 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
+import br.com.codecode.workix.core.common.Token;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -15,7 +16,6 @@ import org.junit.Test;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import br.com.codecode.workix.core.common.jdk7.Token;
 import br.com.codecode.workix.gson.util.deserializer.GsonCalendarDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonDateDeserializer;
 import br.com.codecode.workix.gson.util.deserializer.GsonLocalDateDeserializer;
