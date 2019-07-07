@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/members")
 public class MemberEndpoint {
-	@PersistenceContext(unitName = "MySQLDS")
+	@PersistenceContext(unitName = "MySqlDS")
 	private EntityManager em;
 
 	@POST

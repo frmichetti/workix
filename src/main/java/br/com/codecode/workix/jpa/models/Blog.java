@@ -167,7 +167,7 @@ public class Blog extends MyEntity implements Persistable {
     /**
      * @return the pictures
      */
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
     public List<String> getPictures() {
 	return pictures;

@@ -100,7 +100,7 @@ public class Author extends MyEntity {
     /**
      * @return the medias
      */
-    @ElementCollection(fetch = FetchType.EAGER)
+    @ElementCollection(fetch = FetchType.LAZY)
     @CollectionTable(name = "Author_Medias", joinColumns = @JoinColumn(name = "id"))
     public List<SocialMedia> getMedias() {
         return medias;

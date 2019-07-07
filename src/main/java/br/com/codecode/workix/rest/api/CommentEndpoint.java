@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/comments")
 public class CommentEndpoint {
-	@PersistenceContext(unitName = "MySQLDS")
+	@PersistenceContext(unitName = "MySqlDS")
 	private EntityManager em;
 
 	@POST

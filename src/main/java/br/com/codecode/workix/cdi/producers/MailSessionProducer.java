@@ -23,11 +23,11 @@ import javax.mail.Session;
 @ApplicationScoped
 public class MailSessionProducer {
 
-    @Resource(mappedName = "java:jboss/mail/gmail")
-    private Session sessionGmail;
+     @Resource(mappedName = "java:jboss/mail/gmail")
+     private Session sessionGmail;
 
-//    @Resource(mappedName = "java:jboss/mail/fake")
-//    private Session sessionFake;
+     // @Resource(mappedName = "java:jboss/mail/fake")
+     // private Session sessionFake;
 
     /**
      * Produces Session for {@link MailSender} use in CDI Injection Points

@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/subscribers")
 public class SubscriberEndpoint {
-	@PersistenceContext(unitName = "MySQLDS")
+	@PersistenceContext(unitName = "MySqlDS")
 	private EntityManager em;
 
 	@POST

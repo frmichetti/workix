@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/candidates")
 public class CandidateEndpoint {
-	@PersistenceContext(unitName = "MySQLDS")
+	@PersistenceContext(unitName = "MySqlDS")
 	private EntityManager em;
 
 	@POST
