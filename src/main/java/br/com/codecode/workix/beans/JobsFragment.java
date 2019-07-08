@@ -17,31 +17,31 @@ import br.com.codecode.workix.jsf.util.helper.JobTypeLinkHelper;
 
 /**
  * This ManagedBean controls Jobs Fragment on HomePage
- * 
+ *
  * @author felipe
- * @since 1.0
  * @version 1.1
  * @see BaseMB
+ * @since 1.0
  */
 @Model
-public class JobsFragment extends BaseMB {    
+public class JobsFragment extends BaseMB {
 
     @Inject
     @Generic
     private Crud<Job> dao;
-    
+
     @Inject
     private JobTypeLinkHelper jobTypeLinkHelper;
 
-    private DataModel<Job> visible,hidden;
-    
-    private Job featuredJob;    
-    
-    public String discoverBadge(JobType jobType){
-	return jobTypeLinkHelper.returnType(jobType);
+    private DataModel<Job> visible, hidden;
+
+    private Job featuredJob;
+
+    public String discoverBadge(JobType jobType) {
+        return jobTypeLinkHelper.returnType(jobType);
     }
 
-    
+
     /**
      * @return the featuredJob
      */
@@ -55,11 +55,18 @@ public class JobsFragment extends BaseMB {
 
         List<Job> jobs = dao.listAll(0, 10);
 
-        visible = new ListDataModel<Job>(jobs.subList(0, 5));
+        if (jobs.size() > 4) {
 
-        hidden = new ListDataModel<Job>(jobs.subList(5, 10));
+            visible = new ListDataModel<>(jobs.subList(0, 5));
 
-        featuredJob = jobs.stream().filter(j -> j.getJobType() == JobType.FULLTIME).findFirst().orElse(jobs.get(jobs.size()-1));
+            if (jobs.size() > 9) {
+
+                hidden = new ListDataModel<>(jobs.subList(5, 10));
+            }
+
+        }
+
+        featuredJob = jobs.stream().filter(j -> j.getJobType() == JobType.FULLTIME).findFirst().orElse(null);
 
 
     }
@@ -68,15 +75,15 @@ public class JobsFragment extends BaseMB {
      * @return the Show list
      */
     public DataModel<Job> getVisible() {
-	return visible;
+        return visible;
     }
-    
+
 
     /**
      * @return the Hidden list
      */
     public DataModel<Job> getHidden() {
-	return hidden;
+        return hidden;
     }
 
 }
