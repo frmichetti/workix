@@ -4,19 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -37,6 +25,7 @@ import br.com.codecode.workix.interfaces.Persistable;
  * @version 1.0
  */
 @Entity
+@Table(name = "T_BLOGS")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -157,7 +146,7 @@ public class Blog extends MyEntity implements Persistable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
@@ -168,7 +157,7 @@ public class Blog extends MyEntity implements Persistable {
      * @return the pictures
      */
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "Blog_Pictures", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "T_BLOGS_PICTURES", joinColumns = @JoinColumn(name = "ID"))
     public List<String> getPictures() {
 	return pictures;
     }
@@ -187,7 +176,7 @@ public class Blog extends MyEntity implements Persistable {
      * @return the tags
      */
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Blog_Tags", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "T_BLOGS_TAGS", joinColumns = @JoinColumn(name = "ID"))
     public List<Tag> getTags() {
 	return tags;
     }

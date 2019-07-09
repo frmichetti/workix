@@ -21,6 +21,7 @@ import java.util.List;
  * @version 1.1
  */
 @Entity
+@Table(name = "T_MEMBERS")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -86,7 +87,7 @@ public class Member extends MyEntity {
      * @return the id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
@@ -97,7 +98,7 @@ public class Member extends MyEntity {
      * @return the medias
      */
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "Member_Medias", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "T_MEMBER_MEDIAS", joinColumns = @JoinColumn(name = "ID"))
     public List<SocialMedia> getMedias() {
         return medias;
     }

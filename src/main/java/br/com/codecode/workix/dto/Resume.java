@@ -111,7 +111,7 @@ public class Resume extends MyEntity {
     }
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(updatable = false, nullable = false)
 	@Override
     public long getId() {

@@ -1,10 +1,6 @@
 package br.com.codecode.workix.jpa.models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,6 +20,7 @@ import br.com.codecode.workix.interfaces.Buildable;
  * @see MyEntity
  */
 @Entity
+@Table(name = "T_SUBSCRIBERS")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -71,7 +68,7 @@ public class Subscriber extends MyEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

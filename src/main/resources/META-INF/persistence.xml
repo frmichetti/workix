@@ -14,17 +14,17 @@
 <!--        </properties>-->
 <!--    </persistence-unit>-->
 
-    <!--<persistence-unit name="postgresDS" transaction-type="JTA">-->
-    <!--<description>Persistence Unit for Postgres</description>-->
-    <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
-    <!--<jta-data-source>java:/PostgresDS</jta-data-source>-->
-    <!--<exclude-unlisted-classes>false</exclude-unlisted-classes>-->
-    <!--<properties>-->
-    <!--<property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />-->
-    <!--<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />-->
-    <!--<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />-->
-    <!--</properties>-->
-    <!--</persistence-unit>-->
+<!--    <persistence-unit name="postgresDS" transaction-type="JTA">-->
+<!--    <description>Persistence Unit for Postgres</description>-->
+<!--    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+<!--    <jta-data-source>java:/PostgresDS</jta-data-source>-->
+<!--    <exclude-unlisted-classes>false</exclude-unlisted-classes>-->
+<!--    <properties>-->
+<!--    <property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml" />-->
+<!--    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />-->
+<!--    <property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />-->
+<!--    </properties>-->
+<!--    </persistence-unit>-->
 
         <persistence-unit name="OracleDS" transaction-type="JTA">
             <description>Persistence Unit for Oracle</description>
@@ -33,7 +33,7 @@
             <exclude-unlisted-classes>false</exclude-unlisted-classes>
             <properties>
                 <property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>
-                <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
+                <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
             </properties>
         </persistence-unit>
 </persistence>

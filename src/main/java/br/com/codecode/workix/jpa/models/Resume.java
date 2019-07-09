@@ -20,6 +20,7 @@ import java.util.Set;
  * @see MyEntity
  */
 @Entity
+@Table(name = "T_RESUMES")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -115,19 +116,19 @@ public class Resume extends MyEntity {
     }
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Resume_Educations", joinColumns = @JoinColumn(name = "id"))
+	@CollectionTable(name = "T_RESUME_EDUCATIONS", joinColumns = @JoinColumn(name = "ID"))
     public Set<Education> getEducations() {
 	return educations;
     }
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Resume_Experiences", joinColumns = @JoinColumn(name = "id"))
+	@CollectionTable(name = "T_RESUME_EXPERIENCES", joinColumns = @JoinColumn(name = "ID"))
     public Set<Experience> getExperiences() {
 	return experiences;
     }
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(updatable = false, nullable = false)
 	@Override
     public long getId() {
@@ -140,7 +141,7 @@ public class Resume extends MyEntity {
     }
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	@CollectionTable(name = "Resume_Skills", joinColumns = @JoinColumn(name = "id"))
+	@CollectionTable(name = "T_RESUME_SKILLS", joinColumns = @JoinColumn(name = "ID"))
     public Set<Skill> getSkills() {
 	return skills;
     }

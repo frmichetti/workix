@@ -19,6 +19,7 @@ import java.util.Date;
  * @version 1.1
  */
 @Entity
+@Table(name = "T_CANDIDATES")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -47,7 +48,7 @@ public class Candidate extends Person {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

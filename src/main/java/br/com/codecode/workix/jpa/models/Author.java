@@ -20,6 +20,7 @@ import java.util.List;
  * @version 1.1
  */
 @Entity
+@Table(name = "T_AUTHORS")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -101,7 +102,7 @@ public class Author extends MyEntity {
      * @return the medias
      */
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "Author_Medias", joinColumns = @JoinColumn(name = "id"))
+    @CollectionTable(name = "T_AUTHOR_MEDIAS", joinColumns = @JoinColumn(name = "ID"))
     public List<SocialMedia> getMedias() {
         return medias;
     }

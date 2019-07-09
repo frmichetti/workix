@@ -48,7 +48,7 @@ import br.com.codecode.workix.jaxrs.converter.LocalDateTimeAdapter;
  * @see Serializable
  */
 @Entity
-@Table(name = "Selective_Process")
+@Table(name = "T_SELECTIVE_PROCESSES")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -59,8 +59,8 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     @Column
     private boolean active;
 
-    @JoinTable(name = "Selective_Process_Candidates", 
-	    joinColumns = @JoinColumn(name = "sp_id"), inverseJoinColumns = @JoinColumn(name = "candidate_id"))
+    @JoinTable(name = "T_SELECTIVE_PROCESSES_CANDIDATES",
+	    joinColumns = @JoinColumn(name = "SP_ID"), inverseJoinColumns = @JoinColumn(name = "CANDIDATE_ID"))
     @OneToMany(fetch = FetchType.EAGER)
     private Set<Candidate> candidates;
 
@@ -76,7 +76,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     private LocalDateTime expire;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(updatable = false, nullable = false)
     private long id;
 

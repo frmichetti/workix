@@ -17,7 +17,7 @@ import java.util.Set;
  * @see Serializable
  */
 @Entity
-@Table(name = "JAAS_User")
+@Table(name = "T_JAAS_USER")
 @XmlRootElement
 public class JAASUser extends JAASBase {
 
@@ -62,7 +62,7 @@ public class JAASUser extends JAASBase {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(updatable = false, nullable = false)
 	@Override
 	public long getId() {
@@ -80,7 +80,7 @@ public class JAASUser extends JAASBase {
 	}
 
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "JAAS_Roles", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_name"))
+	@JoinTable(name = "T_JAAS_ROLES", joinColumns = @JoinColumn(name = "ID"), inverseJoinColumns = @JoinColumn(name = "ROLE_NAME"))
 	public Set<JAASRole> getRoles() {
 		return roles;
 	}
