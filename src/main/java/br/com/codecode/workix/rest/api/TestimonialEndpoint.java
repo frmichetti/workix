@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/testimonials")
 public class TestimonialEndpoint {
-	@PersistenceContext(unitName = "MySqlDS")
+	@PersistenceContext(unitName = "OracleDS")
 	private EntityManager em;
 
 	@POST

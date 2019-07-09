@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/jaasusers")
 public class JAASUserEndpoint {
-	@PersistenceContext(unitName = "MySqlDS")
+	@PersistenceContext(unitName = "OracleDS")
 	private EntityManager em;
 
 	@POST

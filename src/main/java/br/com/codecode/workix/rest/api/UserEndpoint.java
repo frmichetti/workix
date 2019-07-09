@@ -20,7 +20,7 @@ import java.util.List;
 public class UserEndpoint {
 
 	// TODO FIX ME - get default persistence unit here...
-	@PersistenceContext(unitName = "MySqlDS")
+	@PersistenceContext(unitName = "OracleDS")
 	private EntityManager em;
 
 	@POST

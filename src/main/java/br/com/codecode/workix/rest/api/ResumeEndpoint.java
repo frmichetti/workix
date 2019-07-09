@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/resumes")
 public class ResumeEndpoint {
-	@PersistenceContext(unitName = "MySqlDS")
+	@PersistenceContext(unitName = "OracleDS")
 	private EntityManager em;
 
 	@POST

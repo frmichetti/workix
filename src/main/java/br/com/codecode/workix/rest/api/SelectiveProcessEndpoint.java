@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/selectiveprocesses")
 public class SelectiveProcessEndpoint {
-	@PersistenceContext(unitName = "MySqlDS")
+	@PersistenceContext(unitName = "OracleDS")
 	private EntityManager em;
 
 	@POST

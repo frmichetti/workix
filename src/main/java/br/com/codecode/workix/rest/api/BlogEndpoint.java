@@ -18,7 +18,7 @@ import java.util.List;
 @Api
 @Path("/blogs")
 public class BlogEndpoint {
-	@PersistenceContext(unitName = "MySqlDS")
+	@PersistenceContext(unitName = "OracleDS")
 	private EntityManager em;
 
 	@POST

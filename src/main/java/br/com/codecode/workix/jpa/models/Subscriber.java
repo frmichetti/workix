@@ -71,7 +71,7 @@ public class Subscriber extends MyEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

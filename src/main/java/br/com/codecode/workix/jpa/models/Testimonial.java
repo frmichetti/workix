@@ -90,7 +90,7 @@ public class Testimonial extends MyEntity {
      * @return the id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

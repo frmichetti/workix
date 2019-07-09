@@ -76,7 +76,7 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     private LocalDateTime expire;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(updatable = false, nullable = false)
     private long id;
 

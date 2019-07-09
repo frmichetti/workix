@@ -3,16 +3,16 @@
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.1"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-    <persistence-unit name="MySqlDS" transaction-type="JTA">
-        <description>Persistence Unit for MySQL</description>
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <jta-data-source>java:/MySqlDS</jta-data-source>
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <properties>
-            <property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>
-        </properties>
-    </persistence-unit>
+<!--    <persistence-unit name="MySqlDS" transaction-type="JTA">-->
+<!--        <description>Persistence Unit for MySQL</description>-->
+<!--        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+<!--        <jta-data-source>java:/MySqlDS</jta-data-source>-->
+<!--        <exclude-unlisted-classes>false</exclude-unlisted-classes>-->
+<!--        <properties>-->
+<!--            <property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>-->
+<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect"/>-->
+<!--        </properties>-->
+<!--    </persistence-unit>-->
 
     <!--<persistence-unit name="postgresDS" transaction-type="JTA">-->
     <!--<description>Persistence Unit for Postgres</description>-->
@@ -25,4 +25,15 @@
     <!--<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />-->
     <!--</properties>-->
     <!--</persistence-unit>-->
+
+        <persistence-unit name="OracleDS" transaction-type="JTA">
+            <description>Persistence Unit for Oracle</description>
+            <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+            <jta-data-source>java:/OracleDS</jta-data-source>
+            <exclude-unlisted-classes>false</exclude-unlisted-classes>
+            <properties>
+                <property name="hibernate.ejb.cfgfile" value="META-INF/hibernate.cfg.xml"/>
+                <property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>
+            </properties>
+        </persistence-unit>
 </persistence>
