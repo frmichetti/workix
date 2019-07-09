@@ -25,7 +25,7 @@ import br.com.codecode.workix.interfaces.Persistable;
  * @version 1.0
  */
 @Entity
-@Table(name = "T_BLOGS")
+@Table(name = "T_BLOG")
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
@@ -157,7 +157,7 @@ public class Blog extends MyEntity implements Persistable {
      * @return the pictures
      */
     @ElementCollection(fetch = FetchType.LAZY)
-    @CollectionTable(name = "T_BLOGS_PICTURES", joinColumns = @JoinColumn(name = "ID"))
+    @CollectionTable(name = "T_BLOG_PICTURES", joinColumns = @JoinColumn(name = "ID"))
     public List<String> getPictures() {
 	return pictures;
     }
@@ -176,7 +176,7 @@ public class Blog extends MyEntity implements Persistable {
      * @return the tags
      */
     @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "T_BLOGS_TAGS", joinColumns = @JoinColumn(name = "ID"))
+    @CollectionTable(name = "T_BLOG_TAGS", joinColumns = @JoinColumn(name = "ID"))
     public List<Tag> getTags() {
 	return tags;
     }

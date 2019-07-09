@@ -100,8 +100,11 @@ public class Dao<T extends Persistable & Serializable> implements Crud<T>, Seria
     @Override
     public List<T> listAll(int start, int end) {
 
-        TypedQuery<?> findAllQuery = em
-                .createQuery("SELECT DISTINCT x FROM " + clazz.getSimpleName() + " x ORDER BY x.id", clazz);
+        /**
+         * Not works with another conventions sample: Oracle
+         * **/
+        String query = "SELECT DISTINCT x FROM " + clazz.getSimpleName() + " x ORDER BY x.id" ;
+        TypedQuery<?> findAllQuery = em.createQuery(query, clazz);
 
         findAllQuery.setFirstResult(start);
 
