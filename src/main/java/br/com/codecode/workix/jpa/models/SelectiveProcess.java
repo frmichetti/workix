@@ -10,20 +10,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import javax.annotation.PostConstruct;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Table;
-import javax.persistence.Version;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -76,7 +63,8 @@ public class SelectiveProcess extends Observable implements Observer, Traceable,
     private LocalDateTime expire;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SELECTIVE_PROCESS_SEQUENCE")
+    @SequenceGenerator(name="SELECTIVE_PROCESS_SEQUENCE", sequenceName="SELECTIVE_PROCESS_SEQUENCE")
     @Column(updatable = false, nullable = false)
     private long id;
 

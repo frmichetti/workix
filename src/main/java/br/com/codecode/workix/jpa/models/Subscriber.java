@@ -68,7 +68,8 @@ public class Subscriber extends MyEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SUBSCRIBER_SEQUENCE")
+    @SequenceGenerator(name="SUBSCRIBER_SEQUENCE", sequenceName="SUBSCRIBER_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

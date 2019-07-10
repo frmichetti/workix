@@ -91,7 +91,8 @@ public class Author extends MyEntity {
      * @return the id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AUTHOR_SEQUENCE")
+    @SequenceGenerator(name="AUTHOR_SEQUENCE", sequenceName="AUTHOR_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

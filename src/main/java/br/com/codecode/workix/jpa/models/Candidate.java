@@ -48,7 +48,8 @@ public class Candidate extends Person {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CANDIDATE_SEQUENCE")
+    @SequenceGenerator(name="CANDIDATE_SEQUENCE", sequenceName="CANDIDATE_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

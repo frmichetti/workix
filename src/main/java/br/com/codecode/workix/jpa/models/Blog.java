@@ -1,5 +1,6 @@
 package br.com.codecode.workix.jpa.models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,7 @@ import br.com.codecode.workix.interfaces.Persistable;
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @Persist
-public class Blog extends MyEntity implements Persistable {
+public class Blog extends MyEntity implements Persistable, Serializable {
    
     private static final long serialVersionUID = -5273926504177459295L;
 
@@ -146,7 +147,8 @@ public class Blog extends MyEntity implements Persistable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "BLOG_SEQUENCE")
+    @SequenceGenerator(name="BLOG_SEQUENCE", sequenceName="BLOG_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

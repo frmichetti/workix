@@ -94,7 +94,8 @@ public class User extends MyEntity implements Notificable {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQUENCE")
+	@SequenceGenerator(name="USER_SEQUENCE", sequenceName="USER_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

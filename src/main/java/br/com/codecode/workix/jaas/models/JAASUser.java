@@ -62,7 +62,8 @@ public class JAASUser extends JAASBase {
 	}
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JAAS_USER_SEQUENCE")
+	@SequenceGenerator(name="JAAS_USER_SEQUENCE", sequenceName="JAAS_USER_SEQUENCE")
 	@Column(updatable = false, nullable = false)
 	@Override
 	public long getId() {

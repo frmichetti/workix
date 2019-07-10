@@ -114,7 +114,8 @@ public class Job extends MyEntity {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "JOB_SEQUENCE")
+	@SequenceGenerator(name="JOB_SEQUENCE", sequenceName="JOB_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

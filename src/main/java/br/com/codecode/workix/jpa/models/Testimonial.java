@@ -85,7 +85,8 @@ public class Testimonial extends MyEntity {
      * @return the id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TESTIMONIAL_SEQUENCE")
+    @SequenceGenerator(name="TESTIMONIAL_SEQUENCE", sequenceName="TESTIMONIAL_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {

@@ -89,7 +89,8 @@ public class Comment extends MyEntity implements Persistable {
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "COMPANY_SEQUENCE")
+    @SequenceGenerator(name="COMPANY_SEQUENCE", sequenceName="COMPANY_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {	

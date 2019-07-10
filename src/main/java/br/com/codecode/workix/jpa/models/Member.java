@@ -87,7 +87,8 @@ public class Member extends MyEntity {
      * @return the id
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQUENCE")
+    @SequenceGenerator(name="MEMBER_SEQUENCE", sequenceName="MEMBER_SEQUENCE")
     @Column(updatable = false, nullable = false)
     @Override
     public long getId() {
